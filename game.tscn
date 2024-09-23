@@ -1,3 +1,31 @@
 [gd_scene format=3 uid="uid://clhbuec845jpd"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Staff" type="Sprite2D" parent="."]
+
+[node name="StaffBackground" type="Sprite2D" parent="Staff"]
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="EndingPoint" type="Node2D" parent="."]
+
+[node name="NotesContainer" type="Node2D" parent="EndingPoint"]
+
+[node name="NotesDetector" type="ShapeCast2D" parent="."]
+
+[node name="CollectDetector" type="ShapeCast2D" parent="."]
+
+[node name="PlayerCharacter" type="AnimatedSprite2D" parent="."]
+
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="BossHealthBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
