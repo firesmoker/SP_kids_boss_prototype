@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="SP_kids_boss_prototype"
-run/main_scene="res://game.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://art/icon.svg"
