@@ -101,7 +101,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Note" type="Node2D" parent="EndingPoint/NotesContainer"]
 z_index = 1
-position = Vector2(2.08165e-12, 30)
+position = Vector2(1000, 30)
 scale = Vector2(0.21875, 0.21875)
 metadata/_edit_lock_ = true
 

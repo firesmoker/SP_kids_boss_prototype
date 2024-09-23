@@ -80,7 +80,8 @@ Elements:
 	
 	Notes detector scene based of type Area2D or ShapeCast2D
 	# detecting current nodes to be played and changes their state
-		* Has current_notes array that appends on each collision, and holds references to the 			  note objects themselves
+		* Has current_notes array that appends on each collision, and holds references to the
+		note objects themselves
 		* collision mask = notes collision layer
 		
 		_process():
