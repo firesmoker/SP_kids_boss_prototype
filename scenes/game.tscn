@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=13 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Texture2D" uid="uid://b1neu5mwv50lt" path="res://art/Music-staff.png" id="1_fp7c3"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://0n2bvh7ipb1l" path="res://audio/CountingStars_122bpm.wav" id="1_pe8em"]
-[ext_resource type="Texture2D" uid="uid://dpaw2m41p2vnb" path="res://art/quarter-note.png" id="2_aegnx"]
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
 [ext_resource type="Shape2D" uid="uid://w5c8w6wvuj8j" path="res://scene_resources/detector_collider.tres" id="3_kpl61"]
 [ext_resource type="Texture2D" uid="uid://mhyt4iplkoff" path="res://art/icon.svg" id="4_o4vmb"]
+[ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
 
 [sub_resource type="Gradient" id="Gradient_eiuy8"]
 offsets = PackedFloat32Array(0, 0.015)
@@ -28,6 +28,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
+size = Vector2(128, 128)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ncon4")
@@ -60,13 +63,9 @@ layer = -1
 self_modulate = Color(1, 0.34902, 0.341176, 1)
 top_level = true
 z_index = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -224.0
 offset_top = 68.0
+offset_right = 224.0
 offset_bottom = 95.0
-grow_horizontal = 0
 value = 100.0
 show_percentage = false
 
@@ -74,9 +73,13 @@ show_percentage = false
 self_modulate = Color(1, 0.34902, 0.341176, 1)
 top_level = true
 z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -224.0
 offset_top = 68.0
-offset_right = 224.0
 offset_bottom = 95.0
+grow_horizontal = 0
 value = 100.0
 show_percentage = false
 
@@ -99,22 +102,15 @@ texture = SubResource("PlaceholderTexture2D_xdh2h")
 script = ExtResource("2_yqf4i")
 metadata/_edit_use_anchors_ = true
 
-[node name="Note" type="Node2D" parent="EndingPoint/NotesContainer"]
-z_index = 1
-position = Vector2(1000, 30)
-scale = Vector2(0.21875, 0.21875)
-metadata/_edit_lock_ = true
-
-[node name="Sprite" type="Sprite2D" parent="EndingPoint/NotesContainer/Note"]
-position = Vector2(2.08165e-12, -86.424)
-scale = Vector2(0.572, 0.572)
-texture = ExtResource("2_aegnx")
-metadata/_edit_lock_ = true
+[node name="Note" parent="EndingPoint/NotesContainer" instance=ExtResource("7_v8855")]
+position = Vector2(750, 30)
+collision_mask = 0
 
 [node name="NotesDetector" type="ShapeCast2D" parent="."]
 position = Vector2(-200, -50)
 shape = ExtResource("3_kpl61")
 target_position = Vector2(2.08165e-12, 150)
+metadata/_edit_lock_ = true
 
 [node name="CollectDetector" type="ShapeCast2D" parent="."]
 position = Vector2(-200, -50)
@@ -129,6 +125,12 @@ position = Vector2(-340, 18)
 scale = Vector2(1.4375, 2.57812)
 sprite_frames = SubResource("SpriteFrames_awi4x")
 
+[node name="HitZone" type="Area2D" parent="PlayerCharacter"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/HitZone"]
+shape = SubResource("RectangleShape2D_fef26")
+
 [node name="Boss" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(1, 0.34902, 0.341176, 1)
 position = Vector2(340, 18)
@@ -137,3 +139,4 @@ sprite_frames = SubResource("SpriteFrames_awi4x")
 metadata/_edit_lock_ = true
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
+[connection signal="body_entered" from="PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]
