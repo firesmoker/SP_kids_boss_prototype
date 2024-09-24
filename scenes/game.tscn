@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1neu5mwv50lt" path="res://art/Music-staff.png" id="1_fp7c3"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
-[ext_resource type="AudioStream" uid="uid://0n2bvh7ipb1l" path="res://audio/CountingStars_122bpm.wav" id="1_pe8em"]
+[ext_resource type="AudioStream" uid="uid://bjlm1urjx6yqc" path="res://audio/CountingStars_122bpm_new.wav" id="2_2kvrl"]
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
 [ext_resource type="Shape2D" uid="uid://w5c8w6wvuj8j" path="res://scene_resources/detector_collider.tres" id="3_kpl61"]
 [ext_resource type="Texture2D" uid="uid://mhyt4iplkoff" path="res://art/icon.svg" id="4_o4vmb"]
@@ -44,7 +44,7 @@ zoom = Vector2(1.5, 1.5)
 metadata/_edit_lock_ = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_pe8em")
+stream = ExtResource("2_2kvrl")
 
 [node name="Staff" type="Sprite2D" parent="."]
 z_index = -1

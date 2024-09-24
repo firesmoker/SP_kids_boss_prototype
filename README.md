@@ -1,15 +1,4 @@
 to do:
-	(1)
-	Rest scene
-	Note script
-	LevelElements array or dictionary (holding notes and rests to populate note container)
-	Set level size by overall rhythmic value of level (set 1 bar / quarter length by pixel and 
-	resize from there)
-	Note container population from array
-		place in right pitch
-		place the right rhythmic value
-		place in the right gap according to rhythmic value - hardest problem
-	
 	(2)
 	Playing notes at the right time
 	Playing notes with the right pitch

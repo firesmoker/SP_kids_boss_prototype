@@ -14,6 +14,8 @@ static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
 static var game_won_scene: String = "res://scenes/game_won_screen.tscn"
 
+@export var tempo: float = 122.0
+var level_length_in_bar: float = 0
 var player_health: float = 10
 var BossHealth: float = 10
 var DamageFromBoss: float = 1
@@ -51,8 +53,15 @@ func _process(delta: float) -> void:
 	time_elapsed += delta
 	if time_elapsed > vul_time:
 		vulnerable = true
+		
 	var stream: AudioStream = music_player.stream
 	var song_length: float = stream.get_length()
+	#print("FILE LENGTH " + str(song_length))
+	
+	level_length_in_bar = notes_container.level_length_in_bars
+	song_length = (60.0 / tempo) * 4.0 * level_length_in_bar
+	#print("CALCULATED LENGTH " + str(song_length))
+	
 	var normalized_song_position: float = music_player.get_playback_position() / song_length
 	ending_point.position.x = lerp(notes_container.get_size() -abs(note_play_position_x),note_play_position_x,normalized_song_position)
 	if just_started:
@@ -74,16 +83,15 @@ func win() -> void:
 	get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 
 
-func _on_hit_zone_body_entered(body: CollisionObject2D) -> void:
-	if vulnerable:
-		player_health -= 5
-		player_health_bar.value = player_health
+func _on_hit_zone_body_entered(note: Note) -> void:
+	if note.state == "Active":
+		if vulnerable:
+			player_health -= 5
+			player_health_bar.value = player_health
+		else:
+			print("false hit")
 	else:
-		print("false hit")
-
-
-func on_level_ready() -> void:
-	print("level ready detected!")
+		print("not active, not interesting")
 
 
 func _on_notes_detector_body_entered(body: CollisionObject2D) -> void:
