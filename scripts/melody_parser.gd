@@ -6,10 +6,11 @@ var melody_events: Array[MelodyEvent]
 			
 # Function to parse the melody string
 func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a String, output is an Array
+	print(melody_string)
 	var melody_array: Array[MelodyEvent] = [] # Array to hold events
 	var current_time: float = 0.0 # float to track time
 	var sections: Array = melody_string.split(" ") # Array of Strings (split by space)
-	
+	print(sections)
 	for section: String in sections:
 		var event: MelodyEvent = MelodyEvent.new() # MelodyEvent instance
 		var duration: float = 0
@@ -30,7 +31,7 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 			duration = parse_fraction_as_float(details[0]) # Parse duration as float
 			
 			# Update the event details
-			if note == "-":
+			if note.strip_edges() == "-":
 				event.note = "rest"
 			else:
 				event.note = note.strip_edges()
