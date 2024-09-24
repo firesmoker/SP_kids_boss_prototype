@@ -8,7 +8,7 @@ to do:
 	Note container population from array
 		place in right pitch
 		place the right rhythmic value
-		place in the right gap according to rhythmi value - hardest problem
+		place in the right gap according to rhythmic value - hardest problem
 	
 	(2)
 	Playing notes at the right time

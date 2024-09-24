@@ -35,7 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	starting_position = ending_point.position
-	music_player.play(100)
+	music_player.play(90)
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	boss_health_bar.max_value = BossHealth
@@ -72,6 +72,7 @@ func _on_hit_zone_body_entered(body: CollisionObject2D) -> void:
 		player_health_bar.value = player_health
 	else:
 		print("false hit")
+
 
 func on_level_ready() -> void:
 	print("level ready detected!")
