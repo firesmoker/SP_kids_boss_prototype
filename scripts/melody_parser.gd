@@ -38,17 +38,17 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 		else:
 			# Parse pauses or notes
 			var parts: Array = section.split(":") # Array of Strings (split by colon)
-			var note_or_pause: String = parts[0] # String for note or pause
+			var note: String = parts[0] # String for note or pause
 			var details: Array = parts[1].split("%") # Array of Strings (split by '%')
 			
 			# Parse duration
 			duration = parse_fraction_as_float(details[0]) # Parse duration as float
 			
 			# Update the event details
-			if note_or_pause == "-":
+			if note == "-":
 				event.note = "rest"
 			else:
-				event.note = note_or_pause
+				event.note = note.strip_edges()
 			
 			event.duration = duration
 			

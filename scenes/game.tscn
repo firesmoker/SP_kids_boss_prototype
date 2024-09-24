@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=17 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Texture2D" uid="uid://b1neu5mwv50lt" path="res://art/Music-staff.png" id="1_fp7c3"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
@@ -6,10 +6,11 @@
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
 [ext_resource type="Shape2D" uid="uid://w5c8w6wvuj8j" path="res://scene_resources/detector_collider.tres" id="3_kpl61"]
 [ext_resource type="Texture2D" uid="uid://mhyt4iplkoff" path="res://art/icon.svg" id="4_o4vmb"]
-[ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
+[ext_resource type="PackedScene" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
-[ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
+[ext_resource type="Shape2D" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
 [ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
+[ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
 
 [sub_resource type="Gradient" id="Gradient_eiuy8"]
 offsets = PackedFloat32Array(0, 0.015)
@@ -146,6 +147,8 @@ position = Vector2(340, 18)
 scale = Vector2(1.4375, 2.57812)
 sprite_frames = SubResource("SpriteFrames_awi4x")
 metadata/_edit_lock_ = true
+
+[node name="Parser" parent="." instance=ExtResource("9_s4jiq")]
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 [connection signal="body_entered" from="NotesDetector" to="." method="_on_notes_detector_body_entered"]
