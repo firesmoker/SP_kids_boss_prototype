@@ -2,8 +2,8 @@ class_name Game extends Node2D
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var ending_point: Node2D = $EndingPoint
-@onready var notes_container: Sprite2D = $EndingPoint/NotesContainer
-@onready var notes_detector: ShapeCast2D = $NotesDetector
+@onready var notes_container: NotesContainer = $EndingPoint/NotesContainer
+@onready var notes_detector: NotesDetector = $NotesDetector
 @onready var collect_detector: ShapeCast2D = $CollectDetector
 @onready var player_character: AnimatedSprite2D = $PlayerCharacter
 @onready var boss: AnimatedSprite2D = $Boss
@@ -22,6 +22,9 @@ var starting_position: Vector2
 var vul_time: float = 2
 var time_elapsed: float = 0
 var vulnerable: bool = false
+var note_play_position_x: float
+var just_started: bool = true
+
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -29,13 +32,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		music_player.pitch_scale += 0.2
 	elif event.is_action_pressed("ui_down"):
 		music_player.pitch_scale -= 0.2
-	if event.is_action_pressed("ui_accept"):
-		win()
+	#if event.is_action_pressed("ui_accept"):
+		#pass
 
 
 func _ready() -> void:
+	note_play_position_x = notes_detector.position.x
+	print("note play position X is: " + str(note_play_position_x))
 	starting_position = ending_point.position
-	music_player.play(90)
+	music_player.play()
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	boss_health_bar.max_value = BossHealth
@@ -49,7 +54,11 @@ func _process(delta: float) -> void:
 	var stream: AudioStream = music_player.stream
 	var song_length: float = stream.get_length()
 	var normalized_song_position: float = music_player.get_playback_position() / song_length
-	ending_point.position.x = lerp(starting_position.x+6000,-200.0,normalized_song_position)
+	ending_point.position.x = lerp(notes_container.get_size() -abs(note_play_position_x),note_play_position_x,normalized_song_position)
+	if just_started:
+		notes_detector.clear_notes()
+		just_started = false
+	#print(ending_point.position.x)
 
 
 func _on_music_player_finished() -> void:
@@ -67,7 +76,6 @@ func win() -> void:
 
 func _on_hit_zone_body_entered(body: CollisionObject2D) -> void:
 	if vulnerable:
-		print("OUCH!")
 		player_health -= 5
 		player_health_bar.value = player_health
 	else:
@@ -76,3 +84,7 @@ func _on_hit_zone_body_entered(body: CollisionObject2D) -> void:
 
 func on_level_ready() -> void:
 	print("level ready detected!")
+
+
+func _on_notes_detector_body_entered(body: CollisionObject2D) -> void:
+	pass

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj0e24s6hnhsw"]
+
+[ext_resource type="Script" path="res://scenes/note.gd" id="1_uhqk6"]
+[ext_resource type="Texture2D" uid="uid://ds4bkc7thjli1" path="res://art/rest_quarter.png" id="2_w7c4h"]
+[ext_resource type="Shape2D" uid="uid://cgsxw2230xw1r" path="res://scene_resources/note_collider.tres" id="3_d5fs1"]
+
+[node name="Rest" type="AnimatableBody2D"]
+z_index = 1
+scale = Vector2(0.21875, 0.21875)
+sync_to_physics = false
+script = ExtResource("1_uhqk6")
+state = "Rest"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, -86.424)
+scale = Vector2(0.572, 0.572)
+texture = ExtResource("2_w7c4h")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_d5fs1")
+metadata/_edit_lock_ = true
