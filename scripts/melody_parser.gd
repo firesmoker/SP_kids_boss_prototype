@@ -4,29 +4,33 @@ var melody_events: Array[MelodyEvent]
 
 
 			
-		
-func parse_melody(melody_string: String) -> Array[MelodyEvent]:
-	var melody_array: Array[MelodyEvent] = []
-	var current_time: float = 0.0
-	var sections: Array = melody_string.split(" ")
+# Function to parse the melody string
+func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a String, output is an Array
+	var melody_array: Array[MelodyEvent] = [] # Array to hold events
+	var current_time: float = 0.0 # float to track time
+	var sections: Array = melody_string.split(" ") # Array of Strings (split by space)
 	
 	for section: String in sections:
-		var event: MelodyEvent = MelodyEvent.new()
+		var event: MelodyEvent = MelodyEvent.new() # MelodyEvent instance
 		var duration: float = 0
 		event.time = current_time
 		
+		# Parse CriticalSectionStart and CriticalSectionEnd events
 		if section.begins_with("*CriticalSectionStart:*"):
 			event.event_type = "CriticalSectionStart"
 		elif section.begins_with("*CriticalSectionEnd:*"):
 			event.event_type = "CriticalSectionEnd"
 		else:
-			var parts: Array = section.split(":")
-			var note_or_pause: String = parts[0]
-			var details: Array = parts[1].split("%")
+			# Parse pauses or notes
+			var parts: Array = section.split(":") # Array of Strings (split by colon)
+			var note: String = parts[0] # String for note or pause
+			var details: Array = parts[1].split("%") # Array of Strings (split by '%')
 			
+			# Parse duration
 			duration = parse_fraction_as_float(details[0]) # Parse duration as float
 			
-			if note_or_pause == "-":
+			# Update the event details
+			if note == "-":
 				event.note = "rest"
 			else:
 				event.note = note.strip_edges()
@@ -37,15 +41,17 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]:
 			if details.size() > 1:
 				event.finger = int(details[1]) # finger is an int, but stored as String
 		
-		melody_array.append(event)
+		# Add the event to the melody array with the current time
+		melody_array.append(event) # Dictionary entry
+		# Update the current time
 		current_time += duration
 
 	return melody_array
 
-func parse_fraction_as_float(fraction_string: String) -> float:
-	var parts: Array = fraction_string.split("/")
-	var numerator: float = 0.0
-	var denominator: float = 1.0
+func parse_fraction_as_float(fraction_string: String) -> float: # Input is String, output is float
+	var parts: Array = fraction_string.split("/") # Split fraction into parts
+	var numerator: float = 0.0 # float for numerator
+	var denominator: float = 1.0 # float for denominator
 	if parts.size() > 0:
 		numerator = float(parts[0])
 	if parts.size() > 1:
@@ -53,26 +59,24 @@ func parse_fraction_as_float(fraction_string: String) -> float:
 	return numerator / denominator
 
 func read_text_file(file_path: String) -> String:
-	var file_access: FileAccess = FileAccess.open(file_path, FileAccess.READ)
+	var file_access: FileAccess = FileAccess.open(file_path, FileAccess.READ)  # Open the file for reading
 	var contents: String
 	if file_access != null:
-		contents = file_access.get_as_text()
-		file_access.close()
+		contents = file_access.get_as_text()  # Read the contents as text
+		file_access.close()  # Close the file after reading
 	else:
 		print("Failed to open file.")
 	return contents
 	
 	
-func _ready() -> void:
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void: # Function returns void
 	print("Ready called for: ", self.name)
 	var file_content: String = read_text_file("res:///levels/melody1.txt")
 	melody_events = parse_melody(file_content)
-	#for event in melody_events:
-		#print(event.as_string())
-	pass
-	
-func _process(delta: float) -> void:
-	pass
+	for event in melody_events:
+		print(event.as_string())
+
 
 func get_melody_array_by_file(file_path: String) -> Array:
 	print("Ready called for: ", self.name)

@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
 [ext_resource type="Shape2D" uid="uid://w5c8w6wvuj8j" path="res://scene_resources/detector_collider.tres" id="3_kpl61"]
 [ext_resource type="Texture2D" uid="uid://mhyt4iplkoff" path="res://art/icon.svg" id="4_o4vmb"]
-[ext_resource type="PackedScene" path="res://scenes/rest.tscn" id="6_fjvbl"]
+[ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
-[ext_resource type="Shape2D" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
+[ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
 [ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
 [ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
 
@@ -107,10 +107,6 @@ script = ExtResource("2_yqf4i")
 note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
 metadata/_edit_use_anchors_ = true
-
-[node name="Note" parent="EndingPoint/NotesContainer" instance=ExtResource("7_v8855")]
-position = Vector2(750, 30)
-collision_mask = 0
 
 [node name="NotesDetector" type="Area2D" parent="."]
 position = Vector2(-200, -50)
