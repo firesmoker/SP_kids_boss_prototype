@@ -3,8 +3,8 @@ class_name Game extends Node2D
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var ending_point: Node2D = $EndingPoint
 @onready var notes_container: NotesContainer = $EndingPoint/NotesContainer
-@onready var notes_detector: NotesDetector = $NotesDetector
-@onready var collect_detector: ShapeCast2D = $CollectDetector
+@onready var notes_detector: NotesDetector = $Parser/NotesDetector
+@onready var collect_detector: ShapeCast2D = $Parser/CollectDetector
 @onready var player_character: AnimatedSprite2D = $PlayerCharacter
 @onready var boss: AnimatedSprite2D = $Boss
 @onready var player_health_bar: ProgressBar = $UI/PlayerHealthBar
