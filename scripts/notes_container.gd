@@ -16,6 +16,7 @@ var note_heigth_by_pitch: Dictionary = {
 	"G4": 30,
 	"A4": 15,
 	"B4": 0,
+	"rest": 30,
 }
 var starting_position_x: float
 var size: float
@@ -26,16 +27,45 @@ var bar_length_in_pixels: float
 
 var example_note_dict: Dictionary
 
-
-func _ready() -> void:
+func construct_level(with_melody_events: bool = false, melody_events: Array = []) -> void:
 	texture.size.x = texture.size.x * level_length_in_bars
 	size = texture.size.x
 	bar_length_in_pixels = size / level_length_in_bars
 	game = get_tree().get_root().get_node("Game")
 	starting_position_x = size / 2
 	set_parent_at_ending()
-	populate()
-	
+	if with_melody_events:
+		populate_from_melody_events(melody_events)
+	else:
+		populate()
+
+func _ready() -> void:
+	#texture.size.x = texture.size.x * level_length_in_bars
+	#size = texture.size.x
+	#bar_length_in_pixels = size / level_length_in_bars
+	#game = get_tree().get_root().get_node("Game")
+	#starting_position_x = size / 2
+	#set_parent_at_ending()
+	#populate()
+	pass
+
+
+func populate_from_melody_events(melody_events: Array) -> void:
+	for event: MelodyEvent in melody_events:
+		print(event.note)
+		print(event.time)
+		var pitch: String = event.note.strip_edges()
+		if pitch == "rest":
+			var new_note: Note = rest_template.instantiate()
+			add_child(new_note)
+			new_note.position.x = event.time * bar_length_in_pixels - size / 2
+		if pitch != "":
+			var new_note: Note = note_template.instantiate()
+			add_child(new_note)
+			new_note.position.x = event.time * bar_length_in_pixels - size / 2
+			new_note.pitch = pitch
+			#print(pitch)
+			#new_note.position.y = note_heigth_by_pitch[event.note]
 
 func populate() -> void:
 	## TEMPORARY DICT GENERATION

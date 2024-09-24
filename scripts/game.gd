@@ -9,6 +9,7 @@ class_name Game extends Node2D
 @onready var boss: AnimatedSprite2D = $Boss
 @onready var player_health_bar: ProgressBar = $UI/PlayerHealthBar
 @onready var boss_health_bar: ProgressBar = $UI/BossHealthBar
+@onready var parser: Parser = $Parser
 
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
@@ -29,7 +30,6 @@ var note_play_position_x: float
 var just_started: bool = true
 
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
 		music_player.pitch_scale += 0.2
@@ -41,13 +41,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	note_play_position_x = notes_detector.position.x
-	print("note play position X is: " + str(note_play_position_x))
 	starting_position = ending_point.position
+	
+	notes_container.construct_level(true, parser.get_melody_array_by_file("res://levels/melody1.txt"))
+	
+	reset_health_bars()
 	music_player.play()
-	player_health_bar.max_value = player_health
-	player_health_bar.value = player_health
-	boss_health_bar.max_value = boss_health
-	boss_health_bar.value = boss_health
 
 
 func _process(delta: float) -> void:
@@ -107,3 +106,9 @@ func get_hit() -> void:
 		player_health_bar.value = player_health
 	else:
 		print("false hit")
+
+func reset_health_bars() -> void:
+	player_health_bar.max_value = player_health
+	player_health_bar.value = player_health
+	boss_health_bar.max_value = boss_health
+	boss_health_bar.value = boss_health
