@@ -47,6 +47,7 @@ func populate() -> void:
 		}
 		absolute_rhythmic_position += 0.25
 	
+	## Build level from dictionary
 	var count: int = 0
 	for key: int in example_note_dict:
 		count += 1

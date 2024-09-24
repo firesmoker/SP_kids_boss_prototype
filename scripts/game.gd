@@ -13,6 +13,7 @@ class_name Game extends Node2D
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
 static var game_won_scene: String = "res://scenes/game_won_screen.tscn"
+static var game_state: String = "Playing"
 
 @export var tempo: float = 122.0
 var level_length_in_bar: float = 0
@@ -79,6 +80,7 @@ func lose() -> void:
 	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 
 func win() -> void:
+	game_state = "Win"
 	print("you lost")
 	get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 
@@ -96,10 +98,12 @@ func _on_notes_detector_body_entered(body: CollisionObject2D) -> void:
 func hit_boss() -> void:
 	boss_health -= 1
 	boss_health_bar.value = boss_health
+	if boss_health <= 0:
+		win()
 
 func get_hit() -> void:
 	if vulnerable:
-		player_health -= 5
+		player_health -= 1
 		player_health_bar.value = player_health
 	else:
 		print("false hit")

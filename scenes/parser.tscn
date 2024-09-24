@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://drb34rhixaw50"]
+[gd_scene load_steps=2 format=3 uid="uid://drb34rhixaw50"]
+
+[ext_resource type="Script" path="res://scripts/melody_parser.gd" id="1_arp52"]
 
 [node name="Parser" type="Node2D"]
+script = ExtResource("1_arp52")

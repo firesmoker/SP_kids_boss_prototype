@@ -15,9 +15,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if note_played == current_notes[0].pitch:
 			emit_signal("note_success")
 			print("RIGHT NOTE PLAYED YAY!")
-			current_notes[0].become_giant()
-			current_notes[0].state = "Played"
-			current_notes.pop_at(0)
+			if game.game_state == "Playing":
+				current_notes[0].become_giant()
+				current_notes[0].state = "Played"
+				current_notes.pop_at(0)
 			
 			
 		else:
