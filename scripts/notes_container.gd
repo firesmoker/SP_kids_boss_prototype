@@ -59,6 +59,7 @@ func populate_from_melody_events(melody_events: Array) -> void:
 			var new_note: Note = rest_template.instantiate()
 			add_child(new_note)
 			new_note.position.x = event.time * bar_length_in_pixels - size / 2
+			new_note.position.y = note_heigth_by_pitch["A4"]
 		elif pitch != "":
 			var new_note: Note = note_template.instantiate()
 			add_child(new_note)

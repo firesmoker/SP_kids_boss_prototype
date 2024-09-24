@@ -72,11 +72,12 @@ func read_text_file(file_path: String) -> String:
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void: # Function returns void
-	print("Ready called for: ", self.name)
-	var file_content: String = read_text_file("res:///levels/melody1.txt")
-	melody_events = parse_melody(file_content)
-	for event in melody_events:
-		print(event.as_string())
+	#print("Ready called for: ", self.name)
+	#var file_content: String = read_text_file("res:///levels/melody1.txt")
+	#melody_events = parse_melody(file_content)
+	#for event in melody_events:
+		#print(event.as_string())
+	pass
 
 
 func get_melody_array_by_file(file_path: String) -> Array:
