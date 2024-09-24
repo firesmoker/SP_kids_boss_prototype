@@ -17,7 +17,7 @@ static var game_won_scene: String = "res://scenes/game_won_screen.tscn"
 @export var tempo: float = 122.0
 var level_length_in_bar: float = 0
 var player_health: float = 10
-var BossHealth: float = 10
+var boss_health: float = 10
 var DamageFromBoss: float = 1
 var DamageFromPlayer: float = 1
 var starting_position: Vector2
@@ -45,8 +45,8 @@ func _ready() -> void:
 	music_player.play()
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
-	boss_health_bar.max_value = BossHealth
-	boss_health_bar.value = BossHealth
+	boss_health_bar.max_value = boss_health
+	boss_health_bar.value = boss_health
 
 
 func _process(delta: float) -> void:
@@ -85,14 +85,21 @@ func win() -> void:
 
 func _on_hit_zone_body_entered(note: Note) -> void:
 	if note.state == "Active":
-		if vulnerable:
-			player_health -= 5
-			player_health_bar.value = player_health
-		else:
-			print("false hit")
+		get_hit()
 	else:
 		print("not active, not interesting")
 
 
 func _on_notes_detector_body_entered(body: CollisionObject2D) -> void:
 	pass
+
+func hit_boss() -> void:
+	boss_health -= 1
+	boss_health_bar.value = boss_health
+
+func get_hit() -> void:
+	if vulnerable:
+		player_health -= 5
+		player_health_bar.value = player_health
+	else:
+		print("false hit")

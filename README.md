@@ -1,7 +1,5 @@
 to do:
 	(2)
-	Playing notes at the right time
-	Playing notes with the right pitch
 	Boss health functionality
 	
 	Getting Midi events (Alon)

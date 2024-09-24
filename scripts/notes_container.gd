@@ -42,7 +42,7 @@ func populate() -> void:
 	var absolute_rhythmic_position: float = 0
 	for i in range(100):
 		example_note_dict[i] = {
-			"pitch" = "C4",
+			"pitch" = "G4",
 			"rhythmic_position" = absolute_rhythmic_position
 		}
 		absolute_rhythmic_position += 0.25
@@ -50,15 +50,21 @@ func populate() -> void:
 	var count: int = 0
 	for key: int in example_note_dict:
 		count += 1
-		var new_note: Node2D = note_template.instantiate()
+		var rest: bool = false
+		var new_note: Note = note_template.instantiate()
 		if count == 4:
 			count = 0
+			rest = true
 			new_note = rest_template.instantiate()
 		else:
 			new_note = note_template.instantiate()
 		add_child(new_note)
 		new_note.position.x = example_note_dict[key]["rhythmic_position"] * bar_length_in_pixels - size / 2
-		new_note.position.y = note_heigth_by_pitch["G4"]
+		new_note.pitch = example_note_dict[key]["pitch"]
+		if not rest:
+			new_note.position.y = note_heigth_by_pitch[example_note_dict[key]["pitch"]]
+		else:
+			new_note.position.y = note_heigth_by_pitch["G4"]
 	
 
 func set_parent_at_ending() -> void:
