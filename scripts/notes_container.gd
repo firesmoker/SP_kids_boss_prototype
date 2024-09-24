@@ -66,4 +66,3 @@ func set_parent_at_ending() -> void:
 
 func get_size() -> float:
 	return size
-
