@@ -16,7 +16,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			emit_signal("note_success")
 			print("RIGHT NOTE PLAYED YAY!")
 			if game.game_state == "Playing":
-				current_notes[0].become_giant()
+				current_notes[0].hit_note_visual()
 				current_notes[0].state = "Played"
 				current_notes.pop_at(0)
 			
@@ -40,6 +40,7 @@ func _on_body_entered(note: Note) -> void:
 
 func _on_body_exited(note: Note) -> void:
 	if note.state == "Active":
+		note.miss_note_visual()
 		current_notes.pop_front()
 	elif note.state == "inactive":
 		print("inactive note left")

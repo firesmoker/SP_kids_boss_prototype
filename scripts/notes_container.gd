@@ -4,11 +4,12 @@ class_name NotesContainer extends Sprite2D
 
 @export_category("General")
 @export var note_heigth: float = 15.0
+@export var on_display_duration: float = 2
 @export_category("Packed Scenes")
 @export var note_template: PackedScene
 @export var rest_template: PackedScene
 
-var note_heigth_by_pitch: Dictionary = {
+static var note_heigth_by_pitch: Dictionary = {
 	"C4": 90,
 	"D4": 75,
 	"E4": 60,
@@ -28,7 +29,7 @@ var bar_length_in_pixels: float
 var example_note_dict: Dictionary
 
 func construct_level(with_melody_events: bool = false, melody_events: Array = []) -> void:
-	texture.size.x = texture.size.x * level_length_in_bars
+	texture.size.x = texture.size.x * level_length_in_bars / on_display_duration
 	size = texture.size.x
 	bar_length_in_pixels = size / level_length_in_bars
 	game = get_tree().get_root().get_node("Game")
@@ -39,32 +40,25 @@ func construct_level(with_melody_events: bool = false, melody_events: Array = []
 	else:
 		populate()
 
-func _ready() -> void:
-	#texture.size.x = texture.size.x * level_length_in_bars
-	#size = texture.size.x
-	#bar_length_in_pixels = size / level_length_in_bars
-	#game = get_tree().get_root().get_node("Game")
-	#starting_position_x = size / 2
-	#set_parent_at_ending()
-	#populate()
-	pass
-
 
 func populate_from_melody_events(melody_events: Array) -> void:
 	for event: MelodyEvent in melody_events:
+		print(event.as_string())
 		print(event.note)
 		print(event.time)
 		var pitch: String = event.note.strip_edges()
 		if pitch == "rest":
 			var new_note: Note = rest_template.instantiate()
 			add_child(new_note)
+			new_note.set_duration_visual(event.duration)
 			new_note.position.x = event.time * bar_length_in_pixels - size / 2
-			new_note.position.y = note_heigth_by_pitch["A4"]
+			new_note.position.y = note_heigth_by_pitch["F4"]
 		elif pitch != "":
 			var new_note: Note = note_template.instantiate()
 			add_child(new_note)
 			new_note.position.x = event.time * bar_length_in_pixels - size / 2
 			new_note.pitch = pitch
+			new_note.set_duration_visual(event.duration)
 			print(pitch)
 			new_note.position.y = note_heigth_by_pitch[event.note]
 

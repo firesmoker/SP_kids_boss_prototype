@@ -100,7 +100,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="NotesContainer" type="Sprite2D" parent="EndingPoint"]
-self_modulate = Color(1, 1, 1, 0.341176)
+self_modulate = Color(1, 1, 1, 0)
 z_index = -2
 texture = SubResource("PlaceholderTexture2D_xdh2h")
 script = ExtResource("2_yqf4i")

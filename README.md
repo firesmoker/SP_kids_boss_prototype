@@ -1,16 +1,15 @@
-to do:
-	(2)
-	Boss health functionality
+	(1)
+	Translating Midi events to pitch (Eylon)
 	
-	Getting Midi events (Alon)
-	Translating Midi events to pitch (Alon)
-	
-	
-	(3)
 	Exporting to iOS (Alon)
 	Making sure it looks right on iOS (Alon)
 	making sure it supports touch (Alon)
 
-	(4)
+	(2)
+	Different note and rest types (Eylon)
 	Collectibles
-	Add collectibles to level population
+	Add collectibles to level population (Alon & Eylon)
+	
+	(3)
+	Make the parser more robust (Alon)
+	Display optimizations (Eylon)
