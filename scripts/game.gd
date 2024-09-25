@@ -2,15 +2,16 @@ class_name Game extends Node2D
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var parser: Parser = $Parser
-@onready var player_character: AnimatedSprite2D = $PlayerCharacter
-@onready var boss: AnimatedSprite2D = $Boss
+@onready var player_character: AnimatedSprite2D = $Level/PlayerCharacter
+@onready var boss: AnimatedSprite2D = $Level/Boss
 @onready var player_health_bar: ProgressBar = $UI/PlayerHealthBar
 @onready var boss_health_bar: ProgressBar = $UI/BossHealthBar
+@onready var level: Node2D = $Level
 
-@onready var ending_point: Node2D = $RightHandPart/EndingPoint
-@onready var notes_container: NotesContainer = $RightHandPart/EndingPoint/NotesContainer
-@onready var notes_detector: NotesDetector = $RightHandPart/NotesDetector
-@onready var bottom_notes_detector: NotesDetector = $RightHandPart/BottomNotesDetector
+@onready var ending_point: Node2D = $Level/RightHandPart/EndingPoint
+@onready var notes_container: NotesContainer = $Level/RightHandPart/EndingPoint/NotesContainer
+@onready var notes_detector: NotesDetector = $Level/RightHandPart/NotesDetector
+@onready var bottom_notes_detector: NotesDetector = $Level/RightHandPart/BottomNotesDetector
 
 
 static var game_scene: String = "res://scenes/game.tscn"
@@ -45,7 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	initialize_part()
-	
+	level.position = Vector2(0,0)
 	reset_health_bars()
 	music_player.play()
 
