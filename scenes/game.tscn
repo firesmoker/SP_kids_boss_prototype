@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=18 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Texture2D" uid="uid://b1neu5mwv50lt" path="res://art/Music-staff.png" id="1_fp7c3"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://mhyt4iplkoff" path="res://art/icon.svg" id="4_o4vmb"]
 [ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
+[ext_resource type="PackedScene" uid="uid://cfosn0qs0t6mq" path="res://scenes/bar_line.tscn" id="7_crksr"]
 [ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
 [ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
 [ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
@@ -100,13 +101,14 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="NotesContainer" type="Sprite2D" parent="EndingPoint"]
-self_modulate = Color(1, 1, 1, 0.560784)
+self_modulate = Color(1, 1, 1, 0)
 z_index = -2
 texture = SubResource("PlaceholderTexture2D_xdh2h")
 script = ExtResource("2_yqf4i")
 on_display_duration = 1.4
 note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
+barline_template = ExtResource("7_crksr")
 metadata/_edit_use_anchors_ = true
 
 [node name="NotesDetector" type="Area2D" parent="."]

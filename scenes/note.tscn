@@ -40,6 +40,7 @@ scale = Vector2(1.782, 2.192)
 texture = ExtResource("4_7h3ec")
 
 [node name="Quarter" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_vs3fy")
 position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)

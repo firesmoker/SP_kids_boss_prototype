@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfosn0qs0t6mq"]
+
+[ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="2_xvqls"]
+
+[node name="BarLine" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.501407, 0.501406, 0.501406, 1)
+rotation = 1.5708
+scale = Vector2(0.992621, 0.471632)
+texture = ExtResource("2_xvqls")

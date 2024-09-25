@@ -37,7 +37,6 @@ func set_duration_visual(duration: float) -> void:
 		stem.visible = true
 	if helper_line:
 		helper_line.visible = false
-		print(pitch)
 		if pitch == "C4":
 			helper_line.visible = true
 	match duration:
@@ -47,7 +46,8 @@ func set_duration_visual(duration: float) -> void:
 			quarter.visible = true
 		0.5:
 			half.visible = true
-		1:
+		1.0:
+			print("whole!")
 			whole.visible = true
 			if stem:
 				stem.visible = false
