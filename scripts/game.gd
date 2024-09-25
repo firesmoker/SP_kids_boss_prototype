@@ -10,6 +10,7 @@ class_name Game extends Node2D
 @onready var ending_point: Node2D = $RightHandPart/EndingPoint
 @onready var notes_container: NotesContainer = $RightHandPart/EndingPoint/NotesContainer
 @onready var notes_detector: NotesDetector = $RightHandPart/NotesDetector
+@onready var bottom_notes_detector: NotesDetector = $RightHandPart/BottomNotesDetector
 
 
 static var game_scene: String = "res://scenes/game.tscn"
@@ -75,6 +76,7 @@ func _process(delta: float) -> void:
 		lose()
 	if just_started:
 		notes_detector.clear_notes()
+		bottom_notes_detector.clear_notes()
 		just_started = false
 	#print(ending_point.position.x)
 
@@ -99,9 +101,6 @@ func _on_hit_zone_body_entered(note: Note) -> void:
 	else:
 		print("not active, not interesting")
 
-
-func _on_notes_detector_body_entered(body: CollisionObject2D) -> void:
-	pass
 
 func hit_boss() -> void:
 	boss_health -= 1
