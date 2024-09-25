@@ -6,11 +6,9 @@ var melody_events: Array[MelodyEvent]
 			
 # Function to parse the melody string
 func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a String, output is an Array
-	print(melody_string)
 	var melody_array: Array[MelodyEvent] = [] # Array to hold events
 	var current_time: float = 0.0 # float to track time
 	var sections: Array = melody_string.split(" ") # Array of Strings (split by space)
-	print(sections)
 	for section: String in sections:
 		var event: MelodyEvent = MelodyEvent.new() # MelodyEvent instance
 		var duration: float = 0
@@ -68,16 +66,6 @@ func read_text_file(file_path: String) -> String:
 	else:
 		print("Failed to open file.")
 	return contents
-	
-	
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void: # Function returns void
-	#print("Ready called for: ", self.name)
-	#var file_content: String = read_text_file("res:///levels/melody1.txt")
-	#melody_events = parse_melody(file_content)
-	#for event in melody_events:
-		#print(event.as_string())
-	pass
 
 
 func get_melody_array_by_file(file_path: String) -> Array:

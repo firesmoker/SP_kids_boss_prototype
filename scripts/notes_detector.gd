@@ -10,7 +10,6 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:	
 	var note_played: String = event.as_text() + "4"
-	print(note_played)
 	if current_notes.size() > 0:
 		if note_played == current_notes[0].pitch:
 			emit_signal("note_success")
@@ -32,9 +31,11 @@ func _on_body_entered(note: Note) -> void:
 	if note.state == "Active":
 		current_notes.append(note)
 	elif note.state == "Rest":
-		print("yay rest")
+		#print("yay rest")
+		pass
 	else:
-		print("INACTIVE NOTE ENTERED!!!")
+		#print("INACTIVE NOTE ENTERED!!!")
+		pass
 	#print(current_notes)
 
 

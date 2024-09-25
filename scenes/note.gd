@@ -43,18 +43,14 @@ func set_duration_visual(duration: float) -> void:
 	match duration:
 		0.125:
 			eigth.visible = true
-			print("eigth")
 		0.25:
 			quarter.visible = true
-			print("quarter")
 		0.5:
 			half.visible = true
-			print("half")
 		1:
 			whole.visible = true
 			if stem:
 				stem.visible = false
-			print("whole")
 		_:
 			print("oh shit")
 			scale = scale * 1.6

@@ -65,7 +65,11 @@ func _process(delta: float) -> void:
 	#print("CALCULATED LENGTH " + str(song_length))
 	
 	var normalized_song_position: float = music_player.get_playback_position() / song_length
-	ending_point.position.x = lerp(notes_container.get_size() -abs(note_play_position_x),note_play_position_x,normalized_song_position)
+	var starting_position_x: float = notes_container.get_size() -abs(note_play_position_x)
+	ending_point.position.x = lerp(starting_position_x,note_play_position_x,normalized_song_position)
+	if ending_point.position.x <= note_play_position_x:
+		print("finished level")
+		lose()
 	if just_started:
 		notes_detector.clear_notes()
 		just_started = false
@@ -74,7 +78,7 @@ func _process(delta: float) -> void:
 
 func _on_music_player_finished() -> void:
 	print("finished!")
-	#lose()
+	lose()
 
 func lose() -> void:
 	print("you lost")
