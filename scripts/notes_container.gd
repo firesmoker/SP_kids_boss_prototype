@@ -30,24 +30,32 @@ var left_edge_position: float = 0
 var example_note_dict: Dictionary
 
 
-func construct_level(with_melody_events: bool = false, melody_events: Array = []) -> void:
+func construct_level(with_melody_events: bool = false, melody_events: Array = [], bottom_melody_events: Array = []) -> void:
 	if with_melody_events:
 		level_length_in_bars = get_level_length_from_melody_event(melody_events)
 		set_level_size()
-		create_bar_lines()
+		create_bar_lines(true)
 		set_parent_at_ending()
 		populate_from_melody_events(melody_events)
+		if bottom_melody_events.size() > 0:
+			populate_from_melody_events(bottom_melody_events, true)
 	else:
 		set_level_size()
 		create_bar_lines()
 		set_parent_at_ending()
 		populate()
 
-func create_bar_lines() -> void:
+func create_bar_lines(two_staves: bool = false) -> void:
+	print("CREATING BAR LINESSSS")
 	for i: int in range(level_length_in_bars + 2):
 		var new_barline: Node2D = barline_template.instantiate()
 		add_child(new_barline)
 		new_barline.position.x = left_edge_position + (i - 1) * bar_length_in_pixels - barline_offset
+		if two_staves:
+			var new_bottom_barline: Node2D = barline_template.instantiate()
+			add_child(new_bottom_barline)
+			new_bottom_barline.position.x = left_edge_position + (i - 1) * bar_length_in_pixels - barline_offset
+			new_bottom_barline.position.y += 265
 
 func get_level_length_from_melody_event(melody_events: Array = []) -> float:
 	var duration_sum: float = 0.0
@@ -63,7 +71,7 @@ func set_level_size() -> void:
 	starting_position_x = size / 2
 	left_edge_position = -size / 2
 
-func populate_from_melody_events(melody_events: Array) -> void:
+func populate_from_melody_events(melody_events: Array, bottom_staff: bool = false) -> void:
 	for event: MelodyEvent in melody_events:
 		var pitch: String = event.note.strip_edges()
 		if pitch == "rest":
@@ -77,6 +85,8 @@ func populate_from_melody_events(melody_events: Array) -> void:
 			else:
 				new_note.position.x = event.time * bar_length_in_pixels - size / 2
 			new_note.position.y = note_heigth_by_pitch["F4"]
+			if bottom_staff:
+				new_note.position.y += 265
 		elif pitch != "":
 			var new_note: Note = note_template.instantiate()
 			add_child(new_note)
@@ -84,7 +94,8 @@ func populate_from_melody_events(melody_events: Array) -> void:
 			new_note.pitch = pitch
 			new_note.set_duration_visual(event.duration)
 			new_note.position.y = note_heigth_by_pitch[event.note]
-
+			if bottom_staff:
+				new_note.position.y += 265
 func populate() -> void:
 	## TEMPORARY DICT GENERATION
 	var absolute_rhythmic_position: float = 0

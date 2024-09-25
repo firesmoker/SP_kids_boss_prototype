@@ -1,27 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=17 format=3 uid="uid://clhbuec845jpd"]
 
-[ext_resource type="Texture2D" uid="uid://b1neu5mwv50lt" path="res://art/Music-staff.png" id="1_fp7c3"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://bjlm1urjx6yqc" path="res://audio/CountingStars_122bpm_new.wav" id="2_2kvrl"]
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
-[ext_resource type="Shape2D" uid="uid://w5c8w6wvuj8j" path="res://scene_resources/detector_collider.tres" id="3_kpl61"]
 [ext_resource type="Texture2D" uid="uid://mhyt4iplkoff" path="res://art/icon.svg" id="4_o4vmb"]
+[ext_resource type="PackedScene" uid="uid://8ut73mldwxdn" path="res://scenes/staff.tscn" id="5_evl1e"]
 [ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
 [ext_resource type="PackedScene" uid="uid://cfosn0qs0t6mq" path="res://scenes/bar_line.tscn" id="7_crksr"]
 [ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
 [ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
 [ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
-
-[sub_resource type="Gradient" id="Gradient_eiuy8"]
-offsets = PackedFloat32Array(0, 0.015)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lo1rx"]
-gradient = SubResource("Gradient_eiuy8")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xdh2h"]
-resource_local_to_scene = true
-size = Vector2(500, 50)
+[ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="13_kq0an"]
+[ext_resource type="Texture2D" uid="uid://cusf6tvgw27f2" path="res://art/RhythmLineGlow.png" id="14_nko2d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_awi4x"]
 animations = [{
@@ -37,6 +28,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
 size = Vector2(128, 128)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xdh2h"]
+resource_local_to_scene = true
+size = Vector2(500, 50)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ncon4")
 metadata/_edit_lock_ = true
@@ -48,17 +43,29 @@ metadata/_edit_lock_ = true
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_2kvrl")
 
-[node name="Staff" type="Sprite2D" parent="."]
-z_index = -1
-scale = Vector2(9.675, 1.27303)
-texture = ExtResource("1_fp7c3")
+[node name="Parser" parent="." instance=ExtResource("9_s4jiq")]
 metadata/_edit_lock_ = true
 
-[node name="StaffBackground" type="Sprite2D" parent="Staff"]
-z_index = -1
-position = Vector2(-1, -0.5)
-scale = Vector2(3.09375, 1.48438)
-texture = SubResource("GradientTexture2D_lo1rx")
+[node name="PlayerCharacter" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.462745, 1, 0.466667, 0.490196)
+position = Vector2(-340, 18)
+scale = Vector2(1.0625, 2.57812)
+sprite_frames = SubResource("SpriteFrames_awi4x")
+metadata/_edit_lock_ = true
+
+[node name="HitZone" type="Area2D" parent="PlayerCharacter"]
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/HitZone"]
+shape = SubResource("RectangleShape2D_fef26")
+metadata/_edit_lock_ = true
+
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 0.34902, 0.341176, 0.392157)
+position = Vector2(340, 18)
+scale = Vector2(1.07031, 2.57812)
+sprite_frames = SubResource("SpriteFrames_awi4x")
 metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -97,10 +104,15 @@ grow_vertical = 2
 color = Color(0.311055, 0.000693503, 0.462134, 1)
 metadata/_edit_lock_ = true
 
-[node name="EndingPoint" type="Node2D" parent="."]
+[node name="RightHandPart" type="Node2D" parent="."]
+position = Vector2(0, -109)
+scale = Vector2(0.8, 0.8)
+
+[node name="EndingPoint" type="Node2D" parent="RightHandPart"]
+z_index = 1
 metadata/_edit_lock_ = true
 
-[node name="NotesContainer" type="Sprite2D" parent="EndingPoint"]
+[node name="NotesContainer" type="Sprite2D" parent="RightHandPart/EndingPoint"]
 self_modulate = Color(1, 1, 1, 0)
 z_index = -2
 texture = SubResource("PlaceholderTexture2D_xdh2h")
@@ -110,47 +122,47 @@ note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
 barline_template = ExtResource("7_crksr")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[node name="NotesDetector" type="Area2D" parent="."]
+[node name="NotesDetector" type="Area2D" parent="RightHandPart"]
 position = Vector2(-200, -50)
 script = ExtResource("6_gcv22")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NotesDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHandPart/NotesDetector"]
 position = Vector2(0, 75.5)
+scale = Vector2(1, 1)
 shape = ExtResource("7_ged7t")
 debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
-
-[node name="CollectDetector" type="ShapeCast2D" parent="."]
-position = Vector2(-200, -50)
-shape = ExtResource("3_kpl61")
-target_position = Vector2(2.08165e-12, 150)
-collision_mask = 2
 metadata/_edit_lock_ = true
 
-[node name="PlayerCharacter" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(0.462745, 1, 0.466667, 1)
-position = Vector2(-340, 18)
-scale = Vector2(1.4375, 2.57812)
-sprite_frames = SubResource("SpriteFrames_awi4x")
-
-[node name="HitZone" type="Area2D" parent="PlayerCharacter"]
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/HitZone"]
-shape = SubResource("RectangleShape2D_fef26")
-
-[node name="Boss" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1, 0.34902, 0.341176, 1)
-position = Vector2(340, 18)
-scale = Vector2(1.4375, 2.57812)
-sprite_frames = SubResource("SpriteFrames_awi4x")
+[node name="BlueLine" type="Node2D" parent="RightHandPart"]
+modulate = Color(0.443137, 1, 1, 0.552941)
+position = Vector2(-201, 28)
+scale = Vector2(2.65, 2.65)
 metadata/_edit_lock_ = true
 
-[node name="Parser" parent="." instance=ExtResource("9_s4jiq")]
+[node name="Sprite" type="Sprite2D" parent="RightHandPart/BlueLine"]
+visible = false
+self_modulate = Color(0.303233, 0.303233, 0.303233, 1)
+rotation = 1.5708
+scale = Vector2(0.992621, 0.471632)
+texture = ExtResource("13_kq0an")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2" type="Sprite2D" parent="RightHandPart/BlueLine"]
+position = Vector2(0, -10.566)
+scale = Vector2(0.239218, 0.239218)
+texture = ExtResource("14_nko2d")
+metadata/_edit_lock_ = true
+
+[node name="UpperStaff" parent="RightHandPart" instance=ExtResource("5_evl1e")]
+
+[node name="BottomStaff" parent="RightHandPart" instance=ExtResource("5_evl1e")]
+position = Vector2(0, 265)
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
-[connection signal="body_entered" from="NotesDetector" to="." method="_on_notes_detector_body_entered"]
-[connection signal="body_entered" from="NotesDetector" to="NotesDetector" method="_on_body_entered"]
-[connection signal="body_exited" from="NotesDetector" to="NotesDetector" method="_on_body_exited"]
 [connection signal="body_entered" from="PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]
+[connection signal="body_entered" from="RightHandPart/NotesDetector" to="." method="_on_notes_detector_body_entered"]
+[connection signal="body_entered" from="RightHandPart/NotesDetector" to="RightHandPart/NotesDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="RightHandPart/NotesDetector" to="RightHandPart/NotesDetector" method="_on_body_exited"]

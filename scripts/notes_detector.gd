@@ -1,11 +1,12 @@
 class_name NotesDetector extends Area2D
-@onready var game: Game = $".."
+@onready var game: Game
 
 var current_notes: Array[Note]
 
 signal note_success
 
 func _ready() -> void:
+	game = get_tree().root.get_child(0)
 	note_success.connect(game.hit_boss)
 
 func _unhandled_input(event: InputEvent) -> void:	

@@ -1,15 +1,16 @@
 class_name Game extends Node2D
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
-@onready var ending_point: Node2D = $EndingPoint
-@onready var notes_container: NotesContainer = $EndingPoint/NotesContainer
-@onready var notes_detector: NotesDetector = $NotesDetector
-@onready var collect_detector: ShapeCast2D = $CollectDetector
+@onready var parser: Parser = $Parser
 @onready var player_character: AnimatedSprite2D = $PlayerCharacter
 @onready var boss: AnimatedSprite2D = $Boss
 @onready var player_health_bar: ProgressBar = $UI/PlayerHealthBar
 @onready var boss_health_bar: ProgressBar = $UI/BossHealthBar
-@onready var parser: Parser = $Parser
+
+@onready var ending_point: Node2D = $RightHandPart/EndingPoint
+@onready var notes_container: NotesContainer = $RightHandPart/EndingPoint/NotesContainer
+@onready var notes_detector: NotesDetector = $RightHandPart/NotesDetector
+
 
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
@@ -17,7 +18,7 @@ static var game_won_scene: String = "res://scenes/game_won_screen.tscn"
 static var game_state: String = "Playing"
 
 
-
+@export_enum("treble","bass","both") var ui_type: String = "treble"
 @export var tempo: float = 122.0
 var level_length_in_bar: float = 0
 var player_health: float = 10
@@ -42,14 +43,16 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	note_play_position_x = notes_detector.position.x
-	starting_position = ending_point.position
-	
-	notes_container.construct_level(true, parser.get_melody_array_by_file("res://levels/melody1.txt"))
+	initialize_part()
 	
 	reset_health_bars()
 	music_player.play()
 
+func initialize_part(hand_parts: String = ui_type) -> void:
+	if hand_parts.to_lower() == "treble" or hand_parts.to_lower() == "both":
+		note_play_position_x = notes_detector.position.x
+		starting_position = ending_point.position
+		notes_container.construct_level(true, parser.get_melody_array_by_file("res://levels/melody1.txt"),parser.get_melody_array_by_file("res://levels/melody1.txt"))
 
 func _process(delta: float) -> void:
 	time_elapsed += delta
