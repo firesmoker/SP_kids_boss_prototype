@@ -10,9 +10,12 @@ func _ready() -> void:
 	note_success.connect(game.hit_boss)
 
 func _unhandled_input(event: InputEvent) -> void:	
-	var note_played: String = event.as_text() + "4"
+	var note: String = event.as_text() + "4"
+	note_played(note)
+
+func note_played(note: String) -> void: 
 	if current_notes.size() > 0:
-		if note_played == current_notes[0].pitch:
+		if note == current_notes[0].pitch:
 			emit_signal("note_success")
 			print("RIGHT NOTE PLAYED YAY!")
 			if game.game_state == "Playing":
@@ -23,7 +26,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 		else:
 			print("wrong note played YA LOSER")
-
 
 func clear_notes() -> void:
 	current_notes.clear()
