@@ -1,21 +1,26 @@
 class_name Game extends Node2D
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
-@onready var ending_point: Node2D = $EndingPoint
-@onready var notes_container: NotesContainer = $EndingPoint/NotesContainer
-@onready var notes_detector: NotesDetector = $NotesDetector
-@onready var collect_detector: ShapeCast2D = $CollectDetector
-@onready var player_character: AnimatedSprite2D = $PlayerCharacter
-@onready var boss: AnimatedSprite2D = $Boss
+@onready var parser: Parser = $Parser
+@onready var player_character: AnimatedSprite2D = $Level/PlayerCharacter
+@onready var boss: AnimatedSprite2D = $Level/Boss
 @onready var player_health_bar: ProgressBar = $UI/PlayerHealthBar
 @onready var boss_health_bar: ProgressBar = $UI/BossHealthBar
-@onready var parser: Parser = $Parser
+@onready var level: Node2D = $Level
+
+@onready var ending_point: Node2D = $Level/RightHandPart/EndingPoint
+@onready var notes_container: NotesContainer = $Level/RightHandPart/EndingPoint/NotesContainer
+@onready var notes_detector: NotesDetector = $Level/RightHandPart/NotesDetector
+@onready var bottom_notes_detector: NotesDetector = $Level/RightHandPart/BottomNotesDetector
+
 
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
 static var game_won_scene: String = "res://scenes/game_won_screen.tscn"
 static var game_state: String = "Playing"
 
+
+@export_enum("treble","bass","both") var ui_type: String = "treble"
 @export var tempo: float = 122.0
 var level_length_in_bar: float = 0
 var player_health: float = 10
@@ -40,14 +45,16 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	note_play_position_x = notes_detector.position.x
-	starting_position = ending_point.position
-	
-	notes_container.construct_level(true, parser.get_melody_array_by_file("res://levels/melody1.txt"))
-	
+	initialize_part()
+	level.position = Vector2(0,0)
 	reset_health_bars()
 	music_player.play()
 
+func initialize_part(hand_parts: String = ui_type) -> void:
+	if hand_parts.to_lower() == "treble" or hand_parts.to_lower() == "both":
+		note_play_position_x = notes_detector.position.x
+		starting_position = ending_point.position
+		notes_container.construct_level(true, parser.get_melody_array_by_file("res://levels/melody1.txt"),parser.get_melody_array_by_file("res://levels/melody1.txt"))
 
 func _process(delta: float) -> void:
 	time_elapsed += delta
@@ -63,16 +70,21 @@ func _process(delta: float) -> void:
 	#print("CALCULATED LENGTH " + str(song_length))
 	
 	var normalized_song_position: float = music_player.get_playback_position() / song_length
-	ending_point.position.x = lerp(notes_container.get_size() -abs(note_play_position_x),note_play_position_x,normalized_song_position)
+	var starting_position_x: float = notes_container.get_size() -abs(note_play_position_x)
+	ending_point.position.x = lerp(starting_position_x,note_play_position_x,normalized_song_position)
+	if ending_point.position.x <= note_play_position_x:
+		print("finished level")
+		lose()
 	if just_started:
 		notes_detector.clear_notes()
+		bottom_notes_detector.clear_notes()
 		just_started = false
 	#print(ending_point.position.x)
 
 
 func _on_music_player_finished() -> void:
 	print("finished!")
-	#lose()
+	lose()
 
 func lose() -> void:
 	print("you lost")
@@ -90,9 +102,6 @@ func _on_hit_zone_body_entered(note: Note) -> void:
 	else:
 		print("not active, not interesting")
 
-
-func _on_notes_detector_body_entered(body: CollisionObject2D) -> void:
-	pass
 
 func hit_boss() -> void:
 	boss_health -= 1

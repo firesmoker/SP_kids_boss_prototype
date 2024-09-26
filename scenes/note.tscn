@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://tpxjljmfe1h4"]
+[gd_scene load_steps=10 format=3 uid="uid://tpxjljmfe1h4"]
 
 [ext_resource type="Texture2D" uid="uid://dpaw2m41p2vnb" path="res://art/quarter-note.png" id="1_0jib8"]
 [ext_resource type="Script" path="res://scenes/note.gd" id="1_76fco"]
 [ext_resource type="Shape2D" uid="uid://cgsxw2230xw1r" path="res://scene_resources/note_collider.tres" id="2_5sue0"]
+[ext_resource type="Texture2D" uid="uid://v2g43m5sw2ey" path="res://art/NoteRootHalf_Normal.png" id="3_0jx7u"]
+[ext_resource type="Texture2D" uid="uid://d072qrhd4wuv4" path="res://art/NoteRootRegular_Normal.png" id="4_7h3ec"]
+[ext_resource type="Texture2D" uid="uid://wghppccvk77v" path="res://art/NoteRootWhole_Normal.png" id="4_gauvo"]
+[ext_resource type="Shader" path="res://note.gdshader" id="7_taddg"]
+[ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="8_mbu8y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vs3fy"]
+resource_local_to_scene = true
+shader = ExtResource("7_taddg")
+shader_parameter/color = null
+shader_parameter/alpha = 1.0
 
 [node name="Note" type="AnimatableBody2D"]
 z_index = 1
@@ -10,7 +21,8 @@ scale = Vector2(0.21875, 0.21875)
 sync_to_physics = false
 script = ExtResource("1_76fco")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="old_sprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(2.08165e-12, -86.424)
 scale = Vector2(0.572, 0.572)
 texture = ExtResource("1_0jib8")
@@ -19,3 +31,45 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("2_5sue0")
 metadata/_edit_lock_ = true
+
+[node name="Eigth" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vs3fy")
+position = Vector2(0, -4)
+scale = Vector2(1.782, 2.192)
+texture = ExtResource("4_7h3ec")
+
+[node name="Quarter" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vs3fy")
+position = Vector2(0, -4)
+scale = Vector2(1.782, 2.192)
+texture = ExtResource("4_7h3ec")
+
+[node name="Half" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vs3fy")
+position = Vector2(0, -4)
+scale = Vector2(1.782, 2.192)
+texture = ExtResource("3_0jx7u")
+
+[node name="Whole" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vs3fy")
+position = Vector2(0, -4)
+scale = Vector2(1.782, 2.192)
+texture = ExtResource("4_gauvo")
+
+[node name="Stem" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vs3fy")
+position = Vector2(50.2857, -155.429)
+rotation = 1.5708
+scale = Vector2(2.192, 2.192)
+texture = ExtResource("8_mbu8y")
+
+[node name="HelperLine" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vs3fy")
+position = Vector2(1.14441e-05, -1.33514e-05)
+scale = Vector2(1.782, 1.842)
+texture = ExtResource("8_mbu8y")

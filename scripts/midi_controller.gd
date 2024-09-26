@@ -1,5 +1,5 @@
 extends Node
-
+@onready var notes_detector: NotesDetector = $"../Level/RightHandPart/NotesDetector"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	OS.open_midi_inputs()
@@ -41,10 +41,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		event_dump += "\n"
 
 		var key_index: int = event.pitch % 12
-
+		var note: String = OCTAVE_KEY_INDEX[key_index]
 		match event.message:
 			GlobalScope_MidiMessageList.MIDI_MESSAGE_NOTE_ON:
-				print("MIDI Key On: " + OCTAVE_KEY_INDEX[key_index])
+				print("MIDI Key On: " + note)
+				notes_detector.note_played(note)
 
 			GlobalScope_MidiMessageList.MIDI_MESSAGE_NOTE_OFF:
-				print("MIDI Key Off: " + OCTAVE_KEY_INDEX[key_index])
+				print("MIDI Key Off: " + note)
