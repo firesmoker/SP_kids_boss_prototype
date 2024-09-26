@@ -73,8 +73,8 @@ func set_level_size() -> void:
 
 func populate_from_melody_events(melody_events: Array, bottom_staff: bool = false) -> void:
 	for event: MelodyEvent in melody_events:
-		var pitch: String = event.note.strip_edges()
-		if pitch == "rest":
+		var pitch: String = event.value
+		if event.type == "rest":
 			var new_note: Note = rest_template.instantiate()
 			add_child(new_note)
 			new_note.set_duration_visual(event.duration)
@@ -87,13 +87,13 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			new_note.position.y = note_heigth_by_pitch["F4"]
 			if bottom_staff:
 				new_note.position.y += 265
-		elif pitch != "":
+		elif event.type == "note":
 			var new_note: Note = note_template.instantiate()
 			add_child(new_note)
 			new_note.position.x = event.time * bar_length_in_pixels - size / 2
 			new_note.pitch = pitch
 			new_note.set_duration_visual(event.duration)
-			new_note.position.y = note_heigth_by_pitch[event.note]
+			new_note.position.y = note_heigth_by_pitch[event.value]
 			if bottom_staff:
 				new_note.position.y += 265
 func populate() -> void:

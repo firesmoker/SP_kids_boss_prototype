@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=21 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://bjlm1urjx6yqc" path="res://audio/CountingStars_122bpm_new.wav" id="2_2kvrl"]
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
+[ext_resource type="Script" path="res://scripts/melody_parser.gd" id="4_kfvwp"]
 [ext_resource type="Texture2D" uid="uid://mhyt4iplkoff" path="res://art/icon.svg" id="4_o4vmb"]
 [ext_resource type="PackedScene" uid="uid://8ut73mldwxdn" path="res://scenes/staff.tscn" id="5_evl1e"]
 [ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
@@ -43,6 +44,7 @@ metadata/_edit_lock_ = true
 stream = ExtResource("2_2kvrl")
 
 [node name="Parser" parent="." instance=ExtResource("9_s4jiq")]
+script = ExtResource("4_kfvwp")
 metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
