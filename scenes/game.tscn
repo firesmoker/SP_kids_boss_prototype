@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=22 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://bjlm1urjx6yqc" path="res://audio/CountingStars_122bpm_new.wav" id="2_2kvrl"]
@@ -8,11 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://8ut73mldwxdn" path="res://scenes/staff.tscn" id="5_evl1e"]
 [ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
+[ext_resource type="PackedScene" uid="uid://cfv11oe8xstkg" path="res://scenes/bomb.tscn" id="7_c2exv"]
 [ext_resource type="PackedScene" uid="uid://cfosn0qs0t6mq" path="res://scenes/bar_line.tscn" id="7_crksr"]
 [ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
 [ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
 [ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
-[ext_resource type="PackedScene" path="res://scenes/midi.tscn" id="12_6nasv"]
+[ext_resource type="PackedScene" uid="uid://bxblwoncab6o8" path="res://scenes/midi.tscn" id="12_6nasv"]
 [ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="13_kq0an"]
 [ext_resource type="Texture2D" uid="uid://wppodch3hmut" path="res://art/BassClef.png" id="14_3a4yn"]
 [ext_resource type="Texture2D" uid="uid://yg0nr1qy20ge" path="res://art/TrebleClef.png" id="14_j4vp4"]
@@ -126,6 +127,7 @@ z_index = -2
 texture = SubResource("PlaceholderTexture2D_xdh2h")
 script = ExtResource("2_yqf4i")
 on_display_duration = 1.4
+bomb_template = ExtResource("7_c2exv")
 note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
 barline_template = ExtResource("7_crksr")

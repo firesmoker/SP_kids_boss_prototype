@@ -14,25 +14,27 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 		var duration: float = 0
 		event.time = current_time
 		section = section.strip_edges()
+		var parts: PackedStringArray = section.split(":") 
+		var note: String = ""
 		# Parse milestones (like CriticalSectionStart/End)
 		if section.begins_with("*") and section.ends_with(":*"):
 			event.type = "milestone"
 			section = section.replace("*", "").replace(":", "")
 		
-		# Parse collectibles
-		elif section.begins_with("&"):
-			event.type = "collectible"
-			section = section.replace("&", "")
-		
 		elif section.begins_with("-"):
 			event.type = "rest"
 			section = section.replace("-", "")
 		
+		elif section.contains("&"):
+			var collectible_parts: PackedStringArray = parts[0].split("&") 
+			event.type = "collectible"
+			event.subtype = collectible_parts[1].strip_edges()
+			note = collectible_parts[0].strip_edges()
 		else:
 			event.type = "note"
-		
-		var parts: PackedStringArray = section.split(":") 
-		event.value = parts[0].strip_edges()
+			note = parts[0].strip_edges()
+	
+		event.note = note
 		
 		var extraData: PackedStringArray
 		if parts.size() > 1:

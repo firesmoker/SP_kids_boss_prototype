@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfv11oe8xstkg"]
+
+[ext_resource type="Script" path="res://scenes/bomb.gd" id="1_0820r"]
+[ext_resource type="Shape2D" uid="uid://cgsxw2230xw1r" path="res://scene_resources/note_collider.tres" id="3_8o06o"]
+[ext_resource type="Texture2D" uid="uid://cselt7g0lnxne" path="res://art/CollectibleBomb.png" id="3_ropst"]
+[ext_resource type="Shader" path="res://note.gdshader" id="4_6b3tv"]
+[ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="8_q2xry"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vs3fy"]
+resource_local_to_scene = true
+shader = ExtResource("4_6b3tv")
+shader_parameter/color = null
+shader_parameter/alpha = 1.0
+
+[node name="Bomb" type="AnimatableBody2D"]
+z_index = 1
+scale = Vector2(0.21875, 0.21875)
+sync_to_physics = false
+script = ExtResource("1_0820r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_8o06o")
+metadata/_edit_lock_ = true
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(7.10543e-15, -22.8571)
+scale = Vector2(0.90625, 0.90625)
+texture = ExtResource("3_ropst")
+
+[node name="HelperLine" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vs3fy")
+position = Vector2(1.14441e-05, -1.33514e-05)
+scale = Vector2(1.782, 1.842)
+texture = ExtResource("8_q2xry")
