@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfosn0qs0t6mq"]
+[gd_scene load_steps=3 format=3 uid="uid://cfosn0qs0t6mq"]
 
+[ext_resource type="PackedScene" uid="uid://52rqdd7jwrnq" path="res://scenes/position_hider.tscn" id="2_fbjq5"]
 [ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="2_xvqls"]
 
 [node name="BarLine" type="Node2D"]
@@ -10,3 +11,6 @@ self_modulate = Color(0.244776, 0.244776, 0.244776, 1)
 rotation = 1.5708
 scale = Vector2(0.992621, 0.471632)
 texture = ExtResource("2_xvqls")
+
+[node name="PositionHider" parent="." instance=ExtResource("2_fbjq5")]
+x_hide_position = -440.0

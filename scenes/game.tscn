@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=65 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://bjlm1urjx6yqc" path="res://audio/CountingStars_122bpm_new.wav" id="2_2kvrl"]
@@ -11,20 +11,195 @@
 [ext_resource type="PackedScene" uid="uid://cfosn0qs0t6mq" path="res://scenes/bar_line.tscn" id="7_crksr"]
 [ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
 [ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
+[ext_resource type="Texture2D" uid="uid://d00ygxqd7xn3i" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_00.png" id="7_xv37p"]
+[ext_resource type="Texture2D" uid="uid://bdkxi6rumcjmv" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_01.png" id="8_aywtl"]
+[ext_resource type="Texture2D" uid="uid://c4cbr0ubbipgc" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_02.png" id="9_ossne"]
 [ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
+[ext_resource type="Texture2D" uid="uid://cgdyabswusic" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_03.png" id="10_nuo8l"]
+[ext_resource type="Texture2D" uid="uid://cxtmngoe2k8yr" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_04.png" id="11_64hqx"]
+[ext_resource type="Texture2D" uid="uid://mf34dtkpcxvt" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_05.png" id="12_0d2f4"]
 [ext_resource type="PackedScene" path="res://scenes/midi.tscn" id="12_6nasv"]
-[ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="13_kq0an"]
+[ext_resource type="Texture2D" uid="uid://e4lw16jg3ng1" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_06.png" id="13_spctx"]
 [ext_resource type="Texture2D" uid="uid://wppodch3hmut" path="res://art/BassClef.png" id="14_3a4yn"]
+[ext_resource type="Texture2D" uid="uid://blmu76wgd6r48" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_07.png" id="14_a4imh"]
 [ext_resource type="Texture2D" uid="uid://yg0nr1qy20ge" path="res://art/TrebleClef.png" id="14_j4vp4"]
 [ext_resource type="Texture2D" uid="uid://cusf6tvgw27f2" path="res://art/RhythmLineGlow.png" id="14_nko2d"]
+[ext_resource type="Texture2D" uid="uid://k1cer1k30p2q" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_08.png" id="15_gbgaq"]
+[ext_resource type="Texture2D" uid="uid://cdp6h1027ukip" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_09.png" id="16_m1q5i"]
+[ext_resource type="Texture2D" uid="uid://lv3vbtqalfpk" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_10.png" id="17_koes1"]
 [ext_resource type="Texture2D" uid="uid://bhdj1a803562e" path="res://art/Screenshot 2024-09-29 at 11.19.00.png" id="17_qf7u3"]
+[ext_resource type="Texture2D" uid="uid://chtp0yoritrwu" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_11.png" id="18_ccif6"]
+[ext_resource type="Texture2D" uid="uid://12br1h12n3v" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_12.png" id="19_awa3a"]
+[ext_resource type="Texture2D" uid="uid://bg3bwwwc7qrm6" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_13.png" id="20_1c0nm"]
+[ext_resource type="Texture2D" uid="uid://b2cdlh1jj5eh0" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_14.png" id="21_kynsv"]
+[ext_resource type="Texture2D" uid="uid://bchnk27fbx7em" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_15.png" id="22_xf45i"]
+[ext_resource type="Texture2D" uid="uid://blr2nlfyfu861" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_16.png" id="23_wydfu"]
+[ext_resource type="Texture2D" uid="uid://boe03kitllyud" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_17.png" id="24_rkgo7"]
+[ext_resource type="Texture2D" uid="uid://cdadf0acxuao4" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_18.png" id="25_xlxvp"]
+[ext_resource type="Texture2D" uid="uid://r6t4chx4k57b" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_19.png" id="26_8ogg3"]
+[ext_resource type="Texture2D" uid="uid://c80kktnslc5ua" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_20.png" id="27_qrhxq"]
+[ext_resource type="Texture2D" uid="uid://csf7x3htf7lkd" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_21.png" id="28_l4lx4"]
+[ext_resource type="Texture2D" uid="uid://bqykvf33hey22" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_22.png" id="29_qqr7f"]
+[ext_resource type="Texture2D" uid="uid://mjmkyre575c6" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_23.png" id="30_wavaj"]
+[ext_resource type="Texture2D" uid="uid://sek7wr778g6n" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_24.png" id="31_oma1w"]
+[ext_resource type="Texture2D" uid="uid://ro7563d1y2aa" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_25.png" id="32_3uur4"]
+[ext_resource type="Texture2D" uid="uid://bdag7fwrp4gik" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_26.png" id="33_7bu8t"]
+[ext_resource type="Texture2D" uid="uid://c60rls3oiidng" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_27.png" id="34_482u5"]
+[ext_resource type="Texture2D" uid="uid://dv3168v2nfv83" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_28.png" id="35_s8qk3"]
+[ext_resource type="Texture2D" uid="uid://bfs5j47888bx3" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_29.png" id="36_5qahn"]
+[ext_resource type="Texture2D" uid="uid://dw53r4l5paksx" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_30.png" id="37_gquri"]
+[ext_resource type="Texture2D" uid="uid://baym3jv4bkx4r" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_31.png" id="38_4hw3e"]
+[ext_resource type="Texture2D" uid="uid://ghgbjckb5qjw" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_32.png" id="39_u2kx6"]
+[ext_resource type="Texture2D" uid="uid://bemcqmhg4gtq1" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_33.png" id="40_dv2mn"]
+[ext_resource type="Texture2D" uid="uid://dhcttwk3xreda" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_34.png" id="41_rl6on"]
+[ext_resource type="Texture2D" uid="uid://ckforkbvi1b2d" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_35.png" id="42_svlkf"]
+[ext_resource type="Texture2D" uid="uid://cqo7k5kpug5vh" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_36.png" id="43_wxxwc"]
+[ext_resource type="Texture2D" uid="uid://cr88pp45scc6x" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_37.png" id="44_t3cy8"]
+[ext_resource type="Texture2D" uid="uid://cqvwk75b8pmq8" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_38.png" id="45_4qyo3"]
+[ext_resource type="Texture2D" uid="uid://dpi4naparb04r" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_39.png" id="46_l05oo"]
+[ext_resource type="PackedScene" uid="uid://ss27dg0sy7a6" path="res://scenes/flash.tscn" id="57_hg35f"]
+[ext_resource type="Texture2D" uid="uid://c16dmtjv13k35" path="res://art/Elements/Platformer packs V01/Png/Accessories/Artboard 1.png" id="58_ovvpk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
-size = Vector2(128, 462)
+size = Vector2(128, 547.385)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dm63f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xv37p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_aywtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ossne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nuo8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_64hqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0d2f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_spctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_a4imh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gbgaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_m1q5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_koes1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ccif6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_awa3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1c0nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_kynsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xf45i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wydfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_rkgo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_xlxvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_8ogg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_qrhxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_l4lx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_qqr7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_wavaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_oma1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_3uur4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_7bu8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_482u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_s8qk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_5qahn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_gquri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_4hw3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_u2kx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_dv2mn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_rl6on")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_svlkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_wxxwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_t3cy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_4qyo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_l05oo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xdh2h"]
 resource_local_to_scene = true
 size = Vector2(500, 50)
+
+[sub_resource type="Gradient" id="Gradient_6smsb"]
+offsets = PackedFloat32Array(0, 0.00881057)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oay21"]
+gradient = SubResource("Gradient_6smsb")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ncon4")
@@ -43,33 +218,36 @@ layer = -1
 self_modulate = Color(1, 0.34902, 0.341176, 1)
 top_level = true
 z_index = 1
-offset_left = 53.0
-offset_top = 35.0
-offset_right = 278.0
-offset_bottom = 64.0
+anchors_preset = -1
+anchor_left = -0.0127119
+offset_left = 82.0
+offset_top = 37.0
+offset_right = 345.0
+offset_bottom = 77.0
 value = 100.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="BossHealthBar" type="ProgressBar" parent="UI"]
 self_modulate = Color(1, 0.34902, 0.341176, 1)
 top_level = true
 z_index = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.967797
 anchor_right = 1.0
-offset_left = -486.0
-offset_top = 34.0
-offset_right = -261.0
-offset_bottom = 63.0
+anchor_bottom = 0.0134146
+offset_left = -306.0
+offset_top = 37.0
+offset_right = -66.0
+offset_bottom = 66.0
 grow_horizontal = 0
 value = 100.0
+fill_mode = 1
 show_percentage = false
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="UI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -85,7 +263,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_qf7u3")
-expand_mode = 1
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI"]
+offset_left = 32.0
+offset_top = -176.0
+offset_right = 310.0
+offset_bottom = -136.0
+value = 100.0
 
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(592, 411)
@@ -99,9 +286,10 @@ z_index = 2
 position = Vector2(-418.032, 17.2064)
 scale = Vector2(0.643881, 0.643881)
 sprite_frames = ExtResource("4_0nn2k")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.465292
+frame = 29
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="HitZone" type="Area2D" parent="Level/PlayerCharacter"]
@@ -109,8 +297,12 @@ monitorable = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlayerCharacter/HitZone"]
+position = Vector2(0, -42.6924)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fef26")
 metadata/_edit_lock_ = true
+
+[node name="Flash" parent="Level/PlayerCharacter" instance=ExtResource("57_hg35f")]
 
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
 z_index = 2
@@ -119,8 +311,29 @@ scale = Vector2(0.738213, 0.738213)
 sprite_frames = ExtResource("4_ygwuk")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.987523
 metadata/_edit_lock_ = true
+
+[node name="BossHitZone" type="Area2D" parent="Level/Boss"]
+position = Vector2(-118.519, 33.9515)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Boss/BossHitZone"]
+position = Vector2(0, -42.6924)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fef26")
+metadata/_edit_lock_ = true
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Level/Boss"]
+
+[node name="Flash" parent="Level/Boss" instance=ExtResource("57_hg35f")]
+
+[node name="Heart" type="AnimatedSprite2D" parent="Level"]
+z_index = 2
+position = Vector2(-437.644, -286.975)
+scale = Vector2(0.377954, 0.377954)
+sprite_frames = SubResource("SpriteFrames_dm63f")
+frame = 39
+frame_progress = 1.0
 
 [node name="RightHandPart" type="Node2D" parent="Level"]
 position = Vector2(-52.0317, -120.794)
@@ -144,9 +357,8 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="NotesDetector" type="Area2D" parent="Level/RightHandPart"]
-position = Vector2(-200, -50)
+position = Vector2(-237.54, -50)
 script = ExtResource("6_gcv22")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/NotesDetector"]
 position = Vector2(0, 42.375)
@@ -155,17 +367,10 @@ debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
 metadata/_edit_lock_ = true
 
 [node name="BlueLine" type="Node2D" parent="Level/RightHandPart/NotesDetector"]
+visible = false
 modulate = Color(0.443137, 1, 1, 0.552941)
 position = Vector2(-1, 78)
 scale = Vector2(2.65, 2.65)
-metadata/_edit_lock_ = true
-
-[node name="Sprite" type="Sprite2D" parent="Level/RightHandPart/NotesDetector/BlueLine"]
-visible = false
-self_modulate = Color(0.303233, 0.303233, 0.303233, 1)
-rotation = 1.5708
-scale = Vector2(0.992621, 0.471632)
-texture = ExtResource("13_kq0an")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2" type="Sprite2D" parent="Level/RightHandPart/NotesDetector/BlueLine"]
@@ -175,9 +380,8 @@ texture = ExtResource("14_nko2d")
 metadata/_edit_lock_ = true
 
 [node name="BottomNotesDetector" type="Area2D" parent="Level/RightHandPart"]
-position = Vector2(-200, 200)
+position = Vector2(-237.54, 200)
 script = ExtResource("6_gcv22")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/BottomNotesDetector"]
 position = Vector2(0, 60.625)
@@ -186,17 +390,10 @@ debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
 metadata/_edit_lock_ = true
 
 [node name="BottomBlueLine" type="Node2D" parent="Level/RightHandPart/BottomNotesDetector"]
+visible = false
 modulate = Color(0.443137, 1, 1, 0.552941)
 position = Vector2(-1, 93.0001)
 scale = Vector2(2.65, 2.65)
-metadata/_edit_lock_ = true
-
-[node name="Sprite" type="Sprite2D" parent="Level/RightHandPart/BottomNotesDetector/BottomBlueLine"]
-visible = false
-self_modulate = Color(0.303233, 0.303233, 0.303233, 1)
-rotation = 1.5708
-scale = Vector2(0.992621, 0.471632)
-texture = ExtResource("13_kq0an")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2" type="Sprite2D" parent="Level/RightHandPart/BottomNotesDetector/BottomBlueLine"]
@@ -233,6 +430,15 @@ metadata/_edit_lock_ = true
 position = Vector2(54.063, 226.25)
 scale = Vector2(4.74062, 1.00024)
 
+[node name="ElectricBeam" type="Sprite2D" parent="Level/RightHandPart"]
+modulate = Color(0.501961, 1, 0.980392, 0.72549)
+z_index = -1
+position = Vector2(-238.595, 116.07)
+scale = Vector2(0.870039, 5.55914)
+texture = SubResource("GradientTexture2D_oay21")
+
+[node name="Flash" parent="Level/RightHandPart/ElectricBeam" instance=ExtResource("57_hg35f")]
+
 [node name="Screenshot2024-09-29At11_19_00" type="Sprite2D" parent="Level"]
 visible = false
 self_modulate = Color(1, 1, 1, 0.701961)
@@ -243,10 +449,21 @@ scale = Vector2(0.382283, 0.382283)
 texture = ExtResource("17_qf7u3")
 metadata/_edit_lock_ = true
 
+[node name="UpperDetector" type="Sprite2D" parent="Level"]
+position = Vector2(-242.148, -187.386)
+scale = Vector2(0.220225, 0.220225)
+texture = ExtResource("58_ovvpk")
+
+[node name="LowerDetector" type="Sprite2D" parent="Level"]
+position = Vector2(-242.148, 134.921)
+scale = Vector2(0.220225, 0.220225)
+texture = ExtResource("58_ovvpk")
+
 [node name="Midi" parent="." instance=ExtResource("12_6nasv")]
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 [connection signal="body_entered" from="Level/PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]
+[connection signal="body_entered" from="Level/Boss/BossHitZone" to="." method="_on_boss_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/RightHandPart/NotesDetector" to="." method="_on_notes_detector_body_entered"]
 [connection signal="body_entered" from="Level/RightHandPart/NotesDetector" to="Level/RightHandPart/NotesDetector" method="_on_body_entered"]
 [connection signal="body_exited" from="Level/RightHandPart/NotesDetector" to="Level/RightHandPart/NotesDetector" method="_on_body_exited"]

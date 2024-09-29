@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://52rqdd7jwrnq"]
+
+[ext_resource type="Script" path="res://scripts/position_hider.gd" id="1_aaeq0"]
+
+[node name="PositionHider" type="Node2D"]
+script = ExtResource("1_aaeq0")

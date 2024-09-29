@@ -7,6 +7,7 @@ class_name Game extends Node2D
 @onready var player_health_bar: ProgressBar = $UI/PlayerHealthBar
 @onready var boss_health_bar: ProgressBar = $UI/BossHealthBar
 @onready var level: Node2D = $Level
+@onready var electric_beam: Sprite2D = $Level/RightHandPart/ElectricBeam
 
 @onready var ending_point: Node2D = $Level/RightHandPart/EndingPoint
 @onready var notes_container: NotesContainer = $Level/RightHandPart/EndingPoint/NotesContainer
@@ -33,7 +34,7 @@ var time_elapsed: float = 0
 var vulnerable: bool = false
 var note_play_position_x: float
 var just_started: bool = true
-
+var detector_position_x: float = -200
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -49,6 +50,7 @@ func _ready() -> void:
 	level.position = Vector2(0,0)
 	reset_health_bars()
 	music_player.play()
+	detector_position_x = notes_detector.position.x
 
 func initialize_part(hand_parts: String = ui_type) -> void:
 	if hand_parts.to_lower() == "treble" or hand_parts.to_lower() == "both":
@@ -58,6 +60,10 @@ func initialize_part(hand_parts: String = ui_type) -> void:
 										parser.get_melody_array_by_file("res://levels/melody1_left.txt"))
 
 func _process(delta: float) -> void:
+	if not boss.is_playing():
+		boss.play("idle")
+	if not player_character.is_playing():
+		player_character.play("idle")
 	time_elapsed += delta
 	if time_elapsed > vul_time:
 		vulnerable = true
@@ -102,13 +108,19 @@ func _on_hit_zone_body_entered(note: Note) -> void:
 
 
 func hit_boss() -> void:
+	electric_beam.find_child("Flash").flash()
+	player_character.stop()
+	player_character.play("attack")
+	boss.find_child("Flash").flash(Color.RED)
 	boss_health -= 1
 	boss_health_bar.value = boss_health
+	boss.play("get_hit")
 	if boss_health <= 0:
 		win()
 
 func get_hit() -> void:
 	if vulnerable:
+		player_character.find_child("Flash").flash(Color.RED)
 		player_health -= 1
 		player_health_bar.value = player_health
 	else:
@@ -119,3 +131,8 @@ func reset_health_bars() -> void:
 	player_health_bar.value = player_health
 	boss_health_bar.max_value = boss_health
 	boss_health_bar.value = boss_health
+
+
+func _on_boss_hit_zone_body_entered(note: Note) -> void:
+	if note.state.to_lower() != "rest":
+		boss.play("attack")
