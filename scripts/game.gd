@@ -54,7 +54,8 @@ func initialize_part(hand_parts: String = ui_type) -> void:
 	if hand_parts.to_lower() == "treble" or hand_parts.to_lower() == "both":
 		note_play_position_x = notes_detector.position.x
 		starting_position = ending_point.position
-		notes_container.construct_level(true, parser.get_melody_array_by_file("res://levels/melody1.txt"),parser.get_melody_array_by_file("res://levels/melody1.txt"))
+		notes_container.construct_level(true, parser.get_melody_array_by_file("res://levels/melody1.txt"),
+										parser.get_melody_array_by_file("res://levels/melody1_left.txt"))
 
 func _process(delta: float) -> void:
 	time_elapsed += delta
@@ -63,11 +64,9 @@ func _process(delta: float) -> void:
 		
 	var stream: AudioStream = music_player.stream
 	var song_length: float = stream.get_length()
-	#print("FILE LENGTH " + str(song_length))
 	
 	level_length_in_bar = notes_container.level_length_in_bars
 	song_length = (60.0 / tempo) * 4.0 * level_length_in_bar
-	#print("CALCULATED LENGTH " + str(song_length))
 	
 	var normalized_song_position: float = music_player.get_playback_position() / song_length
 	var starting_position_x: float = notes_container.get_size() -abs(note_play_position_x)
@@ -79,7 +78,6 @@ func _process(delta: float) -> void:
 		notes_detector.clear_notes()
 		bottom_notes_detector.clear_notes()
 		just_started = false
-	#print(ending_point.position.x)
 
 
 func _on_music_player_finished() -> void:

@@ -5,7 +5,7 @@
 [node name="BarLine" type="Node2D"]
 
 [node name="Sprite" type="Sprite2D" parent="."]
-self_modulate = Color(0.303233, 0.303233, 0.303233, 1)
+self_modulate = Color(0.244776, 0.244776, 0.244776, 1)
 rotation = 1.5708
 scale = Vector2(0.992621, 0.471632)
 texture = ExtResource("2_xvqls")

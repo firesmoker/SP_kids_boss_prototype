@@ -92,6 +92,7 @@ metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter" type="AnimatedSprite2D" parent="Level"]
 self_modulate = Color(0.462745, 1, 0.466667, 1)
+z_index = 2
 position = Vector2(-489, -25)
 scale = Vector2(1.0625, 2.57812)
 sprite_frames = SubResource("SpriteFrames_awi4x")
@@ -106,6 +107,7 @@ metadata/_edit_lock_ = true
 
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
 self_modulate = Color(1, 0.34902, 0.341176, 1)
+z_index = 2
 position = Vector2(492, -25)
 scale = Vector2(1.07031, 2.57812)
 sprite_frames = SubResource("SpriteFrames_awi4x")

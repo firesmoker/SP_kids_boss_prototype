@@ -51,11 +51,15 @@ func create_bar_lines(two_staves: bool = false) -> void:
 		var new_barline: Node2D = barline_template.instantiate()
 		add_child(new_barline)
 		new_barline.position.x = left_edge_position + (i - 1) * bar_length_in_pixels - barline_offset
+		if i == level_length_in_bars + 1:
+			new_barline.scale.x *= 3
 		if two_staves:
 			var new_bottom_barline: Node2D = barline_template.instantiate()
 			add_child(new_bottom_barline)
 			new_bottom_barline.position.x = left_edge_position + (i - 1) * bar_length_in_pixels - barline_offset
 			new_bottom_barline.position.y += 265
+			if i == level_length_in_bars + 1:
+				new_bottom_barline.scale.x *= 3
 
 func get_level_length_from_melody_event(melody_events: Array = []) -> float:
 	var duration_sum: float = 0.0
