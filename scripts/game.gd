@@ -17,7 +17,6 @@ class_name Game extends Node2D
 @onready var notes_detector: NotesDetector = $Level/RightHandPart/NotesDetector
 @onready var bottom_notes_detector: NotesDetector = $Level/RightHandPart/BottomNotesDetector
 
-@export var slow_down_percentage: float = 0.8
 @export var accelerate_sound: AudioStream
 @export var slow_down_sound: AudioStream
 
@@ -29,9 +28,11 @@ static var game_state: String = "Playing"
 
 @export_enum("treble","bass","both") var ui_type: String = "treble"
 @export var tempo: float = 122.0
+@export var slow_down_percentage: float = 0.8
+@export var slow_timer: float = 3.5
 var level_length_in_bar: float = 0
 var player_health: float = 10
-var boss_health: float = 10
+var boss_health: float = 5
 var DamageFromBoss: float = 1
 var DamageFromPlayer: float = 1
 var starting_position: Vector2
@@ -42,23 +43,38 @@ var note_play_position_x: float
 var just_started: bool = true
 var slow_down: bool = false
 var detector_position_x: float = -200
+var winning: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
+		level_accelerate()
+	elif event.is_action_pressed("ui_down"):
+		level_slow_down()
+
+func level_accelerate() -> void:
+	if slow_down != false:
 		audio.stream = accelerate_sound
 		audio.play()
 		slow_down = false
 		music_player.play(music_player_slow.get_playback_position() * slow_down_percentage)
 		music_player_slow.stop()
 		vignette.find_child("Fader").fade_out()
-	elif event.is_action_pressed("ui_down"):
+
+func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
+	if slow_down != true:
 		audio.stream = slow_down_sound
 		audio.play()
 		slow_down = true
 		music_player_slow.play(music_player.get_playback_position() * (1 / slow_down_percentage))
 		music_player.stop()
 		vignette.find_child("Fader").fade_in()
-
+		if timed:
+			var timer: Timer = Timer.new()
+			add_child(timer)
+			timer.wait_time = wait_time
+			timer.start()
+			await timer.timeout
+			level_accelerate()
 
 func _ready() -> void:
 	initialize_part()
@@ -75,6 +91,8 @@ func initialize_part(hand_parts: String = ui_type) -> void:
 										parser.get_melody_array_by_file("res://levels/melody1_left.txt"))
 
 func _process(delta: float) -> void:
+	if game_state == "Win":
+		get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 	if not boss.is_playing():
 		boss.play("idle")
 	if not player_character.is_playing():
@@ -97,7 +115,10 @@ func _process(delta: float) -> void:
 	ending_point.position.x = lerp(starting_position_x,note_play_position_x,normalized_song_position)
 	if ending_point.position.x <= note_play_position_x:
 		print("finished level")
-		lose()
+		if not winning:
+			lose()
+		else:
+			print("boss is dying, no lose for you")
 	if just_started:
 		notes_detector.clear_notes()
 		bottom_notes_detector.clear_notes()
@@ -113,9 +134,13 @@ func lose() -> void:
 	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 
 func win() -> void:
+	winning = true
+	print("you won!")
+	boss.stop()
+	boss.play("death")
+	await boss.animation_finished
 	game_state = "Win"
-	print("you lost")
-	get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
+	#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 
 
 func _on_hit_zone_body_entered(note: Note) -> void:

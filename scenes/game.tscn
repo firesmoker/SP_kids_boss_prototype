@@ -1,13 +1,13 @@
-[gd_scene load_steps=70 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=71 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
 [ext_resource type="AudioStream" uid="uid://bjlm1urjx6yqc" path="res://audio/CountingStars_122bpm_new.wav" id="2_2kvrl"]
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
-[ext_resource type="AudioStream" uid="uid://tyaumce5rtq2" path="res://audio/CountingStars_122bpm_new_SLOW80.wav" id="3_30jei"]
 [ext_resource type="AudioStream" uid="uid://cecsfx8a75o5a" path="res://audio/slow_down_2.wav" id="3_h2mfw"]
 [ext_resource type="SpriteFrames" uid="uid://bisacmhheclp8" path="res://scene_resources/player_animations.tres" id="4_0nn2k"]
 [ext_resource type="SpriteFrames" uid="uid://ubtr21y8pmtc" path="res://scene_resources/boss_animations.tres" id="4_ygwuk"]
+[ext_resource type="AudioStream" uid="uid://8xiwgpgegdvn" path="res://audio/CountingStars_122bpm_new_SLOW70.wav" id="5_0ilbi"]
 [ext_resource type="PackedScene" uid="uid://8ut73mldwxdn" path="res://scenes/staff.tscn" id="5_evl1e"]
 [ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
 [ext_resource type="Texture2D" uid="uid://cgdyabswusic" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_03.png" id="10_nuo8l"]
 [ext_resource type="Texture2D" uid="uid://cxtmngoe2k8yr" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_04.png" id="11_64hqx"]
+[ext_resource type="Texture2D" uid="uid://b1mxrg203o4j1" path="res://art/Elements/Characters/Enemy/skeleton-Idle_0.png" id="11_ryrci"]
 [ext_resource type="Texture2D" uid="uid://mf34dtkpcxvt" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_05.png" id="12_0d2f4"]
 [ext_resource type="PackedScene" path="res://scenes/midi.tscn" id="12_6nasv"]
 [ext_resource type="Texture2D" uid="uid://e4lw16jg3ng1" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_06.png" id="13_spctx"]
@@ -62,7 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://dpi4naparb04r" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_39.png" id="46_l05oo"]
 [ext_resource type="PackedScene" uid="uid://ss27dg0sy7a6" path="res://scenes/flash.tscn" id="57_hg35f"]
 [ext_resource type="Texture2D" uid="uid://c16dmtjv13k35" path="res://art/Elements/Platformer packs V01/Png/Accessories/Artboard 1.png" id="58_ovvpk"]
-[ext_resource type="Texture2D" uid="uid://ueok5jf4h4m0" path="res://audio/pngfind.com-gfx-png-2552685.png" id="62_sh2xx"]
+[ext_resource type="Texture2D" uid="uid://ueok5jf4h4m0" path="res://art/vignette.png" id="62_sh2xx"]
 [ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="63_jfxac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
@@ -210,6 +211,7 @@ gradient = SubResource("Gradient_6smsb")
 script = ExtResource("1_ncon4")
 accelerate_sound = ExtResource("2_2fv50")
 slow_down_sound = ExtResource("3_h2mfw")
+slow_down_percentage = 0.7
 metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
@@ -218,7 +220,7 @@ metadata/_edit_lock_ = true
 stream = ExtResource("2_2kvrl")
 
 [node name="MusicPlayerSlow" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_30jei")
+stream = ExtResource("5_0ilbi")
 
 [node name="Parser" parent="." instance=ExtResource("9_s4jiq")]
 metadata/_edit_lock_ = true
@@ -229,7 +231,7 @@ layer = -1
 [node name="PlayerHealthBar" type="ProgressBar" parent="UI"]
 self_modulate = Color(1, 0.34902, 0.341176, 1)
 top_level = true
-z_index = 1
+z_index = 4096
 anchors_preset = -1
 anchor_left = -0.0127119
 offset_left = 82.0
@@ -243,7 +245,7 @@ metadata/_edit_use_anchors_ = true
 [node name="BossHealthBar" type="ProgressBar" parent="UI"]
 self_modulate = Color(1, 0.34902, 0.341176, 1)
 top_level = true
-z_index = 1
+z_index = 4096
 anchors_preset = -1
 anchor_left = 0.967797
 anchor_right = 1.0
@@ -311,7 +313,6 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlayerCharacter/HitZone"]
 position = Vector2(0, -42.6924)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fef26")
 metadata/_edit_lock_ = true
 
@@ -322,7 +323,7 @@ z_index = 2
 position = Vector2(427.968, -33.7936)
 scale = Vector2(0.738213, 0.738213)
 sprite_frames = ExtResource("4_ygwuk")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 
@@ -332,13 +333,18 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Boss/BossHitZone"]
 position = Vector2(0, -42.6924)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fef26")
 metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Level/Boss"]
 
 [node name="Flash" parent="Level/Boss" instance=ExtResource("57_hg35f")]
+
+[node name="BossPortrait" type="Sprite2D" parent="Level"]
+z_index = 2
+position = Vector2(400.794, -284.921)
+scale = Vector2(0.793651, 0.793651)
+texture = ExtResource("11_ryrci")
 
 [node name="Heart" type="AnimatedSprite2D" parent="Level"]
 z_index = 2
@@ -476,6 +482,7 @@ texture = ExtResource("58_ovvpk")
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.913103, 0.913103)
 texture = ExtResource("62_sh2xx")
+metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Level/Vignette" instance=ExtResource("63_jfxac")]
 
