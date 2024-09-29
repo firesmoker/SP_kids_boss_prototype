@@ -1,6 +1,8 @@
 class_name Game extends Node2D
 
+@onready var audio: AudioStreamPlayer = $Audio
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var music_player_slow: AudioStreamPlayer = $MusicPlayerSlow
 @onready var parser: Parser = $Parser
 @onready var player_character: AnimatedSprite2D = $Level/PlayerCharacter
 @onready var boss: AnimatedSprite2D = $Level/Boss
@@ -8,12 +10,16 @@ class_name Game extends Node2D
 @onready var boss_health_bar: ProgressBar = $UI/BossHealthBar
 @onready var level: Node2D = $Level
 @onready var electric_beam: Sprite2D = $Level/RightHandPart/ElectricBeam
+@onready var vignette: Sprite2D = $Level/Vignette
 
 @onready var ending_point: Node2D = $Level/RightHandPart/EndingPoint
 @onready var notes_container: NotesContainer = $Level/RightHandPart/EndingPoint/NotesContainer
 @onready var notes_detector: NotesDetector = $Level/RightHandPart/NotesDetector
 @onready var bottom_notes_detector: NotesDetector = $Level/RightHandPart/BottomNotesDetector
 
+@export var slow_down_percentage: float = 0.8
+@export var accelerate_sound: AudioStream
+@export var slow_down_sound: AudioStream
 
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
@@ -34,15 +40,24 @@ var time_elapsed: float = 0
 var vulnerable: bool = false
 var note_play_position_x: float
 var just_started: bool = true
+var slow_down: bool = false
 var detector_position_x: float = -200
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
-		music_player.pitch_scale += 0.2
+		audio.stream = accelerate_sound
+		audio.play()
+		slow_down = false
+		music_player.play(music_player_slow.get_playback_position() * slow_down_percentage)
+		music_player_slow.stop()
+		vignette.find_child("Fader").fade_out()
 	elif event.is_action_pressed("ui_down"):
-		music_player.pitch_scale -= 0.2
-	#if event.is_action_pressed("ui_accept"):
-		#pass
+		audio.stream = slow_down_sound
+		audio.play()
+		slow_down = true
+		music_player_slow.play(music_player.get_playback_position() * (1 / slow_down_percentage))
+		music_player.stop()
+		vignette.find_child("Fader").fade_in()
 
 
 func _ready() -> void:
@@ -75,6 +90,9 @@ func _process(delta: float) -> void:
 	song_length = (60.0 / tempo) * 4.0 * level_length_in_bar
 	
 	var normalized_song_position: float = music_player.get_playback_position() / song_length
+	if slow_down:
+		song_length = (60.0 / (tempo * slow_down_percentage)) * 4.0 * level_length_in_bar
+		normalized_song_position = music_player_slow.get_playback_position() / song_length
 	var starting_position_x: float = notes_container.get_size() -abs(note_play_position_x)
 	ending_point.position.x = lerp(starting_position_x,note_play_position_x,normalized_song_position)
 	if ending_point.position.x <= note_play_position_x:
