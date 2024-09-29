@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b1neu5mwv50lt" path="res://art/Music-staff.png" id="1_0od3r"]
 
 [sub_resource type="Gradient" id="Gradient_eiuy8"]
-offsets = PackedFloat32Array(0, 0.015)
+offsets = PackedFloat32Array(0, 0.00440529)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lo1rx"]
 gradient = SubResource("Gradient_eiuy8")

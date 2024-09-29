@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://sminf2pnhpah"
+path="res://.godot/imported/Sound Response - 8 Bit Retro - Power up Trophy .wav-8078ad6d9122fc902d5769754ce8369a.sample"
+
+[deps]
+
+source_file="res://audio/Sound Response - 8 Bit Retro - Power up Trophy .wav"
+dest_files=["res://.godot/imported/Sound Response - 8 Bit Retro - Power up Trophy .wav-8078ad6d9122fc902d5769754ce8369a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

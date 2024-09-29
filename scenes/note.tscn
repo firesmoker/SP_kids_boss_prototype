@@ -17,7 +17,7 @@ shader_parameter/alpha = 1.0
 
 [node name="Note" type="AnimatableBody2D"]
 z_index = 1
-scale = Vector2(0.21875, 0.21875)
+scale = Vector2(0.175, 0.175)
 sync_to_physics = false
 script = ExtResource("1_76fco")
 
@@ -38,13 +38,14 @@ material = SubResource("ShaderMaterial_vs3fy")
 position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)
 texture = ExtResource("4_7h3ec")
+metadata/_edit_lock_ = true
 
 [node name="Quarter" type="Sprite2D" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_vs3fy")
 position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)
 texture = ExtResource("4_7h3ec")
+metadata/_edit_lock_ = true
 
 [node name="Half" type="Sprite2D" parent="."]
 visible = false
@@ -52,6 +53,7 @@ material = SubResource("ShaderMaterial_vs3fy")
 position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)
 texture = ExtResource("3_0jx7u")
+metadata/_edit_lock_ = true
 
 [node name="Whole" type="Sprite2D" parent="."]
 visible = false
@@ -59,17 +61,22 @@ material = SubResource("ShaderMaterial_vs3fy")
 position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)
 texture = ExtResource("4_gauvo")
-
-[node name="Stem" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_vs3fy")
-position = Vector2(50.2857, -155.429)
-rotation = 1.5708
-scale = Vector2(2.192, 2.192)
-texture = ExtResource("8_mbu8y")
+metadata/_edit_lock_ = true
 
 [node name="HelperLine" type="Sprite2D" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_vs3fy")
 position = Vector2(1.14441e-05, -1.33514e-05)
 scale = Vector2(1.782, 1.842)
+texture = ExtResource("8_mbu8y")
+metadata/_edit_lock_ = true
+
+[node name="Stem" type="Sprite2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Stem" type="Sprite2D" parent="Stem"]
+material = SubResource("ShaderMaterial_vs3fy")
+position = Vector2(50.2857, -155.429)
+rotation = 1.5708
+scale = Vector2(2.192, 2.192)
 texture = ExtResource("8_mbu8y")

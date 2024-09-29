@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=21 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://bjlm1urjx6yqc" path="res://audio/CountingStars_122bpm_new.wav" id="2_2kvrl"]
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
-[ext_resource type="Texture2D" uid="uid://mhyt4iplkoff" path="res://art/icon.svg" id="4_o4vmb"]
+[ext_resource type="SpriteFrames" uid="uid://bisacmhheclp8" path="res://scene_resources/player_animations.tres" id="4_0nn2k"]
+[ext_resource type="SpriteFrames" uid="uid://ubtr21y8pmtc" path="res://scene_resources/boss_animations.tres" id="4_ygwuk"]
 [ext_resource type="PackedScene" uid="uid://8ut73mldwxdn" path="res://scenes/staff.tscn" id="5_evl1e"]
 [ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
@@ -16,20 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://wppodch3hmut" path="res://art/BassClef.png" id="14_3a4yn"]
 [ext_resource type="Texture2D" uid="uid://yg0nr1qy20ge" path="res://art/TrebleClef.png" id="14_j4vp4"]
 [ext_resource type="Texture2D" uid="uid://cusf6tvgw27f2" path="res://art/RhythmLineGlow.png" id="14_nko2d"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_awi4x"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_o4vmb")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://bhdj1a803562e" path="res://art/Screenshot 2024-09-29 at 11.19.00.png" id="17_qf7u3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
-size = Vector2(128, 128)
+size = Vector2(128, 462)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xdh2h"]
 resource_local_to_scene = true
@@ -52,12 +43,14 @@ layer = -1
 self_modulate = Color(1, 0.34902, 0.341176, 1)
 top_level = true
 z_index = 1
-offset_left = 6.0
-offset_top = 52.0
-offset_right = 194.0
-offset_bottom = 79.0
+offset_left = 53.0
+offset_top = 35.0
+offset_right = 278.0
+offset_bottom = 64.0
 value = 100.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="BossHealthBar" type="ProgressBar" parent="UI"]
 self_modulate = Color(1, 0.34902, 0.341176, 1)
@@ -66,13 +59,15 @@ z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -194.0
-offset_top = 55.0
-offset_right = -6.0
-offset_bottom = 82.0
+offset_left = -486.0
+offset_top = 34.0
+offset_right = -261.0
+offset_bottom = 63.0
 grow_horizontal = 0
 value = 100.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="UI"]
 anchors_preset = 15
@@ -83,19 +78,31 @@ grow_vertical = 2
 color = Color(0.311055, 0.000693503, 0.462134, 1)
 metadata/_edit_lock_ = true
 
+[node name="TextureRect" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_qf7u3")
+expand_mode = 1
+
 [node name="Level" type="Node2D" parent="."]
-position = Vector2(575, 324)
-metadata/_edit_lock_ = true
+position = Vector2(592, 411)
+scale = Vector2(1.26, 1.26)
 
 [node name="Camera" type="Camera2D" parent="Level"]
 metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter" type="AnimatedSprite2D" parent="Level"]
-self_modulate = Color(0.462745, 1, 0.466667, 1)
 z_index = 2
-position = Vector2(-489, -25)
-scale = Vector2(1.0625, 2.57812)
-sprite_frames = SubResource("SpriteFrames_awi4x")
+position = Vector2(-418.032, 17.2064)
+scale = Vector2(0.643881, 0.643881)
+sprite_frames = ExtResource("4_0nn2k")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.465292
+metadata/_edit_lock_ = true
 
 [node name="HitZone" type="Area2D" parent="Level/PlayerCharacter"]
 monitorable = false
@@ -106,15 +113,19 @@ shape = SubResource("RectangleShape2D_fef26")
 metadata/_edit_lock_ = true
 
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
-self_modulate = Color(1, 0.34902, 0.341176, 1)
 z_index = 2
-position = Vector2(492, -25)
-scale = Vector2(1.07031, 2.57812)
-sprite_frames = SubResource("SpriteFrames_awi4x")
+position = Vector2(427.968, -33.7936)
+scale = Vector2(0.738213, 0.738213)
+sprite_frames = ExtResource("4_ygwuk")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.987523
+metadata/_edit_lock_ = true
 
 [node name="RightHandPart" type="Node2D" parent="Level"]
-position = Vector2(-156, -120)
+position = Vector2(-52.0317, -120.794)
 scale = Vector2(0.8, 0.8)
+metadata/_edit_lock_ = true
 
 [node name="EndingPoint" type="Node2D" parent="Level/RightHandPart"]
 z_index = 1
@@ -200,27 +211,37 @@ metadata/_edit_lock_ = true
 [node name="TrebleClef" type="Sprite2D" parent="Level/RightHandPart/UpperStaff"]
 self_modulate = Color(0, 0, 0, 1)
 z_index = 10
-position = Vector2(-285, 3.75)
-scale = Vector2(0.516544, 0.516544)
+position = Vector2(-368.219, 25.466)
+scale = Vector2(0.423713, 0.423713)
 texture = ExtResource("14_j4vp4")
-metadata/_edit_lock_ = true
 
 [node name="UpperStaffSprite" parent="Level/RightHandPart/UpperStaff" instance=ExtResource("5_evl1e")]
-scale = Vector2(15, 1.27303)
+position = Vector2(54.0625, 25)
+scale = Vector2(4.74062, 1.00024)
 
 [node name="BottomStaff" type="Node2D" parent="Level/RightHandPart"]
 metadata/_edit_lock_ = true
 
 [node name="BassClef" type="Sprite2D" parent="Level/RightHandPart/BottomStaff"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(-288.562, 264.73)
-scale = Vector2(0.516544, 0.516544)
+position = Vector2(-366.062, 224.73)
+scale = Vector2(0.423713, 0.423713)
 texture = ExtResource("14_3a4yn")
 metadata/_edit_lock_ = true
 
 [node name="BottomStaffSprite" parent="Level/RightHandPart/BottomStaff" instance=ExtResource("5_evl1e")]
-position = Vector2(0, 265)
-scale = Vector2(15, 1.273)
+position = Vector2(54.063, 226.25)
+scale = Vector2(4.74062, 1.00024)
+
+[node name="Screenshot2024-09-29At11_19_00" type="Sprite2D" parent="Level"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.701961)
+z_index = -4096
+z_as_relative = false
+position = Vector2(0.500244, -0.293762)
+scale = Vector2(0.382283, 0.382283)
+texture = ExtResource("17_qf7u3")
+metadata/_edit_lock_ = true
 
 [node name="Midi" parent="." instance=ExtResource("12_6nasv")]
 

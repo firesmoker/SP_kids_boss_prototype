@@ -3,22 +3,32 @@ class_name NotesContainer extends Sprite2D
 @onready var ending_point: Node2D = $".."
 
 @export_category("General")
-@export var note_heigth: float = 15.0
+@export var note_heigth: float = 12.0
 @export var on_display_duration: float = 2
 @export_category("Packed Scenes")
 @export var note_template: PackedScene
 @export var rest_template: PackedScene
 @export var barline_template: PackedScene
 @export var barline_offset: float = 25
+@export var treble_to_bass_gap: float = 200.5
+@export var resolution_y_offset: float = 0
 
+var bass_clef_offset: float = note_heigth * 12
 static var note_heigth_by_pitch: Dictionary = {
-	"C4": 90,
-	"D4": 75,
-	"E4": 60,
-	"F4": 45,
-	"G4": 30,
-	"A4": 15,
-	"B4": 0,
+	"C3": 181.5,
+	"D3": 169.5,
+	"E3": 157.5,
+	"F3": 145.5,
+	"G3": 133.5,
+	"A3": 121.5,
+	"B3": 109.5,
+	"C4": 97.5,
+	"D4": 85.5,
+	"E4": 73.5,
+	"F4": 61.5,
+	"G4": 49.5,
+	"A4": 30,
+	"B4": 18,
 	"rest": 30,
 }
 var starting_position_x: float
@@ -53,11 +63,12 @@ func create_bar_lines(two_staves: bool = false) -> void:
 		new_barline.position.x = left_edge_position + (i - 1) * bar_length_in_pixels - barline_offset
 		if i == level_length_in_bars + 1:
 			new_barline.scale.x *= 3
+		new_barline.position.y = note_heigth * 2
 		if two_staves:
 			var new_bottom_barline: Node2D = barline_template.instantiate()
 			add_child(new_bottom_barline)
 			new_bottom_barline.position.x = left_edge_position + (i - 1) * bar_length_in_pixels - barline_offset
-			new_bottom_barline.position.y += 265
+			new_bottom_barline.position.y += note_heigth * 2 + treble_to_bass_gap
 			if i == level_length_in_bars + 1:
 				new_bottom_barline.scale.x *= 3
 
@@ -90,16 +101,17 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				new_note.position.x = event.time * bar_length_in_pixels - size / 2
 			new_note.position.y = note_heigth_by_pitch["F4"]
 			if bottom_staff:
-				new_note.position.y += 265
+				new_note.position.y += treble_to_bass_gap
 		elif pitch != "":
 			var new_note: Note = note_template.instantiate()
 			add_child(new_note)
 			new_note.position.x = event.time * bar_length_in_pixels - size / 2
 			new_note.pitch = pitch
 			new_note.set_duration_visual(event.duration)
-			new_note.position.y = note_heigth_by_pitch[event.note]
+			new_note.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
 			if bottom_staff:
-				new_note.position.y += 265
+				new_note.position.y += treble_to_bass_gap - bass_clef_offset
+				new_note.stem.rotation = deg_to_rad(180)
 func populate() -> void:
 	## TEMPORARY DICT GENERATION
 	var absolute_rhythmic_position: float = 0
