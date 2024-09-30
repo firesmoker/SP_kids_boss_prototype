@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=72 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -201,6 +201,9 @@ animations = [{
 resource_local_to_scene = true
 size = Vector2(500, 50)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcsuf"]
+radius = 13.8889
+
 [sub_resource type="Gradient" id="Gradient_6smsb"]
 offsets = PackedFloat32Array(0, 0.00881057)
 
@@ -375,7 +378,21 @@ barline_template = ExtResource("7_crksr")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
+[node name="Collectible" type="AnimatableBody2D" parent="Level/RightHandPart/EndingPoint/NotesContainer"]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/EndingPoint/NotesContainer/Collectible"]
+position = Vector2(-1.42865, 3.17505)
+shape = SubResource("CircleShape2D_fcsuf")
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Level/RightHandPart/EndingPoint/NotesContainer/Collectible"]
+scale = Vector2(0.159028, 0.159028)
+texture = ExtResource("7_xv37p")
+metadata/_edit_lock_ = true
+
 [node name="NotesDetector" type="Area2D" parent="Level/RightHandPart"]
+visible = false
 position = Vector2(-237.54, -50)
 script = ExtResource("6_gcv22")
 
@@ -399,6 +416,7 @@ texture = ExtResource("14_nko2d")
 metadata/_edit_lock_ = true
 
 [node name="BottomNotesDetector" type="Area2D" parent="Level/RightHandPart"]
+visible = false
 position = Vector2(-237.54, 200)
 script = ExtResource("6_gcv22")
 
@@ -416,6 +434,54 @@ scale = Vector2(2.65, 2.65)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2" type="Sprite2D" parent="Level/RightHandPart/BottomNotesDetector/BottomBlueLine"]
+position = Vector2(0, -10.566)
+scale = Vector2(0.239218, 0.239218)
+texture = ExtResource("14_nko2d")
+metadata/_edit_lock_ = true
+
+[node name="CollectDetect" type="Area2D" parent="Level/RightHandPart"]
+position = Vector2(-237.54, -50)
+collision_mask = 2
+script = ExtResource("6_gcv22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/CollectDetect"]
+position = Vector2(0, 42.375)
+shape = ExtResource("7_ged7t")
+debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="BlueLine" type="Node2D" parent="Level/RightHandPart/CollectDetect"]
+visible = false
+modulate = Color(0.443137, 1, 1, 0.552941)
+position = Vector2(-1, 78)
+scale = Vector2(2.65, 2.65)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
+position = Vector2(0, -10.566)
+scale = Vector2(0.239218, 0.239218)
+texture = ExtResource("14_nko2d")
+metadata/_edit_lock_ = true
+
+[node name="BottomCollectDetect" type="Area2D" parent="Level/RightHandPart"]
+position = Vector2(-237.54, 200)
+collision_mask = 2
+script = ExtResource("6_gcv22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/BottomCollectDetect"]
+position = Vector2(0, 60.625)
+shape = ExtResource("7_ged7t")
+debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="BottomBlueLine" type="Node2D" parent="Level/RightHandPart/BottomCollectDetect"]
+visible = false
+modulate = Color(0.443137, 1, 1, 0.552941)
+position = Vector2(-1, 93.0001)
+scale = Vector2(2.65, 2.65)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2" type="Sprite2D" parent="Level/RightHandPart/BottomCollectDetect/BottomBlueLine"]
 position = Vector2(0, -10.566)
 scale = Vector2(0.239218, 0.239218)
 texture = ExtResource("14_nko2d")
@@ -497,3 +563,9 @@ metadata/_edit_lock_ = true
 [connection signal="body_entered" from="Level/RightHandPart/BottomNotesDetector" to="." method="_on_notes_detector_body_entered"]
 [connection signal="body_entered" from="Level/RightHandPart/BottomNotesDetector" to="Level/RightHandPart/BottomNotesDetector" method="_on_body_entered"]
 [connection signal="body_exited" from="Level/RightHandPart/BottomNotesDetector" to="Level/RightHandPart/BottomNotesDetector" method="_on_body_exited"]
+[connection signal="body_entered" from="Level/RightHandPart/CollectDetect" to="." method="_on_notes_detector_body_entered"]
+[connection signal="body_entered" from="Level/RightHandPart/CollectDetect" to="Level/RightHandPart/CollectDetect" method="_on_body_entered"]
+[connection signal="body_exited" from="Level/RightHandPart/CollectDetect" to="Level/RightHandPart/CollectDetect" method="_on_body_exited"]
+[connection signal="body_entered" from="Level/RightHandPart/BottomCollectDetect" to="." method="_on_notes_detector_body_entered"]
+[connection signal="body_entered" from="Level/RightHandPart/BottomCollectDetect" to="Level/RightHandPart/BottomCollectDetect" method="_on_body_entered"]
+[connection signal="body_exited" from="Level/RightHandPart/BottomCollectDetect" to="Level/RightHandPart/BottomCollectDetect" method="_on_body_exited"]

@@ -32,7 +32,7 @@ static var game_state: String = "Playing"
 @export var slow_timer: float = 3.5
 var level_length_in_bar: float = 0
 var player_health: float = 10
-var boss_health: float = 5
+var boss_health: float = 300
 var DamageFromBoss: float = 1
 var DamageFromPlayer: float = 1
 var starting_position: Vector2
@@ -92,7 +92,7 @@ func initialize_part(hand_parts: String = ui_type) -> void:
 
 func _process(delta: float) -> void:
 	if game_state == "Win":
-		get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
+		get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 	if not boss.is_playing():
 		boss.play("idle")
 	if not player_character.is_playing():
