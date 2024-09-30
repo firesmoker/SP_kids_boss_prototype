@@ -13,32 +13,38 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 		var event: MelodyEvent = MelodyEvent.new() # MelodyEvent instance
 		var duration: float = 0
 		event.time = current_time
+		section = section.strip_edges()
+		var parts: PackedStringArray = section.split(":") 
+		var note: String = ""
+		# Parse milestones (like CriticalSectionStart/End)
+		if section.begins_with("*") and section.ends_with(":*"):
+			event.type = "milestone"
+			section = section.replace("*", "").replace(":", "")
 		
-		# Parse CriticalSectionStart and CriticalSectionEnd events
-		if section.begins_with("*CriticalSectionStart:*"):
-			event.event_type = "CriticalSectionStart"
-		elif section.begins_with("*CriticalSectionEnd:*"):
-			event.event_type = "CriticalSectionEnd"
+		elif section.begins_with("-"):
+			event.type = "rest"
+			section = section.replace("-", "")
+		
+		elif section.contains("&"):
+			var collectible_parts: PackedStringArray = parts[0].split("&") 
+			event.type = "collectible"
+			event.subtype = collectible_parts[1].strip_edges()
+			note = collectible_parts[0].strip_edges()
 		else:
-			# Parse pauses or notes
-			var parts: Array = section.split(":") # Array of Strings (split by colon)
-			var note: String = parts[0] # String for note or pause
-			var details: Array = parts[1].split("%") # Array of Strings (split by '%')
-			
-			# Parse duration
-			duration = parse_fraction_as_float(details[0]) # Parse duration as float
-			
-			# Update the event details
-			if note.strip_edges() == "-":
-				event.note = "rest"
-			else:
-				event.note = note.strip_edges()
-			
-			event.duration = duration
-			
-			# Parse finger number if present
-			if details.size() > 1:
-				event.finger = int(details[1]) # finger is an int, but stored as String
+			event.type = "note"
+			note = parts[0].strip_edges()
+	
+		event.note = note
+		
+		var extraData: PackedStringArray
+		if parts.size() > 1:
+			extraData = parts[1].split("%")
+			if extraData.size() > 0:
+				duration = parse_fraction_as_float(extraData[0]) # Parse duration as float
+		event.duration = duration
+		
+		if extraData.size() > 1 and event.type == "note":
+			event.details["finger"] = extraData[1] # finger is an int, but stored as String
 		
 		# Add the event to the melody array with the current time
 		melody_array.append(event) # Dictionary entry
@@ -72,4 +78,9 @@ func get_melody_array_by_file(file_path: String) -> Array:
 	print("Ready called for: ", self.name)
 	var file_content: String = read_text_file(file_path)
 	melody_events = parse_melody(file_content)
+	print_melody_events(melody_events)
 	return melody_events
+
+func print_melody_events(events: Array[MelodyEvent]) -> void:
+	for event: MelodyEvent in events:
+		print(event.as_string())

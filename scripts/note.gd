@@ -1,8 +1,7 @@
 class_name Note extends AnimatableBody2D
 
 @export_enum("Active", "Inactive", "Rest") var state: String = "Active"
-@export var pitch: String = "G4"
-@export var duration: float = 0.25
+@export var event: MelodyEvent
 @export_enum("Note","Rest") var type: String = "Note"
 @onready var eigth: Sprite2D = $Eigth
 @onready var quarter: Sprite2D = $Quarter
@@ -37,7 +36,7 @@ func set_duration_visual(duration: float) -> void:
 		stem.visible = true
 	if helper_line:
 		helper_line.visible = false
-		if pitch == "C4":
+		if event.note == "C4":
 			helper_line.visible = true
 	match duration:
 		0.125:

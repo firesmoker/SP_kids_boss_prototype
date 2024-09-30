@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=73 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://cr88pp45scc6x" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_37.png" id="44_t3cy8"]
 [ext_resource type="Texture2D" uid="uid://cqvwk75b8pmq8" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_38.png" id="45_4qyo3"]
 [ext_resource type="Texture2D" uid="uid://dpi4naparb04r" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_39.png" id="46_l05oo"]
+[ext_resource type="PackedScene" uid="uid://bne7305rgrumw" path="res://scenes/bomb.tscn" id="55_0bxmx"]
 [ext_resource type="PackedScene" uid="uid://ss27dg0sy7a6" path="res://scenes/flash.tscn" id="57_hg35f"]
 [ext_resource type="Texture2D" uid="uid://c16dmtjv13k35" path="res://art/Elements/Platformer packs V01/Png/Accessories/Artboard 1.png" id="58_ovvpk"]
 [ext_resource type="Texture2D" uid="uid://ueok5jf4h4m0" path="res://art/vignette.png" id="62_sh2xx"]
@@ -374,6 +375,7 @@ script = ExtResource("2_yqf4i")
 on_display_duration = 1.4
 note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
+bomb_template = ExtResource("55_0bxmx")
 barline_template = ExtResource("7_crksr")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true

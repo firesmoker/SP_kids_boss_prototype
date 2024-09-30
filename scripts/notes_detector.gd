@@ -15,9 +15,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func note_played(note: String) -> void: 
 	if current_notes.size() > 0:
-		print(note)
-		print(current_notes[0].pitch)
-		if note == current_notes[0].pitch:
+		if note == current_notes[0].event.note:
 			emit_signal("note_success")
 			print("RIGHT NOTE PLAYED YAY!")
 			if game.game_state == "Playing":
