@@ -129,7 +129,7 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 	if not boss.is_playing():
 		boss.play("idle")
-	if not player_character.is_playing():
+	if not player_character.is_playing() and not winning:
 		player_character.play("idle")
 		player_bot.play("fly")
 	time_elapsed += delta
@@ -175,7 +175,7 @@ func win() -> void:
 	var timer: Timer = new_timer(1)
 	timer.start()
 	await timer.timeout
-	print("FINALLY")
+	player_win_animation()
 	boss.stop()
 	boss.play("death")
 	audio_play_from_source(boss, audio_clips.boss_death)
@@ -276,3 +276,10 @@ func _on_pause_button_up() -> void:
 
 func _on_restart_button_up() -> void:
 	restart_level()
+
+func player_win_animation() -> void:
+	player_character.find_child("Expander").expand(1.5, 0.25)
+	player_character.find_child("Expander").move(Vector2(0,0), 0.25)
+	player_character.sprite_frames
+	player_character.stop()
+	player_character.play("win")

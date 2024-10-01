@@ -29,12 +29,12 @@ func _process(delta: float) -> void:
 	
 	if expand_fading:
 		var fade_amount: float = (delta / expand_fade_duration)
-		modulate.a -= fade_amount
-		scale.x = lerp(original_scale.x, target_scale.x, 1.0 - (modulate.a / 1.0))
-		scale.y = lerp(original_scale.y, target_scale.y, 1.0 - (modulate.a / 1.0))
+		parent.modulate.a -= fade_amount
+		parent.scale.x = lerp(original_scale.x, target_scale.x, 1.0 - (parent.modulate.a / 1.0))
+		parent.scale.y = lerp(original_scale.y, target_scale.y, 1.0 - (parent.modulate.a / 1.0))
 
-		if modulate.a <= 0:
-			modulate.a = 0
+		if parent.modulate.a <= 0:
+			parent.modulate.a = 0
 			expand_fading = false
 
 func fade_in(condition: bool = true) -> void:

@@ -21,3 +21,5 @@ func set_sprite(type: String = "Heart") -> void:
 			slowdown.visible = true
 		_:
 			heart.visible = true
+	if event.note == "C4":
+		helper_line.visible = true
