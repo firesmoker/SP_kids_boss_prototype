@@ -6,6 +6,7 @@ class_name Game extends Node2D
 @onready var parser: Parser = $Parser
 @onready var player_character: AnimatedSprite2D = $Level/PlayerCharacter
 @onready var player_bot: AnimatedSprite2D = $Level/PlayerBot
+@onready var audio_clips: AudioClips = $AudioClips
 
 @onready var boss: AnimatedSprite2D = $Level/Boss
 @onready var player_health_bar: TextureProgressBar = $UI/PlayerHealthBar
@@ -184,13 +185,21 @@ func hit_boss() -> void:
 		boss_health_bar.value = boss_health
 		boss.play("get_hit")
 		if boss_health <= 0:
+			audio_play_from_source(boss, audio_clips.boss_death)
 			win()
+		else:
+			audio_play_from_source(boss, audio_clips.boss_hit)
+
+func audio_play_from_source(source: Node, audio_clip: AudioStream) -> void:
+	source.find_child("Audio").stream = audio_clip
+	source.find_child("Audio").play()
 
 func get_hit() -> void:
 	if vulnerable and not winning:
 		#player_character.find_child("Flash").flash(Color.RED)
 		player_character.play("get_hit")
 		player_bot.play("get_hit")
+		audio_play_from_source(player_character, audio_clips.player_hit)
 		player_health -= 1
 		player_health_bar.value = player_health
 		if player_health <= 0:

@@ -6,15 +6,18 @@ Eylon
 	
 	Incorporate art assets:
 		Background v
-		VFX (electircity shots, electricity when boss hurts, explosion, playing area beam)
-		Flying Bot
-		Textured health bars
+		VFX (electircity shots, electricity when boss hurts, explosion, playing area beam) v
+		Flying Bot v
+		Textured health bars v
 	Incorporate SFX
 	
 	Display optimizatios:
 		accurate miss and success colors
 		misc
-
+	
+	Pause function
+	Restart function
+	
 Alon:
 	Android export
 	Midi works on Android

@@ -91,4 +91,6 @@ scale = Vector2(2.042, 1.842)
 texture = ExtResource("9_a3j76")
 
 [node name="PositionHider" parent="." instance=ExtResource("10_7jvab")]
+true_hide_right = true
 x_hide_position = -400.0
+x_hide_position_right = 470.0
