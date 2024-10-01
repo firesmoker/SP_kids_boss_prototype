@@ -59,6 +59,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		level_slow_down()
 
 
+func pause() -> void:
+	if not get_tree().paused:
+		print("PAUSING!")
+		get_tree().paused = true
+	else:
+		print("OH YEAH")
+		get_tree().paused = false
+
+
 func level_accelerate() -> void:
 	if slow_down != false:
 		background.visible = true
@@ -226,7 +235,17 @@ func reset_health_bars() -> void:
 	boss_health_bar.max_value = boss_health
 	boss_health_bar.value = boss_health
 
+func restart_level() -> void:
+	get_tree().reload_current_scene()
 
 func _on_boss_hit_zone_body_entered(note: Note) -> void:
 	if note.state.to_lower() != "rest" and not winning:
 		boss.play("attack")
+
+
+func _on_pause_button_up() -> void:
+	pause()
+
+
+func _on_restart_button_up() -> void:
+	restart_level()

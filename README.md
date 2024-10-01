@@ -1,8 +1,8 @@
 Priority 1:
 	
 Eylon	
-	Collectibles
-	Add collectibles to level population
+	Collectibles v
+	Add collectibles to level population v
 	
 	Incorporate art assets:
 		Background v

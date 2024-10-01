@@ -328,6 +328,7 @@ value = 6.0
 texture_under = ExtResource("7_5r475")
 texture_progress = ExtResource("8_t6auh")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="BossHealthBar" type="TextureProgressBar" parent="UI"]
 top_level = true
@@ -346,9 +347,9 @@ fill_mode = 1
 texture_under = ExtResource("7_5r475")
 texture_progress = ExtResource("8_t6auh")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="UI"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -371,9 +372,37 @@ expand_mode = 2
 stretch_mode = 4
 metadata/_edit_lock_ = true
 
+[node name="Pause" type="Button" parent="UI"]
+process_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.01
+offset_top = 11.82
+offset_right = -165.01
+offset_bottom = 42.82
+grow_horizontal = 2
+scale = Vector2(3.12629, 2.47393)
+text = "PAUSE"
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.58002
+offset_top = 12.83
+offset_right = 58.42
+offset_bottom = 43.83
+grow_horizontal = 2
+scale = Vector2(3.12629, 2.47393)
+text = "Restart"
+metadata/_edit_use_anchors_ = true
+
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(592, 411)
 scale = Vector2(1.26, 1.26)
+metadata/_edit_lock_ = true
 
 [node name="Camera" type="Camera2D" parent="Level"]
 metadata/_edit_lock_ = true
@@ -476,7 +505,6 @@ metadata/_edit_lock_ = true
 [node name="NotesDetector" type="Area2D" parent="Level/RightHandPart"]
 visible = false
 position = Vector2(-237.54, -50)
-collision_mask = 3
 script = ExtResource("6_gcv22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/NotesDetector"]
@@ -656,8 +684,11 @@ metadata/_edit_lock_ = true
 [node name="Audio" type="AudioStreamPlayer" parent="Level/DetectorVisual/ElectricBeam"]
 
 [node name="Midi" parent="." instance=ExtResource("12_6nasv")]
+metadata/_edit_lock_ = true
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
+[connection signal="button_up" from="UI/Pause" to="." method="_on_pause_button_up"]
+[connection signal="button_up" from="UI/Restart" to="." method="_on_restart_button_up"]
 [connection signal="body_entered" from="Level/PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/Boss/BossHitZone" to="." method="_on_boss_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/RightHandPart/NotesDetector" to="." method="_on_notes_detector_body_entered"]
