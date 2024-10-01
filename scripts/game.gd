@@ -165,7 +165,7 @@ func _on_music_player_finished() -> void:
 
 func lose() -> void:
 	print("you lost")
-	restart_level()
+	restart_level(true)
 
 func win() -> void:
 	winning = true
@@ -204,6 +204,7 @@ func hit_boss() -> void:
 		electric_beam.find_child("Flash").flash()
 		electric_beam.find_child("LineZap").play("line_zap")
 		electric_beam.find_child("ElectricBolt").play("attack")
+		audio_play_from_source(electric_beam,audio_clips.electric_attack)
 		player_character.stop()
 		player_bot.stop()
 		player_character.play("attack")
@@ -241,12 +242,14 @@ func reset_health_bars() -> void:
 	boss_health_bar.max_value = boss_health
 	boss_health_bar.value = boss_health
 
-func restart_level() -> void:
+func restart_level(wait: bool = false) -> void:
 	music_player.stream_paused = true
-	var timer: Timer = Timer.new()
-	add_child(timer)
-	timer.start(0.8)
-	await timer.timeout
+	if wait:
+		var timer: Timer = Timer.new()
+		add_child(timer)
+		timer.start(0.8)
+		await timer.timeout
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
 

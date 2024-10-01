@@ -347,6 +347,7 @@ text = "PAUSE"
 metadata/_edit_use_anchors_ = true
 
 [node name="Restart" type="Button" parent="Overlay"]
+process_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
