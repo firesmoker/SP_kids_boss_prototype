@@ -295,7 +295,7 @@ accelerate_sound = ExtResource("2_2fv50")
 slow_down_sound = ExtResource("3_h2mfw")
 slow_down_percentage = 0.7
 player_health = 3.0
-boss_health = 4.0
+boss_health = 2.0
 metadata/_edit_lock_ = true
 
 [node name="AudioClips" type="Node" parent="."]
@@ -650,6 +650,8 @@ metadata/_edit_lock_ = true
 [node name="BottomStaffSprite" parent="Level/RightHandPart/BottomStaff" instance=ExtResource("5_evl1e")]
 position = Vector2(54.063, 226.25)
 scale = Vector2(4.74062, 1.00024)
+
+[node name="Fader" parent="Level/RightHandPart" instance=ExtResource("63_jfxac")]
 
 [node name="Vignette" type="Sprite2D" parent="Level"]
 modulate = Color(1, 1, 1, 0)

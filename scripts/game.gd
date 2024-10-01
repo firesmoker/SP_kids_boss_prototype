@@ -18,6 +18,7 @@ class_name Game extends Node2D
 @onready var background: TextureRect = $UI/Background
 @onready var background_slow: TextureRect = $UI/BackgroundSlow
 @onready var pause_button: Button = $Overlay/Pause
+@onready var right_hand_part: Node2D = $Level/RightHandPart
 
 
 
@@ -170,12 +171,23 @@ func lose() -> void:
 func win() -> void:
 	winning = true
 	print("you won!")
+	right_hand_part.find_child("Fader").fade_out()
+	var timer: Timer = new_timer(1)
+	timer.start()
+	await timer.timeout
+	print("FINALLY")
 	boss.stop()
 	boss.play("death")
+	audio_play_from_source(boss, audio_clips.boss_death)
 	await boss.animation_finished
 	game_state = "Win"
 	#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 
+func new_timer(wait_time: float = 2.0) -> Timer:
+	var timer: Timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = wait_time
+	return timer
 
 func _on_hit_zone_body_entered(note: Note) -> void:
 	if note.state == "Active":
@@ -212,9 +224,9 @@ func hit_boss() -> void:
 		boss.find_child("Flash").flash(Color.RED)
 		boss_health -= 1
 		boss_health_bar.value = boss_health
+		boss.stop()
 		boss.play("get_hit")
 		if boss_health <= 0:
-			audio_play_from_source(boss, audio_clips.boss_death)
 			win()
 		else:
 			audio_play_from_source(boss, audio_clips.boss_hit)
