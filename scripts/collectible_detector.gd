@@ -15,12 +15,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func collect_by_note(note: String) -> void: 
 	if current_collectibles.size() > 0:
 		if note == current_collectibles[0].event.note:
-			var effect: String = current_collectibles[0].effect
+			var effect: String = current_collectibles[0].event.subtype
 			emit_signal("collectible_collected", effect)
 			print("RIGHT COLLECTIBLE NOTE!")
 			if game.game_state == "Playing":
-				current_collectibles[0].find_child("Fader").fade_out()
+				current_collectibles[0].find_child("Fader").expand_fade_out()
 				current_collectibles[0].state = "Inactive"
+				current_collectibles[0].visible = false
 				current_collectibles.pop_at(0)
 			
 			

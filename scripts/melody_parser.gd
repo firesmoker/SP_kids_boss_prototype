@@ -78,7 +78,7 @@ func get_melody_array_by_file(file_path: String) -> Array:
 	print("Ready called for: ", self.name)
 	var file_content: String = read_text_file(file_path)
 	melody_events = parse_melody(file_content)
-	print_melody_events(melody_events)
+	#print_melody_events(melody_events)
 	return melody_events
 
 func print_melody_events(events: Array[MelodyEvent]) -> void:

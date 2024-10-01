@@ -46,7 +46,6 @@ func set_duration_visual(duration: float) -> void:
 		0.5:
 			half.visible = true
 		1.0:
-			print("whole!")
 			whole.visible = true
 			if stem:
 				stem.visible = false

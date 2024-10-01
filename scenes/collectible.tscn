@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://kf508a146cxq"]
+[gd_scene load_steps=10 format=3 uid="uid://kf508a146cxq"]
 
 [ext_resource type="Script" path="res://scripts/collectible.gd" id="1_ol4d8"]
-[ext_resource type="Texture2D" uid="uid://d00ygxqd7xn3i" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_00.png" id="1_us5lk"]
 [ext_resource type="Shader" path="res://note.gdshader" id="2_f8777"]
+[ext_resource type="SpriteFrames" uid="uid://cod5w1irvgn0c" path="res://scene_resources/heart_spriteframe.tres" id="2_m730v"]
+[ext_resource type="SpriteFrames" uid="uid://cde3i1qgqcbuy" path="res://scene_resources/bomb_spriteframe.tres" id="3_8cwhq"]
+[ext_resource type="SpriteFrames" uid="uid://dbvvg5f1ogrlt" path="res://scene_resources/slowdown_spriteframe.tres" id="4_h551j"]
 [ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="4_vstf5"]
+[ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="7_h7qm3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fcsuf"]
 radius = 70.072
@@ -15,20 +18,42 @@ shader_parameter/color = null
 shader_parameter/alpha = 1.0
 
 [node name="Collectible" type="AnimatableBody2D"]
-z_index = 1
+z_index = 7
 scale = Vector2(0.175, 0.175)
 collision_layer = 2
+sync_to_physics = false
 script = ExtResource("1_ol4d8")
 
+[node name="Heart" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(4.6, -17.143)
+scale = Vector2(0.827253, 0.827253)
+sprite_frames = ExtResource("2_m730v")
+autoplay = "default"
+frame_progress = 0.725694
+
+[node name="Bomb" type="AnimatedSprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(4.6, -17.143)
+scale = Vector2(0.827253, 0.827253)
+sprite_frames = ExtResource("3_8cwhq")
+autoplay = "default"
+frame_progress = 0.932702
+
+[node name="Slowdown" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(4.6, -17.143)
+scale = Vector2(0.827253, 0.827253)
+sprite_frames = ExtResource("4_h551j")
+autoplay = "default"
+frame_progress = 0.947712
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 2
 shape = SubResource("CircleShape2D_fcsuf")
 metadata/_edit_lock_ = true
-
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(4.6, -17.143)
-scale = Vector2(0.827253, 0.827253)
-texture = ExtResource("1_us5lk")
 
 [node name="HelperLine" type="Sprite2D" parent="."]
 visible = false
@@ -37,3 +62,5 @@ position = Vector2(1.14441e-05, -1.33514e-05)
 scale = Vector2(1.782, 1.842)
 texture = ExtResource("4_vstf5")
 metadata/_edit_lock_ = true
+
+[node name="Fader" parent="." instance=ExtResource("7_h7qm3")]

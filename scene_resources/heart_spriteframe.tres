@@ -1,0 +1,170 @@
+[gd_resource type="SpriteFrames" load_steps=41 format=3 uid="uid://cod5w1irvgn0c"]
+
+[ext_resource type="Texture2D" uid="uid://bi7s7ogaqqd82" path="res://art/30.sep/Collectible-Life/Collectible-Life_00000.png" id="1_twi7r"]
+[ext_resource type="Texture2D" uid="uid://ddv6fdcqr0bi6" path="res://art/30.sep/Collectible-Life/Collectible-Life_00001.png" id="2_edrrt"]
+[ext_resource type="Texture2D" uid="uid://xj58j81ki1ue" path="res://art/30.sep/Collectible-Life/Collectible-Life_00002.png" id="3_ihdcc"]
+[ext_resource type="Texture2D" uid="uid://dqv7qkk0rjixg" path="res://art/30.sep/Collectible-Life/Collectible-Life_00003.png" id="4_wi4rq"]
+[ext_resource type="Texture2D" uid="uid://tmh83snmj2od" path="res://art/30.sep/Collectible-Life/Collectible-Life_00004.png" id="5_5bfh8"]
+[ext_resource type="Texture2D" uid="uid://bk66hcrqdka2u" path="res://art/30.sep/Collectible-Life/Collectible-Life_00005.png" id="6_glotl"]
+[ext_resource type="Texture2D" uid="uid://b8k47cer554b7" path="res://art/30.sep/Collectible-Life/Collectible-Life_00006.png" id="7_1isnr"]
+[ext_resource type="Texture2D" uid="uid://bkurqjki5wyp1" path="res://art/30.sep/Collectible-Life/Collectible-Life_00007.png" id="8_fvrdc"]
+[ext_resource type="Texture2D" uid="uid://cviiqr2pw23qu" path="res://art/30.sep/Collectible-Life/Collectible-Life_00008.png" id="9_yu436"]
+[ext_resource type="Texture2D" uid="uid://t1tj4w1dybkr" path="res://art/30.sep/Collectible-Life/Collectible-Life_00009.png" id="10_ma8m5"]
+[ext_resource type="Texture2D" uid="uid://cdaddbes00a3v" path="res://art/30.sep/Collectible-Life/Collectible-Life_00010.png" id="11_amv8i"]
+[ext_resource type="Texture2D" uid="uid://byjhv1k4ropnp" path="res://art/30.sep/Collectible-Life/Collectible-Life_00011.png" id="12_xheob"]
+[ext_resource type="Texture2D" uid="uid://bdf22anu11h47" path="res://art/30.sep/Collectible-Life/Collectible-Life_00012.png" id="13_slpnh"]
+[ext_resource type="Texture2D" uid="uid://dtbbuccaxgom0" path="res://art/30.sep/Collectible-Life/Collectible-Life_00013.png" id="14_0v85j"]
+[ext_resource type="Texture2D" uid="uid://dqvh5a8v25wdr" path="res://art/30.sep/Collectible-Life/Collectible-Life_00014.png" id="15_6742j"]
+[ext_resource type="Texture2D" uid="uid://0vsvlukpcbsq" path="res://art/30.sep/Collectible-Life/Collectible-Life_00015.png" id="16_yw1ap"]
+[ext_resource type="Texture2D" uid="uid://l0n7cr5yt26v" path="res://art/30.sep/Collectible-Life/Collectible-Life_00016.png" id="17_gjge4"]
+[ext_resource type="Texture2D" uid="uid://dltbixwkpncwl" path="res://art/30.sep/Collectible-Life/Collectible-Life_00017.png" id="18_y0mss"]
+[ext_resource type="Texture2D" uid="uid://cti17xi0tyb6i" path="res://art/30.sep/Collectible-Life/Collectible-Life_00018.png" id="19_movai"]
+[ext_resource type="Texture2D" uid="uid://ipd4sugn6kjn" path="res://art/30.sep/Collectible-Life/Collectible-Life_00019.png" id="20_eaowd"]
+[ext_resource type="Texture2D" uid="uid://bugu1qbdck32y" path="res://art/30.sep/Collectible-Life/Collectible-Life_00020.png" id="21_sbn6p"]
+[ext_resource type="Texture2D" uid="uid://c26k77j2m0uss" path="res://art/30.sep/Collectible-Life/Collectible-Life_00021.png" id="22_bbj68"]
+[ext_resource type="Texture2D" uid="uid://qmrophum25pc" path="res://art/30.sep/Collectible-Life/Collectible-Life_00022.png" id="23_cw386"]
+[ext_resource type="Texture2D" uid="uid://bvof7sbtl3gio" path="res://art/30.sep/Collectible-Life/Collectible-Life_00023.png" id="24_f1cht"]
+[ext_resource type="Texture2D" uid="uid://xg44qcwtp3pf" path="res://art/30.sep/Collectible-Life/Collectible-Life_00024.png" id="25_ndijy"]
+[ext_resource type="Texture2D" uid="uid://urxxhouu71t8" path="res://art/30.sep/Collectible-Life/Collectible-Life_00025.png" id="26_r3xl0"]
+[ext_resource type="Texture2D" uid="uid://dn6vu0sjqs86q" path="res://art/30.sep/Collectible-Life/Collectible-Life_00026.png" id="27_rqbm3"]
+[ext_resource type="Texture2D" uid="uid://uxyrk48t8j86" path="res://art/30.sep/Collectible-Life/Collectible-Life_00027.png" id="28_gcjrd"]
+[ext_resource type="Texture2D" uid="uid://s3r4ctnbq88v" path="res://art/30.sep/Collectible-Life/Collectible-Life_00028.png" id="29_j7dwg"]
+[ext_resource type="Texture2D" uid="uid://v56gs6uwlfs2" path="res://art/30.sep/Collectible-Life/Collectible-Life_00029.png" id="30_kkjme"]
+[ext_resource type="Texture2D" uid="uid://dt3de7rcy3owi" path="res://art/30.sep/Collectible-Life/Collectible-Life_00030.png" id="31_2nkbi"]
+[ext_resource type="Texture2D" uid="uid://cimxjgoklbels" path="res://art/30.sep/Collectible-Life/Collectible-Life_00031.png" id="32_rxrrt"]
+[ext_resource type="Texture2D" uid="uid://cnab73gdm8ah7" path="res://art/30.sep/Collectible-Life/Collectible-Life_00032.png" id="33_vtuon"]
+[ext_resource type="Texture2D" uid="uid://r6ndlltu885y" path="res://art/30.sep/Collectible-Life/Collectible-Life_00033.png" id="34_y6h7y"]
+[ext_resource type="Texture2D" uid="uid://2eaq2gcg2sak" path="res://art/30.sep/Collectible-Life/Collectible-Life_00034.png" id="35_xu31u"]
+[ext_resource type="Texture2D" uid="uid://dba0vemqcgr71" path="res://art/30.sep/Collectible-Life/Collectible-Life_00035.png" id="36_sv3hr"]
+[ext_resource type="Texture2D" uid="uid://mhnx52el1vev" path="res://art/30.sep/Collectible-Life/Collectible-Life_00036.png" id="37_lb58q"]
+[ext_resource type="Texture2D" uid="uid://bx72u43uran6g" path="res://art/30.sep/Collectible-Life/Collectible-Life_00037.png" id="38_5lags"]
+[ext_resource type="Texture2D" uid="uid://ctu6m27y0oxsu" path="res://art/30.sep/Collectible-Life/Collectible-Life_00038.png" id="39_nu3wf"]
+[ext_resource type="Texture2D" uid="uid://byv1f38sgcbq" path="res://art/30.sep/Collectible-Life/Collectible-Life_00039.png" id="40_w4pry"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_twi7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_edrrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ihdcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wi4rq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5bfh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_glotl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1isnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fvrdc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yu436")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ma8m5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_amv8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xheob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_slpnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0v85j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6742j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_yw1ap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_gjge4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_y0mss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_movai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_eaowd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_sbn6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bbj68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_cw386")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_f1cht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ndijy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_r3xl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_rqbm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_gcjrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_j7dwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_kkjme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_2nkbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_rxrrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_vtuon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_y6h7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_xu31u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_sv3hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_lb58q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_5lags")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_nu3wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_w4pry")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]

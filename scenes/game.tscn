@@ -72,8 +72,8 @@
 [ext_resource type="Texture2D" uid="uid://cr88pp45scc6x" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_37.png" id="44_t3cy8"]
 [ext_resource type="Texture2D" uid="uid://cqvwk75b8pmq8" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_38.png" id="45_4qyo3"]
 [ext_resource type="Texture2D" uid="uid://dpi4naparb04r" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_39.png" id="46_l05oo"]
-[ext_resource type="PackedScene" uid="uid://bne7305rgrumw" path="res://scenes/bomb.tscn" id="55_0bxmx"]
 [ext_resource type="PackedScene" uid="uid://ss27dg0sy7a6" path="res://scenes/flash.tscn" id="57_hg35f"]
+[ext_resource type="PackedScene" uid="uid://kf508a146cxq" path="res://scenes/collectible.tscn" id="57_nyblo"]
 [ext_resource type="Texture2D" uid="uid://c16dmtjv13k35" path="res://art/Elements/Platformer packs V01/Png/Accessories/Artboard 1.png" id="58_ovvpk"]
 [ext_resource type="Script" path="res://scripts/collectible_detector.gd" id="60_psocc"]
 [ext_resource type="Texture2D" uid="uid://ueok5jf4h4m0" path="res://art/vignette.png" id="62_sh2xx"]
@@ -287,6 +287,7 @@ script = ExtResource("1_ncon4")
 accelerate_sound = ExtResource("2_2fv50")
 slow_down_sound = ExtResource("3_h2mfw")
 slow_down_percentage = 0.7
+player_health = 3.0
 boss_health = 4.0
 metadata/_edit_lock_ = true
 
@@ -347,6 +348,7 @@ texture_progress = ExtResource("8_t6auh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TextureRect" parent="UI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -466,7 +468,7 @@ script = ExtResource("2_yqf4i")
 on_display_duration = 1.4
 note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
-bomb_template = ExtResource("55_0bxmx")
+collectable_template = ExtResource("57_nyblo")
 barline_template = ExtResource("7_crksr")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true

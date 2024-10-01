@@ -8,11 +8,12 @@ var expand_fading: bool = false
 var expand_fade_duration: float = 0.25
 var expand_fade_speed: float = 0.5
 var target_scale: Vector2 = Vector2(1.25, 1.25)
-var original_scale: Vector2  # Store the original scale
+var original_scale: Vector2
 
 func _ready() -> void:
 	parent = get_parent()
 	game = get_tree().root.get_child(0)
+	original_scale = parent.scale
 
 func _process(delta: float) -> void:
 	if fading_in:

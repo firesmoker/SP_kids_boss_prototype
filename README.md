@@ -9,7 +9,7 @@ Eylon
 		VFX (electircity shots, electricity when boss hurts, explosion, playing area beam) v
 		Flying Bot v
 		Textured health bars v
-	Incorporate SFX
+	Incorporate SFX V
 	
 	Display optimizatios:
 		accurate miss and success colors

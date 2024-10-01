@@ -58,6 +58,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_down"):
 		level_slow_down()
 
+
 func level_accelerate() -> void:
 	if slow_down != false:
 		background.visible = true
@@ -168,8 +169,20 @@ func _on_hit_zone_body_entered(note: Note) -> void:
 		print("not active, not interesting")
 
 
-func activate_effect(effect: String = "slow_down") -> void:
-	pass
+func activate_effect(effect: String = "slowdown") -> void:
+	match effect:
+		"slowdown":
+			level_slow_down()
+		"bomb":
+			get_hit()
+		"heart":
+			heal()
+		_:
+			print("no specific effect")
+
+func heal(amount: int = 1) -> void:
+	player_health += amount
+	player_health_bar.value = player_health
 
 func hit_boss() -> void:
 	if not winning:

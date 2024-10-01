@@ -5,15 +5,15 @@ class_name NotesContainer extends Sprite2D
 @export_category("General")
 @export var note_heigth: float = 12.0
 @export var on_display_duration: float = 2
-@export_category("Packed Scenes")
-@export var note_template: PackedScene
-@export var rest_template: PackedScene
-@export var bomb_template: PackedScene
-@export var barline_template: PackedScene
-
 @export var barline_offset: float = 25
 @export var treble_to_bass_gap: float = 200.5
 @export var resolution_y_offset: float = 0
+@export_category("Packed Scenes")
+@export var note_template: PackedScene
+@export var rest_template: PackedScene
+@export var collectable_template: PackedScene
+@export var barline_template: PackedScene
+
 
 var bass_clef_offset: float = note_heigth * 12
 static var note_heigth_by_pitch: Dictionary = {
@@ -58,7 +58,7 @@ func construct_level(with_melody_events: bool = false, melody_events: Array = []
 		populate()
 
 func create_bar_lines(two_staves: bool = false) -> void:
-	print("CREATING BAR LINESSSS")
+	#print("CREATING BAR LINESSSS")
 	for i: int in range(level_length_in_bars + 2):
 		var new_barline: Node2D = barline_template.instantiate()
 		add_child(new_barline)
@@ -108,21 +108,25 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			var new_note: Note = note_template.instantiate()
 			new_note.event = event
 			add_child(new_note)
-			new_note.position.x = event.time * bar_length_in_pixels - size / 2
 			new_note.set_duration_visual(event.duration)
+			new_note.position.x = event.time * bar_length_in_pixels - size / 2
 			new_note.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
 			if bottom_staff:
 				new_note.position.y += treble_to_bass_gap - bass_clef_offset
 				new_note.stem.rotation = deg_to_rad(180)
 		elif event.type == "collectible":
-			if event.subtype == "bomb":
-				var collectible: Bomb = bomb_template.instantiate()
-				collectible.event = event
-				add_child(collectible)
-				collectible.position.x = event.time * bar_length_in_pixels - size / 2
-				collectible.position.y = note_heigth_by_pitch[event.note]
-				if bottom_staff:
-					collectible.position.y += 265
+			var collectible: Collectible = collectable_template.instantiate()
+			collectible.event = event
+			add_child(collectible)
+			collectible.set_sprite(event.subtype)
+			collectible.position.x = event.time * bar_length_in_pixels - size / 2
+			collectible.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
+			if bottom_staff:
+				collectible.position.y += treble_to_bass_gap - bass_clef_offset
+			#collectible.global_position = Vector2(0,0)
+			#collectible.scale *= 2
+
+				
 func populate() -> void:
 	## TEMPORARY DICT GENERATION
 	var absolute_rhythmic_position: float = 0
