@@ -15,8 +15,8 @@ Eylon
 		accurate miss and success colors
 		misc
 	
-	Pause function
-	Restart function
+	Pause function v
+	Restart function v
 	
 Alon:
 	Android export

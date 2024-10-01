@@ -7,6 +7,7 @@ class_name Game extends Node2D
 @onready var player_character: AnimatedSprite2D = $Level/PlayerCharacter
 @onready var player_bot: AnimatedSprite2D = $Level/PlayerBot
 @onready var audio_clips: AudioClips = $AudioClips
+@onready var darken: TextureRect = $Overlay/Darken
 
 @onready var boss: AnimatedSprite2D = $Level/Boss
 @onready var player_health_bar: TextureProgressBar = $UI/PlayerHealthBar
@@ -16,6 +17,7 @@ class_name Game extends Node2D
 @onready var vignette: Sprite2D = $Level/Vignette
 @onready var background: TextureRect = $UI/Background
 @onready var background_slow: TextureRect = $UI/BackgroundSlow
+@onready var pause_button: Button = $Overlay/Pause
 
 
 
@@ -61,10 +63,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func pause() -> void:
 	if not get_tree().paused:
+		pause_button.text = "Resume"
 		print("PAUSING!")
+		darken.visible = true
 		get_tree().paused = true
 	else:
+		pause_button.text = "Pause"
 		print("OH YEAH")
+		darken.visible = false
 		get_tree().paused = false
 
 
@@ -159,7 +165,7 @@ func _on_music_player_finished() -> void:
 
 func lose() -> void:
 	print("you lost")
-	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
+	restart_level()
 
 func win() -> void:
 	winning = true
@@ -236,7 +242,13 @@ func reset_health_bars() -> void:
 	boss_health_bar.value = boss_health
 
 func restart_level() -> void:
+	music_player.stream_paused = true
+	var timer: Timer = Timer.new()
+	add_child(timer)
+	timer.start(0.8)
+	await timer.timeout
 	get_tree().reload_current_scene()
+	
 
 func _on_boss_hit_zone_body_entered(note: Note) -> void:
 	if note.state.to_lower() != "rest" and not winning:

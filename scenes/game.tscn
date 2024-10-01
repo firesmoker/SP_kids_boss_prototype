@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=99 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -90,6 +90,13 @@
 [ext_resource type="Texture2D" uid="uid://cvh3dxi65ovjt" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00131.png" id="77_rm6l2"]
 [ext_resource type="Texture2D" uid="uid://lkpmql5curcv" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00132.png" id="78_mrs7h"]
 [ext_resource type="Texture2D" uid="uid://dtq7m42cj114v" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00134.png" id="79_n7i7p"]
+
+[sub_resource type="Gradient" id="Gradient_rs6wh"]
+offsets = PackedFloat32Array(0, 0.00744417)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rlrxh"]
+gradient = SubResource("Gradient_rs6wh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
 size = Vector2(128, 547.385)
@@ -311,6 +318,47 @@ stream = ExtResource("5_0ilbi")
 [node name="Parser" parent="." instance=ExtResource("9_s4jiq")]
 metadata/_edit_lock_ = true
 
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="Darken" type="TextureRect" parent="Overlay"]
+process_mode = 3
+visible = false
+self_modulate = Color(1, 1, 1, 0.686275)
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_rlrxh")
+
+[node name="Pause" type="Button" parent="Overlay"]
+process_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.01
+offset_top = 11.82
+offset_right = -165.01
+offset_bottom = 42.82
+grow_horizontal = 2
+scale = Vector2(3.12629, 2.47393)
+text = "PAUSE"
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="Overlay"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.58002
+offset_top = 12.83
+offset_right = 58.42
+offset_bottom = 43.83
+grow_horizontal = 2
+scale = Vector2(3.12629, 2.47393)
+text = "Restart"
+metadata/_edit_use_anchors_ = true
+
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -371,33 +419,6 @@ texture = ExtResource("10_6rfhb")
 expand_mode = 2
 stretch_mode = 4
 metadata/_edit_lock_ = true
-
-[node name="Pause" type="Button" parent="UI"]
-process_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -224.01
-offset_top = 11.82
-offset_right = -165.01
-offset_bottom = 42.82
-grow_horizontal = 2
-scale = Vector2(3.12629, 2.47393)
-text = "PAUSE"
-metadata/_edit_use_anchors_ = true
-
-[node name="Restart" type="Button" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -6.58002
-offset_top = 12.83
-offset_right = 58.42
-offset_bottom = 43.83
-grow_horizontal = 2
-scale = Vector2(3.12629, 2.47393)
-text = "Restart"
-metadata/_edit_use_anchors_ = true
 
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(592, 411)
@@ -687,8 +708,8 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
-[connection signal="button_up" from="UI/Pause" to="." method="_on_pause_button_up"]
-[connection signal="button_up" from="UI/Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="Overlay/Pause" to="." method="_on_pause_button_up"]
+[connection signal="button_up" from="Overlay/Restart" to="." method="_on_restart_button_up"]
 [connection signal="body_entered" from="Level/PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/Boss/BossHitZone" to="." method="_on_boss_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/RightHandPart/NotesDetector" to="." method="_on_notes_detector_body_entered"]
