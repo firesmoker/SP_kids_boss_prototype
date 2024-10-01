@@ -1,15 +1,28 @@
-	(1)
-	Exporting to iOS (Alon)
-	Making sure it looks right on iOS (Alon)
-	making sure it supports touch (Alon)
-	Translating Midi events to pitch (Eylon)
-
-	(2)
-	Collectibles
-	Add collectibles to level population (Alon & Eylon)
+Priority 1:
 	
-	(3)
-	make sure "retry" works as it should
-	Make the parser more robust (Alon)
-	Display optimizations (Eylon)
-	1/8 notes
+Eylon	
+	Collectibles
+	Add collectibles to level population
+	
+	Incorporate art assets:
+		Background v
+		VFX (electircity shots, electricity when boss hurts, explosion, playing area beam)
+		Flying Bot
+		Textured health bars
+	Incorporate SFX
+	
+	Display optimizatios:
+		accurate miss and success colors
+		misc
+
+Alon:
+	Android export
+	Midi works on Android
+	Touch works on Android
+	Make the parser more robust
+	
+Priority 2:
+Eylon:
+	Starting screen to include multiple difficulty levels
+	Badge or score
+	Beautiful final screen

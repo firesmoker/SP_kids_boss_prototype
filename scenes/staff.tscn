@@ -17,7 +17,7 @@ metadata/_edit_lock_ = true
 
 [node name="StaffBackground" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-1, -0.5)
-scale = Vector2(3.09375, 1.48438)
+position = Vector2(-0.0258507, -0.0326035)
+scale = Vector2(3.12419, 1.49899)
 texture = SubResource("GradientTexture2D_lo1rx")
 metadata/_edit_lock_ = true

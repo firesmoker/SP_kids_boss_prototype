@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://kf508a146cxq"]
+
+[ext_resource type="Script" path="res://scripts/collectible.gd" id="1_ol4d8"]
+[ext_resource type="Texture2D" uid="uid://d00ygxqd7xn3i" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_00.png" id="1_us5lk"]
+[ext_resource type="Shader" path="res://note.gdshader" id="2_f8777"]
+[ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="4_vstf5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcsuf"]
+radius = 70.072
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1vdt"]
+resource_local_to_scene = true
+shader = ExtResource("2_f8777")
+shader_parameter/color = null
+shader_parameter/alpha = 1.0
+
+[node name="Collectible" type="AnimatableBody2D"]
+z_index = 1
+scale = Vector2(0.175, 0.175)
+collision_layer = 2
+script = ExtResource("1_ol4d8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+shape = SubResource("CircleShape2D_fcsuf")
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(4.6, -17.143)
+scale = Vector2(0.827253, 0.827253)
+texture = ExtResource("1_us5lk")
+
+[node name="HelperLine" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_g1vdt")
+position = Vector2(1.14441e-05, -1.33514e-05)
+scale = Vector2(1.782, 1.842)
+texture = ExtResource("4_vstf5")
+metadata/_edit_lock_ = true

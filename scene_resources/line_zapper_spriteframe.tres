@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://rav5rqfqmiew"]
+
+[ext_resource type="Texture2D" uid="uid://dodklwouxmsoc" path="res://art/30.sep/LineZapper/LineZapper_00000.png" id="1_q38fn"]
+[ext_resource type="Texture2D" uid="uid://bke2k3hymp0yn" path="res://art/30.sep/LineZapper/LineZapper_00001.png" id="2_fn81e"]
+[ext_resource type="Texture2D" uid="uid://degi4g8op723y" path="res://art/30.sep/LineZapper/LineZapper_00002.png" id="3_o3dn0"]
+[ext_resource type="Texture2D" uid="uid://db3cif7k27cv5" path="res://art/30.sep/LineZapper/LineZapper_00003.png" id="4_alfvp"]
+[ext_resource type="Texture2D" uid="uid://6gr3vm4ixwv1" path="res://art/30.sep/LineZapper/LineZapper_00004.png" id="5_xiano"]
+[ext_resource type="Texture2D" uid="uid://rfwxu77llhi3" path="res://art/30.sep/LineZapper/LineZapper_00005.png" id="6_ql3j6"]
+[ext_resource type="Texture2D" uid="uid://c2gga5104h0nm" path="res://art/30.sep/LineZapper/LineZapper_00006.png" id="7_0px27"]
+[ext_resource type="Texture2D" uid="uid://d0darsr3mq0ju" path="res://art/30.sep/LineZapper/LineZapper_00007.png" id="8_xvwym"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q38fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fn81e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o3dn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_alfvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xiano")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ql3j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0px27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xvwym")
+}],
+"loop": false,
+"name": &"line_zap",
+"speed": 48.0
+}]

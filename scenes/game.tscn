@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=91 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -11,13 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://8ut73mldwxdn" path="res://scenes/staff.tscn" id="5_evl1e"]
 [ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
+[ext_resource type="Texture2D" uid="uid://cg2d1vewc2abo" path="res://art/HealthBarBG.png" id="7_5r475"]
+[ext_resource type="Texture2D" uid="uid://bbavgstjgwjpo" path="res://art/Background.png" id="7_6jh05"]
 [ext_resource type="PackedScene" uid="uid://cfosn0qs0t6mq" path="res://scenes/bar_line.tscn" id="7_crksr"]
 [ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
 [ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
 [ext_resource type="Texture2D" uid="uid://d00ygxqd7xn3i" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_00.png" id="7_xv37p"]
 [ext_resource type="Texture2D" uid="uid://bdkxi6rumcjmv" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_01.png" id="8_aywtl"]
+[ext_resource type="Texture2D" uid="uid://cj7ecasxbrtst" path="res://art/HealthBarStatus.png" id="8_t6auh"]
 [ext_resource type="Texture2D" uid="uid://c4cbr0ubbipgc" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_02.png" id="9_ossne"]
 [ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
+[ext_resource type="Texture2D" uid="uid://cq1bg32xauw6" path="res://art/30.sep/SlowBG/SlowBG_00000.png" id="10_6rfhb"]
+[ext_resource type="SpriteFrames" uid="uid://dn152gkkpaq71" path="res://scene_resources/bot_spriteframe.tres" id="10_fbf1u"]
 [ext_resource type="Texture2D" uid="uid://cgdyabswusic" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_03.png" id="10_nuo8l"]
 [ext_resource type="Texture2D" uid="uid://cxtmngoe2k8yr" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_04.png" id="11_64hqx"]
 [ext_resource type="Texture2D" uid="uid://b1mxrg203o4j1" path="res://art/Elements/Characters/Enemy/skeleton-Idle_0.png" id="11_ryrci"]
@@ -64,8 +69,21 @@
 [ext_resource type="PackedScene" uid="uid://bne7305rgrumw" path="res://scenes/bomb.tscn" id="55_0bxmx"]
 [ext_resource type="PackedScene" uid="uid://ss27dg0sy7a6" path="res://scenes/flash.tscn" id="57_hg35f"]
 [ext_resource type="Texture2D" uid="uid://c16dmtjv13k35" path="res://art/Elements/Platformer packs V01/Png/Accessories/Artboard 1.png" id="58_ovvpk"]
+[ext_resource type="Script" path="res://scripts/collectible_detector.gd" id="60_psocc"]
 [ext_resource type="Texture2D" uid="uid://ueok5jf4h4m0" path="res://art/vignette.png" id="62_sh2xx"]
 [ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="63_jfxac"]
+[ext_resource type="SpriteFrames" uid="uid://rav5rqfqmiew" path="res://scene_resources/line_zapper_spriteframe.tres" id="68_qal4a"]
+[ext_resource type="Texture2D" uid="uid://c6cp76n7a1j3j" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00133.png" id="69_kbfop"]
+[ext_resource type="Texture2D" uid="uid://clw66lmb6cdwo" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00124.png" id="70_rh7bv"]
+[ext_resource type="Texture2D" uid="uid://bpo0u1u54rckj" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00125.png" id="71_8p48t"]
+[ext_resource type="Texture2D" uid="uid://duv5tohdpxqem" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00126.png" id="72_o2flw"]
+[ext_resource type="Texture2D" uid="uid://be2t4ij0a5yq7" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00127.png" id="73_7l1vx"]
+[ext_resource type="Texture2D" uid="uid://c6w1n6u7twr5a" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00128.png" id="74_f1st7"]
+[ext_resource type="Texture2D" uid="uid://b7iji6ceyjhem" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00129.png" id="75_c51iu"]
+[ext_resource type="Texture2D" uid="uid://cc8a76jqqoad8" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00130.png" id="76_audhp"]
+[ext_resource type="Texture2D" uid="uid://cvh3dxi65ovjt" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00131.png" id="77_rm6l2"]
+[ext_resource type="Texture2D" uid="uid://lkpmql5curcv" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00132.png" id="78_mrs7h"]
+[ext_resource type="Texture2D" uid="uid://dtq7m42cj114v" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00134.png" id="79_n7i7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
 size = Vector2(128, 547.385)
@@ -202,20 +220,68 @@ animations = [{
 resource_local_to_scene = true
 size = Vector2(500, 50)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fcsuf"]
-radius = 13.8889
-
 [sub_resource type="Gradient" id="Gradient_6smsb"]
 offsets = PackedFloat32Array(0, 0.00881057)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_oay21"]
 gradient = SubResource("Gradient_6smsb")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4wap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("79_n7i7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_kbfop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_n7i7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_kbfop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_rh7bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_8p48t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_o2flw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_7l1vx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_f1st7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_c51iu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_audhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_rm6l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_mrs7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_n7i7p")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 48.0
+}]
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ncon4")
 accelerate_sound = ExtResource("2_2fv50")
 slow_down_sound = ExtResource("3_h2mfw")
 slow_down_percentage = 0.7
+boss_health = 4.0
 metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
@@ -232,66 +298,61 @@ metadata/_edit_lock_ = true
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="PlayerHealthBar" type="ProgressBar" parent="UI"]
-self_modulate = Color(1, 0.34902, 0.341176, 1)
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
 top_level = true
 z_index = 4096
 anchors_preset = -1
 anchor_left = -0.0127119
-offset_left = 82.0
-offset_top = 37.0
-offset_right = 345.0
-offset_bottom = 77.0
-value = 100.0
-show_percentage = false
+offset_left = 40.0
+offset_top = 14.0
+offset_right = 434.0
+offset_bottom = 114.0
+max_value = 6.0
+value = 6.0
+texture_under = ExtResource("7_5r475")
+texture_progress = ExtResource("8_t6auh")
 metadata/_edit_use_anchors_ = true
 
-[node name="BossHealthBar" type="ProgressBar" parent="UI"]
-self_modulate = Color(1, 0.34902, 0.341176, 1)
+[node name="BossHealthBar" type="TextureProgressBar" parent="UI"]
 top_level = true
 z_index = 4096
 anchors_preset = -1
 anchor_left = 0.967797
 anchor_right = 1.0
 anchor_bottom = 0.0134146
-offset_left = -306.0
-offset_top = 37.0
-offset_right = -66.0
-offset_bottom = 66.0
+offset_left = -384.0
+offset_top = 14.0
+offset_right = -13.0
+offset_bottom = 103.0
 grow_horizontal = 0
-value = 100.0
+max_value = 4.0
 fill_mode = 1
-show_percentage = false
+texture_under = ExtResource("7_5r475")
+texture_progress = ExtResource("8_t6auh")
 metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="ColorRect" parent="UI"]
+[node name="Background" type="TextureRect" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.311055, 0.000693503, 0.462134, 1)
-metadata/_edit_lock_ = true
-
-[node name="TextureRect" type="TextureRect" parent="UI"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("17_qf7u3")
+texture = ExtResource("7_6jh05")
 expand_mode = 2
 stretch_mode = 4
 metadata/_edit_lock_ = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="UI"]
+[node name="BackgroundSlow" type="TextureRect" parent="UI"]
 visible = false
-offset_left = 32.0
-offset_top = -176.0
-offset_right = 310.0
-offset_bottom = -136.0
-value = 100.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_6rfhb")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
 
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(592, 411)
@@ -301,14 +362,12 @@ scale = Vector2(1.26, 1.26)
 metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter" type="AnimatedSprite2D" parent="Level"]
-z_index = 2
+z_index = 3
 position = Vector2(-418.032, 17.2064)
 scale = Vector2(0.643881, 0.643881)
 sprite_frames = ExtResource("4_0nn2k")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame = 29
-frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="HitZone" type="Area2D" parent="Level/PlayerCharacter"]
@@ -322,9 +381,21 @@ metadata/_edit_lock_ = true
 
 [node name="Flash" parent="Level/PlayerCharacter" instance=ExtResource("57_hg35f")]
 
+[node name="PlayerBot" type="AnimatedSprite2D" parent="Level"]
+z_index = 2
+position = Vector2(-405.556, -107.937)
+scale = Vector2(0.484, 0.484)
+sprite_frames = ExtResource("10_fbf1u")
+animation = &"get_hit"
+autoplay = "fly"
+frame = 10
+frame_progress = 1.0
+
+[node name="Flash" parent="Level/PlayerBot" instance=ExtResource("57_hg35f")]
+
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
 z_index = 2
-position = Vector2(427.968, -33.7936)
+position = Vector2(406.349, -10.3175)
 scale = Vector2(0.738213, 0.738213)
 sprite_frames = ExtResource("4_ygwuk")
 animation = &"death"
@@ -334,6 +405,7 @@ metadata/_edit_lock_ = true
 [node name="BossHitZone" type="Area2D" parent="Level/Boss"]
 position = Vector2(-118.519, 33.9515)
 monitorable = false
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Boss/BossHitZone"]
 position = Vector2(0, -42.6924)
@@ -341,12 +413,15 @@ shape = SubResource("RectangleShape2D_fef26")
 metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Level/Boss"]
+metadata/_edit_lock_ = true
 
 [node name="Flash" parent="Level/Boss" instance=ExtResource("57_hg35f")]
+metadata/_edit_lock_ = true
 
 [node name="BossPortrait" type="Sprite2D" parent="Level"]
+visible = false
 z_index = 2
-position = Vector2(400.794, -284.921)
+position = Vector2(402.381, -284.921)
 scale = Vector2(0.793651, 0.793651)
 texture = ExtResource("11_ryrci")
 
@@ -357,6 +432,7 @@ scale = Vector2(0.377954, 0.377954)
 sprite_frames = SubResource("SpriteFrames_dm63f")
 frame = 39
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="RightHandPart" type="Node2D" parent="Level"]
 position = Vector2(-52.0317, -120.794)
@@ -380,22 +456,10 @@ barline_template = ExtResource("7_crksr")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="Collectible" type="AnimatableBody2D" parent="Level/RightHandPart/EndingPoint/NotesContainer"]
-z_index = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/EndingPoint/NotesContainer/Collectible"]
-position = Vector2(-1.42865, 3.17505)
-shape = SubResource("CircleShape2D_fcsuf")
-metadata/_edit_lock_ = true
-
-[node name="Sprite" type="Sprite2D" parent="Level/RightHandPart/EndingPoint/NotesContainer/Collectible"]
-scale = Vector2(0.159028, 0.159028)
-texture = ExtResource("7_xv37p")
-metadata/_edit_lock_ = true
-
 [node name="NotesDetector" type="Area2D" parent="Level/RightHandPart"]
 visible = false
 position = Vector2(-237.54, -50)
+collision_mask = 3
 script = ExtResource("6_gcv22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/NotesDetector"]
@@ -420,6 +484,7 @@ metadata/_edit_lock_ = true
 [node name="BottomNotesDetector" type="Area2D" parent="Level/RightHandPart"]
 visible = false
 position = Vector2(-237.54, 200)
+collision_mask = 3
 script = ExtResource("6_gcv22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/BottomNotesDetector"]
@@ -442,9 +507,10 @@ texture = ExtResource("14_nko2d")
 metadata/_edit_lock_ = true
 
 [node name="CollectDetect" type="Area2D" parent="Level/RightHandPart"]
+visible = false
 position = Vector2(-237.54, -50)
 collision_mask = 2
-script = ExtResource("6_gcv22")
+script = ExtResource("60_psocc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/CollectDetect"]
 position = Vector2(0, 42.375)
@@ -466,9 +532,10 @@ texture = ExtResource("14_nko2d")
 metadata/_edit_lock_ = true
 
 [node name="BottomCollectDetect" type="Area2D" parent="Level/RightHandPart"]
+visible = false
 position = Vector2(-237.54, 200)
 collision_mask = 2
-script = ExtResource("6_gcv22")
+script = ExtResource("60_psocc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/BottomCollectDetect"]
 position = Vector2(0, 60.625)
@@ -517,15 +584,6 @@ metadata/_edit_lock_ = true
 position = Vector2(54.063, 226.25)
 scale = Vector2(4.74062, 1.00024)
 
-[node name="ElectricBeam" type="Sprite2D" parent="Level/RightHandPart"]
-modulate = Color(0.501961, 1, 0.980392, 0.72549)
-z_index = -1
-position = Vector2(-238.595, 116.07)
-scale = Vector2(0.870039, 5.55914)
-texture = SubResource("GradientTexture2D_oay21")
-
-[node name="Flash" parent="Level/RightHandPart/ElectricBeam" instance=ExtResource("57_hg35f")]
-
 [node name="Screenshot2024-09-29At11_19_00" type="Sprite2D" parent="Level"]
 visible = false
 self_modulate = Color(1, 1, 1, 0.701961)
@@ -536,16 +594,6 @@ scale = Vector2(0.382283, 0.382283)
 texture = ExtResource("17_qf7u3")
 metadata/_edit_lock_ = true
 
-[node name="UpperDetector" type="Sprite2D" parent="Level"]
-position = Vector2(-242.148, -187.386)
-scale = Vector2(0.220225, 0.220225)
-texture = ExtResource("58_ovvpk")
-
-[node name="LowerDetector" type="Sprite2D" parent="Level"]
-position = Vector2(-242.148, 134.921)
-scale = Vector2(0.220225, 0.220225)
-texture = ExtResource("58_ovvpk")
-
 [node name="Vignette" type="Sprite2D" parent="Level"]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.913103, 0.913103)
@@ -553,6 +601,50 @@ texture = ExtResource("62_sh2xx")
 metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Level/Vignette" instance=ExtResource("63_jfxac")]
+
+[node name="DetectorVisual" type="Node2D" parent="Level"]
+position = Vector2(-242.148, 0)
+
+[node name="UpperBrick" type="Sprite2D" parent="Level/DetectorVisual"]
+position = Vector2(0, -187.386)
+scale = Vector2(0.220225, 0.220225)
+texture = ExtResource("58_ovvpk")
+metadata/_edit_lock_ = true
+
+[node name="LowerBrick" type="Sprite2D" parent="Level/DetectorVisual"]
+position = Vector2(0, 134.921)
+scale = Vector2(0.220225, 0.220225)
+texture = ExtResource("58_ovvpk")
+metadata/_edit_lock_ = true
+
+[node name="ElectricBeam" type="Sprite2D" parent="Level/DetectorVisual"]
+self_modulate = Color(0.501961, 1, 0.980392, 0.72549)
+z_index = -1
+position = Vector2(-0.759705, -27.938)
+scale = Vector2(0.696031, 4.44731)
+texture = SubResource("GradientTexture2D_oay21")
+metadata/_edit_lock_ = true
+
+[node name="LineZap" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
+scale = Vector2(0.28, 0.07)
+sprite_frames = ExtResource("68_qal4a")
+animation = &"line_zap"
+frame = 7
+frame_progress = 1.0
+metadata/_edit_lock_ = true
+
+[node name="ElectricBolt" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
+position = Vector2(397.931, 35.9057)
+scale = Vector2(1.69105, 0.225)
+sprite_frames = SubResource("SpriteFrames_u4wap")
+animation = &"attack"
+frame = 13
+frame_progress = 1.0
+metadata/_edit_lock_ = true
+
+[node name="Flash" parent="Level/DetectorVisual/ElectricBeam" instance=ExtResource("57_hg35f")]
+visible = false
+metadata/_edit_lock_ = true
 
 [node name="Midi" parent="." instance=ExtResource("12_6nasv")]
 

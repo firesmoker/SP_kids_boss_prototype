@@ -5,12 +5,18 @@ class_name Game extends Node2D
 @onready var music_player_slow: AudioStreamPlayer = $MusicPlayerSlow
 @onready var parser: Parser = $Parser
 @onready var player_character: AnimatedSprite2D = $Level/PlayerCharacter
+@onready var player_bot: AnimatedSprite2D = $Level/PlayerBot
+
 @onready var boss: AnimatedSprite2D = $Level/Boss
-@onready var player_health_bar: ProgressBar = $UI/PlayerHealthBar
-@onready var boss_health_bar: ProgressBar = $UI/BossHealthBar
+@onready var player_health_bar: TextureProgressBar = $UI/PlayerHealthBar
+@onready var boss_health_bar: TextureProgressBar = $UI/BossHealthBar
 @onready var level: Node2D = $Level
-@onready var electric_beam: Sprite2D = $Level/RightHandPart/ElectricBeam
+@onready var electric_beam: Sprite2D = $Level/DetectorVisual/ElectricBeam
 @onready var vignette: Sprite2D = $Level/Vignette
+@onready var background: TextureRect = $UI/Background
+@onready var background_slow: TextureRect = $UI/BackgroundSlow
+
+
 
 @onready var ending_point: Node2D = $Level/RightHandPart/EndingPoint
 @onready var notes_container: NotesContainer = $Level/RightHandPart/EndingPoint/NotesContainer
@@ -31,8 +37,8 @@ static var game_state: String = "Playing"
 @export var slow_down_percentage: float = 0.8
 @export var slow_timer: float = 3.5
 var level_length_in_bar: float = 0
-var player_health: float = 10
-var boss_health: float = 300
+@export var player_health: float = 10
+@export var boss_health: float = 300
 var DamageFromBoss: float = 1
 var DamageFromPlayer: float = 1
 var starting_position: Vector2
@@ -53,6 +59,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func level_accelerate() -> void:
 	if slow_down != false:
+		background.visible = true
+		background_slow.visible = false
 		audio.stream = accelerate_sound
 		audio.play()
 		slow_down = false
@@ -62,6 +70,8 @@ func level_accelerate() -> void:
 
 func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 	if slow_down != true:
+		background.visible = false
+		background_slow.visible = true
 		audio.stream = slow_down_sound
 		audio.play()
 		slow_down = true
@@ -77,6 +87,12 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 func _ready() -> void:
+	player_health_bar.max_value = player_health
+	player_health_bar.value = player_health
+	boss_health_bar.max_value = boss_health
+	boss_health_bar.value = boss_health
+	background.visible = true
+	background_slow.visible = false
 	initialize_part()
 	level.position = Vector2(0,0)
 	reset_health_bars()
@@ -97,6 +113,7 @@ func _process(delta: float) -> void:
 		boss.play("idle")
 	if not player_character.is_playing():
 		player_character.play("idle")
+		player_bot.play("fly")
 	time_elapsed += delta
 	if time_elapsed > vul_time:
 		vulnerable = true
@@ -150,22 +167,34 @@ func _on_hit_zone_body_entered(note: Note) -> void:
 		print("not active, not interesting")
 
 
+func activate_effect(effect: String = "slow_down") -> void:
+	pass
+
 func hit_boss() -> void:
-	electric_beam.find_child("Flash").flash()
-	player_character.stop()
-	player_character.play("attack")
-	boss.find_child("Flash").flash(Color.RED)
-	boss_health -= 1
-	boss_health_bar.value = boss_health
-	boss.play("get_hit")
-	if boss_health <= 0:
-		win()
+	if not winning:
+		electric_beam.find_child("Flash").flash()
+		electric_beam.find_child("LineZap").play("line_zap")
+		electric_beam.find_child("ElectricBolt").play("attack")
+		player_character.stop()
+		player_bot.stop()
+		player_character.play("attack")
+		player_bot.play("attack")
+		boss.find_child("Flash").flash(Color.RED)
+		boss_health -= 1
+		boss_health_bar.value = boss_health
+		boss.play("get_hit")
+		if boss_health <= 0:
+			win()
 
 func get_hit() -> void:
-	if vulnerable:
-		player_character.find_child("Flash").flash(Color.RED)
+	if vulnerable and not winning:
+		#player_character.find_child("Flash").flash(Color.RED)
+		player_character.play("get_hit")
+		player_bot.play("get_hit")
 		player_health -= 1
 		player_health_bar.value = player_health
+		if player_health <= 0:
+			lose()
 	else:
 		print("false hit")
 
@@ -177,5 +206,5 @@ func reset_health_bars() -> void:
 
 
 func _on_boss_hit_zone_body_entered(note: Note) -> void:
-	if note.state.to_lower() != "rest":
+	if note.state.to_lower() != "rest" and not winning:
 		boss.play("attack")
