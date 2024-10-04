@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=103 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtmngoe2k8yr" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_04.png" id="11_64hqx"]
 [ext_resource type="Texture2D" uid="uid://b1mxrg203o4j1" path="res://art/Elements/Characters/Enemy/skeleton-Idle_0.png" id="11_ryrci"]
 [ext_resource type="Texture2D" uid="uid://mf34dtkpcxvt" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_05.png" id="12_0d2f4"]
-[ext_resource type="PackedScene" path="res://scenes/midi.tscn" id="12_6nasv"]
+[ext_resource type="PackedScene" uid="uid://bxblwoncab6o8" path="res://scenes/midi.tscn" id="12_6nasv"]
 [ext_resource type="Texture2D" uid="uid://e4lw16jg3ng1" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_06.png" id="13_spctx"]
 [ext_resource type="Texture2D" uid="uid://wppodch3hmut" path="res://art/BassClef.png" id="14_3a4yn"]
 [ext_resource type="Texture2D" uid="uid://blmu76wgd6r48" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_07.png" id="14_a4imh"]
@@ -92,6 +92,8 @@
 [ext_resource type="Texture2D" uid="uid://cvh3dxi65ovjt" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00131.png" id="77_rm6l2"]
 [ext_resource type="Texture2D" uid="uid://lkpmql5curcv" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00132.png" id="78_mrs7h"]
 [ext_resource type="Texture2D" uid="uid://dtq7m42cj114v" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00134.png" id="79_n7i7p"]
+[ext_resource type="Script" path="res://scripts/midi_websocket.gd" id="93_brqxi"]
+[ext_resource type="Script" path="res://scripts/midi_processor.gd" id="94_47mdx"]
 
 [sub_resource type="Gradient" id="Gradient_rs6wh"]
 offsets = PackedFloat32Array(0, 0.00744417)
@@ -712,8 +714,16 @@ metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer" parent="Level/DetectorVisual/ElectricBeam"]
 
-[node name="Midi" parent="." instance=ExtResource("12_6nasv")]
+[node name="Midi" type="Node" parent="."]
+
+[node name="Midi Controller" parent="Midi" instance=ExtResource("12_6nasv")]
 metadata/_edit_lock_ = true
+
+[node name="Midi WebSocket" type="Node" parent="Midi"]
+script = ExtResource("93_brqxi")
+
+[node name="Midi Processor" type="Node" parent="Midi"]
+script = ExtResource("94_47mdx")
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 [connection signal="button_up" from="Overlay/Pause" to="." method="_on_pause_button_up"]
