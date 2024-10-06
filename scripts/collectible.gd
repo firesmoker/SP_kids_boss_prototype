@@ -9,6 +9,9 @@ var effect: String = "slow_down"
 @onready var slowdown: AnimatedSprite2D = $Slowdown
 
 
+func _ready() -> void:
+	hide_sprites()
+
 
 func set_sprite(type: String = "Heart") -> void:
 	print(type)
@@ -23,3 +26,8 @@ func set_sprite(type: String = "Heart") -> void:
 			heart.visible = true
 	if event.note == "C4":
 		helper_line.visible = true
+
+func hide_sprites() -> void:
+	heart.visible = false
+	bomb.visible = false
+	slowdown.visible = false

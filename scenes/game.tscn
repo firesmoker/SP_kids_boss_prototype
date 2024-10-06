@@ -442,8 +442,8 @@ script = ExtResource("19_j5u08")
 metadata/_edit_lock_ = true
 
 [node name="HitZone" type="Area2D" parent="Level/PlayerCharacter"]
+position = Vector2(161.127, 0)
 monitorable = false
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlayerCharacter/HitZone"]
 position = Vector2(0, -42.6924)
@@ -451,10 +451,12 @@ shape = SubResource("RectangleShape2D_fef26")
 metadata/_edit_lock_ = true
 
 [node name="Flash" parent="Level/PlayerCharacter" instance=ExtResource("57_hg35f")]
+metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer" parent="Level/PlayerCharacter"]
 
 [node name="Expander" parent="Level/PlayerCharacter" instance=ExtResource("20_wgxju")]
+metadata/_edit_lock_ = true
 
 [node name="PlayerBot" type="AnimatedSprite2D" parent="Level"]
 z_index = 2
@@ -521,7 +523,7 @@ self_modulate = Color(1, 1, 1, 0)
 z_index = -2
 texture = SubResource("PlaceholderTexture2D_xdh2h")
 script = ExtResource("2_yqf4i")
-on_display_duration = 1.4
+on_display_duration = 1.5
 note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
 collectable_template = ExtResource("57_nyblo")
@@ -556,7 +558,6 @@ metadata/_edit_lock_ = true
 [node name="BottomNotesDetector" type="Area2D" parent="Level/RightHandPart"]
 visible = false
 position = Vector2(-237.54, 200)
-collision_mask = 3
 script = ExtResource("6_gcv22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/BottomNotesDetector"]

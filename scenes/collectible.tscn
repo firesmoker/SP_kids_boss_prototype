@@ -18,7 +18,7 @@ shader_parameter/color = null
 shader_parameter/alpha = 1.0
 
 [node name="Collectible" type="AnimatableBody2D"]
-z_index = 7
+z_index = 1
 scale = Vector2(0.175, 0.175)
 collision_layer = 2
 collision_mask = 0
@@ -26,7 +26,6 @@ sync_to_physics = false
 script = ExtResource("1_ol4d8")
 
 [node name="Heart" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(4.6, -17.143)
 scale = Vector2(0.827253, 0.827253)
 sprite_frames = ExtResource("2_m730v")
@@ -34,7 +33,6 @@ autoplay = "default"
 frame_progress = 0.725694
 
 [node name="Bomb" type="AnimatedSprite2D" parent="."]
-visible = false
 self_modulate = Color(1, 0, 0, 1)
 position = Vector2(4.6, -17.143)
 scale = Vector2(0.827253, 0.827253)
@@ -43,9 +41,8 @@ autoplay = "default"
 frame_progress = 0.932702
 
 [node name="Slowdown" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(4.6, -17.143)
-scale = Vector2(0.827253, 0.827253)
+position = Vector2(3.34262, -15.9882)
+scale = Vector2(1.08016, 1.08016)
 sprite_frames = ExtResource("4_h551j")
 autoplay = "default"
 frame_progress = 0.947712
