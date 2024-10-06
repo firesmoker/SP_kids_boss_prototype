@@ -8,6 +8,10 @@ class_name Game extends Node2D
 @onready var player_bot: AnimatedSprite2D = $Level/PlayerBot
 @onready var audio_clips: AudioClips = $AudioClips
 @onready var darken: TextureRect = $Overlay/Darken
+@onready var darken_level: TextureRect = $UI/DarkenLevel
+@onready var tutorial: Panel = $Overlay/Tutorial
+@onready var tutorial_text: Label = $Overlay/Tutorial/Text
+
 @onready var heart: AnimatedSprite2D = $Level/Heart
 @onready var into_stage: AnimatedSprite2D = $Level/IntoStage
 @onready var win_text: Label = $Overlay/WinText
@@ -41,7 +45,9 @@ static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
 static var game_won_scene: String = "res://scenes/game_won_screen.tscn"
 static var game_state: String = "Playing"
-
+static var health_collected: bool = false
+static var slowdown_collected: bool = false
+static var bomb_collected: bool = false
 
 @export_enum("treble","bass","both") var ui_type: String = "treble"
 @export var tempo: float = 122.0
@@ -62,6 +68,8 @@ var slow_down: bool = false
 var detector_position_x: float = -200
 var winning: bool = false
 
+signal game_resumed
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
 		level_accelerate()
@@ -69,16 +77,21 @@ func _unhandled_input(event: InputEvent) -> void:
 		level_slow_down()
 
 
-func pause() -> void:
+func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -> void:
 	if not get_tree().paused:
 		pause_button.text = "Resume"
 		print("PAUSING!")
-		darken.visible = true
+		if darken_on_pause:
+			darken.visible = true
+		if darken_level_on_pause:
+			darken_level.visible = true
 		get_tree().paused = true
 	else:
+		emit_signal("game_resumed")
 		pause_button.text = "Pause"
 		print("OH YEAH")
 		darken.visible = false
+		darken_level.visible = false
 		get_tree().paused = false
 
 
@@ -112,6 +125,7 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 func _ready() -> void:
+	tutorial.visible = false
 	win_text.visible = false
 	into_stage.visible = false
 	player_health_bar.max_value = player_health
@@ -214,15 +228,60 @@ func _on_hit_zone_body_entered(note: Note) -> void:
 	#else:
 		#print("not active, not interesting")
 
+func hide_tutorial() -> void:
+	tutorial.visible = false
+
+func show_tutorial(for_type: String = "heart") -> void:
+	tutorial.visible = true
+	tutorial.find_child("Heart").visible = false
+	tutorial.find_child("Slowdown").visible = false
+	tutorial.find_child("Bomb").visible = false
+	match for_type:
+		"heart":
+			tutorial_text.text = "אספת לב!
+חלק מהחיים שהפסדת יתרפאו"
+			tutorial.find_child("Heart").visible = true
+		"slowdown":
+			tutorial_text.text = "אספת האטת זמן!"
+			tutorial.find_child("Slowdown").visible = true
+			
+		"bomb":
+			tutorial_text.text = "פגעת פצצה!
+זהירות, זה מוריד לך חיים!"
+			tutorial.find_child("Bomb").visible = true
+			
+		_:
+			tutorial_text.text = "ERROR TYPE NOT FOUND"
 
 func activate_effect(effect: String = "slowdown") -> void:
 	match effect:
 		"slowdown":
-			level_slow_down()
+			if not slowdown_collected:
+				health_collected = true
+				show_tutorial(effect)
+				pause(true)
+				await game_resumed
+				level_slow_down()
+			else:
+				level_slow_down()
 		"bomb":
-			get_hit()
+			if not bomb_collected:
+				bomb_collected = true
+				show_tutorial(effect)
+				pause(true)
+				await game_resumed
+				get_hit()
+			else:
+				get_hit()
 		"heart":
-			heal()
+			if not slowdown_collected:
+				slowdown_collected = true
+				show_tutorial(effect)
+				pause(true)
+				await game_resumed
+				heal()
+			else:
+				heal()
 			
 		_:
 			print("no specific effect")
@@ -300,7 +359,7 @@ func _on_boss_hit_zone_body_entered(note: Note) -> void:
 
 
 func _on_pause_button_up() -> void:
-	pause()
+	pause(true)
 
 
 func _on_restart_button_up() -> void:
@@ -316,3 +375,8 @@ func player_win_animation() -> void:
 	into_stage.play()
 	win_text.visible = true
 	win_text.find_child("Fader").fade_in()
+
+
+func _on_resume_button_up() -> void:
+	tutorial.visible = false
+	pause()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=106 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -41,7 +41,10 @@
 [ext_resource type="Texture2D" uid="uid://cgegegd2x6cd1" path="res://art/HealthBarBG (1).png" id="14_vn3l6"]
 [ext_resource type="Texture2D" uid="uid://k1cer1k30p2q" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_08.png" id="15_gbgaq"]
 [ext_resource type="Texture2D" uid="uid://syqp4mg130wo" path="res://art/HealthBarStatus (1).png" id="15_uj0lk"]
+[ext_resource type="Texture2D" uid="uid://bi7s7ogaqqd82" path="res://art/30.sep/Collectible-Life/Collectible-Life_00000.png" id="15_vluut"]
+[ext_resource type="Texture2D" uid="uid://wojvkeu3woyi" path="res://art/30.sep/Collectible-Snail/Collectible-Snail_00000.png" id="16_eui1i"]
 [ext_resource type="Texture2D" uid="uid://cdp6h1027ukip" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_09.png" id="16_m1q5i"]
+[ext_resource type="Texture2D" uid="uid://bxoxqsja0mkf1" path="res://art/30.sep/Collectible-Bomb/Collectible-Bomb_00000.png" id="17_64vtv"]
 [ext_resource type="Texture2D" uid="uid://lv3vbtqalfpk" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_10.png" id="17_koes1"]
 [ext_resource type="Texture2D" uid="uid://chtp0yoritrwu" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_11.png" id="18_ccif6"]
 [ext_resource type="Texture2D" uid="uid://12br1h12n3v" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_12.png" id="19_awa3a"]
@@ -100,6 +103,9 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rlrxh"]
 gradient = SubResource("Gradient_rs6wh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dqwj"]
+bg_color = Color(0.535958, 0.116029, 0.861395, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
 size = Vector2(128, 547.385)
@@ -386,10 +392,111 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Fader" parent="Overlay/WinText" instance=ExtResource("63_jfxac")]
 
+[node name="Tutorial" type="Panel" parent="Overlay"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.5
+offset_top = -186.0
+offset_right = 420.5
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6dqwj")
+
+[node name="Text" type="Label" parent="Overlay/Tutorial"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.359096
+anchor_top = 0.760753
+anchor_right = 0.674197
+anchor_bottom = 0.760753
+offset_left = -141.5
+offset_top = -247.0
+offset_right = 141.5
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "אספת לב!
+חלק מהחיים שהפסדת יתרפאו"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Resume" type="Button" parent="Overlay/Tutorial"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = -139.0
+offset_right = 76.5
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "הבנתי"
+
+[node name="Heart" type="TextureRect" parent="Overlay/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -50.5
+offset_right = 42.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_vluut")
+expand_mode = 1
+
+[node name="Slowdown" type="TextureRect" parent="Overlay/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -72.0
+offset_right = 60.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_eui1i")
+expand_mode = 1
+
+[node name="Bomb" type="TextureRect" parent="Overlay/Tutorial"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -50.5
+offset_right = 42.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_64vtv")
+expand_mode = 1
+
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
+process_mode = 3
 top_level = true
 z_index = 4096
 anchors_preset = -1
@@ -412,6 +519,7 @@ flash_time = 0.4
 [node name="Expander" parent="UI/PlayerHealthBar" instance=ExtResource("20_wgxju")]
 
 [node name="BossHealthBar" type="TextureProgressBar" parent="UI"]
+process_mode = 3
 top_level = true
 z_index = 4096
 anchors_preset = -1
@@ -451,6 +559,19 @@ grow_vertical = 2
 texture = ExtResource("10_6rfhb")
 expand_mode = 2
 stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="DarkenLevel" type="TextureRect" parent="UI"]
+process_mode = 3
+visible = false
+self_modulate = Color(1, 1, 1, 0.686275)
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_rlrxh")
 metadata/_edit_lock_ = true
 
 [node name="Level" type="Node2D" parent="."]
@@ -771,6 +892,7 @@ metadata/_edit_lock_ = true
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 [connection signal="button_up" from="Overlay/Pause" to="." method="_on_pause_button_up"]
 [connection signal="button_up" from="Overlay/Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="Overlay/Tutorial/Resume" to="." method="_on_resume_button_up"]
 [connection signal="body_entered" from="Level/PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/Boss/BossHitZone" to="." method="_on_boss_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/RightHandPart/NotesDetector" to="." method="_on_notes_detector_body_entered"]
