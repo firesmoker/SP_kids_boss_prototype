@@ -192,8 +192,8 @@ func new_timer(wait_time: float = 2.0) -> Timer:
 func _on_hit_zone_body_entered(note: Note) -> void:
 	if note.state == "Active":
 		get_hit()
-	else:
-		print("not active, not interesting")
+	#else:
+		#print("not active, not interesting")
 
 
 func activate_effect(effect: String = "slowdown") -> void:

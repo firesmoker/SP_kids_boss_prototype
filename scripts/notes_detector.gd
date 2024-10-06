@@ -24,8 +24,8 @@ func note_played(note: String) -> void:
 				current_notes.pop_at(0)
 			
 			
-		else:
-			print("wrong note played YA LOSER")
+		#else:
+			#print("wrong note played YA LOSER")
 
 func clear_notes() -> void:
 	current_notes.clear()

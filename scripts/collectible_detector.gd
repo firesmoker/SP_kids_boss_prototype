@@ -25,8 +25,8 @@ func collect_by_note(note: String) -> void:
 				current_collectibles.pop_at(0)
 			
 			
-		else:
-			print("wrong note played YA LOSER")
+		#else:
+			#print("wrong note played YA LOSER")
 
 func clear_collectibles() -> void:
 	current_collectibles.clear()
