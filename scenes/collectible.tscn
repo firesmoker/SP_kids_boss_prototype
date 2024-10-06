@@ -18,7 +18,7 @@ shader_parameter/color = null
 shader_parameter/alpha = 1.0
 
 [node name="Collectible" type="AnimatableBody2D"]
-z_index = 7
+z_index = 1
 scale = Vector2(0.175, 0.175)
 collision_layer = 2
 collision_mask = 0
