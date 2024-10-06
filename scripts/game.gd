@@ -8,11 +8,14 @@ class_name Game extends Node2D
 @onready var player_bot: AnimatedSprite2D = $Level/PlayerBot
 @onready var audio_clips: AudioClips = $AudioClips
 @onready var darken: TextureRect = $Overlay/Darken
+@onready var heart: AnimatedSprite2D = $Level/Heart
 
 @onready var boss: AnimatedSprite2D = $Level/Boss
 @onready var player_health_bar: TextureProgressBar = $UI/PlayerHealthBar
 @onready var boss_health_bar: TextureProgressBar = $UI/BossHealthBar
 @onready var level: Node2D = $Level
+@onready var detector_visual: Node2D = $Level/DetectorVisual
+
 @onready var electric_beam: Sprite2D = $Level/DetectorVisual/ElectricBeam
 @onready var vignette: Sprite2D = $Level/Vignette
 @onready var background: TextureRect = $UI/Background
@@ -172,14 +175,19 @@ func win() -> void:
 	winning = true
 	print("you won!")
 	right_hand_part.find_child("Fader").fade_out()
+	detector_visual.find_child("Fader").fade_out()
 	var timer: Timer = new_timer(1)
 	timer.start()
 	await timer.timeout
-	player_win_animation()
 	boss.stop()
 	boss.play("death")
 	audio_play_from_source(boss, audio_clips.boss_death)
 	await boss.animation_finished
+	boss.visible = false
+	player_win_animation()
+	await player_character.animation_finished
+	timer.start()
+	await timer.timeout
 	game_state = "Win"
 	#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 
@@ -204,12 +212,16 @@ func activate_effect(effect: String = "slowdown") -> void:
 			get_hit()
 		"heart":
 			heal()
+			
 		_:
 			print("no specific effect")
 
 func heal(amount: int = 1) -> void:
 	player_health += amount
 	player_health_bar.value = player_health
+	player_health_bar.find_child("Flash").flash(Color.LIGHT_SEA_GREEN, 0.25)
+	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
+	heart.find_child("Expander").expand(1.10, 0.25, true)
 
 func hit_boss() -> void:
 	if not winning:
@@ -239,10 +251,16 @@ func get_hit() -> void:
 	if vulnerable and not winning:
 		#player_character.find_child("Flash").flash(Color.RED)
 		player_character.play("get_hit")
+		player_character.find_child("Flash").flash(Color.RED)
 		player_bot.play("get_hit")
+		player_bot.find_child("Flash").flash(Color.RED)
 		audio_play_from_source(player_character, audio_clips.player_hit)
 		player_health -= 1
 		player_health_bar.value = player_health
+		player_health_bar.find_child("Flash").flash(Color.RED)
+		player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
+		heart.find_child("Flash").flash(Color.RED)
+		heart.find_child("Expander").expand(1.20, 0.15, true)
 		if player_health <= 0:
 			lose()
 	else:

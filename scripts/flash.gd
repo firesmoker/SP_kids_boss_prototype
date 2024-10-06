@@ -1,5 +1,5 @@
 extends Node2D
-var parent: Node2D
+var parent: Node
 @export var x_hide_position: float = -450
 @export var flash_color: Color = Color.WHITE
 @export var flash_time: float = 0.1
@@ -19,8 +19,10 @@ func _ready() -> void:
 		print("kakaka")
 	
 
-func flash(color: Color = flash_color) -> void:
+func flash(color: Color = flash_color, time: float = flash_time) -> void:
 	parent.modulate = color
+	flash_time = time
+	timer.wait_time = flash_time
 	timer.start()
 	await timer.timeout
 	parent.modulate = starting_color

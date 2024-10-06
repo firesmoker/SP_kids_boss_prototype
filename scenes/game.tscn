@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtmngoe2k8yr" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_04.png" id="11_64hqx"]
 [ext_resource type="Texture2D" uid="uid://b1mxrg203o4j1" path="res://art/Elements/Characters/Enemy/skeleton-Idle_0.png" id="11_ryrci"]
 [ext_resource type="Texture2D" uid="uid://mf34dtkpcxvt" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_05.png" id="12_0d2f4"]
-[ext_resource type="PackedScene" uid="uid://beahjidbr3gmj" path="res://scenes/midi.tscn" id="12_6nasv"]
+[ext_resource type="PackedScene" uid="uid://bulectulupeu0" path="res://scenes/midi.tscn" id="12_6nasv"]
 [ext_resource type="Texture2D" uid="uid://e4lw16jg3ng1" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_06.png" id="13_spctx"]
 [ext_resource type="Texture2D" uid="uid://wppodch3hmut" path="res://art/BassClef.png" id="14_3a4yn"]
 [ext_resource type="Texture2D" uid="uid://blmu76wgd6r48" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_07.png" id="14_a4imh"]
@@ -381,6 +381,12 @@ texture_progress = ExtResource("15_uj0lk")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
+[node name="Flash" parent="UI/PlayerHealthBar" instance=ExtResource("57_hg35f")]
+flash_color = Color(1, 0, 0, 1)
+flash_time = 0.4
+
+[node name="Expander" parent="UI/PlayerHealthBar" instance=ExtResource("20_wgxju")]
+
 [node name="BossHealthBar" type="TextureProgressBar" parent="UI"]
 top_level = true
 z_index = 4096
@@ -508,6 +514,10 @@ sprite_frames = SubResource("SpriteFrames_dm63f")
 frame = 39
 frame_progress = 1.0
 metadata/_edit_lock_ = true
+
+[node name="Expander" parent="Level/Heart" instance=ExtResource("20_wgxju")]
+
+[node name="Flash" parent="Level/Heart" instance=ExtResource("57_hg35f")]
 
 [node name="RightHandPart" type="Node2D" parent="Level"]
 position = Vector2(-52.0317, -120.794)
@@ -712,6 +722,8 @@ visible = false
 metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer" parent="Level/DetectorVisual/ElectricBeam"]
+
+[node name="Fader" parent="Level/DetectorVisual" instance=ExtResource("63_jfxac")]
 
 [node name="Midi" parent="." instance=ExtResource("12_6nasv")]
 

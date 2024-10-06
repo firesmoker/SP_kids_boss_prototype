@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://beahjidbr3gmj"]
+[gd_scene load_steps=4 format=3 uid="uid://bulectulupeu0"]
 
 [ext_resource type="Script" path="res://scripts/midi_controller.gd" id="1_x581d"]
 [ext_resource type="Script" path="res://scripts/midi_websocket.gd" id="2_bg4s2"]

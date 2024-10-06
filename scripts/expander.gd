@@ -1,8 +1,9 @@
 extends Node2D
-var parent: Node2D
+var parent: Node
 var game: Node
 
 var expanding: bool = false
+var reverse_expanding: bool = false
 var target_scale_modifier: float = 3
 var expand_progress: float = 0
 var original_scale: Vector2
@@ -30,6 +31,15 @@ func _process(delta: float) -> void:
 			expand_progress = time_to_scale
 			expanding = false
 		parent.scale = lerp(original_scale, target_scale, expand_progress / time_to_scale)
+		if expand_progress >= time_to_scale:
+			expand_progress = 0
+	elif reverse_expanding:
+		expand_progress += delta
+		if expand_progress >= time_to_scale:
+			expand_progress = time_to_scale
+			expanding = false
+			reverse_expanding = false
+		parent.scale = lerp(target_scale, original_scale, expand_progress / time_to_scale)
 	
 	if moving:
 		moving_progress += delta
@@ -38,12 +48,13 @@ func _process(delta: float) -> void:
 			moving = false
 		parent.global_position = lerp(original_position, target_position, moving_progress / time_to_move)
 
-func expand(modifier: float = target_scale_modifier, time: float = time_to_scale) -> void:
+func expand(modifier: float = target_scale_modifier, time: float = time_to_scale, reverse: bool = false) -> void:
 	expanding = true
 	parent.scale = original_scale 
 	target_scale_modifier = modifier
 	target_scale = original_scale * target_scale_modifier
 	time_to_scale = time
+	reverse_expanding = reverse
 
 func move(new_position: Vector2, time: float = time_to_move) -> void:
 	original_position = parent.global_position
