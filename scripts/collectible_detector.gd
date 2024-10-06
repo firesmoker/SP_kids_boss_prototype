@@ -10,9 +10,9 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:	
 	var note: String = event.as_text() + "4"
-	collect_by_note(note)
+	note_played(note)
 
-func collect_by_note(note: String) -> void: 
+func note_played(note: String) -> void: 
 	if current_collectibles.size() > 0:
 		if note == current_collectibles[0].event.note:
 			var effect: String = current_collectibles[0].event.subtype
