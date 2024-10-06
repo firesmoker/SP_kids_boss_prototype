@@ -1,5 +1,5 @@
 extends Node2D
-var parent: Node2D
+var parent: Node
 var game: Node
 var fading_in: bool = false
 var fading_out: bool = false

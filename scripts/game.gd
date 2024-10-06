@@ -9,6 +9,8 @@ class_name Game extends Node2D
 @onready var audio_clips: AudioClips = $AudioClips
 @onready var darken: TextureRect = $Overlay/Darken
 @onready var heart: AnimatedSprite2D = $Level/Heart
+@onready var into_stage: AnimatedSprite2D = $Level/IntoStage
+@onready var win_text: Label = $Overlay/WinText
 
 @onready var boss: AnimatedSprite2D = $Level/Boss
 @onready var player_health_bar: TextureProgressBar = $UI/PlayerHealthBar
@@ -21,6 +23,8 @@ class_name Game extends Node2D
 @onready var background: TextureRect = $UI/Background
 @onready var background_slow: TextureRect = $UI/BackgroundSlow
 @onready var pause_button: Button = $Overlay/Pause
+@onready var restart_button: Button = $Overlay/Restart
+
 @onready var right_hand_part: Node2D = $Level/RightHandPart
 
 
@@ -108,6 +112,8 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 func _ready() -> void:
+	win_text.visible = false
+	into_stage.visible = false
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	boss_health_bar.max_value = boss_health
@@ -173,6 +179,10 @@ func lose() -> void:
 
 func win() -> void:
 	winning = true
+	pause_button.disabled = true
+	restart_button.disabled = true
+	pause_button.visible = false
+	restart_button.visible = false
 	print("you won!")
 	right_hand_part.find_child("Fader").fade_out()
 	detector_visual.find_child("Fader").fade_out()
@@ -186,6 +196,7 @@ func win() -> void:
 	boss.visible = false
 	player_win_animation()
 	await player_character.animation_finished
+	timer.wait_time = 3
 	timer.start()
 	await timer.timeout
 	game_state = "Win"
@@ -301,3 +312,7 @@ func player_win_animation() -> void:
 	player_character.sprite_frames
 	player_character.stop()
 	player_character.play("win")
+	into_stage.visible = true
+	into_stage.play()
+	win_text.visible = true
+	win_text.find_child("Fader").fade_in()
