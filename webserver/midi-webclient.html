@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIDI WebSocket Client</title>
+</head>
+<body>
+    <h1>MIDI WebSocket Client</h1>
+    <div id="messages"></div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8099');
+
+        ws.onopen = () => {
+            console.log('Connected to WebSocket server');
+        };
+
+        ws.onmessage = (event) => {
+            const messageDiv = document.getElementById('messages');
+            const message = JSON.parse(event.data);
+            messageDiv.innerHTML += `<p>MIDI message: ${message}</p>`;
+        };
+
+        ws.onclose = () => {
+            console.log('Disconnected from WebSocket server');
+        };
+    </script>
+</body>
+</html>
