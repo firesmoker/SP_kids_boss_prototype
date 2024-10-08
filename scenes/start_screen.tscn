@@ -1,12 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=10 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_geyk5"]
+[ext_resource type="Texture2D" uid="uid://bgjc1c5t8s7gj" path="res://art/buttons/Easy.png" id="2_fy6is"]
+[ext_resource type="Texture2D" uid="uid://dnw0jowojpg8w" path="res://art/buttons/Advanced.png" id="3_p11kr"]
+[ext_resource type="Texture2D" uid="uid://g4e4vu5fqnhq" path="res://art/buttons/Pro.png" id="4_bsr1o"]
 
 [sub_resource type="Theme" id="Theme_w463u"]
 default_font_size = 70
 
 [sub_resource type="Theme" id="Theme_b8tba"]
 default_font_size = 60
+
+[sub_resource type="Gradient" id="Gradient_rs6wh"]
+offsets = PackedFloat32Array(0, 0.00744417)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fs6dw"]
+gradient = SubResource("Gradient_rs6wh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gm4g5"]
+bg_color = Color(0.36624, 0.00156877, 0.638228, 1)
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_geyk5")
@@ -23,31 +36,171 @@ grow_vertical = 2
 color = Color(0.298661, 0.000840185, 0.481218, 1)
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI"]
+[node name="Title" type="Label" parent="UI"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -256.0
-offset_top = 58.0
+offset_top = 128.0
 offset_right = 256.0
-offset_bottom = 154.0
+offset_bottom = 224.0
 grow_horizontal = 2
 theme = SubResource("Theme_w463u")
-text = "Boss Prototype"
+text = "בחר רמה"
+horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="UI"]
+[node name="Button" type="TextureButton" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -100.0
+offset_top = -84.0
+offset_right = 100.0
+offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
-text = "Start Game"
+texture_normal = ExtResource("2_fy6is")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+text = "קל"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button2" type="TextureButton" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 11.0
+offset_right = 100.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8tba")
+texture_normal = ExtResource("3_p11kr")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+text = "רגיל"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button3" type="TextureButton" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 105.0
+offset_right = 100.0
+offset_bottom = 273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8tba")
+texture_normal = ExtResource("4_bsr1o")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+text = "קשה"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="LoadOverlay" type="TextureRect" parent="UI"]
+process_mode = 3
+self_modulate = Color(1, 1, 1, 0.686275)
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_fs6dw")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="UI/LoadOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -143.0
+offset_right = 310.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gm4g5")
+
+[node name="Label" type="Label" parent="UI/LoadOverlay/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -68.0
+offset_right = 190.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+text = "טוען"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="UI/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="UI/Button2" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="UI/Button3" to="." method="_on_button_button_up"]
