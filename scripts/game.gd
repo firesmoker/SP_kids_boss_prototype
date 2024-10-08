@@ -1,5 +1,6 @@
 class_name Game extends Node2D
 
+
 @onready var audio: AudioStreamPlayer = $Audio
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var music_player_slow: AudioStreamPlayer = $MusicPlayerSlow
@@ -12,7 +13,6 @@ class_name Game extends Node2D
 @onready var tutorial: Panel = $Overlay/Tutorial
 @onready var tutorial_text: Label = $Overlay/Tutorial/Text
 @onready var win_buttons: Panel = $Overlay/WinButtons
-
 @onready var heart: AnimatedSprite2D = $Level/Heart
 @onready var boss_portrait: Sprite2D = $Level/BossPortrait
 
@@ -45,6 +45,7 @@ class_name Game extends Node2D
 @export var accelerate_sound: AudioStream
 @export var slow_down_sound: AudioStream
 
+static var song_path: String = "res://audio/CountingStars_122bpm_new.wav"
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
 static var game_won_scene: String = "res://scenes/game_won_screen.tscn"
@@ -52,9 +53,9 @@ static var game_state: String = "Playing"
 static var health_collected: bool = false
 static var slowdown_collected: bool = false
 static var bomb_collected: bool = false
+static var tempo: float = 122.0
 
 @export_enum("treble","bass","both") var ui_type: String = "treble"
-@export var tempo: float = 122.0
 @export var slow_down_percentage: float = 0.8
 @export var slow_timer: float = 3.5
 var level_length_in_bar: float = 0
@@ -83,6 +84,7 @@ var boss_health_progress: float = 0
 
 
 signal game_resumed
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -139,6 +141,7 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 func _ready() -> void:
+	music_player.stream = load(song_path)
 	tutorial.visible = false
 	win_text.visible = false
 	into_stage.visible = false

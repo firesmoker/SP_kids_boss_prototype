@@ -26,6 +26,12 @@ bg_color = Color(0.36624, 0.00156877, 0.638228, 1)
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_geyk5")
+easy_song_path = "res://audio/CountingStars_122bpm_new.wav"
+easy_melody_path = "res://levels/melody1.txt"
+normal_song_path = "res://audio/CountingStars_122bpm_new.wav"
+normal_melody_path = "res://levels/melody1.txt"
+hard_song_path = "res://audio/CountingStars_122bpm_new.wav"
+hard_melody_path = "res://levels/melody1.txt"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
@@ -52,7 +58,7 @@ theme = SubResource("Theme_w463u")
 text = "בחר רמה"
 horizontal_alignment = 1
 
-[node name="Button" type="TextureButton" parent="UI"]
+[node name="EasyButton" type="TextureButton" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -68,7 +74,7 @@ theme = SubResource("Theme_b8tba")
 texture_normal = ExtResource("2_fy6is")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UI/Button"]
+[node name="Label" type="Label" parent="UI/EasyButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -87,7 +93,7 @@ text = "קל"
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button2" type="TextureButton" parent="UI"]
+[node name="NormalButton" type="TextureButton" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -103,7 +109,7 @@ theme = SubResource("Theme_b8tba")
 texture_normal = ExtResource("3_p11kr")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UI/Button2"]
+[node name="Label" type="Label" parent="UI/NormalButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -122,7 +128,7 @@ text = "רגיל"
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button3" type="TextureButton" parent="UI"]
+[node name="HardButton" type="TextureButton" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -138,7 +144,7 @@ theme = SubResource("Theme_b8tba")
 texture_normal = ExtResource("4_bsr1o")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UI/Button3"]
+[node name="Label" type="Label" parent="UI/HardButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -230,6 +236,6 @@ text = "טוען"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_up" from="UI/Button" to="." method="_on_button_button_up"]
-[connection signal="button_up" from="UI/Button2" to="." method="_on_button_button_up"]
-[connection signal="button_up" from="UI/Button3" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="UI/EasyButton" to="." method="_on_easy_button_button_up"]
+[connection signal="button_up" from="UI/NormalButton" to="." method="_on_normal_button_button_up"]
+[connection signal="button_up" from="UI/HardButton" to="." method="_on_hard_button_button_up"]

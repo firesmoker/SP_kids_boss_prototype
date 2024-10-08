@@ -10,7 +10,7 @@ enum WebSocketMessageList {
 }
 
 func _ready() -> void:
-	socket.connect_to_url("ws://Alons-Laptop.local:8099")
+	socket.connect_to_url("ws://Eylons-Mackbook-Pro.local:8099")
 
 func _process(delta: float) -> void:
 	socket.poll()
