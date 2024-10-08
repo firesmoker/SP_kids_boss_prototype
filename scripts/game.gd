@@ -28,8 +28,8 @@ class_name Game extends Node2D
 @onready var vignette: Sprite2D = $Level/Vignette
 @onready var background: TextureRect = $UI/Background
 @onready var background_slow: TextureRect = $UI/BackgroundSlow
-@onready var pause_button: Button = $Overlay/Pause
-@onready var restart_button: Button = $Overlay/Restart
+@onready var pause_button: TextureButton = $Overlay/Pause
+@onready var restart_button: TextureButton = $Overlay/Restart
 
 @onready var right_hand_part: Node2D = $Level/RightHandPart
 
@@ -81,7 +81,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -> void:
 	if not get_tree().paused:
-		pause_button.text = "Resume"
+		#pause_button.text = "Resume"
 		print("PAUSING!")
 		if darken_on_pause:
 			darken.visible = true
@@ -90,7 +90,7 @@ func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -
 		get_tree().paused = true
 	else:
 		emit_signal("game_resumed")
-		pause_button.text = "Pause"
+		#pause_button.text = "Pause"
 		print("OH YEAH")
 		darken.visible = false
 		darken_level.visible = false

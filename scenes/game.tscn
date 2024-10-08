@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=110 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -35,11 +35,14 @@
 [ext_resource type="PackedScene" uid="uid://bulectulupeu0" path="res://scenes/midi.tscn" id="12_6nasv"]
 [ext_resource type="Texture2D" uid="uid://e4lw16jg3ng1" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_06.png" id="13_spctx"]
 [ext_resource type="Texture2D" uid="uid://wppodch3hmut" path="res://art/BassClef.png" id="14_3a4yn"]
+[ext_resource type="Texture2D" uid="uid://bijmbm3melm8g" path="res://art/buttons/Pause (00000).png" id="14_4iv4a"]
 [ext_resource type="Texture2D" uid="uid://blmu76wgd6r48" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_07.png" id="14_a4imh"]
 [ext_resource type="Texture2D" uid="uid://yg0nr1qy20ge" path="res://art/TrebleClef.png" id="14_j4vp4"]
 [ext_resource type="Texture2D" uid="uid://cusf6tvgw27f2" path="res://art/RhythmLineGlow.png" id="14_nko2d"]
 [ext_resource type="Texture2D" uid="uid://cgegegd2x6cd1" path="res://art/HealthBarBG (1).png" id="14_vn3l6"]
+[ext_resource type="Texture2D" uid="uid://bmishccu2oflj" path="res://art/buttons/Restart (00000).png" id="15_0c6r2"]
 [ext_resource type="Texture2D" uid="uid://k1cer1k30p2q" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_08.png" id="15_gbgaq"]
+[ext_resource type="Texture2D" uid="uid://ykig5lusqec7" path="res://art/buttons/Play (00000).png" id="15_qonfn"]
 [ext_resource type="Texture2D" uid="uid://syqp4mg130wo" path="res://art/HealthBarStatus (1).png" id="15_uj0lk"]
 [ext_resource type="Texture2D" uid="uid://bi7s7ogaqqd82" path="res://art/30.sep/Collectible-Life/Collectible-Life_00000.png" id="15_vluut"]
 [ext_resource type="Texture2D" uid="uid://wojvkeu3woyi" path="res://art/30.sep/Collectible-Snail/Collectible-Snail_00000.png" id="16_eui1i"]
@@ -343,33 +346,36 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_rlrxh")
 metadata/_edit_lock_ = true
 
-[node name="Pause" type="Button" parent="Overlay"]
+[node name="Pause" type="TextureButton" parent="Overlay"]
 process_mode = 3
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -224.01
-offset_top = 11.82
-offset_right = -165.01
-offset_bottom = 42.82
+anchor_right = 0.526271
+anchor_bottom = 0.0378049
+offset_left = -135.0
+offset_top = 19.0
+offset_right = -95.0
+offset_bottom = 59.0
 grow_horizontal = 2
-scale = Vector2(3.12629, 2.47393)
-text = "PAUSE"
+toggle_mode = true
+texture_normal = ExtResource("14_4iv4a")
+texture_pressed = ExtResource("15_qonfn")
+stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="Restart" type="Button" parent="Overlay"]
+[node name="Restart" type="TextureButton" parent="Overlay"]
 process_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -6.58002
-offset_top = 12.83
-offset_right = 58.42
-offset_bottom = 43.83
+offset_left = -23.0
+offset_top = 20.0
+offset_right = 48.0
+offset_bottom = 91.0
 grow_horizontal = 2
-scale = Vector2(3.12629, 2.47393)
-text = "Restart"
+texture_normal = ExtResource("15_0c6r2")
+stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
@@ -901,16 +907,6 @@ sprite_frames = ExtResource("93_42fku")
 metadata/_edit_lock_ = true
 
 [node name="Midi" parent="." instance=ExtResource("12_6nasv")]
-
-[node name="Note" parent="." instance=ExtResource("7_v8855")]
-position = Vector2(389, 345)
-
-[node name="FingerNumber" parent="Note" instance=ExtResource("97_t1wle")]
-anchors_preset = 0
-offset_left = -5.71408
-offset_top = -800.0
-offset_right = 34.2859
-offset_bottom = -745.0
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 [connection signal="button_up" from="Overlay/Pause" to="." method="_on_pause_button_up"]
