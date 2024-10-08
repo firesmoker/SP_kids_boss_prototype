@@ -48,32 +48,24 @@ shape = ExtResource("3_d5fs1")
 metadata/_edit_lock_ = true
 
 [node name="Eigth" type="Sprite2D" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_dx2kh")
-position = Vector2(0, -223.428)
-scale = Vector2(2.192, 2.192)
-texture = ExtResource("2_aybtf")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
 
 [node name="Quarter" type="Sprite2D" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_dx2kh")
-position = Vector2(0, -223.428)
-scale = Vector2(2.192, 2.192)
-texture = ExtResource("3_8qh04")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
 
 [node name="Half" type="Sprite2D" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_dx2kh")
-position = Vector2(0, -223.428)
-scale = Vector2(2.192, 2.192)
-texture = ExtResource("4_biagq")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
 
 [node name="Whole" type="Sprite2D" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_dx2kh")
-position = Vector2(0, -223.428)
-scale = Vector2(2.192, 2.192)
-texture = ExtResource("5_tem07")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
 
 [node name="Stem" type="Sprite2D" parent="."]
 visible = false
@@ -94,3 +86,31 @@ texture = ExtResource("9_a3j76")
 true_hide_right = true
 x_hide_position = -400.0
 x_hide_position_right = 470.0
+
+[node name="Eigth_real" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_dx2kh")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
+texture = ExtResource("2_aybtf")
+
+[node name="Quarter_real" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_dx2kh")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
+texture = ExtResource("3_8qh04")
+
+[node name="Half_real" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_dx2kh")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
+texture = ExtResource("4_biagq")
+
+[node name="Whole_real" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_dx2kh")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
+texture = ExtResource("5_tem07")
