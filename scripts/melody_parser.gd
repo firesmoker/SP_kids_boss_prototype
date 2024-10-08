@@ -8,6 +8,10 @@ var melody_events: Array[MelodyEvent]
 func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a String, output is an Array
 	var melody_array: Array[MelodyEvent] = [] # Array to hold events
 	var current_time: float = 0.0 # float to track time
+	melody_string = melody_string.strip_edges()
+	melody_string = melody_string.replace("\n", " ").replace("\t", " ")
+	melody_string = melody_string.replace("  ", " ")  # Reduce multiple spaces to a single space
+	melody_string = melody_string.replace("  ", " ")  # Repeat until only single spaces remain
 	var sections: Array = melody_string.split(" ") # Array of Strings (split by space)
 	for section: String in sections:
 		var event: MelodyEvent = MelodyEvent.new() # MelodyEvent instance
@@ -78,7 +82,6 @@ func get_melody_array_by_file(file_path: String) -> Array:
 	print("Ready called for: ", self.name)
 	var file_content: String = read_text_file(file_path)
 	melody_events = parse_melody(file_content)
-	#print_melody_events(melody_events)
 	return melody_events
 
 func print_melody_events(events: Array[MelodyEvent]) -> void:
