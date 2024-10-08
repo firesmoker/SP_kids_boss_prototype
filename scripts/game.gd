@@ -18,6 +18,7 @@ class_name Game extends Node2D
 
 @onready var into_stage: AnimatedSprite2D = $Level/IntoStage
 @onready var win_text: Label = $Overlay/WinText
+@onready var lose_text: Label = $Overlay/LoseText
 
 @onready var boss: AnimatedSprite2D = $Level/Boss
 @onready var player_health_bar: TextureProgressBar = $UI/PlayerHealthBar
@@ -71,6 +72,7 @@ var just_started: bool = true
 var slow_down: bool = false
 var detector_position_x: float = -200
 var winning: bool = false
+var losing: bool = false
 var player_moving_to_finish: bool = false
 var player_new_health: float = 0
 var player_previous_health: float = 0
@@ -173,6 +175,11 @@ func enter_win_ui() -> void:
 	#player_character.find_child("Expander").move(new_position, 0.35)
 	win_buttons.visible = true
 
+func enter_lose_ui() -> void:
+	var new_position: Vector2 = Vector2(boss.global_position.x,boss.global_position.y - 300)
+	#player_character.find_child("Expander").move(new_position, 0.35)
+	win_buttons.visible = true
+
 func _process(delta: float) -> void:
 	health_bars_progress(delta, health_rate)
 	
@@ -180,9 +187,9 @@ func _process(delta: float) -> void:
 		#player_moving_to_finish = true
 		#enter_win_ui()
 		#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
-	if not boss.is_playing():
+	if not boss.is_playing() and not losing and not winning:
 		boss.play("idle")
-	if not player_character.is_playing() and not winning:
+	if not player_character.is_playing() and not winning and not losing:
 		player_character.play("idle")
 		player_bot.play("fly")
 	time_elapsed += delta
@@ -203,7 +210,7 @@ func _process(delta: float) -> void:
 	ending_point.position.x = lerp(starting_position_x,note_play_position_x,normalized_song_position)
 	if ending_point.position.x <= note_play_position_x:
 		print("finished level")
-		if not winning:
+		if not winning and not losing:
 			lose()
 		else:
 			print("boss is dying, no lose for you")
@@ -215,21 +222,42 @@ func _process(delta: float) -> void:
 
 func _on_music_player_finished() -> void:
 	print("finished!")
-	lose()
+	if not winning and not losing:
+		lose()
 
-func lose() -> void:
-	print("you lost")
-	restart_level(true)
+	
 
-func win() -> void:
-	winning = true
+func fade_elements() -> void:
 	pause_button.disabled = true
 	restart_button.disabled = true
 	pause_button.visible = false
 	restart_button.visible = false
-	print("you won!")
 	right_hand_part.find_child("Fader").fade_out()
 	detector_visual.find_child("Fader").fade_out()
+	
+func lose() -> void:
+	losing = true
+	vulnerable = false
+	#boss.stop()
+	fade_elements()
+	var timer: Timer = new_timer(1.2)
+	timer.start()
+	player_character.visible = false
+	player_bot.visible = false
+	await timer.timeout
+	boss_win_animation()
+	play_music_clip(audio_clips.player_loses)
+	await boss.animation_finished
+	timer.wait_time = 0.5
+	timer.start()
+	await timer.timeout
+	game_state = "Lose"
+	enter_lose_ui()
+
+func win() -> void:
+	winning = true
+	vulnerable = false
+	fade_elements()
 	var timer: Timer = new_timer(1)
 	timer.start()
 	await timer.timeout
@@ -239,6 +267,7 @@ func win() -> void:
 	await boss.animation_finished
 	boss.visible = false
 	player_win_animation()
+	play_music_clip(audio_clips.player_wins)
 	await player_character.animation_finished
 	timer.wait_time = 0.5
 	timer.start()
@@ -326,7 +355,7 @@ func heal(amount: int = 1) -> void:
 	heart.find_child("Expander").expand(1.10, 0.25, true)
 
 func hit_boss() -> void:
-	if not winning:
+	if not winning and not losing:
 		electric_beam.find_child("Flash").flash()
 		electric_beam.find_child("LineZap").play("line_zap")
 		electric_beam.find_child("ElectricBolt").play("attack")
@@ -366,7 +395,7 @@ func update_boss_health(health_change: float = -1) -> void:
 	boss_new_health = boss_health
 
 func get_hit() -> void:
-	if vulnerable and not winning:
+	if vulnerable and not winning and not losing:
 		#player_character.find_child("Flash").flash(Color.RED)
 		player_character.play("get_hit")
 		player_character.find_child("Flash").flash(Color.RED)
@@ -380,7 +409,7 @@ func get_hit() -> void:
 		heart.find_child("Flash").flash(Color.RED)
 		heart.find_child("Expander").expand(1.20, 0.15, true)
 		
-		if player_health <= 0:
+		if player_health <= 0 and not winning and not losing:
 			lose()
 	else:
 		print("false hit")
@@ -407,7 +436,7 @@ func restart_level(wait: bool = false) -> void:
 	
 
 func _on_boss_hit_zone_body_entered(note: Note) -> void:
-	if note.state.to_lower() != "rest" and not winning:
+	if note.state.to_lower() != "rest" and not winning and not losing:
 		boss.play("attack")
 
 
@@ -418,10 +447,20 @@ func _on_pause_button_up() -> void:
 func _on_restart_button_up() -> void:
 	restart_level()
 
+func boss_win_animation() -> void:
+	boss.find_child("Expander").expand(1.25, 0.5)
+	boss.find_child("Expander").move(Vector2(0,0), 0.5)
+	boss.stop()
+	boss.play("get_hit")
+	into_stage.flip_h = true
+	into_stage.visible = true
+	into_stage.play()
+	lose_text.visible = true
+	lose_text.find_child("Fader").fade_in()
+
 func player_win_animation() -> void:
 	player_character.find_child("Expander").expand(1.5, 0.25)
 	player_character.find_child("Expander").move(Vector2(0,0), 0.25)
-	player_character.sprite_frames
 	player_character.stop()
 	player_character.play("win")
 	into_stage.visible = true
@@ -445,3 +484,7 @@ func _on_win_restart_button_up() -> void:
 
 func _on_win_continue_button_up() -> void:
 	get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
+
+func play_music_clip(audioclip: AudioStream = audio_clips.player_wins) -> void:
+	music_player.stream = audioclip
+	music_player.play()

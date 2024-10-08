@@ -51,6 +51,7 @@ scale = Vector2(2.192, 2.192)
 texture = ExtResource("4_vstf5")
 
 [node name="Slowdown" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-7.62939e-06, 0)
 scale = Vector2(0.65688, 0.65688)
 sprite_frames = ExtResource("4_h551j")
@@ -58,8 +59,8 @@ autoplay = "default"
 frame_progress = 0.527475
 metadata/_edit_lock_ = true
 
-[node name="SlowdownGlow2" type="AnimatedSprite2D" parent="Slowdown"]
-self_modulate = Color(1, 1, 1, 0.364706)
+[node name="SlowdownGlow" type="AnimatedSprite2D" parent="Slowdown"]
+self_modulate = Color(1, 1, 1, 0.686275)
 show_behind_parent = true
 z_index = -1
 position = Vector2(1.16146e-05, 0)
@@ -81,15 +82,14 @@ frame_progress = 0.932702
 metadata/_edit_lock_ = true
 
 [node name="Heart" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(4.76837e-07, -4.76837e-07)
 scale = Vector2(0.65688, 0.65688)
 sprite_frames = ExtResource("2_m730v")
 autoplay = "default"
 metadata/_edit_lock_ = true
 
-[node name="HeartAnimation2" type="AnimatedSprite2D" parent="Heart"]
-self_modulate = Color(1, 1, 1, 0.72549)
+[node name="HeartGlow" type="AnimatedSprite2D" parent="Heart"]
+self_modulate = Color(1, 1, 1, 0.811765)
 show_behind_parent = true
 z_index = -1
 position = Vector2(-7.25912e-07, 7.25912e-07)

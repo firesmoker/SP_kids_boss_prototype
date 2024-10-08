@@ -1,5 +1,8 @@
 class_name AudioClips extends Node
 
+@export_category("Music")
+@export var player_wins: AudioStream
+@export var player_loses: AudioStream
 @export_category("Player")
 @export var player_hit: AudioStream
 @export var player_death: AudioStream

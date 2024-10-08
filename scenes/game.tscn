@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=115 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -9,11 +9,13 @@
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="4_ka7fh"]
 [ext_resource type="SpriteFrames" uid="uid://ubtr21y8pmtc" path="res://scene_resources/boss_animations.tres" id="4_ygwuk"]
 [ext_resource type="AudioStream" uid="uid://8xiwgpgegdvn" path="res://audio/CountingStars_122bpm_new_SLOW70.wav" id="5_0ilbi"]
+[ext_resource type="AudioStream" uid="uid://cedtu5tabetd1" path="res://audio/Victory Sound Effect.mp3" id="5_1j4ca"]
 [ext_resource type="PackedScene" uid="uid://8ut73mldwxdn" path="res://scenes/staff.tscn" id="5_evl1e"]
 [ext_resource type="AudioStream" uid="uid://wnqh4lrg0mql" path="res://art/30.sep/Hero_Hit/Hero_Hit.wav" id="5_h1pda"]
 [ext_resource type="AudioStream" uid="uid://ccuseajqb04e6" path="res://art/30.sep/Hero_Death/Hero_Death.wav" id="6_8bblr"]
 [ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
+[ext_resource type="AudioStream" uid="uid://dqfuo8obvxwp" path="res://audio/Sad Trombone - Sound Effect (HD).mp3" id="6_sj0wg"]
 [ext_resource type="AudioStream" uid="uid://b501efp3571qm" path="res://art/30.sep/Drone_Hit/Drone_Hit.wav" id="7_0mjhk"]
 [ext_resource type="PackedScene" uid="uid://cfosn0qs0t6mq" path="res://scenes/bar_line.tscn" id="7_crksr"]
 [ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
@@ -312,13 +314,15 @@ script = ExtResource("1_ncon4")
 accelerate_sound = ExtResource("2_2fv50")
 slow_down_sound = ExtResource("3_h2mfw")
 slow_down_percentage = 0.7
-player_health = 5.0
+player_health = 1.0
 boss_health = 1.0
 health_rate = 3.8
 metadata/_edit_lock_ = true
 
 [node name="AudioClips" type="Node" parent="."]
 script = ExtResource("4_ka7fh")
+player_wins = ExtResource("5_1j4ca")
+player_loses = ExtResource("6_sj0wg")
 player_hit = ExtResource("5_h1pda")
 player_death = ExtResource("6_8bblr")
 drone_hit = ExtResource("7_0mjhk")
@@ -387,6 +391,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="WinText" type="Label" parent="Overlay"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 anchors_preset = 8
@@ -394,10 +399,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -141.5
-offset_top = -247.0
-offset_right = 141.5
-offset_bottom = -110.0
+offset_left = -160.0
+offset_top = -274.0
+offset_right = 160.0
+offset_bottom = -137.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
@@ -405,6 +410,26 @@ text = "ניצחון!"
 metadata/_edit_use_anchors_ = true
 
 [node name="Fader" parent="Overlay/WinText" instance=ExtResource("63_jfxac")]
+
+[node name="LoseText" type="Label" parent="Overlay"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -335.0
+offset_right = 301.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "הרובוט ניצח!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Fader" parent="Overlay/LoseText" instance=ExtResource("63_jfxac")]
 
 [node name="Tutorial" type="Panel" parent="Overlay"]
 process_mode = 3
@@ -512,12 +537,13 @@ expand_mode = 1
 [node name="WinButtons" type="Panel" parent="Overlay"]
 visible = false
 offset_left = 304.0
-offset_top = 583.0
+offset_top = 613.0
 offset_right = 889.0
-offset_bottom = 740.0
+offset_bottom = 770.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_oss5g")
 
 [node name="WinChangeLevel" type="TextureButton" parent="Overlay/WinButtons"]
+layout_mode = 0
 offset_left = 9.0
 offset_top = 42.0
 offset_right = 109.0
@@ -526,6 +552,7 @@ texture_normal = ExtResource("22_7sqae")
 metadata/_edit_lock_ = true
 
 [node name="WinRestart" type="TextureButton" parent="Overlay/WinButtons"]
+layout_mode = 0
 offset_left = 242.0
 offset_top = 42.0
 offset_right = 342.0
@@ -534,6 +561,7 @@ texture_normal = ExtResource("16_icmxq")
 metadata/_edit_lock_ = true
 
 [node name="WinContinue" type="TextureButton" parent="Overlay/WinButtons"]
+layout_mode = 0
 offset_left = 466.0
 offset_top = 42.0
 offset_right = 566.0
@@ -679,7 +707,7 @@ metadata/_edit_lock_ = true
 [node name="Flash" parent="Level/PlayerBot" instance=ExtResource("57_hg35f")]
 
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
-z_index = 2
+z_index = 3
 position = Vector2(406.349, -10.3175)
 scale = Vector2(0.738213, 0.738213)
 sprite_frames = ExtResource("4_ygwuk")
@@ -701,6 +729,8 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer" parent="Level/Boss"]
+
+[node name="Expander" parent="Level/Boss" instance=ExtResource("20_wgxju")]
 
 [node name="BossPortrait" type="Sprite2D" parent="Level"]
 z_index = 2
