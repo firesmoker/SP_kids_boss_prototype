@@ -255,4 +255,36 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 48.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_fm2fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_tulba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gwnnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_hdxn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_xqjym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_1hdce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_i6hdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ksmbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ukg3f")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 24.0
 }]

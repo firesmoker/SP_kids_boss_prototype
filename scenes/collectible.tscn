@@ -1,18 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://kf508a146cxq"]
+[gd_scene load_steps=14 format=3 uid="uid://kf508a146cxq"]
 
 [ext_resource type="Script" path="res://scripts/collectible.gd" id="1_ol4d8"]
 [ext_resource type="Shader" path="res://note.gdshader" id="2_f8777"]
 [ext_resource type="SpriteFrames" uid="uid://cod5w1irvgn0c" path="res://scene_resources/heart_spriteframe.tres" id="2_m730v"]
 [ext_resource type="SpriteFrames" uid="uid://cde3i1qgqcbuy" path="res://scene_resources/bomb_spriteframe.tres" id="3_8cwhq"]
+[ext_resource type="Texture2D" uid="uid://d072qrhd4wuv4" path="res://art/NoteRootRegular_Normal.png" id="3_aey48"]
 [ext_resource type="SpriteFrames" uid="uid://dbvvg5f1ogrlt" path="res://scene_resources/slowdown_spriteframe.tres" id="4_h551j"]
 [ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="4_vstf5"]
 [ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="7_h7qm3"]
 [ext_resource type="SpriteFrames" uid="uid://cnd7ioqvg5uy8" path="res://scene_resources/slowdown_blast_spriteframe.tres" id="8_py5wu"]
+[ext_resource type="SpriteFrames" uid="uid://bbqfmw2t5o4g0" path="res://scene_resources/heart_blast_animation.tres" id="9_ejdfl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fcsuf"]
 radius = 70.072
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1vdt"]
+resource_local_to_scene = true
+shader = ExtResource("2_f8777")
+shader_parameter/color = null
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n745g"]
 resource_local_to_scene = true
 shader = ExtResource("2_f8777")
 shader_parameter/color = null
@@ -26,27 +34,50 @@ collision_mask = 0
 sync_to_physics = false
 script = ExtResource("1_ol4d8")
 
-[node name="Heart" type="AnimatedSprite2D" parent="."]
-position = Vector2(4.6, -17.143)
-scale = Vector2(0.827253, 0.827253)
-sprite_frames = ExtResource("2_m730v")
-autoplay = "default"
-frame_progress = 0.725694
-
-[node name="Bomb" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1, 0, 0, 1)
-position = Vector2(4.6, -17.143)
-scale = Vector2(0.827253, 0.827253)
-sprite_frames = ExtResource("3_8cwhq")
-autoplay = "default"
-frame_progress = 0.932702
-
 [node name="Slowdown" type="AnimatedSprite2D" parent="."]
-position = Vector2(3.34262, -15.9882)
-scale = Vector2(1.08016, 1.08016)
+visible = false
+position = Vector2(-7.62939e-06, 0)
+scale = Vector2(0.65688, 0.65688)
 sprite_frames = ExtResource("4_h551j")
 autoplay = "default"
 frame_progress = 0.947712
+metadata/_edit_lock_ = true
+
+[node name="SlowdownGlow2" type="AnimatedSprite2D" parent="Slowdown"]
+show_behind_parent = true
+position = Vector2(1.16146e-05, 0)
+scale = Vector2(1.52235, 1.52235)
+sprite_frames = ExtResource("8_py5wu")
+animation = &"glow"
+autoplay = "glow"
+frame_progress = 0.599517
+metadata/_edit_lock_ = true
+
+[node name="Bomb" type="AnimatedSprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(4.6, -17.143)
+scale = Vector2(0.803968, 0.803968)
+sprite_frames = ExtResource("3_8cwhq")
+autoplay = "default"
+frame_progress = 0.932702
+metadata/_edit_lock_ = true
+
+[node name="Heart" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, -4.76837e-07)
+scale = Vector2(0.65688, 0.65688)
+sprite_frames = ExtResource("2_m730v")
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="HeartAnimation2" type="AnimatedSprite2D" parent="Heart"]
+show_behind_parent = true
+position = Vector2(-7.25912e-07, 7.25912e-07)
+scale = Vector2(0.829763, 0.829763)
+sprite_frames = ExtResource("9_ejdfl")
+animation = &"glow"
+autoplay = "glow"
+frame_progress = 0.369008
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -67,6 +98,20 @@ metadata/_edit_lock_ = true
 visible = false
 
 [node name="SlowdownAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = ExtResource("8_py5wu")
-frame = 61
-frame_progress = 1.0
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="HeartAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("9_ejdfl")
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="Quarter" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_n745g")
+position = Vector2(0, -4)
+scale = Vector2(1.782, 2.192)
+texture = ExtResource("3_aey48")
+metadata/_edit_lock_ = true
