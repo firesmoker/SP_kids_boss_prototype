@@ -110,7 +110,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			if event.details.has("finger"):
 				var new_finger: Label = finger_number_template.instantiate()
 				new_note.add_child(new_finger)
-				new_finger.position.y = -800
+				new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[event.note]) * 6
 				new_finger.text = event.details["finger"]
 			if bottom_staff:
 				new_note.position.y += treble_to_bass_gap - bass_clef_offset
@@ -125,7 +125,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			if event.details.has("finger"):
 				var new_finger: Label = finger_number_template.instantiate()
 				collectible.add_child(new_finger)
-				new_finger.position.y = -800
+				new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[event.note]) * 6
 				new_finger.text = event.details["finger"]
 			if bottom_staff:
 				collectible.position.y += treble_to_bass_gap - bass_clef_offset

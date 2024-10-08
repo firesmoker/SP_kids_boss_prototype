@@ -52,16 +52,15 @@ scale = Vector2(2.192, 2.192)
 texture = ExtResource("4_vstf5")
 
 [node name="Slowdown" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(-7.62939e-06, 0)
 scale = Vector2(0.65688, 0.65688)
 sprite_frames = ExtResource("4_h551j")
 autoplay = "default"
-frame_progress = 0.947712
+frame_progress = 0.527475
 metadata/_edit_lock_ = true
 
 [node name="SlowdownGlow2" type="AnimatedSprite2D" parent="Slowdown"]
-self_modulate = Color(1, 1, 1, 0.670588)
+self_modulate = Color(1, 1, 1, 0.364706)
 show_behind_parent = true
 z_index = -1
 position = Vector2(1.16146e-05, 0)

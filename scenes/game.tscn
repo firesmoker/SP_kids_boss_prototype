@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bj0e24s6hnhsw" path="res://scenes/rest.tscn" id="6_fjvbl"]
 [ext_resource type="Script" path="res://scripts/notes_detector.gd" id="6_gcv22"]
 [ext_resource type="AudioStream" uid="uid://b501efp3571qm" path="res://art/30.sep/Drone_Hit/Drone_Hit.wav" id="7_0mjhk"]
-[ext_resource type="Texture2D" uid="uid://bbavgstjgwjpo" path="res://art/Background.png" id="7_6jh05"]
 [ext_resource type="PackedScene" uid="uid://cfosn0qs0t6mq" path="res://scenes/bar_line.tscn" id="7_crksr"]
 [ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
 [ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
@@ -26,7 +25,6 @@
 [ext_resource type="AudioStream" uid="uid://dfosidaq3mcwo" path="res://art/30.sep/Boss_Death/Boss_Death.wav" id="9_4f17a"]
 [ext_resource type="Texture2D" uid="uid://c4cbr0ubbipgc" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_02.png" id="9_ossne"]
 [ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
-[ext_resource type="Texture2D" uid="uid://cq1bg32xauw6" path="res://art/30.sep/SlowBG/SlowBG_00000.png" id="10_6rfhb"]
 [ext_resource type="SpriteFrames" uid="uid://dn152gkkpaq71" path="res://scene_resources/bot_spriteframe.tres" id="10_fbf1u"]
 [ext_resource type="Texture2D" uid="uid://cgdyabswusic" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_03.png" id="10_nuo8l"]
 [ext_resource type="Texture2D" uid="uid://cxtmngoe2k8yr" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_04.png" id="11_64hqx"]
@@ -35,21 +33,21 @@
 [ext_resource type="PackedScene" uid="uid://bulectulupeu0" path="res://scenes/midi.tscn" id="12_6nasv"]
 [ext_resource type="Texture2D" uid="uid://e4lw16jg3ng1" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_06.png" id="13_spctx"]
 [ext_resource type="Texture2D" uid="uid://wppodch3hmut" path="res://art/BassClef.png" id="14_3a4yn"]
-[ext_resource type="Texture2D" uid="uid://bijmbm3melm8g" path="res://art/buttons/Pause (00000).png" id="14_4iv4a"]
 [ext_resource type="Texture2D" uid="uid://blmu76wgd6r48" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_07.png" id="14_a4imh"]
 [ext_resource type="Texture2D" uid="uid://yg0nr1qy20ge" path="res://art/TrebleClef.png" id="14_j4vp4"]
+[ext_resource type="Texture2D" uid="uid://d0isx2xd7wkgc" path="res://art/buttons/Pause (1).png" id="14_l1shx"]
 [ext_resource type="Texture2D" uid="uid://cusf6tvgw27f2" path="res://art/RhythmLineGlow.png" id="14_nko2d"]
 [ext_resource type="Texture2D" uid="uid://cgegegd2x6cd1" path="res://art/HealthBarBG (1).png" id="14_vn3l6"]
-[ext_resource type="Texture2D" uid="uid://bmishccu2oflj" path="res://art/buttons/Restart (00000).png" id="15_0c6r2"]
 [ext_resource type="Texture2D" uid="uid://k1cer1k30p2q" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_08.png" id="15_gbgaq"]
-[ext_resource type="Texture2D" uid="uid://ykig5lusqec7" path="res://art/buttons/Play (00000).png" id="15_qonfn"]
+[ext_resource type="Texture2D" uid="uid://2knjh5phshmp" path="res://art/buttons/Play (1).png" id="15_m6t7w"]
 [ext_resource type="Texture2D" uid="uid://syqp4mg130wo" path="res://art/HealthBarStatus (1).png" id="15_uj0lk"]
 [ext_resource type="Texture2D" uid="uid://bi7s7ogaqqd82" path="res://art/30.sep/Collectible-Life/Collectible-Life_00000.png" id="15_vluut"]
-[ext_resource type="Texture2D" uid="uid://wojvkeu3woyi" path="res://art/30.sep/Collectible-Snail/Collectible-Snail_00000.png" id="16_eui1i"]
+[ext_resource type="Texture2D" uid="uid://c1ok3gbklgya6" path="res://art/buttons/Restart (1).png" id="16_icmxq"]
 [ext_resource type="Texture2D" uid="uid://cdp6h1027ukip" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_09.png" id="16_m1q5i"]
 [ext_resource type="Texture2D" uid="uid://bxoxqsja0mkf1" path="res://art/30.sep/Collectible-Bomb/Collectible-Bomb_00000.png" id="17_64vtv"]
 [ext_resource type="Texture2D" uid="uid://lv3vbtqalfpk" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_10.png" id="17_koes1"]
 [ext_resource type="Texture2D" uid="uid://chtp0yoritrwu" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_11.png" id="18_ccif6"]
+[ext_resource type="Texture2D" uid="uid://dvgartwj75oa2" path="res://art/Collectible-Snow/Collectible-Snow_00007.png" id="19_4oala"]
 [ext_resource type="Texture2D" uid="uid://12br1h12n3v" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_12.png" id="19_awa3a"]
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="19_j5u08"]
 [ext_resource type="Texture2D" uid="uid://bg3bwwwc7qrm6" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_13.png" id="20_1c0nm"]
@@ -58,8 +56,10 @@
 [ext_resource type="Texture2D" uid="uid://bchnk27fbx7em" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_15.png" id="22_xf45i"]
 [ext_resource type="Texture2D" uid="uid://blr2nlfyfu861" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_16.png" id="23_wydfu"]
 [ext_resource type="Texture2D" uid="uid://boe03kitllyud" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_17.png" id="24_rkgo7"]
+[ext_resource type="Texture2D" uid="uid://my42k5e0ee4c" path="res://art/Idle BG.png" id="25_fhqc0"]
 [ext_resource type="Texture2D" uid="uid://cdadf0acxuao4" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_18.png" id="25_xlxvp"]
 [ext_resource type="Texture2D" uid="uid://r6t4chx4k57b" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_19.png" id="26_8ogg3"]
+[ext_resource type="Texture2D" uid="uid://dwa4suom36kkc" path="res://art/BG Freeze.png" id="26_h3bdu"]
 [ext_resource type="Texture2D" uid="uid://c80kktnslc5ua" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_20.png" id="27_qrhxq"]
 [ext_resource type="Texture2D" uid="uid://csf7x3htf7lkd" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_21.png" id="28_l4lx4"]
 [ext_resource type="Texture2D" uid="uid://bqykvf33hey22" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_22.png" id="29_qqr7f"]
@@ -308,7 +308,8 @@ accelerate_sound = ExtResource("2_2fv50")
 slow_down_sound = ExtResource("3_h2mfw")
 slow_down_percentage = 0.7
 player_health = 5.0
-boss_health = 3.0
+boss_health = 6.0
+health_rate = 3.8
 metadata/_edit_lock_ = true
 
 [node name="AudioClips" type="Node" parent="."]
@@ -358,8 +359,8 @@ offset_right = -95.0
 offset_bottom = 59.0
 grow_horizontal = 2
 toggle_mode = true
-texture_normal = ExtResource("14_4iv4a")
-texture_pressed = ExtResource("15_qonfn")
+texture_normal = ExtResource("14_l1shx")
+texture_pressed = ExtResource("15_m6t7w")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -374,7 +375,7 @@ offset_top = 20.0
 offset_right = 48.0
 offset_bottom = 91.0
 grow_horizontal = 2
-texture_normal = ExtResource("15_0c6r2")
+texture_normal = ExtResource("16_icmxq")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -401,7 +402,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" type="Panel" parent="Overlay"]
 process_mode = 3
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -452,6 +452,7 @@ theme_override_font_sizes/font_size = 50
 text = "הבנתי"
 
 [node name="Heart" type="TextureRect" parent="Overlay/Tutorial"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -468,6 +469,7 @@ texture = ExtResource("15_vluut")
 expand_mode = 1
 
 [node name="Slowdown" type="TextureRect" parent="Overlay/Tutorial"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -475,12 +477,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -41.5
-offset_top = -72.0
-offset_right = 60.5
+offset_top = -58.0
+offset_right = 49.5
 offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_eui1i")
+texture = ExtResource("19_4oala")
 expand_mode = 1
 
 [node name="Bomb" type="TextureRect" parent="Overlay/Tutorial"]
@@ -515,6 +517,7 @@ offset_right = 435.0
 offset_bottom = 114.0
 pivot_offset = Vector2(205, 50)
 max_value = 6.0
+step = 0.02
 value = 6.0
 texture_under = ExtResource("14_vn3l6")
 texture_progress = ExtResource("15_uj0lk")
@@ -542,6 +545,7 @@ offset_bottom = 103.0
 grow_horizontal = 0
 pivot_offset = Vector2(205, 50)
 max_value = 4.0
+step = 0.02
 fill_mode = 1
 texture_under = ExtResource("14_vn3l6")
 texture_progress = ExtResource("15_uj0lk")
@@ -557,7 +561,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_6jh05")
+texture = ExtResource("25_fhqc0")
 expand_mode = 2
 stretch_mode = 4
 metadata/_edit_lock_ = true
@@ -569,7 +573,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_6rfhb")
+texture = ExtResource("26_h3bdu")
 expand_mode = 2
 stretch_mode = 4
 metadata/_edit_lock_ = true

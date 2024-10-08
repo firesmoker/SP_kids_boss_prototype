@@ -58,6 +58,7 @@ static var bomb_collected: bool = false
 var level_length_in_bar: float = 0
 @export var player_health: float = 10
 @export var boss_health: float = 300
+@export var health_rate: float = 1
 var DamageFromBoss: float = 1
 var DamageFromPlayer: float = 1
 var starting_position: Vector2
@@ -69,6 +70,13 @@ var just_started: bool = true
 var slow_down: bool = false
 var detector_position_x: float = -200
 var winning: bool = false
+var player_new_health: float = 0
+var player_previous_health: float = 0
+var player_health_progress: float = 0
+var boss_new_health: float = 0
+var boss_previous_health: float = 0
+var boss_health_progress: float = 0
+
 
 signal game_resumed
 
@@ -149,7 +157,19 @@ func initialize_part(hand_parts: String = ui_type) -> void:
 		notes_container.construct_level(true, parser.get_melody_array_by_file("res://levels/melody1.txt"),
 										parser.get_melody_array_by_file("res://levels/melody1_left.txt"))
 
+func health_bars_progress(delta: float, rate: float = 1) -> void:
+	player_health_progress += delta * rate
+	player_health_progress = clamp(player_health_progress,0,1)
+	player_health_bar.value = lerp(player_previous_health,player_new_health,player_health_progress)
+		
+	boss_health_progress += delta * rate
+	boss_health_progress = clamp(boss_health_progress,0,1)
+	boss_health_bar.value = lerp(boss_previous_health,boss_new_health,boss_health_progress)
+
+
 func _process(delta: float) -> void:
+	health_bars_progress(delta, health_rate)
+	
 	if game_state == "Win":
 		get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 	if not boss.is_playing():
@@ -289,8 +309,7 @@ func activate_effect(effect: String = "slowdown") -> void:
 			print("no specific effect")
 
 func heal(amount: int = 1) -> void:
-	player_health += amount
-	player_health_bar.value = player_health
+	update_player_health(amount)
 	player_health_bar.find_child("Flash").flash(Color.LIGHT_SEA_GREEN, 0.25)
 	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
 	heart.find_child("Expander").expand(1.10, 0.25, true)
@@ -306,8 +325,8 @@ func hit_boss() -> void:
 		player_character.play("attack")
 		player_bot.play("attack")
 		boss.find_child("Flash").flash(Color.RED)
-		boss_health -= 1
-		boss_health_bar.value = boss_health
+		update_boss_health(-1)
+		#boss_health_bar.value = boss_health
 		boss_health_bar.find_child("Flash").flash(Color.RED)
 		boss_health_bar.find_child("Expander").expand(1.20, 0.15, true)
 		boss_portrait.find_child("Flash").flash(Color.RED)
@@ -323,6 +342,18 @@ func audio_play_from_source(source: Node, audio_clip: AudioStream) -> void:
 	source.find_child("Audio").stream = audio_clip
 	source.find_child("Audio").play()
 
+func update_player_health(health_change: float = -1) -> void:
+	player_health_progress = 0
+	player_previous_health = player_health
+	player_health += health_change
+	player_new_health = player_health
+	
+func update_boss_health(health_change: float = -1) -> void:
+	boss_health_progress = 0
+	boss_previous_health = boss_health
+	boss_health += health_change
+	boss_new_health = boss_health
+
 func get_hit() -> void:
 	if vulnerable and not winning:
 		#player_character.find_child("Flash").flash(Color.RED)
@@ -331,8 +362,8 @@ func get_hit() -> void:
 		player_bot.play("get_hit")
 		player_bot.find_child("Flash").flash(Color.RED)
 		audio_play_from_source(player_character, audio_clips.player_hit)
-		player_health -= 1
-		player_health_bar.value = player_health
+		update_player_health(-1)
+		#player_health_bar.value = player_health
 		player_health_bar.find_child("Flash").flash(Color.RED)
 		player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
 		heart.find_child("Flash").flash(Color.RED)
@@ -346,8 +377,12 @@ func get_hit() -> void:
 func reset_health_bars() -> void:
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
+	player_new_health = player_health
+	player_previous_health = player_health
 	boss_health_bar.max_value = boss_health
 	boss_health_bar.value = boss_health
+	boss_new_health = boss_health
+	boss_previous_health = boss_health
 
 func restart_level(wait: bool = false) -> void:
 	music_player.stream_paused = true

@@ -8,6 +8,7 @@ var effect: String = "slow_down"
 @onready var bomb: AnimatedSprite2D = $Bomb
 @onready var slowdown: AnimatedSprite2D = $Slowdown
 @onready var slowdown_animation: AnimatedSprite2D = $SlowdownAnimation
+@onready var stem: Sprite2D = $Stem
 
 
 func _ready() -> void:
@@ -36,6 +37,7 @@ func hide_sprites() -> void:
 
 func play_animation(type: String = "Heart") -> void:
 	hide_sprites()
+	stem.visible = false
 	match type:
 		"heart":
 			pass
