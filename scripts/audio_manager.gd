@@ -10,3 +10,5 @@ class_name AudioClips extends Node
 @export var boss_death: AudioStream
 @export_category("ElectricBeam")
 @export var electric_attack: AudioStream
+@export_category("Collectibles")
+@export var heart: AudioStream

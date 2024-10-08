@@ -11,6 +11,7 @@ class_name Game extends Node2D
 @onready var darken_level: TextureRect = $UI/DarkenLevel
 @onready var tutorial: Panel = $Overlay/Tutorial
 @onready var tutorial_text: Label = $Overlay/Tutorial/Text
+@onready var win_buttons: Panel = $Overlay/WinButtons
 
 @onready var heart: AnimatedSprite2D = $Level/Heart
 @onready var boss_portrait: Sprite2D = $Level/BossPortrait
@@ -70,6 +71,7 @@ var just_started: bool = true
 var slow_down: bool = false
 var detector_position_x: float = -200
 var winning: bool = false
+var player_moving_to_finish: bool = false
 var player_new_health: float = 0
 var player_previous_health: float = 0
 var player_health_progress: float = 0
@@ -166,12 +168,18 @@ func health_bars_progress(delta: float, rate: float = 1) -> void:
 	boss_health_progress = clamp(boss_health_progress,0,1)
 	boss_health_bar.value = lerp(boss_previous_health,boss_new_health,boss_health_progress)
 
+func enter_win_ui() -> void:
+	var new_position: Vector2 = Vector2(player_character.global_position.x,player_character.global_position.y - 300)
+	#player_character.find_child("Expander").move(new_position, 0.35)
+	win_buttons.visible = true
 
 func _process(delta: float) -> void:
 	health_bars_progress(delta, health_rate)
 	
-	if game_state == "Win":
-		get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
+	#if game_state == "Win" and not player_moving_to_finish:
+		#player_moving_to_finish = true
+		#enter_win_ui()
+		#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 	if not boss.is_playing():
 		boss.play("idle")
 	if not player_character.is_playing() and not winning:
@@ -232,10 +240,11 @@ func win() -> void:
 	boss.visible = false
 	player_win_animation()
 	await player_character.animation_finished
-	timer.wait_time = 3
+	timer.wait_time = 0.5
 	timer.start()
 	await timer.timeout
 	game_state = "Win"
+	enter_win_ui()
 	#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 
 func new_timer(wait_time: float = 2.0) -> Timer:
@@ -310,6 +319,8 @@ func activate_effect(effect: String = "slowdown") -> void:
 
 func heal(amount: int = 1) -> void:
 	update_player_health(amount)
+	audio.stream = audio_clips.heart
+	audio.play()
 	player_health_bar.find_child("Flash").flash(Color.LIGHT_SEA_GREEN, 0.25)
 	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
 	heart.find_child("Expander").expand(1.10, 0.25, true)
@@ -422,3 +433,15 @@ func player_win_animation() -> void:
 func _on_resume_button_up() -> void:
 	tutorial.visible = false
 	pause()
+
+
+func _on_win_change_level_button_up() -> void:
+	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+
+
+func _on_win_restart_button_up() -> void:
+	restart_level()
+
+
+func _on_win_continue_button_up() -> void:
+	get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")

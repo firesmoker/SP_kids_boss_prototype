@@ -3,7 +3,6 @@
 [ext_resource type="Theme" uid="uid://bd8js1yxlo5eg" path="res://scene_resources/finger_number_theme.tres" id="1_iql0u"]
 
 [node name="FingerNumber" type="Label"]
-anchors_preset = -1
 offset_left = -20.0
 offset_top = -28.0
 offset_right = 20.0

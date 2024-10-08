@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=113 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cgdyabswusic" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_03.png" id="10_nuo8l"]
 [ext_resource type="Texture2D" uid="uid://cxtmngoe2k8yr" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_04.png" id="11_64hqx"]
 [ext_resource type="Texture2D" uid="uid://b1mxrg203o4j1" path="res://art/Elements/Characters/Enemy/skeleton-Idle_0.png" id="11_ryrci"]
+[ext_resource type="AudioStream" uid="uid://cmor70atq11c7" path="res://audio/Silence+Other Sounds - Funny Cartoon - Zipper Boing .wav" id="11_s1wme"]
 [ext_resource type="Texture2D" uid="uid://mf34dtkpcxvt" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_05.png" id="12_0d2f4"]
 [ext_resource type="PackedScene" uid="uid://bulectulupeu0" path="res://scenes/midi.tscn" id="12_6nasv"]
 [ext_resource type="Texture2D" uid="uid://e4lw16jg3ng1" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_06.png" id="13_spctx"]
@@ -53,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://bg3bwwwc7qrm6" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_13.png" id="20_1c0nm"]
 [ext_resource type="PackedScene" uid="uid://canrydy51d80m" path="res://scenes/expander.tscn" id="20_wgxju"]
 [ext_resource type="Texture2D" uid="uid://b2cdlh1jj5eh0" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_14.png" id="21_kynsv"]
+[ext_resource type="Texture2D" uid="uid://bqmxp10hkofb2" path="res://art/buttons/Exit (1).png" id="22_7sqae"]
 [ext_resource type="Texture2D" uid="uid://bchnk27fbx7em" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_15.png" id="22_xf45i"]
 [ext_resource type="Texture2D" uid="uid://blr2nlfyfu861" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_16.png" id="23_wydfu"]
 [ext_resource type="Texture2D" uid="uid://boe03kitllyud" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_17.png" id="24_rkgo7"]
@@ -110,6 +112,9 @@ gradient = SubResource("Gradient_rs6wh")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dqwj"]
 bg_color = Color(0.535958, 0.116029, 0.861395, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oss5g"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
 size = Vector2(128, 547.385)
@@ -308,7 +313,7 @@ accelerate_sound = ExtResource("2_2fv50")
 slow_down_sound = ExtResource("3_h2mfw")
 slow_down_percentage = 0.7
 player_health = 5.0
-boss_health = 6.0
+boss_health = 1.0
 health_rate = 3.8
 metadata/_edit_lock_ = true
 
@@ -320,6 +325,7 @@ drone_hit = ExtResource("7_0mjhk")
 boss_hit = ExtResource("8_a3t6c")
 boss_death = ExtResource("9_4f17a")
 electric_attack = ExtResource("8_e5tvg")
+heart = ExtResource("11_s1wme")
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 
@@ -402,6 +408,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" type="Panel" parent="Overlay"]
 process_mode = 3
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -501,6 +508,38 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_64vtv")
 expand_mode = 1
+
+[node name="WinButtons" type="Panel" parent="Overlay"]
+visible = false
+offset_left = 304.0
+offset_top = 583.0
+offset_right = 889.0
+offset_bottom = 740.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oss5g")
+
+[node name="WinChangeLevel" type="TextureButton" parent="Overlay/WinButtons"]
+offset_left = 9.0
+offset_top = 42.0
+offset_right = 109.0
+offset_bottom = 142.0
+texture_normal = ExtResource("22_7sqae")
+metadata/_edit_lock_ = true
+
+[node name="WinRestart" type="TextureButton" parent="Overlay/WinButtons"]
+offset_left = 242.0
+offset_top = 42.0
+offset_right = 342.0
+offset_bottom = 142.0
+texture_normal = ExtResource("16_icmxq")
+metadata/_edit_lock_ = true
+
+[node name="WinContinue" type="TextureButton" parent="Overlay/WinButtons"]
+offset_left = 466.0
+offset_top = 42.0
+offset_right = 566.0
+offset_bottom = 142.0
+texture_normal = ExtResource("15_m6t7w")
+metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
@@ -916,6 +955,9 @@ metadata/_edit_lock_ = true
 [connection signal="button_up" from="Overlay/Pause" to="." method="_on_pause_button_up"]
 [connection signal="button_up" from="Overlay/Restart" to="." method="_on_restart_button_up"]
 [connection signal="button_up" from="Overlay/Tutorial/Resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="Overlay/WinButtons/WinChangeLevel" to="." method="_on_win_change_level_button_up"]
+[connection signal="button_up" from="Overlay/WinButtons/WinRestart" to="." method="_on_win_restart_button_up"]
+[connection signal="button_up" from="Overlay/WinButtons/WinContinue" to="." method="_on_win_continue_button_up"]
 [connection signal="body_entered" from="Level/PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/Boss/BossHitZone" to="." method="_on_boss_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/RightHandPart/NotesDetector" to="." method="_on_notes_detector_body_entered"]

@@ -41,7 +41,6 @@ sync_to_physics = false
 script = ExtResource("1_ol4d8")
 
 [node name="Stem" type="Sprite2D" parent="."]
-scale = Vector2(1, 1)
 metadata/_edit_lock_ = true
 
 [node name="Stem" type="Sprite2D" parent="Stem"]

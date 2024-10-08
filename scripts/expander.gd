@@ -1,6 +1,7 @@
 extends Node2D
 var parent: Node
 var game: Node
+@onready var debug: Label = $Debug
 
 var expanding: bool = false
 var reverse_expanding: bool = false
@@ -25,6 +26,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+	debug.text = "moving_progress: " + str(moving_progress)
 	if expanding:
 		expand_progress += delta
 		if expand_progress >= time_to_scale:
@@ -57,6 +59,7 @@ func expand(modifier: float = target_scale_modifier, time: float = time_to_scale
 	reverse_expanding = reverse
 
 func move(new_position: Vector2, time: float = time_to_move) -> void:
+	moving_progress = 0
 	original_position = parent.global_position
 	moving = true
 	time_to_move = time
