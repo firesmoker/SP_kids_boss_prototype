@@ -6,7 +6,6 @@ var fading_out: bool = false
 var expand_fading: bool = false
 
 var expand_fade_duration: float = 0.25
-var expand_fade_speed: float = 0.5
 var target_scale: Vector2 = Vector2(1.25, 1.25)
 var original_scale: Vector2
 
@@ -48,7 +47,8 @@ func fade_out(condition: bool = true) -> void:
 		fading_out = true
 
 
-func expand_fade_out() -> void:
+func expand_fade_out(duration: float = expand_fade_duration) -> void:
 	expand_fading = true  
 	scale = original_scale 
 	modulate.a = 1.0
+	expand_fade_duration = duration

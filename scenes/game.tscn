@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=107 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -96,6 +96,7 @@
 [ext_resource type="Texture2D" uid="uid://lkpmql5curcv" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00132.png" id="78_mrs7h"]
 [ext_resource type="Texture2D" uid="uid://dtq7m42cj114v" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00134.png" id="79_n7i7p"]
 [ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="PackedScene" uid="uid://c0v8nacv45non" path="res://scenes/finger_number.tscn" id="97_t1wle"]
 
 [sub_resource type="Gradient" id="Gradient_rs6wh"]
 offsets = PackedFloat32Array(0, 0.00744417)
@@ -394,6 +395,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" type="Panel" parent="Overlay"]
 process_mode = 3
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -503,8 +505,9 @@ anchors_preset = -1
 anchor_left = -0.0127119
 offset_left = 40.0
 offset_top = 14.0
-offset_right = 434.0
+offset_right = 435.0
 offset_bottom = 114.0
+pivot_offset = Vector2(205, 50)
 max_value = 6.0
 value = 6.0
 texture_under = ExtResource("14_vn3l6")
@@ -526,17 +529,21 @@ anchors_preset = -1
 anchor_left = 0.967797
 anchor_right = 1.0
 anchor_bottom = 0.0134146
-offset_left = -384.0
+offset_left = -451.0
 offset_top = 14.0
-offset_right = -13.0
+offset_right = -80.0
 offset_bottom = 103.0
 grow_horizontal = 0
+pivot_offset = Vector2(205, 50)
 max_value = 4.0
 fill_mode = 1
 texture_under = ExtResource("14_vn3l6")
 texture_progress = ExtResource("15_uj0lk")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
+
+[node name="Flash" parent="UI/BossHealthBar" instance=ExtResource("57_hg35f")]
+
+[node name="Expander" parent="UI/BossHealthBar" instance=ExtResource("20_wgxju")]
 
 [node name="Background" type="TextureRect" parent="UI"]
 anchors_preset = 15
@@ -648,9 +655,14 @@ metadata/_edit_lock_ = true
 
 [node name="BossPortrait" type="Sprite2D" parent="Level"]
 z_index = 2
-position = Vector2(402.381, -284.921)
+position = Vector2(413.492, -284.921)
 scale = Vector2(0.793651, 0.793651)
 texture = ExtResource("11_ryrci")
+
+[node name="Expander" parent="Level/BossPortrait" instance=ExtResource("20_wgxju")]
+metadata/_edit_lock_ = true
+
+[node name="Flash" parent="Level/BossPortrait" instance=ExtResource("57_hg35f")]
 metadata/_edit_lock_ = true
 
 [node name="Heart" type="AnimatedSprite2D" parent="Level"]
@@ -685,6 +697,7 @@ note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
 collectable_template = ExtResource("57_nyblo")
 barline_template = ExtResource("7_crksr")
+finger_number_template = ExtResource("97_t1wle")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
@@ -888,6 +901,16 @@ sprite_frames = ExtResource("93_42fku")
 metadata/_edit_lock_ = true
 
 [node name="Midi" parent="." instance=ExtResource("12_6nasv")]
+
+[node name="Note" parent="." instance=ExtResource("7_v8855")]
+position = Vector2(389, 345)
+
+[node name="FingerNumber" parent="Note" instance=ExtResource("97_t1wle")]
+anchors_preset = 0
+offset_left = -5.71408
+offset_top = -800.0
+offset_right = 34.2859
+offset_bottom = -745.0
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 [connection signal="button_up" from="Overlay/Pause" to="." method="_on_pause_button_up"]

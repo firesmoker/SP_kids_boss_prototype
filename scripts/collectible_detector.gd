@@ -19,7 +19,8 @@ func note_played(note: String) -> void:
 			emit_signal("collectible_collected", effect)
 			print("RIGHT COLLECTIBLE NOTE!")
 			if game.game_state == "Playing":
-				current_collectibles[0].find_child("Fader").expand_fade_out()
+				current_collectibles[0].play_animation(effect)
+				current_collectibles[0].find_child("Fader").expand_fade_out(0.5)
 				current_collectibles[0].state = "Inactive"
 				#current_collectibles[0].visible = false
 				current_collectibles.pop_at(0)

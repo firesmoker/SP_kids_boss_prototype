@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0v8nacv45non"]
+
+[ext_resource type="Theme" uid="uid://bd8js1yxlo5eg" path="res://scene_resources/finger_number_theme.tres" id="1_iql0u"]
+
+[node name="FingerNumber" type="Label"]
+anchors_preset = -1
+offset_left = -20.0
+offset_top = -28.0
+offset_right = 20.0
+offset_bottom = 27.0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(20, 27.5)
+theme = ExtResource("1_iql0u")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 6
+text = "1"
+horizontal_alignment = 1

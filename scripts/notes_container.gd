@@ -13,7 +13,7 @@ class_name NotesContainer extends Sprite2D
 @export var rest_template: PackedScene
 @export var collectable_template: PackedScene
 @export var barline_template: PackedScene
-
+@export var finger_number_template: PackedScene
 
 var bass_clef_offset: float = note_heigth * 12
 static var note_heigth_by_pitch: Dictionary = {
@@ -51,14 +51,9 @@ func construct_level(with_melody_events: bool = false, melody_events: Array = []
 		populate_from_melody_events(melody_events)
 		if bottom_melody_events.size() > 0:
 			populate_from_melody_events(bottom_melody_events, true)
-	else:
-		set_level_size()
-		create_bar_lines()
-		set_parent_at_ending()
-		populate()
+
 
 func create_bar_lines(two_staves: bool = false) -> void:
-	#print("CREATING BAR LINESSSS")
 	for i: int in range(level_length_in_bars + 2):
 		var new_barline: Node2D = barline_template.instantiate()
 		add_child(new_barline)
@@ -90,6 +85,7 @@ func set_level_size() -> void:
 
 func populate_from_melody_events(melody_events: Array, bottom_staff: bool = false) -> void:
 	for event: MelodyEvent in melody_events:
+		print(event.as_string())
 		if event.type == "rest":
 			var new_note: Note = rest_template.instantiate()
 			new_note.event = event
@@ -111,6 +107,11 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			new_note.set_duration_visual(event.duration)
 			new_note.position.x = event.time * bar_length_in_pixels - size / 2
 			new_note.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
+			if event.details.has("finger"):
+				var new_finger: Label = finger_number_template.instantiate()
+				new_note.add_child(new_finger)
+				new_finger.position.y = -800
+				new_finger.text = event.details["finger"]
 			if bottom_staff:
 				new_note.position.y += treble_to_bass_gap - bass_clef_offset
 				new_note.stem.rotation = deg_to_rad(180)
@@ -121,6 +122,11 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			collectible.set_sprite(event.subtype)
 			collectible.position.x = event.time * bar_length_in_pixels - size / 2
 			collectible.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
+			if event.details.has("finger"):
+				var new_finger: Label = finger_number_template.instantiate()
+				collectible.add_child(new_finger)
+				new_finger.position.y = -800
+				new_finger.text = event.details["finger"]
 			if bottom_staff:
 				collectible.position.y += treble_to_bass_gap - bass_clef_offset
 			#collectible.global_position = Vector2(0,0)

@@ -13,6 +13,8 @@ class_name Game extends Node2D
 @onready var tutorial_text: Label = $Overlay/Tutorial/Text
 
 @onready var heart: AnimatedSprite2D = $Level/Heart
+@onready var boss_portrait: Sprite2D = $Level/BossPortrait
+
 @onready var into_stage: AnimatedSprite2D = $Level/IntoStage
 @onready var win_text: Label = $Overlay/WinText
 
@@ -306,6 +308,10 @@ func hit_boss() -> void:
 		boss.find_child("Flash").flash(Color.RED)
 		boss_health -= 1
 		boss_health_bar.value = boss_health
+		boss_health_bar.find_child("Flash").flash(Color.RED)
+		boss_health_bar.find_child("Expander").expand(1.20, 0.15, true)
+		boss_portrait.find_child("Flash").flash(Color.RED)
+		boss_portrait.find_child("Expander").expand(1.20, 0.15, true)
 		boss.stop()
 		boss.play("get_hit")
 		if boss_health <= 0:
@@ -331,6 +337,7 @@ func get_hit() -> void:
 		player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
 		heart.find_child("Flash").flash(Color.RED)
 		heart.find_child("Expander").expand(1.20, 0.15, true)
+		
 		if player_health <= 0:
 			lose()
 	else:
