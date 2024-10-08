@@ -43,7 +43,7 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 				duration = parse_fraction_as_float(extraData[0]) # Parse duration as float
 		event.duration = duration
 		
-		if extraData.size() > 1 and event.type == "note":
+		if extraData.size() > 1:
 			event.details["finger"] = extraData[1] # finger is an int, but stored as String
 		
 		# Add the event to the melody array with the current time
