@@ -313,9 +313,6 @@ animations = [{
 script = ExtResource("1_ncon4")
 accelerate_sound = ExtResource("2_2fv50")
 slow_down_sound = ExtResource("3_h2mfw")
-slow_down_percentage = 0.7
-player_health = 1.0
-boss_health = 1.0
 health_rate = 3.8
 metadata/_edit_lock_ = true
 

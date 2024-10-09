@@ -26,12 +26,15 @@ bg_color = Color(0.36624, 0.00156877, 0.638228, 1)
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_geyk5")
-easy_song_path = "res://audio/CountingStars_122bpm_new.wav"
-easy_melody_path = "res://levels/melody1.txt"
-normal_song_path = "res://audio/CountingStars_122bpm_new.wav"
-normal_melody_path = "res://levels/melody1.txt"
-hard_song_path = "res://audio/CountingStars_122bpm_new.wav"
-hard_melody_path = "res://levels/melody1.txt"
+easy_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.wav"
+easy_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.wav"
+easy_melody_path = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
+normal_song_path = "res://audio/CircleOfLife_78.wav"
+normal_slow_song_path = "CircleOfLife_78_SLOW70"
+normal_melody_path = "res://levels/CircleOfLife_TheLionKing_78.txt"
+hard_song_path = "res://audio/LetItGo_Aminor_106.wav"
+hard_slow_song_path = "res://audio/LetItGo_Aminor_106_SLOW70.wav"
+hard_melody_path = "res://levels/LetItGoSimplified_106_Right.txt"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1

@@ -46,6 +46,8 @@ class_name Game extends Node2D
 @export var slow_down_sound: AudioStream
 
 static var song_path: String = "res://audio/CountingStars_122bpm_new.wav"
+static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80.wav"
+static var melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
 static var game_won_scene: String = "res://scenes/game_won_screen.tscn"
@@ -54,13 +56,13 @@ static var health_collected: bool = false
 static var slowdown_collected: bool = false
 static var bomb_collected: bool = false
 static var tempo: float = 122.0
+static var player_health: float = 10
+static var boss_health: float = 300
 
 @export_enum("treble","bass","both") var ui_type: String = "treble"
-@export var slow_down_percentage: float = 0.8
+@export var slow_down_percentage: float = 0.7
 @export var slow_timer: float = 3.5
 var level_length_in_bar: float = 0
-@export var player_health: float = 10
-@export var boss_health: float = 300
 @export var health_rate: float = 1
 var DamageFromBoss: float = 1
 var DamageFromPlayer: float = 1
@@ -142,6 +144,7 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 
 func _ready() -> void:
 	music_player.stream = load(song_path)
+	music_player_slow.stream = load(slow_song_path)
 	tutorial.visible = false
 	win_text.visible = false
 	into_stage.visible = false
@@ -161,7 +164,7 @@ func initialize_part(hand_parts: String = ui_type) -> void:
 	if hand_parts.to_lower() == "treble" or hand_parts.to_lower() == "both":
 		note_play_position_x = notes_detector.position.x
 		starting_position = ending_point.position
-		notes_container.construct_level(true, parser.get_melody_array_by_file("res://levels/melody1.txt"),
+		notes_container.construct_level(true, parser.get_melody_array_by_file(melody_path),
 										parser.get_melody_array_by_file("res://levels/melody1_left.txt"))
 
 func health_bars_progress(delta: float, rate: float = 1) -> void:
