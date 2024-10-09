@@ -56,8 +56,11 @@ static var health_collected: bool = false
 static var slowdown_collected: bool = false
 static var bomb_collected: bool = false
 static var tempo: float = 122.0
-static var player_health: float = 10
-static var boss_health: float = 300
+static var starting_player_health: float = 10
+static var starting_boss_health: float = 300
+
+var player_health: float = 10
+var boss_health: float = 300
 
 @export_enum("treble","bass","both") var ui_type: String = "treble"
 @export var slow_down_percentage: float = 0.7
@@ -143,6 +146,8 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 func _ready() -> void:
+	player_health = starting_player_health
+	boss_health = starting_boss_health
 	music_player.stream = load(song_path)
 	music_player_slow.stream = load(slow_song_path)
 	tutorial.visible = false
@@ -323,7 +328,7 @@ func activate_effect(effect: String = "slowdown") -> void:
 	match effect:
 		"slowdown":
 			if not slowdown_collected:
-				health_collected = true
+				slowdown_collected = true
 				show_tutorial(effect)
 				pause(true)
 				await game_resumed
@@ -340,14 +345,14 @@ func activate_effect(effect: String = "slowdown") -> void:
 			else:
 				get_hit()
 		"heart":
-			if not slowdown_collected:
-				slowdown_collected = true
+			if not health_collected:
+				health_collected = true
 				show_tutorial(effect)
 				pause(true)
 				await game_resumed
-				heal()
+				heal(2)
 			else:
-				heal()
+				heal(2)
 			
 		_:
 			print("no specific effect")
@@ -431,6 +436,7 @@ func reset_health_bars() -> void:
 	boss_previous_health = boss_health
 
 func restart_level(wait: bool = false) -> void:
+	Game.game_state = "Playing"
 	music_player.stream_paused = true
 	if wait:
 		var timer: Timer = Timer.new()

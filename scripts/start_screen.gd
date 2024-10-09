@@ -34,14 +34,14 @@ func start_level(melody_path: String, song_path: String,
 	Game.slow_song_path = slow_song_path
 	Game.melody_path = melody_path
 	Game.tempo = tempo
-	Game.player_health = player_life
-	Game.boss_health = boss_life
+	Game.starting_player_health = player_life
+	Game.starting_boss_health = boss_life
 	var new_scene_source: PackedScene = load(Game.game_scene)
 	get_tree().change_scene_to_packed(new_scene_source)
 
 
 func _on_easy_button_button_up() -> void:
-	start_level(easy_melody_path,easy_song_path,easy_slow_song_path, 76, 10, 36)
+	start_level(easy_melody_path,easy_song_path,easy_slow_song_path, 76, 10, 32)
 
 
 func _on_normal_button_button_up() -> void:
