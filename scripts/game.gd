@@ -16,6 +16,7 @@ class_name Game extends Node2D
 @onready var heart: AnimatedSprite2D = $Level/Heart
 @onready var boss_portrait: Sprite2D = $Level/BossPortrait
 @onready var popup_progress_bar: PopupProgressBar = $Overlay/Tutorial/ProgressBar
+@onready var return_button: TextureButton = $Overlay/Return
 
 @onready var into_stage: AnimatedSprite2D = $Level/IntoStage
 @onready var win_text: Label = $Overlay/WinText
@@ -51,7 +52,7 @@ static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80
 static var melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
-static var game_won_scene: String = "res://scenes/game_won_screen.tscn"
+static var game_won_scene: String = "res://scenes/start_screen.tscn"
 static var game_state: String = "Playing"
 static var health_collected: bool = false
 static var slowdown_collected: bool = false
@@ -102,6 +103,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -> void:
 	if not get_tree().paused:
 		#pause_button.text = "Resume"
+		return_button.visible = true
 		print("PAUSING!")
 		if darken_on_pause:
 			darken.visible = true
@@ -110,6 +112,7 @@ func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -
 		get_tree().paused = true
 	else:
 		emit_signal("game_resumed")
+		return_button.visible = false
 		#pause_button.text = "Pause"
 		print("OH YEAH")
 		darken.visible = false
@@ -331,27 +334,27 @@ func activate_effect(effect: String = "slowdown") -> void:
 		"slowdown":
 			if not slowdown_collected:
 				slowdown_collected = true
-				show_tutorial(effect)
-				pause(true)
-				await game_resumed
+				#show_tutorial(effect)
+				#pause(true)
+				#await game_resumed
 				level_slow_down()
 			else:
 				level_slow_down()
 		"bomb":
 			if not bomb_collected:
 				bomb_collected = true
-				show_tutorial(effect)
-				pause(true)
-				await game_resumed
+				#show_tutorial(effect)
+				#pause(true)
+				#await game_resumed
 				get_hit()
 			else:
 				get_hit()
 		"heart":
 			if not health_collected:
 				health_collected = true
-				show_tutorial(effect)
-				pause(true)
-				await game_resumed
+				#show_tutorial(effect)
+				#pause(true)
+				#await game_resumed
 				heal(2)
 			else:
 				heal(2)
@@ -498,7 +501,8 @@ func _on_win_restart_button_up() -> void:
 
 
 func _on_win_continue_button_up() -> void:
-	get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
+	pause()
+	get_tree().change_scene_to_file(game_won_scene)
 
 func play_music_clip(audioclip: AudioStream = audio_clips.player_wins) -> void:
 	music_player.stream = audioclip
@@ -508,3 +512,9 @@ func play_music_clip(audioclip: AudioStream = audio_clips.player_wins) -> void:
 func _on_popup_timer_timeout() -> void:
 	tutorial.visible = false
 	pause()
+
+
+func _on_return_button_up() -> void:
+	Game.game_state = "Winning"
+	pause()
+	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")

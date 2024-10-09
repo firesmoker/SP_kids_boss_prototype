@@ -361,32 +361,48 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.526271
 anchor_bottom = 0.0378049
-offset_left = -135.0
+offset_left = -158.0
 offset_top = 19.0
-offset_right = -95.0
-offset_bottom = 59.0
+offset_right = -109.0
+offset_bottom = 68.0
 grow_horizontal = 2
 toggle_mode = true
 texture_normal = ExtResource("14_l1shx")
 texture_pressed = ExtResource("15_m6t7w")
+ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="Restart" type="TextureButton" parent="Overlay"]
 process_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -23.0
+offset_left = -71.0
 offset_top = 20.0
-offset_right = 48.0
-offset_bottom = 91.0
+offset_right = 9.0
+offset_bottom = 100.0
 grow_horizontal = 2
 texture_normal = ExtResource("16_icmxq")
+ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
+
+[node name="Return" type="TextureButton" parent="Overlay"]
+process_mode = 3
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 95.0
+offset_bottom = 100.0
+grow_horizontal = 2
+texture_normal = ExtResource("22_7sqae")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="WinText" type="Label" parent="Overlay"]
 visible = false
@@ -406,15 +422,16 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 100
 text = "ניצחון!"
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Overlay/WinText" instance=ExtResource("63_jfxac")]
 
 [node name="LoseText" type="Label" parent="Overlay"]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.49878
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -301.0
@@ -426,6 +443,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 100
 text = "הרובוט ניצח!"
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Overlay/LoseText" instance=ExtResource("63_jfxac")]
 
@@ -1001,6 +1019,7 @@ metadata/_edit_lock_ = true
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 [connection signal="button_up" from="Overlay/Pause" to="." method="_on_pause_button_up"]
 [connection signal="button_up" from="Overlay/Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="Overlay/Return" to="." method="_on_return_button_up"]
 [connection signal="button_up" from="Overlay/Tutorial/Resume" to="." method="_on_resume_button_up"]
 [connection signal="timeout" from="Overlay/Tutorial/ProgressBar/PopupTimer" to="." method="_on_popup_timer_timeout"]
 [connection signal="timeout" from="Overlay/Tutorial/ProgressBar/PopupTimer" to="Overlay/Tutorial/ProgressBar" method="_on_popup_timer_timeout"]

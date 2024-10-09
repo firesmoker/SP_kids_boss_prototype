@@ -29,6 +29,7 @@ func start_level(melody_path: String, song_path: String,
 	timer.wait_time = 0.2
 	timer.start()
 	await timer.timeout
+	timer.stop()
 	Game.game_state = "Playing"
 	Game.song_path = song_path
 	Game.slow_song_path = slow_song_path
