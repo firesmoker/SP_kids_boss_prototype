@@ -67,15 +67,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
+offset_left = -150.0
 offset_top = -84.0
-offset_right = 100.0
+offset_right = 150.0
 offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
 texture_normal = ExtResource("2_fy6is")
 stretch_mode = 0
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/EasyButton"]
 layout_mode = 1
@@ -84,17 +85,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
-text = "קל"
+theme_override_font_sizes/font_size = 30
+text = "I Just Can't Wait to be King"
 horizontal_alignment = 1
-metadata/_edit_lock_ = true
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="NormalButton" type="TextureButton" parent="UI"]
 anchors_preset = 8
@@ -102,15 +105,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 11.0
-offset_right = 100.0
-offset_bottom = 179.0
+offset_left = -150.0
+offset_top = 6.0
+offset_right = 150.0
+offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
 texture_normal = ExtResource("3_p11kr")
 stretch_mode = 0
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/NormalButton"]
 layout_mode = 1
@@ -127,8 +131,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
-text = "רגיל"
+theme_override_font_sizes/font_size = 30
+text = "Circle Of Life"
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="HardButton" type="TextureButton" parent="UI"]
@@ -137,15 +143,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 105.0
-offset_right = 100.0
-offset_bottom = 273.0
+offset_left = -150.0
+offset_top = 96.0
+offset_right = 150.0
+offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
 texture_normal = ExtResource("4_bsr1o")
 stretch_mode = 0
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/HardButton"]
 layout_mode = 1
@@ -162,8 +169,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
-text = "קשה"
+theme_override_font_sizes/font_size = 30
+text = "Let It Go"
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Player" type="TextureRect" parent="UI"]
@@ -173,6 +182,7 @@ offset_right = 539.0
 offset_bottom = 817.0
 mouse_filter = 2
 texture = ExtResource("5_tm8vi")
+metadata/_edit_lock_ = true
 
 [node name="Drone" type="TextureRect" parent="UI"]
 offset_left = -2.0
@@ -181,6 +191,7 @@ offset_right = 631.0
 offset_bottom = 620.0
 mouse_filter = 2
 texture = ExtResource("6_4qe1l")
+metadata/_edit_lock_ = true
 
 [node name="Boss" type="TextureRect" parent="UI"]
 offset_left = 550.0
@@ -190,6 +201,7 @@ offset_bottom = 684.0
 scale = Vector2(1.24941, 1.24941)
 mouse_filter = 2
 texture = ExtResource("7_umefj")
+metadata/_edit_lock_ = true
 
 [node name="LoadOverlay" type="TextureRect" parent="UI"]
 process_mode = 3

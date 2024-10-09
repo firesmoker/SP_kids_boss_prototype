@@ -15,6 +15,7 @@ class_name Game extends Node2D
 @onready var win_buttons: Panel = $Overlay/WinButtons
 @onready var heart: AnimatedSprite2D = $Level/Heart
 @onready var boss_portrait: Sprite2D = $Level/BossPortrait
+@onready var popup_progress_bar: PopupProgressBar = $Overlay/Tutorial/ProgressBar
 
 @onready var into_stage: AnimatedSprite2D = $Level/IntoStage
 @onready var win_text: Label = $Overlay/WinText
@@ -64,7 +65,7 @@ var boss_health: float = 300
 
 @export_enum("treble","bass","both") var ui_type: String = "treble"
 @export var slow_down_percentage: float = 0.7
-@export var slow_timer: float = 3.5
+@export var slow_timer: float = 5.5
 var level_length_in_bar: float = 0
 @export var health_rate: float = 1
 var DamageFromBoss: float = 1
@@ -302,22 +303,23 @@ func _on_hit_zone_body_entered(note: Note) -> void:
 func hide_tutorial() -> void:
 	tutorial.visible = false
 
+
 func show_tutorial(for_type: String = "heart") -> void:
 	tutorial.visible = true
+	popup_progress_bar.start_closing_timer(5)
 	tutorial.find_child("Heart").visible = false
 	tutorial.find_child("Slowdown").visible = false
 	tutorial.find_child("Bomb").visible = false
 	match for_type:
 		"heart":
-			tutorial_text.text = "אספת לב!
-חלק מהחיים שהפסדת יתרפאו"
+			tutorial_text.text = "אספת לב!"
 			tutorial.find_child("Heart").visible = true
 		"slowdown":
 			tutorial_text.text = "אספת האטת זמן!"
 			tutorial.find_child("Slowdown").visible = true
 			
 		"bomb":
-			tutorial_text.text = "פגעת פצצה!
+			tutorial_text.text = "פגעת בפצצה!
 זהירות, זה מוריד לך חיים!"
 			tutorial.find_child("Bomb").visible = true
 			
@@ -483,6 +485,7 @@ func player_win_animation() -> void:
 
 func _on_resume_button_up() -> void:
 	tutorial.visible = false
+	popup_progress_bar.timer.stop()
 	pause()
 
 
@@ -500,3 +503,8 @@ func _on_win_continue_button_up() -> void:
 func play_music_clip(audioclip: AudioStream = audio_clips.player_wins) -> void:
 	music_player.stream = audioclip
 	music_player.play()
+
+
+func _on_popup_timer_timeout() -> void:
+	tutorial.visible = false
+	pause()

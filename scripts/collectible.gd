@@ -5,6 +5,7 @@ class_name Collectible extends AnimatableBody2D
 @onready var helper_line: Sprite2D = $HelperLine
 var effect: String = "slow_down"
 @onready var heart: AnimatedSprite2D = $Heart
+@onready var heart_animation: AnimatedSprite2D = $HeartAnimation
 @onready var bomb: AnimatedSprite2D = $Bomb
 @onready var slowdown: AnimatedSprite2D = $Slowdown
 @onready var slowdown_animation: AnimatedSprite2D = $SlowdownAnimation
@@ -40,7 +41,8 @@ func play_animation(type: String = "Heart") -> void:
 	stem.visible = false
 	match type:
 		"heart":
-			pass
+			heart_animation.visible = true
+			heart_animation.play()
 		"bomb":
 			pass
 		"slowdown":

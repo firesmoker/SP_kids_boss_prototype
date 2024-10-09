@@ -94,7 +94,7 @@ show_behind_parent = true
 z_index = -1
 position = Vector2(-7.25912e-07, 7.25912e-07)
 rotation = 0.785398
-scale = Vector2(0.829763, 0.829763)
+scale = Vector2(1.1701, 1.1701)
 sprite_frames = ExtResource("9_ejdfl")
 animation = &"glow"
 autoplay = "glow"
@@ -126,8 +126,11 @@ metadata/_edit_lock_ = true
 
 [node name="HeartAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
+rotation = 0.785398
 sprite_frames = ExtResource("9_ejdfl")
 autoplay = "default"
+frame = 17
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="Quarter" type="Sprite2D" parent="."]

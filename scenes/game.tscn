@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=116 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://bqmxp10hkofb2" path="res://art/buttons/Exit (1).png" id="22_7sqae"]
 [ext_resource type="Texture2D" uid="uid://bchnk27fbx7em" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_15.png" id="22_xf45i"]
 [ext_resource type="Texture2D" uid="uid://blr2nlfyfu861" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_16.png" id="23_wydfu"]
+[ext_resource type="Script" path="res://scripts/popup_progress_bar.gd" id="24_atn10"]
 [ext_resource type="Texture2D" uid="uid://boe03kitllyud" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_17.png" id="24_rkgo7"]
 [ext_resource type="Texture2D" uid="uid://my42k5e0ee4c" path="res://art/Idle BG.png" id="25_fhqc0"]
 [ext_resource type="Texture2D" uid="uid://cdadf0acxuao4" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_18.png" id="25_xlxvp"]
@@ -430,7 +431,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" type="Panel" parent="Overlay"]
 process_mode = 3
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -530,6 +530,27 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_64vtv")
 expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Overlay/Tutorial"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -59.0
+offset_right = 79.5
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 3.0
+fill_mode = 1
+show_percentage = false
+script = ExtResource("24_atn10")
+
+[node name="PopupTimer" type="Timer" parent="Overlay/Tutorial/ProgressBar"]
 
 [node name="WinButtons" type="Panel" parent="Overlay"]
 visible = false
@@ -982,6 +1003,8 @@ metadata/_edit_lock_ = true
 [connection signal="button_up" from="Overlay/Pause" to="." method="_on_pause_button_up"]
 [connection signal="button_up" from="Overlay/Restart" to="." method="_on_restart_button_up"]
 [connection signal="button_up" from="Overlay/Tutorial/Resume" to="." method="_on_resume_button_up"]
+[connection signal="timeout" from="Overlay/Tutorial/ProgressBar/PopupTimer" to="." method="_on_popup_timer_timeout"]
+[connection signal="timeout" from="Overlay/Tutorial/ProgressBar/PopupTimer" to="Overlay/Tutorial/ProgressBar" method="_on_popup_timer_timeout"]
 [connection signal="button_up" from="Overlay/WinButtons/WinChangeLevel" to="." method="_on_win_change_level_button_up"]
 [connection signal="button_up" from="Overlay/WinButtons/WinRestart" to="." method="_on_win_restart_button_up"]
 [connection signal="button_up" from="Overlay/WinButtons/WinContinue" to="." method="_on_win_continue_button_up"]
