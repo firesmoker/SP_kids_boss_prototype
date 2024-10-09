@@ -23,7 +23,7 @@
 			<key>entitlements</key>
 			<dict>
 				<key>application-identifier</key>
-				<string>R4HM7564EG.com.joytunes.godot</string>
+				<string>R4HM7564EG.com.joytunes.godotdemo</string>
 				<key>com.apple.developer.team-identifier</key>
 				<string>R4HM7564EG</string>
 				<key>get-task-allow</key>
@@ -34,9 +34,9 @@
 			<key>profile</key>
 			<dict>
 				<key>UUID</key>
-				<string>05f52d29-d1d0-48cc-807e-27fdf854704b</string>
+				<string>d6f984fa-cf86-4748-8177-a5cc054d0d1f</string>
 				<key>dateExpires</key>
-				<string>30/09/2025</string>
+				<string>08/10/2025</string>
 				<key>name</key>
 				<string>iOS Team Provisioning Profile: *</string>
 			</dict>
