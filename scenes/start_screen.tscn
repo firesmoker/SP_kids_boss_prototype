@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=14 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_geyk5"]
 [ext_resource type="Texture2D" uid="uid://bgjc1c5t8s7gj" path="res://art/buttons/Easy.png" id="2_fy6is"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dh2uk2jr2strc" path="res://art/30.sep/Hero_Idle/Hero_Idle_00000.png" id="5_tm8vi"]
 [ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="6_4qe1l"]
 [ext_resource type="Texture2D" uid="uid://5rwi3sgt57ya" path="res://art/30.sep/Boss_Idle/Boss_Idle_00000.png" id="7_umefj"]
+[ext_resource type="Script" path="res://scripts/midi_websocket_status.gd" id="8_uu1rv"]
 
 [sub_resource type="Theme" id="Theme_w463u"]
 default_font_size = 70
@@ -250,6 +251,22 @@ theme_override_font_sizes/font_size = 60
 text = "טוען"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Midi Status Label" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_top = 24.0
+offset_right = -28.0
+offset_bottom = 74.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Midi Websocket Status" type="Node" parent="."]
+script = ExtResource("8_uu1rv")
 
 [connection signal="button_up" from="UI/EasyButton" to="." method="_on_easy_button_button_up"]
 [connection signal="button_up" from="UI/NormalButton" to="." method="_on_normal_button_button_up"]
