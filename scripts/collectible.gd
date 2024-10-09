@@ -37,7 +37,8 @@ func hide_sprites() -> void:
 	helper_line.visible = false
 
 func play_animation(type: String = "Heart") -> void:
-	hide_sprites()
+	#hide_sprites()
+	helper_line.visible = false
 	stem.visible = false
 	match type:
 		"heart":
