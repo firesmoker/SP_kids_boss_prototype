@@ -66,7 +66,7 @@ var boss_health: float = 300
 
 @export_enum("treble","bass","both") var ui_type: String = "treble"
 @export var slow_down_percentage: float = 0.7
-@export var slow_timer: float = 5.5
+@export var slow_timer: float = 10.5
 var level_length_in_bar: float = 0
 @export var health_rate: float = 1
 var DamageFromBoss: float = 1
@@ -355,9 +355,9 @@ func activate_effect(effect: String = "slowdown") -> void:
 				#show_tutorial(effect)
 				#pause(true)
 				#await game_resumed
-				heal(2)
+				heal(3)
 			else:
-				heal(2)
+				heal(3)
 			
 		_:
 			print("no specific effect")
