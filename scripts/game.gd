@@ -133,6 +133,8 @@ func level_accelerate() -> void:
 
 func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 	if slow_down != true:
+		losing = false
+		winning = false
 		background.visible = false
 		background_slow.visible = true
 		audio.stream = slow_down_sound
@@ -518,3 +520,6 @@ func _on_return_button_up() -> void:
 	Game.game_state = "Winning"
 	pause()
 	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+
+func get_lose_state() -> bool:
+	return losing

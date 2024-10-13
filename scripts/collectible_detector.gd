@@ -13,7 +13,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	note_played(note)
 
 func note_played(note: String) -> void: 
-	if current_collectibles.size() > 0:
+	if current_collectibles.size() > 0 and not game.get_lose_state():
 		if note == current_collectibles[0].event.note:
 			var effect: String = current_collectibles[0].event.subtype
 			emit_signal("collectible_collected", effect)
