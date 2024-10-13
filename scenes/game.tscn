@@ -407,6 +407,8 @@ stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="WinText" type="Label" parent="Overlay"]
+process_mode = 3
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 anchors_preset = 8
@@ -415,17 +417,19 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -160.0
-offset_top = -313.61
+offset_top = -368.0
 offset_right = 160.0
-offset_bottom = -176.61
+offset_bottom = -231.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
 text = "ניצחון!"
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Overlay/WinText" instance=ExtResource("63_jfxac")]
+process_mode = 3
+visible = false
+metadata/_edit_lock_ = true
 
 [node name="LoseText" type="Label" parent="Overlay"]
 visible = false
@@ -608,28 +612,44 @@ texture_normal = ExtResource("15_m6t7w")
 metadata/_edit_lock_ = true
 
 [node name="Stars" type="Control" parent="Overlay"]
+visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -241.0
+offset_right = 157.0
+offset_bottom = -141.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fader" parent="Overlay/Stars" instance=ExtResource("63_jfxac")]
+visible = false
+metadata/_edit_lock_ = true
 
 [node name="StarEmpty" type="TextureRect" parent="Overlay/Stars"]
 visible = false
-offset_left = 435.5
-offset_top = 156.08
-offset_right = 544.5
-offset_bottom = 265.08
+offset_left = 2.5
+offset_top = 1.08
+offset_right = 111.5
+offset_bottom = 110.08
 texture = ExtResource("26_h3mkj")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="StarFull" type="TextureRect" parent="Overlay/Stars"]
 visible = false
-offset_left = 435.5
-offset_top = 156.08
-offset_right = 544.5
-offset_bottom = 265.08
+offset_left = 2.5
+offset_top = 1.08
+offset_right = 111.5
+offset_bottom = 110.08
 texture = ExtResource("27_jkgcf")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="StarEmpty2" type="TextureRect" parent="Overlay/Stars"]
 visible = false
@@ -637,13 +657,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 515.5
-offset_top = 156.08
-offset_right = 624.5
-offset_bottom = 265.08
+offset_left = -54.5
+offset_top = 1.08
+offset_right = 54.5
+offset_bottom = 110.08
 grow_horizontal = 2
 texture = ExtResource("26_h3mkj")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="StarFull2" type="TextureRect" parent="Overlay/Stars"]
 visible = false
@@ -651,31 +672,34 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 515.5
-offset_top = 156.08
-offset_right = 624.5
-offset_bottom = 265.08
+offset_left = -54.5
+offset_top = 1.08
+offset_right = 54.5
+offset_bottom = 110.08
 grow_horizontal = 2
 texture = ExtResource("27_jkgcf")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="StarEmpty3" type="TextureRect" parent="Overlay/Stars"]
 visible = false
-offset_left = 635.5
-offset_top = 156.08
-offset_right = 744.5
-offset_bottom = 265.08
+offset_left = 202.5
+offset_top = 1.08
+offset_right = 311.5
+offset_bottom = 110.08
 texture = ExtResource("26_h3mkj")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="StarFull3" type="TextureRect" parent="Overlay/Stars"]
 visible = false
-offset_left = 635.5
-offset_top = 156.08
-offset_right = 744.5
-offset_bottom = 265.08
+offset_left = 202.5
+offset_top = 1.08
+offset_right = 311.5
+offset_bottom = 110.08
 texture = ExtResource("27_jkgcf")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1

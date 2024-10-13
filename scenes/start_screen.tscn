@@ -1,9 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=11 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_geyk5"]
-[ext_resource type="Texture2D" uid="uid://bgjc1c5t8s7gj" path="res://art/buttons/Easy.png" id="2_fy6is"]
-[ext_resource type="Texture2D" uid="uid://dnw0jowojpg8w" path="res://art/buttons/Advanced.png" id="3_p11kr"]
-[ext_resource type="Texture2D" uid="uid://g4e4vu5fqnhq" path="res://art/buttons/Pro.png" id="4_bsr1o"]
 [ext_resource type="Texture2D" uid="uid://dh2uk2jr2strc" path="res://art/30.sep/Hero_Idle/Hero_Idle_00000.png" id="5_tm8vi"]
 [ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="6_4qe1l"]
 [ext_resource type="Texture2D" uid="uid://5rwi3sgt57ya" path="res://art/30.sep/Boss_Idle/Boss_Idle_00000.png" id="7_umefj"]
@@ -62,21 +59,19 @@ theme = SubResource("Theme_w463u")
 text = "בחרו שיר"
 horizontal_alignment = 1
 
-[node name="EasyButton" type="TextureButton" parent="UI"]
+[node name="EasyButton" type="Button" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -189.0
+offset_top = -106.0
 offset_right = 150.0
-offset_bottom = -21.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
-texture_normal = ExtResource("2_fy6is")
-stretch_mode = 0
 
 [node name="Label" type="Label" parent="UI/EasyButton"]
 layout_mode = 1
@@ -100,7 +95,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="NormalButton" type="TextureButton" parent="UI"]
+[node name="NormalButton" type="Button" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -109,12 +104,10 @@ anchor_bottom = 0.5
 offset_left = -150.0
 offset_top = 6.0
 offset_right = 150.0
-offset_bottom = 174.0
+offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
-texture_normal = ExtResource("3_p11kr")
-stretch_mode = 0
 
 [node name="Label" type="Label" parent="UI/NormalButton"]
 layout_mode = 1
@@ -137,21 +130,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HardButton" type="TextureButton" parent="UI"]
+[node name="HardButton" type="Button" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = 221.0
+offset_top = 110.0
 offset_right = 150.0
-offset_bottom = 389.0
+offset_bottom = 191.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
-texture_normal = ExtResource("4_bsr1o")
-stretch_mode = 0
 
 [node name="Label" type="Label" parent="UI/HardButton"]
 layout_mode = 1

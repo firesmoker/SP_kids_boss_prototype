@@ -7,6 +7,7 @@ class_name Game extends Node2D
 @onready var star_full_2: TextureRect = $Overlay/Stars/StarFull2
 @onready var star_empty_3: TextureRect = $Overlay/Stars/StarEmpty3
 @onready var star_full_3: TextureRect = $Overlay/Stars/StarFull3
+@onready var stars: Control = $Overlay/Stars
 
 
 @onready var audio: AudioStreamPlayer = $Audio
@@ -169,7 +170,7 @@ func _ready() -> void:
 	music_player.stream = load(song_path)
 	music_player_slow.stream = load(slow_song_path)
 	tutorial.visible = false
-	win_text.visible = false
+	#win_text.visible = false
 	into_stage.visible = false
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
@@ -293,6 +294,8 @@ func calculate_stars() -> int:
 		return 1
 
 func show_stars() -> void:
+	stars.visible = true
+	stars.find_child("Fader").fade_in()
 	match calculate_stars():
 		3:
 			star_full.visible = true
