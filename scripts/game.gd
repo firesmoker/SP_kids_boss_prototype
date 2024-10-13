@@ -98,6 +98,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		level_accelerate()
 	elif event.is_action_pressed("ui_down"):
 		level_slow_down()
+	elif event.is_action_pressed("ui_right"):
+		music_player.seek(music_player.get_playback_position() + 0.5)
+	elif event.is_action_pressed("ui_right"):
+		music_player.seek(music_player.get_playback_position() - 0.5)
 
 
 func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -> void:
@@ -339,9 +343,9 @@ func activate_effect(effect: String = "slowdown") -> void:
 				#show_tutorial(effect)
 				#pause(true)
 				#await game_resumed
-				level_slow_down()
+				level_slow_down(true,13)
 			else:
-				level_slow_down()
+				level_slow_down(true,13)
 		"bomb":
 			if not bomb_collected:
 				bomb_collected = true
