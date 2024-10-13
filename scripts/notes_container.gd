@@ -12,6 +12,7 @@ class_name NotesContainer extends Sprite2D
 @export var note_template: PackedScene
 @export var rest_template: PackedScene
 @export var collectable_template: PackedScene
+@export var collectable_marker_template: PackedScene
 @export var barline_template: PackedScene
 @export var finger_number_template: PackedScene
 
@@ -116,6 +117,13 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				new_note.position.y += treble_to_bass_gap - bass_clef_offset
 				new_note.stem.rotation = deg_to_rad(180)
 		elif event.type == "collectible":
+			if event.note.is_empty():
+				var collectible_marker: CollectibleMarker = collectable_marker_template.instantiate()
+				collectible_marker.position.x = event.time * bar_length_in_pixels - size / 2
+				collectible_marker.event = event
+				add_child(collectible_marker)
+				continue
+				
 			var collectible: Collectible = collectable_template.instantiate()
 			collectible.event = event
 			add_child(collectible)

@@ -376,17 +376,18 @@ func show_tutorial(for_type: String = "heart") -> void:
 		_:
 			tutorial_text.text = "ERROR TYPE NOT FOUND"
 
-func activate_effect(effect: String = "slowdown") -> void:
+func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> void:
 	match effect:
 		"slowdown":
+			var is_timed: bool = not details.has("action") or not details["action"] == "start"
 			if not slowdown_collected:
 				slowdown_collected = true
 				#show_tutorial(effect)
 				#pause(true)
 				#await game_resumed
-				level_slow_down(true,13)
+				level_slow_down(is_timed)
 			else:
-				level_slow_down(true,13)
+				level_slow_down(is_timed)
 		"bomb":
 			if not bomb_collected:
 				bomb_collected = true
@@ -408,6 +409,13 @@ func activate_effect(effect: String = "slowdown") -> void:
 			
 		_:
 			print("no specific effect")
+			
+	
+func deactivate_effect(effect: String = "slowdown") -> void:
+	match effect:
+		"slowdown":
+			if slowdown_collected:
+				level_accelerate()
 
 func heal(amount: int = 1) -> void:
 	update_player_health(amount)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=119 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -105,8 +105,9 @@
 [ext_resource type="Texture2D" uid="uid://cvh3dxi65ovjt" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00131.png" id="77_rm6l2"]
 [ext_resource type="Texture2D" uid="uid://lkpmql5curcv" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00132.png" id="78_mrs7h"]
 [ext_resource type="Texture2D" uid="uid://dtq7m42cj114v" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00134.png" id="79_n7i7p"]
-[ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
-[ext_resource type="PackedScene" uid="uid://c0v8nacv45non" path="res://scenes/finger_number.tscn" id="97_t1wle"]
+[ext_resource type="PackedScene" uid="uid://cy4r3dtmps85" path="res://scenes/collectible_marker.tscn" id="81_vlbus"]
+[ext_resource type="SpriteFrames" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="PackedScene" path="res://scenes/finger_number.tscn" id="97_t1wle"]
 
 [sub_resource type="Gradient" id="Gradient_ou8bn"]
 offsets = PackedFloat32Array(0, 0.00744417)
@@ -911,6 +912,7 @@ on_display_duration = 1.5
 note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
 collectable_template = ExtResource("57_nyblo")
+collectable_marker_template = ExtResource("81_vlbus")
 barline_template = ExtResource("7_crksr")
 finger_number_template = ExtResource("97_t1wle")
 metadata/_edit_use_anchors_ = true

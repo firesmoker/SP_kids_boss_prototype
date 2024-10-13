@@ -1,7 +1,6 @@
-class_name Collectible extends AnimatableBody2D
+class_name Collectible extends CollectibleMarker
 
 @export_enum("Active", "Inactive") var state: String = "Active"
-@export var event: MelodyEvent
 @onready var helper_line: Sprite2D = $HelperLine
 var effect: String = "slow_down"
 @onready var heart: AnimatedSprite2D = $Heart
