@@ -1,6 +1,14 @@
 class_name Game extends Node2D
 
 
+@onready var star_empty: TextureRect = $Overlay/Stars/StarEmpty
+@onready var star_full: TextureRect = $Overlay/Stars/StarFull
+@onready var star_empty_2: TextureRect = $Overlay/Stars/StarEmpty2
+@onready var star_full_2: TextureRect = $Overlay/Stars/StarFull2
+@onready var star_empty_3: TextureRect = $Overlay/Stars/StarEmpty3
+@onready var star_full_3: TextureRect = $Overlay/Stars/StarFull3
+
+
 @onready var audio: AudioStreamPlayer = $Audio
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var music_player_slow: AudioStreamPlayer = $MusicPlayerSlow
@@ -88,7 +96,7 @@ var player_health_progress: float = 0
 var boss_new_health: float = 0
 var boss_previous_health: float = 0
 var boss_health_progress: float = 0
-
+var got_hit_atleast_once: bool = false
 
 signal game_resumed
 
@@ -100,7 +108,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		level_slow_down()
 	elif event.is_action_pressed("ui_right"):
 		music_player.seek(music_player.get_playback_position() + 0.5)
-	elif event.is_action_pressed("ui_right"):
+	elif event.is_action_pressed("ui_left"):
 		music_player.seek(music_player.get_playback_position() - 0.5)
 
 
@@ -267,6 +275,7 @@ func lose() -> void:
 	player_bot.visible = false
 	await timer.timeout
 	boss_win_animation()
+	music_player_slow.stop()
 	play_music_clip(audio_clips.player_loses)
 	await boss.animation_finished
 	timer.wait_time = 0.5
@@ -274,6 +283,33 @@ func lose() -> void:
 	await timer.timeout
 	game_state = "Lose"
 	enter_lose_ui()
+
+func calculate_stars() -> int:
+	if not got_hit_atleast_once:
+		return 3
+	elif player_health_bar.value >= player_health_bar.max_value / 2:
+		return 2
+	else:
+		return 1
+
+func show_stars() -> void:
+	match calculate_stars():
+		3:
+			star_full.visible = true
+			star_full_2.visible = true
+			star_full_3.visible = true
+		2:
+			star_full.visible = true
+			star_full_2.visible = true
+			star_empty_3.visible = true
+		1:
+			star_full.visible = true
+			star_empty_2.visible = true
+			star_empty_3.visible = true
+		_:
+			pass
+		
+
 
 func win() -> void:
 	winning = true
@@ -286,10 +322,12 @@ func win() -> void:
 	boss.play("death")
 	audio_play_from_source(boss, audio_clips.boss_death)
 	await boss.animation_finished
+	music_player_slow.stop()
+	play_music_clip(audio_clips.player_wins)
 	boss.visible = false
 	player_win_animation()
-	play_music_clip(audio_clips.player_wins)
 	await player_character.animation_finished
+	show_stars()
 	timer.wait_time = 0.5
 	timer.start()
 	await timer.timeout
@@ -408,6 +446,7 @@ func update_player_health(health_change: float = -1) -> void:
 	player_health_progress = 0
 	player_previous_health = player_health
 	player_health += health_change
+	player_health = clamp(player_health, 0, player_health_bar.max_value)
 	player_new_health = player_health
 	
 func update_boss_health(health_change: float = -1) -> void:
@@ -418,6 +457,7 @@ func update_boss_health(health_change: float = -1) -> void:
 
 func get_hit() -> void:
 	if vulnerable and not winning and not losing:
+		got_hit_atleast_once = true
 		#player_character.find_child("Flash").flash(Color.RED)
 		player_character.play("get_hit")
 		player_character.find_child("Flash").flash(Color.RED)

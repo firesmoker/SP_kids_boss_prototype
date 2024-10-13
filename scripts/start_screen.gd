@@ -42,12 +42,12 @@ func start_level(melody_path: String, song_path: String,
 
 
 func _on_easy_button_button_up() -> void:
-	start_level(easy_melody_path,easy_song_path,easy_slow_song_path, 76, 9, 31)
+	start_level(easy_melody_path,easy_song_path,easy_slow_song_path, 76, 8, 29)
 
 
 func _on_normal_button_button_up() -> void:
-	start_level(normal_melody_path,normal_song_path,normal_slow_song_path,78, 4, 18)
+	start_level(normal_melody_path,normal_song_path,normal_slow_song_path,78, 4, 15)
 	
 
 func _on_hard_button_button_up() -> void:
-	start_level(hard_melody_path,hard_song_path,hard_slow_song_path,106,6, 22)
+	start_level(hard_melody_path,hard_song_path,hard_slow_song_path,106,5, 20)

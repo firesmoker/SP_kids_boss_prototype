@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=118 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -65,6 +65,8 @@
 [ext_resource type="Texture2D" uid="uid://cdadf0acxuao4" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_18.png" id="25_xlxvp"]
 [ext_resource type="Texture2D" uid="uid://r6t4chx4k57b" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_19.png" id="26_8ogg3"]
 [ext_resource type="Texture2D" uid="uid://dwa4suom36kkc" path="res://art/BG Freeze.png" id="26_h3bdu"]
+[ext_resource type="Texture2D" uid="uid://ccm6ueckl0pjf" path="res://art/Star_Empty.svg" id="26_h3mkj"]
+[ext_resource type="Texture2D" uid="uid://2k0av0gyqbvh" path="res://art/Star_Filled.svg" id="27_jkgcf"]
 [ext_resource type="Texture2D" uid="uid://c80kktnslc5ua" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_20.png" id="27_qrhxq"]
 [ext_resource type="Texture2D" uid="uid://csf7x3htf7lkd" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_21.png" id="28_l4lx4"]
 [ext_resource type="Texture2D" uid="uid://bqykvf33hey22" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_22.png" id="29_qqr7f"]
@@ -405,7 +407,6 @@ stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="WinText" type="Label" parent="Overlay"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 anchors_preset = 8
@@ -414,9 +415,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -160.0
-offset_top = -274.0
+offset_top = -313.61
 offset_right = 160.0
-offset_bottom = -137.0
+offset_bottom = -176.61
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
@@ -427,6 +428,7 @@ metadata/_edit_lock_ = true
 [node name="Fader" parent="Overlay/WinText" instance=ExtResource("63_jfxac")]
 
 [node name="LoseText" type="Label" parent="Overlay"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 anchors_preset = -1
@@ -604,6 +606,76 @@ offset_right = 566.0
 offset_bottom = 142.0
 texture_normal = ExtResource("15_m6t7w")
 metadata/_edit_lock_ = true
+
+[node name="Stars" type="Control" parent="Overlay"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StarEmpty" type="TextureRect" parent="Overlay/Stars"]
+visible = false
+offset_left = 435.5
+offset_top = 156.08
+offset_right = 544.5
+offset_bottom = 265.08
+texture = ExtResource("26_h3mkj")
+expand_mode = 1
+
+[node name="StarFull" type="TextureRect" parent="Overlay/Stars"]
+visible = false
+offset_left = 435.5
+offset_top = 156.08
+offset_right = 544.5
+offset_bottom = 265.08
+texture = ExtResource("27_jkgcf")
+expand_mode = 1
+
+[node name="StarEmpty2" type="TextureRect" parent="Overlay/Stars"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 515.5
+offset_top = 156.08
+offset_right = 624.5
+offset_bottom = 265.08
+grow_horizontal = 2
+texture = ExtResource("26_h3mkj")
+expand_mode = 1
+
+[node name="StarFull2" type="TextureRect" parent="Overlay/Stars"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 515.5
+offset_top = 156.08
+offset_right = 624.5
+offset_bottom = 265.08
+grow_horizontal = 2
+texture = ExtResource("27_jkgcf")
+expand_mode = 1
+
+[node name="StarEmpty3" type="TextureRect" parent="Overlay/Stars"]
+visible = false
+offset_left = 635.5
+offset_top = 156.08
+offset_right = 744.5
+offset_bottom = 265.08
+texture = ExtResource("26_h3mkj")
+expand_mode = 1
+
+[node name="StarFull3" type="TextureRect" parent="Overlay/Stars"]
+visible = false
+offset_left = 635.5
+offset_top = 156.08
+offset_right = 744.5
+offset_bottom = 265.08
+texture = ExtResource("27_jkgcf")
+expand_mode = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
@@ -952,7 +1024,8 @@ metadata/_edit_lock_ = true
 
 [node name="Vignette" type="Sprite2D" parent="Level"]
 modulate = Color(1, 1, 1, 0)
-scale = Vector2(0.913103, 0.913103)
+position = Vector2(13.5181, -8.45033)
+scale = Vector2(0.937008, 0.937008)
 texture = ExtResource("62_sh2xx")
 metadata/_edit_lock_ = true
 
@@ -1013,6 +1086,8 @@ z_index = 2
 position = Vector2(2.1134, -1.78571)
 scale = Vector2(0.921786, 0.921786)
 sprite_frames = ExtResource("93_42fku")
+frame = 17
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="Midi" parent="." instance=ExtResource("12_6nasv")]
