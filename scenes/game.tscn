@@ -579,9 +579,9 @@ script = ExtResource("24_atn10")
 [node name="WinButtons" type="Panel" parent="Overlay"]
 visible = false
 offset_left = 304.0
-offset_top = 613.0
+offset_top = 648.0
 offset_right = 889.0
-offset_bottom = 770.0
+offset_bottom = 805.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_oss5g")
 
 [node name="WinChangeLevel" type="TextureButton" parent="Overlay/WinButtons"]
@@ -633,6 +633,7 @@ metadata/_edit_lock_ = true
 
 [node name="StarEmpty" type="TextureRect" parent="Overlay/Stars"]
 visible = false
+layout_mode = 0
 offset_left = 2.5
 offset_top = 1.08
 offset_right = 111.5
@@ -643,6 +644,7 @@ metadata/_edit_lock_ = true
 
 [node name="StarFull" type="TextureRect" parent="Overlay/Stars"]
 visible = false
+layout_mode = 0
 offset_left = 2.5
 offset_top = 1.08
 offset_right = 111.5
@@ -683,6 +685,7 @@ metadata/_edit_lock_ = true
 
 [node name="StarEmpty3" type="TextureRect" parent="Overlay/Stars"]
 visible = false
+layout_mode = 0
 offset_left = 202.5
 offset_top = 1.08
 offset_right = 311.5
@@ -693,6 +696,7 @@ metadata/_edit_lock_ = true
 
 [node name="StarFull3" type="TextureRect" parent="Overlay/Stars"]
 visible = false
+layout_mode = 0
 offset_left = 202.5
 offset_top = 1.08
 offset_right = 311.5
