@@ -58,6 +58,8 @@ grow_horizontal = 2
 theme = SubResource("Theme_w463u")
 text = "בחרו שיר"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="EasyButton" type="Button" parent="UI"]
 anchors_preset = 8
@@ -72,6 +74,7 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/EasyButton"]
 layout_mode = 1
@@ -108,6 +111,7 @@ offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/NormalButton"]
 layout_mode = 1
@@ -143,6 +147,7 @@ offset_bottom = 191.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/HardButton"]
 layout_mode = 1
@@ -253,6 +258,8 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 36
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Midi Websocket Status" type="Node" parent="."]
 script = ExtResource("8_uu1rv")
