@@ -392,7 +392,6 @@ vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Button8" type="Button" parent="UI/SongButtons/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "

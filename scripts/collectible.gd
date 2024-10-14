@@ -2,6 +2,7 @@ class_name Collectible extends CollectibleMarker
 
 @export_enum("Active", "Inactive") var state: String = "Active"
 @onready var helper_line: Sprite2D = $HelperLine
+@export var note: String
 var effect: String = "slow_down"
 @onready var heart: AnimatedSprite2D = $Heart
 @onready var heart_animation: AnimatedSprite2D = $HeartAnimation
@@ -26,7 +27,7 @@ func set_sprite(type: String = "Heart") -> void:
 			slowdown.visible = true
 		_:
 			heart.visible = true
-	if event.note == "C4":
+	if note == "C4":
 		helper_line.visible = true
 
 func hide_sprites() -> void:

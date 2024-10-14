@@ -89,7 +89,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 		print(event.as_string())
 		if event.type == "rest":
 			var new_note: Note = rest_template.instantiate()
-			new_note.event = event
+			new_note.note = event.note
 			add_child(new_note)
 			new_note.set_duration_visual(event.duration)
 			if event.duration == 1.0:
@@ -102,49 +102,55 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			if bottom_staff:
 				new_note.position.y += treble_to_bass_gap
 		elif event.type == "note":
-			var new_note: Note = note_template.instantiate()
-			new_note.event = event
-			add_child(new_note)
-			new_note.set_duration_visual(event.duration)
-			new_note.position.x = event.time * bar_length_in_pixels - size / 2
-			new_note.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
-			if bottom_staff:
-				new_note.position.y += treble_to_bass_gap - bass_clef_offset
-				new_note.stem.rotation = deg_to_rad(180)
-			if event.details.has("finger"):
-				var new_finger: Label = finger_number_template.instantiate()
-				new_note.add_child(new_finger)
-				new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[event.note]) * 6
-				new_finger.text = event.details["finger"]
+			var notes: Array = split_notes(event.note)
+			for note: String in notes:
+				var new_note: Note = note_template.instantiate()
+				new_note.note = note
+				new_note.event = event
+				add_child(new_note)
+				new_note.set_duration_visual(event.duration)
+				new_note.position.x = event.time * bar_length_in_pixels - size / 2
+				new_note.position.y = note_heigth_by_pitch[note] + resolution_y_offset
 				if bottom_staff:
-					new_finger.position.y += treble_to_bass_gap + 600
+					new_note.position.y += treble_to_bass_gap - bass_clef_offset
+					new_note.stem.rotation = deg_to_rad(180)
+				if event.details.has("finger") and notes[0] == note:
+					var new_finger: Label = finger_number_template.instantiate()
+					new_note.add_child(new_finger)
+					new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[note]) * 6
+					new_finger.text = event.details["finger"]
+					if bottom_staff:
+						new_finger.position.y += treble_to_bass_gap + 600
 		elif event.type == "collectible":
 			if event.note.is_empty():
 				var collectible_marker: CollectibleMarker = collectable_marker_template.instantiate()
-				collectible_marker.position.x = event.time * bar_length_in_pixels - size / 2
 				collectible_marker.event = event
+				collectible_marker.position.x = event.time * bar_length_in_pixels - size / 2
 				add_child(collectible_marker)
 				continue
 				
-			var collectible: Collectible = collectable_template.instantiate()
-			collectible.event = event
-			add_child(collectible)
-			collectible.set_sprite(event.subtype)
-			collectible.position.x = event.time * bar_length_in_pixels - size / 2
-			collectible.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
-			if bottom_staff:
-				collectible.position.y += treble_to_bass_gap - bass_clef_offset
-				collectible.stem.rotation = deg_to_rad(180)
-				
-			if event.details.has("finger"):
-				var new_finger: Label = finger_number_template.instantiate()
-				collectible.add_child(new_finger)
-				new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[event.note]) * 6
-				new_finger.text = event.details["finger"]
+			var notes: Array = split_notes(event.note)
+			for note: String in notes:
+				var collectible: Collectible = collectable_template.instantiate()
+				collectible.event = event
+				collectible.note = note
+				add_child(collectible)
+				collectible.set_sprite(event.subtype)
+				collectible.position.x = event.time * bar_length_in_pixels - size / 2
+				collectible.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
 				if bottom_staff:
-					new_finger.position.y += treble_to_bass_gap + 600
-			#collectible.global_position = Vector2(0,0)
-			#collectible.scale *= 2
+					collectible.position.y += treble_to_bass_gap - bass_clef_offset
+					collectible.stem.rotation = deg_to_rad(180)
+					
+				if event.details.has("finger") and notes[0] == note:
+					var new_finger: Label = finger_number_template.instantiate()
+					collectible.add_child(new_finger)
+					new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[event.note]) * 6
+					new_finger.text = event.details["finger"]
+					if bottom_staff:
+						new_finger.position.y += treble_to_bass_gap + 600
+				#collectible.global_position = Vector2(0,0)
+				#collectible.scale *= 2
 
 				
 func populate() -> void:
@@ -183,3 +189,17 @@ func set_parent_at_ending() -> void:
 
 func get_size() -> float:
 	return size
+	
+
+func split_notes(input_string: String) -> Array[String]:
+	var regex: RegEx = RegEx.new()
+	regex.compile(r"([A-G]#?\d)")  # Matches A-G, optional #, followed by a digit
+	
+	var notes: Array[String] = []
+	var note_match: RegExMatch = regex.search(input_string)
+	
+	while note_match != null:  # Explicit check for match not being null
+		notes.append(note_match.get_string())
+		note_match = regex.search(input_string, note_match.get_end(0))  # Continue searching after the last match
+	
+	return notes
