@@ -1,0 +1,409 @@
+[gd_scene load_steps=11 format=3 uid="uid://d06h5qxx71fap"]
+
+[ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_uoet8"]
+[ext_resource type="Texture2D" uid="uid://dh2uk2jr2strc" path="res://art/30.sep/Hero_Idle/Hero_Idle_00000.png" id="2_bn2vi"]
+[ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="3_1jbyi"]
+[ext_resource type="Texture2D" uid="uid://5rwi3sgt57ya" path="res://art/30.sep/Boss_Idle/Boss_Idle_00000.png" id="4_ah7qh"]
+[ext_resource type="Script" path="res://scripts/midi_websocket_status.gd" id="5_0d05y"]
+
+[sub_resource type="Theme" id="Theme_w463u"]
+default_font_size = 70
+
+[sub_resource type="Gradient" id="Gradient_rs6wh"]
+offsets = PackedFloat32Array(0, 0.00744417)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fs6dw"]
+gradient = SubResource("Gradient_rs6wh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gm4g5"]
+bg_color = Color(0.36624, 0.00156877, 0.638228, 1)
+
+[sub_resource type="Theme" id="Theme_b8tba"]
+default_font_size = 60
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource("1_uoet8")
+song_1_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.wav"
+song_1_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.wav"
+song_1_melody_path = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
+song_2_path = "res://audio/CircleOfLife_78.wav"
+song_2_slow_song_path = "res://audio/CircleOfLife_78_SLOW70.wav"
+song_2_melody_path = "res://levels/CircleOfLife_TheLionKing_78.txt"
+song_3_song_path = "res://audio/LetItGo_Aminor_106.wav"
+song_3_slow_song_path = "res://audio/LetItGo_Aminor_106_SLOW70.wav"
+song_3_melody_path = "res://levels/LetItGoSimplified_106_Right.txt"
+song_4_song_path = "res://audio/HokeyPokeySong_FMajor_88bpm_Short.wav"
+song_4_slow_song_path = "res://audio/HokeyPokeySong_FMajor_88bpm_Short_SLOW70.wav"
+song_4_melody_path = "res://levels/HokeyPokey_88_Right.txt"
+song_5_song_path = "res://audio/FreeFallin_155bpm_Vocals.wav"
+song_5_slow_song_path = "res://audio/FreeFallin_155bpm_Vocals_SLOW70.wav"
+song_5_melody_path = "res://levels/FreeFallin_155_Right.txt"
+song_6_song_path = "res://audio/DanceMonkey_85.wav"
+song_6_slow_song_path = "res://audio/DanceMonkey_85_SLOW70.wav"
+song_6_melody_path = "res://levels/DanceMonkey_85_Right.txt"
+song_6_left_melody_path = "res://levels/DanceMonkey_85_Left.txt"
+song_7_song_path = "res://audio/Pokemon_CMajor_115bpm_Short.wav"
+song_7_slow_song_path = "res://audio/Pokemon_CMajor_115bpm_Short_SLOW70.wav"
+song_7_melody_path = "res://levels/Pokemon_115_Right.txt"
+song_7_left_melody_path = "res://levels/Pokemon_115_Left.txt"
+song_8_song_path = "res://audio/Believer_ImagineDragons_110bpm_Vocals_Kids.wav"
+song_8_slow_song_path = "res://audio/Believer_ImagineDragons_110bpm_Vocals_Kids_SLOW70.wav"
+song_8_melody_path = "res://levels/Believer_110_Right.txt"
+song_8_left_melody_path = "res://levels/Believer_110_Left.txt"
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298661, 0.000840185, 0.481218, 1)
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = -1.0
+offset_right = 256.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme = SubResource("Theme_w463u")
+text = "בחרו שיר"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" type="TextureRect" parent="UI"]
+offset_left = -94.0
+offset_top = 294.0
+offset_right = 539.0
+offset_bottom = 817.0
+mouse_filter = 2
+texture = ExtResource("2_bn2vi")
+metadata/_edit_lock_ = true
+
+[node name="Drone" type="TextureRect" parent="UI"]
+offset_left = -2.0
+offset_top = 97.0
+offset_right = 631.0
+offset_bottom = 620.0
+mouse_filter = 2
+texture = ExtResource("3_1jbyi")
+metadata/_edit_lock_ = true
+
+[node name="Boss" type="TextureRect" parent="UI"]
+offset_left = 550.0
+offset_top = 261.0
+offset_right = 1219.0
+offset_bottom = 684.0
+scale = Vector2(1.24941, 1.24941)
+mouse_filter = 2
+texture = ExtResource("4_ah7qh")
+metadata/_edit_lock_ = true
+
+[node name="LoadOverlay" type="TextureRect" parent="UI"]
+process_mode = 3
+visible = false
+self_modulate = Color(1, 1, 1, 0.686275)
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_fs6dw")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="UI/LoadOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -143.0
+offset_right = 310.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gm4g5")
+
+[node name="Label" type="Label" parent="UI/LoadOverlay/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -68.0
+offset_right = 190.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+text = "טוען"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Midi Status Label" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_top = 24.0
+offset_right = -28.0
+offset_bottom = 74.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -316.0
+offset_right = 151.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/Button1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "I Just Can't Wait to be King"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Button2" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Circle Of Life"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button3" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Let It Go"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button4" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/Button4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Hokey Pokey"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button5" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/Button5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Free Fallin'"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button6" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/Button6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Dance Monkey (LH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button7" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/Button7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Pokemon (LH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button8" type="Button" parent="UI/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/ScrollContainer/VBoxContainer/Button8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Believer"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Midi Websocket Status" type="Node" parent="."]
+script = ExtResource("5_0d05y")
+
+[connection signal="button_up" from="UI/ScrollContainer/VBoxContainer/Button1" to="." method="_on_button1_button_up"]
+[connection signal="button_up" from="UI/ScrollContainer/VBoxContainer/Button2" to="." method="_on_button2_button_up"]
+[connection signal="button_up" from="UI/ScrollContainer/VBoxContainer/Button3" to="." method="_on_button3_button_up"]
+[connection signal="button_up" from="UI/ScrollContainer/VBoxContainer/Button4" to="." method="_on_button_4_button_up"]
+[connection signal="button_up" from="UI/ScrollContainer/VBoxContainer/Button5" to="." method="_on_button_5_button_up"]
+[connection signal="button_up" from="UI/ScrollContainer/VBoxContainer/Button6" to="." method="_on_button_6_button_up"]
+[connection signal="button_up" from="UI/ScrollContainer/VBoxContainer/Button7" to="." method="_on_button_7_button_up"]
+[connection signal="button_up" from="UI/ScrollContainer/VBoxContainer/Button8" to="." method="_on_button_8_button_up"]

@@ -110,12 +110,12 @@
 [ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="PackedScene" uid="uid://c0v8nacv45non" path="res://scenes/finger_number.tscn" id="97_t1wle"]
 
-[sub_resource type="Gradient" id="Gradient_ou8bn"]
+[sub_resource type="Gradient" id="Gradient_urcht"]
 offsets = PackedFloat32Array(0, 0.00744417)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rlrxh"]
-gradient = SubResource("Gradient_ou8bn")
+gradient = SubResource("Gradient_urcht")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dqwj"]
 bg_color = Color(0.535958, 0.116029, 0.861395, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=15 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_geyk5"]
 [ext_resource type="Texture2D" uid="uid://dh2uk2jr2strc" path="res://art/30.sep/Hero_Idle/Hero_Idle_00000.png" id="5_tm8vi"]
@@ -9,9 +9,6 @@
 [sub_resource type="Theme" id="Theme_w463u"]
 default_font_size = 70
 
-[sub_resource type="Theme" id="Theme_b8tba"]
-default_font_size = 60
-
 [sub_resource type="Gradient" id="Gradient_rs6wh"]
 offsets = PackedFloat32Array(0, 0.00744417)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -21,6 +18,21 @@ gradient = SubResource("Gradient_rs6wh")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gm4g5"]
 bg_color = Color(0.36624, 0.00156877, 0.638228, 1)
+
+[sub_resource type="Theme" id="Theme_b8tba"]
+default_font_size = 60
+
+[sub_resource type="Gradient" id="Gradient_ou8bn"]
+offsets = PackedFloat32Array(0, 0.00744417)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_brcr1"]
+gradient = SubResource("Gradient_ou8bn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cap0f"]
+bg_color = Color(0.535958, 0.116029, 0.861395, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hso67"]
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_geyk5")
@@ -43,6 +55,14 @@ song_6_song_path = "res://audio/DanceMonkey_85.wav"
 song_6_slow_song_path = "res://audio/DanceMonkey_85_SLOW70.wav"
 song_6_melody_path = "res://levels/DanceMonkey_85_Right.txt"
 song_6_left_melody_path = "res://levels/DanceMonkey_85_Left.txt"
+song_7_song_path = "res://audio/Pokemon_CMajor_115bpm_Short.wav"
+song_7_slow_song_path = "res://audio/Pokemon_CMajor_115bpm_Short_SLOW70.wav"
+song_7_melody_path = "res://levels/Pokemon_115_Right.txt"
+song_7_left_melody_path = "res://levels/Pokemon_115_Left.txt"
+song_8_song_path = "res://audio/Believer_ImagineDragons_110bpm_Vocals_Kids.wav"
+song_8_slow_song_path = "res://audio/Believer_ImagineDragons_110bpm_Vocals_Kids_SLOW70.wav"
+song_8_melody_path = "res://levels/Believer_110_Right.txt"
+song_8_left_melody_path = "res://levels/Believer_110_Left.txt"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
@@ -69,252 +89,6 @@ theme = SubResource("Theme_w463u")
 text = "בחרו שיר"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Button1" type="Button" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -302.0
-offset_right = 150.0
-offset_bottom = -219.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_b8tba")
-
-[node name="Label" type="Label" parent="UI/Button1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -43.0
-offset_right = 139.0
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "I Just Can't Wait to be King"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-metadata/_edit_lock_ = true
-
-[node name="Button2" type="Button" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -209.0
-offset_right = 150.0
-offset_bottom = -128.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_b8tba")
-
-[node name="Label" type="Label" parent="UI/Button2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Circle Of Life"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Button3" type="Button" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -117.0
-offset_right = 150.0
-offset_bottom = -36.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_b8tba")
-
-[node name="Label" type="Label" parent="UI/Button3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Let It Go"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Button4" type="Button" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -21.0
-offset_right = 150.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_b8tba")
-
-[node name="Label" type="Label" parent="UI/Button4"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Hokey Pokey"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Button5" type="Button" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = 72.0
-offset_right = 150.0
-offset_bottom = 153.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_b8tba")
-
-[node name="Label" type="Label" parent="UI/Button5"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Free Fallin'"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Button6" type="Button" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = 168.0
-offset_right = 150.0
-offset_bottom = 249.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_b8tba")
-
-[node name="Label" type="Label" parent="UI/Button6"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Dance Monkey"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Button7" type="Button" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = 261.0
-offset_right = 150.0
-offset_bottom = 342.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_b8tba")
-
-[node name="Label" type="Label" parent="UI/Button7"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Pokemon"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
 
 [node name="Player" type="TextureRect" parent="UI"]
 offset_left = -94.0
@@ -407,13 +181,357 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
+[node name="SongButtons" type="ScrollContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -316.0
+offset_right = 151.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SongButtons"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="UI/SongButtons/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "I Just Can't Wait to be King"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Button2" type="Button" parent="UI/SongButtons/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Circle Of Life"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button3" type="Button" parent="UI/SongButtons/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Let It Go"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button4" type="Button" parent="UI/SongButtons/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Hokey Pokey"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button5" type="Button" parent="UI/SongButtons/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Free Fallin'"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button6" type="Button" parent="UI/SongButtons/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Dance Monkey (LH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button7" type="Button" parent="UI/SongButtons/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Pokemon (LH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button8" type="Button" parent="UI/SongButtons/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+
+[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Believer"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Darken" type="TextureRect" parent="UI"]
+process_mode = 3
+visible = false
+self_modulate = Color(1, 1, 1, 0.835294)
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_brcr1")
+metadata/_edit_lock_ = true
+
+[node name="Difficulty" type="Panel" parent="UI"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -104.0
+offset_right = 148.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cap0f")
+
+[node name="NormalButton" type="Button" parent="UI/Difficulty"]
+material = SubResource("CanvasItemMaterial_hso67")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -77.0
+offset_right = 146.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8tba")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Difficulty/NormalButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.526698, 0.946789, 0.425105, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/Difficulty/NormalButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "רגיל"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="HardButton" type="Button" parent="UI/Difficulty"]
+material = SubResource("CanvasItemMaterial_hso67")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -1.0
+offset_right = 147.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8tba")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Difficulty/HardButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.556863, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/Difficulty/HardButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "קשה"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
 [node name="Midi Websocket Status" type="Node" parent="."]
 script = ExtResource("8_uu1rv")
 
-[connection signal="button_up" from="UI/Button1" to="." method="_on_button1_button_up"]
-[connection signal="button_up" from="UI/Button2" to="." method="_on_button2_button_up"]
-[connection signal="button_up" from="UI/Button3" to="." method="_on_button3_button_up"]
-[connection signal="button_up" from="UI/Button4" to="." method="_on_button_4_button_up"]
-[connection signal="button_up" from="UI/Button5" to="." method="_on_button_5_button_up"]
-[connection signal="button_up" from="UI/Button6" to="." method="_on_button_6_button_up"]
-[connection signal="button_up" from="UI/Button7" to="." method="_on_button_7_button_up"]
+[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button1" to="." method="_on_button1_button_up"]
+[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button2" to="." method="_on_button2_button_up"]
+[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button3" to="." method="_on_button3_button_up"]
+[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button4" to="." method="_on_button_4_button_up"]
+[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button5" to="." method="_on_button_5_button_up"]
+[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button6" to="." method="_on_button_6_button_up"]
+[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button7" to="." method="_on_button_7_button_up"]
+[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button8" to="." method="_on_button_8_button_up"]
+[connection signal="button_up" from="UI/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
+[connection signal="button_up" from="UI/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]
