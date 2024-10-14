@@ -8,8 +8,7 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 	var current_time: float = 0.0 # float to track time
 	melody_string = melody_string.strip_edges()
 	melody_string = melody_string.replace("\n", " ").replace("\t", " ")
-	melody_string = melody_string.replace("  ", " ")  # Reduce multiple spaces to a single space
-	melody_string = melody_string.replace("  ", " ")  # Repeat until only single spaces remain
+	melody_string = " ".join(melody_string.split(" ", false)) # Replace consecutive spaces with a single space
 	var sections: Array = melody_string.split(" ") # Array of Strings (split by space)
 	for section: String in sections:
 		var event: MelodyEvent = MelodyEvent.new() # MelodyEvent instance
