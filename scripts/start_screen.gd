@@ -83,7 +83,7 @@ func _on_button_5_button_up() -> void:
 
 
 func _on_button_6_button_up() -> void:
-	start_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,13, 51)
+	start_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23)
 
 
 func _on_button_7_button_up() -> void:
