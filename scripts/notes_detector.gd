@@ -1,6 +1,6 @@
 class_name NotesDetector extends Area2D
 @onready var game: Game
-
+@export var bottom_detector: bool = false
 var current_notes: Array[Note]
 
 signal note_success
@@ -10,8 +10,12 @@ func _ready() -> void:
 	note_success.connect(game.hit_boss)
 
 func _unhandled_input(event: InputEvent) -> void:	
-	var note: String = event.as_text() + "4"
-	note_played(note)
+	if not bottom_detector:
+		var note: String = event.as_text() + "4"
+		note_played(note)
+	else:
+		var note: String = event.as_text() + "3"
+		note_played(note)
 
 func note_played(note: String) -> void: 
 	if current_notes.size() > 0 and not game.get_lose_state():

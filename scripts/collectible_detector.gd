@@ -1,6 +1,7 @@
 class_name CollectibleDetector extends Area2D
 @onready var game: Game
 
+@export var bottom_detector: bool = false
 var current_collectibles: Array[CollectibleMarker]
 signal collectible_collected
 signal collectible_completed
@@ -11,8 +12,12 @@ func _ready() -> void:
 	collectible_completed.connect(game.deactivate_effect)
 
 func _unhandled_input(event: InputEvent) -> void:	
-	var note: String = event.as_text() + "4"
-	note_played(note)
+	if not bottom_detector:
+		var note: String = event.as_text() + "4"
+		note_played(note)
+	else:
+		var note: String = event.as_text() + "3"
+		note_played(note)
 
 func note_played(note: String) -> void: 
 	if current_collectibles.size() > 0 and not game.get_lose_state():

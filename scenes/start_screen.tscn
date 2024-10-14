@@ -39,7 +39,10 @@ song_4_melody_path = "res://levels/HokeyPokey_88_Right.txt"
 song_5_song_path = "res://audio/FreeFallin_155bpm_Vocals.wav"
 song_5_slow_song_path = "res://audio/FreeFallin_155bpm_Vocals_SLOW70.wav"
 song_5_melody_path = "res://levels/FreeFallin_155_Right.txt"
-song_6_song_path = "res://levels/DanceMonkey_85_Right.txt"
+song_6_song_path = "res://audio/DanceMonkey_85.wav"
+song_6_slow_song_path = "res://audio/DanceMonkey_85_SLOW70.wav"
+song_6_melody_path = "res://levels/DanceMonkey_85_Right.txt"
+song_6_left_melody_path = "res://levels/DanceMonkey_85_Left.txt"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1

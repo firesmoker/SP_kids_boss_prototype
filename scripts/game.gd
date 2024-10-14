@@ -22,8 +22,12 @@ class_name Game extends Node2D
 @onready var tutorial: Panel = $Overlay/Tutorial
 @onready var tutorial_text: Label = $Overlay/Tutorial/Text
 @onready var win_buttons: Panel = $Overlay/WinButtons
-@onready var heart: AnimatedSprite2D = $Level/Heart
-@onready var boss_portrait: Sprite2D = $Level/BossPortrait
+#@onready var heart: AnimatedSprite2D = $Level/Heart
+@onready var heart: TextureRect = $UI/Heart
+
+#@onready var boss_portrait: Sprite2D = $Level/BossPortrait
+@onready var boss_portrait: TextureRect = $UI/BossPortrait
+
 @onready var popup_progress_bar: PopupProgressBar = $Overlay/Tutorial/ProgressBar
 @onready var return_button: TextureButton = $Overlay/Return
 
@@ -58,7 +62,8 @@ class_name Game extends Node2D
 
 static var song_path: String = "res://audio/CountingStars_122bpm_new.wav"
 static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80.wav"
-static var melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
+static var right_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
+static var left_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
 static var game_won_scene: String = "res://scenes/start_screen.tscn"
@@ -171,6 +176,7 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 func _ready() -> void:
 	losing = false
 	winning = false
+	return_button.visible = false
 	player_health = starting_player_health
 	boss_health = starting_boss_health
 	music_player.stream = load(song_path)
@@ -194,8 +200,8 @@ func initialize_part(hand_parts: String = ui_type) -> void:
 	if hand_parts.to_lower() == "treble" or hand_parts.to_lower() == "both":
 		note_play_position_x = notes_detector.position.x
 		starting_position = ending_point.position
-		notes_container.construct_level(true, parser.get_melody_array_by_file(melody_path),
-										parser.get_melody_array_by_file("res://levels/melody1_left.txt"))
+		notes_container.construct_level(true, parser.get_melody_array_by_file(right_melody_path),
+										parser.get_melody_array_by_file(left_melody_path))
 
 func health_bars_progress(delta: float, rate: float = 1) -> void:
 	player_health_progress += delta * rate

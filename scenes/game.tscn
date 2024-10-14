@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=120 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -30,7 +30,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dn152gkkpaq71" path="res://scene_resources/bot_spriteframe.tres" id="10_fbf1u"]
 [ext_resource type="Texture2D" uid="uid://cgdyabswusic" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_03.png" id="10_nuo8l"]
 [ext_resource type="Texture2D" uid="uid://cxtmngoe2k8yr" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_04.png" id="11_64hqx"]
-[ext_resource type="Texture2D" uid="uid://b1mxrg203o4j1" path="res://art/Elements/Characters/Enemy/skeleton-Idle_0.png" id="11_ryrci"]
+[ext_resource type="Texture2D" uid="uid://b1mxrg203o4j1" path="res://art/Elements/Characters/Enemy/boss_portrait.png" id="11_ryrci"]
 [ext_resource type="AudioStream" uid="uid://cmor70atq11c7" path="res://audio/Silence+Other Sounds - Funny Cartoon - Zipper Boing .wav" id="11_s1wme"]
 [ext_resource type="Texture2D" uid="uid://mf34dtkpcxvt" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_05.png" id="12_0d2f4"]
 [ext_resource type="PackedScene" uid="uid://bulectulupeu0" path="res://scenes/midi.tscn" id="12_6nasv"]
@@ -75,6 +75,7 @@
 [ext_resource type="Texture2D" uid="uid://ro7563d1y2aa" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_25.png" id="32_3uur4"]
 [ext_resource type="Texture2D" uid="uid://bdag7fwrp4gik" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_26.png" id="33_7bu8t"]
 [ext_resource type="Texture2D" uid="uid://c60rls3oiidng" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_27.png" id="34_482u5"]
+[ext_resource type="Texture2D" uid="uid://b8k47cer554b7" path="res://art/30.sep/Collectible-Life/Collectible-Life_00006.png" id="35_4cawk"]
 [ext_resource type="Texture2D" uid="uid://dv3168v2nfv83" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_28.png" id="35_s8qk3"]
 [ext_resource type="Texture2D" uid="uid://bfs5j47888bx3" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_29.png" id="36_5qahn"]
 [ext_resource type="Texture2D" uid="uid://dw53r4l5paksx" path="res://art/Elements/Platformer packs V01/Png/Life/Life/Collectible-Life_30.png" id="37_gquri"]
@@ -364,10 +365,10 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.526271
 anchor_bottom = 0.0378049
-offset_left = -158.0
-offset_top = 19.0
-offset_right = -109.0
-offset_bottom = 68.0
+offset_left = -128.0
+offset_top = 20.0
+offset_right = -79.0
+offset_bottom = 69.0
 grow_horizontal = 2
 toggle_mode = true
 texture_normal = ExtResource("14_l1shx")
@@ -381,9 +382,9 @@ process_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -71.0
+offset_left = -40.0
 offset_top = 20.0
-offset_right = 9.0
+offset_right = 40.0
 offset_bottom = 100.0
 grow_horizontal = 2
 texture_normal = ExtResource("16_icmxq")
@@ -393,13 +394,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Return" type="TextureButton" parent="Overlay"]
 process_mode = 3
-visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 15.0
+offset_left = 51.0
 offset_top = 20.0
-offset_right = 95.0
+offset_right = 131.0
 offset_bottom = 100.0
 grow_horizontal = 2
 texture_normal = ExtResource("22_7sqae")
@@ -712,13 +712,12 @@ layer = -1
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
 process_mode = 3
 top_level = true
-z_index = 4096
-anchors_preset = -1
-anchor_left = -0.0127119
-offset_left = 40.0
-offset_top = 14.0
-offset_right = 435.0
-offset_bottom = 114.0
+z_index = 1
+offset_left = 70.0
+offset_top = 10.0
+offset_right = 479.0
+offset_bottom = 110.0
+scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(205, 50)
 max_value = 6.0
 step = 0.02
@@ -726,7 +725,6 @@ value = 6.0
 texture_under = ExtResource("14_vn3l6")
 texture_progress = ExtResource("15_uj0lk")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="Flash" parent="UI/PlayerHealthBar" instance=ExtResource("57_hg35f")]
 flash_color = Color(1, 0, 0, 1)
@@ -737,19 +735,20 @@ flash_time = 0.4
 [node name="BossHealthBar" type="TextureProgressBar" parent="UI"]
 process_mode = 3
 top_level = true
-z_index = 4096
-anchors_preset = -1
-anchor_left = 0.967797
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.0134146
-offset_left = -451.0
-offset_top = 14.0
-offset_right = -80.0
-offset_bottom = 103.0
+offset_left = -479.0
+offset_top = 10.0
+offset_right = -70.0
+offset_bottom = 110.0
 grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(205, 50)
 max_value = 4.0
 step = 0.02
+value = 4.0
 fill_mode = 1
 texture_under = ExtResource("14_vn3l6")
 texture_progress = ExtResource("15_uj0lk")
@@ -794,6 +793,36 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_rlrxh")
 metadata/_edit_lock_ = true
+
+[node name="BossPortrait" type="TextureRect" parent="UI"]
+z_index = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -146.0
+offset_top = 6.0
+offset_bottom = 83.0
+grow_horizontal = 0
+pivot_offset = Vector2(73, 38)
+texture = ExtResource("11_ryrci")
+
+[node name="Flash" parent="UI/BossPortrait" instance=ExtResource("57_hg35f")]
+
+[node name="Expander" parent="UI/BossPortrait" instance=ExtResource("20_wgxju")]
+
+[node name="Heart" type="TextureRect" parent="UI"]
+z_index = 2
+offset_left = -14.0
+offset_top = -49.0
+offset_right = 142.0
+offset_bottom = 138.0
+pivot_offset = Vector2(78, 93)
+texture = ExtResource("35_4cawk")
+expand_mode = 3
+
+[node name="Flash" parent="UI/Heart" instance=ExtResource("57_hg35f")]
+
+[node name="Expander" parent="UI/Heart" instance=ExtResource("20_wgxju")]
 
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(592, 411)
@@ -870,6 +899,7 @@ metadata/_edit_lock_ = true
 [node name="Expander" parent="Level/Boss" instance=ExtResource("20_wgxju")]
 
 [node name="BossPortrait" type="Sprite2D" parent="Level"]
+visible = false
 z_index = 2
 position = Vector2(413.492, -284.921)
 scale = Vector2(0.793651, 0.793651)
@@ -882,6 +912,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Heart" type="AnimatedSprite2D" parent="Level"]
+visible = false
 z_index = 2
 position = Vector2(-437.644, -286.975)
 scale = Vector2(0.377954, 0.377954)
@@ -947,6 +978,7 @@ metadata/_edit_lock_ = true
 visible = false
 position = Vector2(-237.54, 200)
 script = ExtResource("6_gcv22")
+bottom_detector = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/BottomNotesDetector"]
@@ -999,6 +1031,7 @@ visible = false
 position = Vector2(-237.54, 200)
 collision_mask = 2
 script = ExtResource("60_psocc")
+bottom_detector = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/BottomCollectDetect"]
