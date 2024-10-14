@@ -24,15 +24,22 @@ bg_color = Color(0.36624, 0.00156877, 0.638228, 1)
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_geyk5")
-easy_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.wav"
-easy_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.wav"
-easy_melody_path = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
-normal_song_path = "res://audio/CircleOfLife_78.wav"
-normal_slow_song_path = "res://audio/CircleOfLife_78_SLOW70.wav"
-normal_melody_path = "res://levels/CircleOfLife_TheLionKing_78.txt"
-hard_song_path = "res://audio/LetItGo_Aminor_106.wav"
-hard_slow_song_path = "res://audio/LetItGo_Aminor_106_SLOW70.wav"
-hard_melody_path = "res://levels/LetItGoSimplified_106_Right.txt"
+song_1_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.wav"
+song_1_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.wav"
+song_1_melody_path = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
+song_2_path = "res://audio/CircleOfLife_78.wav"
+song_2_slow_song_path = "res://audio/CircleOfLife_78_SLOW70.wav"
+song_2_melody_path = "res://levels/CircleOfLife_TheLionKing_78.txt"
+song_3_song_path = "res://audio/LetItGo_Aminor_106.wav"
+song_3_slow_song_path = "res://audio/LetItGo_Aminor_106_SLOW70.wav"
+song_3_melody_path = "res://levels/LetItGoSimplified_106_Right.txt"
+song_4_song_path = "res://audio/HokeyPokeySong_FMajor_88bpm_Short.wav"
+song_4_slow_song_path = "res://audio/HokeyPokeySong_FMajor_88bpm_Short_SLOW70.wav"
+song_4_melody_path = "res://levels/HokeyPokey_88_Right.txt"
+song_5_song_path = "res://audio/FreeFallin_155bpm_Vocals.wav"
+song_5_slow_song_path = "res://audio/FreeFallin_155bpm_Vocals_SLOW70.wav"
+song_5_melody_path = "res://levels/FreeFallin_155_Right.txt"
+song_6_song_path = "res://levels/DanceMonkey_85_Right.txt"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
@@ -51,32 +58,30 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -256.0
-offset_top = 128.0
+offset_top = -1.0
 offset_right = 256.0
-offset_bottom = 224.0
+offset_bottom = 95.0
 grow_horizontal = 2
 theme = SubResource("Theme_w463u")
 text = "בחרו שיר"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
-[node name="EasyButton" type="Button" parent="UI"]
+[node name="Button1" type="Button" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -106.0
+offset_top = -302.0
 offset_right = 150.0
-offset_bottom = -23.0
+offset_bottom = -219.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
-metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UI/EasyButton"]
+[node name="Label" type="Label" parent="UI/Button1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -98,22 +103,21 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="NormalButton" type="Button" parent="UI"]
+[node name="Button2" type="Button" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = 6.0
+offset_top = -209.0
 offset_right = 150.0
-offset_bottom = 87.0
+offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
-metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UI/NormalButton"]
+[node name="Label" type="Label" parent="UI/Button2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,22 +138,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="HardButton" type="Button" parent="UI"]
+[node name="Button3" type="Button" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = 110.0
+offset_top = -117.0
 offset_right = 150.0
-offset_bottom = 191.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
-metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UI/HardButton"]
+[node name="Label" type="Label" parent="UI/Button3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -166,6 +169,146 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 30
 text = "Let It Go"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button4" type="Button" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -21.0
+offset_right = 150.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8tba")
+
+[node name="Label" type="Label" parent="UI/Button4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Hokey Pokey"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button5" type="Button" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 72.0
+offset_right = 150.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8tba")
+
+[node name="Label" type="Label" parent="UI/Button5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Free Fallin'"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button6" type="Button" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 168.0
+offset_right = 150.0
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8tba")
+
+[node name="Label" type="Label" parent="UI/Button6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Dance Monkey"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button7" type="Button" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 261.0
+offset_right = 150.0
+offset_bottom = 342.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8tba")
+
+[node name="Label" type="Label" parent="UI/Button7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Pokemon"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -264,6 +407,10 @@ metadata/_edit_lock_ = true
 [node name="Midi Websocket Status" type="Node" parent="."]
 script = ExtResource("8_uu1rv")
 
-[connection signal="button_up" from="UI/EasyButton" to="." method="_on_easy_button_button_up"]
-[connection signal="button_up" from="UI/NormalButton" to="." method="_on_normal_button_button_up"]
-[connection signal="button_up" from="UI/HardButton" to="." method="_on_hard_button_button_up"]
+[connection signal="button_up" from="UI/Button1" to="." method="_on_button1_button_up"]
+[connection signal="button_up" from="UI/Button2" to="." method="_on_button2_button_up"]
+[connection signal="button_up" from="UI/Button3" to="." method="_on_button3_button_up"]
+[connection signal="button_up" from="UI/Button4" to="." method="_on_button_4_button_up"]
+[connection signal="button_up" from="UI/Button5" to="." method="_on_button_5_button_up"]
+[connection signal="button_up" from="UI/Button6" to="." method="_on_button_6_button_up"]
+[connection signal="button_up" from="UI/Button7" to="." method="_on_button_7_button_up"]
