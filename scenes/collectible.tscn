@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="4_vstf5"]
 [ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="7_h7qm3"]
 [ext_resource type="SpriteFrames" uid="uid://cnd7ioqvg5uy8" path="res://scene_resources/slowdown_blast_spriteframe.tres" id="8_py5wu"]
-[ext_resource type="SpriteFrames" path="res://scene_resources/heart_blast_animation.tres" id="9_ejdfl"]
+[ext_resource type="SpriteFrames" uid="uid://bbqfmw2t5o4g0" path="res://scene_resources/heart_blast_animation.tres" id="9_ejdfl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5q5w4"]
 resource_local_to_scene = true

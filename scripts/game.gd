@@ -9,14 +9,14 @@ class_name Game extends Node2D
 @onready var star_full_3: TextureRect = $Overlay/Stars/StarFull3
 @onready var stars: Control = $Overlay/Stars
 
-
 @onready var audio: AudioStreamPlayer = $Audio
+@onready var audio_clips: AudioClips = $AudioClips
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var music_player_slow: AudioStreamPlayer = $MusicPlayerSlow
+
 @onready var parser: Parser = $Parser
 @onready var player_character: AnimatedSprite2D = $Level/PlayerCharacter
 @onready var player_bot: AnimatedSprite2D = $Level/PlayerBot
-@onready var audio_clips: AudioClips = $AudioClips
 @onready var darken: TextureRect = $Overlay/Darken
 @onready var darken_level: TextureRect = $UI/DarkenLevel
 @onready var tutorial: Panel = $Overlay/Tutorial
@@ -108,9 +108,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_down"):
 		level_slow_down()
 	elif event.is_action_pressed("ui_right"):
-		music_player.seek(music_player.get_playback_position() + 0.5)
+		if not slow_down:
+			music_player.seek(music_player.get_playback_position() + 0.5)
+		else:
+			music_player_slow.seek(music_player_slow.get_playback_position() + 0.5)
 	elif event.is_action_pressed("ui_left"):
-		music_player.seek(music_player.get_playback_position() - 0.5)
+		if not slow_down:
+			music_player.seek(music_player.get_playback_position() - 0.5)
+		else:
+			music_player_slow.seek(music_player_slow.get_playback_position() - 0.5)
 
 
 func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -> void:
@@ -146,8 +152,6 @@ func level_accelerate() -> void:
 
 func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 	if slow_down != true:
-		losing = false
-		winning = false
 		background.visible = false
 		background_slow.visible = true
 		audio.stream = slow_down_sound
@@ -165,6 +169,8 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 func _ready() -> void:
+	losing = false
+	winning = false
 	player_health = starting_player_health
 	boss_health = starting_boss_health
 	music_player.stream = load(song_path)
