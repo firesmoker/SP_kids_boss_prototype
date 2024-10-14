@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=123 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -122,6 +122,14 @@ bg_color = Color(0.535958, 0.116029, 0.861395, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oss5g"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qud3f"]
+bg_color = Color(0.535958, 0.116029, 0.861395, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2r1g8"]
+
+[sub_resource type="Theme" id="Theme_24okh"]
+default_font_size = 60
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
 size = Vector2(128, 547.385)
@@ -578,7 +586,6 @@ script = ExtResource("24_atn10")
 [node name="PopupTimer" type="Timer" parent="Overlay/Tutorial/ProgressBar"]
 
 [node name="WinButtons" type="Panel" parent="Overlay"]
-visible = false
 offset_left = 304.0
 offset_top = 648.0
 offset_right = 889.0
@@ -704,6 +711,111 @@ offset_right = 311.5
 offset_bottom = 110.08
 texture = ExtResource("27_jkgcf")
 expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Difficulty" type="Panel" parent="Overlay"]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -104.0
+offset_right = 148.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qud3f")
+metadata/_edit_lock_ = true
+
+[node name="NormalButton" type="Button" parent="Overlay/Difficulty"]
+material = SubResource("CanvasItemMaterial_2r1g8")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -77.0
+offset_right = 146.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_24okh")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Overlay/Difficulty/NormalButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.526698, 0.946789, 0.425105, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Overlay/Difficulty/NormalButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "רגיל"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="HardButton" type="Button" parent="Overlay/Difficulty"]
+material = SubResource("CanvasItemMaterial_2r1g8")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -1.0
+offset_right = 147.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_24okh")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Overlay/Difficulty/HardButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.556863, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Overlay/Difficulty/HardButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "קשה"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -1165,6 +1277,8 @@ metadata/_edit_lock_ = true
 [connection signal="button_up" from="Overlay/WinButtons/WinChangeLevel" to="." method="_on_win_change_level_button_up"]
 [connection signal="button_up" from="Overlay/WinButtons/WinRestart" to="." method="_on_win_restart_button_up"]
 [connection signal="button_up" from="Overlay/WinButtons/WinContinue" to="." method="_on_win_continue_button_up"]
+[connection signal="button_up" from="Overlay/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
+[connection signal="button_up" from="Overlay/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]
 [connection signal="body_entered" from="Level/PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/Boss/BossHitZone" to="." method="_on_boss_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/RightHandPart/NotesDetector" to="." method="_on_notes_detector_body_entered"]

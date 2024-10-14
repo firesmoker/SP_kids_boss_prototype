@@ -8,6 +8,9 @@ class_name Game extends Node2D
 @onready var star_empty_3: TextureRect = $Overlay/Stars/StarEmpty3
 @onready var star_full_3: TextureRect = $Overlay/Stars/StarFull3
 @onready var stars: Control = $Overlay/Stars
+@onready var difficulty: Panel = $Overlay/Difficulty
+
+
 
 @onready var audio: AudioStreamPlayer = $Audio
 @onready var audio_clips: AudioClips = $AudioClips
@@ -174,8 +177,10 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 func _ready() -> void:
+	difficulty.visible = false
 	losing = false
 	winning = false
+	win_buttons.visible = false
 	return_button.visible = false
 	player_health = starting_player_health
 	boss_health = starting_boss_health
@@ -509,14 +514,15 @@ func reset_health_bars() -> void:
 	boss_new_health = boss_health
 	boss_previous_health = boss_health
 
-func restart_level(wait: bool = false) -> void:
-	Game.game_state = "Playing"
+func restart_level(wait: bool = false, type: String = "normal") -> void:
+	#Game.game_state = "Playing"
 	music_player.stream_paused = true
 	if wait:
 		var timer: Timer = Timer.new()
 		add_child(timer)
 		timer.start(0.8)
 		await timer.timeout
+	LevelSelector.set_level(type)
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
@@ -566,7 +572,8 @@ func _on_win_change_level_button_up() -> void:
 
 
 func _on_win_restart_button_up() -> void:
-	restart_level()
+	darken.visible = true
+	difficulty.visible = true
 
 
 func _on_win_continue_button_up() -> void:
@@ -590,3 +597,11 @@ func _on_return_button_up() -> void:
 
 func get_lose_state() -> bool:
 	return losing
+
+
+func _on_normal_button_button_up() -> void:
+	restart_level(false, "normal")
+
+
+func _on_hard_button_button_up() -> void:
+	restart_level(false, "hard")

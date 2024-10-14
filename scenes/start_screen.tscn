@@ -89,6 +89,7 @@ theme = SubResource("Theme_w463u")
 text = "בחרו שיר"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Player" type="TextureRect" parent="UI"]
 offset_left = -94.0
@@ -193,15 +194,18 @@ offset_right = 151.0
 offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/SongButtons"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="Button1" type="Button" parent="UI/SongButtons/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button1"]
 layout_mode = 1
@@ -229,6 +233,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button2"]
 layout_mode = 1
@@ -255,6 +260,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button3"]
 layout_mode = 1
@@ -281,6 +287,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button4"]
 layout_mode = 1
@@ -307,6 +314,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button5"]
 layout_mode = 1
@@ -333,6 +341,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button6"]
 layout_mode = 1
@@ -359,6 +368,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button7"]
 layout_mode = 1
@@ -386,6 +396,7 @@ visible = false
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button8"]
 layout_mode = 1
@@ -423,6 +434,7 @@ metadata/_edit_lock_ = true
 
 [node name="Difficulty" type="Panel" parent="UI"]
 process_mode = 3
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -435,6 +447,7 @@ offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cap0f")
+metadata/_edit_lock_ = true
 
 [node name="NormalButton" type="Button" parent="UI/Difficulty"]
 material = SubResource("CanvasItemMaterial_hso67")
@@ -451,15 +464,16 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="UI/Difficulty/NormalButton"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.526698, 0.946789, 0.425105, 1)
 metadata/_edit_lock_ = true
 
@@ -494,15 +508,16 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="UI/Difficulty/HardButton"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 0.556863, 0, 1)
 metadata/_edit_lock_ = true
 
