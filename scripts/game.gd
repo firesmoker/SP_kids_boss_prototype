@@ -63,6 +63,7 @@ class_name Game extends Node2D
 @export var accelerate_sound: AudioStream
 @export var slow_down_sound: AudioStream
 
+static var current_difficulty: String
 static var song_path: String = "res://audio/CountingStars_122bpm_new.wav"
 static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80.wav"
 static var right_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
@@ -537,7 +538,7 @@ func _on_pause_button_up() -> void:
 
 
 func _on_restart_button_up() -> void:
-	restart_level()
+	restart_level(false,current_difficulty)
 
 func boss_win_animation() -> void:
 	boss.find_child("Expander").expand(1.25, 0.5)
@@ -577,8 +578,7 @@ func _on_win_restart_button_up() -> void:
 
 
 func _on_win_continue_button_up() -> void:
-	pause()
-	get_tree().change_scene_to_file(game_won_scene)
+	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
 
 func play_music_clip(audioclip: AudioStream = audio_clips.player_wins) -> void:
 	music_player.stream = audioclip

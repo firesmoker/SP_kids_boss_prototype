@@ -611,6 +611,7 @@ texture_normal = ExtResource("16_icmxq")
 metadata/_edit_lock_ = true
 
 [node name="WinContinue" type="TextureButton" parent="Overlay/WinButtons"]
+visible = false
 layout_mode = 0
 offset_left = 466.0
 offset_top = 42.0

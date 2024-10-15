@@ -22,6 +22,7 @@ static func set_level(level: String = "normal") -> void:
 	Game.game_state = "Playing"
 	match level:
 		"normal":
+			Game.current_difficulty = "normal"
 			Game.right_melody_path = normal_melody_path
 			Game.left_melody_path = normal_left_melody_path
 			Game.song_path = normal_song_path
@@ -30,6 +31,7 @@ static func set_level(level: String = "normal") -> void:
 			Game.starting_player_health = normal_player_life
 			Game.starting_boss_health = normal_boss_life
 		"hard":
+			Game.current_difficulty = "hard"
 			Game.right_melody_path = hard_melody_path
 			Game.left_melody_path = hard_left_melody_path
 			Game.song_path = hard_song_path
@@ -39,14 +41,3 @@ static func set_level(level: String = "normal") -> void:
 			Game.starting_boss_health = hard_boss_life
 		_:
 			print("wrong level type!")
-	#var new_scene_source: PackedScene = load(Game.game_scene)
-	#get_tree().change_scene_to_packed(new_scene_source)
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

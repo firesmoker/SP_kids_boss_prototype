@@ -6,54 +6,45 @@ extends Node2D
 @onready var hard_button: Button = $UI/Difficulty/HardButton
 @onready var song_buttons: ScrollContainer = $UI/SongButtons
 
-#static var normal_melody_path: String
-#static var normal_left_melody_path: String
-#static var normal_song_path: String
-#static var normal_slow_song_path: String
-#static var normal_tempo: float
-#static var normal_player_life: float
-#static var normal_boss_life: float
-#
-#static var hard_melody_path: String
-#static var hard_left_melody_path: String
-#static var hard_song_path: String
-#static var hard_slow_song_path: String
-#static var hard_tempo: float
-#static var hard_player_life: float
-#static var hard_boss_life: float
 
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
-#var new_scene_source: PackedScene = preload("res://scenes/game.tscn")
 @export_group("Just Can't Wait")
 @export var song_1_path: String
 @export var song_1_slow_song_path: String
 @export var song_1_melody_path: String
+@export var song_1_hard_melody_path: String
 @export_group("Circle of Life")
 @export var song_2_path: String
 @export var song_2_slow_song_path: String
 @export var song_2_melody_path: String
+@export var song_2_hard_melody_path: String
 @export_group("Let it Go")
 @export var song_3_song_path: String
 @export var song_3_slow_song_path: String
 @export var song_3_melody_path: String
+@export var song_3_hard_melody_path: String
 @export_group("Hokey Pokey")
 @export var song_4_song_path: String
 @export var song_4_slow_song_path: String
 @export var song_4_melody_path: String
+@export var song_4_hard_melody_path: String
 @export_group("Free Fallin")
 @export var song_5_song_path: String
 @export var song_5_slow_song_path: String
 @export var song_5_melody_path: String
+@export var song_5_hard_melody_path: String
 @export_group("Dance Monkey")
 @export var song_6_song_path: String
 @export var song_6_slow_song_path: String
 @export var song_6_melody_path: String
 @export var song_6_left_melody_path: String
+@export var song_6_left_hard_melody_path: String
 @export_group("Pokemon")
 @export var song_7_song_path: String
 @export var song_7_slow_song_path: String
 @export var song_7_melody_path: String
 @export var song_7_left_melody_path: String
+@export var song_7_left_hard_melody_path: String
 @export_group("Believer")
 @export var song_8_song_path: String
 @export var song_8_slow_song_path: String
@@ -85,32 +76,32 @@ func start_level(type: String = "normal") -> void:
 
 func _on_button1_button_up() -> void:
 	show_difficulty_buttons()
-	define_level(song_1_melody_path,"res://levels/melody1_left.txt",song_1_path,song_1_slow_song_path, 76, 8, 29)
-	define_hard_level(song_1_melody_path,"res://levels/melody1_left.txt",song_1_path,song_1_slow_song_path, 76, 8, 29)
+	define_level(song_1_melody_path,"res://levels/melody1_left.txt",song_1_path,song_1_slow_song_path, 76, 8, 30)
+	define_hard_level(song_1_hard_melody_path,"res://levels/melody1_left.txt",song_1_path,song_1_slow_song_path, 76, 6, 31)
 
 
 func _on_button2_button_up() -> void:
 	show_difficulty_buttons()
 	define_level(song_2_melody_path,"res://levels/melody1_left.txt",song_2_path,song_2_slow_song_path,78, 4, 15)
-	define_hard_level(song_2_melody_path,"res://levels/melody1_left.txt",song_2_path,song_2_slow_song_path,78, 4, 15)
+	define_hard_level(song_2_hard_melody_path,"res://levels/melody1_left.txt",song_2_path,song_2_slow_song_path,78, 4, 23)
 
 
 func _on_button3_button_up() -> void:
 	show_difficulty_buttons()
 	define_level(song_3_melody_path,"res://levels/melody1_left.txt",song_3_song_path,song_3_slow_song_path,106,5, 20)
-	define_hard_level(song_3_melody_path,"res://levels/melody1_left.txt",song_3_song_path,song_3_slow_song_path,106,5, 20)
+	define_hard_level(song_3_hard_melody_path,"res://levels/melody1_left.txt",song_3_song_path,song_3_slow_song_path,106,6, 31)
 
 
 func _on_button_4_button_up() -> void:
 	show_difficulty_buttons()
 	define_level(song_4_melody_path,"res://levels/melody1_left.txt",song_4_song_path,song_4_slow_song_path,88,9,35)
-	define_hard_level(song_4_melody_path,"res://levels/melody1_left.txt",song_4_song_path,song_4_slow_song_path,88,9,35)
+	define_hard_level(song_4_hard_melody_path,"res://levels/melody1_left.txt",song_4_song_path,song_4_slow_song_path,88,8,40)
 
 
 func _on_button_5_button_up() -> void:
 	show_difficulty_buttons()
 	define_level(song_5_melody_path,"res://levels/melody1_left.txt",song_5_song_path,song_5_slow_song_path,155,13, 51)
-	define_hard_level(song_5_melody_path,"res://levels/melody1_left.txt",song_5_song_path,song_5_slow_song_path,155,13, 51)
+	define_hard_level(song_5_hard_melody_path,"res://levels/melody1_left.txt",song_5_song_path,song_5_slow_song_path,155,13, 55)
 
 
 func _on_button_6_button_up() -> void:
