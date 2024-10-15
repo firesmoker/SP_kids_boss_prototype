@@ -107,13 +107,13 @@ func _on_button_5_button_up() -> void:
 func _on_button_6_button_up() -> void:
 	show_difficulty_buttons()
 	define_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23)
-	define_hard_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23)
+	define_hard_level(song_6_melody_path,song_6_left_hard_melody_path,song_6_song_path,song_6_slow_song_path,85,7, 34)
 
 
 func _on_button_7_button_up() -> void:
 	show_difficulty_buttons()
 	define_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23)
-	define_hard_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23)
+	define_hard_level(song_7_melody_path,song_7_left_hard_melody_path,song_7_song_path,song_7_slow_song_path,115,5, 25)
 
 
 func _on_button_8_button_up() -> void:
