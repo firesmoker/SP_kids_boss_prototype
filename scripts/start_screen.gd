@@ -9,6 +9,7 @@ extends Node2D
 
 
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
+var default_left_melody: String = "res://levels/melody1_left.txt"
 @export_group("Just Can't Wait")
 @export var song_1_path: String
 @export var song_1_slow_song_path: String
@@ -78,37 +79,37 @@ func start_level(type: String = "normal") -> void:
 
 func _on_button1_button_up() -> void:
 	show_difficulty_buttons()
-	define_easy_level(song_1_easy_melody_path,"res://levels/melody1_left.txt",song_1_easy_path,song_1_easy_slow_song_path, 70, 8, 30, "treble")
-	define_level(song_1_melody_path,"res://levels/melody1_left.txt",song_1_path,song_1_slow_song_path, 76, 8, 30, "treble")
-	define_hard_level(song_1_hard_melody_path,"res://levels/melody1_left.txt",song_1_path,song_1_slow_song_path, 76, 6, 31, "treble")
+	define_easy_level(song_1_easy_melody_path,default_left_melody,song_1_easy_path,song_1_easy_slow_song_path, 70, 8, 30, "treble")
+	define_level(song_1_melody_path,default_left_melody,song_1_path,song_1_slow_song_path, 76, 8, 30, "treble")
+	define_hard_level(song_1_hard_melody_path,default_left_melody,song_1_path,song_1_slow_song_path, 76, 6, 31, "treble")
 
 
 func _on_button2_button_up() -> void:
 	show_difficulty_buttons()
-	define_level(song_2_melody_path,"res://levels/melody1_left.txt",song_2_path,song_2_slow_song_path,78, 4, 15)
-	define_easy_level(song_2_melody_path,"res://levels/melody1_left.txt",song_2_path,song_2_slow_song_path,78, 4, 15)
-	define_hard_level(song_2_hard_melody_path,"res://levels/melody1_left.txt",song_2_path,song_2_slow_song_path,78, 4, 23)
+	define_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15)
+	define_easy_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15)
+	define_hard_level(song_2_hard_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 23)
 
 
 func _on_button3_button_up() -> void:
 	show_difficulty_buttons()
-	define_level(song_3_melody_path,"res://levels/melody1_left.txt",song_3_song_path,song_3_slow_song_path,106,5, 20)
-	define_easy_level(song_3_melody_path,"res://levels/melody1_left.txt",song_3_song_path,song_3_slow_song_path,106,5, 20)
-	define_hard_level(song_3_hard_melody_path,"res://levels/melody1_left.txt",song_3_song_path,song_3_slow_song_path,106,6, 31)
+	define_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20)
+	define_easy_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20)
+	define_hard_level(song_3_hard_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,6, 31)
 
 
 func _on_button_4_button_up() -> void:
 	show_difficulty_buttons()
-	define_level(song_4_melody_path,"res://levels/melody1_left.txt",song_4_song_path,song_4_slow_song_path,88,9,35)
-	define_easy_level(song_4_melody_path,"res://levels/melody1_left.txt",song_4_song_path,song_4_slow_song_path,88,9,35)
-	define_hard_level(song_4_hard_melody_path,"res://levels/melody1_left.txt",song_4_song_path,song_4_slow_song_path,88,8,40)
+	define_level(song_4_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,9,35)
+	define_easy_level(song_4_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,9,35)
+	define_hard_level(song_4_hard_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,8,40)
 
 
 func _on_button_5_button_up() -> void:
 	show_difficulty_buttons()
-	define_level(song_5_melody_path,"res://levels/melody1_left.txt",song_5_song_path,song_5_slow_song_path,155,13, 51)
-	define_easy_level(song_5_melody_path,"res://levels/melody1_left.txt",song_5_song_path,song_5_slow_song_path,155,13, 51)
-	define_hard_level(song_5_hard_melody_path,"res://levels/melody1_left.txt",song_5_song_path,song_5_slow_song_path,155,13, 55)
+	define_level(song_5_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 51)
+	define_easy_level(song_5_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 51)
+	define_hard_level(song_5_hard_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 55)
 
 
 func _on_button_6_button_up() -> void:

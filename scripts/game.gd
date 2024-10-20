@@ -199,6 +199,8 @@ func _ready() -> void:
 	background.visible = true
 	background_slow.visible = false
 	initialize_part(ui_type)
+	if ui_type == "treble":
+		right_hand_part.position.y += 100
 	level.position = Vector2(0,0)
 	reset_health_bars()
 	music_player.play()
