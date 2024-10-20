@@ -30,9 +30,9 @@ static var note_heigth_by_pitch: Dictionary = {
 	"E4": 73.5,
 	"F4": 61.5,
 	"G4": 49.5,
-	"A4": 30,
-	"B4": 18,
-	"rest": 30,
+	"A4": 37.5,
+	"B4": 25.5,
+	"rest": 13.5,
 }
 var starting_position_x: float
 var size: float
@@ -43,15 +43,18 @@ var left_edge_position: float = 0
 var example_note_dict: Dictionary
 
 
-func construct_level(with_melody_events: bool = false, melody_events: Array = [], bottom_melody_events: Array = []) -> void:
-	if with_melody_events:
-		level_length_in_bars = get_level_length_from_melody_event(melody_events)
-		set_level_size()
+func construct_level(ui_type: String = "both", melody_events: Array = [], bottom_melody_events: Array = []) -> void:
+	level_length_in_bars = get_level_length_from_melody_event(melody_events)
+	set_level_size()
+	set_parent_at_ending()
+	populate_from_melody_events(melody_events)
+	if ui_type == "both" or ui_type == "bass":
 		create_bar_lines(true)
-		set_parent_at_ending()
-		populate_from_melody_events(melody_events)
 		if bottom_melody_events.size() > 0:
 			populate_from_melody_events(bottom_melody_events, true)
+	else:
+		create_bar_lines(false)
+		
 
 
 func create_bar_lines(two_staves: bool = false) -> void:

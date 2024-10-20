@@ -716,7 +716,6 @@ metadata/_edit_lock_ = true
 
 [node name="Difficulty" type="Panel" parent="Overlay"]
 process_mode = 3
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -731,6 +730,49 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qud3f")
 metadata/_edit_lock_ = true
 
+[node name="EasyButton" type="Button" parent="Overlay/Difficulty"]
+material = SubResource("CanvasItemMaterial_2r1g8")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -97.0
+offset_right = 146.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_24okh")
+
+[node name="ColorRect" type="ColorRect" parent="Overlay/Difficulty/EasyButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.526698, 0.946789, 0.425105, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Overlay/Difficulty/EasyButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "קל"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
 [node name="NormalButton" type="Button" parent="Overlay/Difficulty"]
 material = SubResource("CanvasItemMaterial_2r1g8")
 layout_mode = 1
@@ -740,13 +782,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -148.0
-offset_top = -77.0
+offset_top = -30.0
 offset_right = 146.0
-offset_bottom = -16.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_24okh")
-metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Overlay/Difficulty/NormalButton"]
 layout_mode = 1
@@ -756,7 +797,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.526698, 0.946789, 0.425105, 1)
+color = Color(0.923078, 0.835789, 0.222232, 1)
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Overlay/Difficulty/NormalButton"]
@@ -784,13 +825,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -148.0
-offset_top = -1.0
+offset_top = 38.0
 offset_right = 147.0
-offset_bottom = 60.0
+offset_bottom = 99.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_24okh")
-metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Overlay/Difficulty/HardButton"]
 layout_mode = 1
@@ -1278,6 +1318,7 @@ metadata/_edit_lock_ = true
 [connection signal="button_up" from="Overlay/WinButtons/WinChangeLevel" to="." method="_on_win_change_level_button_up"]
 [connection signal="button_up" from="Overlay/WinButtons/WinRestart" to="." method="_on_win_restart_button_up"]
 [connection signal="button_up" from="Overlay/WinButtons/WinContinue" to="." method="_on_win_continue_button_up"]
+[connection signal="button_up" from="Overlay/Difficulty/EasyButton" to="." method="_on_easy_button_button_up"]
 [connection signal="button_up" from="Overlay/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="Overlay/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]
 [connection signal="body_entered" from="Level/PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]

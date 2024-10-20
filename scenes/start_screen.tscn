@@ -39,6 +39,9 @@ script = ExtResource("1_geyk5")
 song_1_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.wav"
 song_1_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.wav"
 song_1_melody_path = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
+song_1_easy_path = "res://audio/IJustCantWaitToBeKing_CMajor_70bpm.wav"
+song_1_easy_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_70bpm_SLOW70.wav"
+song_1_easy_melody_path = "res://levels/IJustCantWaitToBeKingEasy_76_Right.txt"
 song_1_hard_melody_path = "res://levels/IJustCantWaitToBeKingHard_76_Right.txt"
 song_2_path = "res://audio/CircleOfLife_78.wav"
 song_2_slow_song_path = "res://audio/CircleOfLife_78_SLOW70.wav"
@@ -131,6 +134,7 @@ process_mode = 3
 visible = false
 self_modulate = Color(1, 1, 1, 0.686275)
 top_level = true
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -441,7 +445,6 @@ metadata/_edit_lock_ = true
 
 [node name="Difficulty" type="Panel" parent="UI"]
 process_mode = 3
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -456,6 +459,49 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cap0f")
 metadata/_edit_lock_ = true
 
+[node name="EasyButton" type="Button" parent="UI/Difficulty"]
+material = SubResource("CanvasItemMaterial_hso67")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -98.0
+offset_right = 146.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8tba")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Difficulty/EasyButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.526698, 0.946789, 0.425105, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/Difficulty/EasyButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "קל"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
 [node name="NormalButton" type="Button" parent="UI/Difficulty"]
 material = SubResource("CanvasItemMaterial_hso67")
 layout_mode = 1
@@ -465,13 +511,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -148.0
-offset_top = -77.0
+offset_top = -28.0
 offset_right = 146.0
-offset_bottom = -16.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
-metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="UI/Difficulty/NormalButton"]
 layout_mode = 1
@@ -481,7 +526,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.526698, 0.946789, 0.425105, 1)
+color = Color(0.923078, 0.835789, 0.222232, 1)
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/Difficulty/NormalButton"]
@@ -509,13 +554,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -148.0
-offset_top = -1.0
+offset_top = 41.0
 offset_right = 147.0
-offset_bottom = 60.0
+offset_bottom = 102.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
-metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="UI/Difficulty/HardButton"]
 layout_mode = 1
@@ -555,5 +599,6 @@ script = ExtResource("8_uu1rv")
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button6" to="." method="_on_button_6_button_up"]
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button7" to="." method="_on_button_7_button_up"]
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button8" to="." method="_on_button_8_button_up"]
+[connection signal="button_up" from="UI/Difficulty/EasyButton" to="." method="_on_easy_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]

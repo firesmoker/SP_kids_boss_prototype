@@ -52,6 +52,8 @@ class_name Game extends Node2D
 @onready var restart_button: TextureButton = $Overlay/Restart
 
 @onready var right_hand_part: Node2D = $Level/RightHandPart
+@onready var bottom_staff: Node2D = $Level/RightHandPart/BottomStaff
+
 
 
 
@@ -78,11 +80,11 @@ static var bomb_collected: bool = false
 static var tempo: float = 122.0
 static var starting_player_health: float = 10
 static var starting_boss_health: float = 300
+static var ui_type: String = "treble" # treble / bass / both
 
 var player_health: float = 10
 var boss_health: float = 300
 
-@export_enum("treble","bass","both") var ui_type: String = "treble"
 @export var slow_down_percentage: float = 0.7
 @export var slow_timer: float = 10.5
 var level_length_in_bar: float = 0
@@ -196,18 +198,23 @@ func _ready() -> void:
 	boss_health_bar.value = boss_health
 	background.visible = true
 	background_slow.visible = false
-	initialize_part()
+	initialize_part(ui_type)
 	level.position = Vector2(0,0)
 	reset_health_bars()
 	music_player.play()
 	detector_position_x = notes_detector.position.x
 
 func initialize_part(hand_parts: String = ui_type) -> void:
-	if hand_parts.to_lower() == "treble" or hand_parts.to_lower() == "both":
+	if hand_parts.to_lower() == "bass" or hand_parts.to_lower() == "both":
 		note_play_position_x = notes_detector.position.x
 		starting_position = ending_point.position
-		notes_container.construct_level(true, parser.get_melody_array_by_file(right_melody_path),
+		notes_container.construct_level(hand_parts, parser.get_melody_array_by_file(right_melody_path),
 										parser.get_melody_array_by_file(left_melody_path))
+	elif hand_parts.to_lower() == "treble":
+		bottom_staff.visible = false
+		note_play_position_x = notes_detector.position.x
+		starting_position = ending_point.position
+		notes_container.construct_level(hand_parts, parser.get_melody_array_by_file(right_melody_path),[])
 
 func health_bars_progress(delta: float, rate: float = 1) -> void:
 	player_health_progress += delta * rate
@@ -598,6 +605,8 @@ func _on_return_button_up() -> void:
 func get_lose_state() -> bool:
 	return losing
 
+func _on_easy_button_button_up() -> void:
+	restart_level(false, "easy")
 
 func _on_normal_button_button_up() -> void:
 	restart_level(false, "normal")
