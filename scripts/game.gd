@@ -9,6 +9,8 @@ class_name Game extends Node2D
 @onready var star_full_3: TextureRect = $Overlay/Stars/StarFull3
 @onready var stars: Control = $Overlay/Stars
 @onready var difficulty: Panel = $Overlay/Difficulty
+@onready var easy_button: Button = $Overlay/Difficulty/EasyButton
+
 
 
 
@@ -66,6 +68,7 @@ class_name Game extends Node2D
 @export var slow_down_sound: AudioStream
 
 static var current_difficulty: String
+static var has_easy_difficulty: bool = false
 static var song_path: String = "res://audio/CountingStars_122bpm_new.wav"
 static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80.wav"
 static var right_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
@@ -581,8 +584,14 @@ func _on_win_change_level_button_up() -> void:
 	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
 
 
-func _on_win_restart_button_up() -> void:
+func _on_win_restart_button_up(show_easy: bool = false) -> void:
+	if has_easy_difficulty:
+		show_easy = true
 	darken.visible = true
+	if show_easy:
+		easy_button.visible = true
+	else:
+		easy_button.visible = false
 	difficulty.visible = true
 
 

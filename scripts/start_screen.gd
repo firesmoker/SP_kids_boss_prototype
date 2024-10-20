@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var darken: TextureRect = $UI/Darken
 @onready var difficulty: Panel = $UI/Difficulty
-#@onready var easy_button: Button = $UI/Difficulty/EasyButton
+@onready var easy_button: Button = $UI/Difficulty/EasyButton
 #@onready var normal_button: Button = $UI/Difficulty/NormalButton
 #@onready var hard_button: Button = $UI/Difficulty/HardButton
 @onready var song_buttons: ScrollContainer = $UI/SongButtons
@@ -78,7 +78,8 @@ func start_level(type: String = "normal") -> void:
 
 
 func _on_button1_button_up() -> void:
-	show_difficulty_buttons()
+	show_difficulty_buttons(true)
+	Game.has_easy_difficulty = true
 	define_easy_level(song_1_easy_melody_path,default_left_melody,song_1_easy_path,song_1_easy_slow_song_path, 70, 8, 30, "treble")
 	define_level(song_1_melody_path,default_left_melody,song_1_path,song_1_slow_song_path, 76, 8, 30, "treble")
 	define_hard_level(song_1_hard_melody_path,default_left_melody,song_1_path,song_1_slow_song_path, 76, 6, 31, "treble")
@@ -86,6 +87,7 @@ func _on_button1_button_up() -> void:
 
 func _on_button2_button_up() -> void:
 	show_difficulty_buttons()
+	Game.has_easy_difficulty = false
 	define_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15)
 	define_easy_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15)
 	define_hard_level(song_2_hard_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 23)
@@ -93,6 +95,7 @@ func _on_button2_button_up() -> void:
 
 func _on_button3_button_up() -> void:
 	show_difficulty_buttons()
+	Game.has_easy_difficulty = false
 	define_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20)
 	define_easy_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20)
 	define_hard_level(song_3_hard_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,6, 31)
@@ -100,6 +103,7 @@ func _on_button3_button_up() -> void:
 
 func _on_button_4_button_up() -> void:
 	show_difficulty_buttons()
+	Game.has_easy_difficulty = false
 	define_level(song_4_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,9,35)
 	define_easy_level(song_4_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,9,35)
 	define_hard_level(song_4_hard_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,8,40)
@@ -107,6 +111,7 @@ func _on_button_4_button_up() -> void:
 
 func _on_button_5_button_up() -> void:
 	show_difficulty_buttons()
+	Game.has_easy_difficulty = false
 	define_level(song_5_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 51)
 	define_easy_level(song_5_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 51)
 	define_hard_level(song_5_hard_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 55)
@@ -114,6 +119,7 @@ func _on_button_5_button_up() -> void:
 
 func _on_button_6_button_up() -> void:
 	show_difficulty_buttons()
+	Game.has_easy_difficulty = false
 	define_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23)
 	define_easy_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23)
 	define_hard_level(song_6_melody_path,song_6_left_hard_melody_path,song_6_song_path,song_6_slow_song_path,85,8, 33)
@@ -121,6 +127,7 @@ func _on_button_6_button_up() -> void:
 
 func _on_button_7_button_up() -> void:
 	show_difficulty_buttons()
+	Game.has_easy_difficulty = false
 	define_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23)
 	define_easy_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23)
 	define_hard_level(song_7_melody_path,song_7_left_hard_melody_path,song_7_song_path,song_7_slow_song_path,115,6, 26)
@@ -128,6 +135,7 @@ func _on_button_7_button_up() -> void:
 
 func _on_button_8_button_up() -> void:
 	show_difficulty_buttons()
+	Game.has_easy_difficulty = false
 	define_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23)
 	define_easy_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23)
 	define_hard_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23)
@@ -179,7 +187,11 @@ func define_hard_level(melody_path: String, left_melody_path: String, song_path:
 	LevelSelector.hard_boss_life = boss_life
 	LevelSelector.hard_ui_type = ui_type
 
-func show_difficulty_buttons() -> void:
+func show_difficulty_buttons(show_easy: bool = false) -> void:
+	if show_easy:
+		easy_button.visible = true
+	else:
+		easy_button.visible = false
 	song_buttons.visible = false
 	darken.visible = true
 	difficulty.visible = true
