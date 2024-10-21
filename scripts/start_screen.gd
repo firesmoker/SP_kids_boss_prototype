@@ -120,25 +120,25 @@ func _on_button_5_button_up() -> void:
 func _on_button_6_button_up() -> void:
 	show_difficulty_buttons()
 	Game.has_easy_difficulty = false
-	define_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23)
-	define_easy_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23)
-	define_hard_level(song_6_melody_path,song_6_left_hard_melody_path,song_6_song_path,song_6_slow_song_path,85,8, 33)
+	define_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23, "both")
+	define_easy_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23, "both")
+	define_hard_level(song_6_melody_path,song_6_left_hard_melody_path,song_6_song_path,song_6_slow_song_path,85,8, 33, "both")
 
 
 func _on_button_7_button_up() -> void:
 	show_difficulty_buttons()
 	Game.has_easy_difficulty = false
-	define_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23)
-	define_easy_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23)
-	define_hard_level(song_7_melody_path,song_7_left_hard_melody_path,song_7_song_path,song_7_slow_song_path,115,6, 26)
+	define_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23, "both")
+	define_easy_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23, "both")
+	define_hard_level(song_7_melody_path,song_7_left_hard_melody_path,song_7_song_path,song_7_slow_song_path,115,6, 26, "both")
 
 
 func _on_button_8_button_up() -> void:
 	show_difficulty_buttons()
 	Game.has_easy_difficulty = false
-	define_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23)
-	define_easy_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23)
-	define_hard_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23)
+	define_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23, "both")
+	define_easy_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23, "both")
+	define_hard_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23, "both")
 
 func _on_easy_button_button_up() -> void:
 	start_level("easy")
@@ -152,7 +152,7 @@ func _on_hard_button_button_up() -> void:
 
 func define_easy_level(melody_path: String, left_melody_path: String, song_path: String,
 				slow_song_path: String, tempo: float,
-				player_life: float, boss_life: float, ui_type: String = "both") -> void:
+				player_life: float, boss_life: float, ui_type: String = "treble") -> void:
 	LevelSelector.easy_melody_path = melody_path
 	LevelSelector.easy_left_melody_path = left_melody_path
 	LevelSelector.easy_song_path = song_path
@@ -165,7 +165,7 @@ func define_easy_level(melody_path: String, left_melody_path: String, song_path:
 	
 func define_level(melody_path: String, left_melody_path: String, song_path: String,
 				slow_song_path: String, tempo: float,
-				player_life: float, boss_life: float, ui_type: String = "both") -> void:
+				player_life: float, boss_life: float, ui_type: String = "treble") -> void:
 	LevelSelector.normal_melody_path = melody_path
 	LevelSelector.normal_left_melody_path = left_melody_path
 	LevelSelector.normal_song_path = song_path
@@ -177,7 +177,7 @@ func define_level(melody_path: String, left_melody_path: String, song_path: Stri
 
 func define_hard_level(melody_path: String, left_melody_path: String, song_path: String,
 				slow_song_path: String, tempo: float,
-				player_life: float, boss_life: float, ui_type: String = "both") -> void:
+				player_life: float, boss_life: float, ui_type: String = "treble") -> void:
 	LevelSelector.hard_melody_path = melody_path
 	LevelSelector.hard_left_melody_path = left_melody_path
 	LevelSelector.hard_song_path = song_path
