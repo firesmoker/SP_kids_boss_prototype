@@ -3,6 +3,7 @@ class_name Note extends AnimatableBody2D
 @export_enum("Active", "Inactive", "Rest") var state: String = "Active"
 @export var note: String
 @export var event: MelodyEvent
+@export var is_gold: bool = false
 @export_enum("Note","Rest") var type: String = "Note"
 @onready var eigth: Sprite2D = $Eigth
 @onready var quarter: Sprite2D = $Quarter
@@ -12,25 +13,22 @@ class_name Note extends AnimatableBody2D
 @onready var helper_line: Sprite2D = $HelperLine
 
 
-func ready() -> void:
-	eigth.material.set_shader_parameter("color",Color.BLACK)
-	quarter.material.set_shader_parameter("color",Color.BLACK)
-	half.material.set_shader_parameter("color",Color.BLACK)
-	whole.material.set_shader_parameter("color",Color.BLACK)
+func _ready() -> void:
+	var details: Dictionary = event.details
+	if details.has("action") and details["action"] == "gold":
+		is_gold = true
+	for sprite: Sprite2D in [eigth, quarter, half, whole]:
+		sprite.material.set_shader_parameter("color",color())
 
 
 func hit_note_visual() -> void:
 	#scale = scale * 1.6
-	eigth.material.set_shader_parameter("color",Color.CADET_BLUE)
-	quarter.material.set_shader_parameter("color",Color.CADET_BLUE)
-	half.material.set_shader_parameter("color",Color.CADET_BLUE)
-	whole.material.set_shader_parameter("color",Color.CADET_BLUE)
+	for sprite: Sprite2D in [eigth, quarter, half, whole]:
+		sprite.material.set_shader_parameter("color",Color.CADET_BLUE)
 
 func miss_note_visual() -> void:
-	eigth.material.set_shader_parameter("color",Color.RED)
-	quarter.material.set_shader_parameter("color",Color.RED)
-	half.material.set_shader_parameter("color",Color.RED)
-	whole.material.set_shader_parameter("color",Color.RED)
+	for sprite: Sprite2D in [eigth, quarter, half, whole]:
+		sprite.material.set_shader_parameter("color",Color.RED)
 
 func set_duration_visual(duration: float) -> void:
 	if stem:
@@ -56,3 +54,9 @@ func set_duration_visual(duration: float) -> void:
 	if state == "Rest":
 		if stem:
 			stem.visible = false
+
+func color() -> Color:
+	if is_gold:
+		return Color.GOLD 
+	else:
+		return Color.BLACK

@@ -89,6 +89,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 		print(event.as_string())
 		if event.type == "rest":
 			var new_note: Note = rest_template.instantiate()
+			new_note.event = event
 			new_note.note = event.note
 			add_child(new_note)
 			new_note.set_duration_visual(event.duration)
