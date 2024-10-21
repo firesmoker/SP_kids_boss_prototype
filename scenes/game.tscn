@@ -132,7 +132,7 @@ bg_color = Color(0.535958, 0.116029, 0.861395, 1)
 default_font_size = 60
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
-size = Vector2(128, 547.385)
+size = Vector2(69.0258, 547.385)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dm63f"]
 animations = [{
@@ -1000,7 +1000,7 @@ position = Vector2(161.127, 0)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlayerCharacter/HitZone"]
-position = Vector2(0, -42.6924)
+position = Vector2(-19.7222, -42.6924)
 shape = SubResource("RectangleShape2D_fef26")
 metadata/_edit_lock_ = true
 
@@ -1103,13 +1103,11 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="NotesDetector" type="Area2D" parent="Level/RightHandPart"]
-visible = false
 position = Vector2(-237.54, -50)
 script = ExtResource("6_gcv22")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/NotesDetector"]
-position = Vector2(0, 42.375)
+position = Vector2(0, 42.3751)
 shape = ExtResource("7_ged7t")
 debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
 metadata/_edit_lock_ = true
@@ -1267,9 +1265,8 @@ metadata/_edit_lock_ = true
 self_modulate = Color(0.501961, 1, 0.980392, 0.72549)
 z_index = -1
 position = Vector2(-0.759705, -27.938)
-scale = Vector2(0.696031, 4.44731)
+scale = Vector2(0.572016, 4.44731)
 texture = SubResource("GradientTexture2D_oay21")
-metadata/_edit_lock_ = true
 
 [node name="LineZap" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
 scale = Vector2(0.28, 0.07)
