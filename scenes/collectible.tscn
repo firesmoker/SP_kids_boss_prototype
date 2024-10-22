@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://kf508a146cxq"]
+[gd_scene load_steps=16 format=3 uid="uid://kf508a146cxq"]
 
 [ext_resource type="Script" path="res://scripts/collectible.gd" id="1_ol4d8"]
 [ext_resource type="Shader" path="res://note.gdshader" id="2_f8777"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="4_vstf5"]
 [ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="7_h7qm3"]
 [ext_resource type="SpriteFrames" uid="uid://cnd7ioqvg5uy8" path="res://scene_resources/slowdown_blast_spriteframe.tres" id="8_py5wu"]
-[ext_resource type="SpriteFrames" uid="uid://bbqfmw2t5o4g0" path="res://scene_resources/heart_blast_animation.tres" id="9_ejdfl"]
+[ext_resource type="SpriteFrames" path="res://scene_resources/heart_blast_animation.tres" id="9_ejdfl"]
+[ext_resource type="PackedScene" uid="uid://52rqdd7jwrnq" path="res://scenes/position_hider.tscn" id="11_88bo6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5q5w4"]
 resource_local_to_scene = true
@@ -122,7 +123,6 @@ visible = false
 visible = false
 sprite_frames = ExtResource("8_py5wu")
 autoplay = "default"
-metadata/_edit_lock_ = true
 
 [node name="HeartAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -140,3 +140,7 @@ position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)
 texture = ExtResource("3_aey48")
 metadata/_edit_lock_ = true
+
+[node name="PositionHider" parent="." instance=ExtResource("11_88bo6")]
+true_hide_right = true
+x_hide_position = -400.0
