@@ -248,7 +248,10 @@ func _process(delta: float) -> void:
 		#enter_win_ui()
 		#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 	if not boss.is_playing() and not losing and not winning:
-		boss.play("idle")
+		if boss_health > boss_health_bar.max_value / 2:
+			boss.play("idle")
+		else:
+			boss.play("damaged_idle")
 	if not player_character.is_playing() and not winning and not losing:
 		player_character.play("idle")
 		player_bot.play("fly")
@@ -489,12 +492,19 @@ func update_player_health(health_change: float = -1) -> void:
 	player_health += health_change
 	player_health = clamp(player_health, 0, player_health_bar.max_value)
 	player_new_health = player_health
+	if player_health <= player_health_bar.max_value / 6:
+		player_health_bar.tint_progress = Color.RED
+	else:
+		player_health_bar.tint_progress = Color.WHITE
 	
 func update_boss_health(health_change: float = -1) -> void:
 	boss_health_progress = 0
 	boss_previous_health = boss_health
 	boss_health += health_change
 	boss_new_health = boss_health
+	if boss_health <= boss_health_bar.max_value / 6:
+		boss_health_bar.tint_progress = Color.RED
+	
 
 func get_hit() -> void:
 	if vulnerable and not winning and not losing:
@@ -542,7 +552,10 @@ func restart_level(wait: bool = false, type: String = "normal") -> void:
 
 func _on_boss_hit_zone_body_entered(note: Note) -> void:
 	if note.state.to_lower() != "rest" and not winning and not losing:
-		boss.play("attack")
+		if boss_health > boss_health_bar.max_value / 2:
+			boss.play("attack")
+		else:
+			boss.play("damaged_attack")
 
 
 func _on_pause_button_up() -> void:

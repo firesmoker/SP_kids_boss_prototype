@@ -1030,7 +1030,7 @@ z_index = 3
 position = Vector2(406.349, -10.3175)
 scale = Vector2(0.738213, 0.738213)
 sprite_frames = ExtResource("4_ygwuk")
-animation = &"death"
+animation = &"damaged_attack"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 
@@ -1107,7 +1107,7 @@ position = Vector2(-237.54, -50)
 script = ExtResource("6_gcv22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/NotesDetector"]
-position = Vector2(0, 42.3751)
+position = Vector2(2.23209, 42.3751)
 shape = ExtResource("7_ged7t")
 debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
 metadata/_edit_lock_ = true
@@ -1115,7 +1115,7 @@ metadata/_edit_lock_ = true
 [node name="BlueLine" type="Node2D" parent="Level/RightHandPart/NotesDetector"]
 visible = false
 modulate = Color(0.443137, 1, 1, 0.552941)
-position = Vector2(-1, 78)
+position = Vector2(0, 78)
 scale = Vector2(2.65, 2.65)
 metadata/_edit_lock_ = true
 
@@ -1126,14 +1126,13 @@ texture = ExtResource("14_nko2d")
 metadata/_edit_lock_ = true
 
 [node name="BottomNotesDetector" type="Area2D" parent="Level/RightHandPart"]
-visible = false
 position = Vector2(-237.54, 200)
 script = ExtResource("6_gcv22")
 bottom_detector = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/BottomNotesDetector"]
-position = Vector2(0, 60.625)
+position = Vector2(2.232, 60.625)
 shape = ExtResource("7_ged7t")
 debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
 metadata/_edit_lock_ = true
@@ -1141,7 +1140,7 @@ metadata/_edit_lock_ = true
 [node name="BottomBlueLine" type="Node2D" parent="Level/RightHandPart/BottomNotesDetector"]
 visible = false
 modulate = Color(0.443137, 1, 1, 0.552941)
-position = Vector2(-1, 93.0001)
+position = Vector2(0, 93)
 scale = Vector2(2.65, 2.65)
 metadata/_edit_lock_ = true
 

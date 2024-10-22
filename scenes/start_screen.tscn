@@ -73,6 +73,12 @@ song_8_song_path = "res://audio/Believer_ImagineDragons_110bpm_Vocals_Kids.wav"
 song_8_slow_song_path = "res://audio/Believer_ImagineDragons_110bpm_Vocals_Kids_SLOW70.wav"
 song_8_melody_path = "res://levels/Believer_110_Right.txt"
 song_8_left_melody_path = "res://levels/Believer_110_Left.txt"
+song_9_song_path = "res://audio/JingleBells_88.wav"
+song_9_slow_song_path = "res://audio/JingleBells_88_SLOW70.wav"
+song_9_melody_path = "res://levels/JingleBells_Right.txt"
+song_9_left_melody_path = "res://levels/JingleBells_Left.txt"
+song_9_hard_melody_path = "res://levels/JingleBellsHard_Right.txt"
+song_9_left_hard_melody_path = "res://levels/JingleBellsHard_Left.txt"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
@@ -403,7 +409,6 @@ vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="Button8" type="Button" parent="UI/SongButtons/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = SubResource("Theme_b8tba")
 text = " "
@@ -425,9 +430,37 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "Believer"
+text = "Believer (LH)"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button9" type="Button" parent="UI/SongButtons/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Jingle Bells (BH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="Darken" type="TextureRect" parent="UI"]
@@ -600,6 +633,7 @@ script = ExtResource("8_uu1rv")
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button6" to="." method="_on_button_6_button_up"]
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button7" to="." method="_on_button_7_button_up"]
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button8" to="." method="_on_button_8_button_up"]
+[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button9" to="." method="_on_button_9_button_up"]
 [connection signal="button_up" from="UI/Difficulty/EasyButton" to="." method="_on_easy_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]

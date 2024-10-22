@@ -55,6 +55,13 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 @export var song_8_slow_song_path: String
 @export var song_8_melody_path: String
 @export var song_8_left_melody_path: String
+@export_group("Jingle Bells")
+@export var song_9_song_path: String
+@export var song_9_slow_song_path: String
+@export var song_9_melody_path: String
+@export var song_9_left_melody_path: String
+@export var song_9_hard_melody_path: String
+@export var song_9_left_hard_melody_path: String
 
 func _ready() -> void:
 	load_overlay.visible = false
@@ -140,6 +147,13 @@ func _on_button_8_button_up() -> void:
 	define_easy_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23, "both")
 	define_hard_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23, "both")
 
+func _on_button_9_button_up() -> void:
+	show_difficulty_buttons()
+	Game.has_easy_difficulty = false
+	define_level(song_9_melody_path,song_9_left_melody_path,song_9_song_path,song_9_slow_song_path,88,10, 38, "both")
+	define_hard_level(song_9_hard_melody_path,song_9_left_hard_melody_path,song_9_song_path,song_9_slow_song_path,88,12, 47, "both")
+	define_easy_level(song_9_melody_path,song_9_left_melody_path,song_9_song_path,song_9_slow_song_path,88,10, 38, "both")
+
 func _on_easy_button_button_up() -> void:
 	start_level("easy")
 
@@ -149,6 +163,7 @@ func _on_normal_button_button_up() -> void:
 
 func _on_hard_button_button_up() -> void:
 	start_level("hard")
+	
 
 func define_easy_level(melody_path: String, left_melody_path: String, song_path: String,
 				slow_song_path: String, tempo: float,
