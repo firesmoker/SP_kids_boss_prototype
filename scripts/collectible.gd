@@ -10,9 +10,10 @@ var effect: String = "slow_down"
 @onready var slowdown: AnimatedSprite2D = $Slowdown
 @onready var slowdown_animation: AnimatedSprite2D = $SlowdownAnimation
 @onready var stem: Sprite2D = $Stem
-
+@onready var collision: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
+	self.visibility_changed.connect(on_visibility_changed)
 	hide_sprites()
 
 
@@ -51,3 +52,17 @@ func play_animation(type: String = "Heart") -> void:
 			slowdown_animation.play()
 		_:
 			pass
+
+
+func on_visibility_changed() -> void:
+	if visible and event.subtype == "slowdown":
+		var game: Game = NodeHelper.get_ancestor_game(self)
+		var texture_progress_bar: TextureProgressBar = game.player_health_bar
+		var player_health: float = (texture_progress_bar.value - texture_progress_bar.min_value) / (texture_progress_bar.max_value - texture_progress_bar.min_value)
+		if player_health < 0.5 or Game.repeat_requested:
+			self.visible = true
+			self.collision.disabled = false
+		else:
+			self.visible = false
+			self.collision.disabled = true
+			

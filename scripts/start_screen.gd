@@ -70,6 +70,7 @@ func _ready() -> void:
 
 
 func start_level(type: String = "normal") -> void:
+	Game.repeat_requested = false
 	load_overlay.visible = true
 	var timer: Timer = Timer.new()
 	add_child(timer)
@@ -77,7 +78,6 @@ func start_level(type: String = "normal") -> void:
 	timer.start()
 	await timer.timeout
 	timer.stop()
-	
 	LevelSelector.set_level(type)
 	
 	get_tree().change_scene_to_packed(LevelSelector.new_scene_source)

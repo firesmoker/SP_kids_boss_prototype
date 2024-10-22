@@ -84,6 +84,7 @@ static var tempo: float = 122.0
 static var starting_player_health: float = 10
 static var starting_boss_health: float = 300
 static var ui_type: String = "treble" # treble / bass / both
+static var repeat_requested: bool = false
 
 var player_health: float = 10
 var boss_health: float = 300
@@ -539,6 +540,7 @@ func reset_health_bars() -> void:
 
 func restart_level(wait: bool = false, type: String = "normal") -> void:
 	#Game.game_state = "Playing"
+	Game.repeat_requested = true
 	music_player.stream_paused = true
 	if wait:
 		var timer: Timer = Timer.new()
