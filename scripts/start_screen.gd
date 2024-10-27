@@ -103,9 +103,9 @@ func _on_button2_button_up() -> void:
 func _on_button3_button_up() -> void:
 	show_difficulty_buttons()
 	Game.has_easy_difficulty = false
-	define_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20)
-	define_easy_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20)
-	define_hard_level(song_3_hard_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,6, 31)
+	define_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20, 3)
+	define_easy_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20, 3)
+	define_hard_level(song_3_hard_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,6, 31, 3)
 
 
 func _on_button_4_button_up() -> void:
@@ -167,7 +167,7 @@ func _on_hard_button_button_up() -> void:
 
 func define_easy_level(melody_path: String, left_melody_path: String, song_path: String,
 				slow_song_path: String, tempo: float,
-				player_life: float, boss_life: float, display_duration: float = 1, ui_type: String = "treble") -> void:
+				player_life: float, boss_life: float, display_duration: float = 2.5, ui_type: String = "treble") -> void:
 	LevelSelector.easy_melody_path = melody_path
 	LevelSelector.easy_left_melody_path = left_melody_path
 	LevelSelector.easy_song_path = song_path
@@ -181,7 +181,7 @@ func define_easy_level(melody_path: String, left_melody_path: String, song_path:
 	
 func define_level(melody_path: String, left_melody_path: String, song_path: String,
 				slow_song_path: String, tempo: float,
-				player_life: float, boss_life: float, display_duration: float = 1, ui_type: String = "treble") -> void:
+				player_life: float, boss_life: float, display_duration: float = 2.5, ui_type: String = "treble") -> void:
 	LevelSelector.normal_melody_path = melody_path
 	LevelSelector.normal_left_melody_path = left_melody_path
 	LevelSelector.normal_song_path = song_path
@@ -194,7 +194,7 @@ func define_level(melody_path: String, left_melody_path: String, song_path: Stri
 
 func define_hard_level(melody_path: String, left_melody_path: String, song_path: String,
 				slow_song_path: String, tempo: float,
-				player_life: float, boss_life: float, display_duration: float = 1, ui_type: String = "treble") -> void:
+				player_life: float, boss_life: float, display_duration: float = 2.5, ui_type: String = "treble") -> void:
 	LevelSelector.hard_melody_path = melody_path
 	LevelSelector.hard_left_melody_path = left_melody_path
 	LevelSelector.hard_song_path = song_path

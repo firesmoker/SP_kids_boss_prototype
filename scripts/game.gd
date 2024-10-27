@@ -495,13 +495,13 @@ func update_player_health(health_change: float = -1) -> void:
 	player_health += health_change
 	player_health = clamp(player_health, 0, player_health_bar.max_value)
 	player_new_health = player_health
-	if player_health <= player_health_bar.max_value / 6:
+	if player_health <= player_health_bar.max_value / 6 or player_health <= 1:
 		player_health_bar.tint_progress = Color.RED
 	else:
 		player_health_bar.tint_progress = Color.WHITE
 
 func boss_visual_damage() -> void:
-	if boss_health <= boss_health_bar.max_value / 6:
+	if boss_health <= boss_health_bar.max_value / 6 or boss_health <= 1:
 		boss_health_bar.tint_progress = Color.RED
 	
 func update_boss_health(health_change: float = -1) -> void:

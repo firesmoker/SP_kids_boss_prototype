@@ -1061,7 +1061,7 @@ z_index = 3
 position = Vector2(406.349, -10.3175)
 scale = Vector2(0.738213, 0.738213)
 sprite_frames = ExtResource("4_ygwuk")
-animation = &"damaged_attack"
+animation = &"damaged_idle"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 
