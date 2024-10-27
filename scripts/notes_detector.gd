@@ -18,16 +18,30 @@ func _unhandled_input(event: InputEvent) -> void:
 		note_played(note)
 
 func note_played(note: String) -> void:
+	var interval: bool = false
+	if current_notes.size() > 1 and not game.get_lose_state():
+		if current_notes[0].position.x == current_notes[1].position.x:
+			interval = true
+			
 	if current_notes.size() > 0 and not game.get_lose_state():
-		for i in range(current_notes.size()):
-			if note == current_notes[i].note:
-				emit_signal("note_success")
-				print("RIGHT NOTE PLAYED YAY!")
-				if game.game_state == "Playing":
-					current_notes[i].hit_note_visual()
-					current_notes[i].state = "Played"
-					current_notes.pop_at(i)
-				break
+		if interval:
+			for i in range(clamp(current_notes.size(),1,2)):
+				if note == current_notes[i].note:
+					emit_signal("note_success")
+					print("RIGHT NOTE PLAYED YAY!")
+					if game.game_state == "Playing":
+						current_notes[i].hit_note_visual()
+						current_notes[i].state = "Played"
+						current_notes.pop_at(i)
+					break
+		elif note == current_notes[0].note:
+			emit_signal("note_success")
+			print("RIGHT NOTE PLAYED YAY!")
+			if game.game_state == "Playing":
+				current_notes[0].hit_note_visual()
+				current_notes[0].state = "Played"
+				current_notes.pop_at(0)
+		
 			
 			
 		#else:
