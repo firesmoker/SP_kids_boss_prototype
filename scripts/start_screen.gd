@@ -97,7 +97,7 @@ func _on_button2_button_up() -> void:
 	Game.has_easy_difficulty = false
 	define_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15)
 	define_easy_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15)
-	define_hard_level(song_2_hard_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 23)
+	define_hard_level(song_2_hard_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 6, 35) #39-8 -> 
 
 
 func _on_button3_button_up() -> void:

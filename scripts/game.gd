@@ -275,7 +275,7 @@ func _process(delta: float) -> void:
 	if ending_point.position.x <= note_play_position_x:
 		print("finished level")
 		if not winning and not losing:
-			lose()
+			win()
 		else:
 			print("boss is dying, no lose for you")
 	if just_started:
@@ -464,7 +464,7 @@ func hit_boss() -> void:
 		electric_beam.find_child("Flash").flash()
 		electric_beam.find_child("LineZap").play("line_zap")
 		electric_beam.find_child("ElectricBolt").play("attack")
-		audio_play_from_source(electric_beam,audio_clips.electric_attack)
+		audio_play_from_source(electric_beam,audio_clips.electric_attack, -8.5)
 		player_character.stop()
 		player_bot.stop()
 		player_character.play("attack")
@@ -481,10 +481,11 @@ func hit_boss() -> void:
 		if boss_health <= 0:
 			win()
 		else:
-			audio_play_from_source(boss, audio_clips.boss_hit)
+			audio_play_from_source(boss, audio_clips.boss_hit, -8.5)
 
-func audio_play_from_source(source: Node, audio_clip: AudioStream) -> void:
+func audio_play_from_source(source: Node, audio_clip: AudioStream, volume: float = 1.0) -> void:
 	source.find_child("Audio").stream = audio_clip
+	source.find_child("Audio").volume_db = volume
 	source.find_child("Audio").play()
 
 func update_player_health(health_change: float = -1) -> void:
@@ -497,14 +498,17 @@ func update_player_health(health_change: float = -1) -> void:
 		player_health_bar.tint_progress = Color.RED
 	else:
 		player_health_bar.tint_progress = Color.WHITE
+
+func boss_visual_damage() -> void:
+	if boss_health <= boss_health_bar.max_value / 6:
+		boss_health_bar.tint_progress = Color.RED
 	
 func update_boss_health(health_change: float = -1) -> void:
 	boss_health_progress = 0
 	boss_previous_health = boss_health
 	boss_health += health_change
 	boss_new_health = boss_health
-	if boss_health <= boss_health_bar.max_value / 6:
-		boss_health_bar.tint_progress = Color.RED
+	boss_visual_damage()
 	
 
 func get_hit() -> void:

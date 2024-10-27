@@ -18,7 +18,7 @@ shader_parameter/alpha = 1.0
 
 [node name="Note" type="AnimatableBody2D"]
 z_index = 1
-scale = Vector2(0.175, 0.175)
+scale = Vector2(0.195, 0.195)
 sync_to_physics = false
 script = ExtResource("1_76fco")
 

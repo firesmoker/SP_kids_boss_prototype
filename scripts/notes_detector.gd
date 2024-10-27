@@ -10,10 +10,10 @@ func _ready() -> void:
 	note_success.connect(game.hit_boss)
 
 func _unhandled_input(event: InputEvent) -> void:	
-	if not bottom_detector:
+	if not bottom_detector and not event.is_echo() and not event.is_released():
 		var note: String = event.as_text() + "4"
 		note_played(note)
-	else:
+	elif not event.is_echo() and not event.is_released():
 		var note: String = event.as_text() + "3"
 		note_played(note)
 
