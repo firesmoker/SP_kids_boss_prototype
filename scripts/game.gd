@@ -478,6 +478,7 @@ func hit_boss() -> void:
 		boss_portrait.find_child("Flash").flash(Color.RED)
 		boss_portrait.find_child("Expander").expand(1.20, 0.15, true)
 		boss.stop()
+		
 		boss.play("get_hit")
 		if boss_health <= 0:
 			win()
@@ -576,7 +577,10 @@ func boss_win_animation() -> void:
 	boss.find_child("Expander").expand(1.25, 0.5)
 	boss.find_child("Expander").move(Vector2(0,0), 0.5)
 	boss.stop()
-	boss.play("get_hit")
+	if boss_health <= boss_health_bar.max_value / 6 or boss_health <= 1:
+		boss.play("damaged_get_hit")
+	else:
+		boss.play("get_hit")
 	into_stage.flip_h = true
 	into_stage.visible = true
 	into_stage.play()

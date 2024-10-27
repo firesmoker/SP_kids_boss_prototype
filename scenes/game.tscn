@@ -1061,8 +1061,10 @@ z_index = 3
 position = Vector2(406.349, -10.3175)
 scale = Vector2(0.738213, 0.738213)
 sprite_frames = ExtResource("4_ygwuk")
-animation = &"damaged_idle"
+animation = &"damaged_get_hit"
 autoplay = "idle"
+frame = 27
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="BossHitZone" type="Area2D" parent="Level/Boss"]
