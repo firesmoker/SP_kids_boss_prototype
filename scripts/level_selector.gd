@@ -10,6 +10,7 @@ static var easy_tempo: float
 static var easy_player_life: float
 static var easy_boss_life: float
 static var easy_ui_type: String
+static var easy_display_duration: float
 
 static var normal_melody_path: String
 static var normal_left_melody_path: String
@@ -19,6 +20,7 @@ static var normal_tempo: float
 static var normal_player_life: float
 static var normal_boss_life: float
 static var normal_ui_type: String
+static var normal_display_duration: float
 
 static var hard_melody_path: String
 static var hard_left_melody_path: String
@@ -28,6 +30,7 @@ static var hard_tempo: float
 static var hard_player_life: float
 static var hard_boss_life: float
 static var hard_ui_type: String
+static var hard_display_duration: float
 
 static func set_level(level: String = "normal") -> void:
 	Game.game_state = "Playing"
@@ -42,6 +45,7 @@ static func set_level(level: String = "normal") -> void:
 			Game.starting_player_health = easy_player_life
 			Game.starting_boss_health = easy_boss_life
 			Game.ui_type = easy_ui_type
+			Game.on_display_duration = easy_display_duration
 		"normal":
 			Game.current_difficulty = "normal"
 			Game.right_melody_path = normal_melody_path
@@ -52,6 +56,7 @@ static func set_level(level: String = "normal") -> void:
 			Game.starting_player_health = normal_player_life
 			Game.starting_boss_health = normal_boss_life
 			Game.ui_type = normal_ui_type
+			Game.on_display_duration = normal_display_duration
 		"hard":
 			Game.current_difficulty = "hard"
 			Game.right_melody_path = hard_melody_path
@@ -62,5 +67,6 @@ static func set_level(level: String = "normal") -> void:
 			Game.starting_player_health = hard_player_life
 			Game.starting_boss_health = hard_boss_life
 			Game.ui_type = hard_ui_type
+			Game.on_display_duration = hard_display_duration
 		_:
 			print("wrong level type!")

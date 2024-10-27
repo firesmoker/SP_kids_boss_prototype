@@ -106,6 +106,7 @@
 [ext_resource type="Texture2D" uid="uid://cvh3dxi65ovjt" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00131.png" id="77_rm6l2"]
 [ext_resource type="Texture2D" uid="uid://lkpmql5curcv" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00132.png" id="78_mrs7h"]
 [ext_resource type="Texture2D" uid="uid://dtq7m42cj114v" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00134.png" id="79_n7i7p"]
+[ext_resource type="Texture2D" uid="uid://c3hbahfwjn1ma" path="res://scene_resources/note_container_texture.tres" id="80_in6ir"]
 [ext_resource type="PackedScene" uid="uid://cy4r3dtmps85" path="res://scenes/collectible_marker.tscn" id="81_vlbus"]
 [ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="PackedScene" uid="uid://c0v8nacv45non" path="res://scenes/finger_number.tscn" id="97_t1wle"]
@@ -261,10 +262,6 @@ animations = [{
 "name": &"default",
 "speed": 12.0
 }]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xdh2h"]
-resource_local_to_scene = true
-size = Vector2(500, 50)
 
 [sub_resource type="Gradient" id="Gradient_6smsb"]
 offsets = PackedFloat32Array(0, 0.166253)
@@ -1124,9 +1121,9 @@ metadata/_edit_lock_ = true
 [node name="NotesContainer" type="Sprite2D" parent="Level/RightHandPart/EndingPoint"]
 self_modulate = Color(1, 1, 1, 0)
 z_index = -2
-texture = SubResource("PlaceholderTexture2D_xdh2h")
+texture = ExtResource("80_in6ir")
 script = ExtResource("2_yqf4i")
-on_display_duration = 1.5
+on_display_duration = 2.5
 note_template = ExtResource("7_v8855")
 rest_template = ExtResource("6_fjvbl")
 collectable_template = ExtResource("57_nyblo")

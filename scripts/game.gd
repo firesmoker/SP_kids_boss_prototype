@@ -85,6 +85,7 @@ static var starting_player_health: float = 10
 static var starting_boss_health: float = 300
 static var ui_type: String = "treble" # treble / bass / both
 static var repeat_requested: bool = false
+static var on_display_duration: float = 1
 
 var player_health: float = 10
 var boss_health: float = 300
@@ -215,12 +216,12 @@ func initialize_part(hand_parts: String = ui_type) -> void:
 		note_play_position_x = notes_detector.position.x
 		starting_position = ending_point.position
 		notes_container.construct_level(hand_parts, parser.get_melody_array_by_file(right_melody_path),
-										parser.get_melody_array_by_file(left_melody_path))
+										parser.get_melody_array_by_file(left_melody_path), on_display_duration)
 	elif hand_parts.to_lower() == "treble":
 		bottom_staff.visible = false
 		note_play_position_x = notes_detector.position.x
 		starting_position = ending_point.position
-		notes_container.construct_level(hand_parts, parser.get_melody_array_by_file(right_melody_path),[])
+		notes_container.construct_level(hand_parts, parser.get_melody_array_by_file(right_melody_path),[], on_display_duration)
 
 func health_bars_progress(delta: float, rate: float = 1) -> void:
 	player_health_progress += delta * rate

@@ -43,9 +43,9 @@ var left_edge_position: float = 0
 var example_note_dict: Dictionary
 
 
-func construct_level(ui_type: String = "both", melody_events: Array = [], bottom_melody_events: Array = []) -> void:
+func construct_level(ui_type: String = "both", melody_events: Array = [], bottom_melody_events: Array = [], display_duration: float = on_display_duration) -> void:
 	level_length_in_bars = get_level_length_from_melody_event(melody_events)
-	set_level_size()
+	set_level_size(display_duration)
 	set_parent_at_ending()
 	populate_from_melody_events(melody_events)
 	if ui_type == "both" or ui_type == "bass":
@@ -80,8 +80,8 @@ func get_level_length_from_melody_event(melody_events: Array = []) -> float:
 	return duration_sum
 
 
-func set_level_size() -> void:
-	texture.size.x = texture.size.x * level_length_in_bars / on_display_duration
+func set_level_size(level_display_duration: float = on_display_duration) -> void:
+	texture.size.x = texture.size.x * level_length_in_bars / level_display_duration
 	size = texture.size.x
 	bar_length_in_pixels = size / level_length_in_bars
 	starting_position_x = size / 2

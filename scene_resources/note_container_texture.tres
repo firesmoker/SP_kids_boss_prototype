@@ -1,0 +1,5 @@
+[gd_resource type="PlaceholderTexture2D" format=3 uid="uid://c3hbahfwjn1ma"]
+
+[resource]
+resource_local_to_scene = true
+size = Vector2(750, 50)
