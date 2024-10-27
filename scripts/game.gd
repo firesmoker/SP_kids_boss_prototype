@@ -10,6 +10,7 @@ class_name Game extends Node2D
 @onready var stars: Control = $Overlay/Stars
 @onready var difficulty: Panel = $Overlay/Difficulty
 @onready var easy_button: Button = $Overlay/Difficulty/EasyButton
+@onready var intro_sequence: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequence
 
 
 
@@ -185,6 +186,8 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 func _ready() -> void:
+	pause_button.visible = false
+	restart_button.visible = false
 	difficulty.visible = false
 	losing = false
 	winning = false
@@ -208,8 +211,13 @@ func _ready() -> void:
 		right_hand_part.position.y += 60
 	level.position = Vector2(0,0)
 	reset_health_bars()
-	music_player.play()
 	detector_position_x = notes_detector.position.x
+	audio.stream = audio_clips.fight_starts
+	audio.play()
+	await intro_sequence.animation_finished
+	music_player.play()
+	pause_button.visible = true
+	restart_button.visible = true
 
 func initialize_part(hand_parts: String = ui_type) -> void:
 	if hand_parts.to_lower() == "bass" or hand_parts.to_lower() == "both":
@@ -478,8 +486,10 @@ func hit_boss() -> void:
 		boss_portrait.find_child("Flash").flash(Color.RED)
 		boss_portrait.find_child("Expander").expand(1.20, 0.15, true)
 		boss.stop()
-		
-		boss.play("get_hit")
+		if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
+			boss.play("damaged_get_hit")
+		else:
+			boss.play("get_hit")
 		if boss_health <= 0:
 			win()
 		else:
@@ -560,10 +570,11 @@ func restart_level(wait: bool = false, type: String = "normal") -> void:
 
 func _on_boss_hit_zone_body_entered(note: Note) -> void:
 	if note.state.to_lower() != "rest" and not winning and not losing:
-		if boss_health > boss_health_bar.max_value / 2:
-			boss.play("attack")
-		else:
-			boss.play("damaged_attack")
+		if not boss.animation == "get_hit" and not boss.animation == "damaged_get_hit":
+			if boss_health > boss_health_bar.max_value / 2:
+				boss.play("attack")
+			else:
+				boss.play("damaged_attack")
 
 
 func _on_pause_button_up() -> void:
@@ -577,10 +588,7 @@ func boss_win_animation() -> void:
 	boss.find_child("Expander").expand(1.25, 0.5)
 	boss.find_child("Expander").move(Vector2(0,0), 0.5)
 	boss.stop()
-	if boss_health <= boss_health_bar.max_value / 6 or boss_health <= 1:
-		boss.play("damaged_get_hit")
-	else:
-		boss.play("get_hit")
+	boss.play("get_hit")
 	into_stage.flip_h = true
 	into_stage.visible = true
 	into_stage.play()
