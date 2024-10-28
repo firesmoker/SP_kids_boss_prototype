@@ -123,7 +123,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 					new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[note]) * 5 + 120
 					new_finger.text = event.details["finger"]
 					if bottom_staff:
-						new_finger.position.y += treble_to_bass_gap + 600
+						new_finger.position.y += treble_to_bass_gap + 600 - 120
 		elif event.type == "collectible":
 			if event.note.is_empty():
 				var collectible_marker: CollectibleMarker = collectable_marker_template.instantiate()
@@ -151,7 +151,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 					new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[event.note]) * 5 + 120
 					new_finger.text = event.details["finger"]
 					if bottom_staff:
-						new_finger.position.y += treble_to_bass_gap + 600
+						new_finger.position.y += treble_to_bass_gap + 600 - 120
 				#collectible.global_position = Vector2(0,0)
 				#collectible.scale *= 2
 
