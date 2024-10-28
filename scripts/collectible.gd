@@ -1,6 +1,7 @@
 class_name Collectible extends CollectibleMarker
 
 @export_enum("Active", "Inactive") var state: String = "Active"
+@export var golden_note_color: Color
 @onready var helper_line: Sprite2D = $HelperLine
 @export var note: String
 var effect: String = "slow_down"
@@ -10,7 +11,10 @@ var effect: String = "slow_down"
 @onready var slowdown: AnimatedSprite2D = $Slowdown
 @onready var slowdown_animation: AnimatedSprite2D = $SlowdownAnimation
 @onready var stem: Sprite2D = $Stem
+@onready var stem_sprite: Sprite2D = $Stem/Stem
 @onready var collision: CollisionShape2D = $CollisionShape2D
+@onready var note_root: Sprite2D = $NoteRoot
+
 
 func _ready() -> void:
 	self.visibility_changed.connect(on_visibility_changed)
@@ -26,6 +30,10 @@ func set_sprite(type: String = "Heart") -> void:
 			bomb.visible = true
 		"slowdown":
 			slowdown.visible = true
+		"golden_note":
+			note_root.material.set_shader_parameter("color", golden_note_color)
+			stem_sprite.material.set_shader_parameter("color", golden_note_color)
+			note_root.visible = true
 		_:
 			heart.visible = true
 	if note == "C4":

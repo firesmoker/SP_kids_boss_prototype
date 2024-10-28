@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://kf508a146cxq"]
+[gd_scene load_steps=15 format=3 uid="uid://kf508a146cxq"]
 
 [ext_resource type="Script" path="res://scripts/collectible.gd" id="1_ol4d8"]
+[ext_resource type="Material" uid="uid://cuhyraqln5luj" path="res://scene_resources/note_material.tres" id="2_0gip3"]
 [ext_resource type="Shader" path="res://note.gdshader" id="2_f8777"]
 [ext_resource type="SpriteFrames" uid="uid://cod5w1irvgn0c" path="res://scene_resources/heart_spriteframe.tres" id="2_m730v"]
 [ext_resource type="SpriteFrames" uid="uid://cde3i1qgqcbuy" path="res://scene_resources/bomb_spriteframe.tres" id="3_8cwhq"]
@@ -12,22 +13,10 @@
 [ext_resource type="SpriteFrames" uid="uid://bbqfmw2t5o4g0" path="res://scene_resources/heart_blast_animation.tres" id="9_ejdfl"]
 [ext_resource type="PackedScene" uid="uid://52rqdd7jwrnq" path="res://scenes/position_hider.tscn" id="11_88bo6"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5q5w4"]
-resource_local_to_scene = true
-shader = ExtResource("2_f8777")
-shader_parameter/color = null
-shader_parameter/alpha = 1.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_fcsuf"]
 radius = 70.072
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1vdt"]
-resource_local_to_scene = true
-shader = ExtResource("2_f8777")
-shader_parameter/color = null
-shader_parameter/alpha = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n745g"]
 resource_local_to_scene = true
 shader = ExtResource("2_f8777")
 shader_parameter/color = null
@@ -40,12 +29,13 @@ collision_layer = 2
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("1_ol4d8")
+golden_note_color = Color(0.891352, 0.650038, 0.310766, 1)
 
 [node name="Stem" type="Sprite2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="Stem" type="Sprite2D" parent="Stem"]
-material = SubResource("ShaderMaterial_5q5w4")
+material = ExtResource("2_0gip3")
 position = Vector2(50.2857, -155.429)
 rotation = 1.5708
 scale = Vector2(2.192, 2.192)
@@ -133,9 +123,9 @@ frame = 17
 frame_progress = 1.0
 metadata/_edit_lock_ = true
 
-[node name="Quarter" type="Sprite2D" parent="."]
+[node name="NoteRoot" type="Sprite2D" parent="."]
 visible = false
-material = SubResource("ShaderMaterial_n745g")
+material = ExtResource("2_0gip3")
 position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)
 texture = ExtResource("3_aey48")

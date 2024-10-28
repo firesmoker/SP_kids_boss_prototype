@@ -5,11 +5,13 @@ class_name CollectibleDetector extends Area2D
 var current_collectibles: Array[CollectibleMarker]
 signal collectible_collected
 signal collectible_completed
+signal golden_note_missed
 
 func _ready() -> void:
 	game = get_tree().root.get_child(0)
 	collectible_collected.connect(game.activate_effect)
 	collectible_completed.connect(game.deactivate_effect)
+	golden_note_missed.connect(game.get_hit)
 
 func _unhandled_input(event: InputEvent) -> void:	
 	if not bottom_detector:
@@ -55,3 +57,5 @@ func _on_body_exited(collectible: CollectibleMarker) -> void:
 	if collectible is Collectible:
 		if collectible.state == "Active":
 			current_collectibles.pop_front()
+			if collectible.event.subtype == "golden_note":
+				emit_signal("golden_note_missed", -5)

@@ -11,6 +11,7 @@ class_name Game extends Node2D
 @onready var difficulty: Panel = $Overlay/Difficulty
 @onready var easy_button: Button = $Overlay/Difficulty/EasyButton
 @onready var intro_sequence: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequence
+@onready var combo_meter: Label = $UI/ComboMeter
 
 
 
@@ -115,7 +116,7 @@ var boss_new_health: float = 0
 var boss_previous_health: float = 0
 var boss_health_progress: float = 0
 var got_hit_atleast_once: bool = false
-
+var combo_count: int = 0
 signal game_resumed
 
 
@@ -523,7 +524,7 @@ func update_boss_health(health_change: float = -1) -> void:
 	boss_visual_damage()
 	
 
-func get_hit() -> void:
+func get_hit(damage: int = -1) -> void:
 	if vulnerable and not winning and not losing:
 		got_hit_atleast_once = true
 		#player_character.find_child("Flash").flash(Color.RED)
@@ -532,7 +533,7 @@ func get_hit() -> void:
 		player_bot.play("get_hit")
 		player_bot.find_child("Flash").flash(Color.RED)
 		audio_play_from_source(player_character, audio_clips.player_hit)
-		update_player_health(-1)
+		update_player_health(damage)
 		#player_health_bar.value = player_health
 		player_health_bar.find_child("Flash").flash(Color.RED)
 		player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
@@ -605,6 +606,14 @@ func player_win_animation() -> void:
 	win_text.visible = true
 	win_text.find_child("Fader").fade_in()
 
+
+func add_to_combo() -> void:
+	combo_count += 1
+	combo_meter.text = "COMBO: " + str(combo_count)
+
+func break_combo() -> void:
+	combo_count = 0
+	combo_meter.text = "COMBO: " + str(combo_count)
 
 func _on_resume_button_up() -> void:
 	tutorial.visible = false

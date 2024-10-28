@@ -4,10 +4,14 @@ class_name NotesDetector extends Area2D
 var current_notes: Array[Note]
 
 signal note_success
+signal note_failure
 
 func _ready() -> void:
 	game = get_tree().root.get_child(0)
 	note_success.connect(game.hit_boss)
+	note_success.connect(game.add_to_combo)
+	note_failure.connect(game.break_combo)
+	
 
 func _unhandled_input(event: InputEvent) -> void:	
 	if not bottom_detector and not event.is_echo() and not event.is_released():
@@ -66,5 +70,6 @@ func _on_body_exited(note: Note) -> void:
 	if note.state == "Active":
 		note.miss_note_visual()
 		current_notes.pop_front()
+		emit_signal("note_failure")
 	elif note.state == "inactive":
 		print("inactive note left")
