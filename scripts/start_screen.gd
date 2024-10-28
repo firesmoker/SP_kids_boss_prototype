@@ -244,3 +244,7 @@ func show_difficulty_buttons(show_easy: bool = false) -> void:
 
 func get_input_press_position() -> void:
 	current_press_position = get_global_mouse_position()
+
+
+func _on_auto_play_toggle_toggled(toggled_on: bool) -> void:
+	Game.cheat_auto_play = toggled_on

@@ -47,6 +47,8 @@ func _on_body_entered(collectible: CollectibleMarker) -> void:
 	if collectible is Collectible:
 		if collectible.state == "Active":
 			current_collectibles.append(collectible)
+			if Game.cheat_auto_play:
+				note_played(collectible.note)
 	elif collectible is CollectibleMarker:
 		var event: MelodyEvent = collectible.event
 		var details: Dictionary = event.details

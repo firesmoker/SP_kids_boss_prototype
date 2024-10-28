@@ -632,6 +632,23 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
+[node name="AutoPlayToggle" type="CheckButton" parent="UI"]
+offset_left = 54.0
+offset_top = 41.0
+offset_right = 98.0
+offset_bottom = 65.0
+scale = Vector2(3.69, 3.69)
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/AutoPlayToggle"]
+layout_mode = 0
+offset_left = -10.2981
+offset_top = 20.3252
+offset_right = 63.7019
+offset_bottom = 43.3252
+text = "Auto Play"
+
 [node name="Midi Websocket Status" type="Node" parent="."]
 script = ExtResource("8_uu1rv")
 
@@ -647,3 +664,4 @@ script = ExtResource("8_uu1rv")
 [connection signal="button_up" from="UI/Difficulty/EasyButton" to="." method="_on_easy_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]
+[connection signal="toggled" from="UI/AutoPlayToggle" to="." method="_on_auto_play_toggle_toggled"]

@@ -88,6 +88,7 @@ static var starting_boss_health: float = 300
 static var ui_type: String = "treble" # treble / bass / both
 static var repeat_requested: bool = false
 static var on_display_duration: float = 1
+static var cheat_auto_play: bool = false
 
 var player_health: float = 10
 var boss_health: float = 300
