@@ -57,7 +57,7 @@ func clear_notes() -> void:
 func _on_body_entered(note: Note) -> void:
 	if note.state == "Active":
 		current_notes.append(note)
-		if Game.cheat_auto_play:
+		if Game.cheat_auto_play and not game.winning:
 			note_played(note.note)
 	elif note.state == "Rest":
 		#print("yay rest")
