@@ -450,7 +450,8 @@ func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> v
 				heal(3)
 			else:
 				heal(3)
-			
+		"golden_note":
+			hit_boss(-5)
 		_:
 			print("no specific effect")
 			
@@ -469,7 +470,7 @@ func heal(amount: int = 1) -> void:
 	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
 	heart.find_child("Expander").expand(1.10, 0.25, true)
 
-func hit_boss() -> void:
+func hit_boss(damage: int = -1) -> void:
 	if not winning and not losing:
 		electric_beam.find_child("Flash").flash()
 		electric_beam.find_child("LineZap").play("line_zap")
@@ -480,7 +481,7 @@ func hit_boss() -> void:
 		player_character.play("attack")
 		player_bot.play("attack")
 		boss.find_child("Flash").flash(Color.RED)
-		update_boss_health(-1)
+		update_boss_health(damage)
 		#boss_health_bar.value = boss_health
 		boss_health_bar.find_child("Flash").flash(Color.RED)
 		boss_health_bar.find_child("Expander").expand(1.20, 0.15, true)
