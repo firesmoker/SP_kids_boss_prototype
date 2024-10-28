@@ -12,6 +12,9 @@ class_name Game extends Node2D
 @onready var easy_button: Button = $Overlay/Difficulty/EasyButton
 @onready var intro_sequence: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequence
 @onready var combo_meter: Label = $UI/ComboMeter
+@onready var debug_missed_notes: Label = $Overlay/DebugMissedNotes
+@onready var debug_notes_in_level: Label = $Overlay/DebugNotesInLevel
+@onready var debug_accuracy: Label = $Overlay/DebugAccuracy
 
 
 
@@ -89,6 +92,7 @@ static var ui_type: String = "treble" # treble / bass / both
 static var repeat_requested: bool = false
 static var on_display_duration: float = 1
 static var cheat_auto_play: bool = false
+static var game_mode: String = "boss"
 
 var player_health: float = 10
 var boss_health: float = 300
@@ -118,6 +122,8 @@ var boss_previous_health: float = 0
 var boss_health_progress: float = 0
 var got_hit_atleast_once: bool = false
 var combo_count: int = 0
+var missed_notes: int = 0
+var accuracy: float = 1
 signal game_resumed
 
 
@@ -187,7 +193,23 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			await timer.timeout
 			level_accelerate()
 
+func set_library_song_visibility() -> void:
+	boss.visible = false
+	player_health_bar.visible = false
+	boss_health_bar.visible = false
+	player_character.visible = false
+	player_bot.visible = false
+	electric_beam.find_child("LineZap").visible = false
+	electric_beam.find_child("ElectricBolt").visible = false
+	heart.visible = false
+	boss_portrait.visible = false
+	combo_meter.visible = false
+	
+
 func _ready() -> void:
+	show_debug()
+	if game_mode == "library":
+		set_library_song_visibility()
 	pause_button.visible = false
 	restart_button.visible = false
 	difficulty.visible = false
@@ -214,9 +236,11 @@ func _ready() -> void:
 	level.position = Vector2(0,0)
 	reset_health_bars()
 	detector_position_x = notes_detector.position.x
-	audio.stream = audio_clips.fight_starts
-	audio.play()
-	await intro_sequence.animation_finished
+	if game_mode == "boss":
+		intro_sequence.play()
+		audio.stream = audio_clips.fight_starts
+		audio.play()
+		await intro_sequence.animation_finished
 	music_player.play()
 	pause_button.visible = true
 	restart_button.visible = true
@@ -252,7 +276,12 @@ func enter_lose_ui() -> void:
 	#player_character.find_child("Expander").move(new_position, 0.35)
 	win_buttons.visible = true
 
+func calculate_accuracy() -> void:
+	accuracy = (float(notes_container.notes_in_level) - float(missed_notes)) / float(notes_container.notes_in_level)
+
 func _process(delta: float) -> void:
+	calculate_accuracy()
+	update_debug()
 	health_bars_progress(delta, health_rate)
 	
 	#if game_state == "Win" and not player_moving_to_finish:
@@ -330,18 +359,26 @@ func lose() -> void:
 	game_state = "Lose"
 	enter_lose_ui()
 
-func calculate_stars() -> int:
-	if not got_hit_atleast_once:
-		return 3
-	elif player_health_bar.value >= player_health_bar.max_value / 2:
-		return 2
+func calculate_stars(level_type: String = "boss") -> int:
+	if level_type == "boss":
+		if not got_hit_atleast_once:
+			return 3
+		elif player_health_bar.value >= player_health_bar.max_value / 2:
+			return 2
+		else:
+			return 1
 	else:
-		return 1
+		if accuracy > 0.9:
+			return 3
+		elif accuracy > 0.75:
+			return 2
+		else:
+			return 1
 
 func show_stars() -> void:
 	stars.visible = true
 	stars.find_child("Fader").fade_in()
-	match calculate_stars():
+	match calculate_stars(game_mode):
 		3:
 			star_full.visible = true
 			star_full_2.visible = true
@@ -366,15 +403,25 @@ func win() -> void:
 	var timer: Timer = new_timer(1)
 	timer.start()
 	await timer.timeout
-	boss.stop()
-	boss.play("death")
-	audio_play_from_source(boss, audio_clips.boss_death)
-	await boss.animation_finished
+	
+	if game_mode == "boss":
+		boss.stop()
+		boss.play("death")
+		audio_play_from_source(boss, audio_clips.boss_death)
+		await boss.animation_finished
+		boss.visible = false
+		
 	music_player_slow.stop()
 	play_music_clip(audio_clips.player_wins)
-	boss.visible = false
-	player_win_animation()
-	await player_character.animation_finished
+	into_stage.visible = true
+	into_stage.play()
+	win_text.visible = true
+	win_text.find_child("Fader").fade_in()
+	
+	if game_mode == "boss":
+		player_win_animation()
+		await player_character.animation_finished
+		
 	show_stars()
 	timer.wait_time = 0.5
 	timer.start()
@@ -473,30 +520,31 @@ func heal(amount: int = 1) -> void:
 
 func hit_boss(damage: int = -1) -> void:
 	if not winning and not losing:
-		electric_beam.find_child("Flash").flash()
-		electric_beam.find_child("LineZap").play("line_zap")
-		electric_beam.find_child("ElectricBolt").play("attack")
-		audio_play_from_source(electric_beam,audio_clips.electric_attack, -8.5)
-		player_character.stop()
-		player_bot.stop()
-		player_character.play("attack")
-		player_bot.play("attack")
-		boss.find_child("Flash").flash(Color.RED)
-		update_boss_health(damage)
-		#boss_health_bar.value = boss_health
-		boss_health_bar.find_child("Flash").flash(Color.RED)
-		boss_health_bar.find_child("Expander").expand(1.20, 0.15, true)
-		boss_portrait.find_child("Flash").flash(Color.RED)
-		boss_portrait.find_child("Expander").expand(1.20, 0.15, true)
-		boss.stop()
-		if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
-			boss.play("damaged_get_hit")
-		else:
-			boss.play("get_hit")
-		if boss_health <= 0:
-			win()
-		else:
-			audio_play_from_source(boss, audio_clips.boss_hit, -8.5)
+		if game_mode == "boss":
+			electric_beam.find_child("Flash").flash()
+			electric_beam.find_child("LineZap").play("line_zap")
+			electric_beam.find_child("ElectricBolt").play("attack")
+			audio_play_from_source(electric_beam,audio_clips.electric_attack, -8.5)
+			player_character.stop()
+			player_bot.stop()
+			player_character.play("attack")
+			player_bot.play("attack")
+			boss.find_child("Flash").flash(Color.RED)
+			update_boss_health(damage)
+			#boss_health_bar.value = boss_health
+			boss_health_bar.find_child("Flash").flash(Color.RED)
+			boss_health_bar.find_child("Expander").expand(1.20, 0.15, true)
+			boss_portrait.find_child("Flash").flash(Color.RED)
+			boss_portrait.find_child("Expander").expand(1.20, 0.15, true)
+			boss.stop()
+			if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
+				boss.play("damaged_get_hit")
+			else:
+				boss.play("get_hit")
+			if boss_health <= 0:
+				win()
+			else:
+				audio_play_from_source(boss, audio_clips.boss_hit, -8.5)
 
 func audio_play_from_source(source: Node, audio_clip: AudioStream, volume: float = 1.0) -> void:
 	source.find_child("Audio").stream = audio_clip
@@ -527,25 +575,24 @@ func update_boss_health(health_change: float = -1) -> void:
 	
 
 func get_hit(damage: int = -1) -> void:
-	if vulnerable and not winning and not losing:
-		got_hit_atleast_once = true
-		#player_character.find_child("Flash").flash(Color.RED)
-		player_character.play("get_hit")
-		player_character.find_child("Flash").flash(Color.RED)
-		player_bot.play("get_hit")
-		player_bot.find_child("Flash").flash(Color.RED)
-		audio_play_from_source(player_character, audio_clips.player_hit)
-		update_player_health(damage)
-		#player_health_bar.value = player_health
-		player_health_bar.find_child("Flash").flash(Color.RED)
-		player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
-		heart.find_child("Flash").flash(Color.RED)
-		heart.find_child("Expander").expand(1.20, 0.15, true)
-		
-		if player_health <= 0 and not winning and not losing:
-			lose()
-	else:
-		print("false hit")
+	if game_mode == "boss":
+		if vulnerable and not winning and not losing:
+			got_hit_atleast_once = true
+			#player_character.find_child("Flash").flash(Color.RED)
+			player_character.play("get_hit")
+			player_character.find_child("Flash").flash(Color.RED)
+			player_bot.play("get_hit")
+			player_bot.find_child("Flash").flash(Color.RED)
+			audio_play_from_source(player_character, audio_clips.player_hit)
+			update_player_health(damage)
+			#player_health_bar.value = player_health
+			player_health_bar.find_child("Flash").flash(Color.RED)
+			player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
+			heart.find_child("Flash").flash(Color.RED)
+			heart.find_child("Expander").expand(1.20, 0.15, true)
+			
+			if player_health <= 0 and not winning and not losing:
+				lose()
 
 func reset_health_bars() -> void:
 	player_health_bar.max_value = player_health
@@ -603,10 +650,7 @@ func player_win_animation() -> void:
 	player_character.find_child("Expander").move(Vector2(0,0), 0.25)
 	player_character.stop()
 	player_character.play("win")
-	into_stage.visible = true
-	into_stage.play()
-	win_text.visible = true
-	win_text.find_child("Fader").fade_in()
+	
 
 
 func add_to_combo() -> void:
@@ -668,3 +712,15 @@ func _on_normal_button_button_up() -> void:
 
 func _on_hard_button_button_up() -> void:
 	restart_level(false, "hard")
+
+func miss_note() -> void:
+	missed_notes += 1
+
+func show_debug(toggle: bool = true) -> void:
+	debug_missed_notes.visible = toggle
+	debug_notes_in_level.visible = toggle
+
+func update_debug() -> void:
+	debug_missed_notes.text = "DEBUG: missed notes: " + str(missed_notes)
+	debug_notes_in_level.text = "DEBUG: notes in level: " + str(notes_container.notes_in_level)
+	debug_accuracy.text = "DEBUG: Accuracy " + str(snapped(accuracy,0.01)*100.0) + "%"

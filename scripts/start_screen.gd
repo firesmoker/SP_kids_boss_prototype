@@ -7,6 +7,8 @@ extends Node2D
 #@onready var hard_button: Button = $UI/Difficulty/HardButton
 @onready var song_buttons: ScrollContainer = $UI/SongButtons
 @onready var auto_play_toggle: CheckButton = $UI/AutoPlayToggle
+@onready var library_song_toggle: CheckButton = $UI/LibrarySongToggle
+
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
 var default_left_melody: String = "res://levels/melody1_left.txt"
 @export_group("Just Can't Wait")
@@ -61,6 +63,11 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 @export var song_9_left_melody_path: String
 @export var song_9_hard_melody_path: String
 @export var song_9_left_hard_melody_path: String
+@export_group("Let It March!")
+@export var song_10_song_path: String
+@export var song_10_slow_song_path: String
+@export var song_10_melody_path: String
+@export var song_10_hard_melody_path: String
 
 
 var maximum_input_distance: float = 100
@@ -70,8 +77,14 @@ func _ready() -> void:
 	load_overlay.visible = false
 	darken.visible = false
 	difficulty.visible = false
+	
 	connect_buttons()
 	auto_play_toggle.set_pressed_no_signal(Game.cheat_auto_play)
+	if Game.game_mode == "library":
+		library_song_toggle.set_pressed_no_signal(true)
+	else:
+		library_song_toggle.set_pressed_no_signal(false)
+	
 
 func connect_buttons() -> void:	
 	var vbox_container: VBoxContainer = song_buttons.find_child("VBoxContainer")
@@ -175,6 +188,14 @@ func _on_button_9_button_up() -> void:
 		define_easy_level(song_9_melody_path,song_9_left_melody_path,song_9_song_path,song_9_slow_song_path,88,10, 38,2.5, "both")
 		define_hard_level(song_9_hard_melody_path,song_9_left_hard_melody_path,song_9_song_path,song_9_slow_song_path,88,12, 47, 2.5, "both")
 
+func _on_button10_button_up() -> void:
+	if unpressed_accepted():
+		show_difficulty_buttons()
+		Game.has_easy_difficulty = false
+		define_level(song_10_melody_path,default_left_melody,song_10_song_path,song_10_slow_song_path,106,5, 20, 3)
+		define_easy_level(song_10_melody_path,default_left_melody,song_10_song_path,song_10_slow_song_path,106,5, 20, 3)
+		define_hard_level(song_10_hard_melody_path,default_left_melody,song_10_song_path,song_10_slow_song_path,106,6, 31, 3)		
+
 func unpressed_accepted() -> bool:
 	var current_unpressed_position: Vector2 = get_global_mouse_position()
 	if current_unpressed_position.distance_to(current_press_position) > 300:
@@ -250,3 +271,10 @@ func get_input_press_position() -> void:
 
 func _on_auto_play_toggle_toggled(toggled_on: bool) -> void:
 	Game.cheat_auto_play = toggled_on
+
+
+func _on_library_song_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		Game.game_mode = "library"
+	else:
+		Game.game_mode = "boss"

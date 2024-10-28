@@ -16,6 +16,7 @@ class_name NotesContainer extends Sprite2D
 @export var barline_template: PackedScene
 @export var finger_number_template: PackedScene
 
+var notes_in_level: int = 0
 var bass_clef_offset: float = note_heigth * 12
 static var note_heigth_by_pitch: Dictionary = {
 	"C3": 181.5,
@@ -104,27 +105,8 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			new_note.position.y = note_heigth_by_pitch["F4"]
 			if bottom_staff:
 				new_note.position.y += treble_to_bass_gap
-		elif event.type == "note":
-			var notes: Array = split_notes(event.note)
-			for note: String in notes:
-				var new_note: Note = note_template.instantiate()
-				new_note.note = note
-				new_note.event = event
-				add_child(new_note)
-				new_note.set_duration_visual(event.duration)
-				new_note.position.x = event.time * bar_length_in_pixels - size / 2
-				new_note.position.y = note_heigth_by_pitch[note] + resolution_y_offset
-				if bottom_staff:
-					new_note.position.y += treble_to_bass_gap - bass_clef_offset
-					new_note.stem.rotation = deg_to_rad(180)
-				if event.details.has("finger") and notes[0] == note:
-					var new_finger: Label = finger_number_template.instantiate()
-					new_note.add_child(new_finger)
-					new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[note]) * 5 + 120
-					new_finger.text = event.details["finger"]
-					if bottom_staff:
-						new_finger.position.y += treble_to_bass_gap + 600 - 120
-		elif event.type == "collectible":
+
+		elif event.type == "collectible" and Game.game_mode == "boss":
 			if event.note.is_empty():
 				var collectible_marker: CollectibleMarker = collectable_marker_template.instantiate()
 				collectible_marker.event = event
@@ -152,39 +134,30 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 					new_finger.text = event.details["finger"]
 					if bottom_staff:
 						new_finger.position.y += treble_to_bass_gap + 600 - 120
-				#collectible.global_position = Vector2(0,0)
-				#collectible.scale *= 2
+						
+		elif event.type == "note" or event.type == "collectible":
+			notes_in_level += 1
+			var notes: Array = split_notes(event.note)
+			for note: String in notes:
+				var new_note: Note = note_template.instantiate()
+				new_note.note = note
+				new_note.event = event
+				add_child(new_note)
+				new_note.set_duration_visual(event.duration)
+				new_note.position.x = event.time * bar_length_in_pixels - size / 2
+				new_note.position.y = note_heigth_by_pitch[note] + resolution_y_offset
+				if bottom_staff:
+					new_note.position.y += treble_to_bass_gap - bass_clef_offset
+					new_note.stem.rotation = deg_to_rad(180)
+				if event.details.has("finger") and notes[0] == note:
+					var new_finger: Label = finger_number_template.instantiate()
+					new_note.add_child(new_finger)
+					new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[note]) * 5 + 120
+					new_finger.text = event.details["finger"]
+					if bottom_staff:
+						new_finger.position.y += treble_to_bass_gap + 600 - 120
+		
 
-				
-func populate() -> void:
-	## TEMPORARY DICT GENERATION
-	var absolute_rhythmic_position: float = 0
-	for i in range(100):
-		example_note_dict[i] = {
-			"pitch" = "G4",
-			"rhythmic_position" = absolute_rhythmic_position
-		}
-		absolute_rhythmic_position += 0.25
-	
-	## Build level from dictionary
-	var count: int = 0
-	for key: int in example_note_dict:
-		count += 1
-		var rest: bool = false
-		var new_note: Note = note_template.instantiate()
-		if count == 4:
-			count = 0
-			rest = true
-			new_note = rest_template.instantiate()
-		else:
-			new_note = note_template.instantiate()
-		add_child(new_note)
-		new_note.position.x = example_note_dict[key]["rhythmic_position"] * bar_length_in_pixels - size / 2
-		new_note.pitch = example_note_dict[key]["pitch"]
-		if not rest:
-			new_note.position.y = note_heigth_by_pitch[example_note_dict[key]["pitch"]]
-		else:
-			new_note.position.y = note_heigth_by_pitch["G4"]
 	
 
 func set_parent_at_ending() -> void:

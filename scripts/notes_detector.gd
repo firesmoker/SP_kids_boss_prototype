@@ -11,6 +11,7 @@ func _ready() -> void:
 	note_success.connect(game.hit_boss)
 	note_success.connect(game.add_to_combo)
 	note_failure.connect(game.break_combo)
+	note_failure.connect(game.miss_note)
 	
 
 func _unhandled_input(event: InputEvent) -> void:	
