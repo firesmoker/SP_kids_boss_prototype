@@ -8,6 +8,7 @@ extends Node2D
 @onready var song_buttons: ScrollContainer = $UI/SongButtons
 @onready var auto_play_toggle: CheckButton = $UI/AutoPlayToggle
 @onready var library_song_toggle: CheckButton = $UI/LibrarySongToggle
+@onready var debug_toggle: CheckButton = $UI/DebugToggle
 
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
 var default_left_melody: String = "res://levels/melody1_left.txt"
@@ -80,6 +81,7 @@ func _ready() -> void:
 	
 	connect_buttons()
 	auto_play_toggle.set_pressed_no_signal(Game.cheat_auto_play)
+	debug_toggle.set_pressed_no_signal(Game.debug)
 	if Game.game_mode == "library":
 		library_song_toggle.set_pressed_no_signal(true)
 	else:
@@ -278,3 +280,7 @@ func _on_library_song_toggled(toggled_on: bool) -> void:
 		Game.game_mode = "library"
 	else:
 		Game.game_mode = "boss"
+
+
+func _on_debug_toggle_toggled(toggled_on: bool) -> void:
+	Game.debug = toggled_on

@@ -93,6 +93,7 @@ static var repeat_requested: bool = false
 static var on_display_duration: float = 1
 static var cheat_auto_play: bool = false
 static var game_mode: String = "boss"
+static var debug: bool = false
 
 var player_health: float = 10
 var boss_health: float = 300
@@ -716,9 +717,10 @@ func _on_hard_button_button_up() -> void:
 func miss_note() -> void:
 	missed_notes += 1
 
-func show_debug(toggle: bool = true) -> void:
+func show_debug(toggle: bool = debug) -> void:
 	debug_missed_notes.visible = toggle
 	debug_notes_in_level.visible = toggle
+	debug_accuracy.visible = toggle
 
 func update_debug() -> void:
 	debug_missed_notes.text = "DEBUG: missed notes: " + str(missed_notes)
