@@ -6,7 +6,7 @@ extends Node2D
 #@onready var normal_button: Button = $UI/Difficulty/NormalButton
 #@onready var hard_button: Button = $UI/Difficulty/HardButton
 @onready var song_buttons: ScrollContainer = $UI/SongButtons
-
+@onready var auto_play_toggle: CheckButton = $UI/AutoPlayToggle
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
 var default_left_melody: String = "res://levels/melody1_left.txt"
 @export_group("Just Can't Wait")
@@ -62,6 +62,7 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 @export var song_9_hard_melody_path: String
 @export var song_9_left_hard_melody_path: String
 
+
 var maximum_input_distance: float = 100
 var current_press_position: Vector2
 
@@ -70,6 +71,7 @@ func _ready() -> void:
 	darken.visible = false
 	difficulty.visible = false
 	connect_buttons()
+	auto_play_toggle.set_pressed_no_signal(Game.cheat_auto_play)
 
 func connect_buttons() -> void:	
 	var vbox_container: VBoxContainer = song_buttons.find_child("VBoxContainer")
