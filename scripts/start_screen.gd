@@ -7,7 +7,6 @@ extends Node2D
 #@onready var hard_button: Button = $UI/Difficulty/HardButton
 @onready var song_buttons: ScrollContainer = $UI/SongButtons
 
-
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
 var default_left_melody: String = "res://levels/melody1_left.txt"
 @export_group("Just Can't Wait")
@@ -63,10 +62,20 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 @export var song_9_hard_melody_path: String
 @export var song_9_left_hard_melody_path: String
 
+var maximum_input_distance: float = 100
+var current_press_position: Vector2
+
 func _ready() -> void:
 	load_overlay.visible = false
 	darken.visible = false
 	difficulty.visible = false
+	connect_buttons()
+
+func connect_buttons() -> void:	
+	var vbox_container: VBoxContainer = song_buttons.find_child("VBoxContainer")
+	var all_song_buttons: Array = vbox_container.get_children()
+	for button: Button in all_song_buttons:
+		button.connect("button_down", get_input_press_position)
 
 
 func start_level(type: String = "normal") -> void:
@@ -85,74 +94,91 @@ func start_level(type: String = "normal") -> void:
 
 
 func _on_button1_button_up() -> void:
-	show_difficulty_buttons(true)
-	Game.has_easy_difficulty = true
-	define_easy_level(song_1_easy_melody_path,default_left_melody,song_1_easy_path,song_1_easy_slow_song_path, 70, 8, 30,2.5, "treble")
-	define_level(song_1_melody_path,default_left_melody,song_1_path,song_1_slow_song_path, 76, 8, 30,2.5, "treble")
-	define_hard_level(song_1_hard_melody_path,default_left_melody,song_1_path,song_1_slow_song_path, 76, 6, 31, 2.5, "treble")
+	if unpressed_accepted():
+		show_difficulty_buttons(true)
+		Game.has_easy_difficulty = true
+		define_easy_level(song_1_easy_melody_path,default_left_melody,song_1_easy_path,song_1_easy_slow_song_path, 70, 8, 30,2.5, "treble")
+		define_level(song_1_melody_path,default_left_melody,song_1_path,song_1_slow_song_path, 76, 8, 30,2.5, "treble")
+		define_hard_level(song_1_hard_melody_path,default_left_melody,song_1_path,song_1_slow_song_path, 76, 6, 31, 2.5, "treble")
 
 
 func _on_button2_button_up() -> void:
-	show_difficulty_buttons()
-	Game.has_easy_difficulty = false
-	define_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15,2.5)
-	define_easy_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15,2.5)
-	define_hard_level(song_2_hard_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 6, 35,2.5) #39-8 -> 
+	if unpressed_accepted():
+		show_difficulty_buttons()
+		Game.has_easy_difficulty = false
+		define_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15,2.5)
+		define_easy_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15,2.5)
+		define_hard_level(song_2_hard_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 6, 35,2.5) #39-8 -> 
 
 
 func _on_button3_button_up() -> void:
-	show_difficulty_buttons()
-	Game.has_easy_difficulty = false
-	define_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20, 3)
-	define_easy_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20, 3)
-	define_hard_level(song_3_hard_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,6, 31, 3)
+	if unpressed_accepted():
+		show_difficulty_buttons()
+		Game.has_easy_difficulty = false
+		define_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20, 3)
+		define_easy_level(song_3_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,5, 20, 3)
+		define_hard_level(song_3_hard_melody_path,default_left_melody,song_3_song_path,song_3_slow_song_path,106,6, 31, 3)
 
 
 func _on_button_4_button_up() -> void:
-	show_difficulty_buttons()
-	Game.has_easy_difficulty = false
-	define_level(song_4_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,9,35)
-	define_easy_level(song_4_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,9,35)
-	define_hard_level(song_4_hard_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,8,40)
+	if unpressed_accepted():
+		show_difficulty_buttons()
+		Game.has_easy_difficulty = false
+		define_level(song_4_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,9,35)
+		define_easy_level(song_4_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,9,35)
+		define_hard_level(song_4_hard_melody_path,default_left_melody,song_4_song_path,song_4_slow_song_path,88,8,40)
 
 
 func _on_button_5_button_up() -> void:
-	show_difficulty_buttons()
-	Game.has_easy_difficulty = false
-	define_level(song_5_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 51)
-	define_easy_level(song_5_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 51)
-	define_hard_level(song_5_hard_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 55)
+	if unpressed_accepted():
+		show_difficulty_buttons()
+		Game.has_easy_difficulty = false
+		define_level(song_5_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 51)
+		define_easy_level(song_5_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 51)
+		define_hard_level(song_5_hard_melody_path,default_left_melody,song_5_song_path,song_5_slow_song_path,155,13, 55)
 
 
 func _on_button_6_button_up() -> void:
-	show_difficulty_buttons()
-	Game.has_easy_difficulty = false
-	define_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23,2.5, "both")
-	define_easy_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23,2.5, "both")
-	define_hard_level(song_6_melody_path,song_6_left_hard_melody_path,song_6_song_path,song_6_slow_song_path,85,8, 33, 2.5, "both")
+	if unpressed_accepted():
+		show_difficulty_buttons()
+		Game.has_easy_difficulty = false
+		define_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23,2.5, "both")
+		define_easy_level(song_6_melody_path,song_6_left_melody_path,song_6_song_path,song_6_slow_song_path,85,6, 23,2.5, "both")
+		define_hard_level(song_6_melody_path,song_6_left_hard_melody_path,song_6_song_path,song_6_slow_song_path,85,8, 33, 2.5, "both")
 
 
 func _on_button_7_button_up() -> void:
-	show_difficulty_buttons()
-	Game.has_easy_difficulty = false
-	define_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23,2.5, "both")
-	define_easy_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23,2.5, "both")
-	define_hard_level(song_7_melody_path,song_7_left_hard_melody_path,song_7_song_path,song_7_slow_song_path,115,6, 26, 2.5, "both")
+	if unpressed_accepted():
+		show_difficulty_buttons()
+		Game.has_easy_difficulty = false
+		define_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23,2.5, "both")
+		define_easy_level(song_7_melody_path,song_7_left_melody_path,song_7_song_path,song_7_slow_song_path,115,4, 23,2.5, "both")
+		define_hard_level(song_7_melody_path,song_7_left_hard_melody_path,song_7_song_path,song_7_slow_song_path,115,6, 26, 2.5, "both")
 
 
 func _on_button_8_button_up() -> void:
-	show_difficulty_buttons()
-	Game.has_easy_difficulty = false
-	define_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23,2.5, "both")
-	define_easy_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23,2.5, "both")
-	define_hard_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23, 2.5, "both")
+	if unpressed_accepted():
+		show_difficulty_buttons()
+		Game.has_easy_difficulty = false
+		define_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23,2.5, "both")
+		define_easy_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23,2.5, "both")
+		define_hard_level(song_8_melody_path,song_8_left_melody_path,song_8_song_path,song_8_slow_song_path,110,4, 23, 2.5, "both")
 
 func _on_button_9_button_up() -> void:
-	show_difficulty_buttons()
-	Game.has_easy_difficulty = false
-	define_level(song_9_melody_path,song_9_left_melody_path,song_9_song_path,song_9_slow_song_path,88,10, 38,2.5, "both")
-	define_easy_level(song_9_melody_path,song_9_left_melody_path,song_9_song_path,song_9_slow_song_path,88,10, 38,2.5, "both")
-	define_hard_level(song_9_hard_melody_path,song_9_left_hard_melody_path,song_9_song_path,song_9_slow_song_path,88,12, 47, 2.5, "both")
+	if unpressed_accepted():
+		print("close!")
+		show_difficulty_buttons()
+		Game.has_easy_difficulty = false
+		define_level(song_9_melody_path,song_9_left_melody_path,song_9_song_path,song_9_slow_song_path,88,10, 38,2.5, "both")
+		define_easy_level(song_9_melody_path,song_9_left_melody_path,song_9_song_path,song_9_slow_song_path,88,10, 38,2.5, "both")
+		define_hard_level(song_9_hard_melody_path,song_9_left_hard_melody_path,song_9_song_path,song_9_slow_song_path,88,12, 47, 2.5, "both")
+
+func unpressed_accepted() -> bool:
+	var current_unpressed_position: Vector2 = get_global_mouse_position()
+	if current_unpressed_position.distance_to(current_press_position) > 300:
+		return false
+	else:
+		return true
 
 func _on_easy_button_button_up() -> void:
 	start_level("easy")
@@ -213,3 +239,8 @@ func show_difficulty_buttons(show_easy: bool = false) -> void:
 	song_buttons.visible = false
 	darken.visible = true
 	difficulty.visible = true
+
+
+
+func get_input_press_position() -> void:
+	current_press_position = get_global_mouse_position()
