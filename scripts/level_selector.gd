@@ -33,7 +33,7 @@ static var hard_ui_type: String
 static var hard_display_duration: float
 
 static func set_level(level: String = "normal") -> void:
-	Game.game_state = "Playing"
+	#Game.game_state = "Playing"
 	match level:
 		"easy":
 			Game.current_difficulty = "easy"

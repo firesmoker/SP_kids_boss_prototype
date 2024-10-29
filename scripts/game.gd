@@ -82,7 +82,7 @@ static var left_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Rig
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
 static var game_won_scene: String = "res://scenes/start_screen.tscn"
-static var game_state: String = "Playing"
+static var game_state: String
 static var health_collected: bool = false
 static var slowdown_collected: bool = false
 static var bomb_collected: bool = false
@@ -210,11 +210,15 @@ func set_library_song_visibility() -> void:
 	
 
 func set_visibility() -> void:
+	combo_meter.visible = false
 	darken_level.visible = false
-	continue_note_popup.visible = true
+	continue_note_popup.visible = false
 	background_slow.visible = false
 	background.visible = true
-	intro_sequence.visible = true
+	if game_mode == "boss":
+		intro_sequence.visible = true
+	else:
+		intro_sequence.visible = false
 
 func _ready() -> void:
 	show_debug()
@@ -249,16 +253,19 @@ func _ready() -> void:
 	reset_health_bars()
 	detector_position_x = notes_detector.position.x
 	if game_mode == "boss":
-		intro_sequence.play()
-		audio.stream = audio_clips.fight_starts
-		audio.play()
-		await intro_sequence.animation_finished
+		continue_note_popup.visible = true
+		if Game.game_state == "Intro":
+			intro_sequence.play()
+			audio.stream = audio_clips.fight_starts
+			audio.play()
+			await intro_sequence.animation_finished
 		intro_sequence.visible = false
 		await notes_detector.continue_note_played
 		continue_note_popup.visible = false
 	music_player.play()
 	pause_button.visible = true
 	restart_button.visible = true
+	game_state = "Playing"
 
 func initialize_part(hand_parts: String = ui_type) -> void:
 	if hand_parts.to_lower() == "bass" or hand_parts.to_lower() == "both":

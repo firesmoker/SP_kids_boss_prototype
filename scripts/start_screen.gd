@@ -24,6 +24,7 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 @export var song_2_path: String
 @export var song_2_slow_song_path: String
 @export var song_2_melody_path: String
+@export var song_2_easy_melody_path: String
 @export var song_2_hard_melody_path: String
 @export_group("Let it Go")
 @export var song_3_song_path: String
@@ -96,7 +97,7 @@ func connect_buttons() -> void:
 
 
 func start_level(type: String = "normal") -> void:
-	Game.game_state = "Playing"
+	Game.game_state = "Intro"
 	Game.repeat_requested = false
 	load_overlay.visible = true
 	var timer: Timer = Timer.new()
@@ -124,9 +125,9 @@ func _on_button2_button_up() -> void:
 	if unpressed_accepted():
 		show_difficulty_buttons()
 		Game.has_easy_difficulty = false
-		define_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15,2.5)
-		define_easy_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15,2.5)
-		define_hard_level(song_2_hard_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 6, 35,2.5) #39-8 -> 
+		define_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 7, 26)
+		define_easy_level(song_2_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 4, 15)
+		define_hard_level(song_2_hard_melody_path,default_left_melody,song_2_path,song_2_slow_song_path,78, 6, 35) #39-8 -> 
 
 
 func _on_button3_button_up() -> void:
