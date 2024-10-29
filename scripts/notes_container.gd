@@ -106,7 +106,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			if bottom_staff:
 				new_note.position.y += treble_to_bass_gap
 
-		elif event.type == "collectible" and Game.game_mode == "boss":
+		elif event.type == "collectible" and Game.game_mode == "boss" and event.subtype != "golden_note":
 			if event.note.is_empty():
 				var collectible_marker: CollectibleMarker = collectable_marker_template.instantiate()
 				collectible_marker.event = event
