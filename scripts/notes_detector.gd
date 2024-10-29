@@ -5,6 +5,7 @@ var current_notes: Array[Note]
 
 signal note_success
 signal note_failure
+signal continue_note_played
 
 func _ready() -> void:
 	game = get_tree().root.get_child(0)
@@ -23,6 +24,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		note_played(note)
 
 func note_played(note: String) -> void:
+	if note == "C4":
+		emit_signal("continue_note_played")
 	var interval: bool = false
 	if current_notes.size() > 1 and not game.get_lose_state():
 		if current_notes[0].position.x == current_notes[1].position.x:

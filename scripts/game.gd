@@ -15,6 +15,7 @@ class_name Game extends Node2D
 @onready var debug_missed_notes: Label = $Overlay/DebugMissedNotes
 @onready var debug_notes_in_level: Label = $Overlay/DebugNotesInLevel
 @onready var debug_accuracy: Label = $Overlay/DebugAccuracy
+@onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
 
 
 
@@ -125,6 +126,7 @@ var got_hit_atleast_once: bool = false
 var combo_count: int = 0
 var missed_notes: int = 0
 var accuracy: float = 1
+var continue_note_played: bool = false
 signal game_resumed
 
 
@@ -207,8 +209,17 @@ func set_library_song_visibility() -> void:
 	combo_meter.visible = false
 	
 
+func set_visibility() -> void:
+	darken_level.visible = false
+	continue_note_popup.visible = true
+	background_slow.visible = false
+	background.visible = true
+	intro_sequence.visible = true
+
 func _ready() -> void:
 	show_debug()
+	set_visibility()
+	
 	if game_mode == "library":
 		set_library_song_visibility()
 	pause_button.visible = false
@@ -242,6 +253,9 @@ func _ready() -> void:
 		audio.stream = audio_clips.fight_starts
 		audio.play()
 		await intro_sequence.animation_finished
+		intro_sequence.visible = false
+		await notes_detector.continue_note_played
+		continue_note_popup.visible = false
 	music_player.play()
 	pause_button.visible = true
 	restart_button.visible = true
@@ -659,8 +673,9 @@ func add_to_combo() -> void:
 	combo_meter.text = "COMBO: " + str(combo_count)
 
 func break_combo() -> void:
-	combo_count = 0
-	combo_meter.text = "COMBO: " + str(combo_count)
+	if not winning:
+		combo_count = 0
+		combo_meter.text = "COMBO: " + str(combo_count)
 
 func _on_resume_button_up() -> void:
 	tutorial.visible = false
