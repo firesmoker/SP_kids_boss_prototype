@@ -673,6 +673,7 @@ offset_bottom = 65.0
 scale = Vector2(2.3, 2.3)
 icon_alignment = 1
 expand_icon = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/AutoPlayToggle"]
 layout_mode = 0
@@ -681,6 +682,24 @@ offset_top = 20.0
 offset_right = 64.0
 offset_bottom = 43.0
 text = "Auto Play"
+
+[node name="Skip Intro" type="CheckButton" parent="UI"]
+offset_left = 244.0
+offset_top = 43.0
+offset_right = 288.0
+offset_bottom = 67.0
+scale = Vector2(2.3, 2.3)
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="UI/Skip Intro"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 20.0
+offset_right = 64.0
+offset_bottom = 43.0
+text = "Skip Intro"
 
 [node name="DebugToggle" type="CheckButton" parent="UI"]
 offset_left = 56.0
@@ -733,5 +752,6 @@ script = ExtResource("8_uu1rv")
 [connection signal="button_up" from="UI/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]
 [connection signal="toggled" from="UI/AutoPlayToggle" to="." method="_on_auto_play_toggle_toggled"]
+[connection signal="toggled" from="UI/Skip Intro" to="." method="_on_skip_intro_toggled"]
 [connection signal="toggled" from="UI/DebugToggle" to="." method="_on_debug_toggle_toggled"]
 [connection signal="toggled" from="UI/LibrarySongToggle" to="." method="_on_library_song_toggled"]

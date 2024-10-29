@@ -93,6 +93,7 @@ static var ui_type: String = "treble" # treble / bass / both
 static var repeat_requested: bool = false
 static var on_display_duration: float = 1
 static var cheat_auto_play: bool = false
+static var cheat_skip_intro: bool = false
 static var game_mode: String = "boss"
 static var debug: bool = false
 
@@ -215,7 +216,7 @@ func set_visibility() -> void:
 	continue_note_popup.visible = false
 	background_slow.visible = false
 	background.visible = true
-	if game_mode == "boss":
+	if game_mode == "boss" and not cheat_skip_intro:
 		intro_sequence.visible = true
 	else:
 		intro_sequence.visible = false
@@ -254,7 +255,7 @@ func _ready() -> void:
 	detector_position_x = notes_detector.position.x
 	if game_mode == "boss":
 		continue_note_popup.visible = true
-		if Game.game_state == "Intro":
+		if Game.game_state == "Intro" and not cheat_skip_intro:
 			intro_sequence.play()
 			audio.stream = audio_clips.fight_starts
 			audio.play()
