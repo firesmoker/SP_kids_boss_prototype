@@ -61,16 +61,17 @@ func play_animation(type: String = "Heart") -> void:
 		_:
 			pass
 
+func appear(toggle: bool) -> void:
+	self.visible = toggle
+	self.collision.disabled = !toggle
 
 func on_visibility_changed() -> void:
 	if visible and event.subtype == "slowdown":
 		var game: Game = NodeHelper.get_ancestor_game(self)
 		var texture_progress_bar: TextureProgressBar = game.player_health_bar
 		var player_health: float = (texture_progress_bar.value - texture_progress_bar.min_value) / (texture_progress_bar.max_value - texture_progress_bar.min_value)
-		if player_health < 0.5 or Game.repeat_requested:
-			self.visible = true
-			self.collision.disabled = false
+		if Game.repeat_requested:
+			appear(true)
 		else:
-			self.visible = false
-			self.collision.disabled = true
+			appear(false)
 			

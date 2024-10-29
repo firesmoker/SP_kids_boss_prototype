@@ -621,7 +621,10 @@ func reset_health_bars() -> void:
 
 func restart_level(wait: bool = false, type: String = "normal") -> void:
 	#Game.game_state = "Playing"
-	Game.repeat_requested = true
+	if game_state == "Lose":
+		Game.repeat_requested = true
+	else:
+		Game.repeat_requested = false
 	music_player.stream_paused = true
 	if wait:
 		var timer: Timer = Timer.new()

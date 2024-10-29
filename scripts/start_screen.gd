@@ -96,6 +96,7 @@ func connect_buttons() -> void:
 
 
 func start_level(type: String = "normal") -> void:
+	Game.game_state = "Playing"
 	Game.repeat_requested = false
 	load_overlay.visible = true
 	var timer: Timer = Timer.new()
