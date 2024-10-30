@@ -264,6 +264,7 @@ func _ready() -> void:
 		await notes_detector.continue_note_played
 		continue_note_popup.visible = false
 	music_player.play()
+	vulnerable = true
 	pause_button.visible = true
 	restart_button.visible = true
 	game_state = "Playing"
@@ -319,9 +320,9 @@ func _process(delta: float) -> void:
 	if not player_character.is_playing() and not winning and not losing:
 		player_character.play("idle")
 		player_bot.play("fly")
-	time_elapsed += delta
-	if time_elapsed > vul_time:
-		vulnerable = true
+	#time_elapsed += delta
+	#if time_elapsed > vul_time:
+		#vulnerable = true
 		
 	var stream: AudioStream = music_player.stream
 	var song_length: float = stream.get_length()

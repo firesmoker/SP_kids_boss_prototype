@@ -73,7 +73,7 @@ func _on_body_entered(note: Note) -> void:
 
 
 func _on_body_exited(note: Note) -> void:
-	if note.state == "Active":
+	if note.state == "Active" and game.vulnerable:
 		note.miss_note_visual()
 		current_notes.pop_front()
 		emit_signal("note_failure")
