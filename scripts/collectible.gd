@@ -17,8 +17,9 @@ var effect: String = "slow_down"
 
 
 func _ready() -> void:
-	self.visibility_changed.connect(on_visibility_changed)
 	hide_sprites()
+	on_visibility_changed()
+	self.visibility_changed.connect(on_visibility_changed)
 
 
 func set_sprite(type: String = "Heart") -> void:
