@@ -1,4 +1,4 @@
-[gd_scene load_steps=411 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=410 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -398,6 +398,7 @@
 [ext_resource type="Texture2D" uid="uid://toh8g2n8iocp" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00323.png" id="341_x80gn"]
 [ext_resource type="Texture2D" uid="uid://cyba858mjg31l" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00324.png" id="342_rgjm1"]
 [ext_resource type="Texture2D" uid="uid://b8v3ceoh7gvj1" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00325.png" id="343_ubx8q"]
+[ext_resource type="Texture2D" uid="uid://bojkg7vd7y5qr" path="res://art/rythmfix.png" id="379_g4x10"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dbryh"]
 animations = [{
@@ -1409,13 +1410,6 @@ default_font_size = 60
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
 size = Vector2(69.0258, 547.385)
 
-[sub_resource type="Gradient" id="Gradient_6smsb"]
-offsets = PackedFloat32Array(0, 0.166253)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_oay21"]
-gradient = SubResource("Gradient_6smsb")
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_u4wap"]
 animations = [{
 "frames": [{
@@ -1508,12 +1502,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="IntroSequence" type="AnimatedSprite2D" parent="CameraOverlay/AspectRatioContainer"]
 scale = Vector2(1.1522, 1.1522)
 sprite_frames = SubResource("SpriteFrames_dbryh")
 frame = 325
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 follow_viewport_scale = 281.155
@@ -2274,14 +2270,15 @@ metadata/_edit_lock_ = true
 [node name="Expander" parent="UI/Heart" instance=ExtResource("20_wgxju")]
 
 [node name="ComboMeter" type="Label" parent="UI"]
-offset_left = 449.0
-offset_top = 130.0
-offset_right = 665.0
-offset_bottom = 199.0
+offset_left = 457.0
+offset_top = 139.0
+offset_right = 702.0
+offset_bottom = 208.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
 theme_override_font_sizes/font_size = 50
 text = "COMBO: 0"
+metadata/_edit_use_anchors_ = true
 
 [node name="StreakMeter" type="Label" parent="UI"]
 visible = false
@@ -2395,28 +2392,15 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="NotesDetector" type="Area2D" parent="Level/RightHandPart"]
+visible = false
 position = Vector2(-237.54, -50)
 script = ExtResource("6_gcv22")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightHandPart/NotesDetector"]
-visible = false
 position = Vector2(4.837, 42.375)
 shape = ExtResource("7_ged7t")
 debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
-metadata/_edit_lock_ = true
-
-[node name="BlueLine" type="Node2D" parent="Level/RightHandPart/NotesDetector"]
-visible = false
-modulate = Color(0.443137, 1, 1, 0.552941)
-position = Vector2(0, 78)
-scale = Vector2(1, 2.65)
-metadata/_edit_lock_ = true
-
-[node name="Sprite2" type="Sprite2D" parent="Level/RightHandPart/NotesDetector/BlueLine"]
-position = Vector2(0, -10.566)
-scale = Vector2(0.239218, 0.239218)
-texture = ExtResource("14_nko2d")
 metadata/_edit_lock_ = true
 
 [node name="BottomNotesDetector" type="Area2D" parent="Level/RightHandPart"]
@@ -2430,19 +2414,6 @@ visible = false
 position = Vector2(4.837, 60.625)
 shape = ExtResource("7_ged7t")
 debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
-metadata/_edit_lock_ = true
-
-[node name="BottomBlueLine" type="Node2D" parent="Level/RightHandPart/BottomNotesDetector"]
-visible = false
-modulate = Color(0.443137, 1, 1, 0.552941)
-position = Vector2(0, 93)
-scale = Vector2(1, 2.65)
-metadata/_edit_lock_ = true
-
-[node name="Sprite2" type="Sprite2D" parent="Level/RightHandPart/BottomNotesDetector/BottomBlueLine"]
-position = Vector2(0, -10.566)
-scale = Vector2(0.239218, 0.239218)
-texture = ExtResource("14_nko2d")
 metadata/_edit_lock_ = true
 
 [node name="CollectDetect" type="Area2D" parent="Level/RightHandPart"]
@@ -2459,17 +2430,32 @@ debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
 metadata/_edit_lock_ = true
 
 [node name="BlueLine" type="Node2D" parent="Level/RightHandPart/CollectDetect"]
-visible = false
 modulate = Color(0.443137, 1, 1, 0.552941)
-position = Vector2(-1, 78)
-scale = Vector2(2.65, 2.65)
+position = Vector2(0, 75.001)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
-position = Vector2(0, -10.566)
-scale = Vector2(0.239218, 0.239218)
+[node name="SingleLine" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
+visible = false
+position = Vector2(-42.6587, 2.38338)
+scale = Vector2(0.6, 0.72673)
+texture = ExtResource("379_g4x10")
+
+[node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine"]
+visible = false
+show_behind_parent = true
+position = Vector2(70.501, 0)
 texture = ExtResource("14_nko2d")
-metadata/_edit_lock_ = true
+
+[node name="MultiLine" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
+position = Vector2(-42.6587, 88.6929)
+scale = Vector2(0.6, 1.38811)
+texture = ExtResource("379_g4x10")
+
+[node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine"]
+visible = false
+show_behind_parent = true
+position = Vector2(70.501, 0)
+texture = ExtResource("14_nko2d")
 
 [node name="BottomCollectDetect" type="Area2D" parent="Level/RightHandPart"]
 position = Vector2(-237.54, 200)
@@ -2489,7 +2475,7 @@ metadata/_edit_lock_ = true
 visible = false
 modulate = Color(0.443137, 1, 1, 0.552941)
 position = Vector2(-1, 93.0001)
-scale = Vector2(2.65, 2.65)
+scale = Vector2(1, 2.65)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2" type="Sprite2D" parent="Level/RightHandPart/BottomCollectDetect/BottomBlueLine"]
@@ -2544,12 +2530,14 @@ position = Vector2(-242.148, 0)
 metadata/_edit_lock_ = true
 
 [node name="UpperBrick" type="Sprite2D" parent="Level/DetectorVisual"]
+visible = false
 position = Vector2(0, -187.386)
 scale = Vector2(0.220225, 0.220225)
 texture = ExtResource("58_ovvpk")
 metadata/_edit_lock_ = true
 
 [node name="LowerBrick" type="Sprite2D" parent="Level/DetectorVisual"]
+visible = false
 position = Vector2(0, 134.921)
 scale = Vector2(0.220225, 0.220225)
 texture = ExtResource("58_ovvpk")
@@ -2560,7 +2548,6 @@ self_modulate = Color(0.501961, 1, 0.980392, 0.72549)
 z_index = -1
 position = Vector2(0, -27.938)
 scale = Vector2(0.572016, 4.44731)
-texture = SubResource("GradientTexture2D_oay21")
 metadata/_edit_lock_ = true
 
 [node name="LineZap" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]

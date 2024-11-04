@@ -19,6 +19,7 @@ class_name Game extends Node2D
 @onready var debug_accuracy: Label = $Overlay/DebugAccuracy
 @onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
 
+@onready var blue_line: Node2D = $Level/RightHandPart/CollectDetect/BlueLine
 
 
 
@@ -102,6 +103,7 @@ static var debug: bool = false
 
 var player_health: float = 10
 var boss_health: float = 300
+
 
 @export var slow_down_percentage: float = 0.7
 @export var slow_timer: float = 10.5
@@ -255,6 +257,11 @@ func _ready() -> void:
 	initialize_part(ui_type)
 	if ui_type == "treble":
 		right_hand_part.position.y += 60
+		blue_line.find_child("SingleLine").visible = true
+		blue_line.find_child("MultiLine").visible = false
+	else:
+		blue_line.find_child("SingleLine").visible = false
+		blue_line.find_child("MultiLine").visible = true
 	level.position = Vector2(0,0)
 	reset_health_bars()
 	detector_position_x = notes_detector.position.x
@@ -325,7 +332,11 @@ func update_streak() -> void:
 		streak_meter.text = "Combo!: D"
 	else:
 		streak_meter.visible = false
-		
+
+func emit_beat_signals() -> void:
+	pass
+	
+	
 
 func _process(delta: float) -> void:
 	calculate_accuracy()
@@ -345,7 +356,7 @@ func _process(delta: float) -> void:
 	if not player_character.is_playing() and not winning and not losing:
 		player_character.play("idle")
 		player_bot.play("fly")
-	#time_elapsed += delta
+	time_elapsed += delta
 	#if time_elapsed > vul_time:
 		#vulnerable = true
 		
