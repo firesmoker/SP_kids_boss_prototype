@@ -12,6 +12,8 @@ class_name Game extends Node2D
 @onready var easy_button: Button = $Overlay/Difficulty/EasyButton
 @onready var intro_sequence: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequence
 @onready var combo_meter: Label = $UI/ComboMeter
+@onready var streak_meter: Label = $UI/StreakMeter
+
 @onready var debug_missed_notes: Label = $Overlay/DebugMissedNotes
 @onready var debug_notes_in_level: Label = $Overlay/DebugNotesInLevel
 @onready var debug_accuracy: Label = $Overlay/DebugAccuracy
@@ -94,6 +96,7 @@ static var repeat_requested: bool = false
 static var on_display_duration: float = 1
 static var cheat_auto_play: bool = false
 static var cheat_skip_intro: bool = false
+static var cheat_skip_middle_c: bool = false
 static var game_mode: String = "boss"
 static var debug: bool = false
 
@@ -128,8 +131,9 @@ var combo_count: int = 0
 var missed_notes: int = 0
 var accuracy: float = 1
 var continue_note_played: bool = false
+@export var max_combo: int = 0
 signal game_resumed
-
+static var level_ready: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -207,11 +211,12 @@ func set_library_song_visibility() -> void:
 	electric_beam.find_child("ElectricBolt").visible = false
 	heart.visible = false
 	boss_portrait.visible = false
-	combo_meter.visible = false
+	#combo_meter.visible = false
 	
 
 func set_visibility() -> void:
 	combo_meter.visible = false
+	streak_meter.visible = false
 	darken_level.visible = false
 	continue_note_popup.visible = false
 	background_slow.visible = false
@@ -254,15 +259,16 @@ func _ready() -> void:
 	reset_health_bars()
 	detector_position_x = notes_detector.position.x
 	if game_mode == "boss":
-		continue_note_popup.visible = true
 		if Game.game_state == "Intro" and not cheat_skip_intro:
 			intro_sequence.play()
 			audio.stream = audio_clips.fight_starts
 			audio.play()
 			await intro_sequence.animation_finished
-		intro_sequence.visible = false
-		await notes_detector.continue_note_played
-		continue_note_popup.visible = false
+			intro_sequence.visible = false
+		if not cheat_skip_middle_c:
+			continue_note_popup.visible = true
+			await notes_detector.continue_note_played
+			continue_note_popup.visible = false
 	music_player.play()
 	vulnerable = true
 	pause_button.visible = true
@@ -303,10 +309,29 @@ func enter_lose_ui() -> void:
 func calculate_accuracy() -> void:
 	accuracy = (float(notes_container.notes_in_level) - float(missed_notes)) / float(notes_container.notes_in_level)
 
+func update_streak() -> void:
+	
+	if combo_count > 10:
+		streak_meter.visible = true 
+		streak_meter.text = "Combo!: A"
+	elif combo_count > 6:
+		streak_meter.visible = true
+		streak_meter.text = "Combo!: B"
+	elif combo_count > 3:
+		streak_meter.visible = true
+		streak_meter.text = "Combo!: C"
+	elif combo_count > 1:
+		streak_meter.visible = true
+		streak_meter.text = "Combo!: D"
+	else:
+		streak_meter.visible = false
+		
+
 func _process(delta: float) -> void:
 	calculate_accuracy()
 	update_debug()
 	health_bars_progress(delta, health_rate)
+	#update_streak()
 	
 	#if game_state == "Win" and not player_moving_to_finish:
 		#player_moving_to_finish = true
@@ -683,6 +708,8 @@ func player_win_animation() -> void:
 func add_to_combo() -> void:
 	combo_count += 1
 	combo_meter.text = "COMBO: " + str(combo_count)
+	if combo_count > max_combo:
+		max_combo = combo_count
 
 func break_combo() -> void:
 	if not winning:
