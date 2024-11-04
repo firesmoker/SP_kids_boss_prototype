@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=16 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_geyk5"]
 [ext_resource type="Texture2D" uid="uid://dh2uk2jr2strc" path="res://art/30.sep/Hero_Idle/Hero_Idle_00000.png" id="5_tm8vi"]
+[ext_resource type="Texture2D" uid="uid://bqmxp10hkofb2" path="res://art/buttons/Exit (1).png" id="5_u6wtg"]
 [ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="6_4qe1l"]
 [ext_resource type="Texture2D" uid="uid://5rwi3sgt57ya" path="res://art/30.sep/Boss_Idle/Boss_Idle_00000.png" id="7_umefj"]
 [ext_resource type="Script" path="res://scripts/midi_websocket_status.gd" id="8_uu1rv"]
@@ -116,32 +117,14 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="Player" type="TextureRect" parent="UI"]
-offset_left = -94.0
-offset_top = 294.0
-offset_right = 539.0
-offset_bottom = 817.0
-mouse_filter = 2
-texture = ExtResource("5_tm8vi")
-metadata/_edit_lock_ = true
-
 [node name="Drone" type="TextureRect" parent="UI"]
+visible = false
 offset_left = -2.0
 offset_top = 97.0
 offset_right = 631.0
 offset_bottom = 620.0
 mouse_filter = 2
 texture = ExtResource("6_4qe1l")
-metadata/_edit_lock_ = true
-
-[node name="Boss" type="TextureRect" parent="UI"]
-offset_left = 550.0
-offset_top = 261.0
-offset_right = 1219.0
-offset_bottom = 684.0
-scale = Vector2(1.24941, 1.24941)
-mouse_filter = 2
-texture = ExtResource("7_umefj")
 metadata/_edit_lock_ = true
 
 [node name="LoadOverlay" type="TextureRect" parent="UI"]
@@ -551,30 +534,20 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_brcr1")
 metadata/_edit_lock_ = true
 
-[node name="DarkenButton" type="Button" parent="UI/Darken"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Difficulty" type="Panel" parent="UI"]
 process_mode = 3
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -148.0
-offset_top = -104.0
-offset_right = 148.0
-offset_bottom = 104.0
+offset_left = -592.0
+offset_top = -416.0
+offset_right = 592.0
+offset_bottom = 416.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cap0f")
-metadata/_edit_lock_ = true
 
 [node name="EasyButton" type="Button" parent="UI/Difficulty"]
 material = SubResource("CanvasItemMaterial_hso67")
@@ -585,9 +558,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -148.0
-offset_top = -98.0
-offset_right = 146.0
-offset_bottom = -37.0
+offset_top = -26.0
+offset_right = 160.23
+offset_bottom = 60.94
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
@@ -612,7 +585,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 70
 text = "קל"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -628,9 +601,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -148.0
-offset_top = -28.0
-offset_right = 146.0
-offset_bottom = 33.0
+offset_top = 87.0
+offset_right = 160.23
+offset_bottom = 173.94
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
@@ -655,7 +628,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 70
 text = "רגיל"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -671,9 +644,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -148.0
-offset_top = 41.0
-offset_right = 147.0
-offset_bottom = 102.0
+offset_top = 199.0
+offset_right = 160.23
+offset_bottom = 285.94
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_b8tba")
@@ -698,14 +671,70 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 70
 text = "קשה"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="AutoPlayToggle" type="CheckButton" parent="UI"]
+[node name="Player" type="TextureRect" parent="UI/Difficulty"]
+offset_left = -77.0
+offset_top = 335.0
+offset_right = 469.0
+offset_bottom = 786.0
+mouse_filter = 2
+texture = ExtResource("5_tm8vi")
+expand_mode = 3
+
+[node name="Boss" type="TextureRect" parent="UI/Difficulty"]
+offset_left = 643.0
+offset_top = 346.0
+offset_right = 1193.38
+offset_bottom = 694.0
+scale = Vector2(1.24941, 1.24941)
+mouse_filter = 2
+texture = ExtResource("7_umefj")
+expand_mode = 3
+
+[node name="SongTitle" type="Label" parent="UI/Difficulty"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -324.0
+offset_top = 64.0
+offset_right = 324.0
+offset_bottom = 287.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "SpongeBob SquarePants"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DarkenButton" type="TextureButton" parent="UI/Difficulty"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = 54.0
+offset_right = -1032.0
+offset_bottom = -678.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_u6wtg")
+texture_hover = ExtResource("5_u6wtg")
+
+[node name="DevButtons" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AutoPlayToggle" type="CheckButton" parent="UI/DevButtons"]
 offset_left = 56.0
 offset_top = 41.0
 offset_right = 100.0
@@ -715,7 +744,7 @@ icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UI/AutoPlayToggle"]
+[node name="Label" type="Label" parent="UI/DevButtons/AutoPlayToggle"]
 layout_mode = 0
 offset_left = -10.0
 offset_top = 20.0
@@ -723,7 +752,7 @@ offset_right = 64.0
 offset_bottom = 43.0
 text = "Auto Play"
 
-[node name="Skip Intro" type="CheckButton" parent="UI"]
+[node name="Skip Intro" type="CheckButton" parent="UI/DevButtons"]
 offset_left = 244.0
 offset_top = 43.0
 offset_right = 288.0
@@ -733,7 +762,7 @@ icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UI/Skip Intro"]
+[node name="Label" type="Label" parent="UI/DevButtons/Skip Intro"]
 layout_mode = 0
 offset_left = -10.0
 offset_top = 20.0
@@ -741,7 +770,7 @@ offset_right = 64.0
 offset_bottom = 43.0
 text = "Skip Intro"
 
-[node name="SkipMiddleC" type="CheckButton" parent="UI"]
+[node name="SkipMiddleC" type="CheckButton" parent="UI/DevButtons"]
 offset_left = 920.0
 offset_top = 165.0
 offset_right = 964.0
@@ -751,7 +780,7 @@ icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="UI/SkipMiddleC"]
+[node name="Label" type="Label" parent="UI/DevButtons/SkipMiddleC"]
 layout_mode = 0
 offset_left = -10.0
 offset_top = 20.0
@@ -759,7 +788,7 @@ offset_right = 64.0
 offset_bottom = 43.0
 text = "Skip Middle C"
 
-[node name="DebugToggle" type="CheckButton" parent="UI"]
+[node name="DebugToggle" type="CheckButton" parent="UI/DevButtons"]
 offset_left = 56.0
 offset_top = 159.0
 offset_right = 100.0
@@ -768,7 +797,7 @@ scale = Vector2(2.3, 2.3)
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="UI/DebugToggle"]
+[node name="Label" type="Label" parent="UI/DevButtons/DebugToggle"]
 layout_mode = 0
 offset_left = -10.0
 offset_top = 20.0
@@ -776,7 +805,7 @@ offset_right = 64.0
 offset_bottom = 43.0
 text = "Debug"
 
-[node name="LibrarySongToggle" type="CheckButton" parent="UI"]
+[node name="LibrarySongToggle" type="CheckButton" parent="UI/DevButtons"]
 offset_left = 999.0
 offset_top = 37.0
 offset_right = 1043.0
@@ -785,7 +814,7 @@ scale = Vector2(2.3, 2.3)
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="UI/LibrarySongToggle"]
+[node name="Label" type="Label" parent="UI/DevButtons/LibrarySongToggle"]
 layout_mode = 0
 offset_left = -50.9485
 offset_top = 19.5122
@@ -807,12 +836,12 @@ script = ExtResource("8_uu1rv")
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button9" to="." method="_on_button_9_button_up"]
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button10" to="." method="_on_button10_button_up"]
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button11" to="." method="_on_button_11_button_up"]
-[connection signal="pressed" from="UI/Darken/DarkenButton" to="." method="_on_darken_button_pressed"]
 [connection signal="button_up" from="UI/Difficulty/EasyButton" to="." method="_on_easy_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]
-[connection signal="toggled" from="UI/AutoPlayToggle" to="." method="_on_auto_play_toggle_toggled"]
-[connection signal="toggled" from="UI/Skip Intro" to="." method="_on_skip_intro_toggled"]
-[connection signal="toggled" from="UI/SkipMiddleC" to="." method="_on_skip_middle_c_toggled"]
-[connection signal="toggled" from="UI/DebugToggle" to="." method="_on_debug_toggle_toggled"]
-[connection signal="toggled" from="UI/LibrarySongToggle" to="." method="_on_library_song_toggled"]
+[connection signal="pressed" from="UI/Difficulty/DarkenButton" to="." method="_on_darken_button_pressed"]
+[connection signal="toggled" from="UI/DevButtons/AutoPlayToggle" to="." method="_on_auto_play_toggle_toggled"]
+[connection signal="toggled" from="UI/DevButtons/Skip Intro" to="." method="_on_skip_intro_toggled"]
+[connection signal="toggled" from="UI/DevButtons/SkipMiddleC" to="." method="_on_skip_middle_c_toggled"]
+[connection signal="toggled" from="UI/DevButtons/DebugToggle" to="." method="_on_debug_toggle_toggled"]
+[connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]
