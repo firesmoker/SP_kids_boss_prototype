@@ -23,10 +23,10 @@ class_name Game extends Node2D
 
 
 
-@onready var audio: AudioStreamPlayer = $Audio
-@onready var audio_clips: AudioClips = $AudioClips
-@onready var music_player: AudioStreamPlayer = $MusicPlayer
-@onready var music_player_slow: AudioStreamPlayer = $MusicPlayerSlow
+@onready var audio: AudioStreamPlayer = $Sound/Audio
+@onready var audio_clips: AudioClips = $Sound/AudioClips
+@onready var music_player: AudioStreamPlayer = $Sound/MusicPlayer
+@onready var music_player_slow: AudioStreamPlayer = $Sound/MusicPlayerSlow
 
 @onready var parser: Parser = $Parser
 @onready var player_character: AnimatedSprite2D = $Level/PlayerCharacter
