@@ -2345,8 +2345,8 @@ metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter" type="AnimatedSprite2D" parent="Level"]
 z_index = 3
-position = Vector2(-418.032, -4.7619)
-scale = Vector2(0.643881, 0.643881)
+position = Vector2(-421.428, 1.5873)
+scale = Vector2(0.596608, 0.596607)
 sprite_frames = ExtResource("4_0nn2k")
 animation = &"idle"
 autoplay = "idle"
@@ -2383,8 +2383,8 @@ metadata/_edit_lock_ = true
 
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
 z_index = 3
-position = Vector2(425.397, -10.3175)
-scale = Vector2(0.738213, 0.738213)
+position = Vector2(417.162, 5.05013)
+scale = Vector2(0.665553, 0.665553)
 sprite_frames = ExtResource("4_ygwuk")
 animation = &"idle"
 autoplay = "idle"
@@ -2405,6 +2405,8 @@ metadata/_edit_lock_ = true
 [node name="Audio" type="AudioStreamPlayer" parent="Level/Boss"]
 
 [node name="Expander" parent="Level/Boss" instance=ExtResource("20_wgxju")]
+position = Vector2(-3.57739, 0)
+metadata/_edit_lock_ = true
 
 [node name="RightHandPart" type="Node2D" parent="Level"]
 position = Vector2(-52.0317, -120.794)
