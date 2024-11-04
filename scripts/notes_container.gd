@@ -55,7 +55,7 @@ func construct_level(ui_type: String = "both", melody_events: Array = [], bottom
 			populate_from_melody_events(bottom_melody_events, true)
 	else:
 		create_bar_lines(false)
-		
+	Game.construction_complete = true
 
 
 func create_bar_lines(two_staves: bool = false) -> void:

@@ -34,6 +34,7 @@ static var hard_display_duration: float
 
 static func set_level(level: String = "normal") -> void:
 	#Game.game_state = "Playing"
+	Game.construction_complete = false
 	match level:
 		"easy":
 			Game.current_difficulty = "easy"

@@ -22,6 +22,13 @@ scale = Vector2(3.12419, 1.49899)
 texture = SubResource("GradientTexture2D_lo1rx")
 metadata/_edit_lock_ = true
 
+[node name="StaffShadow" type="Sprite2D" parent="StaffBackground"]
+modulate = Color(0, 0, 0, 0.1)
+show_behind_parent = true
+z_index = -1
+position = Vector2(0.033, 3)
+texture = SubResource("GradientTexture2D_lo1rx")
+
 [node name="Line" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 scale = Vector2(1.583, 0.157105)

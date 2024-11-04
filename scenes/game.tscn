@@ -1,3 +1,4 @@
+[gd_scene load_steps=415 format=3 uid="uid://clhbuec845jpd"]
 [gd_scene load_steps=414 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
@@ -35,11 +36,9 @@
 [ext_resource type="Texture2D" uid="uid://cusf6tvgw27f2" path="res://art/RhythmLineGlow.png" id="14_nko2d"]
 [ext_resource type="Texture2D" uid="uid://cgegegd2x6cd1" path="res://art/HealthBarBG (1).png" id="14_vn3l6"]
 [ext_resource type="Texture2D" uid="uid://2knjh5phshmp" path="res://art/buttons/Play (1).png" id="15_m6t7w"]
-[ext_resource type="Texture2D" uid="uid://syqp4mg130wo" path="res://art/HealthBarStatus (1).png" id="15_uj0lk"]
 [ext_resource type="Texture2D" uid="uid://bi7s7ogaqqd82" path="res://art/30.sep/Collectible-Life/Collectible-Life_00000.png" id="15_vluut"]
 [ext_resource type="Texture2D" uid="uid://c1ok3gbklgya6" path="res://art/buttons/Restart (1).png" id="16_icmxq"]
 [ext_resource type="Texture2D" uid="uid://bxoxqsja0mkf1" path="res://art/30.sep/Collectible-Bomb/Collectible-Bomb_00000.png" id="17_64vtv"]
-[ext_resource type="Script" path="res://scripts/beat_manager.gd" id="18_di3rh"]
 [ext_resource type="Texture2D" uid="uid://cd8j4cjsrbria" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00000.png" id="18_hm84w"]
 [ext_resource type="Texture2D" uid="uid://dvgartwj75oa2" path="res://art/Collectible-Snow/Collectible-Snow_00007.png" id="19_4oala"]
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="19_j5u08"]
@@ -143,7 +142,7 @@
 [ext_resource type="Texture2D" uid="uid://df78p6ol774je" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00072.png" id="90_e852w"]
 [ext_resource type="Texture2D" uid="uid://du724ebgoxg1b" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00073.png" id="91_r3e3i"]
 [ext_resource type="Texture2D" uid="uid://o0necq8r5p1i" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00074.png" id="92_mqgca"]
-[ext_resource type="SpriteFrames" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="Texture2D" uid="uid://dx2itdikr3sn1" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00075.png" id="93_64fmn"]
 [ext_resource type="Texture2D" uid="uid://boh6hh3y4seyl" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00076.png" id="94_1q4an"]
 [ext_resource type="Texture2D" uid="uid://wot6jk0q7dq8" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00077.png" id="95_5snmq"]
@@ -398,6 +397,7 @@
 [ext_resource type="Texture2D" uid="uid://cyba858mjg31l" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00324.png" id="342_rgjm1"]
 [ext_resource type="Texture2D" uid="uid://b8v3ceoh7gvj1" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00325.png" id="343_ubx8q"]
 [ext_resource type="Texture2D" uid="uid://b2vo8k2bfvku8" path="res://art/4_nov/Warm_BG.png" id="360_6bair"]
+[ext_resource type="Texture2D" uid="uid://3h3le0r1x8d7" path="res://art/HealthBarStatus2.png" id="360_u75yt"]
 [ext_resource type="Texture2D" uid="uid://iyxqrq5cfblx" path="res://art/4_nov/Cold_BG.png" id="361_2yuql"]
 [ext_resource type="Texture2D" uid="uid://bojkg7vd7y5qr" path="res://art/rythmfix.png" id="379_g4x10"]
 [ext_resource type="Texture2D" uid="uid://bk75g4j278mwm" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00142.png" id="398_shcvd"]
@@ -1500,9 +1500,6 @@ slow_down_sound = ExtResource("3_h2mfw")
 health_rate = 3.8
 metadata/_edit_lock_ = true
 
-[node name="Parser" parent="." instance=ExtResource("9_s4jiq")]
-metadata/_edit_lock_ = true
-
 [node name="Sound" type="Node" parent="."]
 
 [node name="AudioClips" type="Node" parent="Sound"]
@@ -1526,8 +1523,8 @@ stream = ExtResource("2_2kvrl")
 [node name="MusicPlayerSlow" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("5_0ilbi")
 
-[node name="BeatManager" type="Node" parent="Sound"]
-script = ExtResource("18_di3rh")
+[node name="Parser" parent="." instance=ExtResource("9_s4jiq")]
+metadata/_edit_lock_ = true
 
 [node name="CameraOverlay" type="CanvasLayer" parent="."]
 layer = 2
@@ -2157,6 +2154,10 @@ layer = -1
 process_mode = 3
 top_level = true
 z_index = 1
+offset_left = 85.0
+offset_top = 27.0
+offset_right = 412.0
+offset_bottom = 107.0
 offset_left = 70.0
 offset_top = 10.0
 offset_right = 479.0
@@ -2167,7 +2168,8 @@ max_value = 6.0
 step = 0.02
 value = 6.0
 texture_under = ExtResource("14_vn3l6")
-texture_progress = ExtResource("15_uj0lk")
+texture_progress = ExtResource("360_u75yt")
+tint_progress = Color(1, 0.623529, 1, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Flash" parent="UI/PlayerHealthBar" instance=ExtResource("57_hg35f")]
@@ -2183,6 +2185,10 @@ z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -412.0
+offset_top = 27.0
+offset_right = -85.0
+offset_bottom = 107.0
 offset_left = -479.0
 offset_top = 10.0
 offset_right = -70.0
@@ -2195,8 +2201,8 @@ step = 0.02
 value = 4.0
 fill_mode = 1
 texture_under = ExtResource("14_vn3l6")
-texture_progress = ExtResource("15_uj0lk")
-metadata/_edit_use_anchors_ = true
+texture_progress = ExtResource("360_u75yt")
+tint_progress = Color(1, 0.623529, 1, 1)
 
 [node name="Flash" parent="UI/BossHealthBar" instance=ExtResource("57_hg35f")]
 
@@ -2267,7 +2273,7 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="WhiteLayer4" type="ColorRect" parent="UI"]
-modulate = Color(1, 1, 1, 0.521569)
+modulate = Color(1, 1, 1, 0.439216)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

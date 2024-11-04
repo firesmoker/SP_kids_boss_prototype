@@ -20,7 +20,8 @@ class_name Game extends Node2D
 @onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
 
 @onready var blue_line: Node2D = $Level/RightHandPart/CollectDetect/BlueLine
-
+@onready var player_platform: Node2D = $Level/PlayerPlatform
+@onready var boss_platform: Node2D = $Level/BossPlatform
 
 
 @onready var audio: AudioStreamPlayer = $Sound/Audio
@@ -66,12 +67,12 @@ class_name Game extends Node2D
 @onready var bottom_staff: Node2D = $Level/RightHandPart/BottomStaff
 
 
+
+
 @onready var ending_point: Node2D = $Level/RightHandPart/EndingPoint
 @onready var notes_container: NotesContainer = $Level/RightHandPart/EndingPoint/NotesContainer
 @onready var notes_detector: NotesDetector = $Level/RightHandPart/NotesDetector
 @onready var bottom_notes_detector: NotesDetector = $Level/RightHandPart/BottomNotesDetector
-
-@onready var score_manager: ScoreManager = $ScoreManager
 
 @export var accelerate_sound: AudioStream
 @export var slow_down_sound: AudioStream
@@ -100,10 +101,11 @@ static var cheat_skip_intro: bool = false
 static var cheat_skip_middle_c: bool = false
 static var game_mode: String = "boss"
 static var debug: bool = false
+static var construction_complete: bool = false
 
 var player_health: float = 10
 var boss_health: float = 300
-
+var original_health_color: Color = Color.WHITE
 
 @export var slow_down_percentage: float = 0.7
 @export var slow_timer: float = 10.5
@@ -131,6 +133,7 @@ var boss_health_progress: float = 0
 var got_hit_atleast_once: bool = false
 var combo_count: int = 0
 var missed_notes: int = 0
+var accuracy: float = 1
 var continue_note_played: bool = false
 @export var max_combo: int = 0
 signal game_resumed
@@ -208,12 +211,16 @@ func set_library_song_visibility() -> void:
 	boss_health_bar.visible = false
 	player_character.visible = false
 	player_bot.visible = false
-	electric_beam.find_child("LineZap").visible = false
+	blue_line.find_child("SingleLine").find_child("LineZapSingle").visible = false
+	electric_beam.find_child("LineZapMulti").visible = false
 	electric_beam.find_child("ElectricBolt").visible = false
 	heart.visible = false
 	boss_portrait.visible = false
 	#combo_meter.visible = false
-	
+	player_platform.visible = false
+	boss_platform.visible = false
+
+
 
 func set_visibility() -> void:
 	combo_meter.visible = false
@@ -228,6 +235,7 @@ func set_visibility() -> void:
 		intro_sequence.visible = false
 
 func _ready() -> void:
+	original_health_color = player_health_bar.tint_progress
 	show_debug()
 	set_visibility()
 	
@@ -276,10 +284,10 @@ func _ready() -> void:
 			await notes_detector.continue_note_played
 			continue_note_popup.visible = false
 	music_player.play()
-	vulnerable = true
 	pause_button.visible = true
 	restart_button.visible = true
 	game_state = "Playing"
+
 
 func initialize_part(hand_parts: String = ui_type) -> void:
 	if hand_parts.to_lower() == "bass" or hand_parts.to_lower() == "both":
@@ -312,6 +320,9 @@ func enter_lose_ui() -> void:
 	#player_character.find_child("Expander").move(new_position, 0.35)
 	win_buttons.visible = true
 
+func calculate_accuracy() -> void:
+	accuracy = (float(notes_container.notes_in_level) - float(missed_notes)) / float(notes_container.notes_in_level)
+
 func update_streak() -> void:
 	
 	if combo_count > 10:
@@ -335,6 +346,9 @@ func emit_beat_signals() -> void:
 	
 
 func _process(delta: float) -> void:
+	if construction_complete and not losing and not winning:
+		vulnerable = true
+	calculate_accuracy()
 	update_debug()
 	health_bars_progress(delta, health_rate)
 	#update_streak()
@@ -414,10 +428,26 @@ func lose() -> void:
 	game_state = "Lose"
 	enter_lose_ui()
 
+func calculate_stars(level_type: String = "boss") -> int:
+	if level_type == "boss":
+		if not got_hit_atleast_once:
+			return 3
+		elif player_health_bar.value >= player_health_bar.max_value / 2:
+			return 2
+		else:
+			return 1
+	else:
+		if accuracy > 0.9:
+			return 3
+		elif accuracy > 0.75:
+			return 2
+		else:
+			return 1
+
 func show_stars() -> void:
 	stars.visible = true
 	stars.find_child("Fader").fade_in()
-	match score_manager.stars:
+	match calculate_stars(game_mode):
 		3:
 			star_full.visible = true
 			star_full_2.visible = true
@@ -602,7 +632,7 @@ func update_player_health(health_change: float = -1) -> void:
 	if player_health <= player_health_bar.max_value / 6 or player_health <= 1:
 		player_health_bar.tint_progress = Color.RED
 	else:
-		player_health_bar.tint_progress = Color.WHITE
+		player_health_bar.tint_progress = original_health_color
 
 func boss_visual_damage() -> void:
 	if boss_health <= boss_health_bar.max_value / 6 or boss_health <= 1:
@@ -772,4 +802,4 @@ func show_debug(toggle: bool = debug) -> void:
 func update_debug() -> void:
 	debug_missed_notes.text = "DEBUG: missed notes: " + str(missed_notes)
 	debug_notes_in_level.text = "DEBUG: notes in level: " + str(notes_container.notes_in_level)
-	debug_accuracy.text = "DEBUG: overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
+	debug_accuracy.text = "DEBUG: Accuracy " + str(snapped(accuracy,0.01)*100.0) + "%"
