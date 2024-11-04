@@ -1,4 +1,5 @@
 extends Node
+class_name BeatManager
 
 @onready var music_player: AudioStreamPlayer = $"../MusicPlayer"
 var bpm: float = Game.tempo # Set this to the BPM of your music
@@ -22,7 +23,7 @@ func _process(delta: float) -> void:
 		
 		# Check if the current playback position has passed the time for the next beat
 		if current_time >= next_beat_time:
-			print("beat_marker " + str(current_time))
+			# print("beat_marker " + str(current_time))
 			emit_signal("beat_marker")
 			
 			# Calculate the time for the next beat

@@ -1,8 +1,8 @@
 class_name NotesDetector extends Area2D
 @onready var game: Game
+@onready var score_manager: ScoreManager = $"../../../ScoreManager"
 @export var bottom_detector: bool = false
 var current_notes: Array[Note]
-
 signal note_success
 signal note_failure
 signal continue_note_played
@@ -35,25 +35,25 @@ func note_played(note: String) -> void:
 		if interval:
 			for i in range(clamp(current_notes.size(),1,2)):
 				if note == current_notes[i].note:
-					emit_signal("note_success")
-					print("RIGHT NOTE PLAYED YAY!")
-					if game.game_state == "Playing":
-						current_notes[i].hit_note_visual()
-						current_notes[i].state = "Played"
-						current_notes.pop_at(i)
+					note_hit(i)
 					break
 		elif note == current_notes[0].note:
-			emit_signal("note_success")
-			print("RIGHT NOTE PLAYED YAY!")
-			if game.game_state == "Playing":
-				current_notes[0].hit_note_visual()
-				current_notes[0].state = "Played"
-				current_notes.pop_at(0)
-		
+			note_hit(0)
 			
 			
 		#else:
 			#print("wrong note played YA LOSER")
+
+func note_hit(i: int) -> void:
+	var note_object: Note = current_notes[i]
+	emit_signal("note_success")
+	print("RIGHT NOTE PLAYED YAY!")
+	if game.game_state == "Playing":
+		score_manager.hit(note_object)
+		current_notes[i].hit_note_visual()
+		current_notes[i].state = "Played"
+		current_notes.pop_at(i)
+		
 
 func clear_notes() -> void:
 	current_notes.clear()
@@ -74,6 +74,7 @@ func _on_body_entered(note: Note) -> void:
 
 func _on_body_exited(note: Note) -> void:
 	if note.state == "Active" and game.vulnerable:
+		score_manager.miss(note)
 		note.miss_note_visual()
 		current_notes.pop_front()
 		emit_signal("note_failure")
