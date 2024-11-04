@@ -679,6 +679,7 @@ autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="Player" type="TextureRect" parent="UI/Difficulty"]
+layout_mode = 0
 offset_left = -77.0
 offset_top = 335.0
 offset_right = 469.0
@@ -688,6 +689,7 @@ texture = ExtResource("5_tm8vi")
 expand_mode = 3
 
 [node name="Boss" type="TextureRect" parent="UI/Difficulty"]
+layout_mode = 0
 offset_left = 643.0
 offset_top = 346.0
 offset_right = 1193.38
@@ -735,6 +737,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="AutoPlayToggle" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 0
 offset_left = 56.0
 offset_top = 41.0
 offset_right = 100.0
@@ -753,6 +756,7 @@ offset_bottom = 43.0
 text = "Auto Play"
 
 [node name="Skip Intro" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 0
 offset_left = 244.0
 offset_top = 43.0
 offset_right = 288.0
@@ -771,6 +775,7 @@ offset_bottom = 43.0
 text = "Skip Intro"
 
 [node name="SkipMiddleC" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 0
 offset_left = 920.0
 offset_top = 165.0
 offset_right = 964.0
@@ -789,6 +794,7 @@ offset_bottom = 43.0
 text = "Skip Middle C"
 
 [node name="DebugToggle" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 0
 offset_left = 56.0
 offset_top = 159.0
 offset_right = 100.0
@@ -806,6 +812,7 @@ offset_bottom = 43.0
 text = "Debug"
 
 [node name="LibrarySongToggle" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 0
 offset_left = 999.0
 offset_top = 37.0
 offset_right = 1043.0
