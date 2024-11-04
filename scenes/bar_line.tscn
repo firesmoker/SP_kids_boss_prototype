@@ -8,6 +8,7 @@ scale = Vector2(1, 0.77)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.244776, 0.244776, 0.244776, 1)
+position = Vector2(0, 1)
 rotation = 1.5708
 scale = Vector2(0.992621, 0.471632)
 texture = ExtResource("2_xvqls")

@@ -551,6 +551,14 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_brcr1")
 metadata/_edit_lock_ = true
 
+[node name="DarkenButton" type="Button" parent="UI/Darken"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Difficulty" type="Panel" parent="UI"]
 process_mode = 3
 visible = false
@@ -799,6 +807,7 @@ script = ExtResource("8_uu1rv")
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button9" to="." method="_on_button_9_button_up"]
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button10" to="." method="_on_button10_button_up"]
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button11" to="." method="_on_button_11_button_up"]
+[connection signal="pressed" from="UI/Darken/DarkenButton" to="." method="_on_darken_button_pressed"]
 [connection signal="button_up" from="UI/Difficulty/EasyButton" to="." method="_on_easy_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]

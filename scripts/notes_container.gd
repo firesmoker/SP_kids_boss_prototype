@@ -6,7 +6,7 @@ class_name NotesContainer extends Sprite2D
 @export var note_heigth: float = 12.0
 @export var on_display_duration: float = 2
 @export var barline_offset: float = 25
-@export var treble_to_bass_gap: float = 200.5
+@export var treble_to_bass_gap: float = 176.5
 @export var resolution_y_offset: float = 0
 @export_category("Packed Scenes")
 @export var note_template: PackedScene

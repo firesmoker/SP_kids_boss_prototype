@@ -1,4 +1,4 @@
-[gd_scene load_steps=410 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=411 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -399,6 +399,7 @@
 [ext_resource type="Texture2D" uid="uid://cyba858mjg31l" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00324.png" id="342_rgjm1"]
 [ext_resource type="Texture2D" uid="uid://b8v3ceoh7gvj1" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00325.png" id="343_ubx8q"]
 [ext_resource type="Texture2D" uid="uid://bojkg7vd7y5qr" path="res://art/rythmfix.png" id="379_g4x10"]
+[ext_resource type="Texture2D" uid="uid://bk75g4j278mwm" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00142.png" id="398_shcvd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dbryh"]
 animations = [{
@@ -1414,6 +1415,35 @@ size = Vector2(69.0258, 547.385)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("398_shcvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_rh7bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_8p48t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_o2flw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_7l1vx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_f1st7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_c51iu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("398_shcvd")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 48.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("79_n7i7p")
 }, {
 "duration": 1.0,
@@ -1456,7 +1486,7 @@ animations = [{
 "texture": ExtResource("79_n7i7p")
 }],
 "loop": false,
-"name": &"attack",
+"name": &"attack_old",
 "speed": 48.0
 }]
 
@@ -2188,7 +2218,7 @@ stretch_mode = 4
 metadata/_edit_lock_ = true
 
 [node name="WhiteLayer1" type="ColorRect" parent="UI"]
-modulate = Color(1, 1, 1, 0.27451)
+modulate = Color(1, 1, 1, 0.603922)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2199,7 +2229,7 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="WhiteLayer2" type="ColorRect" parent="UI"]
-modulate = Color(1, 1, 1, 0.27451)
+modulate = Color(1, 1, 1, 0.603922)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2212,7 +2242,7 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="WhiteLayer3" type="ColorRect" parent="UI"]
-modulate = Color(1, 1, 1, 0.27451)
+modulate = Color(1, 1, 1, 0.603922)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2329,6 +2359,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="PlayerBot" type="AnimatedSprite2D" parent="Level"]
+visible = false
 z_index = 2
 position = Vector2(-405.556, -107.937)
 scale = Vector2(0.484, 0.484)
@@ -2446,9 +2477,17 @@ show_behind_parent = true
 position = Vector2(70.501, 0)
 texture = ExtResource("14_nko2d")
 
+[node name="LineZapSingle" type="AnimatedSprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine"]
+position = Vector2(61.0016, 6.6824)
+scale = Vector2(0.333676, 0.23182)
+sprite_frames = ExtResource("68_qal4a")
+animation = &"line_zap"
+frame = 7
+frame_progress = 1.0
+
 [node name="MultiLine" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
-position = Vector2(-42.6587, 88.6929)
-scale = Vector2(0.6, 1.38811)
+position = Vector2(-42.6587, 79.2683)
+scale = Vector2(0.6, 1.31589)
 texture = ExtResource("379_g4x10")
 
 [node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine"]
@@ -2500,7 +2539,7 @@ position = Vector2(54.0625, 25)
 scale = Vector2(4.74062, 1.00024)
 
 [node name="BottomStaff" type="Node2D" parent="Level/RightHandPart"]
-metadata/_edit_lock_ = true
+position = Vector2(0, -24)
 
 [node name="BassClef" type="Sprite2D" parent="Level/RightHandPart/BottomStaff"]
 self_modulate = Color(0, 0, 0, 1)
@@ -2550,22 +2589,22 @@ position = Vector2(0, -27.938)
 scale = Vector2(0.572016, 4.44731)
 metadata/_edit_lock_ = true
 
-[node name="LineZap" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
-scale = Vector2(0.28, 0.07)
+[node name="LineZapMulti" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
+position = Vector2(-8.32483, 0)
+scale = Vector2(0.28, 0.0582303)
 sprite_frames = ExtResource("68_qal4a")
 animation = &"line_zap"
 frame = 7
 frame_progress = 1.0
-metadata/_edit_lock_ = true
 
 [node name="ElectricBolt" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
-position = Vector2(397.931, 35.9057)
-scale = Vector2(1.69105, 0.225)
+self_modulate = Color(0.67144, 1, 0.995479, 1)
+position = Vector2(418.743, 29.8385)
+scale = Vector2(1.71432, 0.124033)
 sprite_frames = SubResource("SpriteFrames_u4wap")
 animation = &"attack"
-frame = 13
+frame = 7
 frame_progress = 1.0
-metadata/_edit_lock_ = true
 
 [node name="Flash" parent="Level/DetectorVisual/ElectricBeam" instance=ExtResource("57_hg35f")]
 visible = false

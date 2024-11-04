@@ -289,6 +289,11 @@ func show_difficulty_buttons(show_easy: bool = false) -> void:
 	darken.visible = true
 	difficulty.visible = true
 
+func hide_difficulty_buttons() -> void:
+	song_buttons.visible = true
+	darken.visible = false
+	difficulty.visible = false
+
 
 func get_input_press_position() -> void:
 	current_press_position = get_global_mouse_position()
@@ -315,3 +320,7 @@ func _on_skip_intro_toggled(toggled_on: bool) -> void:
 
 func _on_skip_middle_c_toggled(toggled_on: bool) -> void:
 	Game.cheat_skip_middle_c = toggled_on
+
+
+func _on_darken_button_pressed() -> void:
+	hide_difficulty_buttons()

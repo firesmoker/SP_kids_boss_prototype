@@ -582,9 +582,12 @@ func hit_boss(damage: int = -1) -> void:
 	if not winning and not losing:
 		if game_mode == "boss":
 			electric_beam.find_child("Flash").flash()
-			electric_beam.find_child("LineZap").play("line_zap")
+			if ui_type == "treble":
+				blue_line.find_child("SingleLine").find_child("LineZapSingle").play("line_zap")
+			else:
+				electric_beam.find_child("LineZapMulti").play("line_zap")
 			electric_beam.find_child("ElectricBolt").play("attack")
-			audio_play_from_source(electric_beam,audio_clips.electric_attack, -8.5)
+			audio_play_from_source(electric_beam,audio_clips.electric_attack, -10.5)
 			player_character.stop()
 			player_bot.stop()
 			player_character.play("attack")
@@ -604,7 +607,7 @@ func hit_boss(damage: int = -1) -> void:
 			if boss_health <= 0:
 				win()
 			else:
-				audio_play_from_source(boss, audio_clips.boss_hit, -8.5)
+				audio_play_from_source(boss, audio_clips.boss_hit, -10.5)
 
 func audio_play_from_source(source: Node, audio_clip: AudioStream, volume: float = 1.0) -> void:
 	source.find_child("Audio").stream = audio_clip
