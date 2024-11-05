@@ -45,14 +45,15 @@ func note_played(note: String) -> void:
 			#print("wrong note played YA LOSER")
 
 func note_hit(i: int) -> void:
-	var note_object: Note = current_notes[i]
-	emit_signal("note_success")
-	print("RIGHT NOTE PLAYED YAY!")
-	if game.game_state == "Playing":
-		score_manager.hit(note_object)
-		current_notes[i].hit_note_visual()
-		current_notes[i].state = "Played"
-		current_notes.pop_at(i)
+	if game.vulnerable:
+		var note_object: Note = current_notes[i]
+		emit_signal("note_success")
+		print("RIGHT NOTE PLAYED YAY!")
+		if game.game_state == "Playing":
+			score_manager.hit(note_object)
+			current_notes[i].hit_note_visual()
+			current_notes[i].state = "Played"
+			current_notes.pop_at(i)
 		
 
 func clear_notes() -> void:
