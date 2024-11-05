@@ -2,7 +2,12 @@ extends Node
 class_name MidiWebSocket
 
 @onready var midiProcessor: MidiProcessor = $"../Midi Processor"
-var socket: WebSocketPeer = WebSocketPeer.new()
+
+# List of WebSocket servers to connect to
+# Static array of server URLs
+static var SERVER_URLS: Array[String] = ["ws://h-MacBook-Pro-sl-Simply.local:8099", "ws://Simplys-MacBook-Pro.local:8099"]
+
+var sockets: Array[WebSocketPeer] = []
 
 enum WebSocketMessageList {
 	WEBSOCKET_NOTE_OFF = 128,
@@ -10,33 +15,39 @@ enum WebSocketMessageList {
 }
 
 func _ready() -> void:
-	socket.connect_to_url("ws://h-MacBook-Pro-sl-Simply.local:8099")
+	# Create and connect a WebSocketPeer for each server
+	for server_url: String in SERVER_URLS:
+		var socket: WebSocketPeer = WebSocketPeer.new()
+		socket.connect_to_url(server_url)
+		sockets.append(socket)
 
 func _process(delta: float) -> void:
-	socket.poll()
-	var state: int = socket.get_ready_state()
-	
-	if state == WebSocketPeer.STATE_OPEN:
-		while socket.get_available_packet_count() > 0:
-			var packet: Variant = socket.get_packet()
-			if packet is String:
-				print("Packet: ", packet)  # Packet is already a string
-			elif packet is PackedByteArray:
-				print("Packet: ", packet)
-				process(packet)
-			else:
-				print("Received unsupported packet type: ", typeof(packet))
-	
-	elif state == WebSocketPeer.STATE_CLOSING:
-		# Keep polling to achieve proper close.
-		pass
-	
-	elif state == WebSocketPeer.STATE_CLOSED:
-		var code: int = socket.get_close_code()
-		var reason: String = socket.get_close_reason()
-		print("WebSocket closed with code: %d, reason: %s. Clean: %s" % [code, reason, code != -1])
-		set_process(false) # Stop processing.
-
+	for socket: WebSocketPeer in sockets:
+		socket.poll()
+		var state: int = socket.get_ready_state()
+		
+		if state == WebSocketPeer.STATE_OPEN:
+			while socket.get_available_packet_count() > 0:
+				var packet: Variant = socket.get_packet()
+				if packet is String:
+					print("Packet from %s: %s" % [socket.get_connected_host(), packet])
+				elif packet is PackedByteArray:
+					print("Packet from %s: %s" % [socket.get_connected_host(), packet])
+					process(packet)
+				else:
+					print("Received unsupported packet type: ", typeof(packet))
+		
+		elif state == WebSocketPeer.STATE_CLOSING:
+			# Keep polling to achieve proper close.
+			pass
+		
+		elif state == WebSocketPeer.STATE_CLOSED:
+			var code: int = socket.get_close_code()
+			var reason: String = socket.get_close_reason()
+			print("WebSocket closed for %s with code: %d, reason: %s. Clean: %s" % 
+				  [socket.get_connected_host(), code, reason, code != -1])
+			# Remove this socket if it's closed, to avoid processing it further
+			sockets.erase(socket)
 
 func process(packet: PackedByteArray) -> void:
 	var midi_event: MidiEvent = MidiEvent.new()
