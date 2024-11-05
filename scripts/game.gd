@@ -335,9 +335,9 @@ func update_streak() -> void:
 	else:
 		streak_meter.visible = false
 
-func emit_beat_signals() -> void:
+func beat_effects() -> void:
+	#print("BEAT!")
 	pass
-	
 	
 
 func _process(delta: float) -> void:

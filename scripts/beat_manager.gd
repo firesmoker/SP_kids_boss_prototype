@@ -6,7 +6,7 @@ var bpm: float = Game.tempo # Set this to the BPM of your music
 var beat_length: float = 60.0 / bpm
 var next_beat_time: float = beat_length # Time for the next beat signal
 var paused: bool = false
-
+var game: Game
 signal beat_signal
 
 func _ready() -> void:
@@ -16,6 +16,9 @@ func _ready() -> void:
 
 	# Start playing the music
 	music_player.play()
+	
+	game = get_tree().root.get_child(0)
+	beat_signal.connect(game.beat_effects)
 
 func _process(delta: float) -> void:
 	if music_player.playing and !paused:
@@ -23,8 +26,8 @@ func _process(delta: float) -> void:
 		
 		# Check if the current playback position has passed the time for the next beat
 		if current_time >= next_beat_time:
-			# print("beat_marker " + str(current_time))
-			emit_signal("beat_marker")
+			print("beat_marker " + str(current_time))
+			emit_signal("beat_signal")
 			
 			# Calculate the time for the next beat
 			next_beat_time += beat_length
