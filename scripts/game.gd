@@ -138,6 +138,7 @@ var missed_notes: int = 0
 var continue_note_played: bool = false
 @export var max_combo: int = 0
 static var level_ready: bool = false
+var grace_period_finished: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -345,7 +346,7 @@ func beat_effects() -> void:
 	
 
 func _process(delta: float) -> void:
-	if construction_complete and not losing and not winning:
+	if construction_complete and not losing and not winning and music_player.playing and grace_period_finished:
 		vulnerable = true
 	update_debug()
 	health_bars_progress(delta, health_rate)
@@ -364,8 +365,8 @@ func _process(delta: float) -> void:
 		player_character.play("idle")
 		player_bot.play("fly")
 	time_elapsed += delta
-	#if time_elapsed > vul_time:
-		#vulnerable = true
+	if time_elapsed > vul_time:
+		grace_period_finished = true
 		
 	var stream: AudioStream = music_player.stream
 	var song_length: float = stream.get_length()
