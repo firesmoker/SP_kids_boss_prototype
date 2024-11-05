@@ -42,7 +42,7 @@ func add_note_score(note_score: float) -> void:
 	Adds a new Note score to the notes array.
 	note_score should be a value between 0 and 1.
 	"""
-	print("Note score: " + str(note_score))
+	#print("Note score: " + str(note_score))
 	note_scores.append(note_score)
 	calculate_overall_score()
 	calculate_stars()
