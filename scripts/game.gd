@@ -1,5 +1,7 @@
 class_name Game extends Node2D
 
+@onready var single_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow
+@onready var multi_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow
 
 @onready var star_empty: TextureRect = $Overlay/Stars/StarEmpty
 @onready var star_full: TextureRect = $Overlay/Stars/StarFull
@@ -337,6 +339,8 @@ func update_streak() -> void:
 
 func beat_effects() -> void:
 	#print("BEAT!")
+	single_glow.find_child("Expander").expand(1.1,0.15,true)
+	multi_glow.find_child("Expander").expand(1.1,0.15,true)
 	pass
 	
 
