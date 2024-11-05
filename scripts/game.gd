@@ -67,12 +67,12 @@ class_name Game extends Node2D
 @onready var bottom_staff: Node2D = $Level/RightHandPart/BottomStaff
 
 
-
-
 @onready var ending_point: Node2D = $Level/RightHandPart/EndingPoint
 @onready var notes_container: NotesContainer = $Level/RightHandPart/EndingPoint/NotesContainer
 @onready var notes_detector: NotesDetector = $Level/RightHandPart/NotesDetector
 @onready var bottom_notes_detector: NotesDetector = $Level/RightHandPart/BottomNotesDetector
+
+@onready var score_manager: ScoreManager = $ScoreManager
 
 @export var accelerate_sound: AudioStream
 @export var slow_down_sound: AudioStream
@@ -133,10 +133,8 @@ var boss_health_progress: float = 0
 var got_hit_atleast_once: bool = false
 var combo_count: int = 0
 var missed_notes: int = 0
-var accuracy: float = 1
 var continue_note_played: bool = false
 @export var max_combo: int = 0
-signal game_resumed
 static var level_ready: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -320,9 +318,6 @@ func enter_lose_ui() -> void:
 	#player_character.find_child("Expander").move(new_position, 0.35)
 	win_buttons.visible = true
 
-func calculate_accuracy() -> void:
-	accuracy = (float(notes_container.notes_in_level) - float(missed_notes)) / float(notes_container.notes_in_level)
-
 func update_streak() -> void:
 	
 	if combo_count > 10:
@@ -348,7 +343,6 @@ func emit_beat_signals() -> void:
 func _process(delta: float) -> void:
 	if construction_complete and not losing and not winning:
 		vulnerable = true
-	calculate_accuracy()
 	update_debug()
 	health_bars_progress(delta, health_rate)
 	#update_streak()
@@ -428,26 +422,10 @@ func lose() -> void:
 	game_state = "Lose"
 	enter_lose_ui()
 
-func calculate_stars(level_type: String = "boss") -> int:
-	if level_type == "boss":
-		if not got_hit_atleast_once:
-			return 3
-		elif player_health_bar.value >= player_health_bar.max_value / 2:
-			return 2
-		else:
-			return 1
-	else:
-		if accuracy > 0.9:
-			return 3
-		elif accuracy > 0.75:
-			return 2
-		else:
-			return 1
-
 func show_stars() -> void:
 	stars.visible = true
 	stars.find_child("Fader").fade_in()
-	match calculate_stars(game_mode):
+	match score_manager.stars:
 		3:
 			star_full.visible = true
 			star_full_2.visible = true
@@ -655,7 +633,7 @@ func get_hit(damage: int = -1) -> void:
 			player_character.find_child("Flash").flash(Color.RED)
 			player_bot.play("get_hit")
 			player_bot.find_child("Flash").flash(Color.RED)
-			audio_play_from_source(player_character, audio_clips.player_hit)
+			audio_play_from_source(player_character, audio_clips.player_hit,-8)
 			update_player_health(damage)
 			#player_health_bar.value = player_health
 			player_health_bar.find_child("Flash").flash(Color.RED)
@@ -802,4 +780,4 @@ func show_debug(toggle: bool = debug) -> void:
 func update_debug() -> void:
 	debug_missed_notes.text = "DEBUG: missed notes: " + str(missed_notes)
 	debug_notes_in_level.text = "DEBUG: notes in level: " + str(notes_container.notes_in_level)
-	debug_accuracy.text = "DEBUG: Accuracy " + str(snapped(accuracy,0.01)*100.0) + "%"
+	debug_accuracy.text = "DEBUG: overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
