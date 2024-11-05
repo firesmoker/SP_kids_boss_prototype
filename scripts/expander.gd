@@ -50,11 +50,12 @@ func _process(delta: float) -> void:
 			moving = false
 		parent.global_position = lerp(original_position, target_position, moving_progress / time_to_move)
 
-func expand(modifier: float = target_scale_modifier, time: float = time_to_scale, reverse: bool = false) -> void:
+func expand(modifier: float = target_scale_modifier, time: float = time_to_scale, reverse: bool = false, x_scale: float = 1) -> void:
 	expanding = true
 	parent.scale = original_scale 
 	target_scale_modifier = modifier
 	target_scale = original_scale * target_scale_modifier
+	target_scale.x *= x_scale
 	time_to_scale = time
 	reverse_expanding = reverse
 

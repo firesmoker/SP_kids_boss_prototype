@@ -339,8 +339,8 @@ func update_streak() -> void:
 
 func beat_effects() -> void:
 	#print("BEAT!")
-	single_glow.find_child("Expander").expand(1.1,0.15,true)
-	multi_glow.find_child("Expander").expand(1.1,0.15,true)
+	single_glow.find_child("Expander").expand(1.1,0.3,true,2)
+	multi_glow.find_child("Expander").expand(1.1,0.3,true,2)
 	pass
 	
 

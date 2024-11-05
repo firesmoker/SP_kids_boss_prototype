@@ -2503,6 +2503,7 @@ texture = ExtResource("379_g4x10")
 [node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine"]
 show_behind_parent = true
 position = Vector2(70.501, 0)
+scale = Vector2(0.6, 1)
 texture = ExtResource("14_nko2d")
 
 [node name="Expander" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow" instance=ExtResource("20_wgxju")]
@@ -2524,6 +2525,7 @@ metadata/_edit_lock_ = true
 [node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine"]
 show_behind_parent = true
 position = Vector2(70.501, 0)
+scale = Vector2(0.6, 1)
 texture = ExtResource("14_nko2d")
 
 [node name="Expander" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow" instance=ExtResource("20_wgxju")]
