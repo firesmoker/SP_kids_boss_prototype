@@ -9,9 +9,14 @@ var crowd_people: Array
 @onready var video_layer_4: VideoStreamPlayer = $VideoCanvas/VideoLayer4
 @onready var video_layer_5: VideoStreamPlayer = $VideoCanvas/VideoLayer5
 @onready var star_bar: TextureProgressBar = $UI/StarBar
-var star1_threshold: float = 10
-var star2_threshold: float = 20
-var star3_threshold: float = 30
+var star1_threshold_modifier: float = 0.5
+var star2_threshold_modifier: float = 0.7
+var star3_threshold_modifier: float = 0.9
+
+var star1_threshold_score: float
+var star2_threshold_score: float
+var star3_threshold_score: float
+
 
 var temp_notes_played: int = 0
 
@@ -307,27 +312,27 @@ func set_star_bar_values() -> void:
 	print("notes in level = " + str(notes_container.notes_in_level))
 	print("temp notes = " + str(temp_notes_played))
 	star_bar.value = 0
-	star1_threshold = star_bar.max_value * 0.5
-	star2_threshold = star_bar.max_value * 0.7
-	star3_threshold = star_bar.max_value * 0.85
+	star1_threshold_score = star_bar.max_value * star1_threshold_modifier
+	star2_threshold_score = star_bar.max_value * star2_threshold_modifier
+	star3_threshold_score = star_bar.max_value * star3_threshold_modifier
 	var star1: TextureRect = star_bar.find_child("Star1")
 	var star2: TextureRect = star_bar.find_child("Star2")
 	var star3: TextureRect = star_bar.find_child("Star3")
-	star1.position.x = -star1.size.x/2 + star_bar.size.x*0.5
-	star2.position.x = -star2.size.x/2 + star_bar.size.x*0.7
-	star3.position.x = -star2.size.x/2 + star_bar.size.x*0.85
+	star1.position.x = -star1.size.x/2 + star_bar.size.x * star1_threshold_modifier
+	star2.position.x = -star2.size.x/2 + star_bar.size.x * star2_threshold_modifier
+	star3.position.x = -star2.size.x/2 + star_bar.size.x * star3_threshold_modifier
 	
 	
 
 func update_ingame_stars() -> void:
 	star_bar.value = temp_notes_played
-	if temp_notes_played > star3_threshold:
+	if temp_notes_played > star3_threshold_score:
 		video_layer_5.find_child("Fader").fade_in(0.01)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
-	elif temp_notes_played > star2_threshold:
+	elif temp_notes_played > star2_threshold_score:
 		video_layer_3.find_child("Fader").fade_in(0.01)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
-	elif temp_notes_played > star1_threshold:
+	elif temp_notes_played > star1_threshold_score:
 		video_layer_2.find_child("Fader").fade_in(0.01)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 

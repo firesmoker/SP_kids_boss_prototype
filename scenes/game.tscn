@@ -599,7 +599,7 @@
 [ext_resource type="Texture2D" uid="uid://daec86x4aivle" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00027.png" id="583_arluj"]
 [ext_resource type="Texture2D" uid="uid://0w4kqibs1urr" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00028.png" id="584_3x46a"]
 [ext_resource type="Texture2D" uid="uid://dc2kr1uydxcce" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00029.png" id="585_1nwe6"]
-[ext_resource type="Texture2D" uid="uid://dwjerlxrl1d51" path="res://art/10_nov/Hero.png" id="596_biyjy"]
+[ext_resource type="Texture2D" uid="uid://15oalwu5s588" path="res://art/10_nov/Hero_Small.png" id="596_ehffq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dbryh"]
 animations = [{
@@ -3127,7 +3127,7 @@ metadata/_edit_use_anchors_ = true
 process_mode = 3
 top_level = true
 z_index = 1
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -424.0
@@ -3932,8 +3932,8 @@ position = Vector2(589, 468)
 texture = ExtResource("407_nwymd")
 
 [node name="Character" type="Sprite2D" parent="Level/LibVisuals"]
-position = Vector2(589, 433)
-texture = ExtResource("596_biyjy")
+position = Vector2(589, 667)
+texture = ExtResource("596_ehffq")
 
 [node name="LeftSpeaker" type="Sprite2D" parent="Level/LibVisuals"]
 visible = false
