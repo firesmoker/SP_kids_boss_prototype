@@ -4,7 +4,7 @@ class_name ScoreManager
 @onready var beat_manager: BeatManager = $"../Sound/BeatManager"
 @onready var notes_container: NotesContainer = $"../Level/RightHandPart/EndingPoint/NotesContainer"
 @onready var notes_detector: NotesDetector = $"../Level/RightHandPart/NotesDetector"
-
+@onready var bottom_notes_detector: NotesDetector = $"../Level/RightHandPart/BottomNotesDetector"
 # Sensitivity factor for scoring
 var sensitivity: float = 0.5
 
@@ -64,7 +64,7 @@ func calculate_score() -> void:
 		for score: float in note_scores:
 			total_score += score
 		overall_score = total_score / note_scores.size()
-		current_score = overall_score * (notes_detector.hit_notes.size() + notes_detector.missed_notes.size()) / notes_container.notes_in_level
+		current_score = overall_score * (notes_detector.hit_notes.size() + notes_detector.missed_notes.size() + bottom_notes_detector.hit_notes.size() + bottom_notes_detector.missed_notes.size()) / notes_container.notes_in_level
 
 func calculate_stars() -> void:
 	"""
