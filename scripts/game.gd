@@ -4,6 +4,12 @@ class_name Game extends Node2D
 var crowd_people: Array
 
 @onready var video_layer_1: VideoStreamPlayer = $VideoCanvas/VideoLayer1
+@onready var video_layer_2: VideoStreamPlayer = $VideoCanvas/VideoLayer2
+@onready var video_layer_3: VideoStreamPlayer = $VideoCanvas/VideoLayer3
+@onready var video_layer_4: VideoStreamPlayer = $VideoCanvas/VideoLayer4
+@onready var video_layer_5: VideoStreamPlayer = $VideoCanvas/VideoLayer5
+
+
 @onready var white_layer_4: ColorRect = $UI/WhiteLayer4
 
 @onready var single_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow
@@ -242,9 +248,14 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 		right_hand_part.position.y -= 90
 	lib_visuals.visible = false
 	#combo_meter.visible = toggle
-	streak_meter.visible = toggle
+	streak_meter.visible = false
 	video_layer_1.visible = toggle
+	video_layer_2.visible = toggle
+	video_layer_3.visible = toggle
+	video_layer_4.visible = toggle
+	video_layer_5.visible = toggle
 	background.visible = false
+	white_layer_4.visible = toggle
 
 func set_boss_visibility(toggle: bool = true) -> void:
 	boss.visible = toggle
@@ -377,15 +388,19 @@ func enter_lose_ui() -> void:
 
 func update_streak() -> void:
 	if combo_count > 10:
+		video_layer_5.find_child("Fader").fade_in()
 		streak_meter.visible = true 
 		streak_meter.text = "Combo!: A"
 	elif combo_count > 6:
+		video_layer_4.find_child("Fader").fade_in()
 		streak_meter.visible = true
 		streak_meter.text = "Combo!: B"
 	elif combo_count > 3:
+		video_layer_3.find_child("Fader").fade_in()
 		streak_meter.visible = true
 		streak_meter.text = "Combo!: C"
 	elif combo_count > 1:
+		video_layer_2.find_child("Fader").fade_in()
 		streak_meter.visible = true
 		streak_meter.text = "Combo!: D"
 	else:
