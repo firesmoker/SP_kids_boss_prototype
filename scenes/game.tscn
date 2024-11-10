@@ -1,4 +1,4 @@
-[gd_scene load_steps=619 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=621 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -1608,6 +1608,10 @@ bg_color = Color(0.535958, 0.116029, 0.861395, 1)
 [sub_resource type="Theme" id="Theme_24okh"]
 default_font_size = 60
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dv3id"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6yep"]
+
 [sub_resource type="Gradient" id="Gradient_vbxr5"]
 offsets = PackedFloat32Array(0, 0.493797, 1)
 colors = PackedColorArray(0, 0, 0, 0, 0.71464, 0.71464, 0.71464, 0.71464, 1, 1, 1, 0.54902)
@@ -2975,47 +2979,56 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="DebugMissedNotes" type="Label" parent="Overlay"]
+[node name="DebugWindow" type="Control" parent="Overlay"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 84.0
 offset_top = 554.0
 offset_right = 366.0
 offset_bottom = 590.0
+
+[node name="Panel" type="Panel" parent="Overlay/DebugWindow"]
+material = SubResource("CanvasItemMaterial_dv3id")
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v6yep")
+
+[node name="DebugMissedNotes" type="Label" parent="Overlay/DebugWindow"]
+offset_right = 282.0
+offset_bottom = 36.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "[D] Missed notes: "
 
-[node name="DebugNotesInLevel" type="Label" parent="Overlay"]
-offset_left = 84.0
-offset_top = 590.0
-offset_right = 367.0
-offset_bottom = 626.0
+[node name="DebugNotesInLevel" type="Label" parent="Overlay/DebugWindow"]
+offset_top = 36.0
+offset_right = 283.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "[D] Notes in level: "
 
-[node name="DebugOverallScore" type="Label" parent="Overlay"]
-offset_left = 84.0
-offset_top = 628.0
-offset_right = 380.0
-offset_bottom = 664.0
+[node name="DebugOverallScore" type="Label" parent="Overlay/DebugWindow"]
+offset_top = 74.0
+offset_right = 296.0
+offset_bottom = 110.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "[D] Overall: 100%"
 
-[node name="DebugCurrentScore" type="Label" parent="Overlay"]
-offset_left = 84.0
-offset_top = 664.0
-offset_right = 380.0
-offset_bottom = 700.0
+[node name="DebugCurrentScore" type="Label" parent="Overlay/DebugWindow"]
+offset_top = 110.0
+offset_right = 296.0
+offset_bottom = 146.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "[D] Current: 100%"
 
-[node name="DebugVulnerable" type="Label" parent="Overlay"]
-offset_left = 84.0
-offset_top = 700.0
-offset_right = 396.0
-offset_bottom = 736.0
+[node name="DebugVulnerable" type="Label" parent="Overlay/DebugWindow"]
+offset_top = 146.0
+offset_right = 312.0
+offset_bottom = 182.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "[D] Vulnerable: false"
@@ -3300,47 +3313,6 @@ expand_mode = 2
 stretch_mode = 4
 metadata/_edit_lock_ = true
 
-[node name="WhiteLayer1" type="ColorRect" parent="UI"]
-visible = false
-modulate = Color(1, 1, 1, 0.603922)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -268.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="WhiteLayer2" type="ColorRect" parent="UI"]
-visible = false
-modulate = Color(1, 1, 1, 0.603922)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 552.0
-offset_right = -961.0
-offset_bottom = -253.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="WhiteLayer3" type="ColorRect" parent="UI"]
-visible = false
-modulate = Color(1, 1, 1, 0.603922)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 219.0
-offset_top = 552.0
-offset_right = -221.0
-offset_bottom = -129.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
 [node name="WhiteLayer4" type="TextureRect" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -3361,20 +3333,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
-
-[node name="WhiteLayer5" type="ColorRect" parent="UI"]
-visible = false
-modulate = Color(1, 1, 1, 0.521569)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 85.0
-offset_top = 145.0
-offset_right = -105.0
-offset_bottom = -452.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 
 [node name="DarkenLevel" type="TextureRect" parent="UI"]
 process_mode = 3
