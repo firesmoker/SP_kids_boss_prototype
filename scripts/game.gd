@@ -20,7 +20,7 @@ var star3_threshold_score: float
 
 var temp_notes_played: int = 0
 
-@onready var white_layer_4: ColorRect = $UI/WhiteLayer4
+@onready var white_layer_4: TextureRect = $UI/WhiteLayer4
 
 @onready var single_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow
 @onready var multi_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow
@@ -240,7 +240,6 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 func set_default_visibility() -> void:
 	## Generic visuals:
 	right_hand_part.position = Vector2(-52.032,-120.794)
-	background.visible = true
 	darken_level.visible = false
 	continue_note_popup.visible = false
 	combo_meter.visible = false
@@ -257,7 +256,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	if toggle == true:
 		right_hand_part.position.y -= 90
 	lib_visuals.visible = toggle
-	star_bar.visible = true
+	star_bar.visible = toggle
 	#combo_meter.visible = toggle
 	streak_meter.visible = false
 	video_layer_1.visible = toggle
@@ -265,7 +264,6 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	video_layer_3.visible = toggle
 	video_layer_4.visible = toggle
 	video_layer_5.visible = toggle
-	background.visible = false
 	white_layer_4.visible = toggle
 
 func set_boss_visibility(toggle: bool = true) -> void:
@@ -274,7 +272,8 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	boss_health_bar.visible = toggle
 	player_character.visible = toggle
 	player_bot.visible = false
-	background_slow.visible = toggle
+	background.visible = toggle
+	background_slow.visible = false
 	intro_sequence.visible = toggle
 	blue_line.find_child("SingleLine").find_child("LineZapSingle").visible = toggle
 	electric_beam.find_child("LineZapMulti").visible = toggle

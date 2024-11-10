@@ -15,6 +15,7 @@ z_index = 1
 scale = Vector2(0.195, 0.195)
 sync_to_physics = false
 script = ExtResource("1_76fco")
+success_color = Color(0.160784, 0.952941, 0.933333, 1)
 
 [node name="old_sprite" type="Sprite2D" parent="."]
 visible = false

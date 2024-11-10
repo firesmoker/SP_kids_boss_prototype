@@ -1,9 +1,10 @@
 class_name Note extends AnimatableBody2D
 
 @export_enum("Active", "Inactive", "Rest") var state: String = "Active"
-@export var note: String
-@export var event: MelodyEvent
+var note: String
+var event: MelodyEvent
 @export_enum("Note","Rest") var type: String = "Note"
+@export var success_color: Color
 @onready var eigth: Sprite2D = $Eigth
 @onready var quarter: Sprite2D = $Quarter
 @onready var half: Sprite2D = $Half
@@ -21,10 +22,10 @@ func ready() -> void:
 
 func hit_note_visual() -> void:
 	#scale = scale * 1.6
-	eigth.material.set_shader_parameter("color",Color.CADET_BLUE)
-	quarter.material.set_shader_parameter("color",Color.CADET_BLUE)
-	half.material.set_shader_parameter("color",Color.CADET_BLUE)
-	whole.material.set_shader_parameter("color",Color.CADET_BLUE)
+	eigth.material.set_shader_parameter("color",success_color)
+	quarter.material.set_shader_parameter("color",success_color)
+	half.material.set_shader_parameter("color",success_color)
+	whole.material.set_shader_parameter("color",success_color)
 
 func miss_note_visual() -> void:
 	eigth.material.set_shader_parameter("color",Color.RED)
