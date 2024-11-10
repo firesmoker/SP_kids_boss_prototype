@@ -1,4 +1,4 @@
-extends Node2D
+class_name Expander extends Node2D
 var parent: Node
 var game: Node
 @onready var debug: Label = $Debug

@@ -3193,6 +3193,8 @@ texture = ExtResource("367_4ijhd")
 expand_mode = 2
 stretch_mode = 4
 
+[node name="Expander" parent="UI/StarBar/Star1" instance=ExtResource("20_wgxju")]
+
 [node name="Star2" type="TextureRect" parent="UI/StarBar"]
 z_index = 1
 layout_mode = 1
@@ -3228,6 +3230,8 @@ texture = ExtResource("367_4ijhd")
 expand_mode = 2
 stretch_mode = 4
 
+[node name="Expander" parent="UI/StarBar/Star2" instance=ExtResource("20_wgxju")]
+
 [node name="Star3" type="TextureRect" parent="UI/StarBar"]
 z_index = 1
 layout_mode = 1
@@ -3262,6 +3266,8 @@ grow_vertical = 2
 texture = ExtResource("367_4ijhd")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="Expander" parent="UI/StarBar/Star3" instance=ExtResource("20_wgxju")]
 
 [node name="Background" type="TextureRect" parent="UI"]
 anchors_preset = 15
