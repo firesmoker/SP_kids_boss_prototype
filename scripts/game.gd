@@ -302,23 +302,34 @@ func trigger_crowd_animations() -> void:
 			print("threshold 1: animation changed to " + str(crowd_people[i].animation))
 
 func set_star_bar_values() -> void:
-	star_bar.max_value = notes_container.notes_in_level
+	star_bar.max_value = notes_container.notes_in_level - 1
+	print("star bar max value = " + str(star_bar.max_value))
+	print("notes in level = " + str(notes_container.notes_in_level))
+	print("temp notes = " + str(temp_notes_played))
 	star_bar.value = 0
 	star1_threshold = star_bar.max_value * 0.5
 	star2_threshold = star_bar.max_value * 0.7
 	star3_threshold = star_bar.max_value * 0.85
+	var star1: TextureRect = star_bar.find_child("Star1")
+	var star2: TextureRect = star_bar.find_child("Star2")
+	var star3: TextureRect = star_bar.find_child("Star3")
+	star1.position.x = -star1.size.x/2 + star_bar.size.x*0.5
+	star2.position.x = -star2.size.x/2 + star_bar.size.x*0.7
+	star3.position.x = -star2.size.x/2 + star_bar.size.x*0.85
+	
+	
 
 func update_ingame_stars() -> void:
 	star_bar.value = temp_notes_played
 	if temp_notes_played > star3_threshold:
 		video_layer_5.find_child("Fader").fade_in(0.01)
-		star_bar.find_child("Star3").find_child("Star3On").visible = true
+		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 	elif temp_notes_played > star2_threshold:
 		video_layer_3.find_child("Fader").fade_in(0.01)
-		star_bar.find_child("Star2").find_child("Star2On").visible = true
+		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 	elif temp_notes_played > star1_threshold:
 		video_layer_2.find_child("Fader").fade_in(0.01)
-		star_bar.find_child("Star1").find_child("Star1On").visible = true
+		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 
 func set_player_health() -> void:
 	original_health_color = player_health_bar.tint_progress

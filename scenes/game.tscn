@@ -3151,22 +3151,20 @@ metadata/_edit_use_anchors_ = true
 [node name="Star1" type="TextureRect" parent="UI/StarBar"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -45.5
-offset_top = -47.0
-offset_right = 38.5
-offset_bottom = 37.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -42.0
+offset_top = -48.0
+offset_right = 42.0
+offset_bottom = 36.0
+scale = Vector2(0.85, 0.85)
+pivot_offset = Vector2(42, 48)
 texture = ExtResource("366_on5xi")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Star1On" type="TextureRect" parent="UI/StarBar/Star1"]
+[node name="TurnedOn" type="TextureRect" parent="UI/StarBar/Star1"]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -3188,19 +3186,20 @@ stretch_mode = 4
 [node name="Star2" type="TextureRect" parent="UI/StarBar"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = -1
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 248.0
-offset_top = -47.0
-offset_right = 332.0
-offset_bottom = 37.0
-grow_vertical = 2
+offset_left = -42.0
+offset_top = -48.0
+offset_right = 42.0
+offset_bottom = 36.0
+scale = Vector2(0.85, 0.85)
+pivot_offset = Vector2(42, 48)
 texture = ExtResource("366_on5xi")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Star2On" type="TextureRect" parent="UI/StarBar/Star2"]
+[node name="TurnedOn" type="TextureRect" parent="UI/StarBar/Star2"]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -3218,24 +3217,24 @@ grow_vertical = 2
 texture = ExtResource("367_4ijhd")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="Star3" type="TextureRect" parent="UI/StarBar"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = -1
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 331.0
-offset_top = -47.0
-offset_right = 415.0
-offset_bottom = 37.0
-grow_vertical = 2
+offset_left = -42.0
+offset_top = -48.0
+offset_right = 42.0
+offset_bottom = 36.0
+scale = Vector2(0.85, 0.85)
+pivot_offset = Vector2(42, 48)
 texture = ExtResource("366_on5xi")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Star3On" type="TextureRect" parent="UI/StarBar/Star3"]
+[node name="TurnedOn" type="TextureRect" parent="UI/StarBar/Star3"]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -3253,7 +3252,6 @@ grow_vertical = 2
 texture = ExtResource("367_4ijhd")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="UI"]
 anchors_preset = 15
