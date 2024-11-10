@@ -1,4 +1,10 @@
 class_name Game extends Node2D
+@onready var lib_visuals: Node2D = $Level/LibVisuals
+@onready var crowd: Node2D = $Level/LibVisuals/Crowd
+var crowd_people: Array
+
+@onready var video_layer_1: VideoStreamPlayer = $VideoCanvas/VideoLayer1
+@onready var white_layer_4: ColorRect = $UI/WhiteLayer4
 
 @onready var single_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow
 @onready var multi_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow
@@ -19,6 +25,8 @@ class_name Game extends Node2D
 @onready var debug_missed_notes: Label = $Overlay/DebugMissedNotes
 @onready var debug_notes_in_level: Label = $Overlay/DebugNotesInLevel
 @onready var debug_accuracy: Label = $Overlay/DebugAccuracy
+@onready var debug_vulnerable: Label = $Overlay/DebugVulnerable
+
 @onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
 
 @onready var blue_line: Node2D = $Level/RightHandPart/CollectDetect/BlueLine
@@ -109,6 +117,10 @@ var player_health: float = 10
 var boss_health: float = 300
 var original_health_color: Color = Color.WHITE
 
+var threshold1_unlocked: bool = false
+var threshold2_unlocked: bool = false
+var threshold3_unlocked: bool = false
+
 @export var slow_down_percentage: float = 0.7
 @export var slow_timer: float = 10.5
 var level_length_in_bar: float = 0
@@ -168,7 +180,6 @@ func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -
 			darken_level.visible = true
 		get_tree().paused = true
 	else:
-		emit_signal("game_resumed")
 		return_button.visible = false
 		#pause_button.text = "Pause"
 		print("OH YEAH")
@@ -206,62 +217,103 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			await timer.timeout
 			level_accelerate()
 
-func set_library_song_visibility() -> void:
-	boss.visible = false
-	player_health_bar.visible = false
-	boss_health_bar.visible = false
-	player_character.visible = false
-	player_bot.visible = false
-	blue_line.find_child("SingleLine").find_child("LineZapSingle").visible = false
-	electric_beam.find_child("LineZapMulti").visible = false
-	electric_beam.find_child("ElectricBolt").visible = false
-	heart.visible = false
-	boss_portrait.visible = false
-	#combo_meter.visible = false
-	player_platform.visible = false
-	boss_platform.visible = false
 
 
 
-func set_visibility() -> void:
-	combo_meter.visible = false
-	streak_meter.visible = false
+
+func set_default_visibility() -> void:
+	## Generic visuals:
+	right_hand_part.position = Vector2(-52.032,-120.794)
+	background.visible = true
 	darken_level.visible = false
 	continue_note_popup.visible = false
-	background_slow.visible = false
-	background.visible = true
-	if game_mode == "boss" and not cheat_skip_intro:
+	streak_meter.visible = false
+	return_button.visible = false
+	
+	## Hide Library visuals:
+	set_library_song_visibility(false)
+	
+	## Hide Boss visuals:
+	set_boss_visibility(false)
+
+func set_library_song_visibility(toggle: bool = true) -> void:
+	if toggle == true:
+		right_hand_part.position.y -= 90
+	lib_visuals.visible = false
+	combo_meter.visible = toggle
+	video_layer_1.visible = toggle
+	background.visible = false
+
+func set_boss_visibility(toggle: bool = true) -> void:
+	boss.visible = toggle
+	player_health_bar.visible = toggle
+	boss_health_bar.visible = toggle
+	player_character.visible = toggle
+	player_bot.visible = false
+	background_slow.visible = toggle
+	intro_sequence.visible = toggle
+	blue_line.find_child("SingleLine").find_child("LineZapSingle").visible = toggle
+	electric_beam.find_child("LineZapMulti").visible = toggle
+	electric_beam.find_child("ElectricBolt").visible = toggle
+	heart.visible = toggle
+	boss_portrait.visible = toggle
+	player_platform.visible = toggle
+	boss_platform.visible = toggle
+	white_layer_4.visible = toggle
+	
+	if not cheat_skip_intro:
 		intro_sequence.visible = true
-	else:
-		intro_sequence.visible = false
+
+func trigger_crowd_animations() -> void:
+	var song_progress: float = music_player.get_playback_position() / music_player.stream.get_length()
+	if score_manager.overall_score >= 0.85 and song_progress > 0.6 and not threshold3_unlocked:
+		threshold3_unlocked = true
+		for i: int in range(crowd_people.size()):
+			crowd_people[i].animation = "moving"
+			print("threshold 3: animation changed to " + str(crowd_people[i].animation))
+	elif score_manager.overall_score >= 0.7 and song_progress > 0.3 and not threshold2_unlocked:
+		threshold2_unlocked = true
+		for i: int in range(crowd_people.size() / 2):
+			crowd_people[i].animation = "moving"
+			print("threshold 2: animation changed to " + str(crowd_people[i].animation))
+	elif score_manager.overall_score >= 0.5 and not threshold1_unlocked :
+		threshold1_unlocked = true
+		for i: int in range(crowd_people.size() / 3):
+			crowd_people[i].animation = "moving"
+			print("threshold 1: animation changed to " + str(crowd_people[i].animation))
+
 
 func _ready() -> void:
+	crowd_people = crowd.get_children()
 	original_health_color = player_health_bar.tint_progress
 	show_debug()
-	set_visibility()
+	set_default_visibility()
 	
-	if game_mode == "library":
-		set_library_song_visibility()
-	pause_button.visible = false
-	restart_button.visible = false
-	difficulty.visible = false
+	if game_mode == "boss":
+		set_boss_visibility(true)
+
+	elif game_mode == "library":
+		set_library_song_visibility(true)
+		print("setting library visibility")
 	losing = false
 	winning = false
-	win_buttons.visible = false
-	return_button.visible = false
 	player_health = starting_player_health
 	boss_health = starting_boss_health
 	music_player.stream = load(song_path)
 	music_player_slow.stream = load(slow_song_path)
-	tutorial.visible = false
-	#win_text.visible = false
-	into_stage.visible = false
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	boss_health_bar.max_value = boss_health
 	boss_health_bar.value = boss_health
-	background.visible = true
-	background_slow.visible = false
+	#pause_button.visible = false
+	#restart_button.visible = false
+	#difficulty.visible = false
+	#win_buttons.visible = false
+	#tutorial.visible = false
+	##win_text.visible = false
+	#into_stage.visible = false
+	#background.visible = true
+	#background_slow.visible = false
 	initialize_part(ui_type)
 	if ui_type == "treble":
 		right_hand_part.position.y += 60
@@ -340,10 +392,16 @@ func update_streak() -> void:
 
 func beat_effects() -> void:
 	#print("BEAT!")
+	play_crowd_animations()
 	single_glow.find_child("Expander").expand(1.1,0.3,true,2)
 	multi_glow.find_child("Expander").expand(1.1,0.3,true,2)
-	pass
-	
+	if game_mode == "library":
+		lib_visuals.find_child("LeftSpeaker").find_child("Grill").find_child("Expander").expand(1.1,0.3,true)
+		lib_visuals.find_child("RightSpeaker").find_child("Grill").find_child("Expander").expand(1.1,0.3,true)
+
+func play_crowd_animations() -> void:
+	for person: AnimatedSprite2D in crowd_people:
+		person.play()	
 
 func _process(delta: float) -> void:
 	if construction_complete and not losing and not winning and music_player.playing and grace_period_finished:
@@ -351,7 +409,8 @@ func _process(delta: float) -> void:
 	update_debug()
 	health_bars_progress(delta, health_rate)
 	#update_streak()
-	
+	if game_mode == "library":
+		trigger_crowd_animations()
 	#if game_state == "Win" and not player_moving_to_finish:
 		#player_moving_to_finish = true
 		#enter_win_ui()
@@ -781,8 +840,10 @@ func show_debug(toggle: bool = debug) -> void:
 	debug_missed_notes.visible = toggle
 	debug_notes_in_level.visible = toggle
 	debug_accuracy.visible = toggle
+	debug_vulnerable.visible = toggle
 
 func update_debug() -> void:
 	debug_missed_notes.text = "DEBUG: missed notes: " + str(missed_notes)
 	debug_notes_in_level.text = "DEBUG: notes in level: " + str(notes_container.notes_in_level)
 	debug_accuracy.text = "DEBUG: overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
+	debug_vulnerable.text = "DEBUG: vulnerable: " + str(vulnerable)
