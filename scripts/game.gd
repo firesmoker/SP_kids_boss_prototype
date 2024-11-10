@@ -227,6 +227,7 @@ func set_default_visibility() -> void:
 	background.visible = true
 	darken_level.visible = false
 	continue_note_popup.visible = false
+	combo_meter.visible = false
 	streak_meter.visible = false
 	return_button.visible = false
 	
@@ -240,7 +241,8 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	if toggle == true:
 		right_hand_part.position.y -= 90
 	lib_visuals.visible = false
-	combo_meter.visible = toggle
+	#combo_meter.visible = toggle
+	streak_meter.visible = toggle
 	video_layer_1.visible = toggle
 	background.visible = false
 
@@ -374,7 +376,6 @@ func enter_lose_ui() -> void:
 	win_buttons.visible = true
 
 func update_streak() -> void:
-	
 	if combo_count > 10:
 		streak_meter.visible = true 
 		streak_meter.text = "Combo!: A"
@@ -408,8 +409,8 @@ func _process(delta: float) -> void:
 		vulnerable = true
 	update_debug()
 	health_bars_progress(delta, health_rate)
-	#update_streak()
 	if game_mode == "library":
+		update_streak()
 		trigger_crowd_animations()
 	#if game_state == "Win" and not player_moving_to_finish:
 		#player_moving_to_finish = true

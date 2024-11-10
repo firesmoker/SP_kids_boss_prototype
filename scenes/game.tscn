@@ -3262,11 +3262,10 @@ text = "COMBO: 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="StreakMeter" type="Label" parent="UI"]
-visible = false
-offset_left = 449.0
-offset_top = 130.0
-offset_right = 665.0
-offset_bottom = 199.0
+offset_left = 77.0
+offset_top = 27.0
+offset_right = 296.0
+offset_bottom = 96.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
 theme_override_font_sizes/font_size = 50
