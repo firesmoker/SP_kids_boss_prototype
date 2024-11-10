@@ -1,4 +1,4 @@
-[gd_scene load_steps=612 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=617 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -402,6 +402,10 @@
 [ext_resource type="Texture2D" uid="uid://b2vo8k2bfvku8" path="res://art/4_nov/Warm_BG.png" id="360_6bair"]
 [ext_resource type="Texture2D" uid="uid://iyxqrq5cfblx" path="res://art/4_nov/Cold_BG.png" id="361_2yuql"]
 [ext_resource type="Texture2D" uid="uid://3h3le0r1x8d7" path="res://art/HealthBarStatus2.png" id="361_eb7ia"]
+[ext_resource type="Texture2D" uid="uid://dqbiukny3ccqn" path="res://art/10_nov/BarOff.png" id="364_l8oqn"]
+[ext_resource type="Texture2D" uid="uid://cpj47xn0ptp25" path="res://art/10_nov/BarOn.png" id="365_fyknt"]
+[ext_resource type="Texture2D" uid="uid://cki5gdkhu5w2p" path="res://art/10_nov/StarOff.png" id="366_on5xi"]
+[ext_resource type="Texture2D" uid="uid://cjyl515mkdk8d" path="res://art/10_nov/StarOn.png" id="367_4ijhd"]
 [ext_resource type="VideoStream" path="res://art/10_nov/BG01.ogv" id="368_ilequ"]
 [ext_resource type="VideoStream" path="res://art/10_nov/BG02.ogv" id="369_tknix"]
 [ext_resource type="VideoStream" path="res://art/10_nov/BG03.ogv" id="370_gupta"]
@@ -595,6 +599,7 @@
 [ext_resource type="Texture2D" uid="uid://daec86x4aivle" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00027.png" id="583_arluj"]
 [ext_resource type="Texture2D" uid="uid://0w4kqibs1urr" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00028.png" id="584_3x46a"]
 [ext_resource type="Texture2D" uid="uid://dc2kr1uydxcce" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00029.png" id="585_1nwe6"]
+[ext_resource type="Texture2D" uid="uid://dwjerlxrl1d51" path="res://art/10_nov/Hero.png" id="596_biyjy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dbryh"]
 animations = [{
@@ -3118,6 +3123,138 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Expander" parent="UI/BossHealthBar" instance=ExtResource("20_wgxju")]
 
+[node name="StarBar" type="TextureProgressBar" parent="UI"]
+process_mode = 3
+top_level = true
+z_index = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -424.0
+offset_top = 25.0
+offset_right = 11.0
+offset_bottom = 73.0
+grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(205, 50)
+max_value = 4.0
+step = 0.02
+value = 2.0
+texture_under = ExtResource("364_l8oqn")
+texture_progress = ExtResource("365_fyknt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Flash" parent="UI/StarBar" instance=ExtResource("57_hg35f")]
+
+[node name="Expander" parent="UI/StarBar" instance=ExtResource("20_wgxju")]
+
+[node name="Star1" type="TextureRect" parent="UI/StarBar"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -47.0
+offset_right = 38.5
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("366_on5xi")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Star1On" type="TextureRect" parent="UI/StarBar/Star1"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("367_4ijhd")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Star2" type="TextureRect" parent="UI/StarBar"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 248.0
+offset_top = -47.0
+offset_right = 332.0
+offset_bottom = 37.0
+grow_vertical = 2
+texture = ExtResource("366_on5xi")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Star2On" type="TextureRect" parent="UI/StarBar/Star2"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("367_4ijhd")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="Star3" type="TextureRect" parent="UI/StarBar"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 331.0
+offset_top = -47.0
+offset_right = 415.0
+offset_bottom = 37.0
+grow_vertical = 2
+texture = ExtResource("366_on5xi")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Star3On" type="TextureRect" parent="UI/StarBar/Star3"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("367_4ijhd")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
 [node name="Background" type="TextureRect" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -3731,17 +3868,18 @@ scale = Vector2(0.135251, 0.135251)
 texture = ExtResource("400_0fb3h")
 
 [node name="LibVisuals" type="Node2D" parent="Level"]
-visible = false
 z_index = -10
 position = Vector2(-469.841, -326.19)
 scale = Vector2(0.793651, 0.793651)
 
 [node name="Stadium" type="Sprite2D" parent="Level/LibVisuals"]
+visible = false
 position = Vector2(578, 474)
 scale = Vector2(1, 1)
 texture = ExtResource("405_l1de6")
 
 [node name="Crowd" type="Node2D" parent="Level/LibVisuals"]
+visible = false
 scale = Vector2(1, 1)
 
 [node name="CrowdPersonA" type="AnimatedSprite2D" parent="Level/LibVisuals/Crowd"]
@@ -3791,10 +3929,16 @@ frame = 22
 frame_progress = 1.0
 
 [node name="Stage" type="Sprite2D" parent="Level/LibVisuals"]
+visible = false
 position = Vector2(589, 468)
 texture = ExtResource("407_nwymd")
 
+[node name="Character" type="Sprite2D" parent="Level/LibVisuals"]
+position = Vector2(589, 433)
+texture = ExtResource("596_biyjy")
+
 [node name="LeftSpeaker" type="Sprite2D" parent="Level/LibVisuals"]
+visible = false
 position = Vector2(40, 679)
 texture = ExtResource("408_ol67u")
 
@@ -3804,6 +3948,7 @@ texture = ExtResource("409_5pswi")
 [node name="Expander" parent="Level/LibVisuals/LeftSpeaker/Grill" instance=ExtResource("20_wgxju")]
 
 [node name="RightSpeaker" type="Sprite2D" parent="Level/LibVisuals"]
+visible = false
 position = Vector2(1136, 679)
 texture = ExtResource("408_ol67u")
 flip_h = true

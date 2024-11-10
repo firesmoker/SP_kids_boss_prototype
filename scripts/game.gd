@@ -8,7 +8,12 @@ var crowd_people: Array
 @onready var video_layer_3: VideoStreamPlayer = $VideoCanvas/VideoLayer3
 @onready var video_layer_4: VideoStreamPlayer = $VideoCanvas/VideoLayer4
 @onready var video_layer_5: VideoStreamPlayer = $VideoCanvas/VideoLayer5
+@onready var star_bar: TextureProgressBar = $UI/StarBar
+var star1_threshold: float = 10
+var star2_threshold: float = 20
+var star3_threshold: float = 30
 
+var temp_notes_played: int = 0
 
 @onready var white_layer_4: ColorRect = $UI/WhiteLayer4
 
@@ -246,7 +251,8 @@ func set_default_visibility() -> void:
 func set_library_song_visibility(toggle: bool = true) -> void:
 	if toggle == true:
 		right_hand_part.position.y -= 90
-	lib_visuals.visible = false
+	lib_visuals.visible = toggle
+	star_bar.visible = true
 	#combo_meter.visible = toggle
 	streak_meter.visible = false
 	video_layer_1.visible = toggle
@@ -295,10 +301,39 @@ func trigger_crowd_animations() -> void:
 			crowd_people[i].animation = "moving"
 			print("threshold 1: animation changed to " + str(crowd_people[i].animation))
 
+func set_star_bar_values() -> void:
+	star_bar.max_value = notes_container.notes_in_level
+	star_bar.value = 0
+	star1_threshold = star_bar.max_value * 0.5
+	star2_threshold = star_bar.max_value * 0.7
+	star3_threshold = star_bar.max_value * 0.85
+
+func update_ingame_stars() -> void:
+	star_bar.value = temp_notes_played
+	if temp_notes_played > star3_threshold:
+		video_layer_5.find_child("Fader").fade_in(0.01)
+		star_bar.find_child("Star3").find_child("Star3On").visible = true
+	elif temp_notes_played > star2_threshold:
+		video_layer_3.find_child("Fader").fade_in(0.01)
+		star_bar.find_child("Star2").find_child("Star2On").visible = true
+	elif temp_notes_played > star1_threshold:
+		video_layer_2.find_child("Fader").fade_in(0.01)
+		star_bar.find_child("Star1").find_child("Star1On").visible = true
+
+func set_player_health() -> void:
+	original_health_color = player_health_bar.tint_progress
+	player_health = starting_player_health
+	player_health_bar.max_value = player_health
+	player_health_bar.value = player_health
+	
+
+func set_boss_health() -> void:
+	boss_health = starting_boss_health
+	boss_health_bar.max_value = boss_health
+	boss_health_bar.value = boss_health
 
 func _ready() -> void:
 	crowd_people = crowd.get_children()
-	original_health_color = player_health_bar.tint_progress
 	show_debug()
 	set_default_visibility()
 	
@@ -308,26 +343,15 @@ func _ready() -> void:
 	elif game_mode == "library":
 		set_library_song_visibility(true)
 		print("setting library visibility")
+		
 	losing = false
 	winning = false
-	player_health = starting_player_health
-	boss_health = starting_boss_health
 	music_player.stream = load(song_path)
 	music_player_slow.stream = load(slow_song_path)
-	player_health_bar.max_value = player_health
-	player_health_bar.value = player_health
-	boss_health_bar.max_value = boss_health
-	boss_health_bar.value = boss_health
-	#pause_button.visible = false
-	#restart_button.visible = false
-	#difficulty.visible = false
-	#win_buttons.visible = false
-	#tutorial.visible = false
-	##win_text.visible = false
-	#into_stage.visible = false
-	#background.visible = true
-	#background_slow.visible = false
+	set_player_health()
+	set_boss_health()
 	initialize_part(ui_type)
+	set_star_bar_values()
 	if ui_type == "treble":
 		right_hand_part.position.y += 60
 		blue_line.find_child("SingleLine").visible = true
@@ -425,7 +449,8 @@ func _process(delta: float) -> void:
 	update_debug()
 	health_bars_progress(delta, health_rate)
 	if game_mode == "library":
-		update_streak()
+		update_ingame_stars()
+		#update_streak()
 		trigger_crowd_animations()
 	#if game_state == "Win" and not player_moving_to_finish:
 		#player_moving_to_finish = true
@@ -787,6 +812,7 @@ func player_win_animation() -> void:
 
 
 func add_to_combo() -> void:
+	temp_notes_played += 1 # TEMPORARY!
 	combo_count += 1
 	combo_meter.text = "COMBO: " + str(combo_count)
 	if combo_count > max_combo:
