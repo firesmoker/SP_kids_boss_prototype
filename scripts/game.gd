@@ -310,7 +310,8 @@ func trigger_crowd_animations() -> void:
 			print("threshold 1: animation changed to " + str(crowd_people[i].animation))
 
 func set_star_bar_values() -> void:
-	star_bar.max_value = notes_container.notes_in_level - 1
+	#star_bar.max_value = notes_container.notes_in_level - 1
+	star_bar.max_value = 1
 	print("star bar max value = " + str(star_bar.max_value))
 	print("notes in level = " + str(notes_container.notes_in_level))
 	print("temp notes = " + str(temp_notes_played))
@@ -328,22 +329,22 @@ func set_star_bar_values() -> void:
 	
 
 func update_ingame_stars() -> void:
-	star_bar.value = temp_notes_played
-	if temp_notes_played > star3_threshold_score:
+	star_bar.value = score_manager.current_score
+	if score_manager.current_score > star3_threshold_modifier:
 		video_layer_5.find_child("Fader").fade_in(0.01)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
 			star3_unlocked = true
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
 			expander.expand(1.4,0.25,true)
-	elif temp_notes_played > star2_threshold_score:
+	elif score_manager.current_score > star2_threshold_modifier:
 		video_layer_3.find_child("Fader").fade_in(0.01)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
 			star2_unlocked = true
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
 			expander.expand(1.4,0.25,true)
-	elif temp_notes_played > star1_threshold_score:
+	elif score_manager.current_score > star1_threshold_modifier:
 		video_layer_2.find_child("Fader").fade_in(0.01)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
