@@ -388,19 +388,19 @@ func enter_lose_ui() -> void:
 
 func update_streak() -> void:
 	if combo_count > 10:
-		video_layer_5.find_child("Fader").fade_in()
+		video_layer_5.find_child("Fader").fade_in(0.01)
 		streak_meter.visible = true 
 		streak_meter.text = "Combo!: A"
 	elif combo_count > 6:
-		video_layer_4.find_child("Fader").fade_in()
+		video_layer_4.find_child("Fader").fade_in(0.01)
 		streak_meter.visible = true
 		streak_meter.text = "Combo!: B"
 	elif combo_count > 3:
-		video_layer_3.find_child("Fader").fade_in()
+		video_layer_3.find_child("Fader").fade_in(0.01)
 		streak_meter.visible = true
 		streak_meter.text = "Combo!: C"
 	elif combo_count > 1:
-		video_layer_2.find_child("Fader").fade_in()
+		video_layer_2.find_child("Fader").fade_in(0.01)
 		streak_meter.visible = true
 		streak_meter.text = "Combo!: D"
 	else:

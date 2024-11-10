@@ -3,6 +3,7 @@ var parent: Node
 var game: Node
 var fading_in: bool = false
 var fading_out: bool = false
+var fade_interval: float = 0.02
 var expand_fading: bool = false
 
 var expand_fade_duration: float = 0.25
@@ -16,12 +17,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if fading_in:
-		parent.modulate.a += 0.02
+		parent.modulate.a += fade_interval
 		if parent.modulate.a >= 1:
 			parent.modulate.a = 1
 			fading_in = false
 	elif fading_out:
-		parent.modulate.a -= 0.02
+		parent.modulate.a -= fade_interval
 		if parent.modulate.a <= 0:
 			parent.modulate.a = 0
 			fading_out = false
@@ -36,10 +37,10 @@ func _process(delta: float) -> void:
 			parent.modulate.a = 0
 			expand_fading = false
 
-func fade_in(condition: bool = true) -> void:
-	if condition:
-		fading_out = false
-		fading_in = true
+func fade_in(fade_amount: float = fade_interval) -> void:
+	fade_interval = fade_amount
+	fading_out = false
+	fading_in = true
 
 func fade_out(condition: bool = true) -> void:
 	if condition:
