@@ -2,6 +2,8 @@ extends Node
 class_name ScoreManager
 
 @onready var beat_manager: BeatManager = $"../Sound/BeatManager"
+@onready var notes_container: NotesContainer = $"../Level/RightHandPart/EndingPoint/NotesContainer"
+@onready var notes_detector: NotesDetector = $"../Level/RightHandPart/NotesDetector"
 
 # Sensitivity factor for scoring
 var sensitivity: float = 0.5
@@ -9,8 +11,11 @@ var sensitivity: float = 0.5
 # Array to hold Note nodes
 var note_scores: Array = []
 
-# Weighted average of Note scores (0 to 1)
+# Weighted average of Note scores for all song (0 to 1)
 var overall_score: float = 0.0
+
+# Weighted average of Note scores (0 to 1)
+var current_score: float = 0.0
 
 # Property to calculate stars based on the overall_score
 var stars: float = 0.0
@@ -44,20 +49,22 @@ func add_note_score(note_score: float) -> void:
 	"""
 	#print("Note score: " + str(note_score))
 	note_scores.append(note_score)
-	calculate_overall_score()
+	calculate_score()
 	calculate_stars()
 
-func calculate_overall_score() -> void:
+func calculate_score() -> void:
 	"""
 	Calculates the weighted average of the scores.
 	"""
 	if note_scores.size() == 0:
 		overall_score = 0.0
+		current_score = 0.0
 	else:
 		var total_score: float = 0.0
 		for score: float in note_scores:
 			total_score += score
 		overall_score = total_score / note_scores.size()
+		current_score = overall_score * (notes_detector.hit_notes.size() + notes_detector.missed_notes.size()) / notes_container.notes_in_level
 
 func calculate_stars() -> void:
 	"""
@@ -67,7 +74,7 @@ func calculate_stars() -> void:
 		stars = 1.0
 	elif overall_score <= 0.7:
 		stars = 1.0 + (overall_score - 0.5) * (1.0 / 0.2) # Linear projection between 1 and 2 stars
-	elif overall_score <= 0.85:
+	elif overall_score <= 0.9:
 		stars = 2.0 + (overall_score - 0.7) * (1.0 / 0.2) # Linear projection between 2 and 3 stars
 	else:
 		stars = 3.0
@@ -75,5 +82,6 @@ func calculate_stars() -> void:
 # Debugging helper to print scores and stars
 func print_score_details() -> void:
 	print("Notes: ", note_scores)
+	print("Current Score: ", current_score)
 	print("Overall Score: ", overall_score)
 	print("Stars: ", stars)

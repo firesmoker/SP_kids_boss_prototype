@@ -3,6 +3,8 @@ class_name NotesDetector extends Area2D
 @onready var score_manager: ScoreManager = $"../../../ScoreManager"
 @export var bottom_detector: bool = false
 var current_notes: Array[Note]
+var hit_notes: Array[Note]
+var missed_notes: Array[Note]
 signal note_success
 signal note_failure
 signal continue_note_played
@@ -47,6 +49,7 @@ func note_played(note: String) -> void:
 func note_hit(i: int) -> void:
 	if game.vulnerable:
 		var note_object: Note = current_notes[i]
+		hit_notes.append(note_object)
 		emit_signal("note_success")
 		print("RIGHT NOTE PLAYED YAY!")
 		if game.game_state == "Playing":
@@ -58,6 +61,8 @@ func note_hit(i: int) -> void:
 
 func clear_notes() -> void:
 	current_notes.clear()
+	hit_notes.clear()
+	missed_notes.clear()
 
 func _on_body_entered(note: Note) -> void:
 	if note.state == "Active":
@@ -78,6 +83,7 @@ func _on_body_exited(note: Note) -> void:
 		score_manager.miss(note)
 		note.miss_note_visual()
 		current_notes.pop_front()
+		missed_notes.append(note)
 		emit_signal("note_failure")
 	elif note.state == "inactive":
 		print("inactive note left")

@@ -141,7 +141,7 @@
 [ext_resource type="Texture2D" uid="uid://df78p6ol774je" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00072.png" id="90_e852w"]
 [ext_resource type="Texture2D" uid="uid://du724ebgoxg1b" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00073.png" id="91_r3e3i"]
 [ext_resource type="Texture2D" uid="uid://o0necq8r5p1i" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00074.png" id="92_mqgca"]
-[ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="SpriteFrames" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="Texture2D" uid="uid://dx2itdikr3sn1" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00075.png" id="93_64fmn"]
 [ext_resource type="Texture2D" uid="uid://boh6hh3y4seyl" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00076.png" id="94_1q4an"]
 [ext_resource type="Texture2D" uid="uid://wot6jk0q7dq8" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00077.png" id="95_5snmq"]
@@ -2977,12 +2977,12 @@ metadata/_edit_lock_ = true
 
 [node name="DebugMissedNotes" type="Label" parent="Overlay"]
 offset_left = 84.0
-offset_top = 551.0
+offset_top = 554.0
 offset_right = 366.0
-offset_bottom = 587.0
+offset_bottom = 590.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
-text = "DEBUG: missed notes: "
+text = "[D] Missed notes: "
 
 [node name="DebugNotesInLevel" type="Label" parent="Overlay"]
 offset_left = 84.0
@@ -2991,25 +2991,34 @@ offset_right = 367.0
 offset_bottom = 626.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
-text = "DEBUG: notes in level: "
+text = "[D] Notes in level: "
 
-[node name="DebugAccuracy" type="Label" parent="Overlay"]
+[node name="DebugOverallScore" type="Label" parent="Overlay"]
 offset_left = 84.0
-offset_top = 631.0
+offset_top = 628.0
 offset_right = 380.0
-offset_bottom = 667.0
+offset_bottom = 664.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
-text = "DEBUG: Accuracy: 100%"
+text = "[D] Overall: 100%"
+
+[node name="DebugCurrentScore" type="Label" parent="Overlay"]
+offset_left = 84.0
+offset_top = 664.0
+offset_right = 380.0
+offset_bottom = 700.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "[D] Current: 100%"
 
 [node name="DebugVulnerable" type="Label" parent="Overlay"]
 offset_left = 84.0
-offset_top = 667.0
+offset_top = 700.0
 offset_right = 396.0
-offset_bottom = 703.0
+offset_bottom = 736.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
-text = "DEBUG: Vulnerable: false"
+text = "[D] Vulnerable: false"
 
 [node name="ContinueNotePopup" type="TextureRect" parent="Overlay"]
 visible = false
@@ -3889,12 +3898,10 @@ scale = Vector2(0.793651, 0.793651)
 [node name="Stadium" type="Sprite2D" parent="Level/LibVisuals"]
 visible = false
 position = Vector2(578, 474)
-scale = Vector2(1, 1)
 texture = ExtResource("405_l1de6")
 
 [node name="Crowd" type="Node2D" parent="Level/LibVisuals"]
 visible = false
-scale = Vector2(1, 1)
 
 [node name="CrowdPersonA" type="AnimatedSprite2D" parent="Level/LibVisuals/Crowd"]
 position = Vector2(915, 494)

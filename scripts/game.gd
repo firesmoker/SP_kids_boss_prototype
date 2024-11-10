@@ -43,7 +43,8 @@ var temp_notes_played: int = 0
 
 @onready var debug_missed_notes: Label = $Overlay/DebugMissedNotes
 @onready var debug_notes_in_level: Label = $Overlay/DebugNotesInLevel
-@onready var debug_accuracy: Label = $Overlay/DebugAccuracy
+@onready var debug_current_score: Label = $Overlay/DebugCurrentScore
+@onready var debug_overall_score: Label = $Overlay/DebugOverallScore
 @onready var debug_vulnerable: Label = $Overlay/DebugVulnerable
 
 @onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
@@ -911,11 +912,13 @@ func miss_note() -> void:
 func show_debug(toggle: bool = debug) -> void:
 	debug_missed_notes.visible = toggle
 	debug_notes_in_level.visible = toggle
-	debug_accuracy.visible = toggle
+	debug_current_score.visible = toggle
+	debug_overall_score.visible = toggle
 	debug_vulnerable.visible = toggle
 
 func update_debug() -> void:
 	debug_missed_notes.text = "DEBUG: missed notes: " + str(missed_notes)
 	debug_notes_in_level.text = "DEBUG: notes in level: " + str(notes_container.notes_in_level)
-	debug_accuracy.text = "DEBUG: overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
+	debug_overall_score.text = "DEBUG: overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
+	debug_current_score.text = "DEBUG: current score: " + str(snapped(score_manager.current_score,0.01)*100.0) + "%"
 	debug_vulnerable.text = "DEBUG: vulnerable: " + str(vulnerable)
