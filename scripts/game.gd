@@ -47,6 +47,7 @@ var temp_notes_played: int = 0
 @onready var debug_current_score: Label = $Overlay/DebugWindow/DebugCurrentScore
 @onready var debug_overall_score: Label = $Overlay/DebugWindow/DebugOverallScore
 @onready var debug_vulnerable: Label = $Overlay/DebugWindow/DebugVulnerable
+@onready var debug_game_score: Label = $Overlay/DebugWindow/DebugGameScore
 
 @onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
 
@@ -335,6 +336,8 @@ func update_ingame_stars() -> void:
 		video_layer_5.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
+			audio.stream = audio_clips.star
+			audio.play()
 			star3_unlocked = true
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
 			expander.expand(1.4,0.25,true)
@@ -342,6 +345,8 @@ func update_ingame_stars() -> void:
 		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
+			audio.stream = audio_clips.star
+			audio.play()
 			star2_unlocked = true
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
 			expander.expand(1.4,0.25,true)
@@ -349,6 +354,8 @@ func update_ingame_stars() -> void:
 		video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
+			audio.stream = audio_clips.star
+			audio.play()
 			star1_unlocked = true
 			var expander: Expander = star_bar.find_child("Star1").find_child("Expander")
 			expander.expand(1.4,0.25,true)
@@ -917,6 +924,7 @@ func show_debug(toggle: bool = debug) -> void:
 	debug_notes_in_level.visible = toggle
 	debug_current_score.visible = toggle
 	debug_overall_score.visible = toggle
+	debug_game_score.visible = toggle
 	debug_vulnerable.visible = toggle
 
 func update_debug() -> void:
@@ -925,3 +933,4 @@ func update_debug() -> void:
 	debug_overall_score.text = "overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
 	debug_current_score.text = "current score: " + str(snapped(score_manager.current_score,0.01)*100.0) + "%"
 	debug_vulnerable.text = "vulnerable: " + str(vulnerable)
+	debug_game_score.text = "Game Score: " + str(score_manager.game_score)

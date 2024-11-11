@@ -20,6 +20,8 @@ var current_score: float = 0.0
 # Property to calculate stars based on the overall_score
 var stars: float = 0.0
 
+var game_score: float = 0.0
+
 func miss(note: Note) -> void:
 	add_note_score(0)
 
@@ -65,6 +67,7 @@ func calculate_score() -> void:
 			total_score += score
 		overall_score = total_score / note_scores.size()
 		current_score = overall_score * (notes_detector.hit_notes.size() + notes_detector.missed_notes.size() + bottom_notes_detector.hit_notes.size() + bottom_notes_detector.missed_notes.size()) / notes_container.notes_in_level
+		game_score = snapped(total_score,0.1) * 10
 
 func calculate_stars() -> void:
 	"""
