@@ -1,4 +1,4 @@
-[gd_scene load_steps=621 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=622 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -599,7 +599,8 @@
 [ext_resource type="Texture2D" uid="uid://daec86x4aivle" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00027.png" id="583_arluj"]
 [ext_resource type="Texture2D" uid="uid://0w4kqibs1urr" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00028.png" id="584_3x46a"]
 [ext_resource type="Texture2D" uid="uid://dc2kr1uydxcce" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00029.png" id="585_1nwe6"]
-[ext_resource type="Texture2D" uid="uid://15oalwu5s588" path="res://art/10_nov/Hero_Small.png" id="596_ehffq"]
+[ext_resource type="Texture2D" uid="uid://biuw6ops7pdk4" path="res://art/11_nov/Hero_Piano.png" id="596_127m5"]
+[ext_resource type="Texture2D" uid="uid://621j1nonriw4" path="res://art/11_nov/Hero_Head.png" id="597_tu4ge"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dbryh"]
 animations = [{
@@ -3408,14 +3409,14 @@ text = "COMBO: 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreMeter" type="Label" parent="UI"]
-offset_left = 184.0
-offset_top = 28.0
-offset_right = 429.0
-offset_bottom = 97.0
+offset_left = 100.0
+offset_top = 23.0
+offset_right = 345.0
+offset_bottom = 92.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
-theme_override_font_sizes/font_size = 50
-text = "Score: "
+theme_override_font_sizes/font_size = 45
+text = "100"
 metadata/_edit_use_anchors_ = true
 
 [node name="StreakMeter" type="Label" parent="UI"]
@@ -3940,7 +3941,12 @@ texture = ExtResource("407_nwymd")
 
 [node name="Character" type="Sprite2D" parent="Level/LibVisuals"]
 position = Vector2(589, 667)
-texture = ExtResource("596_ehffq")
+texture = ExtResource("596_127m5")
+
+[node name="CharacterHead" type="Sprite2D" parent="Level/LibVisuals/Character"]
+texture = ExtResource("597_tu4ge")
+
+[node name="Expander" parent="Level/LibVisuals/Character/CharacterHead" instance=ExtResource("20_wgxju")]
 
 [node name="LeftSpeaker" type="Sprite2D" parent="Level/LibVisuals"]
 visible = false

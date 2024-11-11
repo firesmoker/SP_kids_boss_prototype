@@ -2,6 +2,7 @@ class_name Game extends Node2D
 @onready var lib_visuals: Node2D = $Level/LibVisuals
 @onready var crowd: Node2D = $Level/LibVisuals/Crowd
 var crowd_people: Array
+@onready var character: Sprite2D = $Level/LibVisuals/Character
 
 @onready var video_layer_1: VideoStreamPlayer = $VideoCanvas/VideoLayer1
 @onready var video_layer_2: VideoStreamPlayer = $VideoCanvas/VideoLayer2
@@ -479,6 +480,10 @@ func update_streak() -> void:
 
 func beat_effects() -> void:
 	#print("BEAT!")
+	var character_head_mover: Expander = character.find_child("CharacterHead").find_child("Expander")
+	if character_head_mover.finished_reverse_moving:
+		var character_head_target_position: Vector2 = character.find_child("CharacterHead").global_position + Vector2(-6,4)
+		character_head_mover.move(character_head_target_position,0.04,true,true)
 	play_crowd_animations()
 	single_glow.find_child("Expander").expand(1.1,0.3,true,2)
 	multi_glow.find_child("Expander").expand(1.1,0.3,true,2)
@@ -497,7 +502,7 @@ func _process(delta: float) -> void:
 	health_bars_progress(delta, health_rate)
 	if game_mode == "library":
 		update_ingame_stars()
-		score_meter.text = "Score: " + str(score_manager.game_score)
+		score_meter.text = str(score_manager.game_score)
 		#update_streak()
 		trigger_crowd_animations()
 	if not boss.is_playing() and not losing and not winning:
