@@ -262,7 +262,7 @@ func set_default_visibility() -> void:
 
 func set_library_song_visibility(toggle: bool = true) -> void:
 	if toggle == true:
-		right_hand_part.position.y -= 90
+		right_hand_part.position.y -= 50
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
 	#combo_meter.visible = toggle
