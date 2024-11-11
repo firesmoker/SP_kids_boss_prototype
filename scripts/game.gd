@@ -332,21 +332,21 @@ func set_star_bar_values() -> void:
 func update_ingame_stars() -> void:
 	star_bar.value = score_manager.current_score
 	if score_manager.current_score > star3_threshold_modifier:
-		video_layer_5.find_child("Fader").fade_in(0.01)
+		video_layer_5.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
 			star3_unlocked = true
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
 			expander.expand(1.4,0.25,true)
 	elif score_manager.current_score > star2_threshold_modifier:
-		video_layer_3.find_child("Fader").fade_in(0.01)
+		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
 			star2_unlocked = true
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
 			expander.expand(1.4,0.25,true)
 	elif score_manager.current_score > star1_threshold_modifier:
-		video_layer_2.find_child("Fader").fade_in(0.01)
+		video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
 			star1_unlocked = true

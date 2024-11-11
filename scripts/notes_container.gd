@@ -136,7 +136,11 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 						new_finger.position.y += treble_to_bass_gap + 600 - 120
 						
 		elif event.type == "note" or event.type == "collectible":
-			notes_in_level += 1
+			if event.details.has("action"):
+				if event.details["action"] != "end":
+					notes_in_level += 1
+			else:
+				notes_in_level += 1
 			var notes: Array = split_notes(event.note)
 			for note: String in notes:
 				var new_note: Note = note_template.instantiate()

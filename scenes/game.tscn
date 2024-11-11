@@ -1,4 +1,4 @@
-[gd_scene load_steps=621 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=620 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -406,7 +406,6 @@
 [ext_resource type="Texture2D" uid="uid://cpj47xn0ptp25" path="res://art/10_nov/BarOn.png" id="365_fyknt"]
 [ext_resource type="Texture2D" uid="uid://cki5gdkhu5w2p" path="res://art/10_nov/StarOff.png" id="366_on5xi"]
 [ext_resource type="Texture2D" uid="uid://cjyl515mkdk8d" path="res://art/10_nov/StarOn.png" id="367_4ijhd"]
-[ext_resource type="VideoStream" path="res://art/10_nov/BG01.ogv" id="368_ilequ"]
 [ext_resource type="VideoStream" path="res://art/10_nov/BG02.ogv" id="369_tknix"]
 [ext_resource type="VideoStream" path="res://art/10_nov/BG03.ogv" id="370_gupta"]
 [ext_resource type="VideoStream" path="res://art/10_nov/BG04.ogv" id="371_67pca"]
@@ -2995,6 +2994,7 @@ offset_bottom = 185.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_v6yep")
 
 [node name="DebugMissedNotes" type="Label" parent="Overlay/DebugWindow"]
+layout_mode = 0
 offset_right = 282.0
 offset_bottom = 36.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -3002,6 +3002,7 @@ theme_override_font_sizes/font_size = 26
 text = "[D] Missed notes: "
 
 [node name="DebugNotesInLevel" type="Label" parent="Overlay/DebugWindow"]
+layout_mode = 0
 offset_top = 36.0
 offset_right = 283.0
 offset_bottom = 72.0
@@ -3010,6 +3011,7 @@ theme_override_font_sizes/font_size = 26
 text = "[D] Notes in level: "
 
 [node name="DebugOverallScore" type="Label" parent="Overlay/DebugWindow"]
+layout_mode = 0
 offset_top = 74.0
 offset_right = 296.0
 offset_bottom = 110.0
@@ -3018,6 +3020,7 @@ theme_override_font_sizes/font_size = 26
 text = "[D] Overall: 100%"
 
 [node name="DebugCurrentScore" type="Label" parent="Overlay/DebugWindow"]
+layout_mode = 0
 offset_top = 110.0
 offset_right = 296.0
 offset_bottom = 146.0
@@ -3026,6 +3029,7 @@ theme_override_font_sizes/font_size = 26
 text = "[D] Current: 100%"
 
 [node name="DebugVulnerable" type="Label" parent="Overlay/DebugWindow"]
+layout_mode = 0
 offset_top = 146.0
 offset_right = 312.0
 offset_bottom = 182.0
@@ -3415,7 +3419,7 @@ offset_right = 50.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("368_ilequ")
+stream = ExtResource("369_tknix")
 autoplay = true
 expand = true
 loop = true
@@ -3470,7 +3474,7 @@ offset_right = 50.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("371_67pca")
+stream = ExtResource("372_b0g4c")
 autoplay = true
 expand = true
 loop = true
@@ -3489,7 +3493,7 @@ offset_right = 50.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("372_b0g4c")
+stream = ExtResource("371_67pca")
 autoplay = true
 expand = true
 loop = true

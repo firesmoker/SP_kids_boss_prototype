@@ -6,7 +6,7 @@ class_name ScoreManager
 @onready var notes_detector: NotesDetector = $"../Level/RightHandPart/NotesDetector"
 @onready var bottom_notes_detector: NotesDetector = $"../Level/RightHandPart/BottomNotesDetector"
 # Sensitivity factor for scoring
-var sensitivity: float = 0.5
+var sensitivity: float = 0.7
 
 # Array to hold Note nodes
 var note_scores: Array = []
