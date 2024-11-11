@@ -40,6 +40,7 @@ var temp_notes_played: int = 0
 @onready var intro_sequence: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequence
 @onready var combo_meter: Label = $UI/ComboMeter
 @onready var streak_meter: Label = $UI/StreakMeter
+@onready var score_meter: Label = $UI/ScoreMeter
 
 @onready var debug_window: Control = $Overlay/DebugWindow
 @onready var debug_missed_notes: Label = $Overlay/DebugWindow/DebugMissedNotes
@@ -265,6 +266,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	star_bar.visible = toggle
 	#combo_meter.visible = toggle
 	streak_meter.visible = false
+	score_meter.visible = toggle
 	video_layer_1.visible = toggle
 	video_layer_2.visible = toggle
 	video_layer_3.visible = toggle
@@ -490,12 +492,9 @@ func _process(delta: float) -> void:
 	health_bars_progress(delta, health_rate)
 	if game_mode == "library":
 		update_ingame_stars()
+		score_meter.text = "Score: " + str(score_manager.game_score)
 		#update_streak()
 		trigger_crowd_animations()
-	#if game_state == "Win" and not player_moving_to_finish:
-		#player_moving_to_finish = true
-		#enter_win_ui()
-		#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 	if not boss.is_playing() and not losing and not winning:
 		if boss_health > boss_health_bar.max_value / 2:
 			boss.play("idle")

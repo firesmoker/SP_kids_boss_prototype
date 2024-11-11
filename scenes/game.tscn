@@ -3397,6 +3397,7 @@ expand_mode = 3
 [node name="Expander" parent="UI/Heart" instance=ExtResource("20_wgxju")]
 
 [node name="ComboMeter" type="Label" parent="UI"]
+visible = false
 offset_left = 69.0
 offset_top = 28.0
 offset_right = 314.0
@@ -3407,7 +3408,19 @@ theme_override_font_sizes/font_size = 50
 text = "COMBO: 0"
 metadata/_edit_use_anchors_ = true
 
+[node name="ScoreMeter" type="Label" parent="UI"]
+offset_left = 184.0
+offset_top = 28.0
+offset_right = 429.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_font_sizes/font_size = 50
+text = "Score: "
+metadata/_edit_use_anchors_ = true
+
 [node name="StreakMeter" type="Label" parent="UI"]
+visible = false
 offset_left = 77.0
 offset_top = 27.0
 offset_right = 296.0
