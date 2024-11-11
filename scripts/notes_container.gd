@@ -88,6 +88,31 @@ func set_level_size(level_display_duration: float = on_display_duration) -> void
 	starting_position_x = size / 2
 	left_edge_position = -size / 2
 
+
+func add_fingers_to_note(note_node: Node2D, event: MelodyEvent, note: String, index: int, bottom_staff: bool) -> void:
+	# Check if `event.details` has "finger" and process it
+	if event.details.has("finger"):
+		var fingers: PackedStringArray = str(event.details["finger"]).split("")
+		fingers.reverse()
+
+		if index < fingers.size():
+			var finger: String = fingers[index]
+			if finger:
+				var base_y: float = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[note]) * 5 + 120
+				var vertical_spacing: float = 200  # Adjust spacing between each finger label as needed
+
+				var new_finger: Label = finger_number_template.instantiate()
+				note_node.add_child(new_finger)
+
+				# Adjust Y position based on whether it's the top or bottom staff
+				if bottom_staff:
+					new_finger.position.y = base_y + index * vertical_spacing + 1450  # Place each below the last for bottom staff
+				else:
+					new_finger.position.y = base_y - index * vertical_spacing  # Place each above the last for top staff
+
+				new_finger.text = finger  # Set the finger number text
+
+
 func populate_from_melody_events(melody_events: Array, bottom_staff: bool = false) -> void:
 	for event: MelodyEvent in melody_events:
 		print(event.as_string())
@@ -113,9 +138,10 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				collectible_marker.position.x = event.time * bar_length_in_pixels - size / 2
 				add_child(collectible_marker)
 				continue
-				
+
 			var notes: Array = split_notes(event.note)
-			for note: String in notes:
+			for i in range(notes.size()):
+				var note: String = notes[i]
 				var collectible: Collectible = collectable_template.instantiate()
 				collectible.event = event
 				collectible.note = note
@@ -126,23 +152,21 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				if bottom_staff:
 					collectible.position.y += treble_to_bass_gap - bass_clef_offset
 					collectible.stem.rotation = deg_to_rad(180)
-					
-				if event.details.has("finger") and notes[0] == note:
-					var new_finger: Label = finger_number_template.instantiate()
-					collectible.add_child(new_finger)
-					new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[event.note]) * 5 + 120
-					new_finger.text = event.details["finger"]
-					if bottom_staff:
-						new_finger.position.y += treble_to_bass_gap + 600 - 120
-						
+
+				# Use add_fingers_to_note for finger positioning
+				add_fingers_to_note(collectible, event, note, i, bottom_staff)
+
 		elif event.type == "note" or event.type == "collectible":
 			var notes: Array = split_notes(event.note)
-			for note: String in notes:
+			for i in range(notes.size()):
+				var note: String = notes[i]
+
 				if event.details.has("action"):
 					if event.details["action"] != "end":
 						notes_in_level += 1
 				else:
 					notes_in_level += 1
+
 				var new_note: Note = note_template.instantiate()
 				new_note.note = note
 				new_note.event = event
@@ -150,18 +174,13 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				new_note.set_duration_visual(event.duration)
 				new_note.position.x = event.time * bar_length_in_pixels - size / 2
 				new_note.position.y = note_heigth_by_pitch[note] + resolution_y_offset
+
 				if bottom_staff:
 					new_note.position.y += treble_to_bass_gap - bass_clef_offset
 					new_note.stem.rotation = deg_to_rad(180)
-				if event.details.has("finger") and notes[0] == note:
-					var new_finger: Label = finger_number_template.instantiate()
-					new_note.add_child(new_finger)
-					new_finger.position.y = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[note]) * 5 + 120
-					new_finger.text = event.details["finger"]
-					if bottom_staff:
-						new_finger.position.y += treble_to_bass_gap + 600 - 120
-		
 
+				# Use add_fingers_to_note for finger positioning
+				add_fingers_to_note(new_note, event, note, i, bottom_staff)
 	
 
 func set_parent_at_ending() -> void:
