@@ -15,6 +15,9 @@ extends Node2D
 @onready var song_title: Label = $UI/Difficulty/SongTitle
 @onready var boss_toggle: CheckButton = $UI/DevButtons/BossToggle
 @onready var settings_manager: SettingsManager = $SettingsManager
+@onready var boss_songs: VBoxContainer = $UI/SongButtons/BossSongs
+@onready var library_songs: VBoxContainer = $UI/SongButtons/LibrarySongs
+@onready var show_library_toggle: CheckButton = $UI/DevButtons/ShowLibraryToggle
 
 
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
@@ -98,17 +101,14 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 var maximum_input_distance: float = 100
 var current_press_position: Vector2
 
+
 func _ready() -> void:
-		
-	dev_buttons.visible = true
-	load_overlay.visible = false
-	darken.visible = false
-	difficulty.visible = false
 	
+	set_default_visibility()
 	connect_buttons()
-	auto_play_toggle.set_pressed_no_signal(Game.cheat_auto_play)
-	skip_intro.set_pressed_no_signal(Game.cheat_skip_intro)
-	skip_middle_c.set_pressed_no_signal(Game.cheat_skip_middle_c)
+	#auto_play_toggle.set_pressed_no_signal(Game.cheat_auto_play)
+	#skip_intro.set_pressed_no_signal(Game.cheat_skip_intro)
+	#skip_middle_c.set_pressed_no_signal(Game.cheat_skip_middle_c)
 	
 	
 	debug_toggle.set_pressed_no_signal(Game.debug)
@@ -119,6 +119,14 @@ func _ready() -> void:
 		
 	apply_settings()
 
+func set_default_visibility() -> void:
+	boss_songs.visible = true
+	library_songs.visible = false
+	dev_buttons.visible = true
+	load_overlay.visible = false
+	darken.visible = false
+	difficulty.visible = false
+
 # Load and apply settings from the settings file
 func apply_settings() -> void:
 	# Apply settings to the UI and game
@@ -128,11 +136,15 @@ func apply_settings() -> void:
 	library_song_toggle.button_pressed = settings_manager.settings.get("library_song_toggle", false)
 	skip_middle_c.button_pressed = settings_manager.settings.get("skip_middle_c", false)
 	skip_intro.button_pressed = settings_manager.settings.get("skip_intro", false)
+	show_library_toggle.button_pressed  = settings_manager.settings.get("show_library_toggle", false)
 
 func connect_buttons() -> void:	
-	var vbox_container: VBoxContainer = song_buttons.find_child("VBoxContainer")
-	var all_song_buttons: Array = vbox_container.get_children()
-	for button: Button in all_song_buttons:
+	var boss_songs_buttons: Array = boss_songs.get_children()
+	for button: Button in boss_songs_buttons:
+		button.connect("button_down", get_input_press_position)
+		
+	var library_song_buttons: Array = library_songs.get_children()
+	for button: Button in library_song_buttons:
 		button.connect("button_down", get_input_press_position)
 
 
@@ -383,3 +395,15 @@ func _on_boss_toggle_toggled(toggled_on: bool) -> void:
 		Game.boss_model = ""
 	settings_manager.settings["boss_toggle"] = toggled_on
 	settings_manager.save_settings()
+
+
+func _on_show_library_toggle_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		boss_songs.visible = false
+		library_songs.visible = true
+	else:
+		boss_songs.visible = true
+		library_songs.visible = false
+	settings_manager.settings["show_library_toggle"] = toggled_on
+	settings_manager.save_settings()
+		

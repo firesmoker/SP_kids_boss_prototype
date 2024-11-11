@@ -99,7 +99,7 @@ func add_fingers_to_note(note_node: Node2D, event: MelodyEvent, note: String, in
 			var finger: String = fingers[index]
 			if finger:
 				var base_y: float = -800 + (note_heigth_by_pitch["D4"] - note_heigth_by_pitch[note]) * 5 + 120
-				var vertical_spacing: float = 200  # Adjust spacing between each finger label as needed
+				var vertical_spacing: float = 130  # Adjust spacing between each finger label as needed
 
 				var new_finger: Label = finger_number_template.instantiate()
 				note_node.add_child(new_finger)

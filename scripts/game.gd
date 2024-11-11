@@ -478,13 +478,15 @@ func update_streak() -> void:
 	else:
 		streak_meter.visible = false
 
-func beat_effects() -> void:
-	#print("BEAT!")
+func bob_head() -> void:
 	var character_head_mover: Expander = character.find_child("CharacterHead").find_child("Expander")
 	if character_head_mover.finished_reverse_moving:
 		var character_head_target_position: Vector2 = character.find_child("CharacterHead").global_position + Vector2(-6,4)
 		character_head_mover.move(character_head_target_position,0.04,true,true)
-	play_crowd_animations()
+
+func beat_effects() -> void:
+	#bob_head()
+	#play_crowd_animations()
 	single_glow.find_child("Expander").expand(1.1,0.3,true,2)
 	multi_glow.find_child("Expander").expand(1.1,0.3,true,2)
 	if game_mode == "library":

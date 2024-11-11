@@ -207,19 +207,19 @@ grow_vertical = 2
 horizontal_scroll_mode = 0
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/SongButtons"]
+[node name="BossSongs" type="VBoxContainer" parent="UI/SongButtons"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="Button1" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button1" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button1"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -241,14 +241,14 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button2" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button2" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button2"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -269,14 +269,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button3" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button3" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button3"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -297,14 +297,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button4" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button4" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button4"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button4"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -325,14 +325,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button5" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button5" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button5"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button5"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -353,14 +353,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button6" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button6" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button6"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button6"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -381,14 +381,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button7" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button7" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button7"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button7"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -409,14 +409,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button8" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button8" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button8"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button8"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -437,14 +437,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button9" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button9" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button9"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button9"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -466,14 +466,14 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button10" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button10" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button10"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button10"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -494,14 +494,330 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Button11" type="Button" parent="UI/SongButtons/VBoxContainer"]
+[node name="Button11" type="Button" parent="UI/SongButtons/BossSongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/VBoxContainer/Button11"]
+[node name="Label" type="Label" parent="UI/SongButtons/BossSongs/Button11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "I Just Can't Wait to be TECHNO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="LibrarySongs" type="VBoxContainer" parent="UI/SongButtons"]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Button1" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "GOGOGO MAMAMA JJJ"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Button2" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Circle Of Life"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button3" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Let It Go"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button4" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Hokey Pokey"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button5" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Free Fallin'"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button6" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Dance Monkey (LH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button7" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Pokemon (LH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button8" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Believer (LH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button9" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Jingle Bells (BH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Button10" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -41.5
+offset_right = 126.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Let It MARCH!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button11" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button11"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -850,23 +1166,53 @@ offset_right = 46.0515
 offset_bottom = 42.5122
 text = "Library Song"
 
+[node name="ShowLibraryToggle" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 478.0
+offset_right = 993.0
+offset_bottom = 502.0
+scale = Vector2(2.3, 2.3)
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/DevButtons/ShowLibraryToggle"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 20.0
+offset_right = 37.0
+offset_bottom = 95.0
+text = "Show Library Songs"
+autowrap_mode = 3
+
 [node name="Midi Websocket Status" type="Node" parent="."]
 script = ExtResource("8_uu1rv")
 
 [node name="SettingsManager" type="Node" parent="."]
 script = ExtResource("7_mog21")
 
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button1" to="." method="_on_button1_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button2" to="." method="_on_button2_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button3" to="." method="_on_button3_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button4" to="." method="_on_button_4_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button5" to="." method="_on_button_5_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button6" to="." method="_on_button_6_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button7" to="." method="_on_button_7_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button8" to="." method="_on_button_8_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button9" to="." method="_on_button_9_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button10" to="." method="_on_button10_button_up"]
-[connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button11" to="." method="_on_button_11_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button1" to="." method="_on_button1_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button2" to="." method="_on_button2_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button3" to="." method="_on_button3_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button4" to="." method="_on_button_4_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button5" to="." method="_on_button_5_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button6" to="." method="_on_button_6_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button7" to="." method="_on_button_7_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button8" to="." method="_on_button_8_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button9" to="." method="_on_button_9_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button10" to="." method="_on_button10_button_up"]
+[connection signal="button_up" from="UI/SongButtons/BossSongs/Button11" to="." method="_on_button_11_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button1" to="." method="_on_button1_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button2" to="." method="_on_button2_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button3" to="." method="_on_button3_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button4" to="." method="_on_button_4_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button5" to="." method="_on_button_5_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button6" to="." method="_on_button_6_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button7" to="." method="_on_button_7_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button8" to="." method="_on_button_8_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button9" to="." method="_on_button_9_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button10" to="." method="_on_button10_button_up"]
+[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button11" to="." method="_on_button_11_button_up"]
 [connection signal="button_up" from="UI/Difficulty/EasyButton" to="." method="_on_easy_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]
@@ -877,3 +1223,4 @@ script = ExtResource("7_mog21")
 [connection signal="toggled" from="UI/DevButtons/DebugToggle" to="." method="_on_debug_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/BossToggle" to="." method="_on_boss_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]
+[connection signal="toggled" from="UI/DevButtons/ShowLibraryToggle" to="." method="_on_show_library_toggle_toggled"]
