@@ -14,7 +14,7 @@ extends Node2D
 @onready var dev_buttons: Control = $UI/DevButtons
 @onready var song_title: Label = $UI/Difficulty/SongTitle
 @onready var boss_toggle: CheckButton = $UI/DevButtons/BossToggle
-
+@onready var settings_manager: SettingsManager = $SettingsManager
 
 
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
@@ -95,11 +95,11 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 @export var song_11_hard_melody_path: String
 
 
-
 var maximum_input_distance: float = 100
 var current_press_position: Vector2
 
 func _ready() -> void:
+		
 	dev_buttons.visible = true
 	load_overlay.visible = false
 	darken.visible = false
@@ -116,7 +116,18 @@ func _ready() -> void:
 		library_song_toggle.set_pressed_no_signal(true)
 	else:
 		library_song_toggle.set_pressed_no_signal(false)
-	
+		
+	apply_settings()
+
+# Load and apply settings from the settings file
+func apply_settings() -> void:
+	# Apply settings to the UI and game
+	debug_toggle.button_pressed = settings_manager.settings.get("debug_toggle", false)
+	boss_toggle.button_pressed = settings_manager.settings.get("boss_toggle", false)
+	auto_play_toggle.button_pressed = settings_manager.settings.get("auto_play_toggle", false)
+	library_song_toggle.button_pressed = settings_manager.settings.get("library_song_toggle", false)
+	skip_middle_c.button_pressed = settings_manager.settings.get("skip_middle_c", false)
+	skip_intro.button_pressed = settings_manager.settings.get("skip_intro", false)
 
 func connect_buttons() -> void:	
 	var vbox_container: VBoxContainer = song_buttons.find_child("VBoxContainer")
@@ -330,6 +341,8 @@ func get_input_press_position() -> void:
 
 func _on_auto_play_toggle_toggled(toggled_on: bool) -> void:
 	Game.cheat_auto_play = toggled_on
+	settings_manager.settings["auto_play_toggle"] = toggled_on
+	settings_manager.save_settings()
 
 
 func _on_library_song_toggled(toggled_on: bool) -> void:
@@ -337,18 +350,26 @@ func _on_library_song_toggled(toggled_on: bool) -> void:
 		Game.game_mode = "library"
 	else:
 		Game.game_mode = "boss"
+	settings_manager.settings["library_song_toggle"] = toggled_on
+	settings_manager.save_settings()
 
 
 func _on_debug_toggle_toggled(toggled_on: bool) -> void:
 	Game.debug = toggled_on
+	settings_manager.settings["debug_toggle"] = toggled_on
+	settings_manager.save_settings()
 
 
 func _on_skip_intro_toggled(toggled_on: bool) -> void:
 	Game.cheat_skip_intro = toggled_on
+	settings_manager.settings["skip_intro"] = toggled_on
+	settings_manager.save_settings()
 
 
 func _on_skip_middle_c_toggled(toggled_on: bool) -> void:
 	Game.cheat_skip_middle_c = toggled_on
+	settings_manager.settings["skip_middle_c"] = toggled_on
+	settings_manager.save_settings()
 
 
 func _on_darken_button_pressed() -> void:
@@ -360,3 +381,5 @@ func _on_boss_toggle_toggled(toggled_on: bool) -> void:
 		Game.boss_model = "robot_"
 	else:
 		Game.boss_model = ""
+	settings_manager.settings["boss_toggle"] = toggled_on
+	settings_manager.save_settings()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=17 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_geyk5"]
 [ext_resource type="Texture2D" uid="uid://dh2uk2jr2strc" path="res://art/30.sep/Hero_Idle/Hero_Idle_00000.png" id="5_tm8vi"]
 [ext_resource type="Texture2D" uid="uid://bqmxp10hkofb2" path="res://art/buttons/Exit (1).png" id="5_u6wtg"]
 [ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="6_4qe1l"]
+[ext_resource type="Script" path="res://scripts/settings_manager.gd" id="7_mog21"]
 [ext_resource type="Texture2D" uid="uid://5rwi3sgt57ya" path="res://art/30.sep/Boss_Idle/Boss_Idle_00000.png" id="7_umefj"]
 [ext_resource type="Script" path="res://scripts/midi_websocket_status.gd" id="8_uu1rv"]
 
@@ -851,6 +852,9 @@ text = "Library Song"
 
 [node name="Midi Websocket Status" type="Node" parent="."]
 script = ExtResource("8_uu1rv")
+
+[node name="SettingsManager" type="Node" parent="."]
+script = ExtResource("7_mog21")
 
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button1" to="." method="_on_button1_button_up"]
 [connection signal="button_up" from="UI/SongButtons/VBoxContainer/Button2" to="." method="_on_button2_button_up"]
