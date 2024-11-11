@@ -1,0 +1,23 @@
+115,4/4,0,GClef,Right
+
+
+*bgmFileName:BareNecessities_CMajor_130BPM_Vocals_Short.m4a*
+-:1 
+-:1 
+-:1 
+-:1/4 E4:1/2%3(StemU) -:1/4 
+E4:1/4%3(StemU) D4:1/4(StemU) C4:1/2%1(StemU) 
+D4:1/4%2(StemU) -:1/4 D4:1/4(StemU) -:1/4
+D4:1/4(StemU) C4:1/4(StemU) -:1/2 
+C4:1/2(StemU) -:1/2 
+-:1/4 G4:1/4%5(StemU) F4:1/4%4(StemU) E4:1/4(StemU) 
+D4:1/2%2(StemU) -:1/2 
+-:1 
+-:1/4 E4:1/2%3(StemU) -:1/4 
+-:1/4 G4:1/4%5(StemU) -:1/4 C4:1/4%1(StemU) 
+D4:1/4%2(StemU) -:1/4 D4:1/4(StemU) -:1/4
+-:1/4 C4:1/4%1(StemU) C4:1/4(StemU) D4:1/4%2(StemU) 
+E4:1/4%3(StemU) -:1/4 E4:1/4(StemU) -:1/4 
+E4:1/4%3(StemU) C4:1/4%1(StemU) -:1/2 
+C4:1/2%1(StemU) -:1/2 
+C4:1/4(StemU) -:1/4 -:1/2

@@ -208,6 +208,7 @@ horizontal_scroll_mode = 0
 metadata/_edit_lock_ = true
 
 [node name="BossSongs" type="VBoxContainer" parent="UI/SongButtons"]
+visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 metadata/_edit_lock_ = true
@@ -523,19 +524,18 @@ vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="LibrarySongs" type="VBoxContainer" parent="UI/SongButtons"]
-visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="Button1" type="Button" parent="UI/SongButtons/LibrarySongs"]
+[node name="LibraryButton1" type="Button" parent="UI/SongButtons/LibrarySongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button1"]
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -551,142 +551,146 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "GOGOGO MAMAMA JJJ"
+text = "Pokemon (RH)"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button2" type="Button" parent="UI/SongButtons/LibrarySongs"]
+[node name="LibraryButton2" type="Button" parent="UI/SongButtons/LibrarySongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button2"]
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "Circle Of Life"
+text = "Believer (RH)"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button3" type="Button" parent="UI/SongButtons/LibrarySongs"]
+[node name="LibraryButton3" type="Button" parent="UI/SongButtons/LibrarySongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button3"]
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "Let It Go"
+text = "The Bare Necessities (RH)"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button4" type="Button" parent="UI/SongButtons/LibrarySongs"]
+[node name="LibraryButton4" type="Button" parent="UI/SongButtons/LibrarySongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button4"]
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton4"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "Hokey Pokey"
+text = "Enemy (RH)"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button5" type="Button" parent="UI/SongButtons/LibrarySongs"]
+[node name="LibraryButton5" type="Button" parent="UI/SongButtons/LibrarySongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button5"]
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton5"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Free Fallin'"
+theme_override_font_sizes/font_size = 25
+text = "Do You Want To Build A Snowman (LH)"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button6" type="Button" parent="UI/SongButtons/LibrarySongs"]
+[node name="LibraryButton6" type="Button" parent="UI/SongButtons/LibrarySongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button6"]
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton6"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -695,147 +699,123 @@ theme_override_font_sizes/font_size = 30
 text = "Dance Monkey (LH)"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button7" type="Button" parent="UI/SongButtons/LibrarySongs"]
+[node name="LibraryButton7" type="Button" parent="UI/SongButtons/LibrarySongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button7"]
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton7"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "Pokemon (LH)"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Button8" type="Button" parent="UI/SongButtons/LibrarySongs"]
-layout_mode = 2
-mouse_filter = 1
-theme = SubResource("Theme_b8tba")
-text = " "
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button8"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Believer (LH)"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Button9" type="Button" parent="UI/SongButtons/LibrarySongs"]
-layout_mode = 2
-mouse_filter = 1
-theme = SubResource("Theme_b8tba")
-text = " "
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button9"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 30
-text = "Jingle Bells (BH)"
+text = "Safe and Sound (LH)"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button10" type="Button" parent="UI/SongButtons/LibrarySongs"]
+[node name="LibraryButton8" type="Button" parent="UI/SongButtons/LibrarySongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button10"]
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton8"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "Let It MARCH!"
+text = "To Gun Anthem (BH)"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Button11" type="Button" parent="UI/SongButtons/LibrarySongs"]
+[node name="LibraryButton9" type="Button" parent="UI/SongButtons/LibrarySongs"]
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
 text = " "
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/Button11"]
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton9"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -41.5
-offset_right = 126.0
-offset_bottom = 41.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "I Just Can't Wait to be TECHNO"
+text = "Enemy (BH)"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="LibraryButton10" type="Button" parent="UI/SongButtons/LibrarySongs"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_b8tba")
+text = " "
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/SongButtons/LibrarySongs/LibraryButton10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "OLE OLE OLE OLE (BH)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="Darken" type="TextureRect" parent="UI"]
@@ -1202,17 +1182,16 @@ script = ExtResource("7_mog21")
 [connection signal="button_up" from="UI/SongButtons/BossSongs/Button9" to="." method="_on_button_9_button_up"]
 [connection signal="button_up" from="UI/SongButtons/BossSongs/Button10" to="." method="_on_button10_button_up"]
 [connection signal="button_up" from="UI/SongButtons/BossSongs/Button11" to="." method="_on_button_11_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button1" to="." method="_on_button1_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button2" to="." method="_on_button2_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button3" to="." method="_on_button3_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button4" to="." method="_on_button_4_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button5" to="." method="_on_button_5_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button6" to="." method="_on_button_6_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button7" to="." method="_on_button_7_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button8" to="." method="_on_button_8_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button9" to="." method="_on_button_9_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button10" to="." method="_on_button10_button_up"]
-[connection signal="button_up" from="UI/SongButtons/LibrarySongs/Button11" to="." method="_on_button_11_button_up"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton1" to="." method="_on_library_button_1_pressed"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton2" to="." method="_on_library_button_2_pressed"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton3" to="." method="_on_library_button_3_pressed"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton4" to="." method="_on_library_button_4_pressed"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton5" to="." method="_on_library_button_5_pressed"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton6" to="." method="_on_library_button_6_pressed"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton7" to="." method="_on_library_button_7_pressed"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton8" to="." method="_on_library_button_8_pressed"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton9" to="." method="_on_library_button_9_pressed"]
+[connection signal="pressed" from="UI/SongButtons/LibrarySongs/LibraryButton10" to="." method="_on_library_button_10_pressed"]
 [connection signal="button_up" from="UI/Difficulty/EasyButton" to="." method="_on_easy_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="UI/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]

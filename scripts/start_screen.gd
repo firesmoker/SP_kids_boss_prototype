@@ -407,3 +407,64 @@ func _on_show_library_toggle_toggled(toggled_on: bool) -> void:
 	settings_manager.settings["show_library_toggle"] = toggled_on
 	settings_manager.save_settings()
 		
+
+func load_library_song(song_dictionary: Dictionary) -> void:
+	song_title.text = song_dictionary.get("title") 
+	LevelSelector.normal_melody_path = song_dictionary.get("right_melody_path", default_left_melody) 
+	LevelSelector.normal_left_melody_path = song_dictionary.get("left_melody_path", default_left_melody)
+	LevelSelector.normal_song_path = song_dictionary.get("audio_file_path")
+	LevelSelector.normal_tempo = song_dictionary.get("tempo")
+	LevelSelector.normal_ui_type = song_dictionary.get("ui_type", "both")
+	LevelSelector.normal_display_duration = song_dictionary.get("on_display_duration", 2.5)
+	library_song_toggle.button_pressed = true
+	start_level("normal")
+
+
+func _on_library_button_1_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.pokemon)
+
+
+func _on_library_button_2_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.believer)
+
+
+func _on_library_button_3_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.the_bare_necessities)
+
+
+func _on_library_button_4_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.enemy_rh)
+
+
+func _on_library_button_5_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.do_you_want_to_build_a_snowman)
+
+
+func _on_library_button_6_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.dance_monkey)
+
+
+func _on_library_button_7_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.safe_and_sound)
+
+
+func _on_library_button_8_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.to_gun_anthem)
+
+
+func _on_library_button_9_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.enemy_bh)
+
+
+func _on_library_button_10_pressed() -> void:
+	if unpressed_accepted():
+		load_library_song(SongBank.ole_ole_ole_ole)
