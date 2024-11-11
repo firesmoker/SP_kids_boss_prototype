@@ -536,6 +536,7 @@ metadata/_edit_lock_ = true
 
 [node name="Difficulty" type="Panel" parent="UI"]
 process_mode = 3
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -730,11 +731,11 @@ texture_normal = ExtResource("5_u6wtg")
 texture_hover = ExtResource("5_u6wtg")
 
 [node name="DevButtons" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AutoPlayToggle" type="CheckButton" parent="UI/DevButtons"]
 layout_mode = 0
@@ -811,6 +812,25 @@ offset_right = 64.0
 offset_bottom = 43.0
 text = "Debug"
 
+[node name="BossToggle" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 365.0
+offset_right = 100.0
+offset_bottom = 389.0
+scale = Vector2(2.3, 2.3)
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/DevButtons/BossToggle"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 20.0
+offset_right = 64.0
+offset_bottom = 43.0
+text = "New Boss
+"
+
 [node name="LibrarySongToggle" type="CheckButton" parent="UI/DevButtons"]
 layout_mode = 0
 offset_left = 999.0
@@ -851,4 +871,5 @@ script = ExtResource("8_uu1rv")
 [connection signal="toggled" from="UI/DevButtons/Skip Intro" to="." method="_on_skip_intro_toggled"]
 [connection signal="toggled" from="UI/DevButtons/SkipMiddleC" to="." method="_on_skip_middle_c_toggled"]
 [connection signal="toggled" from="UI/DevButtons/DebugToggle" to="." method="_on_debug_toggle_toggled"]
+[connection signal="toggled" from="UI/DevButtons/BossToggle" to="." method="_on_boss_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]

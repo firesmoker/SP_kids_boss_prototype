@@ -13,6 +13,7 @@ extends Node2D
 @onready var skip_middle_c: CheckButton = $UI/DevButtons/SkipMiddleC
 @onready var dev_buttons: Control = $UI/DevButtons
 @onready var song_title: Label = $UI/Difficulty/SongTitle
+@onready var boss_toggle: CheckButton = $UI/DevButtons/BossToggle
 
 
 
@@ -108,6 +109,7 @@ func _ready() -> void:
 	auto_play_toggle.set_pressed_no_signal(Game.cheat_auto_play)
 	skip_intro.set_pressed_no_signal(Game.cheat_skip_intro)
 	skip_middle_c.set_pressed_no_signal(Game.cheat_skip_middle_c)
+	
 	
 	debug_toggle.set_pressed_no_signal(Game.debug)
 	if Game.game_mode == "library":
@@ -351,3 +353,10 @@ func _on_skip_middle_c_toggled(toggled_on: bool) -> void:
 
 func _on_darken_button_pressed() -> void:
 	hide_difficulty_buttons()
+
+
+func _on_boss_toggle_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		Game.boss_model = "robot_"
+	else:
+		Game.boss_model = ""
