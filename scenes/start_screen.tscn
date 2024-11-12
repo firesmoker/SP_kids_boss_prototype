@@ -836,6 +836,7 @@ metadata/_edit_lock_ = true
 
 [node name="Difficulty" type="Panel" parent="UI"]
 process_mode = 3
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1030,30 +1031,31 @@ texture_normal = ExtResource("5_u6wtg")
 texture_hover = ExtResource("5_u6wtg")
 
 [node name="DevButtons" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="AutoPlayToggle" type="CheckButton" parent="UI/DevButtons"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 18.575
-anchor_top = 6.35
-anchor_right = 18.575
-anchor_bottom = 6.35
-offset_left = 56.0
-offset_top = 41.0
-offset_right = 100.0
-offset_bottom = 65.0
-scale = Vector2(2.3, 2.3)
-icon_alignment = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -242.0
+offset_top = 86.0
+offset_right = -120.0
+offset_bottom = 117.0
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "Auto Play"
+icon_alignment = 2
 expand_icon = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/DevButtons/AutoPlayToggle"]
+visible = false
 layout_mode = 0
 offset_left = -10.0
 offset_top = 20.0
@@ -1062,22 +1064,23 @@ offset_bottom = 43.0
 text = "Auto Play"
 
 [node name="Skip Intro" type="CheckButton" parent="UI/DevButtons"]
+layout_direction = 2
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 18.575
-anchor_top = 6.35
-anchor_right = 18.575
-anchor_bottom = 6.35
-offset_left = 244.0
-offset_top = 43.0
-offset_right = 288.0
-offset_bottom = 67.0
-scale = Vector2(2.3, 2.3)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -244.0
+offset_top = 152.0
+offset_right = -121.0
+offset_bottom = 183.0
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "Skip Intro"
 icon_alignment = 1
 expand_icon = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/DevButtons/Skip Intro"]
+visible = false
 layout_mode = 0
 offset_left = -10.0
 offset_top = 20.0
@@ -1086,17 +1089,22 @@ offset_bottom = 43.0
 text = "Skip Intro"
 
 [node name="SkipMiddleC" type="CheckButton" parent="UI/DevButtons"]
-layout_mode = 0
-offset_left = 920.0
-offset_top = 165.0
-offset_right = 964.0
-offset_bottom = 189.0
-scale = Vector2(2.3, 2.3)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -303.0
+offset_top = 220.0
+offset_right = -151.0
+offset_bottom = 251.0
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "Skip Middle C"
 icon_alignment = 1
 expand_icon = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/DevButtons/SkipMiddleC"]
+visible = false
 layout_mode = 0
 offset_left = -10.0
 offset_top = 20.0
@@ -1105,16 +1113,22 @@ offset_bottom = 43.0
 text = "Skip Middle C"
 
 [node name="DebugToggle" type="CheckButton" parent="UI/DevButtons"]
-layout_mode = 0
-offset_left = 1045.0
-offset_top = 440.0
-offset_right = 1089.0
-offset_bottom = 464.0
-scale = Vector2(2.3, 2.3)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -197.0
+offset_top = 282.0
+offset_right = -99.0
+offset_bottom = 313.0
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "Debug"
 icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="UI/DevButtons/DebugToggle"]
+visible = false
 layout_mode = 0
 offset_left = -10.0
 offset_top = 20.0
@@ -1123,16 +1137,22 @@ offset_bottom = 43.0
 text = "Debug"
 
 [node name="BossToggle" type="CheckButton" parent="UI/DevButtons"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 449.0
-offset_right = 844.0
-offset_bottom = 473.0
-scale = Vector2(2.3, 2.3)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -245.0
+offset_top = 349.0
+offset_right = -122.0
+offset_bottom = 380.0
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "New Boss"
 icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="UI/DevButtons/BossToggle"]
+visible = false
 layout_mode = 0
 offset_left = -10.0
 offset_top = 20.0
@@ -1141,14 +1161,41 @@ offset_bottom = 43.0
 text = "New Boss
 "
 
-[node name="LibrarySongToggle" type="CheckButton" parent="UI/DevButtons"]
+[node name="ShowLibraryToggle" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -305.0
+offset_top = 412.0
+offset_right = -152.0
+offset_bottom = 443.0
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "Library Songs"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/DevButtons/ShowLibraryToggle"]
 visible = false
 layout_mode = 0
-offset_left = 999.0
-offset_top = 37.0
-offset_right = 1043.0
-offset_bottom = 61.0
-scale = Vector2(2.3, 2.3)
+offset_left = -42.0
+offset_top = 20.0
+offset_right = 37.0
+offset_bottom = 95.0
+text = "Show Library Songs"
+autowrap_mode = 3
+
+[node name="LibrarySongToggle" type="CheckButton" parent="UI/DevButtons"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_bottom = 24.0
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
 icon_alignment = 1
 expand_icon = true
 
@@ -1159,25 +1206,6 @@ offset_top = 19.5122
 offset_right = 46.0515
 offset_bottom = 42.5122
 text = "Library Song"
-
-[node name="ShowLibraryToggle" type="CheckButton" parent="UI/DevButtons"]
-layout_mode = 0
-offset_left = 1045.0
-offset_top = 564.0
-offset_right = 1089.0
-offset_bottom = 588.0
-scale = Vector2(2.3, 2.3)
-icon_alignment = 1
-expand_icon = true
-
-[node name="Label" type="Label" parent="UI/DevButtons/ShowLibraryToggle"]
-layout_mode = 0
-offset_left = -42.0
-offset_top = 20.0
-offset_right = 37.0
-offset_bottom = 95.0
-text = "Show Library Songs"
-autowrap_mode = 3
 
 [node name="CharacterSelection" type="OptionButton" parent="UI/DevButtons"]
 layout_mode = 0
@@ -1235,6 +1263,6 @@ script = ExtResource("7_mog21")
 [connection signal="toggled" from="UI/DevButtons/SkipMiddleC" to="." method="_on_skip_middle_c_toggled"]
 [connection signal="toggled" from="UI/DevButtons/DebugToggle" to="." method="_on_debug_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/BossToggle" to="." method="_on_boss_toggle_toggled"]
-[connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]
 [connection signal="toggled" from="UI/DevButtons/ShowLibraryToggle" to="." method="_on_show_library_toggle_toggled"]
+[connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]
 [connection signal="item_selected" from="UI/DevButtons/CharacterSelection" to="." method="_on_character_selection_item_selected"]
