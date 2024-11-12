@@ -1,15 +1,15 @@
 [gd_scene load_steps=20 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_geyk5"]
-[ext_resource type="Texture2D" uid="uid://dh2uk2jr2strc" path="res://art/30.sep/Hero_Idle/Hero_Idle_00000.png" id="5_tm8vi"]
+[ext_resource type="Texture2D" uid="uid://bulita8o26en8" path="res://art/12_nov/new_chars/Girl/Seq - Idle/Girl - Idle_00000.png" id="4_fkq65"]
+[ext_resource type="Texture2D" uid="uid://oq4srcmpctv2" path="res://art/12_nov/new_chars/Boy/Seq - Idle/Boy - Idle_00000.png" id="5_mrykm"]
 [ext_resource type="Texture2D" uid="uid://bqmxp10hkofb2" path="res://art/buttons/Exit (1).png" id="5_u6wtg"]
 [ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="6_4qe1l"]
 [ext_resource type="Texture2D" uid="uid://b2qvicr3lgffq" path="res://art/12_nov/Default_Character.png" id="6_vcmv8"]
+[ext_resource type="Texture2D" uid="uid://cce4yl5y53dj1" path="res://art/10_nov/Robot/Idle/Idle_00000.png" id="7_3jm7p"]
 [ext_resource type="Script" path="res://scripts/settings_manager.gd" id="7_mog21"]
-[ext_resource type="Texture2D" uid="uid://dwbcrvorn6ihm" path="res://art/12_nov/Girl/Seq - Idle/Girl - Idle_00000.png" id="7_r76wu"]
 [ext_resource type="Texture2D" uid="uid://5rwi3sgt57ya" path="res://art/30.sep/Boss_Idle/Boss_Idle_00000.png" id="7_umefj"]
 [ext_resource type="Script" path="res://scripts/midi_websocket_status.gd" id="8_uu1rv"]
-[ext_resource type="Texture2D" uid="uid://dcvf8ulv6kfpy" path="res://art/12_nov/Boy/Seq - Idle/Boy - Idle_00000.png" id="8_xs8b3"]
 
 [sub_resource type="Theme" id="Theme_w463u"]
 default_font_size = 70
@@ -836,7 +836,6 @@ metadata/_edit_lock_ = true
 
 [node name="Difficulty" type="Panel" parent="UI"]
 process_mode = 3
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -979,17 +978,41 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="Player" type="TextureRect" parent="UI/Difficulty"]
+[node name="Character0" type="TextureRect" parent="UI/Difficulty"]
+visible = false
 layout_mode = 0
-offset_left = -77.0
-offset_top = 335.0
-offset_right = 469.0
-offset_bottom = 786.0
+offset_left = 114.0
+offset_top = 414.0
+offset_right = 274.0
+offset_bottom = 730.0
 mouse_filter = 2
-texture = ExtResource("5_tm8vi")
+texture = ExtResource("6_vcmv8")
 expand_mode = 3
 
-[node name="Boss" type="TextureRect" parent="UI/Difficulty"]
+[node name="Character1" type="TextureRect" parent="UI/Difficulty"]
+visible = false
+layout_mode = 0
+offset_left = 114.0
+offset_top = 414.0
+offset_right = 274.0
+offset_bottom = 730.0
+mouse_filter = 2
+texture = ExtResource("4_fkq65")
+expand_mode = 3
+
+[node name="Character2" type="TextureRect" parent="UI/Difficulty"]
+visible = false
+layout_mode = 0
+offset_left = 114.0
+offset_top = 414.0
+offset_right = 317.301
+offset_bottom = 730.0
+mouse_filter = 2
+texture = ExtResource("5_mrykm")
+expand_mode = 3
+
+[node name="Boss0" type="TextureRect" parent="UI/Difficulty"]
+visible = false
 layout_mode = 0
 offset_left = 643.0
 offset_top = 346.0
@@ -998,6 +1021,18 @@ offset_bottom = 694.0
 scale = Vector2(1.24941, 1.24941)
 mouse_filter = 2
 texture = ExtResource("7_umefj")
+expand_mode = 3
+
+[node name="Boss1" type="TextureRect" parent="UI/Difficulty"]
+visible = false
+layout_mode = 0
+offset_left = 643.0
+offset_top = 346.0
+offset_right = 1193.38
+offset_bottom = 694.0
+scale = Vector2(1.24941, 1.24941)
+mouse_filter = 2
+texture = ExtResource("7_3jm7p")
 expand_mode = 3
 
 [node name="SongTitle" type="Label" parent="UI/Difficulty"]
@@ -1032,7 +1067,7 @@ texture_hover = ExtResource("5_u6wtg")
 
 [node name="DevButtons" type="Control" parent="UI"]
 layout_mode = 3
-anchors_preset = 15
+anchor_left = 0.660169
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -1209,22 +1244,22 @@ text = "Library Song"
 
 [node name="CharacterSelection" type="OptionButton" parent="UI/DevButtons"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 164.0
-offset_right = 396.0
-offset_bottom = 683.0
+offset_left = -764.0
+offset_top = 435.0
+offset_right = -374.0
+offset_bottom = 758.0
 theme_override_font_sizes/font_size = 36
-alignment = 1
+alignment = 2
 expand_icon = true
 selected = 0
 item_count = 3
 popup/item_0/text = "Default"
 popup/item_0/icon = ExtResource("6_vcmv8")
 popup/item_1/text = "Girl"
-popup/item_1/icon = ExtResource("7_r76wu")
+popup/item_1/icon = ExtResource("4_fkq65")
 popup/item_1/id = 1
 popup/item_2/text = "Boy"
-popup/item_2/icon = ExtResource("8_xs8b3")
+popup/item_2/icon = ExtResource("5_mrykm")
 popup/item_2/id = 2
 
 [node name="Midi Websocket Status" type="Node" parent="."]

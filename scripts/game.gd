@@ -787,7 +787,7 @@ func get_hit(damage: int = -1) -> void:
 		if vulnerable and not winning and not losing:
 			got_hit_atleast_once = true
 			#player_character.find_child("Flash").flash(Color.RED)
-			player_character.play("get_hit")
+			player_character.play(player_model+"get_hit")
 			player_character.find_child("Flash").flash(Color.RED)
 			player_bot.play("get_hit")
 			player_bot.find_child("Flash").flash(Color.RED)
@@ -860,7 +860,7 @@ func player_win_animation() -> void:
 	player_character.find_child("Expander").expand(1.5, 0.25)
 	player_character.find_child("Expander").move(Vector2(0,0), 0.25)
 	player_character.stop()
-	player_character.play("win")
+	player_character.play(player_model+"win")
 	
 
 

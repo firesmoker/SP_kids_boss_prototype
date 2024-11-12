@@ -399,8 +399,12 @@ func _on_darken_button_pressed() -> void:
 func _on_boss_toggle_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		Game.boss_model = "robot_"
+		difficulty.find_child("Boss0").visible = false
+		difficulty.find_child("Boss1").visible = true
 	else:
 		Game.boss_model = ""
+		difficulty.find_child("Boss0").visible = true
+		difficulty.find_child("Boss1").visible = false
 	settings_manager.settings["boss_toggle"] = toggled_on
 	settings_manager.save_settings()
 
@@ -482,9 +486,25 @@ func _on_library_button_10_pressed() -> void:
 func _on_character_selection_item_selected(index: int) -> void:
 	print("chose character!")
 	match index:
-		0: Game.player_model = ""
-		1: Game.player_model = "girl_"
-		2: Game.player_model = "boy_"
-		_: Game.player_model = ""
+		0:
+			Game.player_model = ""
+			difficulty.find_child("Character0").visible = true
+			difficulty.find_child("Character1").visible = false
+			difficulty.find_child("Character2").visible = false
+		1:
+			Game.player_model = "girl_"
+			difficulty.find_child("Character0").visible = false
+			difficulty.find_child("Character1").visible = true
+			difficulty.find_child("Character2").visible = false
+		2:
+			Game.player_model = "boy_"
+			difficulty.find_child("Character0").visible = false
+			difficulty.find_child("Character1").visible = false
+			difficulty.find_child("Character2").visible = true
+		_:
+			Game.player_model = ""
+			difficulty.find_child("Character0").visible = true
+			difficulty.find_child("Character1").visible = false
+			difficulty.find_child("Character2").visible = false
 	settings_manager.settings["character_selection"] = index
 	settings_manager.save_settings()
