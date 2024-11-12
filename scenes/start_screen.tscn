@@ -1,12 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=20 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_geyk5"]
 [ext_resource type="Texture2D" uid="uid://dh2uk2jr2strc" path="res://art/30.sep/Hero_Idle/Hero_Idle_00000.png" id="5_tm8vi"]
 [ext_resource type="Texture2D" uid="uid://bqmxp10hkofb2" path="res://art/buttons/Exit (1).png" id="5_u6wtg"]
 [ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="6_4qe1l"]
+[ext_resource type="Texture2D" uid="uid://b2qvicr3lgffq" path="res://art/12_nov/Default_Character.png" id="6_vcmv8"]
 [ext_resource type="Script" path="res://scripts/settings_manager.gd" id="7_mog21"]
+[ext_resource type="Texture2D" uid="uid://dwbcrvorn6ihm" path="res://art/12_nov/Girl/Seq - Idle/Girl - Idle_00000.png" id="7_r76wu"]
 [ext_resource type="Texture2D" uid="uid://5rwi3sgt57ya" path="res://art/30.sep/Boss_Idle/Boss_Idle_00000.png" id="7_umefj"]
 [ext_resource type="Script" path="res://scripts/midi_websocket_status.gd" id="8_uu1rv"]
+[ext_resource type="Texture2D" uid="uid://dcvf8ulv6kfpy" path="res://art/12_nov/Boy/Seq - Idle/Boy - Idle_00000.png" id="8_xs8b3"]
 
 [sub_resource type="Theme" id="Theme_w463u"]
 default_font_size = 70
@@ -1035,7 +1038,12 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="AutoPlayToggle" type="CheckButton" parent="UI/DevButtons"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.575
+anchor_top = 6.35
+anchor_right = 18.575
+anchor_bottom = 6.35
 offset_left = 56.0
 offset_top = 41.0
 offset_right = 100.0
@@ -1054,7 +1062,12 @@ offset_bottom = 43.0
 text = "Auto Play"
 
 [node name="Skip Intro" type="CheckButton" parent="UI/DevButtons"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.575
+anchor_top = 6.35
+anchor_right = 18.575
+anchor_bottom = 6.35
 offset_left = 244.0
 offset_top = 43.0
 offset_right = 288.0
@@ -1093,10 +1106,10 @@ text = "Skip Middle C"
 
 [node name="DebugToggle" type="CheckButton" parent="UI/DevButtons"]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 159.0
-offset_right = 100.0
-offset_bottom = 183.0
+offset_left = 1045.0
+offset_top = 440.0
+offset_right = 1089.0
+offset_bottom = 464.0
 scale = Vector2(2.3, 2.3)
 icon_alignment = 1
 expand_icon = true
@@ -1111,10 +1124,10 @@ text = "Debug"
 
 [node name="BossToggle" type="CheckButton" parent="UI/DevButtons"]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 365.0
-offset_right = 100.0
-offset_bottom = 389.0
+offset_left = 800.0
+offset_top = 449.0
+offset_right = 844.0
+offset_bottom = 473.0
 scale = Vector2(2.3, 2.3)
 icon_alignment = 1
 expand_icon = true
@@ -1148,10 +1161,10 @@ text = "Library Song"
 
 [node name="ShowLibraryToggle" type="CheckButton" parent="UI/DevButtons"]
 layout_mode = 0
-offset_left = 949.0
-offset_top = 478.0
-offset_right = 993.0
-offset_bottom = 502.0
+offset_left = 1045.0
+offset_top = 564.0
+offset_right = 1089.0
+offset_bottom = 588.0
 scale = Vector2(2.3, 2.3)
 icon_alignment = 1
 expand_icon = true
@@ -1164,6 +1177,26 @@ offset_right = 37.0
 offset_bottom = 95.0
 text = "Show Library Songs"
 autowrap_mode = 3
+
+[node name="CharacterSelection" type="OptionButton" parent="UI/DevButtons"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 164.0
+offset_right = 396.0
+offset_bottom = 683.0
+theme_override_font_sizes/font_size = 36
+alignment = 1
+expand_icon = true
+selected = 0
+item_count = 3
+popup/item_0/text = "Default"
+popup/item_0/icon = ExtResource("6_vcmv8")
+popup/item_1/text = "Girl"
+popup/item_1/icon = ExtResource("7_r76wu")
+popup/item_1/id = 1
+popup/item_2/text = "Boy"
+popup/item_2/icon = ExtResource("8_xs8b3")
+popup/item_2/id = 2
 
 [node name="Midi Websocket Status" type="Node" parent="."]
 script = ExtResource("8_uu1rv")
@@ -1203,3 +1236,4 @@ script = ExtResource("7_mog21")
 [connection signal="toggled" from="UI/DevButtons/BossToggle" to="." method="_on_boss_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]
 [connection signal="toggled" from="UI/DevButtons/ShowLibraryToggle" to="." method="_on_show_library_toggle_toggled"]
+[connection signal="item_selected" from="UI/DevButtons/CharacterSelection" to="." method="_on_character_selection_item_selected"]

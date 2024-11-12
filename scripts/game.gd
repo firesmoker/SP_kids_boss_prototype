@@ -112,6 +112,7 @@ var temp_notes_played: int = 0
 @export var slow_down_sound: AudioStream
 
 static var boss_model: String = ""
+static var player_model: String = ""
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
 static var song_path: String = "res://audio/CountingStars_122bpm_new.wav"
@@ -385,6 +386,7 @@ func _ready() -> void:
 	
 	if game_mode == "boss":
 		set_boss_visibility(true)
+		player_character.play(player_model+"idle")
 
 	elif game_mode == "library":
 		set_library_song_visibility(true)
@@ -513,7 +515,7 @@ func _process(delta: float) -> void:
 		else:
 			boss.play(boss_model + "damaged_idle")
 	if not player_character.is_playing() and not winning and not losing:
-		player_character.play("idle")
+		player_character.play(player_model+"idle")
 		player_bot.play("fly")
 	time_elapsed += delta
 	if time_elapsed > vul_time:
@@ -733,7 +735,7 @@ func hit_boss(damage: int = -1) -> void:
 			audio_play_from_source(electric_beam,audio_clips.electric_attack, -10.5)
 			player_character.stop()
 			player_bot.stop()
-			player_character.play("attack")
+			player_character.play(player_model+"attack")
 			player_bot.play("attack")
 			boss.find_child("Flash").flash(Color.RED)
 			update_boss_health(damage)

@@ -18,6 +18,7 @@ extends Node2D
 @onready var boss_songs: VBoxContainer = $UI/SongButtons/BossSongs
 @onready var library_songs: VBoxContainer = $UI/SongButtons/LibrarySongs
 @onready var show_library_toggle: CheckButton = $UI/DevButtons/ShowLibraryToggle
+@onready var character_selection: OptionButton = $UI/DevButtons/CharacterSelection
 
 
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
@@ -137,6 +138,9 @@ func apply_settings() -> void:
 	skip_middle_c.button_pressed = settings_manager.settings.get("skip_middle_c", false)
 	skip_intro.button_pressed = settings_manager.settings.get("skip_intro", false)
 	show_library_toggle.button_pressed  = settings_manager.settings.get("show_library_toggle", false)
+	character_selection.selected = settings_manager.settings.get("character_selection", 0)
+	character_selection.emit_signal("item_selected",settings_manager.settings.get("character_selection", 0))
+	
 
 func connect_buttons() -> void:	
 	var boss_songs_buttons: Array = boss_songs.get_children()
@@ -352,6 +356,7 @@ func get_input_press_position() -> void:
 
 
 func _on_auto_play_toggle_toggled(toggled_on: bool) -> void:
+	print("auto played toggled: " + str(toggled_on))
 	Game.cheat_auto_play = toggled_on
 	settings_manager.settings["auto_play_toggle"] = toggled_on
 	settings_manager.save_settings()
@@ -468,3 +473,14 @@ func _on_library_button_9_pressed() -> void:
 func _on_library_button_10_pressed() -> void:
 	if unpressed_accepted():
 		load_library_song(SongBank.ole_ole_ole_ole)
+
+
+func _on_character_selection_item_selected(index: int) -> void:
+	print("chose character!")
+	match index:
+		0: Game.player_model = ""
+		1: Game.player_model = "girl_"
+		2: Game.player_model = "boy_"
+		_: Game.player_model = ""
+	settings_manager.settings["character_selection"] = index
+	settings_manager.save_settings()
