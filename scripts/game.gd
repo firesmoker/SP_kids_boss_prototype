@@ -94,6 +94,7 @@ var temp_notes_played: int = 0
 @onready var vignette: Sprite2D = $Level/Vignette
 @onready var background: TextureRect = $UI/Background
 @onready var background_slow: TextureRect = $UI/BackgroundSlow
+
 @onready var pause_button: TextureButton = $Overlay/Pause
 @onready var restart_button: TextureButton = $Overlay/Restart
 
@@ -255,6 +256,7 @@ func set_default_visibility() -> void:
 	combo_meter.visible = false
 	streak_meter.visible = false
 	return_button.visible = false
+	background_slow.visible = false
 	
 	## Hide Library visuals:
 	set_library_song_visibility(false)

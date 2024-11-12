@@ -1,4 +1,4 @@
-[gd_scene load_steps=1274 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1278 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -4231,6 +4231,22 @@ default_font_size = 60
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6yep"]
 
+[sub_resource type="Gradient" id="Gradient_npvp2"]
+colors = PackedColorArray(0, 0.623529, 0.972549, 1, 0, 0.623529, 0.972549, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hlguy"]
+gradient = SubResource("Gradient_npvp2")
+fill_from = Vector2(0, 0.508547)
+fill_to = Vector2(1, 0.512821)
+
+[sub_resource type="Gradient" id="Gradient_2efhj"]
+colors = PackedColorArray(0, 0.411765, 0.65098, 1, 0, 0.411175, 0.650964, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bxad3"]
+gradient = SubResource("Gradient_2efhj")
+fill_from = Vector2(0, 0.557692)
+fill_to = Vector2(1, 0.557692)
+
 [sub_resource type="Gradient" id="Gradient_vbxr5"]
 offsets = PackedFloat32Array(0, 0.493797, 1)
 colors = PackedColorArray(0, 0, 0, 0, 0.71464, 0.71464, 0.71464, 0.71464, 1, 1, 1, 0.54902)
@@ -5930,12 +5946,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = SubResource("GradientTexture2D_hlguy")
+
+[node name="Background_old" type="TextureRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("360_6bair")
 expand_mode = 2
 stretch_mode = 4
 metadata/_edit_lock_ = true
 
 [node name="BackgroundSlow" type="TextureRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_bxad3")
+
+[node name="BackgroundSlow_old" type="TextureRect" parent="UI"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
