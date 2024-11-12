@@ -415,7 +415,7 @@ func _ready() -> void:
 		if not cheat_skip_middle_c:
 			continue_note_popup.visible = true
 		if Game.game_state == "Intro" and not cheat_skip_intro:
-			intro_sequence.play()
+			intro_sequence.play(player_model+"intro")
 			audio.stream = audio_clips.fight_starts
 			audio.play()
 			await intro_sequence.animation_finished
