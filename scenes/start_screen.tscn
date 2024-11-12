@@ -536,6 +536,7 @@ layout_mode = 2
 metadata/_edit_lock_ = true
 
 [node name="LibraryButton1" type="Button" parent="UI/SongButtons/LibrarySongs"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
@@ -739,6 +740,7 @@ autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="LibraryButton8" type="Button" parent="UI/SongButtons/LibrarySongs"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
@@ -768,6 +770,7 @@ autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="LibraryButton9" type="Button" parent="UI/SongButtons/LibrarySongs"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_b8tba")
