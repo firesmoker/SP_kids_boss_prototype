@@ -849,7 +849,7 @@ func boss_win_animation() -> void:
 	boss.find_child("Expander").expand(1.25, 0.5)
 	boss.find_child("Expander").move(Vector2(0,0), 0.5)
 	boss.stop()
-	boss.play(boss_model + "get_hit")
+	boss.play(boss_model + "win")
 	into_stage.flip_h = true
 	into_stage.visible = true
 	into_stage.play()
