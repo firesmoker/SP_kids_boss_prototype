@@ -585,7 +585,7 @@ func lose() -> void:
 func show_stars() -> void:
 	stars.visible = true
 	stars.find_child("Fader").fade_in()
-	match score_manager.stars:
+	match int(score_manager.stars):
 		3:
 			star_full.visible = true
 			star_full_2.visible = true

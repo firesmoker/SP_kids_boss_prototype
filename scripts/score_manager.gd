@@ -73,8 +73,8 @@ func calculate_stars() -> void:
 	"""
 	Calculates the star rating based on the overall_score.
 	"""
-	if overall_score <= 0.5:
-		stars = 1.0
+	if overall_score < 0.5:
+		stars = 0.0
 	elif overall_score <= 0.7:
 		stars = 1.0 + (overall_score - 0.5) * (1.0 / 0.2) # Linear projection between 1 and 2 stars
 	elif overall_score <= 0.9:
