@@ -887,14 +887,18 @@ func _on_win_change_level_button_up() -> void:
 
 
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
-	if has_easy_difficulty:
-		show_easy = true
-	darken.visible = true
-	if show_easy:
-		easy_button.visible = true
+	if game_mode == "boss":
+		if has_easy_difficulty:
+			show_easy = true
+		darken.visible = true
+		if show_easy:
+			easy_button.visible = true
+		else:
+			easy_button.visible = false
+		difficulty.visible = true
 	else:
-		easy_button.visible = false
-	difficulty.visible = true
+		get_tree().paused = false
+		get_tree().reload_current_scene()
 
 
 func _on_win_continue_button_up() -> void:

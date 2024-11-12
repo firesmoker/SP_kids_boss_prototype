@@ -113,10 +113,10 @@ func _ready() -> void:
 	
 	
 	debug_toggle.set_pressed_no_signal(Game.debug)
-	if Game.game_mode == "library":
-		library_song_toggle.set_pressed_no_signal(true)
-	else:
-		library_song_toggle.set_pressed_no_signal(false)
+	#if Game.game_mode == "library":
+		#library_song_toggle.set_pressed_no_signal(true)
+	#else:
+		#library_song_toggle.set_pressed_no_signal(false)
 		
 	apply_settings()
 
@@ -284,13 +284,16 @@ func unpressed_accepted() -> bool:
 		return true
 
 func _on_easy_button_button_up() -> void:
+	Game.game_mode = "boss"
 	start_level("easy")
 
 func _on_normal_button_button_up() -> void:
+	Game.game_mode = "boss"
 	start_level("normal")
 
 
 func _on_hard_button_button_up() -> void:
+	Game.game_mode = "boss"
 	start_level("hard")
 	
 
@@ -421,7 +424,8 @@ func load_library_song(song_dictionary: Dictionary) -> void:
 	LevelSelector.normal_tempo = song_dictionary.get("tempo")
 	LevelSelector.normal_ui_type = song_dictionary.get("ui_type", "both")
 	LevelSelector.normal_display_duration = song_dictionary.get("on_display_duration", 2.5)
-	library_song_toggle.button_pressed = true
+	#library_song_toggle.button_pressed = true
+	Game.game_mode = "library"
 	start_level("normal")
 
 
