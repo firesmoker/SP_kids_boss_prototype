@@ -285,7 +285,7 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	player_bot.visible = false
 	background.visible = toggle
 	background_slow.visible = false
-	intro_sequence.visible = toggle
+	intro_sequence.visible = false
 	blue_line.find_child("SingleLine").find_child("LineZapSingle").visible = toggle
 	electric_beam.find_child("LineZapMulti").visible = toggle
 	electric_beam.find_child("ElectricBolt").visible = toggle
@@ -296,7 +296,7 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	white_layer_4.visible = toggle
 	
 	if not cheat_skip_intro:
-		intro_sequence.visible = true
+		intro_sequence.visible = toggle
 
 func trigger_crowd_animations() -> void:
 	var song_progress: float = music_player.get_playback_position() / music_player.stream.get_length()
@@ -419,6 +419,8 @@ func _ready() -> void:
 			audio.stream = audio_clips.fight_starts
 			audio.play()
 			await intro_sequence.animation_finished
+			intro_sequence.visible = false
+		else:
 			intro_sequence.visible = false
 		if not cheat_skip_middle_c:
 			await notes_detector.continue_note_played
