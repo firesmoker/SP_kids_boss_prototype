@@ -585,7 +585,10 @@ func lose() -> void:
 	enter_lose_ui()
 
 func show_stars() -> void:
-	stars.visible = true
+	if game_mode == "library":
+		stars.visible = true
+	else:
+		stars.visible = false
 	stars.find_child("Fader").fade_in()
 	match int(score_manager.stars):
 		3:
