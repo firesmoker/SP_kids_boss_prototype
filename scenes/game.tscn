@@ -1,4 +1,4 @@
-[gd_scene load_steps=718 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=714 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -415,12 +415,8 @@
 [ext_resource type="Texture2D" uid="uid://bk75g4j278mwm" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00142.png" id="398_shcvd"]
 [ext_resource type="Texture2D" uid="uid://b46aw88aeh0f6" path="res://art/4_nov/Artboard 2.png" id="400_0fb3h"]
 [ext_resource type="Script" path="res://scripts/score_manager.gd" id="403_slc7f"]
-[ext_resource type="Texture2D" uid="uid://b8fespmpup3ht" path="res://art/BG.jpg" id="405_l1de6"]
-[ext_resource type="Texture2D" uid="uid://7m5skdilw7y8" path="res://art/LibSong/StageSide.png" id="407_nwymd"]
 [ext_resource type="Texture2D" uid="uid://diic24wr8nbf7" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00000.png" id="408_45jos"]
-[ext_resource type="Texture2D" uid="uid://bd6rvxfjpo0ny" path="res://art/LibSong/Speaker.png" id="408_ol67u"]
 [ext_resource type="Texture2D" uid="uid://cmbw6xbsno1cr" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00001.png" id="409_2jsuh"]
-[ext_resource type="Texture2D" uid="uid://dg3pwkhmv4jen" path="res://art/LibSong/Speaker_top.png" id="409_5pswi"]
 [ext_resource type="Texture2D" uid="uid://xfw2nq3k1lek" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00002.png" id="410_xa07c"]
 [ext_resource type="Texture2D" uid="uid://bep2cxa0n4kha" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00003.png" id="411_nmekw"]
 [ext_resource type="Texture2D" uid="uid://b0s1i3ocnrtop" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00004.png" id="412_3sgxn"]
@@ -2858,6 +2854,7 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="IntroSequence" type="AnimatedSprite2D" parent="CameraOverlay/AspectRatioContainer"]
+process_mode = 4
 visible = false
 scale = Vector2(1.1522, 1.1522)
 sprite_frames = SubResource("SpriteFrames_dbryh")
@@ -3845,6 +3842,7 @@ text = "Streak: D"
 layer = -2
 
 [node name="VideoLayer1" type="VideoStreamPlayer" parent="VideoCanvas"]
+process_mode = 4
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -3861,6 +3859,7 @@ loop = true
 metadata/_edit_lock_ = true
 
 [node name="VideoLayer2" type="VideoStreamPlayer" parent="VideoCanvas"]
+process_mode = 4
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -3880,6 +3879,7 @@ metadata/_edit_lock_ = true
 [node name="Fader" parent="VideoCanvas/VideoLayer2" instance=ExtResource("63_jfxac")]
 
 [node name="VideoLayer3" type="VideoStreamPlayer" parent="VideoCanvas"]
+process_mode = 4
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -3899,6 +3899,7 @@ metadata/_edit_lock_ = true
 [node name="Fader" parent="VideoCanvas/VideoLayer3" instance=ExtResource("63_jfxac")]
 
 [node name="VideoLayer4" type="VideoStreamPlayer" parent="VideoCanvas"]
+process_mode = 4
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -3918,6 +3919,7 @@ metadata/_edit_lock_ = true
 [node name="Fader" parent="VideoCanvas/VideoLayer4" instance=ExtResource("63_jfxac")]
 
 [node name="VideoLayer5" type="VideoStreamPlayer" parent="VideoCanvas"]
+process_mode = 4
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -3972,6 +3974,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="PlayerBot" type="AnimatedSprite2D" parent="Level"]
+process_mode = 4
 visible = false
 z_index = 2
 position = Vector2(-405.556, -107.937)
@@ -4201,6 +4204,7 @@ position = Vector2(-242.148, 0)
 metadata/_edit_lock_ = true
 
 [node name="UpperBrick" type="Sprite2D" parent="Level/DetectorVisual"]
+process_mode = 4
 visible = false
 position = Vector2(0, -187.386)
 scale = Vector2(0.220225, 0.220225)
@@ -4208,6 +4212,7 @@ texture = ExtResource("58_ovvpk")
 metadata/_edit_lock_ = true
 
 [node name="LowerBrick" type="Sprite2D" parent="Level/DetectorVisual"]
+process_mode = 4
 visible = false
 position = Vector2(0, 134.921)
 scale = Vector2(0.220225, 0.220225)
@@ -4277,26 +4282,8 @@ position = Vector2(-19.8417, 23.0159)
 scale = Vector2(0.135251, 0.135251)
 texture = ExtResource("400_0fb3h")
 
-[node name="Block5" type="Sprite2D" parent="Level/BossPlatform"]
-visible = false
-position = Vector2(-19.8417, 81.746)
-scale = Vector2(0.135251, 0.135251)
-texture = ExtResource("400_0fb3h")
-
 [node name="Block2" type="Sprite2D" parent="Level/BossPlatform"]
 position = Vector2(37.3015, 23.0159)
-scale = Vector2(0.135251, 0.135251)
-texture = ExtResource("400_0fb3h")
-
-[node name="Block4" type="Sprite2D" parent="Level/BossPlatform"]
-visible = false
-position = Vector2(37.3015, 80.9524)
-scale = Vector2(0.135251, 0.135251)
-texture = ExtResource("400_0fb3h")
-
-[node name="Block3" type="Sprite2D" parent="Level/BossPlatform"]
-visible = false
-position = Vector2(-78.5714, 23.0159)
 scale = Vector2(0.135251, 0.135251)
 texture = ExtResource("400_0fb3h")
 
@@ -4305,12 +4292,8 @@ z_index = -10
 position = Vector2(-469.841, -326.19)
 scale = Vector2(0.793651, 0.793651)
 
-[node name="Stadium" type="Sprite2D" parent="Level/LibVisuals"]
-visible = false
-position = Vector2(578, 474)
-texture = ExtResource("405_l1de6")
-
 [node name="Crowd" type="Node2D" parent="Level/LibVisuals"]
+process_mode = 4
 visible = false
 
 [node name="CrowdPersonA" type="AnimatedSprite2D" parent="Level/LibVisuals/Crowd"]
@@ -4359,11 +4342,6 @@ autoplay = "static"
 frame = 22
 frame_progress = 1.0
 
-[node name="Stage" type="Sprite2D" parent="Level/LibVisuals"]
-visible = false
-position = Vector2(589, 468)
-texture = ExtResource("407_nwymd")
-
 [node name="Character" type="Sprite2D" parent="Level/LibVisuals"]
 position = Vector2(589, 667)
 texture = ExtResource("596_127m5")
@@ -4372,28 +4350,6 @@ texture = ExtResource("596_127m5")
 texture = ExtResource("597_tu4ge")
 
 [node name="Expander" parent="Level/LibVisuals/Character/CharacterHead" instance=ExtResource("20_wgxju")]
-
-[node name="LeftSpeaker" type="Sprite2D" parent="Level/LibVisuals"]
-visible = false
-position = Vector2(40, 679)
-texture = ExtResource("408_ol67u")
-
-[node name="Grill" type="Sprite2D" parent="Level/LibVisuals/LeftSpeaker"]
-texture = ExtResource("409_5pswi")
-
-[node name="Expander" parent="Level/LibVisuals/LeftSpeaker/Grill" instance=ExtResource("20_wgxju")]
-
-[node name="RightSpeaker" type="Sprite2D" parent="Level/LibVisuals"]
-visible = false
-position = Vector2(1136, 679)
-texture = ExtResource("408_ol67u")
-flip_h = true
-
-[node name="Grill" type="Sprite2D" parent="Level/LibVisuals/RightSpeaker"]
-texture = ExtResource("409_5pswi")
-flip_h = true
-
-[node name="Expander" parent="Level/LibVisuals/RightSpeaker/Grill" instance=ExtResource("20_wgxju")]
 
 [node name="StarCelebration" type="AnimatedSprite2D" parent="Level/LibVisuals"]
 visible = false

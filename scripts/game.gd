@@ -1,7 +1,5 @@
 class_name Game extends Node2D
 @onready var lib_visuals: Node2D = $Level/LibVisuals
-@onready var crowd: Node2D = $Level/LibVisuals/Crowd
-var crowd_people: Array
 @onready var character: Sprite2D = $Level/LibVisuals/Character
 
 @onready var video_layer_1: VideoStreamPlayer = $VideoCanvas/VideoLayer1
@@ -300,23 +298,23 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	if not cheat_skip_intro:
 		intro_sequence.visible = toggle
 
-func trigger_crowd_animations() -> void:
-	var song_progress: float = music_player.get_playback_position() / music_player.stream.get_length()
-	if score_manager.overall_score >= 0.85 and song_progress > 0.6 and not threshold3_unlocked:
-		threshold3_unlocked = true
-		for i: int in range(crowd_people.size()):
-			crowd_people[i].animation = "moving"
-			print("threshold 3: animation changed to " + str(crowd_people[i].animation))
-	elif score_manager.overall_score >= 0.7 and song_progress > 0.3 and not threshold2_unlocked:
-		threshold2_unlocked = true
-		for i: int in range(crowd_people.size() / 2):
-			crowd_people[i].animation = "moving"
-			print("threshold 2: animation changed to " + str(crowd_people[i].animation))
-	elif score_manager.overall_score >= 0.5 and not threshold1_unlocked :
-		threshold1_unlocked = true
-		for i: int in range(crowd_people.size() / 3):
-			crowd_people[i].animation = "moving"
-			print("threshold 1: animation changed to " + str(crowd_people[i].animation))
+#func trigger_crowd_animations() -> void:
+	#var song_progress: float = music_player.get_playback_position() / music_player.stream.get_length()
+	#if score_manager.overall_score >= 0.85 and song_progress > 0.6 and not threshold3_unlocked:
+		#threshold3_unlocked = true
+		#for i: int in range(crowd_people.size()):
+			#crowd_people[i].animation = "moving"
+			#print("threshold 3: animation changed to " + str(crowd_people[i].animation))
+	#elif score_manager.overall_score >= 0.7 and song_progress > 0.3 and not threshold2_unlocked:
+		#threshold2_unlocked = true
+		#for i: int in range(crowd_people.size() / 2):
+			#crowd_people[i].animation = "moving"
+			#print("threshold 2: animation changed to " + str(crowd_people[i].animation))
+	#elif score_manager.overall_score >= 0.5 and not threshold1_unlocked :
+		#threshold1_unlocked = true
+		#for i: int in range(crowd_people.size() / 3):
+			#crowd_people[i].animation = "moving"
+			#print("threshold 1: animation changed to " + str(crowd_people[i].animation))
 
 func set_star_bar_values() -> void:
 	#star_bar.max_value = notes_container.notes_in_level - 1
@@ -379,18 +377,53 @@ func set_boss_health() -> void:
 	boss_health_bar.max_value = boss_health
 	boss_health_bar.value = boss_health
 
+func set_default_process_modes() -> void:
+	set_boss_process_modes(false)
+	set_library_song_process_modes(false)
+	
+
+func set_boss_process_modes(toggle: bool = false) -> void:
+	var process_mode: ProcessMode
+	if toggle:
+		process_mode = Node.PROCESS_MODE_INHERIT
+	else:
+		process_mode = Node.PROCESS_MODE_DISABLED
+	intro_sequence.process_mode = process_mode
+	player_character.process_mode = process_mode
+	boss.process_mode = process_mode
+	electric_beam.process_mode = process_mode
+	into_stage.process_mode = Node.PROCESS_MODE_DISABLED
+	vignette.process_mode = process_mode
+
+		
+func set_library_song_process_modes(toggle: bool = false) -> void:
+	var process_mode: ProcessMode
+	if toggle:
+		process_mode = Node.PROCESS_MODE_INHERIT
+	else:
+		process_mode = Node.PROCESS_MODE_DISABLED
+	lib_visuals.process_mode = process_mode
+	video_layer_1.process_mode = process_mode
+	video_layer_2.process_mode = process_mode
+	video_layer_3.process_mode = process_mode
+	video_layer_4.process_mode = process_mode
+	video_layer_5.process_mode = process_mode
+	
+
 func _ready() -> void:
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/11_nov/robot_boss_portrait.png")
-	crowd_people = crowd.get_children()
+	#crowd_people = crowd.get_children()
 	show_debug()
 	set_default_visibility()
-	
+	set_default_process_modes()
 	if game_mode == "boss":
 		set_boss_visibility(true)
+		set_boss_process_modes(true)
 		player_character.play(player_model+"idle")
 
 	elif game_mode == "library":
+		set_library_song_process_modes(true)
 		set_library_song_visibility(true)
 		print("setting library visibility")
 		
@@ -417,13 +450,16 @@ func _ready() -> void:
 		if not cheat_skip_middle_c:
 			continue_note_popup.visible = true
 		if Game.game_state == "Intro" and not cheat_skip_intro:
+			intro_sequence.process_mode = Node.PROCESS_MODE_INHERIT
 			intro_sequence.play("intro")
 			audio.stream = audio_clips.fight_starts
 			audio.play()
 			await intro_sequence.animation_finished
 			intro_sequence.visible = false
+			intro_sequence.process_mode = Node.PROCESS_MODE_DISABLED
 		else:
 			intro_sequence.visible = false
+			intro_sequence.process_mode = Node.PROCESS_MODE_DISABLED
 		if not cheat_skip_middle_c:
 			await notes_detector.continue_note_played
 			continue_note_popup.visible = false
@@ -495,13 +531,13 @@ func beat_effects() -> void:
 	#play_crowd_animations()
 	single_glow.find_child("Expander").expand(1.1,0.3,true,2)
 	multi_glow.find_child("Expander").expand(1.1,0.3,true,2)
-	if game_mode == "library":
-		lib_visuals.find_child("LeftSpeaker").find_child("Grill").find_child("Expander").expand(1.1,0.3,true)
-		lib_visuals.find_child("RightSpeaker").find_child("Grill").find_child("Expander").expand(1.1,0.3,true)
+	#if game_mode == "library":
+		#lib_visuals.find_child("LeftSpeaker").find_child("Grill").find_child("Expander").expand(1.1,0.3,true)
+		#lib_visuals.find_child("RightSpeaker").find_child("Grill").find_child("Expander").expand(1.1,0.3,true)
 
-func play_crowd_animations() -> void:
-	for person: AnimatedSprite2D in crowd_people:
-		person.play()	
+#func play_crowd_animations() -> void:
+	#for person: AnimatedSprite2D in crowd_people:
+		#person.play()	
 
 func _process(delta: float) -> void:
 	if construction_complete and not losing and not winning and music_player.playing and grace_period_finished:
@@ -512,7 +548,7 @@ func _process(delta: float) -> void:
 		update_ingame_stars()
 		score_meter.text = str(score_manager.game_score)
 		#update_streak()
-		trigger_crowd_animations()
+		#trigger_crowd_animations()
 	if not boss.is_playing() and not losing and not winning:
 		if boss_health > boss_health_bar.max_value / 2:
 			boss.play(boss_model + "idle")
@@ -625,6 +661,7 @@ func win() -> void:
 		
 	music_player_slow.stop()
 	play_music_clip(audio_clips.player_wins)
+	into_stage.process_mode = Node.PROCESS_MODE_INHERIT
 	into_stage.visible = true
 	into_stage.play()
 	win_text.visible = true
