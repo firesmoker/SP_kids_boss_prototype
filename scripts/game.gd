@@ -675,6 +675,23 @@ func show_stars() -> void:
 	animate_xp(0, score_manager.game_score, FADE_DURATION + ANIMATION_DELAY * stars_to_animate)
 	animate_stars(stars_to_animate)
 
+func display_performance_message() -> void:
+	var stars: int = int(score_manager.stars)
+	var message: String = ""
+	match stars:
+		0:
+			message = "ניסיון יפה!"
+		1:
+			message = "הופעה טובה!"
+		2:
+			message = "הופעה נהדרת!"
+		3:
+			message = "ביצוע מדהים!"
+		_:
+			message = ""
+
+	# Display the message (for example, in a Label node)
+	win_text.text = message
 
 func animate_stars(stars_count: int) -> void:
 	star1.visible = true
@@ -745,9 +762,11 @@ func win() -> void:
 	win_text.find_child("Fader").fade_in()
 	
 	if game_mode == "boss":
+		win_text.text = "ניצחון!"
 		player_win_animation()
 		await player_character.animation_finished
-		
+	else: 
+		display_performance_message()
 	show_stars()
 	timer.wait_time = 0.5
 	timer.start()
