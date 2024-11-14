@@ -27,12 +27,14 @@ var temp_notes_played: int = 0
 @onready var single_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow
 @onready var multi_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow
 
-@onready var star_empty: TextureRect = $Overlay/Stars/StarEmpty
-@onready var star_full: TextureRect = $Overlay/Stars/StarFull
-@onready var star_empty_2: TextureRect = $Overlay/Stars/StarEmpty2
-@onready var star_full_2: TextureRect = $Overlay/Stars/StarFull2
-@onready var star_empty_3: TextureRect = $Overlay/Stars/StarEmpty3
-@onready var star_full_3: TextureRect = $Overlay/Stars/StarFull3
+var target_xp: int = 100  # Replace with your desired XP value
+@onready var xp: Node = $Overlay/XP
+@onready var xp_label: Label = $Overlay/XP/XPLabel
+@onready var xp_audio_player: AudioStreamPlayer = $Overlay/XP/XPAudioPlayer
+@onready var stars_audio_player: AudioStreamPlayer = $Overlay/Stars/StarsAudioPlayer
+@onready var star1: AnimatedSprite2D = $Overlay/Stars/Star1
+@onready var star2: AnimatedSprite2D = $Overlay/Stars/Star2
+@onready var star3: AnimatedSprite2D = $Overlay/Stars/Star3
 @onready var stars: Control = $Overlay/Stars
 @onready var difficulty: Panel = $Overlay/Difficulty
 @onready var easy_button: Button = $Overlay/Difficulty/EasyButton
@@ -620,29 +622,104 @@ func lose() -> void:
 	game_state = "Lose"
 	enter_lose_ui()
 
+# Adjust this for the delay between each star animation
+const ANIMATION_DELAY = 0.4
+const FADE_DURATION = 0.2
+
+func animate_xp(start_value: int, end_value: int, duration: float) -> void:
+	xp_label.visible = true
+	xp_label.text = "Score: "
+	
+	# Create a Tween node dynamically
+	var tween: Tween = create_tween()
+	# Interpolate the XP value over the specified duration
+	tween.tween_property(self, "current_xp", end_value, duration)
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	# Connect the tween's completion signal to a function
+	tween.finished.connect(Callable(self, "_on_tween_completed"))
+	# Start the tween
+	tween.play()
+
+func _on_tween_completed(tween: Tween) -> void:
+	# Ensure the label displays the final XP value
+	xp_label.text = "Score: " + str(target_xp)
+	# Play the completion sound
+	xp_audio_player.play()
+	# Remove the tween node after completion
+	tween.queue_free()
+
+# Property to update the label text during the tween
+var current_xp: int = 0:
+	set(value):
+		current_xp = value
+		xp_label.text = "Score: " + str(value)
+		
 func show_stars() -> void:
 	if game_mode == "library":
 		stars.visible = true
+		xp.visible = true
 	else:
 		stars.visible = false
-	stars.find_child("Fader").fade_in()
-	match int(score_manager.stars):
-		3:
-			star_full.visible = true
-			star_full_2.visible = true
-			star_full_3.visible = true
-		2:
-			star_full.visible = true
-			star_full_2.visible = true
-			star_empty_3.visible = true
-		1:
-			star_full.visible = true
-			star_empty_2.visible = true
-			star_empty_3.visible = true
-		_:
-			pass
+		xp.visible = false
+		return
 		
+	stars.find_child("Fader").fade_in()
+	
+	# Ensure stars are set to the first frame initially
+	star1.frame = 0
+	star2.frame = 0
+	star3.frame = 0
+	
+	var stars_to_animate: int = int(score_manager.stars)
+	animate_xp(0, score_manager.game_score, FADE_DURATION + ANIMATION_DELAY * stars_to_animate)
+	animate_stars(stars_to_animate)
 
+
+func animate_stars(stars_count: int) -> void:
+	star1.visible = true
+	star1.modulate.a = 0.4
+	star2.visible = true
+	star2.modulate.a = 0.4
+	star3.visible = true
+	star3.modulate.a = 0.4
+	
+	# Animate each star gradually
+	if stars_count >= 1:
+		var tween: Tween = create_tween()
+		tween.tween_property(star1, "modulate:a", 1, FADE_DURATION)
+		star1.play("activate_star")  # Start first star animation
+		await get_tree().create_timer(ANIMATION_DELAY).timeout
+		stars_audio_player.stream = preload("res://audio/star1.mp3")
+		stars_audio_player.play()
+
+	if stars_count >= 2:
+		var tween: Tween = create_tween()
+		tween.tween_property(star2, "modulate:a", 1, FADE_DURATION)
+		star2.play("activate_star")  # Start second star animation
+		await get_tree().create_timer(ANIMATION_DELAY).timeout
+		stars_audio_player.stream = preload("res://audio/star2.mp3")
+		stars_audio_player.play()
+
+	if stars_count == 3:
+		var tween: Tween = create_tween()
+		tween.tween_property(star3, "modulate:a", 1, FADE_DURATION)
+		star3.play("activate_star")  # Start third star animation
+		await get_tree().create_timer(ANIMATION_DELAY).timeout  # Wait for the last animation to finish
+		stars_audio_player.stream = preload("res://audio/star3.mp3")
+		stars_audio_player.play()
+		
+	fade_out_non_animated_stars(stars_count)
+
+func fade_out_non_animated_stars(stars_count: int) -> void:
+	var tween: Tween = create_tween()
+
+	if stars_count < 1:
+		tween.tween_property(star1, "modulate:a", 0.1, FADE_DURATION)
+	if stars_count < 2:
+		tween.tween_property(star2, "modulate:a", 0.1, FADE_DURATION)
+	if stars_count < 3:
+		tween.tween_property(star3, "modulate:a", 0.1, FADE_DURATION)
 
 func win() -> void:
 	winning = true
