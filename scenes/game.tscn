@@ -4207,6 +4207,7 @@ texture = ExtResource("58_ovvpk")
 metadata/_edit_lock_ = true
 
 [node name="ElectricBeam" type="Sprite2D" parent="Level/DetectorVisual"]
+process_mode = 4
 self_modulate = Color(0.501961, 1, 0.980392, 0.72549)
 z_index = -1
 position = Vector2(0, -27.938)
@@ -4218,8 +4219,6 @@ position = Vector2(-8.32483, 0)
 scale = Vector2(0.28, 0.0582303)
 sprite_frames = ExtResource("68_qal4a")
 animation = &"line_zap"
-frame = 7
-frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="ElectricBolt" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
@@ -4238,6 +4237,7 @@ metadata/_edit_lock_ = true
 [node name="Fader" parent="Level/DetectorVisual" instance=ExtResource("63_jfxac")]
 
 [node name="IntoStage" type="AnimatedSprite2D" parent="Level"]
+process_mode = 4
 visible = false
 z_index = 2
 position = Vector2(2.1134, -1.78571)

@@ -245,7 +245,15 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 
+func complete_disable(nodes: Array[Node2D]) -> void:
+	for node in nodes:
+		node.visible = false
+		node.process_mode = Node.PROCESS_MODE_DISABLED
 
+func complete_enable(nodes: Array[Node2D]) -> void:
+	for node in nodes:
+		node.visible = true
+		node.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func set_default_visibility() -> void:
@@ -990,6 +998,7 @@ func boss_win_animation() -> void:
 	boss.find_child("Expander").move(Vector2(0,0), 0.5)
 	boss.stop()
 	boss.play(boss_model + "win")
+	into_stage.process_mode = Node.PROCESS_MODE_INHERIT
 	into_stage.flip_h = true
 	into_stage.visible = true
 	into_stage.play()
