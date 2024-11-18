@@ -851,7 +851,7 @@ func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> v
 				get_hit()
 			else:
 				get_hit()
-		"player_portrait":
+		"heart":
 			if not health_collected:
 				health_collected = true
 				#show_tutorial(effect)
@@ -884,14 +884,14 @@ func hit_boss(damage: int = -1) -> void:
 	if not winning and not losing:
 		if game_mode == "boss":
 			#electric_beam.find_child("Flash").flash()
+			right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
 			if ui_type == "treble":
 				blue_line.find_child("SingleLine").find_child("LineZapSingle").play("line_zap")
+				right_hand_part.find_child("UpperStaff").find_child("ElectricBolt2").play()
 			else:
 				blue_line.find_child("MultiLine").find_child("LineZapMulti").play("line_zap")
+				right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
 			#electric_beam.find_child("ElectricBolt").play("attack")
-			right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
-			right_hand_part.find_child("UpperStaff").find_child("ElectricBolt2").play()
-			right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
 			audio_play_from_source(electric_beam,audio_clips.electric_attack, -10.5)
 			player_character.stop()
 			player_bot.stop()
