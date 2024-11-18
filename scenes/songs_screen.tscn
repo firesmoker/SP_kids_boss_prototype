@@ -11,10 +11,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -2.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+clip_contents = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -28,9 +36,17 @@ offset_right = 63.0
 offset_bottom = 31.0
 text = "הגדרות"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
-clip_contents = false
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
-layout_mode = 2
+[node name="Midi Status Label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_top = 24.0
+offset_right = -28.0
+offset_bottom = 74.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true

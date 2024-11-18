@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=19 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_geyk5"]
 [ext_resource type="Texture2D" uid="uid://bulita8o26en8" path="res://art/12_nov/new_chars/Girl/Seq - Idle/Girl - Idle_00000.png" id="4_fkq65"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cce4yl5y53dj1" path="res://art/10_nov/Robot/Idle/Idle_00000.png" id="7_3jm7p"]
 [ext_resource type="Script" path="res://scripts/settings_manager.gd" id="7_mog21"]
 [ext_resource type="Texture2D" uid="uid://5rwi3sgt57ya" path="res://art/30.sep/Boss_Idle/Boss_Idle_00000.png" id="7_umefj"]
-[ext_resource type="Script" path="res://scripts/midi_websocket_status.gd" id="8_uu1rv"]
 
 [sub_resource type="Theme" id="Theme_w463u"]
 default_font_size = 70
@@ -39,7 +38,10 @@ bg_color = Color(0.535958, 0.116029, 0.861395, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hso67"]
 
-[node name="StartScreen" type="Node2D"]
+[node name="StartScreen" type="Window"]
+title = "הגדרות"
+initial_position = 1
+size = Vector2i(500, 500)
 script = ExtResource("1_geyk5")
 song_1_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.wav"
 song_1_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.wav"
@@ -96,8 +98,11 @@ song_11_hard_melody_path = "res://levels/CircleOfLifeHardLonger_TheLionKing_78.t
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
+offset = Vector2(-50, -20)
+transform = Transform2D(1, 0, 0, 1, -50, -20)
 
 [node name="Background" type="ColorRect" parent="UI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -107,6 +112,7 @@ color = Color(0.298661, 0.000840185, 0.481218, 1)
 metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="UI"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -180,22 +186,8 @@ text = "טוען"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Midi Status Label" type="Label" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -187.0
-offset_top = 24.0
-offset_right = -28.0
-offset_bottom = 74.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 36
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
-
 [node name="SongButtons" type="ScrollContainer" parent="UI"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1269,9 +1261,6 @@ popup/item_1/id = 1
 popup/item_2/text = "Boy"
 popup/item_2/icon = ExtResource("5_mrykm")
 popup/item_2/id = 2
-
-[node name="Midi Websocket Status" type="Node" parent="."]
-script = ExtResource("8_uu1rv")
 
 [node name="SettingsManager" type="Node" parent="."]
 script = ExtResource("7_mog21")

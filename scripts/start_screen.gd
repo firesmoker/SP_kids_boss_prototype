@@ -1,4 +1,4 @@
-extends Node2D
+extends Window
 
 @onready var darken: TextureRect = $UI/Darken
 @onready var difficulty: Panel = $UI/Difficulty
@@ -150,8 +150,15 @@ func connect_buttons() -> void:
 	var library_song_buttons: Array = library_songs.get_children()
 	for button: Button in library_song_buttons:
 		button.connect("button_down", get_input_press_position)
+		
+	self.connect("close_requested", Callable(self, "_on_close_requested"))
 
 
+func _on_close_requested() -> void:
+	# Queue free to remove the window from the scene
+	queue_free()
+	
+	
 func start_level(type: String = "normal") -> void:
 	Game.game_state = "Intro"
 	Game.repeat_requested = false
@@ -277,7 +284,7 @@ func _on_button_11_button_up() -> void:
 		define_hard_level(song_11_hard_melody_path,default_left_melody,song_11_song_path,song_11_slow_song_path, 76, 6, 31, 2.5, "treble")
 
 func unpressed_accepted() -> bool:
-	var current_unpressed_position: Vector2 = get_global_mouse_position()
+	var current_unpressed_position: Vector2 = get_mouse_position()
 	if current_unpressed_position.distance_to(current_press_position) > 300:
 		return false
 	else:
@@ -355,7 +362,7 @@ func hide_difficulty_buttons() -> void:
 
 
 func get_input_press_position() -> void:
-	current_press_position = get_global_mouse_position()
+	current_press_position = get_mouse_position()
 
 
 func _on_auto_play_toggle_toggled(toggled_on: bool) -> void:
