@@ -301,8 +301,9 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	background_slow.visible = false
 	intro_sequence.visible = false
 	blue_line.find_child("SingleLine").find_child("LineZapSingle").visible = toggle
-	electric_beam.find_child("LineZapMulti").visible = toggle
-	electric_beam.find_child("ElectricBolt").visible = toggle
+	blue_line.find_child("MultiLine").find_child("LineZapMulti").visible = toggle
+	#electric_beam.find_child("LineZapMulti").visible = toggle
+	#electric_beam.find_child("ElectricBolt").visible = toggle
 	player_panel.visible = toggle
 	boss_panel.visible = toggle
 	player_platform.visible = toggle
@@ -882,12 +883,14 @@ func heal(amount: int = 1) -> void:
 func hit_boss(damage: int = -1) -> void:
 	if not winning and not losing:
 		if game_mode == "boss":
-			electric_beam.find_child("Flash").flash()
+			#electric_beam.find_child("Flash").flash()
 			if ui_type == "treble":
 				blue_line.find_child("SingleLine").find_child("LineZapSingle").play("line_zap")
 			else:
-				electric_beam.find_child("LineZapMulti").play("line_zap")
-			electric_beam.find_child("ElectricBolt").play("attack")
+				blue_line.find_child("MultiLine").find_child("LineZapMulti").play("line_zap")
+			#electric_beam.find_child("ElectricBolt").play("attack")
+			right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
+			right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
 			audio_play_from_source(electric_beam,audio_clips.electric_attack, -10.5)
 			player_character.stop()
 			player_bot.stop()

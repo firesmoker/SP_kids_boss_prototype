@@ -1,4 +1,4 @@
-[gd_scene load_steps=714 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=725 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -437,14 +437,24 @@
 [ext_resource type="Texture2D" uid="uid://bc5j4v8yaksxc" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00019.png" id="427_rj08i"]
 [ext_resource type="Texture2D" uid="uid://dky84kg2f5mmu" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00020.png" id="428_mrvkv"]
 [ext_resource type="Texture2D" uid="uid://bejytlskmd0pd" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00021.png" id="429_7ntuv"]
+[ext_resource type="Texture2D" uid="uid://c7li3t04in65s" path="res://art/17_nov/Electric shoot/_Sequence/Frame 1.png" id="429_pkl6r"]
 [ext_resource type="Texture2D" uid="uid://dy8eqewkcisu3" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00022.png" id="430_fffxu"]
+[ext_resource type="Texture2D" uid="uid://cidx7y5ep3okh" path="res://art/17_nov/Electric shoot/_Sequence/Frame 2.png" id="430_uj01o"]
+[ext_resource type="Texture2D" uid="uid://bs8s0gnfmgtlu" path="res://art/17_nov/Electric shoot/_Sequence/Frame 3.png" id="431_eqgsr"]
 [ext_resource type="Texture2D" uid="uid://v41jg1fyxhtn" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00023.png" id="431_f8qvv"]
+[ext_resource type="Texture2D" uid="uid://btudufxwwi5nn" path="res://art/17_nov/Electric shoot/_Sequence/Frame 4.png" id="432_7qllp"]
 [ext_resource type="Texture2D" uid="uid://bt40oxg8mhaf4" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00024.png" id="432_arj4b"]
+[ext_resource type="Texture2D" uid="uid://sy53jw5ofaq8" path="res://art/17_nov/Electric shoot/_Sequence/Frame 5.png" id="433_0cyjf"]
 [ext_resource type="Texture2D" uid="uid://ddreu7y3xwdvk" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00025.png" id="433_vkwn8"]
+[ext_resource type="Texture2D" uid="uid://hnym6n2a1gdl" path="res://art/17_nov/Electric shoot/_Sequence/Frame 6.png" id="434_jo2ue"]
 [ext_resource type="Texture2D" uid="uid://dr608csyymyjh" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00026.png" id="434_xuior"]
 [ext_resource type="Texture2D" uid="uid://cicff0oc42d66" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00027.png" id="435_1yap6"]
+[ext_resource type="Texture2D" uid="uid://c6cg037pagth5" path="res://art/17_nov/Electric shoot/_Sequence/Frame 7.png" id="435_kaxyt"]
 [ext_resource type="Texture2D" uid="uid://bx4jll0f66kx5" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00028.png" id="436_ecgmr"]
+[ext_resource type="Texture2D" uid="uid://c31umwqeo6cd5" path="res://art/17_nov/Electric shoot/_Sequence/Frame 8.png" id="436_wnj2b"]
+[ext_resource type="Texture2D" uid="uid://bh3jokcx2cuqh" path="res://art/17_nov/Electric shoot/_Sequence/Frame 9.png" id="437_14ylp"]
 [ext_resource type="Texture2D" uid="uid://bv5jy0sr368sw" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00029.png" id="437_26vn2"]
+[ext_resource type="Texture2D" uid="uid://bvat14ry6u0mp" path="res://art/17_nov/Electric shoot/_Sequence/Frame 10.png" id="438_nj5fy"]
 [ext_resource type="Texture2D" uid="uid://bb4scfpy1t3mv" path="res://art/LibSong/CrowdUnit02/CrowdUnit02_00000.png" id="438_rskem"]
 [ext_resource type="Texture2D" uid="uid://y83lmkn2o4ce" path="res://art/LibSong/CrowdUnit02/CrowdUnit02_00001.png" id="439_nb3i0"]
 [ext_resource type="Texture2D" uid="uid://cwfdkbbwc47os" path="res://art/LibSong/CrowdUnit02/CrowdUnit02_00002.png" id="440_08057"]
@@ -1721,6 +1731,50 @@ metadata/_snap_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fef26"]
 size = Vector2(69.0258, 1246.51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hq0p5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("79_n7i7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("429_pkl6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("430_uj01o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("431_eqgsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("432_7qllp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("433_0cyjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("434_jo2ue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("435_kaxyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("436_wnj2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("437_14ylp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("438_nj5fy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_n7i7p")
+}],
+"loop": false,
+"name": &"default",
+"speed": 48.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v3t7t"]
 animations = [{
@@ -4020,10 +4074,8 @@ z_index = 3
 position = Vector2(417.46, 63.4921)
 scale = Vector2(0.590503, 0.590503)
 sprite_frames = ExtResource("4_ygwuk")
-animation = &"robot_win"
+animation = &"robot_damaged_get_hit"
 autoplay = "idle"
-frame = 71
-frame_progress = 1.0
 
 [node name="BossHitZone" type="Area2D" parent="Level/Boss"]
 visible = false
@@ -4112,7 +4164,6 @@ position = Vector2(0, 75.001)
 metadata/_edit_lock_ = true
 
 [node name="SingleLine" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
-visible = false
 position = Vector2(-42.6587, 2.38338)
 scale = Vector2(0.6, 0.72673)
 texture = ExtResource("379_g4x10")
@@ -4137,7 +4188,6 @@ frame_progress = 1.0
 position = Vector2(-42.6587, 79.2683)
 scale = Vector2(0.6, 1.31589)
 texture = ExtResource("379_g4x10")
-metadata/_edit_lock_ = true
 
 [node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine"]
 show_behind_parent = true
@@ -4146,6 +4196,14 @@ scale = Vector2(0.6, 1)
 texture = ExtResource("14_nko2d")
 
 [node name="Expander" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow" instance=ExtResource("20_wgxju")]
+
+[node name="LineZapMulti" type="AnimatedSprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine"]
+position = Vector2(70.501, 0)
+scale = Vector2(0.23, 0.257563)
+sprite_frames = ExtResource("68_qal4a")
+animation = &"line_zap"
+frame = 7
+frame_progress = 1.0
 
 [node name="BottomCollectDetect" type="Area2D" parent="Level/RightHandPart"]
 position = Vector2(-237.54, 200)
@@ -4185,6 +4243,14 @@ scale = Vector2(0.423713, 0.423713)
 texture = ExtResource("14_j4vp4")
 metadata/_edit_lock_ = true
 
+[node name="ElectricBolt" type="AnimatedSprite2D" parent="Level/RightHandPart/UpperStaff"]
+z_index = -2
+position = Vector2(47.5305, -24.8166)
+scale = Vector2(0.556532, 0.412846)
+sprite_frames = SubResource("SpriteFrames_hq0p5")
+frame = 11
+frame_progress = 1.0
+
 [node name="UpperStaffSprite" parent="Level/RightHandPart/UpperStaff" instance=ExtResource("5_evl1e")]
 position = Vector2(54.0625, 25)
 scale = Vector2(4.74062, 1.00024)
@@ -4206,6 +4272,14 @@ position = Vector2(-366.062, 224.73)
 scale = Vector2(0.423713, 0.423713)
 texture = ExtResource("14_3a4yn")
 metadata/_edit_lock_ = true
+
+[node name="ElectricBolt" type="AnimatedSprite2D" parent="Level/RightHandPart/BottomStaff"]
+z_index = -2
+position = Vector2(51.1507, 274.992)
+scale = Vector2(0.556532, 0.412846)
+sprite_frames = SubResource("SpriteFrames_hq0p5")
+frame = 11
+frame_progress = 1.0
 
 [node name="BottomStaffSprite" parent="Level/RightHandPart/BottomStaff" instance=ExtResource("5_evl1e")]
 position = Vector2(54.063, 226.25)
@@ -4252,25 +4326,19 @@ texture = ExtResource("58_ovvpk")
 metadata/_edit_lock_ = true
 
 [node name="ElectricBeam" type="Sprite2D" parent="Level/DetectorVisual"]
-process_mode = 4
 self_modulate = Color(0.501961, 1, 0.980392, 0.72549)
 z_index = -1
 position = Vector2(0, -27.938)
-scale = Vector2(0.572016, 4.44731)
 metadata/_edit_lock_ = true
 
-[node name="LineZapMulti" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
-position = Vector2(-8.32483, 0)
-scale = Vector2(0.28, 0.0582303)
-sprite_frames = ExtResource("68_qal4a")
-animation = &"line_zap"
-metadata/_edit_lock_ = true
-
-[node name="ElectricBolt" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
+[node name="ElectricBolt_old" type="AnimatedSprite2D" parent="Level/DetectorVisual/ElectricBeam"]
+visible = false
 position = Vector2(418.743, 29.8385)
 scale = Vector2(1.71432, 0.124033)
 sprite_frames = SubResource("SpriteFrames_u4wap")
-animation = &"attack"
+animation = &"attack_old"
+frame = 13
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="Flash" parent="Level/DetectorVisual/ElectricBeam" instance=ExtResource("57_hg35f")]
