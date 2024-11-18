@@ -4032,9 +4032,9 @@ z_index = 3
 position = Vector2(-411.111, 70.8205)
 scale = Vector2(0.319623, 0.319623)
 sprite_frames = ExtResource("4_0nn2k")
-animation = &"girl_win"
+animation = &"girl_attack"
 autoplay = "idle"
-frame = 7
+frame = 21
 frame_progress = 1.0
 script = ExtResource("19_j5u08")
 
@@ -4159,7 +4159,7 @@ debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
 metadata/_edit_lock_ = true
 
 [node name="BlueLine" type="Node2D" parent="Level/RightHandPart/CollectDetect"]
-modulate = Color(0.443137, 1, 1, 0.552941)
+self_modulate = Color(0.443137, 1, 1, 0.552941)
 position = Vector2(0, 75.001)
 metadata/_edit_lock_ = true
 
@@ -4177,11 +4177,12 @@ texture = ExtResource("14_nko2d")
 [node name="Expander" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow" instance=ExtResource("20_wgxju")]
 
 [node name="LineZapSingle" type="AnimatedSprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine"]
-position = Vector2(61.0016, 6.6824)
-scale = Vector2(0.333676, 0.23182)
+z_index = -1
+position = Vector2(70.501, 6.682)
+scale = Vector2(0.45, 0.232)
 sprite_frames = ExtResource("68_qal4a")
 animation = &"line_zap"
-frame = 7
+frame = 11
 frame_progress = 1.0
 
 [node name="MultiLine" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
@@ -4198,11 +4199,12 @@ texture = ExtResource("14_nko2d")
 [node name="Expander" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow" instance=ExtResource("20_wgxju")]
 
 [node name="LineZapMulti" type="AnimatedSprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine"]
+z_index = -1
 position = Vector2(70.501, 0)
-scale = Vector2(0.23, 0.257563)
+scale = Vector2(0.6, 0.25)
 sprite_frames = ExtResource("68_qal4a")
 animation = &"line_zap"
-frame = 7
+frame = 11
 frame_progress = 1.0
 
 [node name="BottomCollectDetect" type="Area2D" parent="Level/RightHandPart"]
@@ -4250,6 +4252,15 @@ scale = Vector2(0.556532, 0.412846)
 sprite_frames = SubResource("SpriteFrames_hq0p5")
 frame = 11
 frame_progress = 1.0
+
+[node name="ElectricBolt2" type="AnimatedSprite2D" parent="Level/RightHandPart/UpperStaff"]
+z_index = -2
+position = Vector2(47.5305, 73.4129)
+scale = Vector2(0.556532, 0.412846)
+sprite_frames = SubResource("SpriteFrames_hq0p5")
+frame = 11
+frame_progress = 1.0
+flip_v = true
 
 [node name="UpperStaffSprite" parent="Level/RightHandPart/UpperStaff" instance=ExtResource("5_evl1e")]
 position = Vector2(54.0625, 25)

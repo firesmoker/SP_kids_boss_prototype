@@ -1,16 +1,67 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://rav5rqfqmiew"]
+[gd_resource type="SpriteFrames" load_steps=19 format=3 uid="uid://rav5rqfqmiew"]
 
 [ext_resource type="Texture2D" uid="uid://dodklwouxmsoc" path="res://art/30.sep/LineZapper/LineZapper_00000.png" id="1_q38fn"]
+[ext_resource type="Texture2D" uid="uid://7qgtknjajgkn" path="res://art/17_nov/Rhythm Line/_Sequence/frame 1.png" id="1_r86uk"]
 [ext_resource type="Texture2D" uid="uid://bke2k3hymp0yn" path="res://art/30.sep/LineZapper/LineZapper_00001.png" id="2_fn81e"]
+[ext_resource type="Texture2D" uid="uid://dm0p6m416rhg3" path="res://art/17_nov/Rhythm Line/_Sequence/frame 2.png" id="2_s2xey"]
 [ext_resource type="Texture2D" uid="uid://degi4g8op723y" path="res://art/30.sep/LineZapper/LineZapper_00002.png" id="3_o3dn0"]
+[ext_resource type="Texture2D" uid="uid://dbnbpt6vqly3w" path="res://art/17_nov/Rhythm Line/_Sequence/frame 3.png" id="3_p4m26"]
 [ext_resource type="Texture2D" uid="uid://db3cif7k27cv5" path="res://art/30.sep/LineZapper/LineZapper_00003.png" id="4_alfvp"]
+[ext_resource type="Texture2D" uid="uid://t2px41g0ao72" path="res://art/17_nov/Rhythm Line/_Sequence/frame 4.png" id="4_gwj0p"]
+[ext_resource type="Texture2D" uid="uid://4h88ao1q86me" path="res://art/17_nov/Rhythm Line/_Sequence/frame 5.png" id="5_p0gau"]
 [ext_resource type="Texture2D" uid="uid://6gr3vm4ixwv1" path="res://art/30.sep/LineZapper/LineZapper_00004.png" id="5_xiano"]
+[ext_resource type="Texture2D" uid="uid://r2fo2qoyx4mf" path="res://art/17_nov/Rhythm Line/_Sequence/frame 6.png" id="6_14pso"]
 [ext_resource type="Texture2D" uid="uid://rfwxu77llhi3" path="res://art/30.sep/LineZapper/LineZapper_00005.png" id="6_ql3j6"]
 [ext_resource type="Texture2D" uid="uid://c2gga5104h0nm" path="res://art/30.sep/LineZapper/LineZapper_00006.png" id="7_0px27"]
+[ext_resource type="Texture2D" uid="uid://cfc4i100jvdmm" path="res://art/17_nov/Rhythm Line/_Sequence/frame 7.png" id="7_rplma"]
+[ext_resource type="Texture2D" uid="uid://2538f5jlvaqa" path="res://art/17_nov/Rhythm Line/_Sequence/frame 8.png" id="8_qgyhs"]
 [ext_resource type="Texture2D" uid="uid://d0darsr3mq0ju" path="res://art/30.sep/LineZapper/LineZapper_00007.png" id="8_xvwym"]
+[ext_resource type="Texture2D" uid="uid://eplwiamyhlmt" path="res://art/17_nov/Rhythm Line/_Sequence/frame 9.png" id="9_wp1ui"]
+[ext_resource type="Texture2D" uid="uid://jefuwop4bufp" path="res://art/17_nov/Rhythm Line/_Sequence/frame 10.png" id="10_7bkcw"]
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q38fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_r86uk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s2xey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p4m26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gwj0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p0gau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_14pso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rplma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qgyhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wp1ui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7bkcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_q38fn")
+}],
+"loop": false,
+"name": &"line_zap",
+"speed": 48.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_q38fn")
@@ -37,6 +88,6 @@ animations = [{
 "texture": ExtResource("8_xvwym")
 }],
 "loop": false,
-"name": &"line_zap",
+"name": &"line_zap_old",
 "speed": 48.0
 }]

@@ -890,6 +890,7 @@ func hit_boss(damage: int = -1) -> void:
 				blue_line.find_child("MultiLine").find_child("LineZapMulti").play("line_zap")
 			#electric_beam.find_child("ElectricBolt").play("attack")
 			right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
+			right_hand_part.find_child("UpperStaff").find_child("ElectricBolt2").play()
 			right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
 			audio_play_from_source(electric_beam,audio_clips.electric_attack, -10.5)
 			player_character.stop()
