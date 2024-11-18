@@ -72,6 +72,9 @@ var target_xp: int = 100  # Replace with your desired XP value
 @onready var tutorial_text: Label = $Overlay/Tutorial/Text
 @onready var win_buttons: Panel = $Overlay/WinButtons
 @onready var player_portrait: TextureRect = $UI/PlayerPanel/PlayerPortrait
+@onready var player_panel: TextureRect = $UI/PlayerPanel
+@onready var boss_panel: TextureRect = $UI/BossPanel
+
 
 @onready var boss_portrait: TextureRect = $UI/BossPanel/BossPortrait
 
@@ -298,11 +301,11 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	blue_line.find_child("SingleLine").find_child("LineZapSingle").visible = toggle
 	electric_beam.find_child("LineZapMulti").visible = toggle
 	electric_beam.find_child("ElectricBolt").visible = toggle
-	player_portrait.visible = toggle
-	boss_portrait.visible = toggle
+	player_panel.visible = toggle
+	boss_panel.visible = toggle
 	player_platform.visible = toggle
 	boss_platform.visible = toggle
-	white_layer_4.visible = toggle
+	white_layer_4.visible = false
 	
 	if not cheat_skip_intro:
 		intro_sequence.visible = toggle

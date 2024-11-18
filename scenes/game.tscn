@@ -1,4 +1,4 @@
-[gd_scene load_steps=714 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=712 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -91,7 +91,6 @@
 [ext_resource type="Script" path="res://scripts/collectible_detector.gd" id="60_psocc"]
 [ext_resource type="Texture2D" uid="uid://dnfpy0d5tqcal" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00043.png" id="61_und4i"]
 [ext_resource type="Texture2D" uid="uid://b8o83mxw5txvr" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00044.png" id="62_8jnao"]
-[ext_resource type="Texture2D" uid="uid://ueok5jf4h4m0" path="res://art/vignette.png" id="62_sh2xx"]
 [ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="63_jfxac"]
 [ext_resource type="Texture2D" uid="uid://byfe8h47bsi4m" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00045.png" id="63_ptvve"]
 [ext_resource type="Texture2D" uid="uid://dt33gc0nyi8em" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00046.png" id="64_i0cjj"]
@@ -396,7 +395,6 @@
 [ext_resource type="Texture2D" uid="uid://b832qr551aoop" path="res://art/buttons/Restart2.png" id="347_00qhb"]
 [ext_resource type="Texture2D" uid="uid://d07oksjihef2g" path="res://art/buttons/Exit2.png" id="348_5ge4l"]
 [ext_resource type="SpriteFrames" uid="uid://ccm3ykvcd8rbp" path="res://scene_resources/star_end_screen_spriteframe.tres" id="358_3ucxv"]
-[ext_resource type="Texture2D" uid="uid://b2vo8k2bfvku8" path="res://art/4_nov/Warm_BG.png" id="360_6bair"]
 [ext_resource type="Texture2D" uid="uid://c7ex6v0mksl03" path="res://art/17_nov/bar_empty.png" id="360_yopmy"]
 [ext_resource type="Texture2D" uid="uid://iyxqrq5cfblx" path="res://art/4_nov/Cold_BG.png" id="361_2yuql"]
 [ext_resource type="Texture2D" uid="uid://mk2wlm3g0mgy" path="res://art/17_nov/bar_full.png" id="361_obrbm"]
@@ -404,6 +402,7 @@
 [ext_resource type="Texture2D" uid="uid://cpj47xn0ptp25" path="res://art/10_nov/BarOn.png" id="365_fyknt"]
 [ext_resource type="Texture2D" uid="uid://cki5gdkhu5w2p" path="res://art/10_nov/StarOff.png" id="366_on5xi"]
 [ext_resource type="Texture2D" uid="uid://cjyl515mkdk8d" path="res://art/10_nov/StarOn.png" id="367_4ijhd"]
+[ext_resource type="Texture2D" uid="uid://bsqm2e4r5yr1h" path="res://art/17_nov/BG1.png" id="368_51hfx"]
 [ext_resource type="VideoStream" path="res://art/10_nov/BG02.ogv" id="369_tknix"]
 [ext_resource type="Texture2D" uid="uid://3r2jjmq2jhwc" path="res://art/17_nov/Life bar - R.png" id="370_bntdn"]
 [ext_resource type="VideoStream" path="res://art/10_nov/BG03.ogv" id="370_gupta"]
@@ -434,6 +433,7 @@
 [ext_resource type="Texture2D" uid="uid://ccin5br70rjn4" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00016.png" id="424_rta7k"]
 [ext_resource type="Texture2D" uid="uid://dqmicpqgd4xsa" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00017.png" id="425_jqmru"]
 [ext_resource type="Texture2D" uid="uid://bn1dpxtvxndoq" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00018.png" id="426_sijju"]
+[ext_resource type="Texture2D" uid="uid://dqx3ttu5gq4y5" path="res://art/vignette_white.png" id="427_hua2n"]
 [ext_resource type="Texture2D" uid="uid://bc5j4v8yaksxc" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00019.png" id="427_rj08i"]
 [ext_resource type="Texture2D" uid="uid://dky84kg2f5mmu" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00020.png" id="428_mrvkv"]
 [ext_resource type="Texture2D" uid="uid://bejytlskmd0pd" path="res://art/LibSong/CrowdUnit01/CrowdUnit01_00021.png" id="429_7ntuv"]
@@ -1706,14 +1706,6 @@ colors = PackedColorArray(0, 0.623529, 0.972549, 1, 0, 0.623529, 0.972549, 1)
 gradient = SubResource("Gradient_npvp2")
 fill_from = Vector2(0, 0.508547)
 fill_to = Vector2(1, 0.512821)
-
-[sub_resource type="Gradient" id="Gradient_2efhj"]
-colors = PackedColorArray(0, 0.411765, 0.65098, 1, 0, 0.411175, 0.650964, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bxad3"]
-gradient = SubResource("Gradient_2efhj")
-fill_from = Vector2(0, 0.557692)
-fill_to = Vector2(1, 0.557692)
 
 [sub_resource type="Gradient" id="Gradient_vbxr5"]
 offsets = PackedFloat32Array(0, 0.493797, 1)
@@ -3679,7 +3671,7 @@ stretch_mode = 4
 
 [node name="Expander" parent="UI/StarBar/Star3" instance=ExtResource("20_wgxju")]
 
-[node name="Background" type="TextureRect" parent="UI"]
+[node name="Background_old2" type="TextureRect" parent="UI"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -3688,26 +3680,33 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_hlguy")
 
-[node name="Background_old" type="TextureRect" parent="UI"]
-visible = false
+[node name="Background" type="TextureRect" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -95.0
+offset_right = 1479.0
+offset_bottom = 1133.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("360_6bair")
-expand_mode = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("368_51hfx")
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="BackgroundSlow" type="TextureRect" parent="UI"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -95.0
+offset_right = 1479.0
+offset_bottom = 1133.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_bxad3")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("368_51hfx")
 
 [node name="BackgroundSlow_old" type="TextureRect" parent="UI"]
 visible = false
@@ -3722,6 +3721,7 @@ stretch_mode = 4
 metadata/_edit_lock_ = true
 
 [node name="WhiteLayer4" type="TextureRect" parent="UI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -3768,6 +3768,7 @@ texture = ExtResource("370_bntdn")
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/BossPanel"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = 28.0
 offset_right = 715.0
@@ -3816,6 +3817,7 @@ vertical_alignment = 1
 
 [node name="PlayerPortrait" type="TextureRect" parent="UI/PlayerPanel"]
 z_index = 2
+layout_mode = 0
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 210.0
@@ -4220,7 +4222,7 @@ metadata/_edit_lock_ = true
 modulate = Color(1, 1, 1, 0)
 position = Vector2(13.5181, -8.45033)
 scale = Vector2(0.937008, 0.937008)
-texture = ExtResource("62_sh2xx")
+texture = ExtResource("427_hua2n")
 metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Level/Vignette" instance=ExtResource("63_jfxac")]
