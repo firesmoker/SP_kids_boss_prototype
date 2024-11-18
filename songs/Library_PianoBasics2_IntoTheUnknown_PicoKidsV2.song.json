@@ -1,0 +1,21 @@
+{
+    "uiType": "both_clefs", 
+    "displayName": "Into The Unknown", 
+    "artist": "Frozen", 
+    "inGameInfo": {
+        "onScreenDisplayDuration": 4, 
+        "melodyFiles": {
+            "right": "Library_PianoBasics2_IntoTheUnknown_PicoKidsV2_Right.txt", 
+            "left": "Library_PianoBasics2_IntoTheUnknown_PicoKidsV2_Left.txt"
+        }, 
+        "bgm": "IntoTheUnknown_Cminor_107bpm_Vocals.m4a"
+    }, 
+    "imageFileName": "LibrarySongCover_SpecialChallenge_Movie2022_IntoTheUnknown.jpg", 
+    "version": 1, 
+    "acum_id": "Disney29AEVUA", 
+    "licenseIDs": [
+        "Acum"
+    ], 
+    "scaleFactor": 0.85, 
+    "id": "Library_PianoBasics2_IntoTheUnknown_PicoKidsV2"
+}

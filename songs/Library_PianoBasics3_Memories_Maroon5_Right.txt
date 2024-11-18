@@ -1,0 +1,117 @@
+140,4/4,0,GClef,Right
+
+
+*bgmFileName:Memories_70bpm_FMajor_Vocals_Short.m4a*
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+C5:1/4%!5(StemD) A4:1/4%3(StemU) C5:1/4%5(StemD) A4:1/4%3(StemU) 
+C5:1/4%5(StemD) -:1/4 -:1/2 
+A4:1/4%3(StemU) F4:1/4%1(StemU) A4:1/4%3(StemU) F4:1/4%1(StemU) 
+A4:1/4(StemU) F4:1/4(StemU) A4:1/4(StemU) -:1/4 
+
+*StageEnd:1*
+
+*StageStart:2*
+D4:1/4%!2(StemU) D4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) 
+D4:1/4(StemU) C4:1/4%1(StemU) -:1/4 C4:1/4(StemU) 
+D4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) F4:1/4%4(StemU) 
+E4:1/2%3(StemU) -:1/2 
+
+*StageEnd:2*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:3*
+C5:1/4%!5(StemD) A4:1/4%3(StemU) C5:1/4%5(StemD) A4:1/4%3(StemU) 
+C5:1/4%5(StemD) -:1/4 -:1/2 
+A4:1/4%3(StemU) F4:1/4%1(StemU) A4:1/4%3(StemU) F4:1/4%1(StemU) 
+A4:1/4(StemU) F4:1/4(StemU) A4:1/4(StemU) -:1/4 
+
+*StageEnd:3*
+
+*StageStart:4*
+D4:1/4%!2(StemU) D4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) 
+D4:1/4(StemU) C4:1/4%1(StemU) -:1/4 C4:1/4(StemU) 
+D4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) F4:1/4%4(StemU) 
+E4:1/4%3(StemU) E4:1/4(StemU) E4:1/4(StemU) F4:1/4(StemU) 
+F4:1/4(StemU) -:1/4 -:1/2 
+
+*StageEnd:4*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:5*
+-:1/2 F4:1/4%4(StemU) F4:1/4(StemU) 
+A4:1/4%5(StemU) F4:1/4%4(StemU) F4:1/4(StemU) -:1/4 
+F4:1/4%4(StemU) F4:1/4(StemU) -:1/4 F4:1/4(StemU) 
+E4:1/4%3(StemU) -:1/4 E4:1/4(StemU) F4:1/4(StemU) 
+
+*StageEnd:5*
+
+*LevelEnd:Part 3*
+
+*LevelStart:Part 4*
+
+*StageStart:6*
+-:1/2 F4:1/4%!1(StemU) F4:1/4(StemU) 
+C5:1/4%5(StemD) F4:1/4%1(StemU) F4:1/4(StemU) -:1/4 
+F4:1/4%!4(StemU) F4:1/4(StemU) -:1/4 F4:1/4(StemU) 
+E4:1/4(StemU) -:1/4 F4:1/4(StemU) -:1/4 
+
+*StageEnd:6*
+
+*LevelEnd:Part 4*
+
+*LevelStart:Part 1*
+
+*StageStart:7*
+C5:1/4%!5(StemD) A4:1/4%3(StemU) C5:1/4%5(StemD) A4:1/4%3(StemU) 
+C5:1/4%5(StemD) -:1/4 -:1/2 
+A4:1/4%3(StemU) F4:1/4%1(StemU) A4:1/4%3(StemU) F4:1/4%1(StemU) 
+A4:1/4(StemU) F4:1/4(StemU) A4:1/4(StemU) -:1/4 
+
+*StageEnd:7*
+
+*StageStart:8*
+D4:1/4%!2(StemU) D4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) 
+D4:1/4(StemU) C4:1/4%1(StemU) -:1/4 C4:1/4(StemU) 
+D4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) F4:1/4%4(StemU) 
+E4:1/2%3(StemU) -:1/2 
+
+*StageEnd:8*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:9*
+C5:1/4%!5(StemD) A4:1/4%3(StemU) C5:1/4%5(StemD) A4:1/4%3(StemU) 
+C5:1/4%5(StemD) -:1/4 -:1/2 
+A4:1/4%3(StemU) F4:1/4%1(StemU) A4:1/4%3(StemU) F4:1/4%1(StemU) 
+A4:1/4(StemU) F4:1/4(StemU) A4:1/4(StemU) -:1/4 
+
+*StageEnd:9*
+
+*StageStart:10*
+D4:1/4%!2(StemU) D4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) 
+D4:1/4(StemU) C4:1/4%1(StemU) -:1/4 C4:1/4(StemU) 
+D4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) F4:1/4%4(StemU) 
+E4:1/4%3(StemU) E4:1/4(StemU) E4:1/4(StemU) F4:1/4(StemU) 
+F4:1/4(StemU) -:1/4 -:1/2
+*StageEnd:10*
+
+*LevelEnd:Part 2*

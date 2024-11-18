@@ -1,0 +1,17 @@
+106,4/4,0,GClef,Right
+
+-:1 
+D4:1/4%2(StemU) -:1/4 D4:1/4(StemU) -:1/4 
+-:1 
+G4:1/4%5(StemU) -:1/4 G4:1/4(StemU) -:1/4 
+-:1 
+D4:1/4%2(StemU) -:1/4 D4:1/4(StemU) -:1/4 
+-:1 
+G4:1/4%5(StemU) -:1/4 G4:1/4(StemU) -:1/4 
+-:1 
+G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) -:1/4 
+G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) -:1/4 
+G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) -:1/4 
+D4:1/4%2(StemU) E4:1/4%3(StemU) -:1/2 
+G4:1/4%5(StemU) -:1/4 -:1/2
+-:1 
