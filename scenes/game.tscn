@@ -390,10 +390,10 @@
 [ext_resource type="Texture2D" uid="uid://toh8g2n8iocp" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00323.png" id="341_x80gn"]
 [ext_resource type="Texture2D" uid="uid://cyba858mjg31l" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00324.png" id="342_rgjm1"]
 [ext_resource type="Texture2D" uid="uid://b8v3ceoh7gvj1" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04_00325.png" id="343_ubx8q"]
-[ext_resource type="Texture2D" uid="uid://cdissiej2j5n6" path="res://art/buttons/Pause2.png" id="345_mvm4g"]
-[ext_resource type="Texture2D" uid="uid://cr76jsm2bljod" path="res://art/buttons/Play2.png" id="346_6a0bs"]
-[ext_resource type="Texture2D" uid="uid://b832qr551aoop" path="res://art/buttons/Restart2.png" id="347_00qhb"]
-[ext_resource type="Texture2D" uid="uid://d07oksjihef2g" path="res://art/buttons/Exit2.png" id="348_5ge4l"]
+[ext_resource type="Texture2D" uid="uid://bmvr7xg6iwhy4" path="res://art/17_nov/Pause.png" id="346_nm773"]
+[ext_resource type="Texture2D" uid="uid://bhgtbs3r2cwuc" path="res://art/17_nov/Play.png" id="347_fspio"]
+[ext_resource type="Texture2D" uid="uid://coqrna0a6xqv" path="res://art/17_nov/Restart.png" id="348_4qpta"]
+[ext_resource type="Texture2D" uid="uid://bmhth7u1d2fvc" path="res://art/17_nov/Exit.png" id="349_jibpt"]
 [ext_resource type="SpriteFrames" uid="uid://ccm3ykvcd8rbp" path="res://scene_resources/star_end_screen_spriteframe.tres" id="358_3ucxv"]
 [ext_resource type="Texture2D" uid="uid://c7ex6v0mksl03" path="res://art/17_nov/bar_empty.png" id="360_yopmy"]
 [ext_resource type="Texture2D" uid="uid://iyxqrq5cfblx" path="res://art/4_nov/Cold_BG.png" id="361_2yuql"]
@@ -2885,8 +2885,8 @@ offset_bottom = 69.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
 toggle_mode = true
-texture_normal = ExtResource("345_mvm4g")
-texture_pressed = ExtResource("346_6a0bs")
+texture_normal = ExtResource("346_nm773")
+texture_pressed = ExtResource("347_fspio")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
@@ -2902,7 +2902,7 @@ offset_right = 43.0
 offset_bottom = 100.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
-texture_normal = ExtResource("347_00qhb")
+texture_normal = ExtResource("348_4qpta")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
@@ -2918,7 +2918,7 @@ offset_right = 116.0
 offset_bottom = 100.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
-texture_normal = ExtResource("348_5ge4l")
+texture_normal = ExtResource("349_jibpt")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true

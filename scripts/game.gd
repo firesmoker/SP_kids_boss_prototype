@@ -426,7 +426,11 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 
 func _ready() -> void:
 	if boss_model == "robot_":
-		boss_portrait.texture = load("res://art/11_nov/robot_boss_portrait.png")
+		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
+	if player_model == "boy_":
+		player_portrait.texture = load("res://art/17_nov/avatar_boy.png")
+	elif player_model == "girl_":
+		player_portrait.texture = load("res://art/17_nov/avatar_girl.png")
 	#crowd_people = crowd.get_children()
 	show_debug()
 	set_default_visibility()
