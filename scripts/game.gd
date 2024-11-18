@@ -71,11 +71,9 @@ var target_xp: int = 100  # Replace with your desired XP value
 @onready var tutorial: Panel = $Overlay/Tutorial
 @onready var tutorial_text: Label = $Overlay/Tutorial/Text
 @onready var win_buttons: Panel = $Overlay/WinButtons
-#@onready var heart: AnimatedSprite2D = $Level/Heart
-@onready var heart: TextureRect = $UI/Heart
+@onready var player_portrait: TextureRect = $UI/PlayerPanel/PlayerPortrait
 
-#@onready var boss_portrait: Sprite2D = $Level/BossPortrait
-@onready var boss_portrait: TextureRect = $UI/BossPortrait
+@onready var boss_portrait: TextureRect = $UI/BossPanel/BossPortrait
 
 @onready var popup_progress_bar: PopupProgressBar = $Overlay/Tutorial/ProgressBar
 @onready var return_button: TextureButton = $Overlay/Return
@@ -196,6 +194,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			music_player_slow.seek(music_player_slow.get_playback_position() - 0.5)
 
 
+
 func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -> void:
 	if not get_tree().paused:
 		#pause_button.text = "Resume"
@@ -299,7 +298,7 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	blue_line.find_child("SingleLine").find_child("LineZapSingle").visible = toggle
 	electric_beam.find_child("LineZapMulti").visible = toggle
 	electric_beam.find_child("ElectricBolt").visible = toggle
-	heart.visible = toggle
+	player_portrait.visible = toggle
 	boss_portrait.visible = toggle
 	player_platform.visible = toggle
 	boss_platform.visible = toggle
@@ -799,14 +798,14 @@ func hide_tutorial() -> void:
 	tutorial.visible = false
 
 
-func show_tutorial(for_type: String = "heart") -> void:
+func show_tutorial(for_type: String = "player_portrait") -> void:
 	tutorial.visible = true
 	popup_progress_bar.start_closing_timer(5)
 	tutorial.find_child("Heart").visible = false
 	tutorial.find_child("Slowdown").visible = false
 	tutorial.find_child("Bomb").visible = false
 	match for_type:
-		"heart":
+		"player_portrait":
 			tutorial_text.text = "אספת לב!"
 			tutorial.find_child("Heart").visible = true
 		"slowdown":
@@ -842,7 +841,7 @@ func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> v
 				get_hit()
 			else:
 				get_hit()
-		"heart":
+		"player_portrait":
 			if not health_collected:
 				health_collected = true
 				#show_tutorial(effect)
@@ -869,7 +868,7 @@ func heal(amount: int = 1) -> void:
 	audio.play()
 	player_health_bar.find_child("Flash").flash(Color.LIGHT_SEA_GREEN, 0.25)
 	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
-	heart.find_child("Expander").expand(1.10, 0.25, true)
+	player_portrait.find_child("Expander").expand(1.10, 0.25, true)
 
 func hit_boss(damage: int = -1) -> void:
 	if not winning and not losing:
@@ -944,8 +943,8 @@ func get_hit(damage: int = -1) -> void:
 			#player_health_bar.value = player_health
 			player_health_bar.find_child("Flash").flash(Color.RED)
 			player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
-			heart.find_child("Flash").flash(Color.RED)
-			heart.find_child("Expander").expand(1.20, 0.15, true)
+			player_portrait.find_child("Flash").flash(Color.RED)
+			player_portrait.find_child("Expander").expand(1.20, 0.15, true)
 			
 			if player_health <= 0 and not winning and not losing:
 				lose()
