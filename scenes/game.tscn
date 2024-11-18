@@ -1,4 +1,4 @@
-[gd_scene load_steps=712 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=714 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -451,6 +451,8 @@
 [ext_resource type="Texture2D" uid="uid://c45sjtyag1wrs" path="res://art/LibSong/CrowdUnit02/CrowdUnit02_00003.png" id="441_fhwhh"]
 [ext_resource type="Texture2D" uid="uid://b866yvlr6vh4k" path="res://art/LibSong/CrowdUnit02/CrowdUnit02_00004.png" id="442_tcmjw"]
 [ext_resource type="Texture2D" uid="uid://bb1sk4xncultm" path="res://art/LibSong/CrowdUnit02/CrowdUnit02_00005.png" id="443_ht0tj"]
+[ext_resource type="Texture2D" uid="uid://8iwfcf22ebp4" path="res://art/17_nov/Stage - hero.png" id="443_ytsbm"]
+[ext_resource type="Texture2D" uid="uid://cx0b80k2ieshs" path="res://art/17_nov/Stage - Villain.png" id="444_72xyv"]
 [ext_resource type="Texture2D" uid="uid://y58r4wjqdsf" path="res://art/LibSong/CrowdUnit02/CrowdUnit02_00006.png" id="444_txsnm"]
 [ext_resource type="Texture2D" uid="uid://fu5sww2v76hd" path="res://art/LibSong/CrowdUnit02/CrowdUnit02_00007.png" id="445_n04xb"]
 [ext_resource type="Texture2D" uid="uid://bx5jb62s5d6at" path="res://art/LibSong/CrowdUnit02/CrowdUnit02_00008.png" id="446_wekln"]
@@ -3973,7 +3975,7 @@ metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter" type="AnimatedSprite2D" parent="Level"]
 z_index = 3
-position = Vector2(-413.492, 15.873)
+position = Vector2(-411.111, 70.8205)
 scale = Vector2(0.319623, 0.319623)
 sprite_frames = ExtResource("4_0nn2k")
 animation = &"girl_win"
@@ -3985,10 +3987,12 @@ script = ExtResource("19_j5u08")
 [node name="HitZone" type="Area2D" parent="Level/PlayerCharacter"]
 position = Vector2(382.394, -59.5941)
 monitorable = false
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlayerCharacter/HitZone"]
 position = Vector2(-19.7222, -76.9756)
 shape = SubResource("RectangleShape2D_fef26")
+metadata/_edit_lock_ = true
 
 [node name="Flash" parent="Level/PlayerCharacter" instance=ExtResource("57_hg35f")]
 metadata/_edit_lock_ = true
@@ -4013,7 +4017,7 @@ metadata/_edit_lock_ = true
 
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
 z_index = 3
-position = Vector2(417.46, 15.873)
+position = Vector2(417.46, 63.4921)
 scale = Vector2(0.590503, 0.590503)
 sprite_frames = ExtResource("4_ygwuk")
 animation = &"robot_win"
@@ -4289,7 +4293,8 @@ frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="PlayerPlatform" type="Node2D" parent="Level"]
-position = Vector2(-420.635, 115.079)
+z_index = -10
+position = Vector2(-519.048, 170.026)
 
 [node name="Block" type="Sprite2D" parent="Level/PlayerPlatform"]
 position = Vector2(-19.8417, 23.0159)
@@ -4301,19 +4306,34 @@ metadata/_edit_lock_ = true
 position = Vector2(37.3015, 23.0159)
 scale = Vector2(0.135251, 0.135251)
 texture = ExtResource("400_0fb3h")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/PlayerPlatform"]
+position = Vector2(47.6191, 23.0163)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("443_ytsbm")
+metadata/_edit_lock_ = true
 
 [node name="BossPlatform" type="Node2D" parent="Level"]
-position = Vector2(402.381, 115.079)
+z_index = -10
+position = Vector2(402.381, 170.026)
 
 [node name="Block" type="Sprite2D" parent="Level/BossPlatform"]
 position = Vector2(-19.8417, 23.0159)
 scale = Vector2(0.135251, 0.135251)
 texture = ExtResource("400_0fb3h")
+metadata/_edit_lock_ = true
 
 [node name="Block2" type="Sprite2D" parent="Level/BossPlatform"]
 position = Vector2(37.3015, 23.0159)
 scale = Vector2(0.135251, 0.135251)
 texture = ExtResource("400_0fb3h")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/BossPlatform"]
+position = Vector2(68.2539, 21.4287)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("444_72xyv")
 
 [node name="LibVisuals" type="Node2D" parent="Level"]
 z_index = -10

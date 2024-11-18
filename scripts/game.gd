@@ -290,6 +290,8 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	white_layer_4.visible = toggle
 
 func set_boss_visibility(toggle: bool = true) -> void:
+	if ui_type == "both":
+		right_hand_part.position.y += 0
 	boss.visible = toggle
 	player_health_bar.visible = toggle
 	boss_health_bar.visible = toggle
