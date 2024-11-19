@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bj0e24s6hnhsw"]
+[gd_scene load_steps=45 format=3 uid="uid://bj0e24s6hnhsw"]
 
 [ext_resource type="Script" path="res://scripts/note.gd" id="1_uhqk6"]
 [ext_resource type="Texture2D" uid="uid://b2tt261eyi0ry" path="res://art/RestEighthNormal.png" id="2_aybtf"]
@@ -10,14 +10,44 @@
 [ext_resource type="Shader" path="res://note.gdshader" id="8_o6hsy"]
 [ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="9_a3j76"]
 [ext_resource type="PackedScene" uid="uid://52rqdd7jwrnq" path="res://scenes/position_hider.tscn" id="10_7jvab"]
+[ext_resource type="Texture2D" uid="uid://byojm7xcv78sa" path="res://art/LibSong/patzpatz/patzpatz_00000.png" id="11_t2rqt"]
+[ext_resource type="Texture2D" uid="uid://caitrs31tb60" path="res://art/LibSong/patzpatz/patzpatz_00001.png" id="12_28ona"]
+[ext_resource type="Texture2D" uid="uid://crh0t1bj23ghu" path="res://art/LibSong/patzpatz/patzpatz_00002.png" id="13_wvmn5"]
+[ext_resource type="Texture2D" uid="uid://ctfcsi02vm62t" path="res://art/LibSong/patzpatz/patzpatz_00003.png" id="14_hjjb0"]
+[ext_resource type="Texture2D" uid="uid://bwf20yjh3gall" path="res://art/LibSong/patzpatz/patzpatz_00004.png" id="15_oe0c2"]
+[ext_resource type="Texture2D" uid="uid://cogpqxpr4ce0e" path="res://art/LibSong/patzpatz/patzpatz_00005.png" id="16_wmtad"]
+[ext_resource type="Texture2D" uid="uid://cmh1j3uc814cf" path="res://art/LibSong/patzpatz/patzpatz_00006.png" id="17_0f00t"]
+[ext_resource type="Texture2D" uid="uid://d3oooluaxctrc" path="res://art/LibSong/patzpatz/patzpatz_00007.png" id="18_h575f"]
+[ext_resource type="Texture2D" uid="uid://bdayrkhngifks" path="res://art/LibSong/patzpatz/patzpatz_00008.png" id="19_hd6u3"]
+[ext_resource type="Texture2D" uid="uid://bfxogxscrb0c4" path="res://art/LibSong/patzpatz/patzpatz_00009.png" id="20_iq8p2"]
+[ext_resource type="Texture2D" uid="uid://bate0gu1707o" path="res://art/LibSong/patzpatz/patzpatz_00010.png" id="21_wdfl0"]
+[ext_resource type="Texture2D" uid="uid://k7yltdjy1g8g" path="res://art/LibSong/patzpatz/patzpatz_00011.png" id="22_42366"]
+[ext_resource type="Texture2D" uid="uid://dwpxe00doyavn" path="res://art/LibSong/patzpatz/patzpatz_00012.png" id="23_qmuij"]
+[ext_resource type="Texture2D" uid="uid://bcee11ircp2g5" path="res://art/LibSong/patzpatz/patzpatz_00013.png" id="24_mc5ra"]
+[ext_resource type="Texture2D" uid="uid://doyvhcun7rvm0" path="res://art/LibSong/patzpatz/patzpatz_00014.png" id="25_tn06t"]
+[ext_resource type="Texture2D" uid="uid://dg05ppo5faave" path="res://art/LibSong/patzpatz/patzpatz_00015.png" id="26_a3ac7"]
+[ext_resource type="Texture2D" uid="uid://5n7wvks0txan" path="res://art/LibSong/patzpatz/patzpatz_00016.png" id="27_gxn7l"]
+[ext_resource type="Texture2D" uid="uid://b8rci8hnku87h" path="res://art/LibSong/patzpatz/patzpatz_00017.png" id="28_nfwuj"]
+[ext_resource type="Texture2D" uid="uid://d2xm3uw4na4g0" path="res://art/LibSong/patzpatz/patzpatz_00018.png" id="29_auu28"]
+[ext_resource type="Texture2D" uid="uid://bbvv0vjsvdvr" path="res://art/LibSong/patzpatz/patzpatz_00019.png" id="30_vki8g"]
+[ext_resource type="Texture2D" uid="uid://dxcppki4u63vc" path="res://art/LibSong/patzpatz/patzpatz_00020.png" id="31_ifnpo"]
+[ext_resource type="Texture2D" uid="uid://cq7wjml5mcsqk" path="res://art/LibSong/patzpatz/patzpatz_00021.png" id="32_305u8"]
+[ext_resource type="Texture2D" uid="uid://u5eqwa4um6eo" path="res://art/LibSong/patzpatz/patzpatz_00022.png" id="33_mav85"]
+[ext_resource type="Texture2D" uid="uid://cvvjbma5q3wh4" path="res://art/LibSong/patzpatz/patzpatz_00023.png" id="34_db6kx"]
+[ext_resource type="Texture2D" uid="uid://vlaj4luc8jck" path="res://art/LibSong/patzpatz/patzpatz_00024.png" id="35_y2d6c"]
+[ext_resource type="Texture2D" uid="uid://dbapngk5s7g00" path="res://art/LibSong/patzpatz/patzpatz_00025.png" id="36_ghmw2"]
+[ext_resource type="Texture2D" uid="uid://dbouscw76dawg" path="res://art/LibSong/patzpatz/patzpatz_00026.png" id="37_ybtsu"]
+[ext_resource type="Texture2D" uid="uid://7ualthqt08qr" path="res://art/LibSong/patzpatz/patzpatz_00027.png" id="38_h1sru"]
+[ext_resource type="Texture2D" uid="uid://bfm1x52sky4dg" path="res://art/LibSong/patzpatz/patzpatz_00028.png" id="39_p30k1"]
+[ext_resource type="Texture2D" uid="uid://bd0eng0ehcvbm" path="res://art/LibSong/patzpatz/patzpatz_00029.png" id="40_scinx"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dx2kh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aj7le"]
 resource_local_to_scene = true
 shader = ExtResource("8_o6hsy")
 shader_parameter/color = null
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aj7le"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dx2kh"]
 resource_local_to_scene = true
 shader = ExtResource("8_o6hsy")
 shader_parameter/color = null
@@ -28,6 +58,104 @@ resource_local_to_scene = true
 shader = ExtResource("8_o6hsy")
 shader_parameter/color = null
 shader_parameter/alpha = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdqjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_t2rqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_28ona")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wvmn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hjjb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_oe0c2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wmtad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0f00t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_h575f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hd6u3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_iq8p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_wdfl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_42366")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_qmuij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_mc5ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_tn06t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_a3ac7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_gxn7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_nfwuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_auu28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_vki8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ifnpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_305u8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_mav85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_db6kx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_y2d6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ghmw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ybtsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_h1sru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_p30k1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_scinx")
+}],
+"loop": false,
+"name": &"normal",
+"speed": 48.0
+}]
 
 [node name="Rest" type="AnimatableBody2D"]
 scale = Vector2(0.21875, 0.21875)
@@ -47,39 +175,12 @@ metadata/_edit_lock_ = true
 shape = ExtResource("3_d5fs1")
 metadata/_edit_lock_ = true
 
-[node name="Eigth" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_dx2kh")
-position = Vector2(0, -188.728)
-scale = Vector2(1.822, 1.822)
-
-[node name="Quarter" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_dx2kh")
-position = Vector2(0, -188.728)
-scale = Vector2(1.822, 1.822)
-
-[node name="Half" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_dx2kh")
-position = Vector2(0, -188.728)
-scale = Vector2(1.822, 1.822)
-
-[node name="Whole" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_dx2kh")
-position = Vector2(0, -188.728)
-scale = Vector2(1.822, 1.822)
-
 [node name="Stem" type="Sprite2D" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_aj7le")
 position = Vector2(64, -155.429)
 rotation = 1.5708
 scale = Vector2(2.192, 2.192)
-texture = ExtResource("9_a3j76")
-
-[node name="HelperLine" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_uwyom")
-position = Vector2(1.14441e-05, -1.33514e-05)
-scale = Vector2(2.042, 1.842)
 texture = ExtResource("9_a3j76")
 
 [node name="PositionHider" parent="." instance=ExtResource("10_7jvab")]
@@ -114,3 +215,38 @@ material = SubResource("ShaderMaterial_dx2kh")
 position = Vector2(0, -188.728)
 scale = Vector2(1.822, 1.822)
 texture = ExtResource("5_tem07")
+
+[node name="HeadSprites" type="Node2D" parent="."]
+
+[node name="Eigth" type="Sprite2D" parent="HeadSprites"]
+material = SubResource("ShaderMaterial_dx2kh")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
+
+[node name="Quarter" type="Sprite2D" parent="HeadSprites"]
+material = SubResource("ShaderMaterial_dx2kh")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
+
+[node name="Half" type="Sprite2D" parent="HeadSprites"]
+material = SubResource("ShaderMaterial_dx2kh")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
+
+[node name="Whole" type="Sprite2D" parent="HeadSprites"]
+material = SubResource("ShaderMaterial_dx2kh")
+position = Vector2(0, -188.728)
+scale = Vector2(1.822, 1.822)
+
+[node name="HelperLine" type="Sprite2D" parent="HeadSprites"]
+visible = false
+material = SubResource("ShaderMaterial_uwyom")
+position = Vector2(1.14441e-05, -1.33514e-05)
+scale = Vector2(2.042, 1.842)
+texture = ExtResource("9_a3j76")
+
+[node name="Patzpatz" type="AnimatedSprite2D" parent="HeadSprites"]
+visible = false
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_vdqjb")
+animation = &"normal"

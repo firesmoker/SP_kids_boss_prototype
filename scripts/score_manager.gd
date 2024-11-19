@@ -25,12 +25,13 @@ var game_score: float = 0.0
 func miss(note: Note) -> void:
 	add_note_score(0)
 
-func hit(note: Note) -> void:
+func hit(note: Note) -> float:
 	var time: float = note.event.time * beat_manager.beat_length * 4
 	var current_time: float = beat_manager.music_player.get_playback_position()
 	
 	var note_score: float = calculate_note_hit_score(time, current_time, beat_manager.beat_length)
 	add_note_score(note_score)
+	return note_score
 
 
 # Define a non-linear scoring function using an exponential decay

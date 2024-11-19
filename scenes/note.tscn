@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://tpxjljmfe1h4"]
+[gd_scene load_steps=72 format=3 uid="uid://tpxjljmfe1h4"]
 
 [ext_resource type="Texture2D" uid="uid://dpaw2m41p2vnb" path="res://art/quarter-note.png" id="1_0jib8"]
 [ext_resource type="Script" path="res://scripts/note.gd" id="1_76fco"]
@@ -9,6 +9,260 @@
 [ext_resource type="Texture2D" uid="uid://wghppccvk77v" path="res://art/NoteRootWhole_Normal.png" id="4_gauvo"]
 [ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="8_mbu8y"]
 [ext_resource type="PackedScene" uid="uid://52rqdd7jwrnq" path="res://scenes/position_hider.tscn" id="9_vi7w6"]
+[ext_resource type="PackedScene" uid="uid://canrydy51d80m" path="res://scenes/expander.tscn" id="10_nk6jl"]
+[ext_resource type="Texture2D" uid="uid://byojm7xcv78sa" path="res://art/LibSong/patzpatz/patzpatz_00000.png" id="11_a6guw"]
+[ext_resource type="Texture2D" uid="uid://caitrs31tb60" path="res://art/LibSong/patzpatz/patzpatz_00001.png" id="12_7ggmu"]
+[ext_resource type="Texture2D" uid="uid://crh0t1bj23ghu" path="res://art/LibSong/patzpatz/patzpatz_00002.png" id="13_qbhjn"]
+[ext_resource type="Texture2D" uid="uid://ctfcsi02vm62t" path="res://art/LibSong/patzpatz/patzpatz_00003.png" id="14_rfn43"]
+[ext_resource type="Texture2D" uid="uid://bwf20yjh3gall" path="res://art/LibSong/patzpatz/patzpatz_00004.png" id="15_s2oei"]
+[ext_resource type="Texture2D" uid="uid://cogpqxpr4ce0e" path="res://art/LibSong/patzpatz/patzpatz_00005.png" id="16_tk1sf"]
+[ext_resource type="Texture2D" uid="uid://cmh1j3uc814cf" path="res://art/LibSong/patzpatz/patzpatz_00006.png" id="17_mq17b"]
+[ext_resource type="Texture2D" uid="uid://d3oooluaxctrc" path="res://art/LibSong/patzpatz/patzpatz_00007.png" id="18_p18vx"]
+[ext_resource type="Texture2D" uid="uid://bdayrkhngifks" path="res://art/LibSong/patzpatz/patzpatz_00008.png" id="19_efteg"]
+[ext_resource type="Texture2D" uid="uid://bfxogxscrb0c4" path="res://art/LibSong/patzpatz/patzpatz_00009.png" id="20_rmcqq"]
+[ext_resource type="Texture2D" uid="uid://bate0gu1707o" path="res://art/LibSong/patzpatz/patzpatz_00010.png" id="21_o8bm7"]
+[ext_resource type="Texture2D" uid="uid://k7yltdjy1g8g" path="res://art/LibSong/patzpatz/patzpatz_00011.png" id="22_myb03"]
+[ext_resource type="Texture2D" uid="uid://dwpxe00doyavn" path="res://art/LibSong/patzpatz/patzpatz_00012.png" id="23_5kgap"]
+[ext_resource type="Texture2D" uid="uid://bcee11ircp2g5" path="res://art/LibSong/patzpatz/patzpatz_00013.png" id="24_lfogy"]
+[ext_resource type="Texture2D" uid="uid://doyvhcun7rvm0" path="res://art/LibSong/patzpatz/patzpatz_00014.png" id="25_fnvay"]
+[ext_resource type="Texture2D" uid="uid://dg05ppo5faave" path="res://art/LibSong/patzpatz/patzpatz_00015.png" id="26_uch3v"]
+[ext_resource type="Texture2D" uid="uid://5n7wvks0txan" path="res://art/LibSong/patzpatz/patzpatz_00016.png" id="27_1bhkg"]
+[ext_resource type="Texture2D" uid="uid://b8rci8hnku87h" path="res://art/LibSong/patzpatz/patzpatz_00017.png" id="28_8isev"]
+[ext_resource type="Texture2D" uid="uid://d2xm3uw4na4g0" path="res://art/LibSong/patzpatz/patzpatz_00018.png" id="29_sh2bl"]
+[ext_resource type="Texture2D" uid="uid://bbvv0vjsvdvr" path="res://art/LibSong/patzpatz/patzpatz_00019.png" id="30_qbitk"]
+[ext_resource type="Texture2D" uid="uid://dxcppki4u63vc" path="res://art/LibSong/patzpatz/patzpatz_00020.png" id="31_6jlqm"]
+[ext_resource type="Texture2D" uid="uid://cq7wjml5mcsqk" path="res://art/LibSong/patzpatz/patzpatz_00021.png" id="32_v27ux"]
+[ext_resource type="Texture2D" uid="uid://u5eqwa4um6eo" path="res://art/LibSong/patzpatz/patzpatz_00022.png" id="33_oww1h"]
+[ext_resource type="Texture2D" uid="uid://cvvjbma5q3wh4" path="res://art/LibSong/patzpatz/patzpatz_00023.png" id="34_ppwqf"]
+[ext_resource type="Texture2D" uid="uid://vlaj4luc8jck" path="res://art/LibSong/patzpatz/patzpatz_00024.png" id="35_70wi5"]
+[ext_resource type="Texture2D" uid="uid://dbapngk5s7g00" path="res://art/LibSong/patzpatz/patzpatz_00025.png" id="36_48w3u"]
+[ext_resource type="Texture2D" uid="uid://dbouscw76dawg" path="res://art/LibSong/patzpatz/patzpatz_00026.png" id="37_f2pv7"]
+[ext_resource type="Texture2D" uid="uid://7ualthqt08qr" path="res://art/LibSong/patzpatz/patzpatz_00027.png" id="38_miahy"]
+[ext_resource type="Texture2D" uid="uid://bfm1x52sky4dg" path="res://art/LibSong/patzpatz/patzpatz_00028.png" id="39_1qism"]
+[ext_resource type="Texture2D" uid="uid://bd0eng0ehcvbm" path="res://art/LibSong/patzpatz/patzpatz_00029.png" id="40_26vwp"]
+[ext_resource type="Texture2D" uid="uid://b46ecwjen0g5p" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00000.png" id="41_74fm2"]
+[ext_resource type="Texture2D" uid="uid://cj2esnipdewcl" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00001.png" id="42_441ur"]
+[ext_resource type="Texture2D" uid="uid://jaia3d06e8bt" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00002.png" id="43_1c861"]
+[ext_resource type="Texture2D" uid="uid://bsnxrf1m0lqm3" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00003.png" id="44_is71r"]
+[ext_resource type="Texture2D" uid="uid://mm6tavlxqdjp" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00004.png" id="45_86b6w"]
+[ext_resource type="Texture2D" uid="uid://c7mk1g410pypv" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00005.png" id="46_1evrr"]
+[ext_resource type="Texture2D" uid="uid://c4uttcuqgt5rr" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00006.png" id="47_qebfn"]
+[ext_resource type="Texture2D" uid="uid://di7mxhptmwgdi" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00007.png" id="48_688et"]
+[ext_resource type="Texture2D" uid="uid://bfe0hrql7ydef" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00008.png" id="49_07hnh"]
+[ext_resource type="Texture2D" uid="uid://bsakscw2lt166" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00009.png" id="50_0f5ve"]
+[ext_resource type="Texture2D" uid="uid://but8wphix34dx" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00010.png" id="51_uffqw"]
+[ext_resource type="Texture2D" uid="uid://btvq25bxkdpml" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00011.png" id="52_6tl2k"]
+[ext_resource type="Texture2D" uid="uid://b8btf5hxj70u5" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00012.png" id="53_y5lhm"]
+[ext_resource type="Texture2D" uid="uid://0d500wykibw2" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00013.png" id="54_wba2g"]
+[ext_resource type="Texture2D" uid="uid://cn7sqhak31vhh" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00014.png" id="55_077nh"]
+[ext_resource type="Texture2D" uid="uid://c3o2o5smmrfkp" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00015.png" id="56_m0kjy"]
+[ext_resource type="Texture2D" uid="uid://bv8l8ecn83beb" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00016.png" id="57_matas"]
+[ext_resource type="Texture2D" uid="uid://cld0o6eu1ujyd" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00017.png" id="58_683sp"]
+[ext_resource type="Texture2D" uid="uid://devbj0d8rut7i" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00018.png" id="59_rtgom"]
+[ext_resource type="Texture2D" uid="uid://bit0gxir6bs1d" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00019.png" id="60_4f6gc"]
+[ext_resource type="Texture2D" uid="uid://cm1bm03khj2aa" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00020.png" id="61_5s1xi"]
+[ext_resource type="Texture2D" uid="uid://c8c8rd7u8354" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00021.png" id="62_gplt1"]
+[ext_resource type="Texture2D" uid="uid://tlvyoww8o3by" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00022.png" id="63_b5u0s"]
+[ext_resource type="Texture2D" uid="uid://bi0yionr4hh5f" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00023.png" id="64_8odra"]
+[ext_resource type="Texture2D" uid="uid://c6ma0jnhps812" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00024.png" id="65_gdsvn"]
+[ext_resource type="Texture2D" uid="uid://bqqy3le3t6060" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00025.png" id="66_av6jb"]
+[ext_resource type="Texture2D" uid="uid://cyxdfm0dbeen" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00026.png" id="67_qdd6o"]
+[ext_resource type="Texture2D" uid="uid://cv3mmo6qp8yho" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00027.png" id="68_l282o"]
+[ext_resource type="Texture2D" uid="uid://p2mq6hbmyoen" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00028.png" id="69_ii283"]
+[ext_resource type="Texture2D" uid="uid://vj52wwl6tf6t" path="res://art/LibSong/patzpatz+stars/patzpatz+stars_00029.png" id="70_hddga"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcgdp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_a6guw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7ggmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qbhjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rfn43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s2oei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_tk1sf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mq17b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_p18vx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_efteg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_rmcqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_o8bm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_myb03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_5kgap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_lfogy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_fnvay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_uch3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1bhkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_8isev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_sh2bl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_qbitk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_6jlqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_v27ux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_oww1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ppwqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_70wi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_48w3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_f2pv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_miahy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_1qism")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_26vwp")
+}],
+"loop": false,
+"name": &"normal",
+"speed": 48.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_74fm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_441ur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_1c861")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_is71r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_86b6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_1evrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_qebfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_688et")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_07hnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_0f5ve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_uffqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_6tl2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_y5lhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_wba2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_077nh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_m0kjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_matas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_683sp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_rtgom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_4f6gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_5s1xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_gplt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_b5u0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_8odra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_gdsvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_av6jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_qdd6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_l282o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ii283")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_hddga")
+}],
+"loop": false,
+"name": &"stars",
+"speed": 48.0
+}]
 
 [node name="Note" type="AnimatableBody2D"]
 z_index = 1
@@ -28,45 +282,6 @@ metadata/_edit_lock_ = true
 shape = ExtResource("2_5sue0")
 metadata/_edit_lock_ = true
 
-[node name="Eigth" type="Sprite2D" parent="."]
-visible = false
-material = ExtResource("4_ako4p")
-position = Vector2(0, -4)
-scale = Vector2(1.782, 2.192)
-texture = ExtResource("4_7h3ec")
-metadata/_edit_lock_ = true
-
-[node name="Quarter" type="Sprite2D" parent="."]
-material = ExtResource("4_ako4p")
-position = Vector2(0, -4)
-scale = Vector2(1.782, 2.192)
-texture = ExtResource("4_7h3ec")
-metadata/_edit_lock_ = true
-
-[node name="Half" type="Sprite2D" parent="."]
-visible = false
-material = ExtResource("4_ako4p")
-position = Vector2(0, -4)
-scale = Vector2(1.782, 2.192)
-texture = ExtResource("3_0jx7u")
-metadata/_edit_lock_ = true
-
-[node name="Whole" type="Sprite2D" parent="."]
-visible = false
-material = ExtResource("4_ako4p")
-position = Vector2(0, -4)
-scale = Vector2(1.782, 2.192)
-texture = ExtResource("4_gauvo")
-metadata/_edit_lock_ = true
-
-[node name="HelperLine" type="Sprite2D" parent="."]
-visible = false
-material = ExtResource("4_ako4p")
-position = Vector2(1.14441e-05, -1.33514e-05)
-scale = Vector2(1.782, 1.842)
-texture = ExtResource("8_mbu8y")
-metadata/_edit_lock_ = true
-
 [node name="Stem" type="Sprite2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -80,3 +295,54 @@ texture = ExtResource("8_mbu8y")
 [node name="PositionHider" parent="." instance=ExtResource("9_vi7w6")]
 true_hide_right = true
 x_hide_position = -400.0
+
+[node name="HeadSprites" type="Node2D" parent="."]
+
+[node name="Eigth" type="Sprite2D" parent="HeadSprites"]
+visible = false
+material = ExtResource("4_ako4p")
+position = Vector2(0, -4)
+scale = Vector2(1.782, 2.192)
+texture = ExtResource("4_7h3ec")
+metadata/_edit_lock_ = true
+
+[node name="Quarter" type="Sprite2D" parent="HeadSprites"]
+material = ExtResource("4_ako4p")
+position = Vector2(0, -4)
+scale = Vector2(1.782, 2.192)
+texture = ExtResource("4_7h3ec")
+metadata/_edit_lock_ = true
+
+[node name="Half" type="Sprite2D" parent="HeadSprites"]
+visible = false
+material = ExtResource("4_ako4p")
+position = Vector2(0, -4)
+scale = Vector2(1.782, 2.192)
+texture = ExtResource("3_0jx7u")
+metadata/_edit_lock_ = true
+
+[node name="Whole" type="Sprite2D" parent="HeadSprites"]
+visible = false
+material = ExtResource("4_ako4p")
+position = Vector2(0, -4)
+scale = Vector2(1.782, 2.192)
+texture = ExtResource("4_gauvo")
+metadata/_edit_lock_ = true
+
+[node name="HelperLine" type="Sprite2D" parent="HeadSprites"]
+visible = false
+material = ExtResource("4_ako4p")
+position = Vector2(1.14441e-05, -1.33514e-05)
+scale = Vector2(1.782, 1.842)
+texture = ExtResource("8_mbu8y")
+metadata/_edit_lock_ = true
+
+[node name="Expander" parent="HeadSprites" instance=ExtResource("10_nk6jl")]
+
+[node name="Patzpatz" type="AnimatedSprite2D" parent="HeadSprites"]
+z_index = -1
+scale = Vector2(5.51282, 5.51282)
+sprite_frames = SubResource("SpriteFrames_qcgdp")
+animation = &"normal"
+frame = 29
+frame_progress = 1.0

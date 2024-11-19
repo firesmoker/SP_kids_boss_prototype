@@ -5,23 +5,36 @@ var note: String
 var event: MelodyEvent
 @export_enum("Note","Rest") var type: String = "Note"
 @export var success_color: Color
-@onready var eigth: Sprite2D = $Eigth
-@onready var quarter: Sprite2D = $Quarter
-@onready var half: Sprite2D = $Half
-@onready var whole: Sprite2D = $Whole
+@onready var eigth: Sprite2D = $HeadSprites/Eigth
+@onready var quarter: Sprite2D = $HeadSprites/Quarter
+@onready var half: Sprite2D = $HeadSprites/Half
+@onready var whole: Sprite2D = $HeadSprites/Whole
 @onready var stem: Sprite2D = $Stem
-@onready var helper_line: Sprite2D = $HelperLine
+@onready var helper_line: Sprite2D = $HeadSprites/HelperLine
+@onready var head_sprites: Node2D = $HeadSprites
+@onready var patzpatz: AnimatedSprite2D = $HeadSprites/Patzpatz
 
 
 func ready() -> void:
+	patzpatz.visible = false
 	eigth.material.set_shader_parameter("color",Color.BLACK)
 	quarter.material.set_shader_parameter("color",Color.BLACK)
 	half.material.set_shader_parameter("color",Color.BLACK)
 	whole.material.set_shader_parameter("color",Color.BLACK)
 
 
-func hit_note_visual() -> void:
+func hit_note_visual(note_score: float) -> void:
 	#scale = scale * 1.6
+	var expander: Expander = head_sprites.find_child("Expander")
+	if expander:
+		expander.expand(1.3,0.15,true)
+	if note_score > 0.9:
+		patzpatz.visible = true
+		patzpatz.play("stars")
+	else:
+		patzpatz.visible = true
+		patzpatz.self_modulate.a = 0.25
+		patzpatz.play("normal")
 	eigth.material.set_shader_parameter("color",success_color)
 	quarter.material.set_shader_parameter("color",success_color)
 	half.material.set_shader_parameter("color",success_color)

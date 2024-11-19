@@ -53,8 +53,9 @@ func note_hit(i: int) -> void:
 		emit_signal("note_success")
 		print("RIGHT NOTE PLAYED YAY!")
 		if game.game_state == "Playing":
-			score_manager.hit(note_object)
-			current_notes[i].hit_note_visual()
+			var note_score: float = score_manager.hit(note_object)
+			print(note_score)
+			current_notes[i].hit_note_visual(note_score)
 			current_notes[i].state = "Played"
 			current_notes.pop_at(i)
 		
