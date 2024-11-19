@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 # Constants
 const SONGS_FOLDER: String = "res://songs"  # Folder containing .song.json files

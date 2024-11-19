@@ -35,3 +35,5 @@ func _gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventScreenTouch and not event.is_pressed():
 		print("Song clicked!")
+		var new_screen: Node = load("res://scenes/song_variation_screen.tscn").instantiate()
+		get_tree().root.add_child(new_screen)

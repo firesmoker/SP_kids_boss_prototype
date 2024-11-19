@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" path="res://scripts/songs_screen.gd" id="1_xdmq4"]
 
-[node name="SongsScreen" type="Node2D"]
+[node name="SongsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_xdmq4")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -37,6 +40,7 @@ offset_bottom = 31.0
 text = "הגדרות"
 
 [node name="Midi Status Label" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
