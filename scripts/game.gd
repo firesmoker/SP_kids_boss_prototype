@@ -38,7 +38,11 @@ var target_xp: int = 100  # Replace with your desired XP value
 @onready var stars: Control = $Overlay/Stars
 @onready var difficulty: Panel = $Overlay/Difficulty
 @onready var easy_button: Button = $Overlay/Difficulty/EasyButton
-@onready var intro_sequence: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequence
+#@onready var intro_sequence: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequence
+@onready var intro_sequence_transition: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequenceTransition
+
+@onready var intro_sequence: VideoStreamPlayer = $BossVideoCanvas/IntroSequence
+
 @onready var combo_meter: Label = $UI/ComboMeter
 @onready var streak_meter: Label = $UI/StreakMeter
 @onready var score_meter: Label = $UI/ScoreMeter
@@ -267,6 +271,7 @@ func set_default_visibility() -> void:
 	streak_meter.visible = false
 	return_button.visible = false
 	background_slow.visible = false
+	intro_sequence_transition.visible = false
 	
 	## Hide Library visuals:
 	set_library_song_visibility(false)
@@ -404,6 +409,7 @@ func set_boss_process_modes(toggle: bool = false) -> void:
 	else:
 		process_mode = Node.PROCESS_MODE_DISABLED
 	intro_sequence.process_mode = process_mode
+	intro_sequence_transition.process_mode = process_mode
 	player_character.process_mode = process_mode
 	boss.process_mode = process_mode
 	electric_beam.process_mode = process_mode
@@ -429,8 +435,10 @@ func _ready() -> void:
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
 	if player_model == "boy_":
+		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Boy.ogv")
 		player_portrait.texture = load("res://art/17_nov/avatar_boy.png")
 	elif player_model == "girl_":
+		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Girl.ogv")
 		player_portrait.texture = load("res://art/17_nov/avatar_girl.png")
 	#crowd_people = crowd.get_children()
 	show_debug()
@@ -470,12 +478,19 @@ func _ready() -> void:
 			continue_note_popup.visible = true
 		if Game.game_state == "Intro" and not cheat_skip_intro:
 			intro_sequence.process_mode = Node.PROCESS_MODE_INHERIT
-			intro_sequence.play("intro")
-			audio.stream = audio_clips.fight_starts
-			audio.play()
-			await intro_sequence.animation_finished
+			#intro_sequence.play("intro")
+			intro_sequence.play()
+			#audio.stream = audio_clips.fight_starts
+			#audio.play()
+			#await intro_sequence.animation_finished
+			await intro_sequence.finished
+			intro_sequence_transition.visible = true
+			intro_sequence_transition.play()
+			await intro_sequence_transition.animation_finished
 			intro_sequence.visible = false
+			intro_sequence_transition.visible = false
 			intro_sequence.process_mode = Node.PROCESS_MODE_DISABLED
+			intro_sequence_transition.process_mode = Node.PROCESS_MODE_DISABLED
 		else:
 			intro_sequence.visible = false
 			intro_sequence.process_mode = Node.PROCESS_MODE_DISABLED
