@@ -26,15 +26,17 @@ func ready() -> void:
 func hit_note_visual(note_score: float) -> void:
 	#scale = scale * 1.6
 	var expander: Expander = head_sprites.find_child("Expander")
-	if expander:
-		expander.expand(1.55,0.13,true)
 	if note_score > 0.9:
 		patzpatz.visible = true
 		patzpatz.play("stars")
+		if expander:
+			expander.expand(1.5,0.13,true)
 	else:
 		patzpatz.visible = true
 		patzpatz.self_modulate.a = 0.25
 		patzpatz.play("normal")
+		if expander:
+			expander.expand(1.25,0.13,true)
 	eigth.material.set_shader_parameter("color",success_color)
 	quarter.material.set_shader_parameter("color",success_color)
 	half.material.set_shader_parameter("color",success_color)
