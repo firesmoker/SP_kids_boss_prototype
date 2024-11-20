@@ -1,6 +1,8 @@
 extends TextureRect
 class_name SongTextureRect
 
+var model: Dictionary
+	
 func _ready() -> void:
 	# Create a ShaderMaterial
 	var shader_material: ShaderMaterial = ShaderMaterial.new()
@@ -36,4 +38,5 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch and not event.is_pressed():
 		print("Song clicked!")
 		var new_screen: Node = load("res://scenes/song_variation_screen.tscn").instantiate()
+		new_screen.model = model
 		get_tree().root.add_child(new_screen)

@@ -1,20 +1,20 @@
 {
-    "id": "Library_PianoBasics2Diffix_ImagineSimple_PicoKidsV2",
-    "displayName": "Imagine (Simplified)",
-    "version": 1,
-    "uiType": "treble_clef",
-    "licenseIDs": [
-        "Acum",
-        "Universal"
-    ],
-    "artist": "John Lennon",
-    "imageFileName": "LibrarySongCover_JohnLennon.jpg",
-    "inGameInfo": {
-        "bgm": "Imagine_FMajor_68bpm_Simple8th_vocals.m4a",
-        "onScreenDisplayDuration": 2.1,
-        "melodyFiles": {
-            "right": "Library_PianoBasics2Diffix_ImagineSimple_PicoKidsV2_Right.txt"
-        }
-    },
-    "acum_id": 2014419
+	"id": "Library_PianoBasics2Diffix_ImagineSimple_PicoKidsV2",
+	"displayName": "Imagine (Simplified)",
+	"version": 1,
+	"uiType": "treble_clef",
+	"licenseIDs": [
+		"Acum",
+		"Universal"
+	],
+	"artist": "John Lennon",
+	"imageFileName": "LibrarySongCover_JohnLennon.jpg",
+	"inGameInfo": {
+		"bgm": "Imagine_FMajor_68bpm_Simple8th_vocals.m4a",
+		"onScreenDisplayDuration": 2.1,
+		"melodyFiles": {
+			"right": "Library_PianoBasics2Diffix_ImagineSimple_PicoKidsV2_Right.txt"
+		}
+	},
+	"acum_id": 2014419
 }

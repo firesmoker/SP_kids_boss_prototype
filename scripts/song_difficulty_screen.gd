@@ -1,25 +1,24 @@
 extends Control
-@onready var container: HBoxContainer = $HBoxContainer
 
-func _on_SP_pressed() -> void:
-	print("SP mode selected!")
-
-func _on_Boss_pressed() -> void:
-	print("Boss mode selected!")
-
-func _on_Library_pressed() -> void:
-	print("Library mode selected!")
+@onready var header_label: Label = $HeaderLabel
+var model: Dictionary
 
 func _ready() -> void:
-	shuffle_buttons()
+	header_label.text = model.get("displayName")
 
-func shuffle_buttons() -> void:
-	# Get all children (buttons) as a list
-	var children: Array[Node] = container.get_children()
-	
-	# Convert to an array and shuffle it
-	children.shuffle()
+func _on_EasyButton_pressed() -> void:
+	print("Easy mode selected!")
+	move_to_core_game()
 
-	# Rearrange the children in the shuffled order
-	for i in range(children.size()):
-		move_child(children[i], i)
+func _on_MediumButton_pressed() -> void:
+	print("Medium mode selected!")
+	move_to_core_game()
+
+func _on_HardButton_pressed() -> void:
+	print("Hard mode selected!")
+	move_to_core_game()
+
+func move_to_core_game() -> void:	
+	var new_screen: Node = load("res://scenes/game.tscn").instantiate()
+	new_screen.model = model
+	get_tree().root.add_child(new_screen)

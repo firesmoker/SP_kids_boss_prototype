@@ -38,9 +38,7 @@ func populate_grid() -> void:
 			var file_path: String = SONGS_FOLDER + "/" + file_name
 			var json_data: Dictionary = load_json(file_path)
 			if json_data:
-				var image_file: String = SONGS_FOLDER + "/" + json_data.get("imageFileName", "")
-				var title: String = json_data.get("displayName", "Untitled")
-				var item: VBoxContainer = create_item(title, load(image_file))
+				var item: VBoxContainer = create_item(json_data)
 				
 				# Create a MarginContainer
 				var container: MarginContainer = MarginContainer.new()
@@ -71,7 +69,10 @@ func load_json(file_path: String) -> Dictionary:
 		return {}
 
 
-func create_item(title: String, texture: Texture2D) -> VBoxContainer:
+func create_item(json_data: Dictionary) -> VBoxContainer:
+	
+	var image_file: String = SONGS_FOLDER + "/" + json_data.get("imageFileName", "")
+	var title: String = json_data.get("displayName", "")
 	var item: VBoxContainer = VBoxContainer.new()
 	item.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
@@ -94,12 +95,13 @@ func create_item(title: String, texture: Texture2D) -> VBoxContainer:
 
 	# Add a TextureRect for the image
 	var image: TextureRect = SongTextureRect.new()
+	image.model = json_data
 	image.mouse_filter = Control.MOUSE_FILTER_PASS
 	image.anchor_left = 0
 	image.anchor_top = 0
 	image.anchor_right = 1
 	image.anchor_bottom = 1
-	image.texture = texture
+	image.texture = load(image_file)
 	image.expand_mode = TextureRect.EXPAND_FIT_WIDTH
 	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
