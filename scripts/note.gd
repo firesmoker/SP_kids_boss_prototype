@@ -12,7 +12,7 @@ var event: MelodyEvent
 @onready var stem: Sprite2D = $Stem
 @onready var helper_line: Sprite2D = $HeadSprites/HelperLine
 @onready var head_sprites: Node2D = $HeadSprites
-@onready var patzpatz: AnimatedSprite2D = $HeadSprites/Patzpatz
+@onready var patzpatz: AnimatedSprite2D = $Patzpatz
 
 
 func ready() -> void:
@@ -27,7 +27,7 @@ func hit_note_visual(note_score: float) -> void:
 	#scale = scale * 1.6
 	var expander: Expander = head_sprites.find_child("Expander")
 	if expander:
-		expander.expand(1.3,0.15,true)
+		expander.expand(1.55,0.13,true)
 	if note_score > 0.9:
 		patzpatz.visible = true
 		patzpatz.play("stars")

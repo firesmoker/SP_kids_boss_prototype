@@ -7,7 +7,9 @@ class_name Game extends Node2D
 @onready var video_layer_3: VideoStreamPlayer = $VideoCanvas/VideoLayer3
 @onready var video_layer_4: VideoStreamPlayer = $VideoCanvas/VideoLayer4
 @onready var video_layer_5: VideoStreamPlayer = $VideoCanvas/VideoLayer5
-@onready var star_bar: TextureProgressBar = $UI/StarBar
+@onready var stars_panel: Control = $UI/StarsPanel
+@onready var star_bar: TextureProgressBar = $UI/StarsPanel/StarBar
+
 var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
 var star3_threshold_modifier: float = 0.9
@@ -45,7 +47,7 @@ var target_xp: int = 100  # Replace with your desired XP value
 
 @onready var combo_meter: Label = $UI/ComboMeter
 @onready var streak_meter: Label = $UI/StreakMeter
-@onready var score_meter: Label = $UI/ScoreMeter
+@onready var score_meter: Label = $UI/StarsPanel/Panel/ScoreMeter
 
 @onready var debug_window: Control = $Overlay/DebugWindow
 @onready var debug_missed_notes: Label = $Overlay/DebugWindow/DebugMissedNotes
@@ -296,7 +298,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 
 func set_boss_visibility(toggle: bool = true) -> void:
 	if ui_type == "both":
-		right_hand_part.position.y += 0
+		right_hand_part.position.y += 20
 	boss.visible = toggle
 	player_health_bar.visible = toggle
 	boss_health_bar.visible = toggle

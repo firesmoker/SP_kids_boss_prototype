@@ -53,12 +53,6 @@ shader = ExtResource("8_o6hsy")
 shader_parameter/color = null
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwyom"]
-resource_local_to_scene = true
-shader = ExtResource("8_o6hsy")
-shader_parameter/color = null
-shader_parameter/alpha = 1.0
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_vdqjb"]
 animations = [{
 "frames": [{
@@ -157,6 +151,12 @@ animations = [{
 "speed": 48.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwyom"]
+resource_local_to_scene = true
+shader = ExtResource("8_o6hsy")
+shader_parameter/color = null
+shader_parameter/alpha = 1.0
+
 [node name="Rest" type="AnimatableBody2D"]
 scale = Vector2(0.21875, 0.21875)
 sync_to_physics = false
@@ -216,6 +216,12 @@ position = Vector2(0, -188.728)
 scale = Vector2(1.822, 1.822)
 texture = ExtResource("5_tem07")
 
+[node name="Patzpatz" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_vdqjb")
+animation = &"normal"
+
 [node name="HeadSprites" type="Node2D" parent="."]
 
 [node name="Eigth" type="Sprite2D" parent="HeadSprites"]
@@ -244,9 +250,3 @@ material = SubResource("ShaderMaterial_uwyom")
 position = Vector2(1.14441e-05, -1.33514e-05)
 scale = Vector2(2.042, 1.842)
 texture = ExtResource("9_a3j76")
-
-[node name="Patzpatz" type="AnimatedSprite2D" parent="HeadSprites"]
-visible = false
-scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_vdqjb")
-animation = &"normal"

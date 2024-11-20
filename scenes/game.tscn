@@ -1,4 +1,4 @@
-[gd_scene load_steps=421 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=422 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -66,8 +66,13 @@
 [ext_resource type="PackedScene" uid="uid://ss27dg0sy7a6" path="res://scenes/flash.tscn" id="57_hg35f"]
 [ext_resource type="PackedScene" uid="uid://kf508a146cxq" path="res://scenes/collectible.tscn" id="57_nyblo"]
 [ext_resource type="Texture2D" uid="uid://c16dmtjv13k35" path="res://art/Elements/Platformer packs V01/Png/Accessories/Artboard 1.png" id="58_ovvpk"]
+[ext_resource type="Texture2D" uid="uid://b3ghrkruamego" path="res://art/LibSong/StarsHud/star_bar.png" id="59_fe2a5"]
+[ext_resource type="Texture2D" uid="uid://cbkxgumnmk4k1" path="res://art/LibSong/StarsHud/star_bar - fill.png" id="60_aek6m"]
 [ext_resource type="Script" path="res://scripts/collectible_detector.gd" id="60_psocc"]
+[ext_resource type="Texture2D" uid="uid://bso8v461ybar1" path="res://art/LibSong/StarsHud/Star - empty.png" id="61_nhvvl"]
+[ext_resource type="Texture2D" uid="uid://da2jau7wy1rph" path="res://art/LibSong/StarsHud/Star - collected.png" id="62_gq3ek"]
 [ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="63_jfxac"]
+[ext_resource type="Texture2D" uid="uid://bqpluh0dx8lkp" path="res://art/LibSong/StarsHud/Bar.png" id="63_kpaki"]
 [ext_resource type="SpriteFrames" uid="uid://rav5rqfqmiew" path="res://scene_resources/line_zapper_spriteframe.tres" id="68_qal4a"]
 [ext_resource type="Texture2D" uid="uid://c6cp76n7a1j3j" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00133.png" id="69_kbfop"]
 [ext_resource type="Texture2D" uid="uid://clw66lmb6cdwo" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00124.png" id="70_rh7bv"]
@@ -94,10 +99,6 @@
 [ext_resource type="Texture2D" uid="uid://c7ex6v0mksl03" path="res://art/17_nov/bar_empty.png" id="360_yopmy"]
 [ext_resource type="Texture2D" uid="uid://iyxqrq5cfblx" path="res://art/4_nov/Cold_BG.png" id="361_2yuql"]
 [ext_resource type="Texture2D" uid="uid://mk2wlm3g0mgy" path="res://art/17_nov/bar_full.png" id="361_obrbm"]
-[ext_resource type="Texture2D" uid="uid://dqbiukny3ccqn" path="res://art/10_nov/BarOff.png" id="364_l8oqn"]
-[ext_resource type="Texture2D" uid="uid://cpj47xn0ptp25" path="res://art/10_nov/BarOn.png" id="365_fyknt"]
-[ext_resource type="Texture2D" uid="uid://cki5gdkhu5w2p" path="res://art/10_nov/StarOff.png" id="366_on5xi"]
-[ext_resource type="Texture2D" uid="uid://cjyl515mkdk8d" path="res://art/10_nov/StarOn.png" id="367_4ijhd"]
 [ext_resource type="Texture2D" uid="uid://bsqm2e4r5yr1h" path="res://art/17_nov/BG1.png" id="368_51hfx"]
 [ext_resource type="VideoStream" path="res://art/10_nov/BG02.ogv" id="369_tknix"]
 [ext_resource type="Texture2D" uid="uid://3r2jjmq2jhwc" path="res://art/17_nov/Life bar - R.png" id="370_bntdn"]
@@ -2349,6 +2350,7 @@ flash_time = 0.4
 
 [node name="BossHealthBar" type="TextureProgressBar" parent="UI"]
 process_mode = 3
+visible = false
 top_level = true
 z_index = 1
 anchors_preset = 1
@@ -2372,141 +2374,179 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Expander" parent="UI/BossHealthBar" instance=ExtResource("20_wgxju")]
 
-[node name="StarBar" type="TextureProgressBar" parent="UI"]
-process_mode = 3
-visible = false
-top_level = true
-z_index = 1
-anchors_preset = 1
+[node name="StarsPanel" type="Control" parent="UI"]
+layout_mode = 3
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -424.0
-offset_top = 25.0
-offset_right = 11.0
-offset_bottom = 73.0
+offset_left = -524.0
+offset_bottom = 104.0
 grow_horizontal = 0
-scale = Vector2(0.8, 0.8)
-pivot_offset = Vector2(205, 50)
+
+[node name="StarBar" type="TextureProgressBar" parent="UI/StarsPanel"]
+process_mode = 3
+top_level = true
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.23644
+anchor_top = 0.0207317
+anchor_right = 1.23644
+anchor_bottom = 0.0207317
+offset_left = -608.0
+offset_bottom = 128.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
 max_value = 1.0
 step = 0.01
-texture_under = ExtResource("364_l8oqn")
-texture_progress = ExtResource("365_fyknt")
+value = 0.5
+texture_under = ExtResource("59_fe2a5")
+texture_progress = ExtResource("60_aek6m")
 metadata/_edit_use_anchors_ = true
 
-[node name="Flash" parent="UI/StarBar" instance=ExtResource("57_hg35f")]
-
-[node name="Expander" parent="UI/StarBar" instance=ExtResource("20_wgxju")]
-
-[node name="Star1" type="TextureRect" parent="UI/StarBar"]
+[node name="Star1" type="TextureRect" parent="UI/StarsPanel/StarBar"]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -48.0
-offset_right = 42.0
-offset_bottom = 36.0
-scale = Vector2(0.85, 0.85)
-pivot_offset = Vector2(42, 48)
-texture = ExtResource("366_on5xi")
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -55.936
+offset_top = -55.936
+offset_right = 56.064
+offset_bottom = 56.064
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("61_nhvvl")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TurnedOn" type="TextureRect" parent="UI/StarBar/Star1"]
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/Star1"]
 visible = false
 z_index = 1
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -42.0
-offset_right = 42.0
-offset_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("367_4ijhd")
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("62_gq3ek")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Expander" parent="UI/StarBar/Star1" instance=ExtResource("20_wgxju")]
+[node name="Expander" parent="UI/StarsPanel/StarBar/Star1" instance=ExtResource("20_wgxju")]
 
-[node name="Star2" type="TextureRect" parent="UI/StarBar"]
+[node name="Star2" type="TextureRect" parent="UI/StarsPanel/StarBar"]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -48.0
-offset_right = 42.0
-offset_bottom = 36.0
-scale = Vector2(0.85, 0.85)
-pivot_offset = Vector2(42, 48)
-texture = ExtResource("366_on5xi")
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -55.936
+offset_top = -55.936
+offset_right = 56.064
+offset_bottom = 56.064
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("61_nhvvl")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TurnedOn" type="TextureRect" parent="UI/StarBar/Star2"]
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/Star2"]
 visible = false
 z_index = 1
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -42.0
-offset_right = 42.0
-offset_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("367_4ijhd")
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("62_gq3ek")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Expander" parent="UI/StarBar/Star2" instance=ExtResource("20_wgxju")]
+[node name="Expander" parent="UI/StarsPanel/StarBar/Star2" instance=ExtResource("20_wgxju")]
 
-[node name="Star3" type="TextureRect" parent="UI/StarBar"]
+[node name="Star3" type="TextureRect" parent="UI/StarsPanel/StarBar"]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -48.0
-offset_right = 42.0
-offset_bottom = 36.0
-scale = Vector2(0.85, 0.85)
-pivot_offset = Vector2(42, 48)
-texture = ExtResource("366_on5xi")
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -55.936
+offset_top = -55.936
+offset_right = 56.064
+offset_bottom = 56.064
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("61_nhvvl")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TurnedOn" type="TextureRect" parent="UI/StarBar/Star3"]
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/Star3"]
 visible = false
 z_index = 1
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -42.0
-offset_right = 42.0
-offset_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("367_4ijhd")
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("62_gq3ek")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Expander" parent="UI/StarBar/Star3" instance=ExtResource("20_wgxju")]
+[node name="Expander" parent="UI/StarsPanel/StarBar/Star3" instance=ExtResource("20_wgxju")]
+
+[node name="Flash" parent="UI/StarsPanel" instance=ExtResource("57_hg35f")]
+position = Vector2(624, 35)
+scale = Vector2(0.8, 0.8)
+
+[node name="Expander" parent="UI/StarsPanel" instance=ExtResource("20_wgxju")]
+position = Vector2(624, 35)
+scale = Vector2(0.8, 0.8)
+
+[node name="Panel" type="TextureRect" parent="UI/StarsPanel"]
+show_behind_parent = true
+z_index = 1
+layout_mode = 0
+offset_right = 1050.0
+offset_bottom = 216.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("63_kpaki")
+metadata/_edit_lock_ = true
+
+[node name="ScoreMeter" type="Label" parent="UI/StarsPanel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.00925926
+anchor_right = 0.0733333
+anchor_bottom = 0.606481
+offset_right = 245.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.956863, 0.941176, 0.87451, 1)
+theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_font_sizes/font_size = 84
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Background_old2" type="TextureRect" parent="UI"]
 visible = false
@@ -2594,6 +2634,7 @@ texture = SubResource("GradientTexture2D_rlrxh")
 metadata/_edit_lock_ = true
 
 [node name="BossPanel" type="TextureRect" parent="UI"]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -2676,18 +2717,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
 theme_override_font_sizes/font_size = 50
 text = "COMBO: 0"
-metadata/_edit_use_anchors_ = true
-
-[node name="ScoreMeter" type="Label" parent="UI"]
-visible = false
-offset_left = 100.0
-offset_top = 23.0
-offset_right = 345.0
-offset_bottom = 92.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
-theme_override_font_sizes/font_size = 45
-text = "100"
 metadata/_edit_use_anchors_ = true
 
 [node name="StreakMeter" type="Label" parent="UI"]
@@ -2829,7 +2858,7 @@ metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter" type="AnimatedSprite2D" parent="Level"]
 z_index = 3
-position = Vector2(-411.111, 70.8205)
+position = Vector2(-411.111, 4.15384)
 scale = Vector2(0.319623, 0.319623)
 sprite_frames = ExtResource("4_0nn2k")
 animation = &"girl_attack"
@@ -2871,7 +2900,7 @@ metadata/_edit_lock_ = true
 
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
 z_index = 3
-position = Vector2(417.46, 63.4921)
+position = Vector2(417.46, -7.6483)
 scale = Vector2(0.590503, 0.590503)
 sprite_frames = ExtResource("4_ygwuk")
 animation = &"robot_damaged_get_hit"
@@ -2959,19 +2988,22 @@ debug_color = Color(0.637107, 0.526312, 4.20869e-07, 0.42)
 metadata/_edit_lock_ = true
 
 [node name="BlueLine" type="Node2D" parent="Level/RightHandPart/CollectDetect"]
-self_modulate = Color(0.443137, 1, 1, 0.552941)
+self_modulate = Color(0.44, 1, 1, 0.509804)
 position = Vector2(0, 75.001)
 metadata/_edit_lock_ = true
 
 [node name="SingleLine" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.341176)
 position = Vector2(-42.6587, 2.38338)
 scale = Vector2(0.6, 0.72673)
 texture = ExtResource("379_g4x10")
 
 [node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine"]
+self_modulate = Color(1, 1, 1, 0.639216)
 show_behind_parent = true
 position = Vector2(70.501, 0)
-scale = Vector2(0.6, 1)
+scale = Vector2(0.45, 1)
 texture = ExtResource("14_nko2d")
 
 [node name="Expander" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow" instance=ExtResource("20_wgxju")]
@@ -2986,6 +3018,7 @@ frame = 11
 frame_progress = 1.0
 
 [node name="MultiLine" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
+self_modulate = Color(1, 1, 1, 0.341176)
 position = Vector2(-42.6587, 79.2683)
 scale = Vector2(0.6, 1.31589)
 texture = ExtResource("379_g4x10")
@@ -2993,7 +3026,7 @@ texture = ExtResource("379_g4x10")
 [node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine"]
 show_behind_parent = true
 position = Vector2(70.501, 0)
-scale = Vector2(0.6, 1)
+scale = Vector2(0.45, 1)
 texture = ExtResource("14_nko2d")
 
 [node name="Expander" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow" instance=ExtResource("20_wgxju")]
@@ -3047,15 +3080,16 @@ metadata/_edit_lock_ = true
 
 [node name="ElectricBolt" type="AnimatedSprite2D" parent="Level/RightHandPart/UpperStaff"]
 z_index = -2
-position = Vector2(47.5305, -24.8166)
+position = Vector2(47.5305, -14.896)
 scale = Vector2(0.556532, 0.412846)
 sprite_frames = SubResource("SpriteFrames_hq0p5")
 frame = 11
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="ElectricBolt2" type="AnimatedSprite2D" parent="Level/RightHandPart/UpperStaff"]
 z_index = -2
-position = Vector2(47.5305, 73.4129)
+position = Vector2(47.5305, 65.4764)
 scale = Vector2(0.556532, 0.412846)
 sprite_frames = SubResource("SpriteFrames_hq0p5")
 frame = 11
@@ -3086,12 +3120,11 @@ metadata/_edit_lock_ = true
 
 [node name="ElectricBolt" type="AnimatedSprite2D" parent="Level/RightHandPart/BottomStaff"]
 z_index = -2
-position = Vector2(51.1507, 274.992)
+position = Vector2(51.1507, 261.103)
 scale = Vector2(0.556532, 0.412846)
 sprite_frames = SubResource("SpriteFrames_hq0p5")
 frame = 11
 frame_progress = 1.0
-metadata/_edit_lock_ = true
 
 [node name="BottomStaffSprite" parent="Level/RightHandPart/BottomStaff" instance=ExtResource("5_evl1e")]
 position = Vector2(54.063, 226.25)
@@ -3174,7 +3207,7 @@ metadata/_edit_lock_ = true
 
 [node name="PlayerPlatform" type="Node2D" parent="Level"]
 z_index = -10
-position = Vector2(-519.048, 170.026)
+position = Vector2(-519.048, 100)
 
 [node name="Block" type="Sprite2D" parent="Level/PlayerPlatform"]
 position = Vector2(-19.8417, 23.0159)
@@ -3196,7 +3229,7 @@ metadata/_edit_lock_ = true
 
 [node name="BossPlatform" type="Node2D" parent="Level"]
 z_index = -10
-position = Vector2(402.381, 170.026)
+position = Vector2(402.381, 100)
 
 [node name="Block" type="Sprite2D" parent="Level/BossPlatform"]
 position = Vector2(-19.8417, 23.0159)
