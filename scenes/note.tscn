@@ -726,7 +726,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"stars",
-"speed": 48.0
+"speed": 64.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1204,7 +1204,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"stars",
-"speed": 48.0
+"speed": 64.0
 }]
 
 [node name="Note" type="AnimatableBody2D"]
@@ -1212,7 +1212,8 @@ z_index = 2
 scale = Vector2(0.195, 0.195)
 sync_to_physics = false
 script = ExtResource("1_76fco")
-success_color = Color(0.160784, 0.952941, 0.933333, 1)
+success_color = Color(1, 0.87451, 0.384314, 1)
+starting_success_color = Color(0.160784, 0.952941, 0.933333, 1)
 
 [node name="old_sprite" type="Sprite2D" parent="."]
 visible = false

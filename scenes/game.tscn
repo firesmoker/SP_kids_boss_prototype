@@ -1715,9 +1715,9 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.526271
 anchor_bottom = 0.0378049
-offset_left = -106.0
+offset_left = -41.0
 offset_top = 20.0
-offset_right = -57.0
+offset_right = 8.0
 offset_bottom = 69.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
@@ -1733,9 +1733,9 @@ process_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -37.0
+offset_left = 28.0
 offset_top = 20.0
-offset_right = 43.0
+offset_right = 108.0
 offset_bottom = 100.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
@@ -1749,9 +1749,9 @@ process_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 36.0
+offset_left = 101.0
 offset_top = 20.0
-offset_right = 116.0
+offset_right = 181.0
 offset_bottom = 100.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
@@ -2330,6 +2330,7 @@ layer = -1
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
 process_mode = 3
+visible = false
 top_level = true
 z_index = 1
 offset_left = 116.0
@@ -2378,12 +2379,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="StarsPanel" type="Control" parent="UI"]
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -524.0
+anchors_preset = 0
+offset_right = 524.0
 offset_bottom = 104.0
-grow_horizontal = 0
 
 [node name="StarBar" type="TextureProgressBar" parent="UI/StarsPanel"]
 process_mode = 3
@@ -2391,12 +2389,10 @@ top_level = true
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.23644
-anchor_top = 0.0207317
-anchor_right = 1.23644
-anchor_bottom = 0.0207317
-offset_left = -608.0
-offset_bottom = 128.0
+offset_left = 34.0
+offset_top = 17.0
+offset_right = 642.0
+offset_bottom = 145.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 max_value = 1.0
@@ -2534,13 +2530,15 @@ offset_right = 1050.0
 offset_bottom = 216.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("63_kpaki")
+flip_h = true
 metadata/_edit_lock_ = true
 
 [node name="ScoreMeter" type="Label" parent="UI/StarsPanel/Panel"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.695238
 anchor_top = 0.00925926
-anchor_right = 0.0733333
+anchor_right = 0.768571
 anchor_bottom = 0.606481
 offset_right = 245.0
 offset_bottom = 69.0
@@ -2695,6 +2693,7 @@ texture = ExtResource("371_y5r23")
 [node name="Expander" parent="UI/BossPanel/BossPortrait" instance=ExtResource("20_wgxju")]
 
 [node name="PlayerPanel" type="TextureRect" parent="UI"]
+visible = false
 offset_right = 425.366
 offset_bottom = 109.0
 scale = Vector2(0.5, 0.5)

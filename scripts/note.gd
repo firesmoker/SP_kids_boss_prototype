@@ -4,7 +4,8 @@ class_name Note extends AnimatableBody2D
 var note: String
 var event: MelodyEvent
 @export_enum("Note","Rest") var type: String = "Note"
-@export var success_color: Color
+@export var success_color: Color # 29f3ee
+@export var starting_success_color: Color # 29f3ee
 @onready var eigth: Sprite2D = $HeadSprites/Eigth
 @onready var quarter: Sprite2D = $HeadSprites/Quarter
 @onready var half: Sprite2D = $HeadSprites/Half
@@ -13,18 +14,35 @@ var event: MelodyEvent
 @onready var helper_line: Sprite2D = $HeadSprites/HelperLine
 @onready var head_sprites: Node2D = $HeadSprites
 @onready var patzpatz: AnimatedSprite2D = $Patzpatz
+var changing_color: bool = false
+var current_color: Color
+var original_color: Color = Color.BLACK
+var success_progress: float = 0
+var changing_color_modifier: float = 1.5
 
 
 func ready() -> void:
+	original_color = Color.BLACK
+	current_color = original_color
 	patzpatz.visible = false
 	eigth.material.set_shader_parameter("color",Color.BLACK)
 	quarter.material.set_shader_parameter("color",Color.BLACK)
 	half.material.set_shader_parameter("color",Color.BLACK)
 	whole.material.set_shader_parameter("color",Color.BLACK)
 
+func _process(delta: float) -> void:
+	if changing_color:
+		changing_color_modifier += 0.05
+		success_progress = clampf(success_progress + delta * changing_color_modifier,0,1)
+		current_color = lerp(starting_success_color,success_color,success_progress)
+		eigth.material.set_shader_parameter("color",current_color)
+		quarter.material.set_shader_parameter("color",current_color)
+		half.material.set_shader_parameter("color",current_color)
+		whole.material.set_shader_parameter("color",current_color)
 
 func hit_note_visual(note_score: float) -> void:
 	#scale = scale * 1.6
+	changing_color = true
 	var expander: Expander = head_sprites.find_child("Expander")
 	if note_score > 0.9:
 		patzpatz.visible = true
@@ -43,10 +61,6 @@ func hit_note_visual(note_score: float) -> void:
 			patzpatz_shadow.play("normal")
 		if expander:
 			expander.expand(1.25,0.13,true)
-	eigth.material.set_shader_parameter("color",success_color)
-	quarter.material.set_shader_parameter("color",success_color)
-	half.material.set_shader_parameter("color",success_color)
-	whole.material.set_shader_parameter("color",success_color)
 
 func miss_note_visual() -> void:
 	eigth.material.set_shader_parameter("color",Color.RED)
