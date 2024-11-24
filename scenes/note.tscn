@@ -346,7 +346,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"normal",
-"speed": 48.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -635,94 +635,94 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("131_qg8vx")
+"texture": ExtResource("101_16qx2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("132_qkptu")
+"texture": ExtResource("102_ag2h4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("133_khn87")
+"texture": ExtResource("103_g812g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("134_dhfns")
+"texture": ExtResource("104_pjy46")
 }, {
 "duration": 1.0,
-"texture": ExtResource("135_lspri")
+"texture": ExtResource("105_qox35")
 }, {
 "duration": 1.0,
-"texture": ExtResource("136_0w8ck")
+"texture": ExtResource("106_apya1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("137_br6ts")
+"texture": ExtResource("107_oh0t2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("138_dc4pn")
+"texture": ExtResource("108_hwrj7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("139_7odmg")
+"texture": ExtResource("109_qpqgd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("140_xrq2n")
+"texture": ExtResource("110_yu152")
 }, {
 "duration": 1.0,
-"texture": ExtResource("141_du5gn")
+"texture": ExtResource("111_dhth4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("142_c2c4e")
+"texture": ExtResource("112_ejjlf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("143_hlb5g")
+"texture": ExtResource("113_k2xqp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("144_nwyoq")
+"texture": ExtResource("114_bldxw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("145_lpjj4")
+"texture": ExtResource("115_skobv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("146_xh82q")
+"texture": ExtResource("116_e8q6c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("147_nxkyb")
+"texture": ExtResource("117_pyk8l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("148_4eox8")
+"texture": ExtResource("118_l6mgo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("149_a1etw")
+"texture": ExtResource("119_v8xha")
 }, {
 "duration": 1.0,
-"texture": ExtResource("150_66bud")
+"texture": ExtResource("120_xj57o")
+}, {
+"duration": 2.0,
+"texture": ExtResource("121_oyevc")
+}, {
+"duration": 2.0,
+"texture": ExtResource("122_o4118")
+}, {
+"duration": 2.0,
+"texture": ExtResource("123_3fu5y")
+}, {
+"duration": 2.0,
+"texture": ExtResource("124_jsc7h")
+}, {
+"duration": 2.0,
+"texture": ExtResource("125_hbinj")
+}, {
+"duration": 2.0,
+"texture": ExtResource("126_ysk4m")
+}, {
+"duration": 2.0,
+"texture": ExtResource("127_fhsog")
 }, {
 "duration": 1.0,
-"texture": ExtResource("151_o7gef")
+"texture": ExtResource("128_fylvo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("152_s1pc1")
+"texture": ExtResource("129_wo8dk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("153_h11rq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("154_lwjxf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("155_vcpy6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("156_0ctor")
-}, {
-"duration": 1.0,
-"texture": ExtResource("157_w6bxa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("158_7kvns")
-}, {
-"duration": 1.0,
-"texture": ExtResource("159_2sriv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("160_levi4")
+"texture": ExtResource("130_37rxq")
 }],
 "loop": false,
 "name": &"stars",
@@ -920,97 +920,97 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("101_16qx2")
+"texture": ExtResource("131_qg8vx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("102_ag2h4")
+"texture": ExtResource("132_qkptu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("103_g812g")
+"texture": ExtResource("133_khn87")
 }, {
 "duration": 1.0,
-"texture": ExtResource("104_pjy46")
+"texture": ExtResource("134_dhfns")
 }, {
 "duration": 1.0,
-"texture": ExtResource("105_qox35")
+"texture": ExtResource("135_lspri")
 }, {
 "duration": 1.0,
-"texture": ExtResource("106_apya1")
+"texture": ExtResource("136_0w8ck")
 }, {
 "duration": 1.0,
-"texture": ExtResource("107_oh0t2")
+"texture": ExtResource("137_br6ts")
 }, {
 "duration": 1.0,
-"texture": ExtResource("108_hwrj7")
+"texture": ExtResource("138_dc4pn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("109_qpqgd")
+"texture": ExtResource("139_7odmg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("110_yu152")
+"texture": ExtResource("140_xrq2n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("111_dhth4")
+"texture": ExtResource("141_du5gn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("112_ejjlf")
+"texture": ExtResource("142_c2c4e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("113_k2xqp")
+"texture": ExtResource("143_hlb5g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("114_bldxw")
+"texture": ExtResource("144_nwyoq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("115_skobv")
+"texture": ExtResource("145_lpjj4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("116_e8q6c")
+"texture": ExtResource("146_xh82q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("117_pyk8l")
+"texture": ExtResource("147_nxkyb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("118_l6mgo")
+"texture": ExtResource("148_4eox8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("119_v8xha")
+"texture": ExtResource("149_a1etw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("120_xj57o")
+"texture": ExtResource("150_66bud")
+}, {
+"duration": 2.0,
+"texture": ExtResource("151_o7gef")
+}, {
+"duration": 2.0,
+"texture": ExtResource("152_s1pc1")
+}, {
+"duration": 2.0,
+"texture": ExtResource("153_h11rq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("154_lwjxf")
+}, {
+"duration": 2.0,
+"texture": ExtResource("155_vcpy6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("156_0ctor")
+}, {
+"duration": 2.0,
+"texture": ExtResource("157_w6bxa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("121_oyevc")
+"texture": ExtResource("158_7kvns")
 }, {
 "duration": 1.0,
-"texture": ExtResource("122_o4118")
+"texture": ExtResource("159_2sriv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("123_3fu5y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("124_jsc7h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("125_hbinj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("126_ysk4m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("127_fhsog")
-}, {
-"duration": 1.0,
-"texture": ExtResource("128_fylvo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("129_wo8dk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("130_37rxq")
+"texture": ExtResource("160_levi4")
 }],
 "loop": false,
-"name": &"stars_white",
+"name": &"stars_yellow",
 "speed": 48.0
 }]
 
@@ -1109,7 +1109,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"normal",
-"speed": 72.0
+"speed": 48.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1172,25 +1172,25 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("150_66bud")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("151_o7gef")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("152_s1pc1")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("153_h11rq")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("154_lwjxf")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("155_vcpy6")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("156_0ctor")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("157_w6bxa")
 }, {
 "duration": 1.0,
@@ -1204,11 +1204,11 @@ animations = [{
 }],
 "loop": false,
 "name": &"stars",
-"speed": 72.0
+"speed": 48.0
 }]
 
 [node name="Note" type="AnimatableBody2D"]
-z_index = 1
+z_index = 2
 scale = Vector2(0.195, 0.195)
 sync_to_physics = false
 script = ExtResource("1_76fco")
@@ -1240,14 +1240,15 @@ true_hide_right = true
 x_hide_position = -400.0
 
 [node name="Patzpatz" type="AnimatedSprite2D" parent="."]
-z_index = -1
+self_modulate = Color(1, 0.819608, 0.341176, 1)
 scale = Vector2(5.51282, 5.51282)
 sprite_frames = SubResource("SpriteFrames_qcgdp")
 animation = &"stars"
 
 [node name="Shadow" type="AnimatedSprite2D" parent="Patzpatz"]
-visible = false
+self_modulate = Color(0, 0, 0, 0.121569)
 z_index = -1
+scale = Vector2(1.015, 1.015)
 sprite_frames = SubResource("SpriteFrames_v7ail")
 animation = &"stars"
 

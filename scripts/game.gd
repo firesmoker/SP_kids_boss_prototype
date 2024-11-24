@@ -101,6 +101,7 @@ var target_xp: int = 100  # Replace with your desired XP value
 @onready var vignette: Sprite2D = $Level/Vignette
 @onready var background: TextureRect = $UI/Background
 @onready var background_slow: TextureRect = $UI/BackgroundSlow
+@onready var background_library: TextureRect = $UI/BackgroundLibrary
 
 @onready var pause_button: TextureButton = $Overlay/Pause
 @onready var restart_button: TextureButton = $Overlay/Restart
@@ -283,18 +284,19 @@ func set_default_visibility() -> void:
 
 func set_library_song_visibility(toggle: bool = true) -> void:
 	if toggle == true:
-		right_hand_part.position.y -= 50
+		right_hand_part.position.y -= 0
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
 	#combo_meter.visible = toggle
 	streak_meter.visible = false
 	score_meter.visible = toggle
-	video_layer_1.visible = toggle
-	video_layer_2.visible = toggle
-	video_layer_3.visible = toggle
-	video_layer_4.visible = toggle
-	video_layer_5.visible = toggle
-	white_layer_4.visible = toggle
+	video_layer_1.visible = false
+	video_layer_2.visible = false
+	video_layer_3.visible = false
+	video_layer_4.visible = false
+	video_layer_5.visible = false
+	white_layer_4.visible = false
+	background_library.visible = toggle
 
 func set_boss_visibility(toggle: bool = true) -> void:
 	if ui_type == "both":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=422 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=423 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -73,6 +73,7 @@
 [ext_resource type="Texture2D" uid="uid://da2jau7wy1rph" path="res://art/LibSong/StarsHud/Star - collected.png" id="62_gq3ek"]
 [ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="63_jfxac"]
 [ext_resource type="Texture2D" uid="uid://bqpluh0dx8lkp" path="res://art/LibSong/StarsHud/Bar.png" id="63_kpaki"]
+[ext_resource type="Texture2D" uid="uid://igwtstgbsvgm" path="res://art/20_nov/BG city.png" id="65_17e6p"]
 [ext_resource type="SpriteFrames" uid="uid://rav5rqfqmiew" path="res://scene_resources/line_zapper_spriteframe.tres" id="68_qal4a"]
 [ext_resource type="Texture2D" uid="uid://c6cp76n7a1j3j" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00133.png" id="69_kbfop"]
 [ext_resource type="Texture2D" uid="uid://clw66lmb6cdwo" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00124.png" id="70_rh7bv"]
@@ -2341,6 +2342,7 @@ step = 0.02
 value = 4.0
 texture_under = ExtResource("360_yopmy")
 texture_progress = ExtResource("361_obrbm")
+metadata/_edit_use_anchors_ = true
 
 [node name="Flash" parent="UI/PlayerHealthBar" instance=ExtResource("57_hg35f")]
 flash_color = Color(1, 0, 0, 1)
@@ -2376,6 +2378,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="StarsPanel" type="Control" parent="UI"]
 layout_mode = 3
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -524.0
@@ -2401,6 +2404,7 @@ step = 0.01
 value = 0.5
 texture_under = ExtResource("59_fe2a5")
 texture_progress = ExtResource("60_aek6m")
+tint_progress = Color(1, 0.87451, 0.384314, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Star1" type="TextureRect" parent="UI/StarsPanel/StarBar"]
@@ -2569,6 +2573,21 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("368_51hfx")
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="BackgroundLibrary" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -95.0
+offset_right = 1479.0
+offset_bottom = 1133.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("65_17e6p")
 stretch_mode = 4
 metadata/_edit_lock_ = true
 
@@ -3304,6 +3323,7 @@ frame = 22
 frame_progress = 1.0
 
 [node name="Character" type="Sprite2D" parent="Level/LibVisuals"]
+visible = false
 position = Vector2(589, 667)
 texture = ExtResource("596_127m5")
 

@@ -218,7 +218,6 @@ texture = ExtResource("5_tem07")
 
 [node name="Patzpatz" type="AnimatedSprite2D" parent="."]
 visible = false
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_vdqjb")
 animation = &"normal"
 

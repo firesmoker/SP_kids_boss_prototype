@@ -29,12 +29,18 @@ func hit_note_visual(note_score: float) -> void:
 	if note_score > 0.9:
 		patzpatz.visible = true
 		patzpatz.play("stars")
+		var patzpatz_shadow: AnimatedSprite2D = patzpatz.find_child("Shadow")
+		if patzpatz_shadow:
+			patzpatz_shadow.play("stars")
 		if expander:
 			expander.expand(1.5,0.13,true)
 	else:
 		patzpatz.visible = true
-		patzpatz.self_modulate.a = 0.25
+		patzpatz.modulate.a = 0.25
 		patzpatz.play("normal")
+		var patzpatz_shadow: AnimatedSprite2D = patzpatz.find_child("Shadow")
+		if patzpatz_shadow:
+			patzpatz_shadow.play("normal")
 		if expander:
 			expander.expand(1.25,0.13,true)
 	eigth.material.set_shader_parameter("color",success_color)
@@ -49,6 +55,7 @@ func miss_note_visual() -> void:
 	whole.material.set_shader_parameter("color",Color.RED)
 
 func set_duration_visual(duration: float) -> void:
+	patzpatz.visible = false
 	if stem:
 		stem.visible = true
 	if helper_line:
