@@ -13,7 +13,7 @@ func _ready() -> void:
 		shader_type canvas_item;
 
 		// Uniform to control the corner radius
-		uniform float radius = 0.1;
+		uniform float radius = 0.05;
 
 		void fragment() {
 			// Normalized UV position
