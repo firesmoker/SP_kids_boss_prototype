@@ -24,7 +24,7 @@ static func move_to_scene(node: Node, scene_path: String, on_scene_created: Call
 
 	var packed_scene: Resource = load(scene_path)  # Load the PackedScene
 	if packed_scene and packed_scene is PackedScene:
-		var scene: Node2D = packed_scene.instantiate()
+		var scene: Node = packed_scene.instantiate()
 		
 		# Execute the callback if provided
 		if on_scene_created and on_scene_created.is_valid():

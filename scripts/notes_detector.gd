@@ -13,6 +13,7 @@ func _ready() -> void:
 	game = NodeHelper.get_root_game(self)
 	note_success.connect(game.hit_boss)
 	note_success.connect(game.add_to_combo)
+	note_success.connect(game.start_score_visual)
 	note_failure.connect(game.break_combo)
 	note_failure.connect(game.miss_note)
 	
@@ -54,7 +55,6 @@ func note_hit(i: int) -> void:
 		print("RIGHT NOTE PLAYED YAY!")
 		if game.game_state == "Playing":
 			var note_score: float = score_manager.hit(note_object)
-			print(note_score)
 			current_notes[i].hit_note_visual(note_score)
 			current_notes[i].state = "Played"
 			current_notes.pop_at(i)

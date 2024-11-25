@@ -6,6 +6,7 @@ var model: Dictionary
 
 func _on_SP_pressed() -> void:
 	print("SP mode selected!")
+	Game.sp_mode = true
 	move_to_difficulty_screen()
 
 func _on_Boss_pressed() -> void:
@@ -14,6 +15,7 @@ func _on_Boss_pressed() -> void:
 
 func _on_Library_pressed() -> void:
 	print("Library mode selected!")
+	Game.sp_mode = false
 	move_to_difficulty_screen()
 
 func move_to_difficulty_screen() -> void:	

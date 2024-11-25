@@ -1170,6 +1170,31 @@ offset_right = 64.0
 offset_bottom = 43.0
 text = "Debug"
 
+[node name="SPToggle" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_top = 343.0
+offset_right = -117.0
+offset_bottom = 374.0
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "SP Mode
+"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/DevButtons/SPToggle"]
+visible = false
+layout_mode = 0
+offset_left = -10.0
+offset_top = 20.0
+offset_right = 64.0
+offset_bottom = 43.0
+text = "Debug"
+
 [node name="BossToggle" type="CheckButton" parent="UI/DevButtons"]
 visible = false
 layout_mode = 1
@@ -1204,9 +1229,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -305.0
-offset_top = 412.0
+offset_top = 597.0
 offset_right = -152.0
-offset_bottom = 443.0
+offset_bottom = 628.0
 grow_horizontal = 0
 scale = Vector2(1.99, 1.99)
 text = "Library Songs"
@@ -1303,6 +1328,7 @@ script = ExtResource("7_mog21")
 [connection signal="toggled" from="UI/DevButtons/Skip Intro" to="." method="_on_skip_intro_toggled"]
 [connection signal="toggled" from="UI/DevButtons/SkipMiddleC" to="." method="_on_skip_middle_c_toggled"]
 [connection signal="toggled" from="UI/DevButtons/DebugToggle" to="." method="_on_debug_toggle_toggled"]
+[connection signal="toggled" from="UI/DevButtons/SPToggle" to="." method="_on_sp_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/BossToggle" to="." method="_on_boss_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/ShowLibraryToggle" to="." method="_on_show_library_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]

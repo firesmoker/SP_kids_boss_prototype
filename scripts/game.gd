@@ -10,6 +10,8 @@ class_name Game extends Node2D
 @onready var video_layer_5: VideoStreamPlayer = $VideoCanvas/VideoLayer5
 @onready var stars_panel: Control = $UI/StarsPanel
 @onready var star_bar: TextureProgressBar = $UI/StarsPanel/StarBar
+@export var score_success_color: Color
+@onready var star_celebration: AspectRatioContainer = $UI/StarCelebration
 
 var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
@@ -103,6 +105,9 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var background: TextureRect = $UI/Background
 @onready var background_slow: TextureRect = $UI/BackgroundSlow
 @onready var background_library: TextureRect = $UI/BackgroundLibrary
+@onready var background_library_solid: TextureRect = $UI/BackgroundLibrarySolid
+
+@onready var background_sp: TextureRect = $UI/BackgroundSP
 
 @onready var pause_button: TextureButton = $Overlay/Pause
 @onready var restart_button: TextureButton = $Overlay/Restart
@@ -187,6 +192,10 @@ var continue_note_played: bool = false
 @export var max_combo: int = 0
 static var level_ready: bool = false
 var grace_period_finished: bool = false
+var score_visual_time: float = 0.6
+var current_score_visual_time: float = 1
+
+static var sp_mode: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -288,6 +297,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 		right_hand_part.position.y -= 0
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
+	stars_panel.visible = toggle
 	#combo_meter.visible = toggle
 	streak_meter.visible = false
 	score_meter.visible = toggle
@@ -297,7 +307,18 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	video_layer_4.visible = false
 	video_layer_5.visible = false
 	white_layer_4.visible = false
-	background_library.visible = toggle
+	background_library.visible = false
+	background_library_solid.visible = toggle
+	
+	
+	if sp_mode:
+		lib_visuals.visible = false
+		background_library_solid.visible = false
+		star_bar.visible = false
+		score_meter.visible = false
+		stars_panel.visible = false
+		background_library.visible = false
+		background_sp.visible = true
 
 func set_boss_visibility(toggle: bool = true) -> void:
 	if ui_type == "both":
@@ -366,6 +387,9 @@ func update_ingame_stars() -> void:
 		video_layer_5.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
+			star_celebration.modulate.a = 0.85
+			star_celebration.find_child("Animation").play()
+			star_celebration.find_child("Fader").fade_out(0.01)
 			audio.stream = audio_clips.star
 			audio.play()
 			star3_unlocked = true
@@ -375,6 +399,9 @@ func update_ingame_stars() -> void:
 		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
+			star_celebration.modulate.a = 0.75
+			star_celebration.find_child("Animation").play()
+			star_celebration.find_child("Fader").fade_out(0.01)
 			audio.stream = audio_clips.star
 			audio.play()
 			star2_unlocked = true
@@ -384,6 +411,9 @@ func update_ingame_stars() -> void:
 		video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
+			star_celebration.modulate.a = 0.75
+			star_celebration.find_child("Animation").play()
+			star_celebration.find_child("Fader").fade_out(0.01)
 			audio.stream = audio_clips.star
 			audio.play()
 			star1_unlocked = true
@@ -580,12 +610,22 @@ func beat_effects() -> void:
 	#for person: AnimatedSprite2D in crowd_people:
 		#person.play()	
 
+func update_score_visual(delta: float) -> void:
+	if current_score_visual_time < score_visual_time:
+		current_score_visual_time += delta * 0.7
+		score_meter.self_modulate = lerp(Color.WHITE,score_success_color, clamp(current_score_visual_time/score_visual_time,0,1))
+	else:
+		current_score_visual_time += delta * 2
+		score_meter.self_modulate = lerp(score_success_color,Color.WHITE, clamp((current_score_visual_time-score_visual_time)/score_visual_time,0,1))
+
+
 func _process(delta: float) -> void:
 	if construction_complete and not losing and not winning and music_player.playing and grace_period_finished:
 		vulnerable = true
+	update_score_visual(delta)
 	update_debug()
 	health_bars_progress(delta, health_rate)
-	if game_mode == "library":
+	if game_mode == "library" and not sp_mode:
 		update_ingame_stars()
 		score_meter.text = str(score_manager.game_score)
 		#update_streak()
@@ -1046,6 +1086,8 @@ func player_win_animation() -> void:
 	player_character.play(player_model+"win")
 	
 
+func start_score_visual() -> void:
+	current_score_visual_time = 0
 
 func add_to_combo() -> void:
 	temp_notes_played += 1 # TEMPORARY!
