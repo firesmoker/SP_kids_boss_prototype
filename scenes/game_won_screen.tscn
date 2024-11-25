@@ -37,6 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_las7k")
 text = "YOU WIN!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="UI"]
 anchors_preset = 8
@@ -52,5 +53,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_prayo")
 text = "Play Again"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="button_up" from="UI/Button" to="." method="_on_button_button_up"]

@@ -30,7 +30,7 @@ var temp_notes_played: int = 0
 @onready var single_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow
 @onready var multi_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow
 
-var target_xp: int = 100  # Replace with your desired XP value
+static var target_xp: int = 100  # Replace with your desired XP value
 @onready var xp: Node = $Overlay/XP
 @onready var xp_label: Label = $Overlay/XP/XPLabel
 @onready var xp_audio_player: AudioStreamPlayer = $Overlay/XP/XPAudioPlayer
@@ -1134,3 +1134,14 @@ func update_debug() -> void:
 	debug_current_score.text = "current score: " + str(snapped(score_manager.current_score,0.01)*100.0) + "%"
 	debug_vulnerable.text = "vulnerable: " + str(vulnerable)
 	debug_game_score.text = "Game Score: " + str(score_manager.game_score)
+
+
+func _on_move_to_end_screen_button_pressed() -> void:
+	fade_elements()
+	var timer: Timer = new_timer(1)
+	timer.start()
+	await timer.timeout
+	NodeHelper.move_to_scene(self, "res://scenes/song_end_screen.tscn", Callable(self, "on_song_end_screen_created"))
+
+func on_song_end_screen_created(song_end_screen: Node2D) -> void:
+	song_end_screen.score_manager = score_manager

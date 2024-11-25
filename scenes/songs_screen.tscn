@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3nvye717r5mt"]
+[gd_scene load_steps=3 format=3 uid="uid://d3nvye717r5mt"]
 
 [ext_resource type="Script" path="res://scripts/songs_screen.gd" id="1_xdmq4"]
+[ext_resource type="Script" path="res://scripts/settings_manager.gd" id="2_tjwmq"]
 
 [node name="SongsScreen" type="Control"]
 layout_mode = 3
@@ -95,3 +96,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
+
+[node name="SettingsManager" type="Node" parent="."]
+script = ExtResource("2_tjwmq")
