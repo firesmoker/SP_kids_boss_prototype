@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxy64etlgtm6s"]
+[gd_scene load_steps=8 format=3 uid="uid://c4fnr2cxlhea8"]
 
 [ext_resource type="Script" path="res://scripts/song_variation_screen.gd" id="1_m5rk2"]
 [ext_resource type="Texture2D" uid="uid://d2nw2h08i6tji" path="res://art/SimplyPianoVariant.png" id="2_gducw"]
