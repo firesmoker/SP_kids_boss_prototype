@@ -14,6 +14,7 @@ var event: MelodyEvent
 @onready var helper_line: Sprite2D = $HeadSprites/HelperLine
 @onready var head_sprites: Node2D = $HeadSprites
 @onready var patzpatz: AnimatedSprite2D = $Patzpatz
+@onready var fanta: AnimatedSprite2D = $Fanta
 var changing_color: bool = false
 var current_color: Color
 var original_color: Color = Color.BLACK
@@ -43,6 +44,7 @@ func _process(delta: float) -> void:
 func hit_note_visual(note_score: float) -> void:
 	#scale = scale * 1.6
 	if not Game.sp_mode:
+		fanta.play()
 		changing_color = true
 		var expander: Expander = head_sprites.find_child("Expander")
 		if note_score > 0.9:

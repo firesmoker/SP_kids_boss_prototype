@@ -42,10 +42,10 @@ func fade_in(fade_amount: float = fade_interval) -> void:
 	fading_out = false
 	fading_in = true
 
-func fade_out(condition: bool = true) -> void:
-	if condition:
-		fading_in = false
-		fading_out = true
+func fade_out(fade_amount: float = fade_interval) -> void:
+	fade_interval = fade_amount
+	fading_in = false
+	fading_out = true
 
 
 func expand_fade_out(duration: float = expand_fade_duration) -> void:
