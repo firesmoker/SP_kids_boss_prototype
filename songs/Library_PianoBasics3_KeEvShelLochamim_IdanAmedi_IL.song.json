@@ -1,21 +1,21 @@
 {
-  "id": "Library_PianoBasics3_KeEvShelLochamim_IdanAmedi_IL",
-  "displayName": "Ke'ev Shel Lochamim כאב של לוחמים",
-  "uiType": "both_clefs",
-  "version": 1,
-  "artist": "Idan Amedi",
-  "imageFileName": "LibrarySongCover_KeEvShelLochamim_IdanAmedi_IL.jpg",
-  "inGameInfo": {
-    "bgm": "KeEvShelLochamim_IdanAmedi_IL_DMinor_86bpm_Vocals.m4a",
-    "melodyFiles": {
-      "right": "Library_PianoBasics3_KeEvShelLochamim_IdanAmedi_IL_Right.txt",
-      "left": "Library_PianoBasics3_KeEvShelLochamim_IdanAmedi_IL_Left.txt"
+    "id": "Library_PianoBasics3_KeEvShelLochamim_IdanAmedi_IL",
+    "displayName": "כאב של לוחמים",
+    "uiType": "both_clefs",
+    "version": 1,
+    "artist": "עידן עמדי",
+    "imageFileName": "LibrarySongCover_KeEvShelLochamim_IdanAmedi_IL.jpg",
+    "inGameInfo": {
+        "bgm": "KeEvShelLochamim_IdanAmedi_IL_DMinor_86bpm_Vocals.wav",
+        "melodyFiles": {
+            "right": "Library_PianoBasics3_KeEvShelLochamim_IdanAmedi_IL_Right.txt",
+            "left": "Library_PianoBasics3_KeEvShelLochamim_IdanAmedi_IL_Left.txt"
+        },
+        "onScreenDisplayDuration": 3
     },
-    "onScreenDisplayDuration": 3
-  },
-  "acum_id": "1307080",
-  "licenseIDs": [
-    "Acum"
-  ],
-  "scaleFactor": 0.85
+    "acum_id": "1307080",
+    "licenseIDs": [
+        "Acum"
+    ],
+    "scaleFactor": 0.85
 }

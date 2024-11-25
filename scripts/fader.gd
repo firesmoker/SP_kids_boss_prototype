@@ -12,7 +12,7 @@ var original_scale: Vector2
 
 func _ready() -> void:
 	parent = get_parent()
-	game = get_tree().root.get_child(0)
+	game = NodeHelper.get_root_game(self)
 	original_scale = parent.scale
 
 func _process(delta: float) -> void:

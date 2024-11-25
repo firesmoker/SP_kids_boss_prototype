@@ -1,20 +1,20 @@
 {
-  "id": "Library_PianoBasics2_Dynamite_PicoKidsV2",
-  "displayName": "Dynamite",
-  "uiType": "treble_clef",
-  "version": 1,
-  "scaleFactor": 0.85,
-  "artist": "BTS",
-  "imageFileName": "LibrarySongCover_ButterBTS.jpg",
-  "inGameInfo": {
-    "onScreenDisplayDuration": 4,
-    "bgm": "Dynamite_CMajor_92bpm_VOCALS.m4a",
-    "melodyFiles": {
-      "right": "Library_PianoBasics2_Dynamite_PicoKidsV2_Right.txt"
-    }
-  },
-  "acum_id": "29AFT7N",
-  "licenseIDs": [
-    "Acum"
-  ]
+	"id": "Library_PianoBasics2_Dynamite_PicoKidsV2",
+	"displayName": "דינאמייט",
+	"uiType": "treble_clef",
+	"version": 1,
+	"scaleFactor": 0.85,
+	"artist": "בי טי אס",
+	"imageFileName": "LibrarySongCover_ButterBTS.jpg",
+	"inGameInfo": {
+		"onScreenDisplayDuration": 4,
+		"bgm": "Dynamite_CMajor_92bpm_VOCALS.wav",
+		"melodyFiles": {
+			"right": "Library_PianoBasics2_Dynamite_PicoKidsV2_Right.txt"
+		}
+	},
+	"acum_id": "29AFT7N",
+	"licenseIDs": [
+		"Acum"
+	]
 }

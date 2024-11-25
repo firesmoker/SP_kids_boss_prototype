@@ -1,4 +1,5 @@
 class_name Game extends Node2D
+
 @onready var lib_visuals: Node2D = $Level/LibVisuals
 @onready var character: Sprite2D = $Level/LibVisuals/Character
 
@@ -413,6 +414,7 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 	
 
 func _ready() -> void:
+	
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/11_nov/robot_boss_portrait.png")
 	#crowd_people = crowd.get_children()
@@ -431,6 +433,7 @@ func _ready() -> void:
 		
 	losing = false
 	winning = false
+	var path: String = song_path
 	music_player.stream = load(song_path)
 	music_player_slow.stream = load(slow_song_path)
 	set_player_health()

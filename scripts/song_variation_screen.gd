@@ -24,6 +24,7 @@ func move_to_difficulty_screen() -> void:
 func _ready() -> void:
 	shuffle_buttons()
 	header_label.text = model.get("displayName")
+	
 
 func shuffle_buttons() -> void:
 	# Get all children (buttons) as a list

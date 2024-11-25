@@ -1,22 +1,22 @@
 {
-    "uiType": "both_clefs", 
-    "displayName": "How Far I'll Go", 
-    "artist": "Moana", 
+    "uiType": "both_clefs",
+    "displayName": "מואנה",
+    "artist": "מואנה",
     "inGameInfo": {
-        "onScreenDisplayDuration": 2.5, 
+        "onScreenDisplayDuration": 2.5,
         "melodyFiles": {
-            "right": "Library_PianoBasics3_HowFarIllGo_Moana_Right.txt", 
+            "right": "Library_PianoBasics3_HowFarIllGo_Moana_Right.txt",
             "left": "Library_PianoBasics3_HowFarIllGo_Moana_Left.txt"
-        }, 
-        "bgm": "HowFarIllGo_CMajor_64bpm_SHORT_Vocals.m4a"
-    }, 
-    "imageFileName": "LibrarySongCover_HowFarIllGo.jpg", 
+        },
+        "bgm": "HowFarIllGo_CMajor_64bpm_SHORT_Vocals.wav"
+    },
+    "imageFileName": "LibrarySongCover_HowFarIllGo.jpg",
     "backgroundAnimationTheme": "underWater",
-    "version": 1, 
-    "acum_id": "Disney29ABF5X", 
+    "version": 1,
+    "acum_id": "Disney29ABF5X",
     "licenseIDs": [
         "Acum"
-    ], 
-    "scaleFactor": 0.85, 
+    ],
+    "scaleFactor": 0.85,
     "id": "Library_PianoBasics3_HowFarIllGo_Moana"
 }

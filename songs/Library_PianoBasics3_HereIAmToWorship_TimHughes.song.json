@@ -1,21 +1,21 @@
 {
-  "id": "Library_PianoBasics3_HereIAmToWorship_TimHughes",
-  "displayName": "Here I Am to Worship",
-  "version": 1,
-  "uiType": "both_clefs",
-  "licenseIDs": [
-    "Acum",
-    "Universal"
-  ],
-  "artist": "Michael W. Smith",
-  "imageFileName": "LibrarySongCover_HereIAmToWorship.jpg",
-  "inGameInfo": {
-    "bgm": "HereIAmToWorship_CMajor_78bpm_Longer.m4a",
-    "onScreenDisplayDuration": 2.3,
-    "melodyFiles": {
-      "right": "Library_PianoBasics3_HereIAmToWorship_TimHughes_Right.txt",
-      "left": "Library_PianoBasics3_HereIAmToWorship_TimHughes_Left.txt"
-    }
-  },
-  "acum_id": 2457075
+    "id": "Library_PianoBasics3_HereIAmToWorship_TimHughes",
+    "displayName": "הנני לעבודתך",
+    "version": 1,
+    "uiType": "both_clefs",
+    "licenseIDs": [
+        "Acum",
+        "Universal"
+    ],
+    "artist": "מייקל וו. סמית׳",
+    "imageFileName": "LibrarySongCover_HereIAmToWorship.jpg",
+    "inGameInfo": {
+        "bgm": "HereIAmToWorship_CMajor_78bpm_Longer.wav",
+        "onScreenDisplayDuration": 2.3,
+        "melodyFiles": {
+            "right": "Library_PianoBasics3_HereIAmToWorship_TimHughes_Right.txt",
+            "left": "Library_PianoBasics3_HereIAmToWorship_TimHughes_Left.txt"
+        }
+    },
+    "acum_id": 2457075
 }

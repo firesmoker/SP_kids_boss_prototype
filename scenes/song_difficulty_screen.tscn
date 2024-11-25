@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://gipaa5lo6fie"]
+[gd_scene load_steps=6 format=3 uid="uid://gipaa5lo6fie"]
 
 [ext_resource type="Script" path="res://scripts/song_difficulty_screen.gd" id="1_6y50k"]
+[ext_resource type="Texture2D" uid="uid://cm72k8qdjh0xx" path="res://art/EasyButton.png" id="2_dqj1w"]
+[ext_resource type="Texture2D" uid="uid://ffx6u6ngl4bb" path="res://art/MediumButton.png" id="3_n1pe8"]
+[ext_resource type="Texture2D" uid="uid://cpdbgkmlvbvm8" path="res://art/HardButton.png" id="4_oyaun"]
+
+[sub_resource type="FontVariation" id="FontVariation_xrpmo"]
+variation_embolden = -0.5
 
 [node name="SongDifficultyScreen" type="Control"]
 layout_mode = 3
@@ -10,6 +16,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6y50k")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -831.0
+offset_top = -408.0
+offset_right = 1089.0
+offset_bottom = 672.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0, 0.203922, 1)
 
 [node name="HeaderLabel" type="Label" parent="."]
 layout_mode = 1
@@ -30,11 +49,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -117.0
-offset_top = 180.0
-offset_right = 117.0
-offset_bottom = 230.0
+offset_left = -215.5
+offset_top = 150.0
+offset_right = 215.5
+offset_bottom = 200.0
 grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_xrpmo")
 theme_override_font_sizes/font_size = 36
 text = "בחר רמת קושי"
 horizontal_alignment = 1
@@ -46,34 +66,56 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -244.5
+offset_top = -114.0
+offset_right = 244.5
+offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="EasyButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 80)
+[node name="EasyButton" type="Button" parent="."]
 layout_mode = 2
+offset_left = 340.0
+offset_top = 261.0
+offset_right = 840.0
+offset_bottom = 366.0
 theme_override_font_sizes/font_size = 42
-text = "קל"
+icon = ExtResource("2_dqj1w")
+flat = true
+expand_icon = true
 
-[node name="MediumButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 80)
-layout_mode = 2
+[node name="MediumButton" type="Button" parent="."]
+custom_minimum_size = Vector2(500, 105)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -52.5
+offset_right = 250.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-text = "בינוני
-"
+icon = ExtResource("3_n1pe8")
+flat = true
+expand_icon = true
 
-[node name="HardButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 80)
-layout_mode = 2
+[node name="HardButton" type="Button" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 338.0
+offset_top = 456.0
+offset_right = 838.0
+offset_bottom = 561.0
 theme_override_font_sizes/font_size = 42
-text = "קשה
-"
+icon = ExtResource("4_oyaun")
+flat = true
+expand_icon = true
 
-[connection signal="pressed" from="VBoxContainer/EasyButton" to="." method="_on_EasyButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/MediumButton" to="." method="_on_MediumButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/HardButton" to="." method="_on_HardButton_pressed"]
+[connection signal="pressed" from="EasyButton" to="." method="_on_EasyButton_pressed"]
+[connection signal="pressed" from="MediumButton" to="." method="_on_MediumButton_pressed"]
+[connection signal="pressed" from="HardButton" to="." method="_on_MediumButton_pressed"]

@@ -1,21 +1,21 @@
 {
-    "uiType": "both_clefs", 
-    "displayName": "Surface Pressure", 
-    "artist": "Encanto", 
+    "uiType": "both_clefs",
+    "displayName": "אנקאנטו",
+    "artist": "אנקאנטו",
     "inGameInfo": {
-        "onScreenDisplayDuration": 3, 
+        "onScreenDisplayDuration": 3,
         "melodyFiles": {
-            "right": "Library_PianoBasics3_SurfacePressure_Right.txt", 
+            "right": "Library_PianoBasics3_SurfacePressure_Right.txt",
             "left": "Library_PianoBasics3_SurfacePressure_Left.txt"
-        }, 
-        "bgm": "SurfacePressure_DMinor_85bpm_Vocals_Short_Edit.m4a"
-    }, 
-    "imageFileName": "LibrarySongCover_Encanto.jpg", 
-    "version": 1, 
-    "acum_id": "Disney29AH28L", 
+        },
+        "bgm": "SurfacePressure_DMinor_85bpm_Vocals_Short_Edit.wav"
+    },
+    "imageFileName": "LibrarySongCover_Encanto.jpg",
+    "version": 1,
+    "acum_id": "Disney29AH28L",
     "licenseIDs": [
         "Acum"
-    ], 
-    "scaleFactor": 0.85, 
+    ],
+    "scaleFactor": 0.85,
     "id": "Library_PianoBasics3_SurfacePressure"
 }

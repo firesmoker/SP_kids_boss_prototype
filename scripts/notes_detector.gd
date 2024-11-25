@@ -10,7 +10,7 @@ signal note_failure
 signal continue_note_played
 
 func _ready() -> void:
-	game = get_tree().root.get_child(0)
+	game = NodeHelper.get_root_game(self)
 	note_success.connect(game.hit_boss)
 	note_success.connect(game.add_to_combo)
 	note_failure.connect(game.break_combo)

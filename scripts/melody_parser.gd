@@ -19,6 +19,9 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 		var note: String = ""
 		var extraData: PackedStringArray = []
 
+		if section.contains("Clef") || section.contains("bgmFileName"):
+			continue
+			
 		# Parse milestones (like CriticalSectionStart/End)
 		if section.begins_with("*") and section.ends_with(":*"):
 			event.type = "milestone"
@@ -33,9 +36,13 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 			event.type = "collectible"
 			event.subtype = get_word(collectible_parts[1])
 			note = get_word(collectible_parts[0])
+		
 		else:
 			event.type = "note"
 			note = get_word(parts[0])
+			if note.is_empty():
+				continue
+				
 	
 		event.note = note
 		
