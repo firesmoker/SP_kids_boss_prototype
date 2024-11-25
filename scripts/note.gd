@@ -42,25 +42,31 @@ func _process(delta: float) -> void:
 
 func hit_note_visual(note_score: float) -> void:
 	#scale = scale * 1.6
-	changing_color = true
-	var expander: Expander = head_sprites.find_child("Expander")
-	if note_score > 0.9:
-		patzpatz.visible = true
-		patzpatz.play("stars")
-		var patzpatz_shadow: AnimatedSprite2D = patzpatz.find_child("Shadow")
-		if patzpatz_shadow:
-			patzpatz_shadow.play("stars")
-		if expander:
-			expander.expand(1.5,0.13,true)
+	if not Game.sp_mode:
+		changing_color = true
+		var expander: Expander = head_sprites.find_child("Expander")
+		if note_score > 0.9:
+			patzpatz.visible = true
+			patzpatz.play("stars")
+			var patzpatz_shadow: AnimatedSprite2D = patzpatz.find_child("Shadow")
+			if patzpatz_shadow:
+				patzpatz_shadow.play("stars")
+			if expander:
+				expander.expand(1.5,0.13,true)
+		else:
+			patzpatz.visible = true
+			patzpatz.modulate.a = 0.25
+			patzpatz.play("normal")
+			var patzpatz_shadow: AnimatedSprite2D = patzpatz.find_child("Shadow")
+			if patzpatz_shadow:
+				patzpatz_shadow.play("normal")
+			if expander:
+				expander.expand(1.25,0.13,true)
 	else:
-		patzpatz.visible = true
-		patzpatz.modulate.a = 0.25
-		patzpatz.play("normal")
-		var patzpatz_shadow: AnimatedSprite2D = patzpatz.find_child("Shadow")
-		if patzpatz_shadow:
-			patzpatz_shadow.play("normal")
-		if expander:
-			expander.expand(1.25,0.13,true)
+		eigth.material.set_shader_parameter("color",starting_success_color)
+		quarter.material.set_shader_parameter("color",starting_success_color)
+		half.material.set_shader_parameter("color",starting_success_color)
+		whole.material.set_shader_parameter("color",starting_success_color)
 
 func miss_note_visual() -> void:
 	eigth.material.set_shader_parameter("color",Color.RED)

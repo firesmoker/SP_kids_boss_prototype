@@ -102,6 +102,9 @@ var target_xp: int = 100  # Replace with your desired XP value
 @onready var background: TextureRect = $UI/Background
 @onready var background_slow: TextureRect = $UI/BackgroundSlow
 @onready var background_library: TextureRect = $UI/BackgroundLibrary
+@onready var background_library_solid: TextureRect = $UI/BackgroundLibrarySolid
+
+@onready var background_sp: TextureRect = $UI/BackgroundSP
 
 @onready var pause_button: TextureButton = $Overlay/Pause
 @onready var restart_button: TextureButton = $Overlay/Restart
@@ -186,6 +189,8 @@ var continue_note_played: bool = false
 @export var max_combo: int = 0
 static var level_ready: bool = false
 var grace_period_finished: bool = false
+
+static var sp_mode: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -287,6 +292,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 		right_hand_part.position.y -= 0
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
+	stars_panel.visible = toggle
 	#combo_meter.visible = toggle
 	streak_meter.visible = false
 	score_meter.visible = toggle
@@ -297,6 +303,17 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	video_layer_5.visible = false
 	white_layer_4.visible = false
 	background_library.visible = toggle
+	background_library_solid.visible = false
+	
+	
+	if sp_mode:
+		lib_visuals.visible = false
+		background_library_solid.visible = false
+		star_bar.visible = false
+		score_meter.visible = false
+		stars_panel.visible = false
+		background_library.visible = false
+		background_sp.visible = true
 
 func set_boss_visibility(toggle: bool = true) -> void:
 	if ui_type == "both":
@@ -582,7 +599,7 @@ func _process(delta: float) -> void:
 		vulnerable = true
 	update_debug()
 	health_bars_progress(delta, health_rate)
-	if game_mode == "library":
+	if game_mode == "library" and not sp_mode:
 		update_ingame_stars()
 		score_meter.text = str(score_manager.game_score)
 		#update_streak()
