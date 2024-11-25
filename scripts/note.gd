@@ -44,6 +44,9 @@ func _process(delta: float) -> void:
 func hit_note_visual(note_score: float) -> void:
 	#scale = scale * 1.6
 	if not Game.sp_mode:
+		
+		if note_score < 0.9:
+			fanta.scale.x *= 0.3
 		fanta.play()
 		changing_color = true
 		var expander: Expander = head_sprites.find_child("Expander")
@@ -57,6 +60,7 @@ func hit_note_visual(note_score: float) -> void:
 				expander.expand(1.5,0.13,true)
 		else:
 			patzpatz.visible = true
+			patzpatz.scale *= 0.75
 			patzpatz.modulate.a = 0.25
 			patzpatz.play("normal")
 			var patzpatz_shadow: AnimatedSprite2D = patzpatz.find_child("Shadow")

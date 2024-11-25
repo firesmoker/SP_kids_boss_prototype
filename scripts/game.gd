@@ -1084,6 +1084,7 @@ func player_win_animation() -> void:
 	
 
 func start_score_visual() -> void:
+	score_meter.find_child("Expander").expand(1.2,0.2,true)
 	current_score_visual_time = 0
 
 func add_to_combo() -> void:
