@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://gipaa5lo6fie"]
+[gd_scene load_steps=15 format=3 uid="uid://dqa1w6l5jndmw"]
 
 [ext_resource type="Script" path="res://scripts/song_difficulty_screen.gd" id="1_6y50k"]
 [ext_resource type="Texture2D" uid="uid://cm72k8qdjh0xx" path="res://art/EasyButton.png" id="2_dqj1w"]
@@ -7,6 +7,24 @@
 
 [sub_resource type="FontVariation" id="FontVariation_xrpmo"]
 variation_embolden = -0.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rva0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t4ls"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vlbb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fkrk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17gjn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7dvlx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kk68a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ar5ci"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myfdn"]
 
 [node name="SongDifficultyScreen" type="Control"]
 layout_mode = 3
@@ -81,6 +99,9 @@ offset_top = 261.0
 offset_right = 840.0
 offset_bottom = 366.0
 theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0rva0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3t4ls")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlbb3")
 icon = ExtResource("2_dqj1w")
 flat = true
 expand_icon = true
@@ -100,6 +121,9 @@ offset_bottom = 52.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8fkrk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_17gjn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7dvlx")
 icon = ExtResource("3_n1pe8")
 flat = true
 expand_icon = true
@@ -112,6 +136,9 @@ offset_top = 456.0
 offset_right = 838.0
 offset_bottom = 561.0
 theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kk68a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ar5ci")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_myfdn")
 icon = ExtResource("4_oyaun")
 flat = true
 expand_icon = true

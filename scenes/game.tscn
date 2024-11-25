@@ -88,7 +88,7 @@
 [ext_resource type="Texture2D" uid="uid://dtq7m42cj114v" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00134.png" id="79_n7i7p"]
 [ext_resource type="Texture2D" uid="uid://c3hbahfwjn1ma" path="res://scene_resources/note_container_texture.tres" id="80_in6ir"]
 [ext_resource type="PackedScene" uid="uid://cy4r3dtmps85" path="res://scenes/collectible_marker.tscn" id="81_vlbus"]
-[ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="SpriteFrames" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="PackedScene" uid="uid://c0v8nacv45non" path="res://scenes/finger_number.tscn" id="97_t1wle"]
 [ext_resource type="Texture2D" uid="uid://bsn7dfb43n6x3" path="res://art/Hand2.png" id="110_ellj4"]
 [ext_resource type="VideoStream" path="res://art/19_nov/Boss_Fight_Intro_Boy.ogv" id="346_1rsua"]

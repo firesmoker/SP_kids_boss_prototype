@@ -41,7 +41,7 @@ bg_color = Color(0.535958, 0.116029, 0.861395, 1)
 [node name="StartScreen" type="Window"]
 title = "הגדרות"
 initial_position = 1
-size = Vector2i(500, 500)
+size = Vector2i(440, 700)
 script = ExtResource("1_geyk5")
 song_1_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.wav"
 song_1_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.wav"
@@ -98,18 +98,15 @@ song_11_hard_melody_path = "res://levels/CircleOfLifeHardLonger_TheLionKing_78.t
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
-offset = Vector2(-50, -20)
-transform = Transform2D(1, 0, 0, 1, -50, -20)
 
 [node name="Background" type="ColorRect" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1500.0
-offset_bottom = 1500.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0666667, 0, 0.203922, 1)
+color = Color(0.099995, 0.000124538, 0.274777, 1)
+metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="UI"]
 visible = false
@@ -203,6 +200,7 @@ horizontal_scroll_mode = 0
 metadata/_edit_lock_ = true
 
 [node name="BossSongs" type="VBoxContainer" parent="UI/SongButtons"]
+visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 metadata/_edit_lock_ = true
@@ -1070,6 +1068,7 @@ layout_mode = 3
 anchor_left = 0.660169
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -1199,6 +1198,7 @@ text = "New Boss
 "
 
 [node name="ShowLibraryToggle" type="CheckButton" parent="UI/DevButtons"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1245,11 +1245,18 @@ offset_bottom = 42.5122
 text = "Library Song"
 
 [node name="CharacterSelection" type="OptionButton" parent="UI/DevButtons"]
-layout_mode = 0
-offset_left = -764.0
-offset_top = 435.0
-offset_right = -374.0
-offset_bottom = 758.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -410.806
+offset_top = -350.0
+offset_right = -20.8057
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 36
 alignment = 2
 expand_icon = true
