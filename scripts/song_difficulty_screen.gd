@@ -63,13 +63,5 @@ func start_level(type: String = "normal") -> void:
 
 
 func move_to_core_game() -> void:	
-	 # Remove all current scenes
-	var root: Node = get_tree().root
-	for child in root.get_children():
-		root.remove_child(child)
-		child.queue_free()
-
-	var packed_scene: Resource = load("res://scenes/game.tscn")  # Load the PackedScene
-	if packed_scene and packed_scene is PackedScene:
-		root.add_child(packed_scene.instantiate())  # Add the instance to the root
+	NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
 		

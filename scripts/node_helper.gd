@@ -14,3 +14,15 @@ static func get_root_game(node: Node) -> Game:
 		if child is Game:  # Check if the child is of type Game
 			return child   # Return the instance if found
 	return null  # Return null if no instance of Game is found
+
+static func move_to_scene(node: Node, scene_path: String) -> void:	
+	 # Remove all current scenes
+	var root: Node = node.get_tree().root
+	for child in root.get_children():
+		root.remove_child(child)
+		child.queue_free()
+
+	var packed_scene: Resource = load(scene_path)  # Load the PackedScene
+	if packed_scene and packed_scene is PackedScene:
+		root.add_child(packed_scene.instantiate())  # Add the instance to the root
+		

@@ -1006,9 +1006,9 @@ func restart_level(wait: bool = false, type: String = "normal") -> void:
 		add_child(timer)
 		timer.start(0.8)
 		await timer.timeout
-	LevelSelector.set_level(type)
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+	NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
 	
 
 func _on_boss_hit_zone_body_entered(note: Note) -> void:
@@ -1066,7 +1066,7 @@ func _on_resume_button_up() -> void:
 
 
 func _on_win_change_level_button_up() -> void:
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/song_difficulty_screen.tscn")
 
 
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
@@ -1085,7 +1085,7 @@ func _on_win_restart_button_up(show_easy: bool = false) -> void:
 
 
 func _on_win_continue_button_up() -> void:
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/songs_screen.tscn")
 
 func play_music_clip(audioclip: AudioStream = audio_clips.player_wins) -> void:
 	music_player.stream = audioclip
@@ -1100,7 +1100,7 @@ func _on_popup_timer_timeout() -> void:
 func _on_return_button_up() -> void:
 	Game.game_state = "Winning"
 	pause()
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
 func get_lose_state() -> bool:
 	return losing
