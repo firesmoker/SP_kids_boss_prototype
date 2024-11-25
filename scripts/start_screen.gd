@@ -161,6 +161,7 @@ func _on_close_requested() -> void:
 	
 func start_level(type: String = "normal") -> void:
 	Game.game_state = "Intro"
+	Game.boss_model = "robot_"
 	Game.repeat_requested = false
 	load_overlay.visible = true
 	var timer: Timer = Timer.new()

@@ -2386,7 +2386,7 @@ animations = [{
 "texture": ExtResource("508_u4di7")
 }],
 "loop": false,
-"name": &"robot_damaged_hit",
+"name": &"robot_damaged_get_hit",
 "speed": 48.0
 }, {
 "frames": [{

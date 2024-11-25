@@ -1172,6 +1172,7 @@ offset_bottom = 43.0
 text = "Debug"
 
 [node name="BossToggle" type="CheckButton" parent="UI/DevButtons"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1185,6 +1186,7 @@ scale = Vector2(1.99, 1.99)
 text = "New Boss"
 icon_alignment = 1
 expand_icon = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/DevButtons/BossToggle"]
 visible = false
@@ -1251,7 +1253,7 @@ offset_bottom = 758.0
 theme_override_font_sizes/font_size = 36
 alignment = 2
 expand_icon = true
-selected = 0
+selected = 1
 item_count = 3
 popup/item_0/text = "Default"
 popup/item_0/icon = ExtResource("6_vcmv8")

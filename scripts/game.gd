@@ -8,7 +8,9 @@ class_name Game extends Node2D
 @onready var video_layer_3: VideoStreamPlayer = $VideoCanvas/VideoLayer3
 @onready var video_layer_4: VideoStreamPlayer = $VideoCanvas/VideoLayer4
 @onready var video_layer_5: VideoStreamPlayer = $VideoCanvas/VideoLayer5
-@onready var star_bar: TextureProgressBar = $UI/StarBar
+@onready var stars_panel: Control = $UI/StarsPanel
+@onready var star_bar: TextureProgressBar = $UI/StarsPanel/StarBar
+
 var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
 var star3_threshold_modifier: float = 0.9
@@ -39,10 +41,14 @@ var target_xp: int = 100  # Replace with your desired XP value
 @onready var stars: Control = $Overlay/Stars
 @onready var difficulty: Panel = $Overlay/Difficulty
 @onready var easy_button: Button = $Overlay/Difficulty/EasyButton
-@onready var intro_sequence: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequence
+#@onready var intro_sequence: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequence
+@onready var intro_sequence_transition: AnimatedSprite2D = $CameraOverlay/AspectRatioContainer/IntroSequenceTransition
+
+@onready var intro_sequence: VideoStreamPlayer = $BossVideoCanvas/IntroSequence
+
 @onready var combo_meter: Label = $UI/ComboMeter
 @onready var streak_meter: Label = $UI/StreakMeter
-@onready var score_meter: Label = $UI/ScoreMeter
+@onready var score_meter: Label = $UI/StarsPanel/Panel/ScoreMeter
 
 @onready var debug_window: Control = $Overlay/DebugWindow
 @onready var debug_missed_notes: Label = $Overlay/DebugWindow/DebugMissedNotes
@@ -72,11 +78,12 @@ var target_xp: int = 100  # Replace with your desired XP value
 @onready var tutorial: Panel = $Overlay/Tutorial
 @onready var tutorial_text: Label = $Overlay/Tutorial/Text
 @onready var win_buttons: Panel = $Overlay/WinButtons
-#@onready var heart: AnimatedSprite2D = $Level/Heart
-@onready var heart: TextureRect = $UI/Heart
+@onready var player_portrait: TextureRect = $UI/PlayerPanel/PlayerPortrait
+@onready var player_panel: TextureRect = $UI/PlayerPanel
+@onready var boss_panel: TextureRect = $UI/BossPanel
 
-#@onready var boss_portrait: Sprite2D = $Level/BossPortrait
-@onready var boss_portrait: TextureRect = $UI/BossPortrait
+
+@onready var boss_portrait: TextureRect = $UI/BossPanel/BossPortrait
 
 @onready var popup_progress_bar: PopupProgressBar = $Overlay/Tutorial/ProgressBar
 @onready var return_button: TextureButton = $Overlay/Return
@@ -95,6 +102,7 @@ var target_xp: int = 100  # Replace with your desired XP value
 @onready var vignette: Sprite2D = $Level/Vignette
 @onready var background: TextureRect = $UI/Background
 @onready var background_slow: TextureRect = $UI/BackgroundSlow
+@onready var background_library: TextureRect = $UI/BackgroundLibrary
 
 @onready var pause_button: TextureButton = $Overlay/Pause
 @onready var restart_button: TextureButton = $Overlay/Restart
@@ -197,6 +205,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			music_player_slow.seek(music_player_slow.get_playback_position() - 0.5)
 
 
+
 func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -> void:
 	if not get_tree().paused:
 		#pause_button.text = "Resume"
@@ -246,7 +255,15 @@ func level_slow_down(timed: bool = true, wait_time: float = slow_timer) -> void:
 			level_accelerate()
 
 
+func complete_disable(nodes: Array[Node2D]) -> void:
+	for node in nodes:
+		node.visible = false
+		node.process_mode = Node.PROCESS_MODE_DISABLED
 
+func complete_enable(nodes: Array[Node2D]) -> void:
+	for node in nodes:
+		node.visible = true
+		node.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func set_default_visibility() -> void:
@@ -258,6 +275,7 @@ func set_default_visibility() -> void:
 	streak_meter.visible = false
 	return_button.visible = false
 	background_slow.visible = false
+	intro_sequence_transition.visible = false
 	
 	## Hide Library visuals:
 	set_library_song_visibility(false)
@@ -267,20 +285,23 @@ func set_default_visibility() -> void:
 
 func set_library_song_visibility(toggle: bool = true) -> void:
 	if toggle == true:
-		right_hand_part.position.y -= 50
+		right_hand_part.position.y -= 0
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
 	#combo_meter.visible = toggle
 	streak_meter.visible = false
 	score_meter.visible = toggle
-	video_layer_1.visible = toggle
-	video_layer_2.visible = toggle
-	video_layer_3.visible = toggle
-	video_layer_4.visible = toggle
-	video_layer_5.visible = toggle
-	white_layer_4.visible = toggle
+	video_layer_1.visible = false
+	video_layer_2.visible = false
+	video_layer_3.visible = false
+	video_layer_4.visible = false
+	video_layer_5.visible = false
+	white_layer_4.visible = false
+	background_library.visible = toggle
 
 func set_boss_visibility(toggle: bool = true) -> void:
+	if ui_type == "both":
+		right_hand_part.position.y += 20
 	boss.visible = toggle
 	player_health_bar.visible = toggle
 	boss_health_bar.visible = toggle
@@ -290,13 +311,14 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	background_slow.visible = false
 	intro_sequence.visible = false
 	blue_line.find_child("SingleLine").find_child("LineZapSingle").visible = toggle
-	electric_beam.find_child("LineZapMulti").visible = toggle
-	electric_beam.find_child("ElectricBolt").visible = toggle
-	heart.visible = toggle
-	boss_portrait.visible = toggle
+	blue_line.find_child("MultiLine").find_child("LineZapMulti").visible = toggle
+	#electric_beam.find_child("LineZapMulti").visible = toggle
+	#electric_beam.find_child("ElectricBolt").visible = toggle
+	player_panel.visible = toggle
+	boss_panel.visible = toggle
 	player_platform.visible = toggle
 	boss_platform.visible = toggle
-	white_layer_4.visible = toggle
+	white_layer_4.visible = false
 	
 	if not cheat_skip_intro:
 		intro_sequence.visible = toggle
@@ -392,6 +414,7 @@ func set_boss_process_modes(toggle: bool = false) -> void:
 	else:
 		process_mode = Node.PROCESS_MODE_DISABLED
 	intro_sequence.process_mode = process_mode
+	intro_sequence_transition.process_mode = process_mode
 	player_character.process_mode = process_mode
 	boss.process_mode = process_mode
 	electric_beam.process_mode = process_mode
@@ -416,7 +439,13 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 func _ready() -> void:
 	
 	if boss_model == "robot_":
-		boss_portrait.texture = load("res://art/11_nov/robot_boss_portrait.png")
+		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
+	if player_model == "boy_":
+		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Boy.ogv")
+		player_portrait.texture = load("res://art/17_nov/avatar_boy.png")
+	elif player_model == "girl_":
+		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Girl.ogv")
+		player_portrait.texture = load("res://art/17_nov/avatar_girl.png")
 	#crowd_people = crowd.get_children()
 	show_debug()
 	set_default_visibility()
@@ -456,12 +485,19 @@ func _ready() -> void:
 			continue_note_popup.visible = true
 		if Game.game_state == "Intro" and not cheat_skip_intro:
 			intro_sequence.process_mode = Node.PROCESS_MODE_INHERIT
-			intro_sequence.play("intro")
-			audio.stream = audio_clips.fight_starts
-			audio.play()
-			await intro_sequence.animation_finished
+			#intro_sequence.play("intro")
+			intro_sequence.play()
+			#audio.stream = audio_clips.fight_starts
+			#audio.play()
+			#await intro_sequence.animation_finished
+			await intro_sequence.finished
+			intro_sequence_transition.visible = true
+			intro_sequence_transition.play()
+			await intro_sequence_transition.animation_finished
 			intro_sequence.visible = false
+			intro_sequence_transition.visible = false
 			intro_sequence.process_mode = Node.PROCESS_MODE_DISABLED
+			intro_sequence_transition.process_mode = Node.PROCESS_MODE_DISABLED
 		else:
 			intro_sequence.visible = false
 			intro_sequence.process_mode = Node.PROCESS_MODE_DISABLED
@@ -794,14 +830,14 @@ func hide_tutorial() -> void:
 	tutorial.visible = false
 
 
-func show_tutorial(for_type: String = "heart") -> void:
+func show_tutorial(for_type: String = "player_portrait") -> void:
 	tutorial.visible = true
 	popup_progress_bar.start_closing_timer(5)
 	tutorial.find_child("Heart").visible = false
 	tutorial.find_child("Slowdown").visible = false
 	tutorial.find_child("Bomb").visible = false
 	match for_type:
-		"heart":
+		"player_portrait":
 			tutorial_text.text = "אספת לב!"
 			tutorial.find_child("Heart").visible = true
 		"slowdown":
@@ -864,17 +900,20 @@ func heal(amount: int = 1) -> void:
 	audio.play()
 	player_health_bar.find_child("Flash").flash(Color.LIGHT_SEA_GREEN, 0.25)
 	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
-	heart.find_child("Expander").expand(1.10, 0.25, true)
+	player_portrait.find_child("Expander").expand(1.10, 0.25, true)
 
 func hit_boss(damage: int = -1) -> void:
 	if not winning and not losing:
 		if game_mode == "boss":
-			electric_beam.find_child("Flash").flash()
+			#electric_beam.find_child("Flash").flash()
+			right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
 			if ui_type == "treble":
 				blue_line.find_child("SingleLine").find_child("LineZapSingle").play("line_zap")
+				right_hand_part.find_child("UpperStaff").find_child("ElectricBolt2").play()
 			else:
-				electric_beam.find_child("LineZapMulti").play("line_zap")
-			electric_beam.find_child("ElectricBolt").play("attack")
+				blue_line.find_child("MultiLine").find_child("LineZapMulti").play("line_zap")
+				right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
+			#electric_beam.find_child("ElectricBolt").play("attack")
 			audio_play_from_source(electric_beam,audio_clips.electric_attack, -10.5)
 			player_character.stop()
 			player_bot.stop()
@@ -939,8 +978,8 @@ func get_hit(damage: int = -1) -> void:
 			#player_health_bar.value = player_health
 			player_health_bar.find_child("Flash").flash(Color.RED)
 			player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
-			heart.find_child("Flash").flash(Color.RED)
-			heart.find_child("Expander").expand(1.20, 0.15, true)
+			player_portrait.find_child("Flash").flash(Color.RED)
+			player_portrait.find_child("Expander").expand(1.20, 0.15, true)
 			
 			if player_health <= 0 and not winning and not losing:
 				lose()
@@ -993,6 +1032,7 @@ func boss_win_animation() -> void:
 	boss.find_child("Expander").move(Vector2(0,0), 0.5)
 	boss.stop()
 	boss.play(boss_model + "win")
+	into_stage.process_mode = Node.PROCESS_MODE_INHERIT
 	into_stage.flip_h = true
 	into_stage.visible = true
 	into_stage.play()
