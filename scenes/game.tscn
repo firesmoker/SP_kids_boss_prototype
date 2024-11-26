@@ -2840,21 +2840,19 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_oss5g")
 
 [node name="WinChangeLevel" type="TextureButton" parent="Overlay/WinButtons"]
 layout_mode = 0
-offset_left = 9.0
+offset_left = 204.0
 offset_top = 42.0
-offset_right = 109.0
+offset_right = 304.0
 offset_bottom = 142.0
 texture_normal = ExtResource("22_7sqae")
-metadata/_edit_lock_ = true
 
 [node name="WinRestart" type="TextureButton" parent="Overlay/WinButtons"]
 layout_mode = 0
-offset_left = 242.0
+offset_left = 329.0
 offset_top = 42.0
-offset_right = 342.0
+offset_right = 429.0
 offset_bottom = 142.0
 texture_normal = ExtResource("16_icmxq")
-metadata/_edit_lock_ = true
 
 [node name="WinContinue" type="TextureButton" parent="Overlay/WinButtons"]
 visible = false
@@ -2864,7 +2862,6 @@ offset_top = 42.0
 offset_right = 566.0
 offset_bottom = 142.0
 texture_normal = ExtResource("15_m6t7w")
-metadata/_edit_lock_ = true
 
 [node name="Stars" type="Control" parent="Overlay"]
 modulate = Color(1, 1, 1, 0)
@@ -3686,6 +3683,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Animation" type="AnimatedSprite2D" parent="UI/StarCelebration"]
 position = Vector2(608.448, 421.75)
@@ -3693,6 +3691,7 @@ scale = Vector2(0.445258, 0.446353)
 sprite_frames = SubResource("SpriteFrames_cix5d")
 frame = 68
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="Fader" parent="UI/StarCelebration" instance=ExtResource("63_jfxac")]
 
@@ -4287,6 +4286,7 @@ position = Vector2(582, 434.999)
 sprite_frames = SubResource("SpriteFrames_y7q63")
 frame = 60
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="Midi" parent="." instance=ExtResource("12_6nasv")]
 

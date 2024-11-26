@@ -81,6 +81,10 @@ func miss_note_visual() -> void:
 	whole.material.set_shader_parameter("color",Color.RED)
 
 func set_duration_visual(duration: float) -> void:
+	quarter.visible = false
+	eigth.visible = false
+	half.visible = false
+	whole.visible = false
 	patzpatz.visible = false
 	if stem:
 		stem.visible = true

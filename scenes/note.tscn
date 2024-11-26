@@ -2492,7 +2492,6 @@ animation = &"stars"
 [node name="HeadSprites" type="Node2D" parent="."]
 
 [node name="Eigth" type="Sprite2D" parent="HeadSprites"]
-visible = false
 material = ExtResource("4_ako4p")
 position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)
@@ -2507,7 +2506,6 @@ texture = ExtResource("4_7h3ec")
 metadata/_edit_lock_ = true
 
 [node name="Half" type="Sprite2D" parent="HeadSprites"]
-visible = false
 material = ExtResource("4_ako4p")
 position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)
@@ -2515,7 +2513,6 @@ texture = ExtResource("3_0jx7u")
 metadata/_edit_lock_ = true
 
 [node name="Whole" type="Sprite2D" parent="HeadSprites"]
-visible = false
 material = ExtResource("4_ako4p")
 position = Vector2(0, -4)
 scale = Vector2(1.782, 2.192)
