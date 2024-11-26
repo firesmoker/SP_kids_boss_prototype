@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ccsrpwgfdxorx"
-path="res://.godot/imported/BareNecessities_CMajor_130bpm_Vocals_Short.wav-8af1a72a310ecc7c6e293729464d5129.sample"
+path="res://.godot/imported/BareNecessities_CMajor_130BPM_Vocals_Short.wav-e879a57022985b73361521c79845aa02.sample"
 
 [deps]
 
-source_file="res://songs/BareNecessities_CMajor_130bpm_Vocals_Short.wav"
-dest_files=["res://.godot/imported/BareNecessities_CMajor_130bpm_Vocals_Short.wav-8af1a72a310ecc7c6e293729464d5129.sample"]
+source_file="res://songs/BareNecessities_CMajor_130BPM_Vocals_Short.wav"
+dest_files=["res://.godot/imported/BareNecessities_CMajor_130BPM_Vocals_Short.wav-e879a57022985b73361521c79845aa02.sample"]
 
 [params]
 
