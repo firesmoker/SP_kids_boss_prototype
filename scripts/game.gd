@@ -386,9 +386,9 @@ func update_ingame_stars() -> void:
 		video_layer_5.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
-			star_celebration.modulate.a = 0.85
+			star_celebration.modulate.a = 1
 			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.01)
+			star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star3_unlocked = true
@@ -398,9 +398,9 @@ func update_ingame_stars() -> void:
 		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
-			star_celebration.modulate.a = 0.75
+			star_celebration.modulate.a = 1
 			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.01)
+			star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star2_unlocked = true
@@ -410,9 +410,9 @@ func update_ingame_stars() -> void:
 		video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
-			star_celebration.modulate.a = 0.75
+			star_celebration.modulate.a = 1
 			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.01)
+			star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star1_unlocked = true
