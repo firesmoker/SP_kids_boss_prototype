@@ -1221,4 +1221,5 @@ func on_song_end_screen_created(song_end_screen: SongEndScreen) -> void:
 	song_end_screen.total_notes = score_manager.total_notes()
 	song_end_screen.timing_score = score_manager.timing_score()
 	song_end_screen.game_score = score_manager.game_score
+	song_end_screen.model = model
 	

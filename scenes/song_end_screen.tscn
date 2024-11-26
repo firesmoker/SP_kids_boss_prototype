@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=3 uid="uid://co808jv556v5x"]
+[gd_scene load_steps=141 format=3 uid="uid://co808jv556v5x"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -539,6 +539,18 @@ animations = [{
 [sub_resource type="FontVariation" id="FontVariation_w0fxd"]
 variation_embolden = 0.23
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4d52"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rjdr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3s44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ad36h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cq7et"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mkh4"]
+
 [node name="SongEndScreen" type="Node2D"]
 script = ExtResource("1_7ndav")
 
@@ -759,6 +771,9 @@ offset_right = 562.0
 offset_bottom = 697.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r4d52")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0rjdr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w3s44")
 icon = ExtResource("130_6euta")
 flat = true
 
@@ -775,6 +790,9 @@ offset_right = 669.0
 offset_bottom = 697.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ad36h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cq7et")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5mkh4")
 icon = ExtResource("130_rnmvs")
 flat = true
 

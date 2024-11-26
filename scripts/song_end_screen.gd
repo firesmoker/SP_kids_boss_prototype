@@ -1,6 +1,7 @@
 extends Node2D
 class_name SongEndScreen
 
+@onready var model: Dictionary
 var total_stars: int
 var total_hit_notes: int
 var total_notes: int
@@ -31,6 +32,7 @@ var current_xp: int = 0:
 func _ready() -> void:
 	
 	animate_stars(total_stars)
+	set_audio_stream_based_on_stars()
 	set_buttons()
 	display_performance_message()
 	
@@ -175,13 +177,33 @@ func animate_stars(stars_count: int) -> void:
 	tween.tween_property(stars, "modulate:a", 1, FADE_DURATION)
 	var frame: int = {0: 0, 1: 13, 2: 21, 3: 30}.get(stars_count, -1)
 	AnimationHelper.play_animation_sprite_until_frame(stars_animation, "stars_end_animation", frame)
+
+func set_audio_stream_based_on_stars() -> void:
 	stars_audio_player.stream = preload("res://audio/three_stars.wav")
 	stars_audio_player.play()
+	var audio_path: String
+	match total_stars:
+		1:
+			audio_path = "res://audio/one_star.wav"
+		2:
+			audio_path = "res://audio/two_stars.wav"
+		3:
+			audio_path = "res://audio/three_stars.wav"
+		_:
+			audio_path = ""  # No audio for 0 or invalid values
 
+	if audio_path != "":
+		stars_audio_player.stream = load(audio_path)
+		stars_audio_player.play()
+	else:
+		stars_audio_player.stream = null  # Clear the stream for no stars# Clear the audio stream
 
 func _on_repeat_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/song_difficulty_screen.tscn")
+	NodeHelper.move_to_scene(self, "res://scenes/song_difficulty_screen.tscn", Callable(self, "on_song_difficulty_screen_created"))
 
 
 func _on_continue_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/songs_screen.tscn")
+	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+
+func on_song_difficulty_screen_created(song_difficulty_screen: SongDifficultyScreen) -> void:
+	song_difficulty_screen.model = model

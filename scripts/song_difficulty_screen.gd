@@ -1,4 +1,5 @@
 extends Control
+class_name SongDifficultyScreen
 
 @onready var header_label: Label = $HeaderLabel
 var model: Dictionary
