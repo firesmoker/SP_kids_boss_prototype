@@ -301,20 +301,22 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
 	stars_panel.visible = toggle
-	#combo_meter.visible = toggle
 	streak_meter.visible = false
 	score_meter.visible = toggle
-	video_layer_1.visible = false
+	video_layer_1.visible = toggle
 	video_layer_2.visible = false
 	video_layer_3.visible = false
 	video_layer_4.visible = false
 	video_layer_5.visible = false
 	white_layer_4.visible = false
 	background_library.visible = false
-	background_library_solid.visible = toggle
+	background_library_solid.visible = false
+	background_sp.visible = false
+	print("LIBRARY MODE!!!")
 	
 	
 	if sp_mode:
+		print("SP MODE!")
 		lib_visuals.visible = false
 		background_library_solid.visible = false
 		star_bar.visible = false
@@ -390,9 +392,9 @@ func update_ingame_stars() -> void:
 		video_layer_5.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
-			star_celebration.modulate.a = 0.85
+			star_celebration.modulate.a = 1
 			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.01)
+			star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star3_unlocked = true
@@ -402,9 +404,9 @@ func update_ingame_stars() -> void:
 		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
-			star_celebration.modulate.a = 0.75
+			star_celebration.modulate.a = 1
 			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.01)
+			star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star2_unlocked = true
@@ -414,9 +416,9 @@ func update_ingame_stars() -> void:
 		video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
-			star_celebration.modulate.a = 0.75
+			star_celebration.modulate.a = 1
 			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.01)
+			star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star1_unlocked = true
@@ -1094,6 +1096,7 @@ func player_win_animation() -> void:
 	
 
 func start_score_visual() -> void:
+	score_meter.find_child("Expander").expand(1.35,0.25,true)
 	current_score_visual_time = 0
 
 func add_to_combo() -> void:
