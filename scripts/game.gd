@@ -297,20 +297,22 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
 	stars_panel.visible = toggle
-	#combo_meter.visible = toggle
 	streak_meter.visible = false
 	score_meter.visible = toggle
-	video_layer_1.visible = false
+	video_layer_1.visible = toggle
 	video_layer_2.visible = false
 	video_layer_3.visible = false
 	video_layer_4.visible = false
 	video_layer_5.visible = false
 	white_layer_4.visible = false
 	background_library.visible = false
-	background_library_solid.visible = toggle
+	background_library_solid.visible = false
+	background_sp.visible = false
+	print("LIBRARY MODE!!!")
 	
 	
 	if sp_mode:
+		print("SP MODE!")
 		lib_visuals.visible = false
 		background_library_solid.visible = false
 		star_bar.visible = false
