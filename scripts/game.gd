@@ -818,6 +818,8 @@ func fade_out_non_animated_stars(stars_count: int) -> void:
 		tween.tween_property(star3, "modulate:a", 0.1, FADE_DURATION)
 
 func win() -> void:
+	#_on_move_to_end_screen_button_pressed()
+	score_manager.stars = 3
 	winning = true
 	vulnerable = false
 	fade_elements()
@@ -852,7 +854,7 @@ func win() -> void:
 	await timer.timeout
 	game_state = "Win"
 	enter_win_ui()
-	#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 
 func new_timer(wait_time: float = 2.0) -> Timer:
 	var timer: Timer = Timer.new()
@@ -1179,6 +1181,7 @@ func update_debug() -> void:
 
 
 func _on_move_to_end_screen_button_pressed() -> void:
+	#win()
 	fade_elements()
 	var timer: Timer = new_timer(1)
 	timer.start()

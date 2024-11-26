@@ -8,7 +8,7 @@ class_name SongEndScreen
 @onready var xp_label: Label = $UI/XP/XPLabel
 @onready var xp_audio_player: AudioStreamPlayer = $UI/XP/XPAudioPlayer
 @onready var win_text: Label = $UI/WinText
-var score_manager: ScoreManager
+@onready var score_manager: ScoreManager = $ScoreManager
 
 # Adjust this for the delay between each star animation
 const ANIMATION_DELAY = 0.4
@@ -23,12 +23,28 @@ var current_xp: int = 0:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	score_manager.stars = 3
+	score_manager.game_score = 1000
 	Game.target_xp = 2390
 	var stars_to_animate: int = int(score_manager.stars)
 	animate_xp(0, score_manager.game_score, FADE_DURATION + ANIMATION_DELAY * stars_to_animate)
 	animate_stars(stars_to_animate)
-	confetti_animation.play("end_screen_confetti")
+	
+	play_confetti_animation()
+	
 
+func play_confetti_animation() -> void:
+	# Create a Timer
+	var timer: Timer = Timer.new()
+	timer.wait_time = 1.0  # 1 second delay
+	timer.one_shot = true  # Ensures the timer runs only once
+	add_child(timer)  # Add the timer to the scene tree
+	timer.start()  # Start the timer
+
+	# Await the timer's timeout signal
+	await timer.timeout
+	confetti_animation.visible = true
+	confetti_animation.play("end_screen_confetti")
+	timer.queue_free()  # Clean up the timer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
