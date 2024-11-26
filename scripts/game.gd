@@ -1,5 +1,8 @@
 class_name Game extends Node2D
 
+
+var model: Dictionary
+
 @onready var lib_visuals: Node2D = $Level/LibVisuals
 @onready var character: Sprite2D = $Level/LibVisuals/Character
 
@@ -818,8 +821,10 @@ func fade_out_non_animated_stars(stars_count: int) -> void:
 		tween.tween_property(star3, "modulate:a", 0.1, FADE_DURATION)
 
 func win() -> void:
-	#_on_move_to_end_screen_button_pressed()
-	score_manager.stars = 3
+	if not sp_mode and game_mode == "library":
+		show_library_song_end_screen()
+		return
+	
 	winning = true
 	vulnerable = false
 	fade_elements()
@@ -854,7 +859,6 @@ func win() -> void:
 	await timer.timeout
 	game_state = "Win"
 	enter_win_ui()
-	get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 
 func new_timer(wait_time: float = 2.0) -> Timer:
 	var timer: Timer = Timer.new()
@@ -1050,7 +1054,8 @@ func restart_level(wait: bool = false, type: String = "normal") -> void:
 		await timer.timeout
 	get_tree().paused = false
 	#get_tree().reload_current_scene()
-	NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
+	var game: Game = NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
+	game.model = model
 	
 
 func _on_boss_hit_zone_body_entered(note: Note) -> void:
@@ -1179,14 +1184,20 @@ func update_debug() -> void:
 	debug_vulnerable.text = "vulnerable: " + str(vulnerable)
 	debug_game_score.text = "Game Score: " + str(score_manager.game_score)
 
-
 func _on_move_to_end_screen_button_pressed() -> void:
-	#win()
+	win()
+
+func show_library_song_end_screen() -> void:
 	fade_elements()
 	var timer: Timer = new_timer(1)
 	timer.start()
 	await timer.timeout
 	NodeHelper.move_to_scene(self, "res://scenes/song_end_screen.tscn", Callable(self, "on_song_end_screen_created"))
 
-func on_song_end_screen_created(song_end_screen: Node2D) -> void:
-	song_end_screen.score_manager = score_manager
+func on_song_end_screen_created(song_end_screen: SongEndScreen) -> void:
+	song_end_screen.total_stars = score_manager.stars
+	song_end_screen.total_hit_notes = score_manager.total_hit_notes()
+	song_end_screen.total_notes = score_manager.total_notes()
+	song_end_screen.timing_score = score_manager.timing_score()
+	song_end_screen.game_score = score_manager.game_score
+	

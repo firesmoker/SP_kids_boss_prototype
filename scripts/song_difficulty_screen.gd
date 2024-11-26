@@ -63,5 +63,6 @@ func start_level(type: String = "normal") -> void:
 
 
 func move_to_core_game() -> void:	
-	NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
+	var game: Game = NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
+	game.model = model
 		

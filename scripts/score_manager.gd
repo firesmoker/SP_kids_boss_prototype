@@ -22,6 +22,31 @@ var stars: float = 0.0
 
 var game_score: float = 0.0
 
+func total_hit_notes() -> int:
+	if notes_detector and bottom_notes_detector:
+		return notes_detector.hit_notes.size() + bottom_notes_detector.hit_notes.size()
+	return 0  # Default value if detectors are not set
+	
+	
+func timing_score() -> float:
+	if note_scores.size() == 0:
+		return 0.0  # Avoid division by zero
+		
+	var sum: float = 0.0
+	var count: float = 0
+	for value: float in note_scores:
+		if value > 0:
+			sum += value
+			count += 1
+	
+	return sum / count
+	
+	
+func total_notes() -> int:
+	if notes_detector and bottom_notes_detector:
+		return notes_detector.hit_notes.size() + notes_detector.missed_notes.size() + bottom_notes_detector.hit_notes.size() + bottom_notes_detector.missed_notes.size()
+	return 0  # Default value if detectors are not set
+	
 func miss(note: Note) -> void:
 	add_note_score(0)
 

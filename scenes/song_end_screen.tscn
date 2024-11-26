@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=3 uid="uid://co808jv556v5x"]
+[gd_scene load_steps=135 format=3 uid="uid://co808jv556v5x"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -91,7 +91,6 @@
 [ext_resource type="Texture2D" uid="uid://jbprenb51oyr" path="res://art/EndScreenConfetti/end_screen_confetti_57.png" id="58_w4wj8"]
 [ext_resource type="Texture2D" uid="uid://dtb2gpekq7w18" path="res://art/EndScreenConfetti/end_screen_confetti_58.png" id="59_i62pk"]
 [ext_resource type="Texture2D" uid="uid://cwfassqsy4mca" path="res://art/EndScreenConfetti/end_screen_confetti_59.png" id="60_4husr"]
-[ext_resource type="Texture2D" path="res://art/EndScreenConfetti/end_screen_confetti_60.png" id="61_2lc8e"]
 [ext_resource type="Texture2D" uid="uid://cxvxcm5n6etjt" path="res://art/SongEndScreenProgressBar/image1.png" id="62_4dbco"]
 [ext_resource type="Texture2D" uid="uid://cuuor0x21fg0v" path="res://art/SongEndScreenProgressBar/image2.png" id="63_olx2q"]
 [ext_resource type="Texture2D" uid="uid://chtljrcx455x4" path="res://art/SongEndScreenProgressBar/image3.png" id="64_fvcpo"]
@@ -124,11 +123,12 @@
 [ext_resource type="Texture2D" uid="uid://c1t62u8pubm4q" path="res://art/SongEndScreenProgressBar/image30.png" id="91_6kyyy"]
 [ext_resource type="Texture2D" uid="uid://c5a88ca7g6q8t" path="res://art/SongEndScreenProgressBar/image31.png" id="92_tcoks"]
 [ext_resource type="Texture2D" uid="uid://shn0lcndmsmq" path="res://art/SongEndScreenProgressBar/image32.png" id="93_uxkmd"]
-[ext_resource type="Script" path="res://scripts/score_manager.gd" id="94_8dedd"]
 [ext_resource type="Texture2D" uid="uid://l4yyhy5geabr" path="res://art/SongEndScreenProgressBar/image33.png" id="94_y0f04"]
 [ext_resource type="Texture2D" uid="uid://ynocytj5nohv" path="res://art/SongEndScreenProgressBar/image34.png" id="95_uavjj"]
 [ext_resource type="Texture2D" uid="uid://yuwb3xckgxa6" path="res://art/SongEndScreenProgressBar/image35.png" id="96_h03ux"]
 [ext_resource type="Texture2D" uid="uid://h3apkdwuqaua" path="res://art/SongEndScreenProgressBar/image36.png" id="97_03c4t"]
+[ext_resource type="Texture2D" uid="uid://dgoyffmjd085y" path="res://art/RepeatButton.png" id="130_6euta"]
+[ext_resource type="Texture2D" uid="uid://dgr8vc8cgu0es" path="res://art/ContinueButtonBold.png" id="130_rnmvs"]
 
 [sub_resource type="FontVariation" id="FontVariation_mw7k0"]
 variation_embolden = 0.5
@@ -314,7 +314,7 @@ animations = [{
 "texture": ExtResource("60_4husr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("61_2lc8e")
+"texture": null
 }],
 "loop": false,
 "name": &"end_screen_confetti",
@@ -432,7 +432,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("97_03c4t")
 }],
-"loop": true,
+"loop": false,
 "name": &"progress_bar",
 "speed": 30.0
 }]
@@ -536,6 +536,9 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="FontVariation" id="FontVariation_w0fxd"]
+variation_embolden = 0.23
+
 [node name="SongEndScreen" type="Node2D"]
 script = ExtResource("1_7ndav")
 
@@ -548,10 +551,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.309804, 0.129412, 0.701961, 1)
+color = Color(0.099995, 0.000124538, 0.274777, 1)
 metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="UI"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -583,6 +587,7 @@ offset = Vector2(25, 0)
 metadata/_edit_lock_ = true
 
 [node name="Timing" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 810.0
@@ -615,6 +620,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Notes" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 399.0
@@ -668,22 +674,20 @@ metadata/_edit_lock_ = true
 [node name="StarsAudioPlayer" type="AudioStreamPlayer" parent="UI/Stars"]
 
 [node name="YourScoreLabel" type="Label" parent="UI"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -500.0
-offset_top = -61.5
+offset_top = -55.0
 offset_right = 500.0
-offset_bottom = 78.5
+offset_bottom = 85.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0.491583, 0.491583, 0.491583, 0.2)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_outline_size = 2
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = SubResource("FontVariation_w0fxd")
+theme_override_font_sizes/font_size = 32
 text = "Your score:
 "
 horizontal_alignment = 1
@@ -691,15 +695,16 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="XP" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
+offset_left = -27.0
 offset_top = 48.0
-offset_right = -23.0
+offset_right = -27.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -732,5 +737,46 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ScoreManager" type="Node" parent="."]
-script = ExtResource("94_8dedd")
+[node name="Buttons" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_top = -1.0
+offset_right = 46.0
+offset_bottom = 39.0
+
+[node name="RepeatButton" type="Button" parent="UI/Buttons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 470.0
+offset_top = 605.0
+offset_right = 562.0
+offset_bottom = 697.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("130_6euta")
+flat = true
+
+[node name="ContinueButton" type="Button" parent="UI/Buttons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 577.0
+offset_top = 605.0
+offset_right = 669.0
+offset_bottom = 697.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("130_rnmvs")
+flat = true
+
+[connection signal="pressed" from="UI/Buttons/RepeatButton" to="." method="_on_repeat_button_pressed"]
+[connection signal="pressed" from="UI/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
