@@ -1,9 +1,10 @@
-[gd_scene load_steps=141 format=3 uid="uid://co808jv556v5x"]
+[gd_scene load_steps=142 format=3 uid="uid://co808jv556v5x"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
 [ext_resource type="Texture2D" uid="uid://cordb3s17hd1" path="res://art/StarsEnd/stars_end_2.png" id="2_3s2pj"]
 [ext_resource type="Texture2D" uid="uid://c6pltc0vyrk8i" path="res://art/EndScreenConfetti/end_screen_confetti_1.png" id="2_hdlub"]
+[ext_resource type="VideoStream" path="res://art/SongEndBackgroundVideo.ogv" id="2_nylfm"]
 [ext_resource type="Texture2D" uid="uid://oi031r726e63" path="res://art/StarsEnd/stars_end_3.png" id="3_h132l"]
 [ext_resource type="Texture2D" uid="uid://b462p38rxgp05" path="res://art/EndScreenConfetti/end_screen_confetti_2.png" id="3_ixbn5"]
 [ext_resource type="Texture2D" uid="uid://qas2ykwigh2t" path="res://art/StarsEnd/stars_end_4.png" id="4_jy880"]
@@ -565,6 +566,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.099995, 0.000124538, 0.274777, 1)
 metadata/_edit_lock_ = true
+
+[node name="VideoBackground" type="VideoStreamPlayer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_nylfm")
+expand = true
+loop = true
+buffering_msec = 10
 
 [node name="Title" type="Label" parent="UI"]
 visible = false

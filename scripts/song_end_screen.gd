@@ -8,6 +8,7 @@ var total_notes: int
 var timing_score: float
 var game_score: float
 
+@onready var video_background: VideoStreamPlayer = $UI/VideoBackground
 @onready var stars: Control = $UI/Stars
 @onready var stars_animation: AnimatedSprite2D = $UI/Stars/StarsAnimation
 @onready var confetti_animation: AnimatedSprite2D = $UI/ConfettiAnimation
@@ -30,7 +31,6 @@ var current_xp: int = 0:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	animate_stars(total_stars)
 	set_audio_stream_based_on_stars()
 	set_buttons()
@@ -79,6 +79,20 @@ func change_background_color() -> void:
 		Color("#4f21b3"),  # Target color
 		0.4  # Duration in seconds
 	)
+	
+	tween.play()  # Start the tween
+	
+	tween = create_tween()
+	video_background.modulate.a = 0
+	# Animate the alpha (modulate.a)
+	tween.tween_property(
+		video_background,                     # The view to animate
+		"modulate:a",             # Property to animate (alpha channel)
+		1.0,                    
+		0.4
+	)
+	video_background.play()
+	
 	tween.play()  # Start the tween
 
 
