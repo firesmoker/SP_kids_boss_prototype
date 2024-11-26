@@ -679,7 +679,7 @@ func _process(delta: float) -> void:
 
 func _on_music_player_finished() -> void:
 	print("finished!")
-	if not winning and not losing:
+	if not winning and not losing and game_mode == "boss":
 		lose()
 
 	
