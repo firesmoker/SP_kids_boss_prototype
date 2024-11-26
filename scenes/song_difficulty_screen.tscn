@@ -145,4 +145,4 @@ expand_icon = true
 
 [connection signal="pressed" from="EasyButton" to="." method="_on_EasyButton_pressed"]
 [connection signal="pressed" from="MediumButton" to="." method="_on_MediumButton_pressed"]
-[connection signal="pressed" from="HardButton" to="." method="_on_MediumButton_pressed"]
+[connection signal="pressed" from="HardButton" to="." method="_on_HardButton_pressed"]

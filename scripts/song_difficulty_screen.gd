@@ -34,7 +34,7 @@ func load_library_song(difficulty: String = "") -> void:
 	
 	var tempo: float = float(get_bpm(Game.right_melody_path))  # Extract the BPM value
 	var new_tempo: int = int(tempo * difficulty_to_tempo_multiplier(difficulty))
-	var new_song_path: String = song_path.replace(".wav", difficulty + ".wav")
+	var new_song_path: String = get_song_path(song_path, difficulty)
 	Game.song_path = new_song_path
 	
 	Game.tempo = new_tempo
@@ -61,6 +61,13 @@ func get_bpm(file_path: String) -> String:
 		return content.split(",", false)[0]  # Split by ',' and return the first part
 	return ""  # Return an empty string if the file could not be opened
 
+func get_song_path(origina_path: String, difficulty: String) -> String:
+	if difficulty == "easy":
+		return origina_path.replace(".wav", ".easy.wav")
+	elif difficulty == "hard":
+		return origina_path.replace(".wav", ".hard.wav")
+	else:
+		return origina_path  # Return the original string for other cases
 
 func start_level(type: String = "normal") -> void:
 	Game.game_state = "Intro"
