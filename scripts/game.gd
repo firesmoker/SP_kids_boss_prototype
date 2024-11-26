@@ -1137,10 +1137,12 @@ func _on_resume_button_up() -> void:
 
 
 func _on_win_change_level_button_up() -> void:
-	#get_tree().paused = false
-	#get_tree().change_scene_to_file("res://scenes/songs_screen.tscn")
+	if game_mode == "boss":
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://scenes/songs_screen.tscn")
 	#move_to_song_library()
-	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+	else:
+		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
 	if game_mode == "boss":
