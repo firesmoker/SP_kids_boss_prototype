@@ -1,5 +1,7 @@
 extends Control
 
+var settings_window: Node
+
 # Constants
 const SONGS_FOLDER: String = "res://songs"  # Folder containing .song.json files
 const NUM_COLUMNS: int = 4  # Number of columns in the grid
@@ -136,8 +138,11 @@ func create_item(json_data: Dictionary) -> Control:
 
 func _on_settings_pressed() -> void:
 	print("Settings pressed")
-	var new_screen: Node = load("res://scenes/start_screen.tscn").instantiate()
-	get_tree().root.add_child(new_screen)
+	if not settings_window:
+		settings_window = load("res://scenes/start_screen.tscn").instantiate()
+		get_tree().root.add_child(settings_window)
+	else:
+		settings_window.visible = !settings_window.visible
 
 func _on_scroll_started() -> void:
 	print("Scroll started")
