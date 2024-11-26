@@ -33,6 +33,7 @@ static var note_heigth_by_pitch: Dictionary = {
 	"G4": 49.5,
 	"A4": 37.5,
 	"B4": 25.5,
+	"C5": 13.5,
 	"rest": 13.5,
 }
 var starting_position_x: float
@@ -149,6 +150,8 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				collectible.set_sprite(event.subtype)
 				collectible.position.x = event.time * bar_length_in_pixels - size / 2
 				collectible.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
+				if event.note == "B4" or event.note == "C5":
+					collectible.stem.rotation = deg_to_rad(180)
 				if bottom_staff:
 					collectible.position.y += treble_to_bass_gap - bass_clef_offset
 					collectible.stem.rotation = deg_to_rad(180)
@@ -174,6 +177,9 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				new_note.set_duration_visual(event.duration)
 				new_note.position.x = event.time * bar_length_in_pixels - size / 2
 				new_note.position.y = note_heigth_by_pitch[note] + resolution_y_offset
+				
+				if event.note == "B4" or event.note == "C5":
+					new_note.stem.rotation = deg_to_rad(180)
 
 				if bottom_staff:
 					new_note.position.y += treble_to_bass_gap - bass_clef_offset

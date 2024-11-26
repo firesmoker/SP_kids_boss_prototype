@@ -15,6 +15,7 @@ var model: Dictionary
 @onready var star_bar: TextureProgressBar = $UI/StarsPanel/StarBar
 @export var score_success_color: Color
 @onready var star_celebration: AspectRatioContainer = $UI/StarCelebration
+@onready var confetti: AnimatedSprite2D = $Level/LibVisuals/Confetti
 
 var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
@@ -400,6 +401,8 @@ func update_ingame_stars() -> void:
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
 			star_celebration.modulate.a = 1
+			confetti.frame = 0
+			confetti.play()
 			star_celebration.find_child("Animation").play()
 			star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
@@ -411,6 +414,8 @@ func update_ingame_stars() -> void:
 		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
+			confetti.frame = 0
+			confetti.play()
 			star_celebration.modulate.a = 1
 			star_celebration.find_child("Animation").play()
 			star_celebration.find_child("Fader").fade_out(0.005)
@@ -423,6 +428,8 @@ func update_ingame_stars() -> void:
 		video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
+			confetti.frame = 0
+			confetti.play()
 			star_celebration.modulate.a = 1
 			star_celebration.find_child("Animation").play()
 			star_celebration.find_child("Fader").fade_out(0.005)

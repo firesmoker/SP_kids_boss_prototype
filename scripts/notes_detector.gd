@@ -22,6 +22,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not bottom_detector and not event.is_echo() and not event.is_released():
 		var note: String = event.as_text() + "4"
 		note_played(note)
+		note = event.as_text() + "5"
+		note_played(note)
 	elif not event.is_echo() and not event.is_released():
 		var note: String = event.as_text() + "3"
 		note_played(note)
