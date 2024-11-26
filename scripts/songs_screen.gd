@@ -126,7 +126,7 @@ func create_item(json_data: Dictionary) -> Control:
 	artist_label.add_theme_font_size_override("font_size", 12)
 	artist_label.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
 	var fv: FontVariation = FontVariation.new()
-	fv.base_font = load("res://BarlowCondensed-Regular.ttf")
+	#fv.base_font = load("res://BarlowCondensed-Regular.ttf")
 	fv.variation_embolden = -0.5
 	artist_label.add_theme_font_override("font", fv)
 

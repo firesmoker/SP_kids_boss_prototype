@@ -203,7 +203,8 @@ static var sp_mode: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
-		level_accelerate()
+		#level_accelerate()
+		restart_level()
 	elif event.is_action_pressed("ui_down"):
 		level_slow_down()
 	elif event.is_action_pressed("ui_right"):
@@ -1136,8 +1137,9 @@ func _on_resume_button_up() -> void:
 
 
 func _on_win_change_level_button_up() -> void:
-	get_tree().change_scene_to_file("res://scenes/song_difficulty_screen.tscn")
-
+	#get_tree().paused = false
+	#get_tree().change_scene_to_file("res://scenes/songs_screen.tscn")
+	move_to_song_library()
 
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
 	if game_mode == "boss":
@@ -1150,8 +1152,9 @@ func _on_win_restart_button_up(show_easy: bool = false) -> void:
 			easy_button.visible = false
 		difficulty.visible = true
 	else:
-		get_tree().paused = false
-		get_tree().reload_current_scene()
+		#get_tree().paused = false
+		#get_tree().reload_current_scene()
+		restart_level()
 
 
 func _on_win_continue_button_up() -> void:
@@ -1223,3 +1226,6 @@ func on_song_end_screen_created(song_end_screen: SongEndScreen) -> void:
 	song_end_screen.game_score = score_manager.game_score
 	song_end_screen.model = model
 	
+
+func move_to_song_library() -> void:	
+	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
