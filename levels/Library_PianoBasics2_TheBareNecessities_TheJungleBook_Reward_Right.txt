@@ -1,7 +1,7 @@
 115,4/4,0,GClef,Right
 
 
-*bgmFileName:BareNecessities_CMajor_130BPM_Vocals_Short.m4a*
+*bgmFileName:BareNecessities_CMajor_130bpm_Vocals_Short.m4a*
 -:1 
 -:1 
 -:1 
