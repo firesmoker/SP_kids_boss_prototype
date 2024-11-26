@@ -1,0 +1,53 @@
+88,4/4,0,GClef,Right
+
+
+*bgmFileName:PianoBasics2_014_JingleBells_CMajor-VoiceUpdate.m4a*
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+E4:1/4%3(StemU) E4:1/4(StemU) E4:1/2(StemU) 
+E4:1/4(StemU) E4:1/4(StemU) E4:1/2(StemU) 
+E4:1/4%3(StemU) G4:1/4%5(StemU) C4:1/4%1(StemU) D4:1/4(StemU) 
+E4:1/2%3(StemU) -:1/2 
+
+*StageEnd:1*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:2*
+F4:1/4%4(StemU) F4:1/4(StemU) F4:1/4(StemU) F4:1/4(StemU) 
+F4:1/4(StemU) E4:1/4%3(StemU) E4:1/4(StemU) E4:1/4(StemU) 
+E4:1/4(StemU) D4:1/4%2(StemU) D4:1/4(StemU) E4:1/4%3(StemU) 
+D4:1/2(StemU) -:1/2 
+
+*StageEnd:2*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 1*
+
+*StageStart:3*
+E4:1/4%3(StemU) E4:1/4(StemU) E4:1/2(StemU) 
+E4:1/4(StemU) E4:1/4(StemU) E4:1/2(StemU) 
+E4:1/4%3(StemU) G4:1/4%5(StemU) C4:1/4%1(StemU) D4:1/4%2(StemU) 
+E4:1/2(StemU) -:1/2 
+
+*StageEnd:3*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 3*
+
+*StageStart:4*
+F4:1/4%4(StemU) F4:1/4(StemU) F4:1/4(StemU) F4:1/4(StemU) 
+F4:1/4(StemU) E4:1/4%3(StemU) E4:1/4(StemU) E4:1/4(StemU) 
+G4:1/4%5(StemU) G4:1/4(StemU) F4:1/4%4(StemU) D4:1/4%2(StemU) 
+C4:1/2%1(StemU) -:1/2
+*StageEnd:4*
+
+*LevelEnd:Part 3*

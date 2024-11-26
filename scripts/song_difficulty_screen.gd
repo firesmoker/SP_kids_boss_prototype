@@ -9,17 +9,17 @@ func _ready() -> void:
 
 func _on_EasyButton_pressed() -> void:
 	print("Easy mode selected!")
-	load_library_song(0.8)
+	load_library_song("easy")
 
 func _on_MediumButton_pressed() -> void:
 	print("Medium mode selected!")
-	load_library_song(1)
+	load_library_song()
 
 func _on_HardButton_pressed() -> void:
 	print("Hard mode selected!")
-	load_library_song(1.2)
+	load_library_song("hard")
 	
-func load_library_song(tempo_multiplier: float) -> void:
+func load_library_song(difficulty: String = "") -> void:
 	
 	# Navigate to inGameInfo/melodyFiles/right
 	if model.has("inGameInfo") and model["inGameInfo"].has("melodyFiles"):
@@ -32,16 +32,9 @@ func load_library_song(tempo_multiplier: float) -> void:
 	
 	var song_path: String = "res://songs/" + model["inGameInfo"]["bgm"]
 	
-	# Regular expression to match BPM in file names
-	var bpm_pattern: String = r"(\d+)\s?(?:bpm|BPM)"
-
-	# Compile the regular expression
-	var regex: RegEx = RegEx.new()
-	regex.compile(bpm_pattern)
-
-	var tempo: float = float(regex.search(song_path).get_string(1))  # Extract the BPM value
-	var new_tempo: int = int(tempo * tempo_multiplier)
-	var new_song_path: String = regex.sub(song_path, "%sbpm" % str(new_tempo))
+	var tempo: float = float(get_bpm(Game.right_melody_path))  # Extract the BPM value
+	var new_tempo: int = int(tempo * difficulty_to_tempo_multiplier(difficulty))
+	var new_song_path: String = song_path.replace(".wav", difficulty + ".wav")
 	Game.song_path = new_song_path
 	
 	Game.tempo = new_tempo
@@ -49,6 +42,24 @@ func load_library_song(tempo_multiplier: float) -> void:
 	Game.on_display_duration = float(model["inGameInfo"]["onScreenDisplayDuration"])
 	Game.game_mode = "library"
 	start_level("normal")
+	
+func difficulty_to_tempo_multiplier(difficulty: String) -> float:
+	match difficulty:
+		"easy":
+			return 0.8
+		"hard":
+			return 1.2
+		_:
+			return 1.0  # Default value for other cases
+			
+			
+func get_bpm(file_path: String) -> String:
+	var file := FileAccess.open(file_path, FileAccess.READ)
+	if file:
+		var content := file.get_as_text().strip_edges()  # Read the file and trim whitespace
+		file.close()
+		return content.split(",", false)[0]  # Split by ',' and return the first part
+	return ""  # Return an empty string if the file could not be opened
 
 
 func start_level(type: String = "normal") -> void:
