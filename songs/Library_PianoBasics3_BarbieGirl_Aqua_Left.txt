@@ -64,11 +64,11 @@
 *StageEnd:7*
 
 *StageStart:8*
-F3G3:1/2%21(StemD) -:1/2 
+G3:1/2%1(StemD) -:1/2 
 -:1 
 -:1 
 -:1 
-F3G3:1/2%21(StemD) -:1/2 
+G3:1/2%1(StemD) -:1/2 
 
 *StageEnd:8*
 
