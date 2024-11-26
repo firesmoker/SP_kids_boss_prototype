@@ -1,4 +1,4 @@
-[gd_scene load_steps=643 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=644 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://dd6t8y4nfef0s" path="res://audio/success.mp3" id="16_5nc2f"]
 [ext_resource type="Texture2D" uid="uid://c1ok3gbklgya6" path="res://art/buttons/Restart (1).png" id="16_icmxq"]
 [ext_resource type="Texture2D" uid="uid://bxoxqsja0mkf1" path="res://art/30.sep/Collectible-Bomb/Collectible-Bomb_00000.png" id="17_64vtv"]
+[ext_resource type="AudioStream" uid="uid://k3nyk08ui53u" path="res://audio/SongEndLoop.wav" id="17_jypp5"]
 [ext_resource type="Script" path="res://scripts/beat_manager.gd" id="18_di3rh"]
 [ext_resource type="Texture2D" uid="uid://dvgartwj75oa2" path="res://art/Collectible-Snow/Collectible-Snow_00007.png" id="19_4oala"]
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="19_j5u08"]
@@ -183,7 +184,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rrmv5cagds6" path="res://art/13_nov/StarEndScreen/StarEndScreen-39.png" id="92_c1lsn"]
 [ext_resource type="Texture2D" uid="uid://e2170akyij0x" path="res://art/20_nov/StarFills/MidStarFill/MidStarFill_00391.png" id="92_lmva8"]
 [ext_resource type="Texture2D" uid="uid://clurqv0utehvu" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00379.png" id="92_xl83r"]
-[ext_resource type="SpriteFrames" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="Texture2D" uid="uid://kck1qisi3c5k" path="res://art/20_nov/StarFills/MidStarFill/MidStarFill_00392.png" id="93_n1due"]
 [ext_resource type="Texture2D" uid="uid://bx6n7ajv7ppdk" path="res://art/13_nov/StarEndScreen/StarEndScreen-40.png" id="93_r6wqf"]
 [ext_resource type="Texture2D" uid="uid://kpbl2ff7rhkn" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00380.png" id="93_y3cu8"]
@@ -2559,6 +2560,7 @@ boss_death = ExtResource("9_4f17a")
 electric_attack = ExtResource("8_e5tvg")
 heart = ExtResource("11_s1wme")
 star = ExtResource("16_5nc2f")
+song_end_music = ExtResource("17_jypp5")
 
 [node name="Audio" type="AudioStreamPlayer" parent="Sound"]
 
@@ -2662,7 +2664,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="WinText" type="Label" parent="Overlay"]
 process_mode = 3
-modulate = Color(1, 1, 1, 0)
 z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2675,8 +2676,9 @@ offset_right = 160.0
 offset_bottom = -231.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(160, 169)
 theme_override_font_sizes/font_size = 100
-text = "ניצחון!"
+text = "סיימת את השיר"
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
@@ -2830,7 +2832,6 @@ script = ExtResource("24_atn10")
 [node name="PopupTimer" type="Timer" parent="Overlay/Tutorial/ProgressBar"]
 
 [node name="WinButtons" type="Panel" parent="Overlay"]
-visible = false
 offset_left = 304.0
 offset_top = 648.0
 offset_right = 889.0
@@ -2865,7 +2866,6 @@ texture_normal = ExtResource("15_m6t7w")
 metadata/_edit_lock_ = true
 
 [node name="Stars" type="Control" parent="Overlay"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 8
@@ -4163,7 +4163,6 @@ metadata/_edit_lock_ = true
 
 [node name="IntoStage" type="AnimatedSprite2D" parent="Level"]
 process_mode = 4
-visible = false
 z_index = 2
 position = Vector2(2.1134, -1.78571)
 scale = Vector2(0.921786, 0.921786)

@@ -129,6 +129,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @export var accelerate_sound: AudioStream
 @export var slow_down_sound: AudioStream
 
+static var song_title: String = ""
 static var boss_model: String = ""
 static var player_model: String = ""
 static var current_difficulty: String
@@ -288,6 +289,11 @@ func set_default_visibility() -> void:
 	return_button.visible = false
 	background_slow.visible = false
 	intro_sequence_transition.visible = false
+	into_stage.frame = 0
+	into_stage.visible = false
+	win_buttons.visible = false
+	win_text.visible = false
+	win_text.modulate.a = 0
 	
 	## Hide Library visuals:
 	set_library_song_visibility(false)
@@ -759,23 +765,32 @@ func show_stars() -> void:
 	animate_xp(0, score_manager.game_score, FADE_DURATION + ANIMATION_DELAY * stars_to_animate)
 	animate_stars(stars_to_animate)
 
-func display_performance_message() -> void:
+func display_performance_message(sp_screen: bool = sp_mode) -> void:
+	win_text.visible = false
 	var stars: int = int(score_manager.stars)
 	var message: String = ""
-	match stars:
-		0:
-			message = "ניסיון יפה!"
-		1:
-			message = "הופעה טובה!"
-		2:
-			message = "הופעה נהדרת!"
-		3:
-			message = "ביצוע מדהים!"
-		_:
-			message = ""
+	if not sp_mode:
+		match stars:
+			0:
+				message = "ניסיון יפה!"
+			1:
+				message = "הופעה טובה!"
+			2:
+				message = "הופעה נהדרת!"
+			3:
+				message = "ביצוע מדהים!"
+			_:
+				message = ""
+	else:
+		message = "סיימת את השיר!"
+		win_text.text = message
+		win_text.pivot_offset.x = win_text.size.x / 2
+		win_text.pivot_offset.y = win_text.size.y / 2
+		win_text.scale *= 0.5
 
 	# Display the message (for example, in a Label node)
 	win_text.text = message
+	win_text.visible = true
 
 func animate_stars(stars_count: int) -> void:
 	star1.visible = true
@@ -842,7 +857,10 @@ func win() -> void:
 		boss.visible = false
 		
 	music_player_slow.stop()
-	play_music_clip(audio_clips.player_wins)
+	if game_mode == "library":
+		play_music_clip(audio_clips.song_end_music)
+	else:	
+		play_music_clip(audio_clips.player_wins)
 	into_stage.process_mode = Node.PROCESS_MODE_INHERIT
 	into_stage.visible = true
 	into_stage.play()
@@ -854,7 +872,7 @@ func win() -> void:
 		player_win_animation()
 		await player_character.animation_finished
 	else: 
-		display_performance_message()
+		display_performance_message(true)
 	show_stars()
 	timer.wait_time = 0.5
 	timer.start()
