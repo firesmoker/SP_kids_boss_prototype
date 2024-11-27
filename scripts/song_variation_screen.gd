@@ -3,6 +3,7 @@ extends Control
 var model: Dictionary
 @onready var container: HBoxContainer = $HBoxContainer
 @onready var header_label: Label = $HeaderLabel
+static var shuffled_once: bool = false
 
 func _on_SP_pressed() -> void:
 	print("SP mode selected!")
@@ -24,17 +25,21 @@ func move_to_difficulty_screen() -> void:
 	get_tree().root.add_child(new_screen)
 
 func _ready() -> void:
-	shuffle_buttons()
+	#if not shuffled_once:
+		#shuffle_buttons()
 	header_label.text = model.get("displayName")
 	
 
 func shuffle_buttons() -> void:
 	# Get all children (buttons) as a list
+	print("shuffling buttons, shuffled_once is: " + str(shuffled_once))
 	var children: Array[Node] = container.get_children()
-	
+
 	# Convert to an array and shuffle it
 	children.shuffle()
+	
 
 	# Rearrange the children in the shuffled order
 	for i in range(children.size()):
 		container.move_child(children[i], i)
+		
