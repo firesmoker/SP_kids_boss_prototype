@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4fnr2cxlhea8"]
 
 [ext_resource type="Script" path="res://scripts/song_variation_screen.gd" id="1_m5rk2"]
-[ext_resource type="Texture2D" uid="uid://d2nw2h08i6tji" path="res://art/SimplyPianoVariant.png" id="2_gducw"]
-[ext_resource type="Texture2D" uid="uid://blrsitvsb71id" path="res://art/LibrarySongVariant.png" id="3_1gvi7"]
+[ext_resource type="Texture2D" uid="uid://d2nw2h08i6tji" path="res://art/LibrarySongVariant.png" id="2_gducw"]
+[ext_resource type="Texture2D" uid="uid://blrsitvsb71id" path="res://art/SimplyPianoVariant.png" id="3_1gvi7"]
 
 [sub_resource type="FontVariation" id="FontVariation_djn1u"]
 variation_embolden = -0.5
@@ -84,7 +84,7 @@ custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0j35f")
-icon = ExtResource("2_gducw")
+icon = ExtResource("3_1gvi7")
 flat = true
 
 [node name="LibraryButton" type="Button" parent="HBoxContainer"]
@@ -93,7 +93,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_56b30")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4baoe")
-icon = ExtResource("3_1gvi7")
+icon = ExtResource("2_gducw")
 flat = true
 
 [connection signal="pressed" from="HBoxContainer/SPButton" to="." method="_on_SP_pressed"]
