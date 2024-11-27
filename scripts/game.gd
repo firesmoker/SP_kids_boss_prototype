@@ -411,7 +411,7 @@ func update_ingame_stars() -> void:
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
 			expander.expand(1.4,0.25,true)
 	elif score_manager.current_score > star2_threshold_modifier:
-		video_layer_4.find_child("Fader").fade_in(0.015)
+		#video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
 			confetti.frame = 0
@@ -425,7 +425,7 @@ func update_ingame_stars() -> void:
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
 			expander.expand(1.4,0.25,true)
 	elif score_manager.current_score > star1_threshold_modifier:
-		video_layer_3.find_child("Fader").fade_in(0.015)
+		#video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
 			confetti.frame = 0
@@ -479,10 +479,10 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 		process_mode = Node.PROCESS_MODE_DISABLED
 	lib_visuals.process_mode = process_mode
 	video_layer_1.process_mode = process_mode
-	video_layer_2.process_mode = process_mode
-	video_layer_3.process_mode = process_mode
-	video_layer_4.process_mode = process_mode
-	video_layer_5.process_mode = process_mode
+	video_layer_2.process_mode = Node.PROCESS_MODE_DISABLED
+	video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
+	video_layer_4.process_mode = Node.PROCESS_MODE_DISABLED
+	video_layer_5.process_mode = Node.PROCESS_MODE_DISABLED
 	
 
 func _ready() -> void:
