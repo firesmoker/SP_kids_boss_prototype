@@ -80,14 +80,14 @@ func create_item(json_data: Dictionary) -> Control:
 	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var frame_style: StyleBoxFlat = StyleBoxFlat.new()
 	frame_style.bg_color =  Color("#5D139E") 
-	frame_style.set_corner_radius_all(5)
+	frame_style.set_corner_radius_all(8)
 	frame_style.border_color = Color(1, 1, 1, 0)
 	frame.add_theme_stylebox_override("panel", frame_style)
-	frame.custom_minimum_size = Vector2(180, 260)  # Set minimum size for the frame
+	frame.custom_minimum_size = Vector2(270, 390)  # Set minimum size for the frame
 	
 	var item: VBoxContainer = VBoxContainer.new()
-	item.offset_top = 5
-	item.offset_left = -10
+	item.offset_top = 12
+	item.offset_left = -16
 	item.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	item.size_flags_horizontal = Control.SizeFlags.SIZE_FILL
@@ -99,7 +99,7 @@ func create_item(json_data: Dictionary) -> Control:
 	image.model = json_data
 	image.mouse_filter = Control.MOUSE_FILTER_PASS
 	image.texture = load(image_file)
-	image.custom_minimum_size = Vector2(200, 200)  
+	image.custom_minimum_size = Vector2(300, 300)  
 	image.size_flags_horizontal = Control.SIZE_FILL
 	image.size_flags_vertical = Control.SIZE_FILL
 	image.expand_mode = TextureRect.EXPAND_FIT_WIDTH
@@ -110,7 +110,7 @@ func create_item(json_data: Dictionary) -> Control:
 	var id: String = json_data.get("id", "")
 	tag_image.mouse_filter = Control.MOUSE_FILTER_PASS
 	tag_image.texture = get_tag_texture(id)
-	tag_image.custom_minimum_size = Vector2(166, 26)  
+	tag_image.custom_minimum_size = Vector2(250, 40)  
 	tag_image.size_flags_horizontal = Control.SIZE_FILL
 	tag_image.size_flags_vertical = Control.SIZE_FILL
 	tag_image.expand_mode = TextureRect.EXPAND_FIT_WIDTH
@@ -125,7 +125,7 @@ func create_item(json_data: Dictionary) -> Control:
 	tag_image.offset_left = -tag_image.custom_minimum_size.x / 2
 	tag_image.offset_right = tag_image.custom_minimum_size.x / 2
 	tag_image.offset_top = -tag_image.custom_minimum_size.y - 8
-	tag_image.offset_bottom = 8
+	tag_image.offset_bottom = 16
 
 
 	# Add the TextureRect to the parent
@@ -136,11 +136,16 @@ func create_item(json_data: Dictionary) -> Control:
 	#image.size_flags_vertical = Control.SizeFlags.SIZE_SHRINK_CENTER
 	#image.clip_contents = true  # Ensure content does not overflow
 	item.add_child(image)
-
+	
+	# Add a Song name label
+	var padding_label: Label = Label.new()
+	padding_label.add_theme_font_size_override("font_size", 6)
+	item.add_child(padding_label)
+	
 	# Add a Song name label
 	var label: Label = Label.new()
-	label.add_theme_font_size_override("font_size", 14)
 	
+	label.pivot_offset = Vector2(0, 100)
 	label.text = title
 	label.autowrap_mode = TextServer.AutowrapMode.AUTOWRAP_ARBITRARY
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -149,7 +154,7 @@ func create_item(json_data: Dictionary) -> Control:
 	# Add a Artist label
 	var artist_label: Label = Label.new()
 	# Apply it to the Label
-	artist_label.add_theme_font_size_override("font_size", 12)
+	artist_label.add_theme_font_size_override("font_size", 14)
 	artist_label.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
 	var fv: FontVariation = FontVariation.new()
 	#fv.base_font = load("res://BarlowCondensed-Regular.ttf")
