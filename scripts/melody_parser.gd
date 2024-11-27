@@ -31,7 +31,7 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 			event.type = "rest"
 			section = section.replace("-", "")
 		
-		elif section.contains("&"):
+		elif section.contains("&&"):
 			var collectible_parts: PackedStringArray = parts[0].split("&") 
 			event.type = "collectible"
 			event.subtype = get_word(collectible_parts[1])

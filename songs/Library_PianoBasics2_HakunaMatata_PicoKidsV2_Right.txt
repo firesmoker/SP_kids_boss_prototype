@@ -1,0 +1,73 @@
+110,4/4,0,GClef,Right
+
+
+*bgmFileName:HakunaMatata_CMajor_110_Vocals_PB23.m4a*
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+-:1/2 E4:1/4%3(StemU) E4:1/4(StemU) 
+D4:1/4%2(StemU) C4:1/4%1(StemU) -:1/2 
+-:1/2 C4:1/4%1(StemU) C4:1/4(StemU) 
+D4:1/4%2(StemU) -:1/4 -:1/2 
+
+*StageEnd:1*
+
+*StageStart:2*
+-:1/2 E4:1/4%3(StemU) E4:1/4(StemU) 
+D4:1/4(StemU) C4:1/4%1(StemU) C4:1/4(StemU) -:1/4 
+-:1/2 -:1/4 E4:1/4%3(StemU) 
+E4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) -:1/4 
+
+*StageEnd:2*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:3*
+-:1/2 E4:1/4%3(StemU) E4:1/4(StemU) 
+D4:1/4%2(StemU) C4:1/4(StemU) -:1/2 
+-:1/2 G4:1/4%5(StemU) G4:1/4(StemU) 
+E4:1/4%3(StemU) E4:1/4(StemU) -:1/2 
+
+*StageEnd:3*
+
+*StageStart:4*
+-:1/2 E4:1/4%3(StemU) C4:1/4%1(StemU) 
+D4:1/4%2(StemU) -:1/4 -:1/2 
+-:1/2 E4:1/4%3(StemU) E4:1/4(StemU) 
+D4:1/4%2(StemU) C4:1/4%1(StemU) C4:1/4(StemU) -:1/4 
+
+*StageEnd:4*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:5*
+-:1/2 -:1/4 E4:1/4%3(StemU) 
+E4:1/4(StemU) D4:1/4(StemU) D4:1/4(StemU) -:1/4 
+-:1/2 E4:1/4%3(StemU) E4:1/4(StemU) 
+D4:1/4%2(StemU) C4:1/4(StemU) -:1/2 
+
+*StageEnd:5*
+
+*StageStart:6*
+-:1/2 E4:1/4%3(StemU) E4:1/4(StemU) 
+C4:1/4%1(StemU) D4:1/4%2(StemU) -:1/2 
+-:1/2 E4:1/4%3(StemU) E4:1/4(StemU) 
+D4:1/4(StemU) C4:1/4%1(StemU) -:1/2 
+-:1
+*StageEnd:6*
+
+*LevelEnd:Part 3*
