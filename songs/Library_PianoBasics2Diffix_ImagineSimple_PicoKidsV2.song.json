@@ -10,7 +10,7 @@
 	"artist": "ג׳ון לנון",
 	"imageFileName": "LibrarySongCover_JohnLennon.jpg",
 	"inGameInfo": {
-		"bgm": "Imagine_FMajor_68bpm_Simple8th_vocals.wav",
+		"bgm": "Imagine_FMajor_68bpm_Simple8th_vocals.ogg",
 		"onScreenDisplayDuration": 2.1,
 		"melodyFiles": {
 			"right": "Library_PianoBasics2Diffix_ImagineSimple_PicoKidsV2_Right.txt"

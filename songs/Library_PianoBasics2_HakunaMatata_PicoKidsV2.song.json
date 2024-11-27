@@ -9,7 +9,7 @@
   "backgroundAnimationTheme": "savana",
   "inGameInfo": {
     "onScreenDisplayDuration": 4,
-    "bgm": "HakunaMatata_CMajor_110_Vocals_PB23.wav",
+    "bgm": "HakunaMatata_CMajor_110_Vocals_PB23.ogg",
     "melodyFiles": {
       "right": "Library_PianoBasics2_HakunaMatata_PicoKidsV2_Right.txt"
     }

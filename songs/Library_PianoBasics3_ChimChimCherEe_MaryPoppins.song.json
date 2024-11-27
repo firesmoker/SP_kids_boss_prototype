@@ -8,7 +8,7 @@
 	"imageFileName": "SpecialChallenge_GoodVibes2022_MaryPoppins.jpg",
 	"inGameInfo": {
 		"onScreenDisplayDuration": 2.5,
-		"bgm": "ChimChimCherEe_Dm_160bpm_NoPreCount.wav",
+		"bgm": "ChimChimCherEe_Dm_160bpm_NoPreCount.ogg",
 		"melodyFiles": {
 			"right": "Library_PianoBasics3_ChimChimCherEe_MaryPoppins_Right.txt",
 			"left": "Library_PianoBasics3_ChimChimCherEe_MaryPoppins_Left.txt"

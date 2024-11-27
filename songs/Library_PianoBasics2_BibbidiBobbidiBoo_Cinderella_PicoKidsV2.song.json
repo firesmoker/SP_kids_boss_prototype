@@ -8,7 +8,7 @@
   "imageFileName": "LibrarySongCover_Cinderella.jpg",
   "inGameInfo": {
     "onScreenDisplayDuration": 4,
-    "bgm": "BibbidiBobbidiBoo_CMajor_140bpm.wav",
+    "bgm": "BibbidiBobbidiBoo_CMajor_140bpm.ogg",
     "melodyFiles": {
       "left": "Library_PianoBasics2_BibbidiBobbidiBoo_Cinderella_PicoKidsV2_Left.txt"
     }

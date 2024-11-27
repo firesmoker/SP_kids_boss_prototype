@@ -6,7 +6,7 @@
 	"artist": "אלישיה קיז",
 	"imageFileName": "LibrarySongCover_AliciaKeys.jpg",
 	"inGameInfo": {
-		"bgm": "GirlOnFire_AliciaKeys_CMajor_86bpm_Vocals.wav",
+		"bgm": "GirlOnFire_AliciaKeys_CMajor_86bpm_Vocals.ogg",
 		"melodyFiles": {
 			"right": "Library_PianoBasics2_GirlOnFire_AliciaKeys_Right.txt",
 			"left": "Library_PianoBasics2_GirlOnFire_AliciaKeys_Left.txt"

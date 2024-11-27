@@ -6,7 +6,7 @@
     "artist": "עידן עמדי",
     "imageFileName": "LibrarySongCover_KeEvShelLochamim_IdanAmedi_IL.jpg",
     "inGameInfo": {
-        "bgm": "KeEvShelLochamim_IdanAmedi_IL_DMinor_86bpm_Vocals.wav",
+        "bgm": "KeEvShelLochamim_IdanAmedi_IL_DMinor_86bpm_Vocals.ogg",
         "melodyFiles": {
             "right": "Library_PianoBasics3_KeEvShelLochamim_IdanAmedi_IL_Right.txt",
             "left": "Library_PianoBasics3_KeEvShelLochamim_IdanAmedi_IL_Left.txt"

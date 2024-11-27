@@ -8,7 +8,7 @@
   "imageFileName": "LibrarySongCover_CanYouFeelTheLoveTonight_LionKing.jpg",
   "inGameInfo": {
     "onScreenDisplayDuration": 4,
-    "bgm": "CanYouFeelTheLoveTonight_Vocals_CMajor_62bpm_Fixed.wav",
+    "bgm": "CanYouFeelTheLoveTonight_Vocals_CMajor_62bpm_Fixed.ogg",
     "melodyFiles": {
       "left": "Library_PianoBasics1B_PicoKidsStarLevel_CanYouFeelTheLoveTonight_Left.txt"
     }

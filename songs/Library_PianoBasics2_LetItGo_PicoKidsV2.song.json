@@ -11,7 +11,7 @@
     "imageFileName": "LibrarySongCover_LetItGo.jpg",
     "backgroundAnimationTheme": "savana",
     "inGameInfo": {
-        "bgm": "LetItGo_Aminor_106bpm_ShortForPB2.wav",
+        "bgm": "LetItGo_Aminor_106bpm_ShortForPB2.ogg",
         "onScreenDisplayDuration": 3.5,
         "melodyFiles": {
             "right": "Library_PianoBasics2_LetItGo_PicoKidsV2_Right.txt"

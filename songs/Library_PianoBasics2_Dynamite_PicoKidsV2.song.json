@@ -8,7 +8,7 @@
 	"imageFileName": "LibrarySongCover_ButterBTS.jpg",
 	"inGameInfo": {
 		"onScreenDisplayDuration": 4,
-		"bgm": "Dynamite_CMajor_92bpm_VOCALS.wav",
+		"bgm": "Dynamite_CMajor_92bpm_VOCALS.ogg",
 		"melodyFiles": {
 			"right": "Library_PianoBasics2_Dynamite_PicoKidsV2_Right.txt"
 		}

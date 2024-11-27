@@ -8,7 +8,7 @@
     "imageFileName": "LibrarySongCover_SpongeBob.jpg",
     "inGameInfo": {
         "onScreenDisplayDuration": 3.5,
-        "bgm": "SpongeBob_MarkHarrisonBlaiseSmith_GMajor_106bpm_Vocals.wav",
+        "bgm": "SpongeBob_MarkHarrisonBlaiseSmith_GMajor_106bpm_Vocals.ogg",
         "melodyFiles": {
             "right": "Library_PianoBasics2_SpongeBob_MarkHarrisonBlaiseSmith_Kids_Right.txt"
         }

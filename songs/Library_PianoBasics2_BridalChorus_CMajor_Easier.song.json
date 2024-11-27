@@ -6,7 +6,7 @@
 	"artist": "ריכרד וגנר",
 	"imageFileName": "LibrarySongCover_BridalChorus.jpg",
 	"inGameInfo": {
-		"bgm": "WeddingWagner_CMajor_66bpm.wav",
+		"bgm": "WeddingWagner_CMajor_66bpm.ogg",
 		"onScreenDisplayDuration": 2,
 		"melodyFiles": {
 			"right": "Library_PianoBasics2_BridalChorus_CMajor_Easier_Right.txt",

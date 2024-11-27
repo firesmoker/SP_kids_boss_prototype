@@ -10,7 +10,7 @@
     "artist": "מייקל וו. סמית׳",
     "imageFileName": "LibrarySongCover_HereIAmToWorship.jpg",
     "inGameInfo": {
-        "bgm": "HereIAmToWorship_CMajor_78bpm_Longer.wav",
+        "bgm": "HereIAmToWorship_CMajor_78bpm_Longer.ogg",
         "onScreenDisplayDuration": 2.3,
         "melodyFiles": {
             "right": "Library_PianoBasics3_HereIAmToWorship_TimHughes_Right.txt",
