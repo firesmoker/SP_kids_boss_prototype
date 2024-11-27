@@ -1,5 +1,6 @@
 extends Control
 class_name SongDifficultyScreen
+
 @onready var load_overlay: TextureRect = $LoadOverlay
 
 @onready var header_label: Label = $HeaderLabel
@@ -90,3 +91,10 @@ func move_to_core_game() -> void:
 	var game: Game = NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
 	game.model = model
 		
+
+func _on_back_button_pressed() -> void:
+	NodeHelper.move_to_scene(self, "res://scenes/song_variation_screen.tscn", Callable(self, "on_screen_created"))
+
+func on_screen_created(screen: Node) -> void:
+	screen.model = model
+	

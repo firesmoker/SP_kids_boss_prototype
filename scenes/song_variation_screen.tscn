@@ -1,8 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4fnr2cxlhea8"]
+[gd_scene load_steps=12 format=3 uid="uid://c4fnr2cxlhea8"]
 
 [ext_resource type="Script" path="res://scripts/song_variation_screen.gd" id="1_m5rk2"]
 [ext_resource type="Texture2D" uid="uid://bj38qtjqctoaf" path="res://art/LibrarySongVariant.png" id="2_gducw"]
+[ext_resource type="Texture2D" uid="uid://cq6ql7v1cwu5i" path="res://art/back.png" id="2_kog7m"]
 [ext_resource type="Texture2D" uid="uid://bcr5qb072yrm0" path="res://art/SimplyPianoVariant.png" id="3_1gvi7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxf50"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0m8h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfeyj"]
 
 [sub_resource type="FontVariation" id="FontVariation_djn1u"]
 variation_embolden = -0.5
@@ -35,6 +42,18 @@ offset_bottom = 672.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0666667, 0, 0.203922, 1)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 51.0
+offset_right = 151.0
+offset_bottom = 143.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cxf50")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j0m8h")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pfeyj")
+icon = ExtResource("2_kog7m")
+flat = true
 
 [node name="HeaderLabel" type="Label" parent="."]
 layout_mode = 1
@@ -98,5 +117,6 @@ icon = ExtResource("2_gducw")
 flat = true
 expand_icon = true
 
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/SPButton" to="." method="_on_SP_pressed"]
 [connection signal="pressed" from="HBoxContainer/LibraryButton" to="." method="_on_Library_pressed"]
