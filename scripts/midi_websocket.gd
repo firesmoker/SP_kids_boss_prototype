@@ -54,6 +54,9 @@ func process(packet: PackedByteArray) -> void:
 	match packet[0]:
 		WebSocketMessageList.WEBSOCKET_NOTE_OFF: midi_event.action = "off"
 		WebSocketMessageList.WEBSOCKET_NOTE_ON: midi_event.action = "on"
+	match packet[2]:
+		0: return
+		
 	midi_event.pitch = packet[1]
 	midi_event.velocity = packet[2]
 	midiProcessor.processEvent(midi_event)
