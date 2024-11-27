@@ -184,7 +184,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rrmv5cagds6" path="res://art/13_nov/StarEndScreen/StarEndScreen-39.png" id="92_c1lsn"]
 [ext_resource type="Texture2D" uid="uid://e2170akyij0x" path="res://art/20_nov/StarFills/MidStarFill/MidStarFill_00391.png" id="92_lmva8"]
 [ext_resource type="Texture2D" uid="uid://clurqv0utehvu" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00379.png" id="92_xl83r"]
-[ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="SpriteFrames" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="Texture2D" uid="uid://kck1qisi3c5k" path="res://art/20_nov/StarFills/MidStarFill/MidStarFill_00392.png" id="93_n1due"]
 [ext_resource type="Texture2D" uid="uid://bx6n7ajv7ppdk" path="res://art/13_nov/StarEndScreen/StarEndScreen-40.png" id="93_r6wqf"]
 [ext_resource type="Texture2D" uid="uid://kpbl2ff7rhkn" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00380.png" id="93_y3cu8"]
@@ -309,7 +309,7 @@
 [ext_resource type="Texture2D" uid="uid://ct0q723evej7l" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00424.png" id="137_0tg18"]
 [ext_resource type="Texture2D" uid="uid://csdnf7bqr0low" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00425.png" id="138_0x2yo"]
 [ext_resource type="Texture2D" uid="uid://dc5focdy2s7rg" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00426.png" id="139_ryre6"]
-[ext_resource type="VideoStream" path="res://art/26_nov/bg_vid2_1.ogv" id="286_e8nnj"]
+[ext_resource type="VideoStream" path="res://art/26_nov/bg_vid4.ogv" id="208_dyywy"]
 [ext_resource type="VideoStream" path="res://art/19_nov/Boss_Fight_Intro_Boy.ogv" id="346_1rsua"]
 [ext_resource type="Texture2D" uid="uid://bmvr7xg6iwhy4" path="res://art/17_nov/Pause.png" id="346_nm773"]
 [ext_resource type="Texture2D" uid="uid://bhgtbs3r2cwuc" path="res://art/17_nov/Play.png" id="347_fspio"]
@@ -3555,6 +3555,17 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_rfog7")
 metadata/_edit_lock_ = true
 
+[node name="WhiteLayer4_old" type="ColorRect" parent="UI"]
+visible = false
+modulate = Color(1, 1, 1, 0.521569)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
 [node name="DarkenLevel" type="TextureRect" parent="UI"]
 process_mode = 3
 visible = false
@@ -3699,7 +3710,7 @@ offset_right = 50.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("286_e8nnj")
+stream = ExtResource("208_dyywy")
 autoplay = true
 expand = true
 loop = true

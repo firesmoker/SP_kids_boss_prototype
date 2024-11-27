@@ -63,9 +63,9 @@ func get_bpm(file_path: String) -> String:
 
 func get_song_path(origina_path: String, difficulty: String) -> String:
 	if difficulty == "easy":
-		return origina_path.replace(".wav", ".easy.wav")
+		return origina_path.replace(".ogg", ".easy.ogg")
 	elif difficulty == "hard":
-		return origina_path.replace(".wav", ".hard.wav")
+		return origina_path.replace(".ogg", ".hard.ogg")
 	else:
 		return origina_path  # Return the original string for other cases
 
