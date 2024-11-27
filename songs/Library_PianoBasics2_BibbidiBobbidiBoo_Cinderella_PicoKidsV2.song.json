@@ -1,20 +1,21 @@
 {
   "id": "Library_PianoBasics2_BibbidiBobbidiBoo_Cinderella_PicoKidsV2",
-  "displayName": "Bibbidi-Bobbidi-Boo",
+  "displayName": "ביבידי בבידי בו",
   "uiType": "bass_clef",
   "version": 1,
   "scaleFactor": 0.85,
   "artist": "Cinderella",
   "imageFileName": "LibrarySongCover_Cinderella.jpg",
   "inGameInfo": {
-    "onScreenDisplayDuration": 4,
-    "bgm": "BibbidiBobbidiBoo_CMajor_140bpm.ogg",
-    "melodyFiles": {
-      "left": "Library_PianoBasics2_BibbidiBobbidiBoo_Cinderella_PicoKidsV2_Left.txt"
-    }
+
+	"onScreenDisplayDuration": 4,
+	"bgm": "BibbidiBobbidiBoo_CMajor_140bpm.ogg",
+	"melodyFiles": {
+	  "right": "Library_PianoBasics2_BibbidiBobbidiBoo_Cinderella_PicoKidsV2_Right.txt",
+	  "left": "Library_PianoBasics2_BibbidiBobbidiBoo_Cinderella_PicoKidsV2_Left.txt"
   },
   "acum_id": "Disney2019098",
   "licenseIDs": [
-    "Acum"
+	"Acum"
   ]
 }

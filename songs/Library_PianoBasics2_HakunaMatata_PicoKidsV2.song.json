@@ -1,6 +1,6 @@
 {
   "id": "Library_PianoBasics2_HakunaMatata_PicoKidsV2",
-  "displayName": "Hakuna Matata",
+  "displayName": "הקונה מטטה",
   "uiType": "treble_clef",
   "version": 1,
   "scaleFactor": 0.85,
@@ -8,14 +8,14 @@
   "imageFileName": "AlbumCover_LionKing_Disney_450_Shimurim.jpg",
   "backgroundAnimationTheme": "savana",
   "inGameInfo": {
-    "onScreenDisplayDuration": 4,
-    "bgm": "HakunaMatata_CMajor_110_Vocals_PB23.ogg",
-    "melodyFiles": {
-      "right": "Library_PianoBasics2_HakunaMatata_PicoKidsV2_Right.txt"
-    }
+
+	"onScreenDisplayDuration": 4,
+	"bgm": "HakunaMatata_CMajor_110_Vocals_PB23.ogg",
+	"melodyFiles": {
+	  "right": "Library_PianoBasics2_HakunaMatata_PicoKidsV2_Right.txt"
   },
   "acum_id": "Disney2060619",
   "licenseIDs": [
-    "Acum"
+	"Acum"
   ]
 }

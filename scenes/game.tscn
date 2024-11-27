@@ -184,7 +184,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rrmv5cagds6" path="res://art/13_nov/StarEndScreen/StarEndScreen-39.png" id="92_c1lsn"]
 [ext_resource type="Texture2D" uid="uid://e2170akyij0x" path="res://art/20_nov/StarFills/MidStarFill/MidStarFill_00391.png" id="92_lmva8"]
 [ext_resource type="Texture2D" uid="uid://clurqv0utehvu" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00379.png" id="92_xl83r"]
-[ext_resource type="SpriteFrames" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="Texture2D" uid="uid://kck1qisi3c5k" path="res://art/20_nov/StarFills/MidStarFill/MidStarFill_00392.png" id="93_n1due"]
 [ext_resource type="Texture2D" uid="uid://bx6n7ajv7ppdk" path="res://art/13_nov/StarEndScreen/StarEndScreen-40.png" id="93_r6wqf"]
 [ext_resource type="Texture2D" uid="uid://kpbl2ff7rhkn" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00380.png" id="93_y3cu8"]
