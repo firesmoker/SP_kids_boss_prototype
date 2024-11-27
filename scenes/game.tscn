@@ -1,4 +1,4 @@
-[gd_scene load_steps=643 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=644 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://duii1djdmax0" path="res://audio/accelerate1.wav" id="2_2fv50"]
@@ -311,6 +311,7 @@
 [ext_resource type="Texture2D" uid="uid://dc5focdy2s7rg" path="res://art/26_nov/Glow/MidStarFill/MidStarFill_00426.png" id="139_ryre6"]
 [ext_resource type="VideoStream" path="res://art/26_nov/bg_vid4.ogv" id="208_dyywy"]
 [ext_resource type="VideoStream" path="res://art/26_nov/bg_vid2_1.ogv" id="286_e8nnj"]
+[ext_resource type="VideoStream" path="res://art/26_nov/bg_star3.ogv" id="288_qx0tc"]
 [ext_resource type="VideoStream" path="res://art/19_nov/Boss_Fight_Intro_Boy.ogv" id="346_1rsua"]
 [ext_resource type="Texture2D" uid="uid://bmvr7xg6iwhy4" path="res://art/17_nov/Pause.png" id="346_nm773"]
 [ext_resource type="Texture2D" uid="uid://bhgtbs3r2cwuc" path="res://art/17_nov/Play.png" id="347_fspio"]
@@ -3747,7 +3748,7 @@ offset_right = 50.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("208_dyywy")
+stream = ExtResource("288_qx0tc")
 autoplay = true
 expand = true
 loop = true
