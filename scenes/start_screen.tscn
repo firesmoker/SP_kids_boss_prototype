@@ -13,12 +13,12 @@
 [sub_resource type="Theme" id="Theme_w463u"]
 default_font_size = 70
 
-[sub_resource type="Gradient" id="Gradient_rs6wh"]
+[sub_resource type="Gradient" id="Gradient_r8luk"]
 offsets = PackedFloat32Array(0, 0.00744417)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fs6dw"]
-gradient = SubResource("Gradient_rs6wh")
+gradient = SubResource("Gradient_r8luk")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gm4g5"]
 bg_color = Color(0.36624, 0.00156877, 0.638228, 1)

@@ -1,22 +1,27 @@
 extends Control
 class_name SongDifficultyScreen
+@onready var load_overlay: TextureRect = $LoadOverlay
 
 @onready var header_label: Label = $HeaderLabel
 var model: Dictionary
 
 func _ready() -> void:
 	header_label.text = model.get("displayName")
+	load_overlay.visible = false
 
 func _on_EasyButton_pressed() -> void:
 	print("Easy mode selected!")
+	load_overlay.visible = true
 	load_library_song("easy")
 
 func _on_MediumButton_pressed() -> void:
 	print("Medium mode selected!")
+	load_overlay.visible = true
 	load_library_song()
 
 func _on_HardButton_pressed() -> void:
 	print("Hard mode selected!")
+	load_overlay.visible = true
 	load_library_song("hard")
 	
 func load_library_song(difficulty: String = "") -> void:

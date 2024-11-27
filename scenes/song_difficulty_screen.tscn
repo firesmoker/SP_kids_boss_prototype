@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqa1w6l5jndmw"]
+[gd_scene load_steps=18 format=3 uid="uid://dqa1w6l5jndmw"]
 
 [ext_resource type="Script" path="res://scripts/song_difficulty_screen.gd" id="1_6y50k"]
 [ext_resource type="Texture2D" uid="uid://cm72k8qdjh0xx" path="res://art/EasyButton.png" id="2_dqj1w"]
@@ -25,6 +25,16 @@ variation_embolden = -0.5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ar5ci"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myfdn"]
+
+[sub_resource type="Gradient" id="Gradient_rs6wh"]
+offsets = PackedFloat32Array(0, 0.00744417)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ayyuj"]
+gradient = SubResource("Gradient_rs6wh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgi1c"]
+bg_color = Color(0.36624, 0.00156877, 0.638228, 1)
 
 [node name="SongDifficultyScreen" type="Control"]
 layout_mode = 3
@@ -142,6 +152,76 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_myfdn")
 icon = ExtResource("4_oyaun")
 flat = true
 expand_icon = true
+
+[node name="LoadOverlay" type="TextureRect" parent="."]
+process_mode = 3
+visible = false
+self_modulate = Color(1, 1, 1, 0.686275)
+top_level = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ayyuj")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="LoadOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -143.0
+offset_right = 310.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xgi1c")
+
+[node name="Label" type="Label" parent="LoadOverlay/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -68.0
+offset_right = 190.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+text = "טוען"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="LoadOverlay/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = 27.0
+offset_right = 322.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "תניחו את אצבע 1 על דו אמצעי"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="EasyButton" to="." method="_on_EasyButton_pressed"]
 [connection signal="pressed" from="MediumButton" to="." method="_on_MediumButton_pressed"]
