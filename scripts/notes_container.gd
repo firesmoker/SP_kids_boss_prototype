@@ -111,6 +111,12 @@ func add_fingers_to_note(note_node: Node2D, event: MelodyEvent, note: String, in
 				else:
 					new_finger.position.y = base_y - index * vertical_spacing  # Place each above the last for top staff
 
+				if event.details.has("bold_fingering") and event.details["bold_fingering"]:
+					var fv: FontVariation = FontVariation.new()
+					fv.variation_embolden = 1
+					new_finger.add_theme_font_override("font", fv)
+					new_finger.add_theme_font_size_override("font_size", 36)
+					
 				new_finger.text = finger  # Set the finger number text
 
 
