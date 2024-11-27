@@ -105,6 +105,32 @@ func create_item(json_data: Dictionary) -> Control:
 	image.expand_mode = TextureRect.EXPAND_FIT_WIDTH
 	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	
+	# Add a TextureRect for the image
+	var tag_image: TextureRect = TextureRect.new()
+	var id: String = json_data.get("id", "")
+	tag_image.mouse_filter = Control.MOUSE_FILTER_PASS
+	tag_image.texture = get_tag_texture(id)
+	tag_image.custom_minimum_size = Vector2(166, 26)  
+	tag_image.size_flags_horizontal = Control.SIZE_FILL
+	tag_image.size_flags_vertical = Control.SIZE_FILL
+	tag_image.expand_mode = TextureRect.EXPAND_FIT_WIDTH
+	tag_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+
+	# Set position at the bottom center with an 8 px bottom margin
+	tag_image.anchor_left = 0.5
+	tag_image.anchor_right = 0.5
+	tag_image.anchor_top = 1.0
+	tag_image.anchor_bottom = 1.0
+
+	tag_image.offset_left = -tag_image.custom_minimum_size.x / 2
+	tag_image.offset_right = tag_image.custom_minimum_size.x / 2
+	tag_image.offset_top = -tag_image.custom_minimum_size.y - 8
+	tag_image.offset_bottom = 8
+
+
+	# Add the TextureRect to the parent
+	image.add_child(tag_image)
+	
 	#image.stretch_mode = TextureRect.StretchMode.STRETCH_SCALE
 	#image.size_flags_horizontal = Control.SizeFlags.SIZE_SHRINK_CENTER
 	#image.size_flags_vertical = Control.SizeFlags.SIZE_SHRINK_CENTER
@@ -136,6 +162,26 @@ func create_item(json_data: Dictionary) -> Control:
 	
 	return frame
 
+func get_tag_texture(id: String) -> Texture:
+	# Define the base path for your resources
+	var base_path: String = "res://art/"
+
+	# Check if the string starts with a specific prefix
+	if id.begins_with("Library_PianoBasics"):
+		# Extract the number from the string (assuming it's at the end)
+		var number: String = id.substr(19, 1)  # "Library_PianoBasics" is 19 characters long
+		var file_path: String = base_path + "PianoBasics" + number + ".png"
+		
+		# Try loading the texture
+		var texture: Texture = load(file_path)
+		if texture:  # Check if the file exists and is valid
+			return texture
+		else:
+			return null  # Return null if the file doesn't exist
+
+	# Default fallback texture if no match is found
+	return null
+	
 func _on_settings_pressed() -> void:
 	print("Settings pressed")
 	if not settings_window:
