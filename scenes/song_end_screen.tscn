@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://d4lwufnm27r47"]
+[gd_scene load_steps=144 format=3 uid="uid://dxoet7mawmg0g"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -695,6 +695,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="NotesIcon" type="TextureRect" parent="UI/Notes"]
+layout_mode = 0
 offset_left = -190.0
 offset_top = 8.33334
 offset_right = -90.0

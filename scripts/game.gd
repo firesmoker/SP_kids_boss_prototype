@@ -396,13 +396,18 @@ func set_star_bar_values() -> void:
 
 func update_ingame_stars() -> void:
 	star_bar.value = score_manager.current_score
-	if star1_unlocked and video_layer_2.modulate.a >= 1:
-		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
+	if star3_unlocked and video_layer_4.modulate.a >= 1:
+		video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
+		print("video 3 disabled")
 	elif star2_unlocked and video_layer_3.modulate.a >= 1:
+		video_layer_2.process_mode = Node.PROCESS_MODE_DISABLED
+		print("video 2 disabled")
+	elif star1_unlocked and video_layer_2.modulate.a >= 1:
+		print("video 1 disabled")
 		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
-	elif star3_unlocked and video_layer_4.modulate.a >= 1:
-		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
+	
 	if score_manager.current_score > star3_threshold_modifier:
+		video_layer_4.process_mode = Node.PROCESS_MODE_INHERIT
 		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
@@ -420,6 +425,7 @@ func update_ingame_stars() -> void:
 			expander.expand(1.7,0.25,true)
 	elif score_manager.current_score > star2_threshold_modifier:
 		#video_layer_3.visible = true
+		video_layer_3.process_mode = Node.PROCESS_MODE_INHERIT
 		video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
