@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://d4lwufnm27r47"]
+[gd_scene load_steps=144 format=3 uid="uid://d4lwufnm27r47"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -128,6 +128,8 @@
 [ext_resource type="Texture2D" uid="uid://ynocytj5nohv" path="res://art/SongEndScreenProgressBar/image34.png" id="95_uavjj"]
 [ext_resource type="Texture2D" uid="uid://yuwb3xckgxa6" path="res://art/SongEndScreenProgressBar/image35.png" id="96_h03ux"]
 [ext_resource type="Texture2D" uid="uid://h3apkdwuqaua" path="res://art/SongEndScreenProgressBar/image36.png" id="97_03c4t"]
+[ext_resource type="Texture2D" uid="uid://drii0fgbf2ktl" path="res://art/Timing.png" id="98_uvl2y"]
+[ext_resource type="Texture2D" uid="uid://d4hm26vm8niqh" path="res://art/Notes.png" id="99_avcdc"]
 [ext_resource type="Texture2D" uid="uid://dgoyffmjd085y" path="res://art/RepeatButton.png" id="130_6euta"]
 [ext_resource type="Texture2D" uid="uid://dgr8vc8cgu0es" path="res://art/ContinueButtonBold.png" id="130_rnmvs"]
 
@@ -630,26 +632,37 @@ offset = Vector2(25, 0)
 
 [node name="TimingLabel" type="Label" parent="UI/Timing"]
 layout_mode = 2
-anchor_top = -0.05
-anchor_bottom = -0.05
-offset_top = 7.0
+anchor_left = 0.273333
+anchor_top = -0.0291667
+anchor_right = 0.273333
+anchor_bottom = -0.0291667
+offset_left = 0.000335693
+offset_top = 5.16667
 offset_right = 125.0
-offset_bottom = 43.0
+offset_bottom = 41.1667
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
+text = "
+"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="TimingIcon" type="TextureRect" parent="UI/Timing"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 88.0
+offset_bottom = 98.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("98_uvl2y")
 
 [node name="Notes" type="Control" parent="UI"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 399.0
+offset_left = 542.0
 offset_top = 301.0
-offset_right = 524.0
+offset_right = 667.0
 offset_bottom = 341.0
 scale = Vector2(1.2, 1.2)
 
@@ -663,8 +676,10 @@ offset = Vector2(25, 0)
 
 [node name="NotesLabel" type="Label" parent="UI/Notes"]
 layout_mode = 2
-anchor_top = -0.05
-anchor_bottom = -0.05
+anchor_left = -2.58
+anchor_top = 0.0124998
+anchor_right = -2.58
+anchor_bottom = 0.0124998
 offset_top = 7.0
 offset_right = 125.0
 offset_bottom = 43.0
@@ -673,8 +688,19 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
+text = "
+"
+horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="NotesIcon" type="TextureRect" parent="UI/Notes"]
+offset_left = -190.0
+offset_top = 8.33334
+offset_right = -90.0
+offset_bottom = 108.333
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("99_avcdc")
 
 [node name="Stars" type="Control" parent="UI"]
 modulate = Color(1, 1, 1, 0)

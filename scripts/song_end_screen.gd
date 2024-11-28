@@ -133,7 +133,7 @@ func animate_notes(hit_notes: int, total_notes: int) -> void:
 	var progress_bar: AnimatedSprite2D = $UI/Notes/NotesProgressBar
 	var label: Label = $UI/Notes/NotesLabel
 	
-	label.text = "תווים %d/%d" % [hit_notes, total_notes]
+	label.text = "%d/%d" % [hit_notes, total_notes] + " תווים "
 	AnimationHelper.play_animation_sprite_until_frame(progress_bar, "progress_bar", float(hit_notes)/float(total_notes) * 36)
 	
 	
@@ -141,7 +141,7 @@ func animate_timing(timing_score: float) -> void:
 	var progress_bar: AnimatedSprite2D = $UI/Timing/TimingProgressBar
 	var label: Label = $UI/Timing/TimingLabel
 	
-	label.text = "תזמון " + "%d%%" % int(timing_score * 100)
+	label.text = "%d%%" % int(timing_score * 100) + " תזמון "
 	AnimationHelper.play_animation_sprite_until_frame(progress_bar, "progress_bar", timing_score * 36)
 	
 func animate_xp(start_value: int, end_value: int, duration: float) -> void:
