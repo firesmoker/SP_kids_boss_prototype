@@ -43,3 +43,7 @@ func shuffle_buttons() -> void:
 	for i in range(children.size()):
 		container.move_child(children[i], i)
 		
+		
+func _on_back_button_pressed() -> void:
+	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+		

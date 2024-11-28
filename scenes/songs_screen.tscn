@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3nvye717r5mt"]
+[gd_scene load_steps=4 format=3 uid="uid://bbmsh83vq84ih"]
 
 [ext_resource type="Script" path="res://scripts/songs_screen.gd" id="1_xdmq4"]
 [ext_resource type="Script" path="res://scripts/settings_manager.gd" id="2_tjwmq"]
+[ext_resource type="Script" path="res://scripts/midi_websocket_status.gd" id="3_xb5gd"]
 
 [node name="SongsScreen" type="Control"]
 layout_mode = 3
@@ -49,6 +50,7 @@ custom_minimum_size = Vector2(0, 70)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 70.0
 grow_horizontal = 2
 color = Color(0.0666667, 0, 0.203922, 1)
 
@@ -88,10 +90,11 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -187.0
-offset_top = 24.0
+offset_top = 16.0
 offset_right = -28.0
-offset_bottom = 74.0
+offset_bottom = 66.0
 grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
 theme_override_font_sizes/font_size = 36
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -100,3 +103,6 @@ metadata/_edit_lock_ = true
 
 [node name="SettingsManager" type="Node" parent="."]
 script = ExtResource("2_tjwmq")
+
+[node name="Midi Websocket Status" type="Node" parent="."]
+script = ExtResource("3_xb5gd")

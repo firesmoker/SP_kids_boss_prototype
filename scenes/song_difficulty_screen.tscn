@@ -1,9 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqa1w6l5jndmw"]
+[gd_scene load_steps=22 format=3 uid="uid://ddphutj801qdu"]
 
 [ext_resource type="Script" path="res://scripts/song_difficulty_screen.gd" id="1_6y50k"]
 [ext_resource type="Texture2D" uid="uid://cm72k8qdjh0xx" path="res://art/EasyButton.png" id="2_dqj1w"]
 [ext_resource type="Texture2D" uid="uid://ffx6u6ngl4bb" path="res://art/MediumButton.png" id="3_n1pe8"]
 [ext_resource type="Texture2D" uid="uid://cpdbgkmlvbvm8" path="res://art/HardButton.png" id="4_oyaun"]
+[ext_resource type="Texture2D" uid="uid://cq6ql7v1cwu5i" path="res://art/back.png" id="5_8rurp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ldy7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxdm8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rki2q"]
 
 [sub_resource type="FontVariation" id="FontVariation_xrpmo"]
 variation_embolden = -0.5
@@ -57,6 +64,18 @@ offset_bottom = 672.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0666667, 0, 0.203922, 1)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 51.0
+offset_right = 151.0
+offset_bottom = 143.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ldy7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rxdm8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rki2q")
+icon = ExtResource("5_8rurp")
+flat = true
 
 [node name="HeaderLabel" type="Label" parent="."]
 layout_mode = 1
@@ -223,6 +242,7 @@ text = "תניחו את אצבע 1 על דו אמצעי"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="EasyButton" to="." method="_on_EasyButton_pressed"]
 [connection signal="pressed" from="MediumButton" to="." method="_on_MediumButton_pressed"]
 [connection signal="pressed" from="HardButton" to="." method="_on_HardButton_pressed"]
