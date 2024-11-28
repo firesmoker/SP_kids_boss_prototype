@@ -1,20 +1,20 @@
 {
-    "uiType": "both_clefs",
-    "displayName": "ינשוף קטן",
-    "artist": "וולפגנג אמדאוס מוצרט",
-    "inGameInfo": {
-        "onScreenDisplayDuration": 3,
-        "melodyFiles": {
-            "right": "Library_PianoBasics3_TwinkleTwinkle_Right.txt",
-            "left": "Library_PianoBasics3_TwinkleTwinkle_Left.txt"
-        },
-        "bgm": "TwinkleTwinkle_CMajor_92bpm.ogg"
-    },
-    "imageFileName": "LibrarySongCover_Mozart.jpg",
-    "version": 1,
-    "acum_id": "PD2044924",
-    "licenseIDs": [
-        "Acum"
-    ],
-    "id": "Library_PianoBasics3_TwinkleTwinkle"
+	"uiType": "both_clefs",
+	"displayName": "ינשוף קטן",
+	"artist": "וולפגנג אמדאוס מוצרט",
+	"inGameInfo": {
+		"onScreenDisplayDuration": 3.5,
+		"melodyFiles": {
+			"right": "Library_PianoBasics3_TwinkleTwinkle_Right.txt",
+			"left": "Library_PianoBasics3_TwinkleTwinkle_Left.txt"
+		},
+		"bgm": "TwinkleTwinkle_CMajor_92bpm.ogg"
+	},
+	"imageFileName": "LibrarySongCover_Mozart.jpg",
+	"version": 1,
+	"acum_id": "PD2044924",
+	"licenseIDs": [
+		"Acum"
+	],
+	"id": "Library_PianoBasics3_TwinkleTwinkle"
 }

@@ -1,7 +1,6 @@
 94,4/4,0,GClef,Right
 
 
-*bgmFileName:HesAPirate_DMinor_94bpm.m4a*
 -:1 
 -:1 
 -:1 

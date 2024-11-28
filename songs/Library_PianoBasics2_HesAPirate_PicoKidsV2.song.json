@@ -8,7 +8,7 @@
   "imageFileName": "LibrarySongCover_PianoBasics1A_PicoKids_HesAPirate.jpg",
   "backgroundAnimationTheme": "underWater",
   "inGameInfo": {
-	"onScreenDisplayDuration": 4.0,
+	"onScreenDisplayDuration": 2.8,
 	"bgm": "HesAPirate_DMinor_94bpm.ogg",
 	"melodyFiles": {
 	  "right": "Library_PianoBasics2_HesAPirate_PicoKidsV2_Right.txt"

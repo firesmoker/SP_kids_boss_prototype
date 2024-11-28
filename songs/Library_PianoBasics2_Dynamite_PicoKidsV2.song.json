@@ -7,7 +7,7 @@
 	"artist": "בי טי אס",
 	"imageFileName": "LibrarySongCover_ButterBTS.jpg",
 	"inGameInfo": {
-		"onScreenDisplayDuration": 4,
+		"onScreenDisplayDuration": 2.8,
 		"bgm": "Dynamite_CMajor_92bpm_VOCALS.ogg",
 		"melodyFiles": {
 			"right": "Library_PianoBasics2_Dynamite_PicoKidsV2_Right.txt"

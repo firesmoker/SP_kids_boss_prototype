@@ -7,7 +7,7 @@
   "artist": "סינדרלה",
   "imageFileName": "LibrarySongCover_Cinderella.jpg",
   "inGameInfo": {
-	"onScreenDisplayDuration": 4,
+	"onScreenDisplayDuration": 3,
 	"bgm": "BibbidiBobbidiBoo_CMajor_140bpm.ogg",
 	"melodyFiles": {
 	  "right": "Library_PianoBasics2_BibbidiBobbidiBoo_Cinderella_PicoKidsV2_Right.txt",
