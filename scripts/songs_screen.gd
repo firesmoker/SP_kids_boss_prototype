@@ -16,7 +16,6 @@ func _ready() -> void:
 
 
 func populate_grid() -> void:
-	
 	var scroll_container: ScrollContainer = $MarginContainer/ScrollContainer
 	scroll_container.scroll_started.connect(Callable(self, "_on_scroll_started"))
 	scroll_container.scroll_ended.connect(Callable(self, "_on_scroll_ended"))
@@ -26,30 +25,63 @@ func populate_grid() -> void:
 	grid.columns = NUM_COLUMNS  # Ensure three columns are used
 	grid.size_flags_horizontal = 0
 	grid.size_flags_vertical = 0
+	
+	# Attempt to read songs.txt for custom order
+	var song_order: Array = []
+	var songs_file_path: String = "res://songs/songs.txt"
+	var file: FileAccess = FileAccess.open(songs_file_path, FileAccess.READ)
+	
+	if file:
+		print("Loading song order from songs.txt")
+		while not file.eof_reached():
+			var line: String = file.get_line().strip_edges()
+			if line != "":
+				song_order.append(line)
+		file.close()
+	else:
+		print("songs.txt not found. Using default order.")
+	
+	# Get all songs in the folder
 	var dir: DirAccess = DirAccess.open(SONGS_FOLDER)
-	# Check if the folder is valid
 	if dir == null:
 		print("Failed to open songs folder.")
 		return
-
-	# Get all files in the folder
-	var files: PackedStringArray = dir.get_files()
-	for file_name in files:
-		if file_name.ends_with(".song.json"):  # Look for .song.json files
-			var file_path: String = SONGS_FOLDER + "/" + file_name
-			var json_data: Dictionary = load_json(file_path)
-			if json_data:
-				var item: Control = create_item(json_data)
-				
-				# Create a MarginContainer
-				var container: MarginContainer = MarginContainer.new()
-				container.add_theme_constant_override("margin_left", 5)
-				container.add_theme_constant_override("margin_top", 5)
-				container.add_theme_constant_override("margin_right", 5)
-				container.add_theme_constant_override("margin_bottom", 5)
-				container.add_child(item)
-				
-				grid.add_child(container)
+	
+	var all_files: PackedStringArray = dir.get_files()
+	var song_files: Array = []
+	
+	for file_name in all_files:
+		if file_name.ends_with(".song.json"):
+			song_files.append(SONGS_FOLDER + "/" + file_name)
+	
+	# If custom order exists, prioritize it
+	if song_order.size() > 0:
+		var ordered_files: Array = []
+		for song_path: String in song_order:
+			var full_path: String = SONGS_FOLDER + "/" + song_path
+			if full_path in song_files:
+				ordered_files.append(full_path)
+				song_files.erase(full_path)  # Remove from remaining files
+		
+		# Add any remaining files not listed in songs.txt
+		ordered_files += song_files
+		song_files = ordered_files
+	
+	# Populate the grid
+	for file_path: String in song_files:
+		var json_data: Dictionary = load_json(file_path)
+		if json_data:
+			var item: Control = create_item(json_data)
+			
+			# Create a MarginContainer
+			var container: MarginContainer = MarginContainer.new()
+			container.add_theme_constant_override("margin_left", 5)
+			container.add_theme_constant_override("margin_top", 5)
+			container.add_theme_constant_override("margin_right", 5)
+			container.add_theme_constant_override("margin_bottom", 5)
+			container.add_child(item)
+			
+			grid.add_child(container)
 
 func load_json(file_path: String) -> Dictionary:
 	# Load and parse the JSON file
