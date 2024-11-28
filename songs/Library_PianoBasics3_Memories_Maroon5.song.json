@@ -1,21 +1,21 @@
 {
-    "uiType": "both_clefs",
-    "displayName": "ממואריז",
-    "artist": "מארון 5",
-    "inGameInfo": {
-        "onScreenDisplayDuration": 3,
-        "melodyFiles": {
-            "right": "Library_PianoBasics3_Memories_Maroon5_Right.txt",
-            "left": "Library_PianoBasics3_Memories_Maroon5_Left.txt"
-        },
-        "bgm": "Memories_70bpm_FMajor_Vocals_Short.ogg"
-    },
-    "imageFileName": "LibrarySongCover_Memories_Maroon5.jpg",
-    "version": 1,
-    "acum_id": "29AERH6",
-    "licenseIDs": [
-        "Acum"
-    ],
-    "scaleFactor": 0.85,
-    "id": "Library_PianoBasics3_Memories_Maroon5"
+	"uiType": "both_clefs",
+	"displayName": "ממואריז",
+	"artist": "מארון 5",
+	"inGameInfo": {
+		"onScreenDisplayDuration": 4,
+		"melodyFiles": {
+			"right": "Library_PianoBasics3_Memories_Maroon5_Right.txt",
+			"left": "Library_PianoBasics3_Memories_Maroon5_Left.txt"
+		},
+		"bgm": "Memories_70bpm_FMajor_Vocals_Short.ogg"
+	},
+	"imageFileName": "LibrarySongCover_Memories_Maroon5.jpg",
+	"version": 1,
+	"acum_id": "29AERH6",
+	"licenseIDs": [
+		"Acum"
+	],
+	"scaleFactor": 0.85,
+	"id": "Library_PianoBasics3_Memories_Maroon5"
 }

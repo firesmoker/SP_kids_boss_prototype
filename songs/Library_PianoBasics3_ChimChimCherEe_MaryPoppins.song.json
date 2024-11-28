@@ -7,7 +7,7 @@
 	"artist": "מרי פופינס",
 	"imageFileName": "SpecialChallenge_GoodVibes2022_MaryPoppins.jpg",
 	"inGameInfo": {
-		"onScreenDisplayDuration": 2.5,
+		"onScreenDisplayDuration": 4,
 		"bgm": "ChimChimCherEe_Dm_160bpm_NoPreCount.ogg",
 		"melodyFiles": {
 			"right": "Library_PianoBasics3_ChimChimCherEe_MaryPoppins_Right.txt",
