@@ -3,7 +3,7 @@
     "displayName": "ממואריז",
     "artist": "מארון 5",
     "inGameInfo": {
-        "onScreenDisplayDuration": 3.5,
+        "onScreenDisplayDuration": 3,
         "melodyFiles": {
             "right": "Library_PianoBasics3_Memories_Maroon5_Right.txt",
             "left": "Library_PianoBasics3_Memories_Maroon5_Left.txt"

@@ -3,7 +3,7 @@
     "displayName": "ספר הג׳ונגל",
     "artist": "ספר הג׳ונגל",
     "inGameInfo": {
-        "onScreenDisplayDuration": 4,
+        "onScreenDisplayDuration": 3,
         "melodyFiles": {
             "right": "Library_PianoBasics3_TheBareNecessities_Right.txt",
             "left": "Library_PianoBasics3_TheBareNecessities_Left.txt"

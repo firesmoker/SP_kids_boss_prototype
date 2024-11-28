@@ -7,7 +7,7 @@
   "artist": "מלך האריות",
   "imageFileName": "LibrarySongCover_CanYouFeelTheLoveTonight_LionKing.jpg",
   "inGameInfo": {
-	"onScreenDisplayDuration": 4,
+	"onScreenDisplayDuration": 3,
 	"bgm": "CanYouFeelTheLoveTonight_Vocals_CMajor_62bpm_Fixed.ogg",
 	"melodyFiles": {
 	  "right": "Library_PianoBasics1B_PicoKidsStarLevel_CanYouFeelTheLoveTonight_Right.txt",
