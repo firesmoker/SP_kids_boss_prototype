@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://dxoet7mawmg0g"]
+[gd_scene load_steps=142 format=3 uid="uid://d4lwufnm27r47"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -611,6 +611,7 @@ offset = Vector2(25, 0)
 metadata/_edit_lock_ = true
 
 [node name="Timing" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 810.0
@@ -639,11 +640,11 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
-text = "92% Timing"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Notes" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 399.0
@@ -672,7 +673,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
-text = "132/176 Notes"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
