@@ -314,7 +314,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	video_layer_1.visible = toggle
 	video_layer_2.visible = toggle
 	video_layer_3.visible = toggle
-	video_layer_4.visible = false
+	video_layer_4.visible = toggle
 	video_layer_5.visible = false
 	white_layer_4.visible = false
 	background_library.visible = false
@@ -396,51 +396,64 @@ func set_star_bar_values() -> void:
 
 func update_ingame_stars() -> void:
 	star_bar.value = score_manager.current_score
+	if star1_unlocked and video_layer_2.modulate.a >= 1:
+		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
+	elif star2_unlocked and video_layer_3.modulate.a >= 1:
+		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
+	elif star3_unlocked and video_layer_4.modulate.a >= 1:
+		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
 	if score_manager.current_score > star3_threshold_modifier:
-		video_layer_5.find_child("Fader").fade_in(0.015)
+		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
-			star_celebration.modulate.a = 1
+			#star_celebration.process_mode = Node.PROCESS_MODE_INHERIT
+			confetti.process_mode = Node.PROCESS_MODE_INHERIT
+			#star_celebration.modulate.a = 1
 			confetti.frame = 0
 			confetti.play()
-			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.005)
+			#star_celebration.find_child("Animation").play()
+			#star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star3_unlocked = true
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
-			expander.expand(1.4,0.25,true)
+			expander.expand(1.7,0.25,true)
 	elif score_manager.current_score > star2_threshold_modifier:
 		#video_layer_3.visible = true
 		video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
+			#star_celebration.process_mode = Node.PROCESS_MODE_INHERIT
+			confetti.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.frame = 0
 			confetti.play()
-			star_celebration.modulate.a = 1
-			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.005)
+			#star_celebration.modulate.a = 1
+			#star_celebration.find_child("Animation").play()
+			#star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star2_unlocked = true
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
-			expander.expand(1.4,0.25,true)
+			expander.expand(1.7,0.25,true)
 	elif score_manager.current_score > star1_threshold_modifier:
 		#video_layer_3.find_child("Fader").fade_in(0.015)
 		#video_layer_3.visible = true
+		video_layer_2.process_mode = Node.PROCESS_MODE_INHERIT
 		video_layer_2.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
+			#star_celebration.process_mode = Node.PROCESS_MODE_INHERIT
+			confetti.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.frame = 0
 			confetti.play()
-			star_celebration.modulate.a = 1
-			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.005)
+			#star_celebration.modulate.a = 1
+			#star_celebration.find_child("Animation").play()
+			#star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star1_unlocked = true
 			var expander: Expander = star_bar.find_child("Star1").find_child("Expander")
-			expander.expand(1.4,0.25,true)
+			expander.expand(1.7,0.25,true)
 
 func set_player_health() -> void:
 	original_health_color = player_health_bar.tint_progress
@@ -482,10 +495,12 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 		process_mode = Node.PROCESS_MODE_DISABLED
 	lib_visuals.process_mode = process_mode
 	video_layer_1.process_mode = process_mode
-	video_layer_2.process_mode = process_mode
-	video_layer_3.process_mode = process_mode
+	video_layer_2.process_mode = Node.PROCESS_MODE_DISABLED
+	video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
 	video_layer_4.process_mode = Node.PROCESS_MODE_DISABLED
 	video_layer_5.process_mode = Node.PROCESS_MODE_DISABLED
+	confetti.process_mode = Node.PROCESS_MODE_DISABLED
+	star_celebration.process_mode = Node.PROCESS_MODE_DISABLED
 	
 
 func _ready() -> void:
@@ -1246,3 +1261,11 @@ func on_song_end_screen_created(song_end_screen: SongEndScreen) -> void:
 
 func move_to_song_library() -> void:	
 	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+
+
+func _on_animation_animation_finished() -> void:
+	star_celebration.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _on_confetti_animation_finished() -> void:
+	confetti.process_mode = Node.PROCESS_MODE_DISABLED
