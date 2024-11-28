@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://co808jv556v5x"]
+[gd_scene load_steps=142 format=3 uid="uid://dxoet7mawmg0g"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -611,13 +611,13 @@ offset = Vector2(25, 0)
 metadata/_edit_lock_ = true
 
 [node name="Timing" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 810.0
 offset_top = 300.0
 offset_right = 935.0
 offset_bottom = 340.0
+scale = Vector2(1.2, 1.2)
 
 [node name="TimingProgressBar" type="AnimatedSprite2D" parent="UI/Timing"]
 position = Vector2(-165, 15)
@@ -644,13 +644,13 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Notes" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 399.0
 offset_top = 301.0
 offset_right = 524.0
 offset_bottom = 341.0
+scale = Vector2(1.2, 1.2)
 
 [node name="NotesProgressBar" type="AnimatedSprite2D" parent="UI/Notes"]
 position = Vector2(-165, 15)

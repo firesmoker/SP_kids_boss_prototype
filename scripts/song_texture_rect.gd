@@ -32,11 +32,17 @@ func _ready() -> void:
 	
 	# Assign the material to the TextureRect
 	self.material = shader_material  # Assigning the ShaderMaterial to this TextureRect
-	
+
+var pressed_event_position: Vector2
+
 func _gui_input(event: InputEvent) -> void:
-	
-	if event is InputEventScreenTouch and not event.is_pressed():
-		print("Song clicked!")
-		var new_screen: Node = load("res://scenes/song_variation_screen.tscn").instantiate()
-		new_screen.model = model
-		get_tree().root.add_child(new_screen)
+	if event.is_pressed():
+		pressed_event_position = get_global_transform().basis_xform(event.position)
+		
+	if event is InputEventScreenTouch and event.is_released() and not event.is_canceled():
+		var  released_event_position: Vector2 = get_global_transform().basis_xform(event.position)
+		if released_event_position.distance_to(pressed_event_position) < 0.1:
+			print("Song clicked!")
+			var new_screen: Node = load("res://scenes/song_variation_screen.tscn").instantiate()
+			new_screen.model = model
+			get_tree().root.add_child(new_screen)

@@ -5,7 +5,7 @@ class_name MidiWebSocket
 
 # List of WebSocket servers to connect to
 # Static array of server URLs
-static var SERVER_URLS: Array[String] = ["ws://h-MacBook-Pro-sl-Simply.local:8099", "ws://Simplys-MacBook-Pro.local:8099"]
+static var SERVER_URLS: Array[String] = ["ws://h-MacBook-Pro-sl-Simply.local:8099", "ws://Simplys-MacBook-Pro.local:8099", "ws://Alons-Laptop.local:8099"]
 
 var sockets: Array[WebSocketPeer] = []
 
