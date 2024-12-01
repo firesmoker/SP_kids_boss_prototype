@@ -942,38 +942,55 @@ func heal(amount: int = 1) -> void:
 	player_portrait.find_child("Expander").expand(1.10, 0.25, true)
 
 func hit_boss(damage: int = -1) -> void:
-	if not winning and not losing:
-		if game_mode == "boss":
-			#electric_beam.find_child("Flash").flash()
-			right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
-			if ui_type == "treble":
-				blue_line.find_child("SingleLine").find_child("LineZapSingle").play("line_zap")
-				right_hand_part.find_child("UpperStaff").find_child("ElectricBolt2").play()
-			else:
-				blue_line.find_child("MultiLine").find_child("LineZapMulti").play("line_zap")
-				right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
-			#electric_beam.find_child("ElectricBolt").play("attack")
-			audio_play_from_source(electric_beam,audio_clips.electric_attack, -10.5)
-			player_character.stop()
-			player_bot.stop()
-			player_character.play(player_model+"attack")
-			player_bot.play("attack")
-			boss.find_child("Flash").flash(Color.RED)
-			update_boss_health(damage)
-			#boss_health_bar.value = boss_health
-			boss_health_bar.find_child("Flash").flash(Color.RED)
-			boss_health_bar.find_child("Expander").expand(1.20, 0.15, true)
-			boss_portrait.find_child("Flash").flash(Color.RED)
-			boss_portrait.find_child("Expander").expand(1.20, 0.15, true)
-			boss.stop()
-			if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
-				boss.play(boss_model + "damaged_get_hit")
-			else:
-				boss.play(boss_model + "get_hit")
-			if boss_health <= 0:
-				win()
-			else:
-				audio_play_from_source(boss, audio_clips.boss_hit, -10.5)
+	if not winning and not losing and game_mode == "boss":
+		# handle_note_effects()
+		# handle_visual_effects()
+		play_audio_effects()
+		handle_player_attack_animation()
+		handle_boss_hit(damage)
+		check_boss_health()
+
+func handle_note_effects() -> void:
+	if ui_type == "treble":
+		blue_line.find_child("SingleLine").find_child("LineZapSingle").play("line_zap")
+		right_hand_part.find_child("UpperStaff").find_child("ElectricBolt2").play()
+	else:
+		blue_line.find_child("MultiLine").find_child("LineZapMulti").play("line_zap")
+		right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
+	right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
+
+func handle_visual_effects() -> void:
+	boss.find_child("Flash").flash(Color.RED)
+	boss_health_bar.find_child("Flash").flash(Color.RED)
+	boss_health_bar.find_child("Expander").expand(1.20, 0.15, true)
+	boss_portrait.find_child("Flash").flash(Color.RED)
+	boss_portrait.find_child("Expander").expand(1.20, 0.15, true)
+
+
+func play_audio_effects() -> void:
+	audio_play_from_source(electric_beam, audio_clips.electric_attack, -10.5)
+	audio_play_from_source(boss, audio_clips.boss_hit, -10.5)
+
+
+func handle_player_attack_animation() -> void:
+	player_character.stop()
+	player_bot.stop()
+	player_character.play(player_model + "attack")
+	player_bot.play("attack")
+
+
+func handle_boss_hit(damage: int) -> void:
+	update_boss_health(damage)
+	boss.stop()
+	if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
+		boss.play(boss_model + "damaged_get_hit")
+	else:
+		boss.play(boss_model + "get_hit")
+
+
+func check_boss_health() -> void:
+	if boss_health <= 0:
+		win()
 
 func audio_play_from_source(source: Node, audio_clip: AudioStream, volume: float = 1.0) -> void:
 	source.find_child("Audio").stream = audio_clip
