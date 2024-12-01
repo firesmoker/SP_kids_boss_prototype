@@ -193,16 +193,16 @@ func animate_stars(stars_count: int) -> void:
 	AnimationHelper.play_animation_sprite_until_frame(stars_animation, "stars_end_animation", frame)
 
 func set_audio_stream_based_on_stars() -> void:
-	stars_audio_player.stream = preload("res://audio/three_stars.wav")
+	stars_audio_player.stream = preload("res://audio/three_stars.ogg")
 	stars_audio_player.play()
 	var audio_path: String
 	match total_stars:
 		1:
-			audio_path = "res://audio/one_star.wav"
+			audio_path = "res://audio/one_star.ogg"
 		2:
-			audio_path = "res://audio/two_stars.wav"
+			audio_path = "res://audio/two_stars.ogg"
 		3:
-			audio_path = "res://audio/three_stars.wav"
+			audio_path = "res://audio/three_stars.ogg"
 		_:
 			audio_path = ""  # No audio for 0 or invalid values
 

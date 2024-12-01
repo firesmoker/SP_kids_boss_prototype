@@ -135,8 +135,8 @@ static var boss_model: String = ""
 static var player_model: String = ""
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
-static var song_path: String = "res://audio/CountingStars_122bpm_new.wav"
-static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80.wav"
+static var song_path: String = "res://audio/CountingStars_122bpm_new.ogg"
+static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80.ogg"
 static var right_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
 static var left_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
 static var game_scene: String = "res://scenes/game.tscn"

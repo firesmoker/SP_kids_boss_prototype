@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dkb655elinx0y"
+path="res://.godot/imported/Silence+Other Sounds - Funny Cartoon - Zipper Boing .ogg-aa973cf25cd3e42d5d032cf44c0b032d.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/Elements/Audio/Silence+Other Sounds - Funny Cartoon - Zipper Boing .ogg"
+dest_files=["res://.godot/imported/Silence+Other Sounds - Funny Cartoon - Zipper Boing .ogg-aa973cf25cd3e42d5d032cf44c0b032d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
