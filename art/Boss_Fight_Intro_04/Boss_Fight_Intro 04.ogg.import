@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://is55hsa1kmoo"
+path="res://.godot/imported/Boss_Fight_Intro 04.ogg-2331c90e20343f7fd0c372f58414df19.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04.ogg"
+dest_files=["res://.godot/imported/Boss_Fight_Intro 04.ogg-2331c90e20343f7fd0c372f58414df19.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

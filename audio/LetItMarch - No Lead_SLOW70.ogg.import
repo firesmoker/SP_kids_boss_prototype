@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvlws786n4453"
+path="res://.godot/imported/LetItMarch - No Lead_SLOW70.ogg-243f4c493c5699d160f8a3c259db80bc.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/LetItMarch - No Lead_SLOW70.ogg"
+dest_files=["res://.godot/imported/LetItMarch - No Lead_SLOW70.ogg-243f4c493c5699d160f8a3c259db80bc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctofedjdm23yi"
+path="res://.godot/imported/Blackguard Sound - Electric Shock - Short Arc.ogg-fc5290045b8af770b93587146ab69875.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/Elements/Audio/Blackguard Sound - Electric Shock - Short Arc.ogg"
+dest_files=["res://.godot/imported/Blackguard Sound - Electric Shock - Short Arc.ogg-fc5290045b8af770b93587146ab69875.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

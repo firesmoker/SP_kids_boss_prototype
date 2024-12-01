@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://n62g880gvydd"
+path="res://.godot/imported/IJustCantWaitToBeTechno -No Lead.ogg-71d084fed20b3f8e67a0c2d480089b6d.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/IJustCantWaitToBeTechno -No Lead.ogg"
+dest_files=["res://.godot/imported/IJustCantWaitToBeTechno -No Lead.ogg-71d084fed20b3f8e67a0c2d480089b6d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

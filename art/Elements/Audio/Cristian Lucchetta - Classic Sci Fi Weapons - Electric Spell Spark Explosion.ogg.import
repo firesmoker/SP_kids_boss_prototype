@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://coe65x6uku1gj"
+path="res://.godot/imported/Cristian Lucchetta - Classic Sci Fi Weapons - Electric Spell Spark Explosion.ogg-7bcca25747d5ff5b16de5e007ec4697e.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/Elements/Audio/Cristian Lucchetta - Classic Sci Fi Weapons - Electric Spell Spark Explosion.ogg"
+dest_files=["res://.godot/imported/Cristian Lucchetta - Classic Sci Fi Weapons - Electric Spell Spark Explosion.ogg-7bcca25747d5ff5b16de5e007ec4697e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
