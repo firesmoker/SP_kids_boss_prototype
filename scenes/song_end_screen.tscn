@@ -739,7 +739,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = SubResource("FontVariation_w0fxd")
 theme_override_font_sizes/font_size = 32
-text = "Your score:
+text = "הניקוד שלך
 "
 horizontal_alignment = 1
 vertical_alignment = 1
