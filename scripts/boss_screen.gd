@@ -39,7 +39,7 @@ func create_item(boss_data: Dictionary) -> Control:
 	var frame: Panel = Panel.new()
 	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var frame_style: StyleBoxFlat = StyleBoxFlat.new()
-	frame_style.bg_color = Color("#5D139E")
+	frame_style.bg_color = Color("#258bf7")
 	frame_style.set_corner_radius_all(8)
 	frame_style.border_color = Color(1, 1, 1, 0)
 	frame.add_theme_stylebox_override("panel", frame_style)
