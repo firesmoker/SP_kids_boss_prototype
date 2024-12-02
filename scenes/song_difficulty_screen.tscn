@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ddphutj801qdu"]
+[gd_scene load_steps=22 format=3 uid="uid://tlv7ty5vjdto"]
 
 [ext_resource type="Script" path="res://scripts/song_difficulty_screen.gd" id="1_6y50k"]
 [ext_resource type="Texture2D" uid="uid://cm72k8qdjh0xx" path="res://art/EasyButton.png" id="2_dqj1w"]
