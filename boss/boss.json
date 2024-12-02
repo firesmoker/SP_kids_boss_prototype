@@ -1,6 +1,6 @@
 [
 	{
-		"displayName": "אני לא יכול לחכות להיות מלך",
+		"displayName": "משתגע כבר מלך להיות",
 		"artist": "מלך האריות",
 		"image": "res://songs/LibrarySongCover_CanYouFeelTheLoveTonight_LionKing.jpg",
 		"levels": {
@@ -40,7 +40,7 @@
 		}
 	},
 	{
-		"displayName": "מעגל החיים",
+		"displayName": "גלגל החיים",
 		"artist": "מלך האריות",
 		"image": "res://songs/AlbumCover_LionKing_Disney_450_Shimurim.jpg",
 		"levels": {
@@ -196,7 +196,7 @@
 		}
 	},
 	{
-		"displayName": "שיר הפוקימון",
+		"displayName": "פוקימון",
 		"artist": "פוקימון",
 		"image": "res://songs/LibrarySongCover_Pokemon.jpg",
 		"levels": {
@@ -267,64 +267,6 @@
 				"player_life": 12,
 				"boss_life": 47,
 				"ui_type": "both",
-				"display_duration": 2.5
-			}
-		}
-	},
-	{
-		"displayName": "לט איט גו",
-		"artist": "פרוזן",
-		"image": "res://songs/LibrarySongCover_LetItGo.jpg",
-		"levels": {
-			"medium": {
-				"melody_path": "res://levels/LetItGoSimplified_106_Right.txt",
-				"left_melody_path": "",
-				"song_path": "res://audio/LetItMarch - No Lead.ogg",
-				"slow_song_path": "res://audio/LetItMarch - No Lead_SLOW70.ogg",
-				"tempo": 106,
-				"player_life": 5,
-				"boss_life": 20,
-				"ui_type": "treble",
-				"display_duration": 3
-			},
-			"hard": {
-				"melody_path": "res://levels/LetItGoSimplifiedHard_106_Right.txt",
-				"left_melody_path": "",
-				"song_path": "res://audio/LetItMarch - No Lead.ogg",
-				"slow_song_path": "res://audio/LetItMarch - No Lead_SLOW70.ogg",
-				"tempo": 106,
-				"player_life": 6,
-				"boss_life": 31,
-				"ui_type": "treble",
-				"display_duration": 3
-			}
-		}
-	},
-	{
-		"displayName": "לא יכול לחכות להיות מלך (טכנו)",
-		"artist": "מלך האריות",
-		"image": "res://songs/LibrarySongCover_IJustCantWaitToBeKing.jpg",
-		"levels": {
-			"medium": {
-				"melody_path": "res://levels/CircleOfLifeLonger_TheLionKing_78.txt",
-				"left_melody_path": "",
-				"song_path": "res://audio/IJustCantWaitToBeTechno -No Lead.ogg",
-				"slow_song_path": "res://audio/IJustCantWaitToBeTechno -No Lead_SLOW70.ogg",
-				"tempo": 76,
-				"player_life": 8,
-				"boss_life": 30,
-				"ui_type": "treble",
-				"display_duration": 2.5
-			},
-			"hard": {
-				"melody_path": "res://levels/CircleOfLifeHardLonger_TheLionKing_78.txt",
-				"left_melody_path": "",
-				"song_path": "res://audio/IJustCantWaitToBeTechno -No Lead.ogg",
-				"slow_song_path": "res://audio/IJustCantWaitToBeTechno -No Lead_SLOW70.ogg",
-				"tempo": 76,
-				"player_life": 6,
-				"boss_life": 31,
-				"ui_type": "treble",
 				"display_duration": 2.5
 			}
 		}
