@@ -1021,13 +1021,13 @@ func hit_boss(damage: int = -1) -> void:
 func handle_note_effects() -> void:
 	if ui_type == "treble":
 		blue_line.find_child("SingleLine").find_child("LineZapSingle").play("line_zap")
-		top_staff_power.find_child("Fader").fade_in_and_out(0.07,0.02)
-		top_staff_power_lower.find_child("Fader").fade_in_and_out(0.07,0.02)
+		top_staff_power.find_child("Fader").fade_in_and_out(0.07,0.04)
+		top_staff_power_lower.find_child("Fader").fade_in_and_out(0.07,0.04)
 		#right_hand_part.find_child("UpperStaff").find_child("ElectricBolt2").play()
 	else:
 		blue_line.find_child("MultiLine").find_child("LineZapMulti").play("line_zap")
-		top_staff_power.find_child("Fader").fade_in_and_out(0.07,0.02)
-		bottom_staff_power.find_child("Fader").fade_in_and_out(0.07,0.02)
+		top_staff_power.find_child("Fader").fade_in_and_out(0.07,0.04)
+		bottom_staff_power.find_child("Fader").fade_in_and_out(0.07,0.04)
 		#right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
 	#right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
 
