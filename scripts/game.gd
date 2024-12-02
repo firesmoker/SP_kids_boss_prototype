@@ -5,6 +5,12 @@ var model: Dictionary
 
 @onready var lib_visuals: Node2D = $Level/LibVisuals
 @onready var character: Sprite2D = $Level/LibVisuals/Character
+@onready var top_staff_power: Sprite2D = $Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPower
+@onready var top_staff_power_lower: Sprite2D = $Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPowerLower
+
+
+@onready var bottom_staff_power: Sprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/StaffPower
+
 
 @onready var video_layer_1: VideoStreamPlayer = $VideoCanvas/VideoLayer1
 @onready var video_layer_2: VideoStreamPlayer = $VideoCanvas/VideoLayer2
@@ -1002,9 +1008,9 @@ func heal(amount: int = 1) -> void:
 
 func hit_boss(damage: int = -1) -> void:
 	if not winning and not losing and game_mode == "boss":
-		# handle_note_effects()
+		handle_note_effects()
 		handle_visual_effects()
-		#play_boss_audio()
+		play_boss_audio()
 		handle_player_attack_animation()
 		handle_boss_hit(damage)
 		check_boss_health()
@@ -1012,11 +1018,15 @@ func hit_boss(damage: int = -1) -> void:
 func handle_note_effects() -> void:
 	if ui_type == "treble":
 		blue_line.find_child("SingleLine").find_child("LineZapSingle").play("line_zap")
-		right_hand_part.find_child("UpperStaff").find_child("ElectricBolt2").play()
+		top_staff_power.find_child("Fader").fade_in_and_out(0.07,0.042)
+		top_staff_power_lower.find_child("Fader").fade_in_and_out(0.07,0.042)
+		#right_hand_part.find_child("UpperStaff").find_child("ElectricBolt2").play()
 	else:
 		blue_line.find_child("MultiLine").find_child("LineZapMulti").play("line_zap")
-		right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
-	right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
+		top_staff_power.find_child("Fader").fade_in_and_out(0.07,0.042)
+		bottom_staff_power.find_child("Fader").fade_in_and_out(0.07,0.042)
+		#right_hand_part.find_child("BottomStaff").find_child("ElectricBolt").play()
+	#right_hand_part.find_child("UpperStaff").find_child("ElectricBolt").play()
 
 func handle_visual_effects() -> void:
 	boss.find_child("Flash").flash(Color.RED)

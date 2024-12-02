@@ -1,4 +1,4 @@
-[gd_scene load_steps=697 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=698 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -21,14 +21,14 @@
 [ext_resource type="AudioStream" uid="uid://is55hsa1kmoo" path="res://art/Boss_Fight_Intro_04/Boss_Fight_Intro 04.ogg" id="7_gcc16"]
 [ext_resource type="Shape2D" uid="uid://bak8vkqr0766k" path="res://scene_resources/area_detector_collider.tres" id="7_ged7t"]
 [ext_resource type="PackedScene" uid="uid://tpxjljmfe1h4" path="res://scenes/note.tscn" id="7_v8855"]
-[ext_resource type="AudioStream" uid="uid://d13qp0cb83nfq" path="res://art/30.sep/Boss_Hit/Boss_Hit.ogg" id="8_a3t6c"]
-[ext_resource type="AudioStream" uid="uid://cgpubfhiejon4" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack.ogg" id="8_e5tvg"]
 [ext_resource type="AudioStream" uid="uid://mpa6kbf0hq5o" path="res://art/30.sep/Boss_Death/Boss_Death.ogg" id="9_4f17a"]
 [ext_resource type="PackedScene" uid="uid://drb34rhixaw50" path="res://scenes/parser.tscn" id="9_s4jiq"]
 [ext_resource type="SpriteFrames" uid="uid://dn152gkkpaq71" path="res://scene_resources/bot_spriteframe.tres" id="10_fbf1u"]
 [ext_resource type="AudioStream" uid="uid://bpc344bjd6mda" path="res://audio/Silence+Other Sounds - Funny Cartoon - Zipper Boing .ogg" id="11_s1wme"]
 [ext_resource type="PackedScene" uid="uid://bulectulupeu0" path="res://scenes/midi.tscn" id="12_6nasv"]
+[ext_resource type="AudioStream" uid="uid://barikyxlvnys8" path="res://audio/Boss_Hit.ogg" id="12_7mocu"]
 [ext_resource type="Texture2D" uid="uid://wppodch3hmut" path="res://art/BassClef.png" id="14_3a4yn"]
+[ext_resource type="AudioStream" uid="uid://cf5pnjksd6xnf" path="res://audio/Electric_Bolt_Attack.ogg" id="14_604v4"]
 [ext_resource type="Texture2D" uid="uid://yg0nr1qy20ge" path="res://art/TrebleClef.png" id="14_j4vp4"]
 [ext_resource type="Texture2D" uid="uid://cusf6tvgw27f2" path="res://art/RhythmLineGlow.png" id="14_nko2d"]
 [ext_resource type="Texture2D" uid="uid://2knjh5phshmp" path="res://art/buttons/Play (1).png" id="15_m6t7w"]
@@ -378,6 +378,7 @@
 [ext_resource type="Texture2D" uid="uid://3r2jjmq2jhwc" path="res://art/17_nov/Life bar - R.png" id="370_bntdn"]
 [ext_resource type="Texture2D" uid="uid://cjhrst0v8s4hs" path="res://art/17_nov/avatar_villain.png" id="371_y5r23"]
 [ext_resource type="Texture2D" uid="uid://rk0hjwn55dbw" path="res://art/17_nov/avatar_boy.png" id="372_e2b5x"]
+[ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="376_p3ysj"]
 [ext_resource type="Texture2D" uid="uid://bojkg7vd7y5qr" path="res://art/rythmfix.png" id="379_g4x10"]
 [ext_resource type="Texture2D" uid="uid://bk75g4j278mwm" path="res://art/30.sep/Electric_Bolt_Attack/Electric_Bolt_Attack_00142.png" id="398_shcvd"]
 [ext_resource type="Texture2D" uid="uid://b46aw88aeh0f6" path="res://art/4_nov/Artboard 2.png" id="400_0fb3h"]
@@ -2759,9 +2760,9 @@ fight_starts = ExtResource("7_gcc16")
 player_hit = ExtResource("5_h1pda")
 player_death = ExtResource("6_8bblr")
 drone_hit = ExtResource("7_0mjhk")
-boss_hit = ExtResource("8_a3t6c")
+boss_hit = ExtResource("12_7mocu")
 boss_death = ExtResource("9_4f17a")
-electric_attack = ExtResource("8_e5tvg")
+electric_attack = ExtResource("14_604v4")
 heart = ExtResource("11_s1wme")
 star = ExtResource("16_5nc2f")
 song_end_music = ExtResource("17_jypp5")
@@ -2868,6 +2869,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="WinText" type="Label" parent="Overlay"]
 process_mode = 3
+visible = false
 z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4164,7 +4166,6 @@ position = Vector2(0, 75.001)
 metadata/_edit_lock_ = true
 
 [node name="SingleLine" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
-visible = false
 self_modulate = Color(1, 1, 1, 0.341176)
 position = Vector2(-42.6587, 2.38338)
 scale = Vector2(0.6, 0.72673)
@@ -4182,7 +4183,7 @@ texture = ExtResource("14_nko2d")
 [node name="LineZapSingle" type="AnimatedSprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine"]
 z_index = -1
 position = Vector2(70.501, 6.682)
-scale = Vector2(0.45, 0.232)
+scale = Vector2(0.45, 0.26073)
 sprite_frames = ExtResource("68_qal4a")
 animation = &"line_zap"
 frame = 11
@@ -4271,6 +4272,24 @@ flip_v = true
 position = Vector2(54.0625, 25)
 scale = Vector2(4.74062, 1.00024)
 
+[node name="StaffPower" type="Sprite2D" parent="Level/RightHandPart/UpperStaff/UpperStaffSprite"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.760784, 1, 1, 1)
+position = Vector2(0.641396, -46.8927)
+scale = Vector2(1.583, 1)
+texture = ExtResource("376_p3ysj")
+
+[node name="Fader" parent="Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPower" instance=ExtResource("63_jfxac")]
+
+[node name="StaffPowerLower" type="Sprite2D" parent="Level/RightHandPart/UpperStaff/UpperStaffSprite"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.760784, 1, 1, 1)
+position = Vector2(0.641396, 48.4013)
+scale = Vector2(1.583, 1)
+texture = ExtResource("376_p3ysj")
+
+[node name="Fader" parent="Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPowerLower" instance=ExtResource("63_jfxac")]
+
 [node name="StaffSparksTop" type="AnimatedSprite2D" parent="Level/RightHandPart/UpperStaff"]
 visible = false
 z_index = -1
@@ -4301,6 +4320,15 @@ metadata/_edit_lock_ = true
 [node name="BottomStaffSprite" parent="Level/RightHandPart/BottomStaff" instance=ExtResource("5_evl1e")]
 position = Vector2(54.063, 226.25)
 scale = Vector2(4.74062, 1.00024)
+
+[node name="StaffPower" type="Sprite2D" parent="Level/RightHandPart/BottomStaff/BottomStaffSprite"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.760784, 1, 1, 1)
+position = Vector2(0.641396, 48.7307)
+scale = Vector2(1.583, 1)
+texture = ExtResource("376_p3ysj")
+
+[node name="Fader" parent="Level/RightHandPart/BottomStaff/BottomStaffSprite/StaffPower" instance=ExtResource("63_jfxac")]
 
 [node name="StaffSparksBottom" type="AnimatedSprite2D" parent="Level/RightHandPart/BottomStaff"]
 visible = false
@@ -4363,6 +4391,7 @@ visible = false
 metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer" parent="Level/DetectorVisual/ElectricBeam"]
+bus = &"SFX"
 
 [node name="Fader" parent="Level/DetectorVisual" instance=ExtResource("63_jfxac")]
 
