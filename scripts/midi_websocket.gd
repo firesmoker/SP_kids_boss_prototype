@@ -5,7 +5,7 @@ class_name MidiWebSocket
 
 # List of WebSocket servers to connect to
 # Static array of server URLs
-static var SERVER_URLS: Array[String] = ["ws://h-MacBook-Pro-sl-Simply.local:8099", "ws://Simplys-MacBook-Pro.local:8099"]
+static var SERVER_URLS: Array[String] = ["ws://h-MacBook-Pro-sl-Simply.local:8099", "ws://Simplys-MacBook-Pro.local:8099", "ws://Alons-Laptop.local:8099"]
 
 var sockets: Array[WebSocketPeer] = []
 
@@ -54,6 +54,9 @@ func process(packet: PackedByteArray) -> void:
 	match packet[0]:
 		WebSocketMessageList.WEBSOCKET_NOTE_OFF: midi_event.action = "off"
 		WebSocketMessageList.WEBSOCKET_NOTE_ON: midi_event.action = "on"
+	match packet[2]:
+		0: return
+		
 	midi_event.pitch = packet[1]
 	midi_event.velocity = packet[2]
 	midiProcessor.processEvent(midi_event)

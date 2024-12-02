@@ -1,0 +1,94 @@
+87,4/4,0,GClef,Right
+
+
+*bgmFileName:Yellow_Coldplay_CMajor_87bpm_PB2.m4a*
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+-:1/4 E4:1/8%3(StemU) D4:1/8(StemU) E4:1/2(StemU) 
+-:1/4 E4:1/8(StemU) D4:1/8(StemU) E4:1/4%3(StemU) G4:1/4%5(StemU) 
+-:1/4 D4:1/4%2(StemU) -:1/2 
+
+*StageEnd:1*
+
+*StageStart:2*
+-:1/4 D4:1/8%2(StemU) C4:1/8(StemU) D4:1/4(StemU) G4:1/4%5(StemU) 
+C4:1/4%1(StemU) -:1/4 -:1/2 
+-:1/4 C4:1/4%1(StemU) C4:1/4(StemU) -:1/4 
+
+*StageEnd:2*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:3*
+-:1/4 E4:1/8%3(StemU) D4:1/8(StemU) E4:1/2(StemU) 
+-:1/4 E4:1/8(StemU) D4:1/8(StemU) E4:1/4%3(StemU) G4:1/4%5(StemU) 
+-:1/4 D4:1/4%2(StemU) -:1/2 
+
+*StageEnd:3*
+
+*StageStart:4*
+-:1/4 D4:1/8%2(StemU) C4:1/8(StemU) D4:1/4(StemU) G4:1/4%5(StemU) 
+C4:1/4%1(StemU) -:1/4 -:1/2 
+-:1/4 C4:1/4%1(StemU) C4:1/4(StemU) -:1/4 
+-:1 
+-:1 
+
+*StageEnd:4*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:5*
+-:1 
+G4:1/4%5(StemU) C4:1/4%1(StemU) G4:1/4%5(StemU) E4:1/4%3(StemU) 
+-:1 
+G4:1/4%5(StemU) C4:1/4%1(StemU) G4:1/4%5(StemU) E4:1/4%3(StemU) 
+
+*StageEnd:5*
+
+*StageStart:6*
+-:1 
+G4:1/4%5(StemU) C4:1/4%1(StemU) G4:1/4%5(StemU) E4:1/4%3(StemU) 
+-:1 
+-:1/4 C4:1/4%1(StemU) G4:1/4%5(StemU) E4:1/4%3(StemU) 
+
+*StageEnd:6*
+
+*LevelEnd:Part 3*
+
+*LevelStart:Part 4*
+
+*StageStart:7*
+-:1 
+-:1/4 D4:1/8%2(StemU) C4:1/8(StemU) D4:1/4(StemU) C4:1/4(StemU) 
+G4:1/2%5(StemU) E4:1/2%3(StemU) 
+
+*StageEnd:7*
+
+*StageStart:8*
+-:1/4 D4:1/8%2(StemU) C4:1/8(StemU) D4:1/4(StemU) C4:1/4(StemU) 
+-:1 
+-:1/4 D4:1/8%2(StemU) C4:1/8(StemU) -:1/4 C4:1/4(StemU) 
+
+*StageEnd:8*
+
+*LevelEnd:Part 4*
+
+*LevelStart:Part 5*
+
+*StageStart:9*
+-:1/4 E4:1/8%3(StemU) D4:1/8(StemU) E4:1/2(StemU) 
+-:1/4 E4:1/8(StemU) D4:1/8(StemU) E4:1/4%3(StemU) G4:1/4%5(StemU) 
+-:1/4 D4:1/4%2(StemU) -:1/2 
+-:1/4 D4:1/8%2(StemU) C4:1/8(StemU) D4:1/4(StemU) G4:1/4%5(StemU) 
+C4:1/2%1(StemU) -:1/2
+*StageEnd:9*
+
+*LevelEnd:Part 5*

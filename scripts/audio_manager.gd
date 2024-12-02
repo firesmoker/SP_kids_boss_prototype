@@ -18,3 +18,4 @@ class_name AudioClips extends Node
 @export var heart: AudioStream
 @export_category("Library Song")
 @export var star: AudioStream
+@export var song_end_music: AudioStream

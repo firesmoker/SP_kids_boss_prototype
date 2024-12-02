@@ -1,0 +1,91 @@
+107,4/4,0,GClef,Right
+
+
+*bgmFileName:IntoTheUnknown_Cminor_107bpm_Vocals.m4a*
+-:1 
+-:1 
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+-:1 
+C4:1/2%1(StemU) -:1/2 
+-:1 
+-:1 
+
+*StageEnd:1*
+
+*StageStart:2*
+G4:1/2%5(StemU) C4:1/2%1(StemU) 
+D4:1/4%2(StemU) D4:1/4(StemU) C4:1/2(StemU) 
+G4:1/2%5(StemU) C4:1/2%1(StemU) 
+D4:1/4%2(StemU) D4:1/4(StemU) F4:1/2%4(StemU) 
+
+*StageEnd:2*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:3*
+-:1/2 C4:1/2%1(StemU) 
+-:1/2 C4:1/2(StemU) 
+-:1/2 C4:1/2%1(StemU) 
+-:1/2 -:1/4 D4:1/4%2(StemU) 
+
+*StageEnd:3*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:4*
+C4:1/4%1(StemU) -:1/4 -:1/2 
+C4:1/4%1(StemU) C4:1/4(StemU) C4:1/2(StemU) 
+-:1 
+C4:1/4%1(StemU) C4:1/4(StemU) C4:1/2(StemU) 
+
+*StageEnd:4*
+
+*StageStart:5*
+G4:1/2%5(StemU) F4:1/2%4(StemU) 
+D4:1/4%2(StemU) D4:1/4(StemU) C4:1/2%1(StemU) 
+G4:1/2%5(StemU) F4:1/2%4(StemU) 
+D4:1/4%2(StemU) D4:1/4(StemU) F4:1/2%4(StemU) 
+
+*StageEnd:5*
+
+*LevelEnd:Part 3*
+
+*LevelStart:Part 4*
+
+*StageStart:6*
+C4E4:1/2%13(StemU) -:1/2 
+C4:1/2%1(StemU) D4:1/2(StemU) 
+E4:1/2(StemU) F4:1/2%4(StemU) 
+G4:1/8%5(StemU) F4:1/8(StemU) E4:1/4%3(StemU) C4:1/4%1(StemU) C4:1/4(StemU) 
+
+*StageEnd:6*
+
+*LevelEnd:Part 4*
+
+*LevelStart:Part 5*
+
+*StageStart:7*
+G4:1/2%5(StemU) -:1/2 
+G4:1/2(StemU) -:1/2 
+G4:1/2%5(StemU) -:1/2 
+G4:1/2(StemU) -:1/2 
+
+*StageEnd:7*
+
+*StageStart:8*
+C4E4:1/2%13(StemU) -:1/2 
+C4E4:1/2(StemU) -:1/2 
+-:1 
+-:1
+*StageEnd:8*
+
+*LevelEnd:Part 5*

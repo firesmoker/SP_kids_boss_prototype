@@ -1,0 +1,21 @@
+{
+    "uiType": "both_clefs",
+    "displayName": "וולרמן",
+    "artist": "נתן אוואנס",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 3,
+        "melodyFiles": {
+            "right": "Library_PianoBasics3_Wellerman(SeaShanty)_NathanEvans_Right.txt",
+            "left": "Library_PianoBasics3_Wellerman(SeaShanty)_NathanEvans_Left.txt"
+        },
+        "bgm": "NathanEvans_Wellerman(SeaShanty)_AMinor_86bpm_Vocals.ogg"
+    },
+    "imageFileName": "LibrarySongCover_SeaShanty_NathanEvans.jpg",
+    "version": 1,
+    "acum_id": "PD29AGKCQ",
+    "licenseIDs": [
+        "Acum"
+    ],
+    "scaleFactor": 0.85,
+    "id": "Library_PianoBasics3_Wellerman(SeaShanty)_NathanEvans"
+}

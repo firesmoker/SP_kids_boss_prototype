@@ -1,0 +1,20 @@
+{
+	"id": "Library_PianoBasics2_BridalChorus_CMajor_Easier",
+	"displayName": "מרש הכלה",
+	"version": 1456305344,
+	"uiType": "both_clefs",
+	"artist": "ריכרד וגנר",
+	"imageFileName": "LibrarySongCover_BridalChorus.jpg",
+	"inGameInfo": {
+		"bgm": "WeddingWagner_CMajor_66bpm.ogg",
+		"onScreenDisplayDuration": 2,
+		"melodyFiles": {
+			"right": "Library_PianoBasics2_BridalChorus_CMajor_Easier_Right.txt",
+			"left": "Library_PianoBasics2_BridalChorus_CMajor_Easier_Left.txt"
+		}
+	},
+	"acum_id": "PD2077301",
+	"licenseIDs": [
+		"Acum"
+	]
+}

@@ -1,12 +1,13 @@
 extends Node
 
-@onready var midiStatusLabel: Label = $"../UI/Midi Status Label"
+@onready var midiStatusLabel: Label = $"../Midi Status Label"
 
 # List of WebSocket server URLs
 
 var sockets: Array[WebSocketPeer] = []
 
 func _ready() -> void:
+
 	# Create and connect a WebSocketPeer for each server URL
 	for url in MidiWebSocket.SERVER_URLS:
 		var socket: WebSocketPeer = WebSocketPeer.new()

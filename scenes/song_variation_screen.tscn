@@ -1,0 +1,122 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4fnr2cxlhea8"]
+
+[ext_resource type="Script" path="res://scripts/song_variation_screen.gd" id="1_m5rk2"]
+[ext_resource type="Texture2D" uid="uid://cq6ql7v1cwu5i" path="res://art/back.png" id="2_kog7m"]
+[ext_resource type="Texture2D" uid="uid://bcr5qb072yrm0" path="res://art/SimplyPianoVariant.png" id="3_1gvi7"]
+[ext_resource type="Texture2D" uid="uid://58216hepbyx" path="res://art/LibrarySongVariant1.png" id="3_2db1w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxf50"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0m8h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfeyj"]
+
+[sub_resource type="FontVariation" id="FontVariation_djn1u"]
+variation_embolden = -0.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j35f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_56b30"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4baoe"]
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="SongVariationScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5rk2")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -831.0
+offset_top = -408.0
+offset_right = 1089.0
+offset_bottom = 672.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0, 0.203922, 1)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 51.0
+offset_right = 151.0
+offset_bottom = 143.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cxf50")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j0m8h")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pfeyj")
+icon = ExtResource("2_kog7m")
+flat = true
+
+[node name="HeaderLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.5
+offset_top = 50.0
+offset_right = 122.5
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 52
+text = "Song Title"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -215.5
+offset_top = 150.0
+offset_right = 215.5
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_djn1u")
+theme_override_font_sizes/font_size = 36
+text = "בחר את חווית הנגינה שלך"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 0.7
+offset_top = -281.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 20
+
+[node name="SPButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0j35f")
+icon = ExtResource("3_1gvi7")
+flat = true
+expand_icon = true
+
+[node name="LibraryButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(550, 320)
+layout_mode = 2
+theme_override_font_sizes/font_size = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_56b30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4baoe")
+icon = ExtResource("3_2db1w")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/SPButton" to="." method="_on_SP_pressed"]
+[connection signal="pressed" from="HBoxContainer/LibraryButton" to="." method="_on_Library_pressed"]

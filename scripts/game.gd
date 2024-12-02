@@ -1,4 +1,8 @@
 class_name Game extends Node2D
+
+
+var model: Dictionary
+
 @onready var lib_visuals: Node2D = $Level/LibVisuals
 @onready var character: Sprite2D = $Level/LibVisuals/Character
 
@@ -11,6 +15,7 @@ class_name Game extends Node2D
 @onready var star_bar: TextureProgressBar = $UI/StarsPanel/StarBar
 @export var score_success_color: Color
 @onready var star_celebration: AspectRatioContainer = $UI/StarCelebration
+@onready var confetti: AnimatedSprite2D = $Level/LibVisuals/Confetti
 
 var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
@@ -31,7 +36,7 @@ var temp_notes_played: int = 0
 @onready var single_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow
 @onready var multi_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow
 
-var target_xp: int = 100  # Replace with your desired XP value
+static var target_xp: int = 100  # Replace with your desired XP value
 @onready var xp: Node = $Overlay/XP
 @onready var xp_label: Label = $Overlay/XP/XPLabel
 @onready var xp_audio_player: AudioStreamPlayer = $Overlay/XP/XPAudioPlayer
@@ -125,17 +130,18 @@ var target_xp: int = 100  # Replace with your desired XP value
 @export var accelerate_sound: AudioStream
 @export var slow_down_sound: AudioStream
 
+static var song_title: String = ""
 static var boss_model: String = ""
 static var player_model: String = ""
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
-static var song_path: String = "res://audio/CountingStars_122bpm_new.wav"
-static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80.wav"
+static var song_path: String = "res://audio/CountingStars_122bpm_new.ogg"
+static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80.ogg"
 static var right_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
 static var left_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
-static var game_won_scene: String = "res://scenes/start_screen.tscn"
+static var game_won_scene: String = "res://scenes/boss_screen.tscn"
 static var game_state: String
 static var health_collected: bool = false
 static var slowdown_collected: bool = false
@@ -198,7 +204,8 @@ static var sp_mode: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
-		level_accelerate()
+		#level_accelerate()
+		restart_level()
 	elif event.is_action_pressed("ui_down"):
 		level_slow_down()
 	elif event.is_action_pressed("ui_right"):
@@ -284,6 +291,11 @@ func set_default_visibility() -> void:
 	return_button.visible = false
 	background_slow.visible = false
 	intro_sequence_transition.visible = false
+	into_stage.frame = 0
+	into_stage.visible = false
+	win_buttons.visible = false
+	win_text.visible = false
+	win_text.modulate.a = 0
 	
 	## Hide Library visuals:
 	set_library_song_visibility(false)
@@ -300,9 +312,9 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	streak_meter.visible = false
 	score_meter.visible = toggle
 	video_layer_1.visible = toggle
-	video_layer_2.visible = false
-	video_layer_3.visible = false
-	video_layer_4.visible = false
+	video_layer_2.visible = toggle
+	video_layer_3.visible = toggle
+	video_layer_4.visible = toggle
 	video_layer_5.visible = false
 	white_layer_4.visible = false
 	background_library.visible = false
@@ -384,42 +396,70 @@ func set_star_bar_values() -> void:
 
 func update_ingame_stars() -> void:
 	star_bar.value = score_manager.current_score
+	if star3_unlocked and video_layer_4.modulate.a >= 1:
+		video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
+		print("video 3 disabled")
+	elif star2_unlocked and video_layer_3.modulate.a >= 1:
+		video_layer_2.process_mode = Node.PROCESS_MODE_DISABLED
+		print("video 2 disabled")
+	elif star1_unlocked and video_layer_2.modulate.a >= 1:
+		print("video 1 disabled")
+		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
+	
 	if score_manager.current_score > star3_threshold_modifier:
-		video_layer_5.find_child("Fader").fade_in(0.015)
+		video_layer_4.process_mode = Node.PROCESS_MODE_INHERIT
+		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
-			star_celebration.modulate.a = 1
-			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.005)
+			#star_celebration.process_mode = Node.PROCESS_MODE_INHERIT
+			confetti.process_mode = Node.PROCESS_MODE_INHERIT
+			#star_celebration.modulate.a = 1
+			confetti.frame = 0
+			confetti.play()
+			#star_celebration.find_child("Animation").play()
+			#star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star3_unlocked = true
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
-			expander.expand(1.4,0.25,true)
+			expander.expand(1.7,0.25,true)
 	elif score_manager.current_score > star2_threshold_modifier:
-		video_layer_4.find_child("Fader").fade_in(0.015)
+		#video_layer_3.visible = true
+		video_layer_3.process_mode = Node.PROCESS_MODE_INHERIT
+		video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
-			star_celebration.modulate.a = 1
-			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.005)
+			#star_celebration.process_mode = Node.PROCESS_MODE_INHERIT
+			confetti.process_mode = Node.PROCESS_MODE_INHERIT
+			confetti.frame = 0
+			confetti.play()
+			#star_celebration.modulate.a = 1
+			#star_celebration.find_child("Animation").play()
+			#star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star2_unlocked = true
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
-			expander.expand(1.4,0.25,true)
+			expander.expand(1.7,0.25,true)
 	elif score_manager.current_score > star1_threshold_modifier:
-		video_layer_3.find_child("Fader").fade_in(0.015)
+		#video_layer_3.find_child("Fader").fade_in(0.015)
+		#video_layer_3.visible = true
+		video_layer_2.process_mode = Node.PROCESS_MODE_INHERIT
+		video_layer_2.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
-			star_celebration.modulate.a = 1
-			star_celebration.find_child("Animation").play()
-			star_celebration.find_child("Fader").fade_out(0.005)
+			#star_celebration.process_mode = Node.PROCESS_MODE_INHERIT
+			confetti.process_mode = Node.PROCESS_MODE_INHERIT
+			confetti.frame = 0
+			confetti.play()
+			#star_celebration.modulate.a = 1
+			#star_celebration.find_child("Animation").play()
+			#star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star1_unlocked = true
 			var expander: Expander = star_bar.find_child("Star1").find_child("Expander")
-			expander.expand(1.4,0.25,true)
+			expander.expand(1.7,0.25,true)
 
 func set_player_health() -> void:
 	original_health_color = player_health_bar.tint_progress
@@ -461,13 +501,16 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 		process_mode = Node.PROCESS_MODE_DISABLED
 	lib_visuals.process_mode = process_mode
 	video_layer_1.process_mode = process_mode
-	video_layer_2.process_mode = process_mode
-	video_layer_3.process_mode = process_mode
-	video_layer_4.process_mode = process_mode
-	video_layer_5.process_mode = process_mode
+	video_layer_2.process_mode = Node.PROCESS_MODE_DISABLED
+	video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
+	video_layer_4.process_mode = Node.PROCESS_MODE_DISABLED
+	video_layer_5.process_mode = Node.PROCESS_MODE_DISABLED
+	confetti.process_mode = Node.PROCESS_MODE_DISABLED
+	star_celebration.process_mode = Node.PROCESS_MODE_DISABLED
 	
 
 func _ready() -> void:
+	
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
 	if player_model == "boy_":
@@ -492,6 +535,7 @@ func _ready() -> void:
 		
 	losing = false
 	winning = false
+	var path: String = song_path
 	music_player.stream = load(song_path)
 	music_player_slow.stream = load(slow_song_path)
 	set_player_health()
@@ -667,7 +711,7 @@ func _process(delta: float) -> void:
 
 func _on_music_player_finished() -> void:
 	print("finished!")
-	if not winning and not losing:
+	if not winning and not losing and game_mode == "boss":
 		lose()
 
 	
@@ -753,23 +797,32 @@ func show_stars() -> void:
 	animate_xp(0, score_manager.game_score, FADE_DURATION + ANIMATION_DELAY * stars_to_animate)
 	animate_stars(stars_to_animate)
 
-func display_performance_message() -> void:
+func display_performance_message(sp_screen: bool = sp_mode) -> void:
+	win_text.visible = false
 	var stars: int = int(score_manager.stars)
 	var message: String = ""
-	match stars:
-		0:
-			message = "ניסיון יפה!"
-		1:
-			message = "הופעה טובה!"
-		2:
-			message = "הופעה נהדרת!"
-		3:
-			message = "ביצוע מדהים!"
-		_:
-			message = ""
+	if not sp_mode:
+		match stars:
+			0:
+				message = "ניסיון יפה!"
+			1:
+				message = "הופעה טובה!"
+			2:
+				message = "הופעה נהדרת!"
+			3:
+				message = "ביצוע מדהים!"
+			_:
+				message = ""
+	else:
+		message = "סיימת את השיר!"
+		win_text.text = message
+		win_text.pivot_offset.x = win_text.size.x / 2
+		win_text.pivot_offset.y = win_text.size.y / 2
+		win_text.scale *= 0.5
 
 	# Display the message (for example, in a Label node)
 	win_text.text = message
+	win_text.visible = true
 
 func animate_stars(stars_count: int) -> void:
 	star1.visible = true
@@ -817,6 +870,10 @@ func fade_out_non_animated_stars(stars_count: int) -> void:
 		tween.tween_property(star3, "modulate:a", 0.1, FADE_DURATION)
 
 func win() -> void:
+	if not sp_mode and game_mode == "library":
+		show_library_song_end_screen()
+		return
+	
 	winning = true
 	vulnerable = false
 	fade_elements()
@@ -832,7 +889,10 @@ func win() -> void:
 		boss.visible = false
 		
 	music_player_slow.stop()
-	play_music_clip(audio_clips.player_wins)
+	if game_mode == "library":
+		play_music_clip(audio_clips.song_end_music)
+	else:	
+		play_music_clip(audio_clips.player_wins)
 	into_stage.process_mode = Node.PROCESS_MODE_INHERIT
 	into_stage.visible = true
 	into_stage.play()
@@ -844,14 +904,13 @@ func win() -> void:
 		player_win_animation()
 		await player_character.animation_finished
 	else: 
-		display_performance_message()
+		display_performance_message(true)
 	show_stars()
 	timer.wait_time = 0.5
 	timer.start()
 	await timer.timeout
 	game_state = "Win"
 	enter_win_ui()
-	#get_tree().change_scene_to_file("res://scenes/game_won_screen.tscn")
 
 func new_timer(wait_time: float = 2.0) -> Timer:
 	var timer: Timer = Timer.new()
@@ -1062,9 +1121,10 @@ func restart_level(wait: bool = false, type: String = "normal") -> void:
 		add_child(timer)
 		timer.start(0.8)
 		await timer.timeout
-	LevelSelector.set_level(type)
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+	var game: Game = NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
+	game.model = model
 	
 
 func _on_boss_hit_zone_body_entered(note: Note) -> void:
@@ -1125,26 +1185,43 @@ func _on_resume_button_up() -> void:
 
 
 func _on_win_change_level_button_up() -> void:
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
-
+	if game_mode == "boss":
+		get_tree().paused = false
+		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+	else:
+		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
 	if game_mode == "boss":
-		if has_easy_difficulty:
-			show_easy = true
-		darken.visible = true
-		if show_easy:
-			easy_button.visible = true
-		else:
-			easy_button.visible = false
-		difficulty.visible = true
+		NodeHelper.move_to_scene(self, "res://scenes/boss_difficulty_screen.tscn", Callable(self, "on_boss_difficulty_screen_created"))
+		#if has_easy_difficulty:
+			#show_easy = true
+		#darken.visible = true
+		#if show_easy:
+			#easy_button.visible = true
+		#else:
+			#easy_button.visible = false
+		#difficulty.visible = true
 	else:
-		get_tree().paused = false
-		get_tree().reload_current_scene()
+		#get_tree().paused = false
+		#get_tree().reload_current_scene()
+		#restart_level()
+		NodeHelper.move_to_scene(self, "res://scenes/song_difficulty_screen.tscn", Callable(self, "on_song_difficulty_screen_created"))
+
+func on_song_difficulty_screen_created(song_difficulty_screen: SongDifficultyScreen) -> void:
+	song_difficulty_screen.model = model
+
+
+func on_boss_difficulty_screen_created(boss_difficulty_screen: BossDifficultyScreen) -> void:
+	boss_difficulty_screen.model = model
 
 
 func _on_win_continue_button_up() -> void:
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	if game_mode == "boss":
+		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+	else:
+		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+
 
 func play_music_clip(audioclip: AudioStream = audio_clips.player_wins) -> void:
 	music_player.stream = audioclip
@@ -1159,7 +1236,10 @@ func _on_popup_timer_timeout() -> void:
 func _on_return_button_up() -> void:
 	Game.game_state = "Winning"
 	pause()
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	if game_mode == "boss":
+		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+	else:
+		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
 func get_lose_state() -> bool:
 	return losing
@@ -1193,3 +1273,33 @@ func update_debug() -> void:
 	debug_current_score.text = "current score: " + str(snapped(score_manager.current_score,0.01)*100.0) + "%"
 	debug_vulnerable.text = "vulnerable: " + str(vulnerable)
 	debug_game_score.text = "Game Score: " + str(score_manager.game_score)
+
+func _on_move_to_end_screen_button_pressed() -> void:
+	win()
+
+func show_library_song_end_screen() -> void:
+	fade_elements()
+	var timer: Timer = new_timer(1)
+	timer.start()
+	await timer.timeout
+	NodeHelper.move_to_scene(self, "res://scenes/song_end_screen.tscn", Callable(self, "on_song_end_screen_created"))
+
+func on_song_end_screen_created(song_end_screen: SongEndScreen) -> void:
+	song_end_screen.total_stars = score_manager.stars
+	song_end_screen.total_hit_notes = score_manager.total_hit_notes()
+	song_end_screen.total_notes = score_manager.total_notes()
+	song_end_screen.timing_score = score_manager.timing_score()
+	song_end_screen.game_score = score_manager.game_score
+	song_end_screen.model = model
+	
+
+func move_to_song_library() -> void:	
+	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+
+
+func _on_animation_animation_finished() -> void:
+	star_celebration.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _on_confetti_animation_finished() -> void:
+	confetti.process_mode = Node.PROCESS_MODE_DISABLED

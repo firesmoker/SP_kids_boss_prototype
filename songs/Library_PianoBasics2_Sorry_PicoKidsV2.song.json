@@ -1,0 +1,23 @@
+{
+	"uiType": "both_clefs",
+	"displayName": "סורי",
+	"artist": "ג׳סטין ביבר",
+	"id": "Library_PianoBasics2_Sorry_PicoKidsV2",
+	"version": 1,
+	"acum_id": 2887797,
+	"licenseIDs": [
+		"Acum",
+		"Universal",
+		"Kobalt",
+		"WC"
+	],
+	"imageFileName": "LibrarySongCover_Sorry_JustinBieber_Getty.jpg",
+	"inGameInfo": {
+		"onScreenDisplayDuration": 2.3,
+		"melodyFiles": {
+			"right": "Library_PianoBasics2_Sorry_PicoKidsV2_Right.txt",
+			"left": "Library_PianoBasics2_Sorry_PicoKidsV2_Left.txt"
+		},
+		"bgm": "Sorry_96bpm_CMajor_Vocals.ogg"
+	}
+}

@@ -15,9 +15,8 @@ func _ready() -> void:
 	music_player.connect("finished", Callable(self, "_on_music_finished"))
 
 	# Start playing the music
+	game = NodeHelper.get_root_game(self)
 	music_player.play()
-	
-	game = get_tree().root.get_child(0)
 	beat_signal.connect(game.beat_effects)
 
 func _process(delta: float) -> void:

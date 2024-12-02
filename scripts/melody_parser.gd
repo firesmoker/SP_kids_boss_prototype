@@ -19,6 +19,9 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 		var note: String = ""
 		var extraData: PackedStringArray = []
 
+		if section.contains("Clef") || section.contains("bgmFileName"):
+			continue
+			
 		# Parse milestones (like CriticalSectionStart/End)
 		if section.begins_with("*") and section.ends_with(":*"):
 			event.type = "milestone"
@@ -28,14 +31,18 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 			event.type = "rest"
 			section = section.replace("-", "")
 		
-		elif section.contains("&"):
+		elif section.contains("&&"):
 			var collectible_parts: PackedStringArray = parts[0].split("&") 
 			event.type = "collectible"
 			event.subtype = get_word(collectible_parts[1])
 			note = get_word(collectible_parts[0])
+		
 		else:
 			event.type = "note"
 			note = get_word(parts[0])
+			if note.is_empty():
+				continue
+				
 	
 		event.note = note
 		
@@ -44,7 +51,7 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 			if extraData.size() > 0:
 				duration = parse_fraction_as_float(extraData[0]) # Parse duration as float
 			if extraData.size() > 1:
-				event.details["finger"] = get_word(extraData[1]) # finger is an int, but stored as String
+				process_fingering(extraData[1], event) # finger is an int, but stored as String
 
 		# Find the indices of the brackets
 		var start_index: int = section.find("[") + 1
@@ -62,6 +69,18 @@ func parse_melody(melody_string: String) -> Array[MelodyEvent]: # Input is a Str
 
 	return melody_array
 
+# Function to process the "finger" value with the new logic
+func process_fingering(input: String, event: MelodyEvent) -> void:
+	if input.begins_with("!"):
+		# Handle "!" case
+		event.details["bold_fingering"] = true
+		# Remove the "!" and pass the rest to get_word
+		var processed_input: String = input.substr(1)  # Get substring after "!"
+		event.details["finger"] = get_word(processed_input)
+	else:
+		# Handle normal case
+		event.details["finger"] = get_word(input)
+		
 func get_word(input: String) -> String:
 	var regex: RegEx = RegEx.new()
 	regex.compile("^[\\w]+")  # Match one or more alphanumeric characters at the start

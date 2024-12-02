@@ -28,7 +28,7 @@ var finished_reverse_moving: bool = true
 
 func _ready() -> void:
 	parent = get_parent()
-	game = get_tree().root.get_child(0)
+	game = NodeHelper.get_root_game(self)
 	original_scale = parent.scale
 	target_scale = original_scale * target_scale_modifier
 	original_position = parent.global_position

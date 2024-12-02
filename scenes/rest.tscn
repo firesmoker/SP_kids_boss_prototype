@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bj0e24s6hnhsw"]
+[gd_scene load_steps=46 format=3 uid="uid://bj0e24s6hnhsw"]
 
 [ext_resource type="Script" path="res://scripts/note.gd" id="1_uhqk6"]
 [ext_resource type="Texture2D" uid="uid://b2tt261eyi0ry" path="res://art/RestEighthNormal.png" id="2_aybtf"]
@@ -157,6 +157,8 @@ shader = ExtResource("8_o6hsy")
 shader_parameter/color = null
 shader_parameter/alpha = 1.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7oejk"]
+
 [node name="Rest" type="AnimatableBody2D"]
 scale = Vector2(0.21875, 0.21875)
 sync_to_physics = false
@@ -249,3 +251,6 @@ material = SubResource("ShaderMaterial_uwyom")
 position = Vector2(1.14441e-05, -1.33514e-05)
 scale = Vector2(2.042, 1.842)
 texture = ExtResource("9_a3j76")
+
+[node name="Fanta" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7oejk")

@@ -10,7 +10,7 @@ signal note_failure
 signal continue_note_played
 
 func _ready() -> void:
-	game = get_tree().root.get_child(0)
+	game = NodeHelper.get_root_game(self)
 	note_success.connect(game.hit_boss)
 	note_success.connect(game.add_to_combo)
 	note_success.connect(game.start_score_visual)
@@ -22,30 +22,42 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not bottom_detector and not event.is_echo() and not event.is_released():
 		var note: String = event.as_text() + "4"
 		note_played(note)
+		note = event.as_text() + "5"
+		note_played(note)
 	elif not event.is_echo() and not event.is_released():
 		var note: String = event.as_text() + "3"
 		note_played(note)
 
 func note_played(note: String) -> void:
+	print("note played: " + note)
 	if note == "C4":
 		emit_signal("continue_note_played")
-	var interval: bool = false
-	if current_notes.size() > 1 and not game.get_lose_state():
-		if current_notes[0].position.x == current_notes[1].position.x:
-			interval = true
+	if game.get_lose_state():
+		return
+		
+	var distance: float = 100
+	var target_index: int = -1  # Initialize the target index
+	var playback_position: float = game.music_player.get_playback_position()
+
+	# Iterate using an index
+	for i in current_notes.size():
+		var n: Note = current_notes[i]
+		if n.note != note:
+			continue
 			
-	if current_notes.size() > 0 and not game.get_lose_state():
-		if interval:
-			for i in range(clamp(current_notes.size(),1,2)):
-				if note == current_notes[i].note:
-					note_hit(i)
-					break
-		elif note == current_notes[0].note:
-			note_hit(0)
-			
-			
-		#else:
-			#print("wrong note played YA LOSER")
+		var time: float = n.event.time * score_manager.beat_manager.beat_length * 4
+		var note_distance: float = abs(time - playback_position)
+
+		# Update target_index if this note is closer
+		if note_distance < distance:
+			distance = note_distance
+			target_index = i
+
+	# Check if a valid target_index was found
+	if target_index != -1:
+		var target_note: Note = current_notes[target_index]
+		note = target_note.note
+		note_hit(target_index)
 
 func note_hit(i: int) -> void:
 	if game.vulnerable:

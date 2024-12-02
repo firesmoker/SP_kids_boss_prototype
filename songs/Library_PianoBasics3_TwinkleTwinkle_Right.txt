@@ -1,0 +1,45 @@
+92,4/4,0,GClef,Right
+
+
+*bgmFileName:TwinkleTwinkle_CMajor_92bpm.m4a*
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+C4:1/4%1(StemU) C4:1/4(StemU) G4:1/4%5(StemU) G4:1/4(StemU) 
+A4:1/4%5(StemU) A4:1/4(StemU) G4:1/2%5(StemU) 
+
+*StageEnd:1*
+
+*StageStart:2*
+F4:1/4%4(StemU) F4:1/4(StemU) E4:1/4(StemU) E4:1/4(StemU) 
+D4:1/4(StemU) D4:1/4(StemU) C4:1/2%1(StemU) 
+
+*StageEnd:2*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:3*
+G4:1/4%5(StemU) G4:1/4(StemU) F4:1/4(StemU) F4:1/4(StemU) 
+E4:1/4(StemU) E4:1/4(StemU) D4:1/2%2(StemU) 
+G4:1/4%5(StemU) G4:1/4(StemU) F4:1/4(StemU) F4:1/4(StemU) 
+E4:1/4(StemU) E4:1/4(StemU) D4:1/2%2(StemU) 
+
+*StageEnd:3*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:4*
+C4:1/4%1(StemU) C4:1/4(StemU) G4:1/4%5(StemU) G4:1/4(StemU) 
+A4:1/4%5(StemU) A4:1/4(StemU) G4:1/2%5(StemU) 
+F4:1/4%4(StemU) F4:1/4(StemU) E4:1/4(StemU) E4:1/4(StemU) 
+D4:1/4(StemU) D4:1/4(StemU) C4:1/2%1(StemU)
+*StageEnd:4*
+
+*LevelEnd:Part 3*

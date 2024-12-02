@@ -1,0 +1,21 @@
+{
+  "id": "Library_PianoBasics2_HesAPirate_PicoKidsV2",
+  "displayName": "הפיראט",
+  "uiType": "treble_clef",
+  "version": 1,
+  "scaleFactor": 0.85,
+  "artist": "שודדי הקאריביים",
+  "imageFileName": "LibrarySongCover_PianoBasics1A_PicoKids_HesAPirate.jpg",
+  "backgroundAnimationTheme": "underWater",
+  "inGameInfo": {
+	"onScreenDisplayDuration": 3.4,
+	"bgm": "HesAPirate_DMinor_94bpm.ogg",
+	"melodyFiles": {
+	  "right": "Library_PianoBasics2_HesAPirate_PicoKidsV2_Right.txt"
+	}
+  },
+  "acum_id": "Disney2393755",
+  "licenseIDs": [
+	"Acum"
+  ]
+}

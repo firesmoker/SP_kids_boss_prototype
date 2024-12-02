@@ -1,0 +1,114 @@
+105,4/4,0,GClef,Right
+
+
+*bgmFileName:BarbieGirl_Aqua_AMinor_105bpm_Vocals.m4a*
+-:1 
+-:1 
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+E4:1/4%3(StemU) E4:1/8(StemU) A4:1/8%5(StemU) F4:1/2%4(StemU) 
+D4:1/4%2(StemU) D4:1/8(StemU) G4:1/8%5(StemU) E4:1/4%3(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+
+*StageEnd:1*
+
+*StageStart:2*
+-:1/4 C4:1/4(StemU) D4:1/4%2(StemU) -:1/4 
+-:1/4 D4:1/8(StemU) C4:1/8(StemU) E4:1/4(StemU) D4:1/4(StemU) 
+
+*StageEnd:2*
+
+*StageStart:3*
+E4:1/4%3(StemU) E4:1/8(StemU) A4:1/8%5(StemU) F4:1/2%4(StemU) 
+D4:1/4%2(StemU) D4:1/8(StemU) G4:1/8%5(StemU) E4:1/4%3(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+-:1/4 C4:1/4(StemU) D4:1/4%2(StemU) -:1/4 
+-:1/4 D4:1/8(StemU) C4:1/8(StemU) E4:1/4(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+-:1 
+
+*StageEnd:3*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 1*
+
+*StageStart:4*
+E4:1/4%3(StemU) E4:1/8(StemU) A4:1/8%5(StemU) F4:1/2%4(StemU) 
+D4:1/4%2(StemU) D4:1/8(StemU) G4:1/8%5(StemU) E4:1/4%3(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+
+*StageEnd:4*
+
+*StageStart:5*
+-:1/4 C4:1/4(StemU) D4:1/4%2(StemU) -:1/4 
+-:1/4 D4:1/8(StemU) C4:1/8(StemU) E4:1/4(StemU) D4:1/4(StemU) 
+
+*StageEnd:5*
+
+*StageStart:6*
+E4:1/4%3(StemU) E4:1/8(StemU) A4:1/8%5(StemU) F4:1/2%4(StemU) 
+D4:1/4%2(StemU) D4:1/8(StemU) G4:1/8%5(StemU) E4:1/4%3(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+-:1/4 C4:1/4(StemU) D4:1/4%2(StemU) -:1/4 
+-:1/4 D4:1/8(StemU) C4:1/8(StemU) E4:1/4(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+
+*StageEnd:6*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:7*
+-:1/2 -:1/8 C4:1/8%1(StemU) D4:1/8%2(StemU) E4:1/8%3(StemU) 
+-:1/8 C4:1/8%1(StemU) D4:1/8(StemU) E4:1/8(StemU) -:1/8 C4:1/8%1(StemU) D4:1/8(StemU) E4:1/8(StemU) 
+-:1/4 E4:1/8%3(StemU) D4:1/8(StemU) -:1/2 
+
+*StageEnd:7*
+
+*StageStart:8*
+-:1 
+C4E4:1/2%13(StemU) -:1/8 C4:1/8%1(StemU) D4:1/8%2(StemU) E4:1/8%3(StemU) 
+-:1/8 C4:1/8(StemU) D4:1/8(StemU) E4:1/8(StemU) -:1/8 C4:1/8(StemU) D4:1/8(StemU) E4:1/8(StemU) 
+-:1/4 E4:1/8(StemU) D4:1/8(StemU) -:1/2 
+-:1 
+
+*StageEnd:8*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:9*
+C4E4:1/2%13(StemU) -:1/8 E4:1/8%3(StemU) F4:1/8%4(StemU) G4:1/8%5(StemU) 
+-:1/2 -:1/4 A4:1/4%5(StemU) 
+G4:1/2%5(StemU) -:1/8 E4:1/8%3(StemU) F4:1/8(StemU) G4:1/8%5(StemU) 
+-:1/2 A4:1/4%5(StemU) G4:1/4%5(StemU) 
+G4:1/8(StemU) D4:1/8%2(StemU) -:1/4 -:1/2 
+
+*StageEnd:9*
+
+*LevelEnd:Part 3*
+
+*LevelStart:Part 1*
+
+*StageStart:10*
+E4:1/4%3(StemU) E4:1/8(StemU) A4:1/8%5(StemU) F4:1/2%4(StemU) 
+D4:1/4%2(StemU) D4:1/8(StemU) G4:1/8%5(StemU) E4:1/4%3(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+
+*StageEnd:10*
+
+*StageStart:11*
+-:1/4 C4:1/4(StemU) D4:1/4%2(StemU) -:1/4 
+-:1/4 D4:1/8(StemU) C4:1/8(StemU) E4:1/4(StemU) D4:1/4(StemU) 
+
+*StageEnd:11*
+
+*StageStart:12*
+E4:1/4%3(StemU) E4:1/8(StemU) A4:1/8%5(StemU) F4:1/2%4(StemU) 
+D4:1/4%2(StemU) D4:1/8(StemU) G4:1/8%5(StemU) E4:1/4%3(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+-:1/4 C4:1/4(StemU) D4:1/4%2(StemU) -:1/4 
+-:1/4 D4:1/8(StemU) C4:1/8(StemU) E4:1/4(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+-:1
+*StageEnd:12*
+
+*LevelEnd:Part 1*

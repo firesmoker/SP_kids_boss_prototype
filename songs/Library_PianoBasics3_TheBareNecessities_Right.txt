@@ -1,0 +1,54 @@
+130,4/4,0,GClef,Right
+
+
+*bgmFileName:BareNecessities_CMajor_130BPM_Vocals_Short.m4a*
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+-:1 
+-:1 
+E4:1/4%3(StemU) D4:1/4(StemU) C4:1/2(StemU) 
+D4:1/4%2(StemU) C4:1/4%1(StemU) D4:1/4(StemU) C4:1/4(StemU) 
+D4:1/4(StemU) C4:1/4(StemU) -:1/2 
+
+*StageEnd:1*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:2*
+-:1/2 C4:1/4%1(StemU) E4:1/4%3(StemU) 
+A4:1/4%5(StemU) G4:1/4%5(StemU) F4:1/4%4(StemU) E4:1/4(StemU) 
+D4:1/2(StemU) -:1/2 
+-:1/2 G4:1/4%5(StemU) -:1/4 
+
+*StageEnd:2*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:3*
+-:1 
+-:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) C4:1/4%1(StemU) 
+D4:1/4%2(StemU) C4:1/4(StemU) D4:1/4(StemU) C4:1/4(StemU) 
+-:1/4 C4:1/4%1(StemU) C4:1/4(StemU) D4:1/4%2(StemU) 
+
+*StageEnd:3*
+
+*LevelEnd:Part 3*
+
+*LevelStart:Part 4*
+
+*StageStart:4*
+E4:1/4%3(StemU) G4:1/4%5(StemU) E4:1/4(StemU) G4:1/4(StemU) 
+E4:1/4%3(StemU) C4:1/4%1(StemU) -:1/2 
+C4:1/2%1(StemU) -:1/2 
+E4:1%3
+*StageEnd:4*
+
+*LevelEnd:Part 4*

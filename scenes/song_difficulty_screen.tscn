@@ -1,0 +1,248 @@
+[gd_scene load_steps=22 format=3 uid="uid://tlv7ty5vjdto"]
+
+[ext_resource type="Script" path="res://scripts/song_difficulty_screen.gd" id="1_6y50k"]
+[ext_resource type="Texture2D" uid="uid://cm72k8qdjh0xx" path="res://art/EasyButton.png" id="2_dqj1w"]
+[ext_resource type="Texture2D" uid="uid://ffx6u6ngl4bb" path="res://art/MediumButton.png" id="3_n1pe8"]
+[ext_resource type="Texture2D" uid="uid://cpdbgkmlvbvm8" path="res://art/HardButton.png" id="4_oyaun"]
+[ext_resource type="Texture2D" uid="uid://cq6ql7v1cwu5i" path="res://art/back.png" id="5_8rurp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ldy7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxdm8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rki2q"]
+
+[sub_resource type="FontVariation" id="FontVariation_xrpmo"]
+variation_embolden = -0.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rva0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t4ls"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vlbb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fkrk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17gjn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7dvlx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kk68a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ar5ci"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myfdn"]
+
+[sub_resource type="Gradient" id="Gradient_rs6wh"]
+offsets = PackedFloat32Array(0, 0.00744417)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ayyuj"]
+gradient = SubResource("Gradient_rs6wh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgi1c"]
+bg_color = Color(0.36624, 0.00156877, 0.638228, 1)
+
+[node name="SongDifficultyScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6y50k")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -831.0
+offset_top = -408.0
+offset_right = 1089.0
+offset_bottom = 672.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0, 0.203922, 1)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 51.0
+offset_right = 151.0
+offset_bottom = 143.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ldy7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rxdm8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rki2q")
+icon = ExtResource("5_8rurp")
+flat = true
+
+[node name="HeaderLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.5
+offset_top = 50.0
+offset_right = 122.5
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 52
+text = "Song Title"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -215.5
+offset_top = 150.0
+offset_right = 215.5
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_xrpmo")
+theme_override_font_sizes/font_size = 36
+text = "בחר רמת קושי"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.5
+offset_top = -114.0
+offset_right = 244.5
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="EasyButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 340.0
+offset_top = 261.0
+offset_right = 840.0
+offset_bottom = 366.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0rva0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3t4ls")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlbb3")
+icon = ExtResource("2_dqj1w")
+flat = true
+expand_icon = true
+
+[node name="MediumButton" type="Button" parent="."]
+custom_minimum_size = Vector2(500, 105)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -52.5
+offset_right = 250.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8fkrk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_17gjn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7dvlx")
+icon = ExtResource("3_n1pe8")
+flat = true
+expand_icon = true
+
+[node name="HardButton" type="Button" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 338.0
+offset_top = 456.0
+offset_right = 838.0
+offset_bottom = 561.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kk68a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ar5ci")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_myfdn")
+icon = ExtResource("4_oyaun")
+flat = true
+expand_icon = true
+
+[node name="LoadOverlay" type="TextureRect" parent="."]
+process_mode = 3
+visible = false
+self_modulate = Color(1, 1, 1, 0.686275)
+top_level = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ayyuj")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="LoadOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -143.0
+offset_right = 310.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xgi1c")
+
+[node name="Label" type="Label" parent="LoadOverlay/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -68.0
+offset_right = 190.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+text = "טוען"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="LoadOverlay/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = 27.0
+offset_right = 322.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "תניחו את אצבע 1 על דו אמצעי"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="EasyButton" to="." method="_on_EasyButton_pressed"]
+[connection signal="pressed" from="MediumButton" to="." method="_on_MediumButton_pressed"]
+[connection signal="pressed" from="HardButton" to="." method="_on_HardButton_pressed"]

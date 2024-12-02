@@ -1,0 +1,21 @@
+{
+  "id": "Library_PianoBasics2_CanYouFeelTheLoveTonight_TheLionKing_PicoKidsV2",
+  "displayName": "אהבה יש באוויר",
+  "uiType": "bass_clef",
+  "version": 1,
+  "scaleFactor": 0.85,
+  "artist": "מלך האריות",
+  "imageFileName": "LibrarySongCover_CanYouFeelTheLoveTonight_LionKing.jpg",
+  "inGameInfo": {
+	"onScreenDisplayDuration": 3,
+	"bgm": "CanYouFeelTheLoveTonight_Vocals_CMajor_62bpm_Fixed.ogg",
+	"melodyFiles": {
+	  "right": "Library_PianoBasics1B_PicoKidsStarLevel_CanYouFeelTheLoveTonight_Right.txt",
+	  "left": "Library_PianoBasics1B_PicoKidsStarLevel_CanYouFeelTheLoveTonight_Left.txt"
+	}
+  },
+  "acum_id": "Disney2060675",
+  "licenseIDs": [
+	"Acum"
+  ]
+}

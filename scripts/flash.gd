@@ -12,7 +12,7 @@ func _ready() -> void:
 	timer.wait_time = flash_time
 	parent = get_parent()
 	starting_color = parent.modulate
-	game = get_tree().root.get_child(0)
+	game = NodeHelper.get_root_game(self)
 	if game:
 		x_hide_position = game.detector_position_x
 	else:

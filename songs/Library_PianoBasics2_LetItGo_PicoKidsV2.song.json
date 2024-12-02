@@ -1,0 +1,21 @@
+{
+	"id": "Library_PianoBasics2_LetItGo_PicoKidsV2",
+	"displayName": "לט איט גו",
+	"version": 1,
+	"uiType": "treble_clef",
+	"licenseIDs": [
+		"Acum",
+		"Universal"
+	],
+	"artist": "פרוזן",
+	"imageFileName": "LibrarySongCover_LetItGo.jpg",
+	"backgroundAnimationTheme": "savana",
+	"inGameInfo": {
+		"bgm": "LetItGo_Aminor_106bpm_ShortForPB2.ogg",
+		"onScreenDisplayDuration": 3.5,
+		"melodyFiles": {
+			"right": "Library_PianoBasics2_LetItGo_PicoKidsV2_Right.txt"
+		}
+	},
+	"acum_id": "Disney2803551"
+}

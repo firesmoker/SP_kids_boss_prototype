@@ -1,0 +1,115 @@
+140,4/4,0,FClef,Left
+
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+F3A3:1%21 
+-:1 
+-:1 
+-:1 
+
+*StageEnd:1*
+
+*StageStart:2*
+-:1 
+F3A3:1%21 
+-:1 
+C3G3:1%51 
+
+*StageEnd:2*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:3*
+F3A3:1%21 
+-:1 
+-:1 
+-:1 
+
+*StageEnd:3*
+
+*StageStart:4*
+-:1 
+F3A3:1%21 
+-:1 
+C3G3:1%51 
+-:1 
+
+*StageEnd:4*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:5*
+F3A3:1%21 
+-:1 
+-:1 
+-:1 
+
+*StageEnd:5*
+
+*LevelEnd:Part 3*
+
+*LevelStart:Part 4*
+
+*StageStart:6*
+-:1 
+F3A3:1%21 
+-:1 
+C3G3:1%51 
+
+*StageEnd:6*
+
+*LevelEnd:Part 4*
+
+*LevelStart:Part 1*
+
+*StageStart:7*
+F3A3:1%21 
+-:1 
+-:1 
+-:1 
+
+*StageEnd:7*
+
+*StageStart:8*
+-:1 
+F3A3:1%21 
+-:1 
+C3G3:1%51 
+
+*StageEnd:8*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:9*
+F3A3:1%21 
+-:1 
+-:1 
+-:1 
+
+*StageEnd:9*
+
+*StageStart:10*
+-:1 
+F3A3:1%21 
+-:1 
+C3G3:1%51 
+-:1
+*StageEnd:10*
+
+*LevelEnd:Part 2*

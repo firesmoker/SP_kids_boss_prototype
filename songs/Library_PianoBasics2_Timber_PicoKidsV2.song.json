@@ -1,0 +1,24 @@
+{
+    "uiType": "both_clefs",
+    "displayName": "טימבר",
+    "artist": "טימבר בהשתתפות קישה",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 3,
+        "melodyFiles": {
+            "right": "Library_PianoBasics2_Timber_PicoKidsV2_Right.txt",
+            "left": "Library_PianoBasics2_Timber_PicoKidsV2_Left.txt"
+        },
+        "bgm": "PianoBasics2_06_Timber_AMinor.ogg"
+    },
+    "imageFileName": "LibrarySongCover_Timber.jpg",
+    "version": 1,
+    "acum_id": 2799369,
+    "licenseIDs": [
+        "Acum",
+        "Kobalt",
+        "WC",
+        "Sony",
+        "BMG"
+    ],
+    "id": "Library_PianoBasics2_Timber_PicoKidsV2"
+}

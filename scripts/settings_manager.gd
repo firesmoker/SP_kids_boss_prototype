@@ -38,7 +38,14 @@ func load_settings() -> void:
 			settings = json.parse_string(data)
 			file.close()
 			print("Settings loaded from", SETTINGS_PATH)
+			
+			Game.cheat_auto_play = settings["auto_play_toggle"]
+			Game.debug = settings["debug_toggle"]
+			Game.cheat_skip_intro = settings["skip_intro"]
+			Game.cheat_skip_middle_c = settings["skip_middle_c"]
+	
 		else:
 			print("Failed to load settings.")
 	else:
 		print("No settings file found, using default settings.")
+		

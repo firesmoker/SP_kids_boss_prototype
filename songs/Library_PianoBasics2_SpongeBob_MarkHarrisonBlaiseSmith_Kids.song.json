@@ -1,0 +1,20 @@
+{
+    "id": "Library_PianoBasics2_SpongeBob_MarkHarrisonBlaiseSmith_Kids",
+    "displayName": "בובספוג",
+    "uiType": "treble_clef",
+    "version": 1,
+    "scaleFactor": 0.85,
+    "artist": "מארק הריסון & בלאיס סמית׳",
+    "imageFileName": "LibrarySongCover_SpongeBob.jpg",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 3.5,
+        "bgm": "SpongeBob_MarkHarrisonBlaiseSmith_GMajor_106bpm_Vocals.ogg",
+        "melodyFiles": {
+            "right": "Library_PianoBasics2_SpongeBob_MarkHarrisonBlaiseSmith_Kids_Right.txt"
+        }
+    },
+    "acum_id": "2443787",
+    "licenseIDs": [
+        "Acum"
+    ]
+}

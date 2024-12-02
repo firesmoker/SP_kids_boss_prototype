@@ -8,7 +8,7 @@ signal collectible_completed
 signal golden_note_missed
 
 func _ready() -> void:
-	game = get_tree().root.get_child(0)
+	game = NodeHelper.get_root_game(self)
 	collectible_collected.connect(game.activate_effect)
 	collectible_completed.connect(game.deactivate_effect)
 	golden_note_missed.connect(game.get_hit)
