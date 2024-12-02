@@ -111,7 +111,7 @@
 	{
 		"displayName": "הוקי פוקי",
 		"artist": "מסורתי",
-		"image": "",
+		"image": "res://songs/LibrarySongCover_HokeyPokey.jpg",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/HokeyPokey_88_Right.txt",
@@ -140,7 +140,7 @@
 	{
 		"displayName": "נפילה חופשית",
 		"artist": "טום פטי",
-		"image": "",
+		"image": "res://songs/LibrarySongCover_TomPetty.jpg",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/FreeFallin_155_Right.txt",
@@ -169,7 +169,7 @@
 	{
 		"displayName": "דאנס מאנקי",
 		"artist": "טונז אנד איי",
-		"image": "",
+		"image": "res://songs/LibrarySongCover_DanceMonkey.jpg",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/DanceMonkey_85_Right.txt",
@@ -198,7 +198,7 @@
 	{
 		"displayName": "שיר הפוקימון",
 		"artist": "פוקימון",
-		"image": "",
+		"image": "res://songs/LibrarySongCover_Pokemon.jpg",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/Pokemon_115_Right.txt",
@@ -227,7 +227,7 @@
 	{
 		"displayName": "בליבר",
 		"artist": "אימג'ן דרגונס",
-		"image": "",
+		"image": "res://songs/LibrarySongCover_ImagineDragons_Getty.jpg",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/Believer_110_Right.txt",
@@ -274,7 +274,7 @@
 	{
 		"displayName": "לט איט גו",
 		"artist": "פרוזן",
-		"image": "",
+		"image": "res://songs/LibrarySongCover_LetItGo.jpg",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/LetItGoSimplified_106_Right.txt",
@@ -303,7 +303,7 @@
 	{
 		"displayName": "לא יכול לחכות להיות מלך (טכנו)",
 		"artist": "מלך האריות",
-		"image": "",
+		"image": "res://songs/LibrarySongCover_IJustCantWaitToBeKing.jpg",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/CircleOfLifeLonger_TheLionKing_78.txt",
