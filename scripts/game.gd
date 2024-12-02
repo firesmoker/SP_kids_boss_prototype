@@ -157,6 +157,7 @@ static var starting_player_health: float = 10
 static var starting_boss_health: float = 300
 static var ui_type: String = "treble" # treble / bass / both
 static var repeat_requested: bool = false
+static var last_game_lost: bool = false
 static var on_display_duration: float = 1
 static var cheat_auto_play: bool = false
 static var cheat_skip_intro: bool = false
@@ -748,6 +749,7 @@ func lose() -> void:
 	timer.start()
 	await timer.timeout
 	game_state = "Lose"
+	last_game_lost = true
 	enter_lose_ui()
 
 # Adjust this for the delay between each star animation
@@ -916,6 +918,7 @@ func win() -> void:
 	timer.start()
 	await timer.timeout
 	game_state = "Win"
+	last_game_lost = false
 	enter_win_ui()
 
 func new_timer(wait_time: float = 2.0) -> Timer:
@@ -1120,11 +1123,7 @@ func reset_health_bars() -> void:
 	boss_previous_health = boss_health
 
 func restart_level(wait: bool = false, type: String = "normal") -> void:
-	#Game.game_state = "Playing"
-	if game_state == "Lose":
-		Game.repeat_requested = true
-	else:
-		Game.repeat_requested = false
+	Game.repeat_requested = true
 	music_player.stream_paused = true
 	if wait:
 		var timer: Timer = Timer.new()
@@ -1202,6 +1201,7 @@ func _on_win_change_level_button_up() -> void:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
+	Game.repeat_requested = true
 	if game_mode == "boss":
 		NodeHelper.move_to_scene(self, "res://scenes/boss_difficulty_screen.tscn", Callable(self, "on_boss_difficulty_screen_created"))
 		#if has_easy_difficulty:

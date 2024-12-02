@@ -4343,8 +4343,7 @@ metadata/_edit_lock_ = true
 
 [node name="Vignette" type="Sprite2D" parent="Level"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(13.5181, -8.45033)
-scale = Vector2(0.937008, 0.937008)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("427_hua2n")
 metadata/_edit_lock_ = true
 
