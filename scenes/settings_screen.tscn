@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=12 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/settings_screen.gd" id="1_6lyn8"]
 [ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="2_3hyk2"]
-[ext_resource type="Texture2D" uid="uid://b2qvicr3lgffq" path="res://art/12_nov/Default_Character.png" id="3_7260t"]
 [ext_resource type="Texture2D" uid="uid://bulita8o26en8" path="res://art/12_nov/new_chars/Girl/Seq - Idle/Girl - Idle_00000.png" id="4_wdu1k"]
 [ext_resource type="Texture2D" uid="uid://oq4srcmpctv2" path="res://art/12_nov/new_chars/Boy/Seq - Idle/Boy - Idle_00000.png" id="5_04kmg"]
 [ext_resource type="Script" path="res://scripts/settings_manager.gd" id="9_7271b"]
@@ -408,15 +407,13 @@ theme_override_font_sizes/font_size = 36
 alignment = 2
 expand_icon = true
 selected = 1
-item_count = 3
-popup/item_0/text = "Default"
-popup/item_0/icon = ExtResource("3_7260t")
-popup/item_1/text = "Girl"
-popup/item_1/icon = ExtResource("4_wdu1k")
-popup/item_1/id = 1
-popup/item_2/text = "Boy"
-popup/item_2/icon = ExtResource("5_04kmg")
-popup/item_2/id = 2
+item_count = 2
+popup/item_0/text = "Girl"
+popup/item_0/icon = ExtResource("4_wdu1k")
+popup/item_0/id = 1
+popup/item_1/text = "Boy"
+popup/item_1/icon = ExtResource("5_04kmg")
+popup/item_1/id = 2
 
 [node name="SettingsManager" type="Node" parent="."]
 script = ExtResource("9_7271b")

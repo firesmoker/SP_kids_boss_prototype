@@ -131,8 +131,8 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @export var slow_down_sound: AudioStream
 
 static var song_title: String = ""
-static var boss_model: String = ""
-static var player_model: String = ""
+static var boss_model: String = "robot_"
+static var player_model: String = "boy_"
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
 static var song_path: String = "res://audio/CountingStars_122bpm_new.ogg"
@@ -1003,8 +1003,8 @@ func heal(amount: int = 1) -> void:
 func hit_boss(damage: int = -1) -> void:
 	if not winning and not losing and game_mode == "boss":
 		# handle_note_effects()
-		# handle_visual_effects()
-		play_audio_effects()
+		handle_visual_effects()
+		#play_boss_audio()
 		handle_player_attack_animation()
 		handle_boss_hit(damage)
 		check_boss_health()
@@ -1026,7 +1026,7 @@ func handle_visual_effects() -> void:
 	boss_portrait.find_child("Expander").expand(1.20, 0.15, true)
 
 
-func play_audio_effects() -> void:
+func play_boss_audio() -> void:
 	audio_play_from_source(electric_beam, audio_clips.electric_attack, -10.5)
 	audio_play_from_source(boss, audio_clips.boss_hit, -10.5)
 
