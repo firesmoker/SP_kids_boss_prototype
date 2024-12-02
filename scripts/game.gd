@@ -361,7 +361,7 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	boss_platform.visible = toggle
 	white_layer_4.visible = false
 	
-	if not cheat_skip_intro:
+	if not cheat_skip_intro and not last_game_lost:
 		intro_sequence.visible = toggle
 
 #func trigger_crowd_animations() -> void:
@@ -563,7 +563,7 @@ func _ready() -> void:
 		boss.play(boss_model + "idle")
 		if not cheat_skip_middle_c:
 			continue_note_popup.visible = true
-		if Game.game_state == "Intro" and not cheat_skip_intro:
+		if Game.game_state == "Intro" and not cheat_skip_intro and not last_game_lost:
 			intro_sequence.process_mode = Node.PROCESS_MODE_INHERIT
 			#intro_sequence.play("intro")
 			intro_sequence.play()
