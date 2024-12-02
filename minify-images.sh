@@ -21,7 +21,7 @@ optimize_png() {
   local file="$1"
   echo "Optimizing PNG: $file"
 
-  pngquant --quality=75 --ext .png --force "$file" >/dev/null 2>&1
+  pngquant --speed 1 --quality=70 --ext .png --force "$file" >/dev/null 2>&1
 
   if [[ $? -eq 0 ]]; then
     echo "PNG optimized: $file"
@@ -35,7 +35,7 @@ optimize_jpg() {
   local file="$1"
   echo "Optimizing JPG: $file"
 
-  jpegoptim --max=75 --strip-all "$file" >/dev/null 2>&1
+  jpegoptim --max=70 --strip-all --all-progressive "$file" >/dev/null 2>&1
 
   if [[ $? -eq 0 ]]; then
     echo "JPG optimized: $file"

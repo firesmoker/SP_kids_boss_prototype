@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbmsh83vq84ih"]
+[gd_scene load_steps=4 format=3 uid="uid://4nlcincgrbti"]
 
 [ext_resource type="Script" path="res://scripts/songs_screen.gd" id="1_xdmq4"]
 [ext_resource type="Script" path="res://scripts/settings_manager.gd" id="2_tjwmq"]
@@ -78,11 +78,19 @@ offset_bottom = 20.0
 [node name="Control" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/Control"]
+[node name="Settings" type="Button" parent="VBoxContainer/Control"]
 layout_mode = 0
 offset_right = 63.0
 offset_bottom = 31.0
 text = "הגדרות"
+
+[node name="Boss" type="Button" parent="VBoxContainer/Control"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = -1.0
+offset_right = 145.0
+offset_bottom = 30.0
+text = "בוס"
 
 [node name="Midi Status Label" type="Label" parent="."]
 layout_mode = 1
@@ -106,3 +114,6 @@ script = ExtResource("2_tjwmq")
 
 [node name="Midi Websocket Status" type="Node" parent="."]
 script = ExtResource("3_xb5gd")
+
+[connection signal="pressed" from="VBoxContainer/Control/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/Boss" to="." method="_on_boss_pressed"]

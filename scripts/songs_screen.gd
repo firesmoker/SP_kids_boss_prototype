@@ -11,7 +11,6 @@ func _ready() -> void:
 	# Populate the grid with songs from the songs folder
 	
 	$MarginContainer.set_global_position(Vector2(600, 100))
-	$VBoxContainer/Control/Button.connect("pressed", Callable(self, "_on_settings_pressed"))
 	populate_grid()
 
 
@@ -222,7 +221,7 @@ func get_tag_texture(id: String) -> Texture:
 func _on_settings_pressed() -> void:
 	print("Settings pressed")
 	if not settings_window:
-		settings_window = load("res://scenes/start_screen.tscn").instantiate()
+		settings_window = load("res://scenes/settings_screen.tscn").instantiate()
 		get_tree().root.add_child(settings_window)
 	else:
 		settings_window.visible = !settings_window.visible
@@ -249,3 +248,6 @@ func _set_child_input(node: Node, filter: Control.MouseFilter) -> void:
 		if child is SongTextureRect:
 			child.mouse_filter = filter
 		_set_child_input(child, filter)
+
+func _on_boss_pressed() -> void:
+	NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")

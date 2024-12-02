@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-MAX_DIMENSION = 1500
+MAX_DIMENSION = 1000
 
 def resize_image(file_path):
     try:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://d06h5qxx71fap"]
 
-[ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_uoet8"]
+[ext_resource type="Script" path="res://scripts/settings_screen.gd" id="1_uoet8"]
 [ext_resource type="Texture2D" uid="uid://dh2uk2jr2strc" path="res://art/30.sep/Hero_Idle/Hero_Idle_00000.png" id="2_bn2vi"]
 [ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="3_1jbyi"]
 [ext_resource type="Texture2D" uid="uid://5rwi3sgt57ya" path="res://art/30.sep/Boss_Idle/Boss_Idle_00000.png" id="4_ah7qh"]
