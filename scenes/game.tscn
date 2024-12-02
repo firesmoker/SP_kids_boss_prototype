@@ -4028,7 +4028,7 @@ metadata/_edit_lock_ = true
 [node name="PlayerCharacter" type="AnimatedSprite2D" parent="Level"]
 visible = false
 z_index = 3
-position = Vector2(-411.111, 4.15384)
+position = Vector2(-411.111, 75)
 scale = Vector2(0.319623, 0.319623)
 sprite_frames = ExtResource("4_0nn2k")
 animation = &"girl_attack"
@@ -4059,7 +4059,7 @@ metadata/_edit_lock_ = true
 process_mode = 4
 visible = false
 z_index = 2
-position = Vector2(-405.556, -107.937)
+position = Vector2(-405.556, -32)
 scale = Vector2(0.484, 0.484)
 sprite_frames = ExtResource("10_fbf1u")
 animation = &"fly"
@@ -4071,7 +4071,7 @@ metadata/_edit_lock_ = true
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
 visible = false
 z_index = 3
-position = Vector2(417.46, -7.6483)
+position = Vector2(417.46, 70)
 scale = Vector2(0.590503, 0.590503)
 sprite_frames = ExtResource("4_ygwuk")
 animation = &"robot_damaged_get_hit"
@@ -4371,7 +4371,6 @@ process_mode = 4
 visible = false
 z_index = 2
 position = Vector2(2.1134, -1.78571)
-scale = Vector2(0.921786, 0.921786)
 sprite_frames = ExtResource("93_42fku")
 frame = 17
 frame_progress = 1.0
@@ -4380,7 +4379,7 @@ metadata/_edit_lock_ = true
 [node name="PlayerPlatform" type="Node2D" parent="Level"]
 visible = false
 z_index = -10
-position = Vector2(-519.048, 100)
+position = Vector2(-519.048, 175)
 
 [node name="Block" type="Sprite2D" parent="Level/PlayerPlatform"]
 position = Vector2(-19.8417, 23.0159)
@@ -4403,7 +4402,7 @@ metadata/_edit_lock_ = true
 [node name="BossPlatform" type="Node2D" parent="Level"]
 visible = false
 z_index = -10
-position = Vector2(402.381, 100)
+position = Vector2(402.381, 175)
 
 [node name="Block" type="Sprite2D" parent="Level/BossPlatform"]
 position = Vector2(-19.8417, 23.0159)
