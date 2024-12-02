@@ -1,7 +1,7 @@
 [
 	{
 		"displayName": "אני לא יכול לחכות להיות מלך",
-		"artist": "מלך האריות של דיסני",
+		"artist": "מלך האריות",
 		"image": "res://songs/LibrarySongCover_CanYouFeelTheLoveTonight_LionKing.jpg",
 		"levels": {
 			"easy": {
@@ -41,7 +41,7 @@
 	},
 	{
 		"displayName": "מעגל החיים",
-		"artist": "מלך האריות של דיסני",
+		"artist": "מלך האריות",
 		"image": "res://songs/AlbumCover_LionKing_Disney_450_Shimurim.jpg",
 		"levels": {
 			"easy": {
@@ -81,7 +81,7 @@
 	},
 	{
 		"displayName": "לעזוב",
-		"artist": "לשבור את הקרח של דיסני",
+		"artist": "פרוזן",
 		"image": "res://songs/LibrarySongCover_LetItGo.jpg",
 		"levels": {
 			"medium": {
@@ -111,7 +111,7 @@
 	{
 		"displayName": "הוקי פוקי",
 		"artist": "מסורתי",
-		"image": "res://songs/LibrarySongCover_BridalChorus.jpg",
+		"image": "",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/HokeyPokey_88_Right.txt",
@@ -140,7 +140,7 @@
 	{
 		"displayName": "נפילה חופשית",
 		"artist": "טום פטי",
-		"image": "res://songs/LibrarySongCover_JohnLennon.jpg",
+		"image": "",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/FreeFallin_155_Right.txt",
@@ -169,7 +169,7 @@
 	{
 		"displayName": "דאנס מאנקי",
 		"artist": "טונז אנד איי",
-		"image": "res://songs/LibrarySongCover_ButterBTS.jpg",
+		"image": "",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/DanceMonkey_85_Right.txt",
@@ -198,7 +198,7 @@
 	{
 		"displayName": "שיר הפוקימון",
 		"artist": "פוקימון",
-		"image": "res://songs/LibrarySongCover_SpongeBob.jpg",
+		"image": "",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/Pokemon_115_Right.txt",
@@ -227,7 +227,7 @@
 	{
 		"displayName": "בליבר",
 		"artist": "אימג'ן דרגונס",
-		"image": "res://songs/LibrarySongCover_JohnLennon.jpg",
+		"image": "",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/Believer_110_Right.txt",
@@ -272,9 +272,9 @@
 		}
 	},
 	{
-		"displayName": "לתת את זה במרץ",
-		"artist": "",
-		"image": "res://songs/LibrarySongCover_Yellow_Coldplay.jpg",
+		"displayName": "לט איט גו",
+		"artist": "פרוזן",
+		"image": "",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/LetItGoSimplified_106_Right.txt",
@@ -301,9 +301,9 @@
 		}
 	},
 	{
-		"displayName": "טכנו קינג",
-		"artist": "",
-		"image": "res://songs/LibrarySongCover_ButterBTS.jpg",
+		"displayName": "לא יכול לחכות להיות מלך (טכנו)",
+		"artist": "מלך האריות",
+		"image": "",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/CircleOfLifeLonger_TheLionKing_78.txt",

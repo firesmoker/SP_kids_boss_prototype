@@ -1188,7 +1188,6 @@ func _on_win_change_level_button_up() -> void:
 	if game_mode == "boss":
 		get_tree().paused = false
 		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
-	#move_to_song_library()
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
@@ -1218,8 +1217,11 @@ func on_boss_difficulty_screen_created(boss_difficulty_screen: BossDifficultyScr
 
 
 func _on_win_continue_button_up() -> void:
-	#get_tree().change_scene_to_file("res://scenes/songs_screen.tscn")
-	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+	if game_mode == "boss":
+		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+	else:
+		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+
 
 func play_music_clip(audioclip: AudioStream = audio_clips.player_wins) -> void:
 	music_player.stream = audioclip
@@ -1234,7 +1236,10 @@ func _on_popup_timer_timeout() -> void:
 func _on_return_button_up() -> void:
 	Game.game_state = "Winning"
 	pause()
-	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+	if game_mode == "boss":
+		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+	else:
+		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
 func get_lose_state() -> bool:
 	return losing
