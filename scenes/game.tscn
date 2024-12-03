@@ -3805,8 +3805,7 @@ offset_top = 28.0
 offset_right = 715.0
 offset_bottom = 124.0
 theme_override_font_sizes/font_size = 48
-text = "Boss
-"
+text = "בוס"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -3844,7 +3843,7 @@ offset_top = 30.0
 offset_right = 902.0
 offset_bottom = 126.0
 theme_override_font_sizes/font_size = 48
-text = "Player"
+text = "שחקן"
 vertical_alignment = 1
 
 [node name="PlayerPortrait" type="TextureRect" parent="UI/PlayerPanel"]
