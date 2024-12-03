@@ -278,13 +278,11 @@ func _on_character_selection_item_selected(index: int) -> void:
 	print("chose character!")
 	match index:
 		0:
-			Game.player_model = ""
-		1:
 			Game.player_model = "girl_"
-		2:
+		1:
 			Game.player_model = "boy_"
 		_:
-			Game.player_model = ""
+			Game.player_model = "girl_"
 	settings_manager.settings["character_selection"] = index
 	settings_manager.save_settings()
 
