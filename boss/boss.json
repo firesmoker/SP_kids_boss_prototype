@@ -183,7 +183,7 @@
 				"display_duration": 2.5
 			},
 			"hard": {
-				"melody_path": "res://levels/DanceMonkeyHard_85_Right.txt",
+				"melody_path": "res://levels/DanceMonkey_85_Right.txt",
 				"left_melody_path": "res://levels/DanceMonkeyHard_85_Left.txt",
 				"song_path": "res://audio/DanceMonkey_85.ogg",
 				"slow_song_path": "res://audio/DanceMonkey_85_SLOW70.ogg",
