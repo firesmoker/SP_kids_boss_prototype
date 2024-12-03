@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2nw2h08i6tji"
-path="res://.godot/imported/LibrarySongVariant_old.png-892d7cb9b0b66559945126dbba3bcc1f.ctex"
+uid="uid://bhdj1a803562e"
+path="res://.godot/imported/Screenshot 2024-09-29 at 11.19.00.png-11be4d6a97484e3f08a7b97037eb74a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/LibrarySongVariant_old.png"
-dest_files=["res://.godot/imported/LibrarySongVariant_old.png-892d7cb9b0b66559945126dbba3bcc1f.ctex"]
+source_file="res://not_in_use/Screenshot 2024-09-29 at 11.19.00.png"
+dest_files=["res://.godot/imported/Screenshot 2024-09-29 at 11.19.00.png-11be4d6a97484e3f08a7b97037eb74a9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blrsitvsb71id"
-path="res://.godot/imported/SimplyPianoVariant_old.png-a2e2a1715fb81d53e62a0011e0a1c1df.ctex"
+uid="uid://d2nw2h08i6tji"
+path="res://.godot/imported/LibrarySongVariant_old.png-3b1a0d2a1f6c6190320418a9589452cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/SimplyPianoVariant_old.png"
-dest_files=["res://.godot/imported/SimplyPianoVariant_old.png-a2e2a1715fb81d53e62a0011e0a1c1df.ctex"]
+source_file="res://not_in_use/LibrarySongVariant_old.png"
+dest_files=["res://.godot/imported/LibrarySongVariant_old.png-3b1a0d2a1f6c6190320418a9589452cf.ctex"]
 
 [params]
 
