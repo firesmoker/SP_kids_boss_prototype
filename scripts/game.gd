@@ -212,8 +212,11 @@ var grace_period_finished: bool = false
 var score_visual_time: float = 0.6
 var current_score_visual_time: float = 1
 
-var music_fade_in_amount: float = 15
+var music_fade_in_amount: float = 25
 var music_fade_out_amount: float = 2
+
+var beats_before_ending_music: float = 1
+var beats_before_ending_music_counter: float = 0
 
 static var sp_mode: bool = false
 
@@ -658,6 +661,8 @@ func bob_head() -> void:
 func beat_effects() -> void:
 	#bob_head()
 	#play_crowd_animations()
+	if fading_music:
+		beats_before_ending_music_counter += 1
 	single_glow.find_child("Expander").expand(1.1,0.3,true,2)
 	multi_glow.find_child("Expander").expand(1.1,0.3,true,2)
 	#if game_mode == "library":
@@ -677,13 +682,15 @@ func update_score_visual(delta: float) -> void:
 		score_meter.self_modulate = lerp(score_success_color,Color.WHITE, clamp((current_score_visual_time-score_visual_time)/score_visual_time,0,1))
 
 func fade_boss_music() -> void:
-	if not music_ending_player.playing:
-		music_ending_player.play()
-	music_player.volume_db = clamp(music_player.volume_db - music_fade_out_amount,-80,0)
-	var new_volume: float = clamp(music_ending_player.volume_db + music_fade_in_amount,-80,0)
-	music_ending_player.volume_db = new_volume
-	music_fade_in_amount *= 0.9
-	music_fade_out_amount *= 1.1
+	if beats_before_ending_music_counter >= beats_before_ending_music:
+		if not music_ending_player.playing:
+			music_ending_player.play()
+		music_player.volume_db = clamp(music_player.volume_db - music_fade_out_amount,-80,0)
+		#music_ending_player.volume_db = 0
+		var new_volume: float = clamp(music_ending_player.volume_db + music_fade_in_amount,-80,0)
+		music_ending_player.volume_db = new_volume
+		music_fade_in_amount *= 0.9
+		music_fade_out_amount *= 1.1
 
 func _process(delta: float) -> void:
 	if construction_complete and not losing and not winning and music_player.playing and grace_period_finished:
