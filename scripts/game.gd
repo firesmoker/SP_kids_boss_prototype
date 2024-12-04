@@ -7,6 +7,7 @@ var model: Dictionary
 @onready var character: Sprite2D = $Level/LibVisuals/Character
 @onready var top_staff_power: Sprite2D = $Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPower
 @onready var top_staff_power_lower: Sprite2D = $Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPowerLower
+@onready var music_ending_player: AudioStreamPlayer = $Sound/MusicEndingPlayer
 
 
 @onready var bottom_staff_power: Sprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/StaffPower
@@ -191,6 +192,7 @@ var slow_down: bool = false
 var detector_position_x: float = -200
 var winning: bool = false
 var losing: bool = false
+var fading_music: bool = false
 var player_moving_to_finish: bool = false
 var player_new_health: float = 0
 var player_previous_health: float = 0
@@ -207,6 +209,9 @@ static var level_ready: bool = false
 var grace_period_finished: bool = false
 var score_visual_time: float = 0.6
 var current_score_visual_time: float = 1
+
+var music_fade_in_amount: float = 15
+var music_fade_out_amount: float = 2
 
 static var sp_mode: bool = false
 
@@ -669,6 +674,14 @@ func update_score_visual(delta: float) -> void:
 		current_score_visual_time += delta * 2
 		score_meter.self_modulate = lerp(score_success_color,Color.WHITE, clamp((current_score_visual_time-score_visual_time)/score_visual_time,0,1))
 
+func fade_boss_music() -> void:
+	if not music_ending_player.playing:
+		music_ending_player.play()
+	music_player.volume_db = clamp(music_player.volume_db - music_fade_out_amount,-80,0)
+	var new_volume: float = clamp(music_ending_player.volume_db + music_fade_in_amount,-80,0)
+	music_ending_player.volume_db = new_volume
+	music_fade_in_amount *= 0.9
+	music_fade_out_amount *= 1.1
 
 func _process(delta: float) -> void:
 	if construction_complete and not losing and not winning and music_player.playing and grace_period_finished:
@@ -676,6 +689,8 @@ func _process(delta: float) -> void:
 	update_score_visual(delta)
 	update_debug()
 	health_bars_progress(delta, health_rate)
+	if game_mode == "boss" and fading_music and music_ending_player.stream:
+		fade_boss_music()
 	if game_mode == "library" and not sp_mode:
 		update_ingame_stars()
 		score_meter.text = str(score_manager.game_score)
@@ -731,6 +746,10 @@ func fade_elements() -> void:
 	restart_button.visible = false
 	right_hand_part.find_child("Fader").fade_out()
 	detector_visual.find_child("Fader").fade_out()
+	player_panel.find_child("Fader").fade_out()
+	boss_panel.find_child("Fader").fade_out()
+	player_health_bar.find_child("Fader").fade_out()
+	boss_health_bar.find_child("Fader").fade_out()
 	
 func lose() -> void:
 	losing = true
@@ -884,6 +903,7 @@ func win() -> void:
 		return
 	
 	winning = true
+	fading_music = true
 	vulnerable = false
 	fade_elements()
 	var timer: Timer = new_timer(1)
@@ -901,6 +921,9 @@ func win() -> void:
 	if game_mode == "library":
 		play_music_clip(audio_clips.song_end_music)
 	else:	
+		fading_music = false
+		music_ending_player.stop()
+		music_player.volume_db = 0
 		play_music_clip(audio_clips.player_wins)
 	into_stage.process_mode = Node.PROCESS_MODE_INHERIT
 	into_stage.visible = true
