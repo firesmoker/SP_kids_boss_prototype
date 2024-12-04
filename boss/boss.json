@@ -270,5 +270,23 @@
 				"display_duration": 2.5
 			}
 		}
+	},
+	{
+		"displayName": "Boss Fantasy 1",
+		"artist": "Simply",
+		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
+		"levels": {
+			"medium": {
+				"melody_path": "res://levels/Boss_Fantasy1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Fantasy1_Left.txt",
+				"song_path": "res://audio/Fantasy1_94bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 94,
+				"player_life": 9,
+				"boss_life": 38,
+				"ui_type": "both",
+				"display_duration": 3
+			}
+		}
 	}
 ]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhdj1a803562e"
-path="res://.godot/imported/Screenshot 2024-09-29 at 11.19.00.png-11be4d6a97484e3f08a7b97037eb74a9.ctex"
+uid="uid://blrsitvsb71id"
+path="res://.godot/imported/SimplyPianoVariant_old.png-ffe7602e7777b0197aa043556236a829.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://not_in_use/Screenshot 2024-09-29 at 11.19.00.png"
-dest_files=["res://.godot/imported/Screenshot 2024-09-29 at 11.19.00.png-11be4d6a97484e3f08a7b97037eb74a9.ctex"]
+source_file="res://not_for_export/not_in_use/SimplyPianoVariant_old.png"
+dest_files=["res://.godot/imported/SimplyPianoVariant_old.png-ffe7602e7777b0197aa043556236a829.ctex"]
 
 [params]
 

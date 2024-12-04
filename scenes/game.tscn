@@ -2778,6 +2778,8 @@ stream = ExtResource("5_0ilbi")
 [node name="BeatManager" type="Node" parent="Sound"]
 script = ExtResource("18_di3rh")
 
+[node name="Piano" type="AudioStreamPlayer" parent="Sound"]
+
 [node name="CameraOverlay" type="CanvasLayer" parent="."]
 layer = 2
 follow_viewport_enabled = true
