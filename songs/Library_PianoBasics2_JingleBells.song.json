@@ -1,20 +1,20 @@
 {
-    "id": "Library_PianoBasics2_JingleBells",
-    "displayName": "ג'ינגל בלס",
-    "version": 1,
-    "uiType": "both_clefs",
-    "artist": "חג המולד",
-    "imageFileName": "LibrarySongCover_JingelBells.jpg",
-    "inGameInfo": {
-        "bgm": "PianoBasics2_014_JingleBells_CMajor-VoiceUpdate.ogg",
-        "instruction": "Jingle Bells - Both Hands!",
-        "melodyFiles": {
-            "right": "Library_PianoBasics2_JingleBells_Right.txt",
-            "left": "Library_PianoBasics2_JingleBells_Left.txt"
-        }
-    },
-    "acum_id": "PD2025010",
-    "licenseIDs": [
-        "Acum"
-    ]
+	"id": "Library_PianoBasics2_JingleBells",
+	"displayName": "ג'ינגל בלס",
+	"version": 1,
+	"uiType": "both_clefs",
+	"artist": "חג המולד",
+	"imageFileName": "LibrarySongCover_JingelBells.jpg",
+	"inGameInfo": {
+		"bgm": "PianoBasics2_014_JingleBells_CMajor-VoiceUpdate.ogg",
+		"instruction": "Jingle Bells - Both Hands!",
+		"melodyFiles": {
+			"right": "Library_PianoBasics2_JingleBells_Right.txt",
+			"left": "Library_PianoBasics2_JingleBells_Left.txt"
+		}
+	},
+	"acum_id": "PD2025010",
+	"licenseIDs": [
+		"Acum"
+	]
 }

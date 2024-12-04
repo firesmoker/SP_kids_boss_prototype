@@ -1,21 +1,21 @@
 {
-    "id": "Library_PianoBasics3_Unicorn_NoaKirel_IL",
-    "displayName": "יוניקורן",
-    "uiType": "both_clefs",
-    "version": 1,
-    "artist": "נועה קירל",
-    "imageFileName": "LibrarySongCover_Unicorn_NoaKirel_IL.jpg",
-    "inGameInfo": {
-        "bgm": "Unicorn_NoaKirel_IL_DMinor_118bpm_Vocals.ogg",
-        "melodyFiles": {
-            "right": "Library_PianoBasics3_Unicorn_NoaKirel_IL_Right.txt",
-            "left": "Library_PianoBasics3_Unicorn_NoaKirel_IL_Left.txt"
-        },
-        "onScreenDisplayDuration": 3
-    },
-    "acum_id": "1523174",
-    "licenseIDs": [
-        "Acum"
-    ],
-    "scaleFactor": 0.85
+	"id": "Library_PianoBasics3_Unicorn_NoaKirel_IL",
+	"displayName": "יוניקורן",
+	"uiType": "both_clefs",
+	"version": 1,
+	"artist": "נועה קירל",
+	"imageFileName": "LibrarySongCover_Unicorn_NoaKirel_IL.jpg",
+	"inGameInfo": {
+		"bgm": "Unicorn_NoaKirel_IL_DMinor_118bpm_Vocals.ogg",
+		"melodyFiles": {
+			"right": "Library_PianoBasics3_Unicorn_NoaKirel_IL_Right.txt",
+			"left": "Library_PianoBasics3_Unicorn_NoaKirel_IL_Left.txt"
+		},
+		"onScreenDisplayDuration": 2.5
+	},
+	"acum_id": "1523174",
+	"licenseIDs": [
+		"Acum"
+	],
+	"scaleFactor": 0.85
 }
