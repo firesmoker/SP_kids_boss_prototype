@@ -71,8 +71,8 @@ func on_visibility_changed() -> void:
 		var game: Game = NodeHelper.get_ancestor_game(self)
 		var texture_progress_bar: TextureProgressBar = game.player_health_bar
 		var player_health: float = (texture_progress_bar.value - texture_progress_bar.min_value) / (texture_progress_bar.max_value - texture_progress_bar.min_value)
-		if Game.last_game_lost:
-			appear(true)
-		else:
-			appear(false)
+		# if Game.last_game_lost:
+		#   appear(true)
+		# else:
+		appear(false)
 			
