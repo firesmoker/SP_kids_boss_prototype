@@ -29,7 +29,7 @@ gradient = SubResource("Gradient_ou8bn")
 [node name="SettingsScreen" type="Window"]
 title = "הגדרות"
 initial_position = 1
-size = Vector2i(440, 700)
+size = Vector2i(440, 800)
 script = ExtResource("1_6lyn8")
 song_1_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.ogg"
 song_1_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.ogg"
@@ -316,6 +316,29 @@ offset_right = 64.0
 offset_bottom = 43.0
 text = "Debug"
 
+[node name="Play Piano" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_top = 403.17
+offset_right = -117.0
+offset_bottom = 434.17
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "Play Piano"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/DevButtons/Play Piano"]
+visible = false
+layout_mode = 0
+offset_left = -10.0
+offset_top = 20.0
+offset_right = 64.0
+offset_bottom = 43.0
+
 [node name="BossToggle" type="CheckButton" parent="UI/DevButtons"]
 visible = false
 layout_mode = 1
@@ -422,6 +445,7 @@ script = ExtResource("9_7271b")
 [connection signal="toggled" from="UI/DevButtons/SkipMiddleC" to="." method="_on_skip_middle_c_toggled"]
 [connection signal="toggled" from="UI/DevButtons/DebugToggle" to="." method="_on_debug_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/SPToggle" to="." method="_on_sp_toggle_toggled"]
+[connection signal="toggled" from="UI/DevButtons/Play Piano" to="." method="_on_play_piano_toggled"]
 [connection signal="toggled" from="UI/DevButtons/BossToggle" to="." method="_on_boss_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/ShowLibraryToggle" to="." method="_on_show_library_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]

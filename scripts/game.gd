@@ -162,6 +162,7 @@ static var on_display_duration: float = 1
 static var cheat_auto_play: bool = false
 static var cheat_skip_intro: bool = false
 static var cheat_skip_middle_c: bool = false
+static var cheat_play_piano_sounds: bool = false
 static var game_mode: String = "boss"
 static var debug: bool = false
 static var construction_complete: bool = false

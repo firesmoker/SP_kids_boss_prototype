@@ -2771,6 +2771,7 @@ song_end_music = ExtResource("17_jypp5")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("2_2kvrl")
+bus = &"Music"
 
 [node name="MusicPlayerSlow" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("5_0ilbi")
@@ -2778,7 +2779,19 @@ stream = ExtResource("5_0ilbi")
 [node name="BeatManager" type="Node" parent="Sound"]
 script = ExtResource("18_di3rh")
 
-[node name="Piano" type="AudioStreamPlayer" parent="Sound"]
+[node name="Piano" type="Node" parent="Sound"]
+
+[node name="StreamPlayer1" type="AudioStreamPlayer" parent="Sound/Piano"]
+max_polyphony = 4
+
+[node name="StreamPlayer2" type="AudioStreamPlayer" parent="Sound/Piano"]
+max_polyphony = 4
+
+[node name="StreamPlayer3" type="AudioStreamPlayer" parent="Sound/Piano"]
+max_polyphony = 4
+
+[node name="StreamPlayer4" type="AudioStreamPlayer" parent="Sound/Piano"]
+max_polyphony = 4
 
 [node name="CameraOverlay" type="CanvasLayer" parent="."]
 layer = 2

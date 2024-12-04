@@ -13,6 +13,8 @@ extends Window
 @onready var show_library_toggle: CheckButton = $UI/DevButtons/ShowLibraryToggle
 @onready var character_selection: OptionButton = $UI/DevButtons/CharacterSelection
 @onready var sp_toggle: CheckButton = $UI/DevButtons/SPToggle
+@onready var play_piano_toggle: CheckButton = $"UI/DevButtons/Play Piano"
+
 
 
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
@@ -130,6 +132,7 @@ func apply_settings() -> void:
 	skip_intro.button_pressed = settings_manager.settings.get("skip_intro", false)
 	show_library_toggle.button_pressed  = settings_manager.settings.get("show_library_toggle", false)
 	sp_toggle.button_pressed  = settings_manager.settings.get("sp_toggle", false)
+	play_piano_toggle.button_pressed  = settings_manager.settings.get("play_piano_sounds", false)
 	character_selection.selected = settings_manager.settings.get("character_selection", 0)
 	character_selection.emit_signal("item_selected",settings_manager.settings.get("character_selection", 0))
 	
@@ -291,3 +294,9 @@ func _on_sp_toggle_toggled(toggled_on: bool) -> void:
 	settings_manager.settings["sp_toggle"] = toggled_on
 	settings_manager.save_settings()
 	Game.sp_mode = toggled_on
+
+
+func _on_play_piano_toggled(toggled_on: bool) -> void:
+	settings_manager.settings["play_piano_sounds"] = toggled_on
+	settings_manager.save_settings()
+	Game.cheat_play_piano_sounds = toggled_on

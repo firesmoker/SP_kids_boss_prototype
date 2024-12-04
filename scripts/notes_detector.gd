@@ -8,7 +8,9 @@ var missed_notes: Array[Note]
 signal note_success
 signal note_failure
 signal continue_note_played
-@onready var piano: AudioStreamPlayer = $"../../../Sound/Piano"
+@onready var piano: Node = $"../../../Sound/Piano"
+var piano_streams: Array[AudioStreamPlayer]
+var piano_current_stream: int = 0
 
 func _ready() -> void:
 	game = NodeHelper.get_root_game(self)
@@ -17,7 +19,14 @@ func _ready() -> void:
 	note_success.connect(game.start_score_visual)
 	note_failure.connect(game.break_combo)
 	note_failure.connect(game.miss_note)
-	
+	construct_piano_streams()
+
+func construct_piano_streams() -> void:
+	var piano_children: Array = piano.get_children()
+	for stream: AudioStreamPlayer in piano_children:
+		piano_streams.append(stream)
+	print("piano construction complete")
+		
 
 func _unhandled_input(event: InputEvent) -> void:	
 	if not bottom_detector and not event.is_echo() and not event.is_released():
@@ -65,7 +74,8 @@ func note_hit(i: int) -> void:
 		var note_object: Note = current_notes[i]
 		hit_notes.append(note_object)
 		emit_signal("note_success")
-		play_note_sound(note_object.note)
+		if Game.cheat_play_piano_sounds:
+			play_note_sound(note_object.note)
 		print("RIGHT NOTE PLAYED YAY!")
 		if game.game_state == "Playing":
 			var note_score: float = score_manager.hit(note_object)
@@ -75,8 +85,11 @@ func note_hit(i: int) -> void:
 		
 
 func play_note_sound(note_name: String = "C4") -> void:
-	piano.stream = load("res://audio/piano_notes/" + note_name + ".ogg")
-	piano.play()
+	piano_streams[piano_current_stream].stream = load("res://audio/piano_notes/" + note_name + ".ogg")
+	piano_streams[piano_current_stream].play()
+	piano_current_stream += 1
+	if piano_current_stream >= piano_streams.size():
+		piano_current_stream = 0
 
 func clear_notes() -> void:
 	current_notes.clear()
