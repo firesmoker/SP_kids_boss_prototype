@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bewvlr3p4pfuh"
-valid=false
+path="res://.godot/imported/WeAreTheChampions_GMajor_68bpm_vocals.ogg-b227d9e20be6e9f8af0357c0e728f5a1.oggvorbisstr"
 
 [deps]
 
 source_file="res://songs/WeAreTheChampions_GMajor_68bpm_vocals.ogg"
+dest_files=["res://.godot/imported/WeAreTheChampions_GMajor_68bpm_vocals.ogg-b227d9e20be6e9f8af0357c0e728f5a1.oggvorbisstr"]
 
 [params]
 

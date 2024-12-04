@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bfqrbkgc7kgi0"
-valid=false
+path="res://.godot/imported/DoYouWantToBuildASnowman_CMajor_70bpm_Vocals.ogg-cd89f406ef2ecdfb4579b62a43d142ca.oggvorbisstr"
 
 [deps]
 
 source_file="res://songs/DoYouWantToBuildASnowman_CMajor_70bpm_Vocals.ogg"
+dest_files=["res://.godot/imported/DoYouWantToBuildASnowman_CMajor_70bpm_Vocals.ogg-cd89f406ef2ecdfb4579b62a43d142ca.oggvorbisstr"]
 
 [params]
 

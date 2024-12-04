@@ -3,11 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cbny7qtxuyn0x"
-valid=false
+path="res://.godot/imported/Despacito_AMinor_70bpm_Vocals_Shorter.ogg-4a75741e72bf652698e6ffed4fab3556.oggvorbisstr"
 
 [deps]
 
 source_file="res://songs/Despacito_AMinor_70bpm_Vocals_Shorter.ogg"
+dest_files=["res://.godot/imported/Despacito_AMinor_70bpm_Vocals_Shorter.ogg-4a75741e72bf652698e6ffed4fab3556.oggvorbisstr"]
 
 [params]
 

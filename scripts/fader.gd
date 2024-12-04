@@ -1,4 +1,4 @@
-extends Node2D
+class_name Fader extends Node2D
 var parent: Node
 var game: Node
 var fading_in: bool = false
@@ -46,6 +46,7 @@ func fade_in(fade_amount: float = fade_interval) -> void:
 	fading_in = true
 
 func fade_out(fade_amount: float = fade_interval) -> void:
+	print("fading " + str(parent.name))
 	fade_interval = fade_amount
 	fade_out_interval = fade_amount
 	fading_in = false

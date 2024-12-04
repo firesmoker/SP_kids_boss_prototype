@@ -38,6 +38,8 @@ var star3_unlocked: bool = false
 
 var temp_notes_played: int = 0
 
+var fade_right_hand_part: bool = false
+
 @onready var white_layer_4: TextureRect = $UI/WhiteLayer4
 
 @onready var single_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow
@@ -689,6 +691,8 @@ func _process(delta: float) -> void:
 	update_score_visual(delta)
 	update_debug()
 	health_bars_progress(delta, health_rate)
+	if fade_right_hand_part: # I'm really not sure why it can't call the fader child, so this is manual.
+		right_hand_part.modulate.a -= 0.01
 	if game_mode == "boss" and fading_music and music_ending_player.stream:
 		fade_boss_music()
 	if game_mode == "library" and not sp_mode:
@@ -744,7 +748,8 @@ func fade_elements() -> void:
 	restart_button.disabled = true
 	pause_button.visible = false
 	restart_button.visible = false
-	right_hand_part.find_child("Fader").fade_out()
+	#right_hand_part.find_child("Fader").fade_out()
+	fade_right_hand_part = true
 	detector_visual.find_child("Fader").fade_out()
 	player_panel.find_child("Fader").fade_out()
 	boss_panel.find_child("Fader").fade_out()
