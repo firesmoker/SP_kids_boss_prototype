@@ -1,0 +1,22 @@
+{
+    "uiType": "both_clefs",
+    "displayName": "מתחת לים",
+    "artist": "בת הים הקטנה",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 4,
+        "melodyFiles": {
+            "right": "Library_PianoBasics2_UnderTheSea_TheLittleMermaid_PicoKidsV2_Right.txt",
+            "left": "Library_PianoBasics2_UnderTheSea_TheLittleMermaid_PicoKidsV2_Left.txt"
+        },
+        "bgm": "UnderTheSea_Cmajor_68bpm_Vocals.ogg"
+    },
+    "imageFileName": "LibrarySongCover_UnderTheSea.jpg",
+    "backgroundAnimationTheme": "underWater",
+    "version": 1,
+    "acum_id": "Disney2048452",
+    "licenseIDs": [
+        "Acum"
+    ],
+    "scaleFactor": 0.85,
+    "id": "Library_PianoBasics2_UnderTheSea_TheLittleMermaid_PicoKidsV2"
+}

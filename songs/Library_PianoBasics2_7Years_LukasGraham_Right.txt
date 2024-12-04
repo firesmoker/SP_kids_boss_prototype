@@ -1,0 +1,90 @@
+112,4/4,0,GClef,Right
+
+
+*bgmFileName:7Years_LukasGraham_AMinor_112bpm_Vocals.ogg*
+*PlayAsSwing:*
+-:1 
+-:1 
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+-:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
+C4:1/2%1(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
+C4:1/2%1(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
+D4:1/4(StemU) D4:1/4(StemU) E4:1/4(StemU) D4:1/8%2(StemU) C4:1/8%1(StemU) 
+
+*StageEnd:1*
+
+*StageStart:2*
+-:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
+C4:1/2%1(StemU) -:1/2 
+-:1 
+-:1 
+
+*StageEnd:2*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:3*
+-:1/4 C4:1/8%1(StemU) D4:1/8(StemU) E4:1/4%3(StemU) D4:1/4(StemU) 
+C4:1/4%1(StemU) C4:1/8(StemU) D4:1/8(StemU) E4:1/4%3(StemU) D4:1/8(StemU) C4:1/8%1(StemU) 
+-:1/4 C4:1/8(StemU) D4:1/8(StemU) E4:1/4%3(StemU) C4:1/8(StemU) D4:1/8(StemU) 
+E4:1/4(StemU) C4:1/8%1(StemU) D4:1/8(StemU) E4:1/4(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+
+*StageEnd:3*
+
+*StageStart:4*
+-:1/4 C4:1/8%1(StemU) D4:1/8(StemU) E4:1/4%3(StemU) C4:1/8(StemU) D4:1/8(StemU) 
+E4:1/4%3(StemU) C4:1/8%1(StemU) D4:1/8(StemU) E4:1/4(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+-:1/4 C4:1/8%1(StemU) D4:1/8(StemU) E4:1/4%3(StemU) C4:1/8(StemU) D4:1/8(StemU) 
+E4:1/4%3(StemU) C4:1/8%1(StemU) D4:1/8(StemU) E4:1/4(StemU) D4:1/8(StemU) C4:1/8(StemU) 
+
+*StageEnd:4*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 1*
+
+*StageStart:5*
+-:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
+C4:1/2%1(StemU) E4:1/4%3(StemU) D4:1/4(StemU) 
+C4:1/4%1(StemU) -:1/4 E4:1/4%3(StemU) D4:1/4%2(StemU) 
+D4:1/4(StemU) D4:1/4(StemU) E4:1/4(StemU) D4:1/8%2(StemU) C4:1/8%1(StemU) 
+
+*StageEnd:5*
+
+*StageStart:6*
+-:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
+C4:1/2%1(StemU) -:1/2 
+-:1 
+-:1 
+
+*StageEnd:6*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 3*
+
+*StageStart:7*
+-:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
+C4:1/4%1(StemU) -:1/4 E4:1/4%3(StemU) D4:1/4%2(StemU) 
+C4:1/4%1(StemU) -:1/4 E4:1/4%3(StemU) D4:1/4%2(StemU) 
+D4:1/4(StemU) D4:1/4(StemU) E4:1/4(StemU) D4:1/8%2(StemU) C4:1/8%1(StemU) 
+-:1 
+
+*StageEnd:7*
+
+*StageStart:8*
+G4:1/2%5(StemU) -:1/2 
+-:1 
+-:1 
+-:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
+C4:1%1
+*StageEnd:8*
+
+*LevelEnd:Part 3*

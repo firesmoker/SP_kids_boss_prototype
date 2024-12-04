@@ -1,7 +1,7 @@
 128,4/4,0,GClef,Right
 
 
-*bgmFileName:HowFarIllGo_CMajor_64bpm_SHORT_Vocals.m4a*
+*bgmFileName:HowFarIllGo_CMajor_64bpm_SHORT_Vocals.ogg*
 -:1 
 -:1 
 -:1 

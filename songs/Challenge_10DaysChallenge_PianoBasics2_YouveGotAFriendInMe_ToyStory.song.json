@@ -1,0 +1,21 @@
+{
+    "id": "Challenge_10DaysChallenge_PianoBasics2_YouveGotAFriendInMe_ToyStory",
+    "displayName": "צעצוע של סיפור",
+    "uiType": "both_clefs",
+    "version": 1,
+    "scaleFactor": 0.85,
+    "artist": "צעצוע של סיפור",
+    "imageFileName": "SpecialDisney2022_ToyStory2.jpg",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 2.5,
+        "bgm": "YouveGotAFriendInMe_FMajor_90bpm_Vocals.ogg",
+        "melodyFiles": {
+            "right": "Challenge_10DaysChallenge_PianoBasics2_YouveGotAFriendInMe_ToyStory_Right.txt",
+            "left": "Challenge_10DaysChallenge_PianoBasics2_YouveGotAFriendInMe_ToyStory_Left.txt"
+        }
+    },
+    "acum_id": "Disney2134481",
+    "licenseIDs": [
+        "Acum"
+    ]
+}

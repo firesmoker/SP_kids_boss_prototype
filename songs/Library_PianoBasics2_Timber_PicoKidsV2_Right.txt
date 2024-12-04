@@ -1,7 +1,7 @@
 120,4/4,1/2,GClef,Right
 
 
-*bgmFileName:PianoBasics2_06_Timber_AMinor.m4a*
+*bgmFileName:PianoBasics2_06_Timber_AMinor.ogg*
 -:1/2 
 
 -:1

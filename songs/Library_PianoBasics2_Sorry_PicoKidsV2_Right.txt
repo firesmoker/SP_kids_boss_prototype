@@ -1,7 +1,7 @@
 96,4/4,0,GClef,Right
 
 
-*bgmFileName:Sorry_96bpm_CMajor_Vocals.m4a*
+*bgmFileName:Sorry_96bpm_CMajor_Vocals.ogg*
 -:1 
 -:1 
 

@@ -1,0 +1,52 @@
+68,4/4,0,FClef,Left
+
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+D3:1/2%4(StemD) C3:1/2%5(StemU) 
+D3:1/2(StemD) C3:1/2(StemU) 
+D3:1/2(StemD) C3:1/4%5(StemU) E3:1/4%3(StemD) 
+D3:1/2%4(StemD) D3:1/4(StemD) E3:1/4(StemD) 
+
+*StageEnd:1*
+
+*StageStart:2*
+F3:1/2%2(StemD) C3:1/2%5(StemU) 
+F3:1/2(StemD) C3:1/2(StemU) 
+F3:1/4%2(StemD) E3:1/4(StemD) D3:1/4%4(StemD) G3:1/4%1(StemD) 
+
+*StageEnd:2*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:3*
+C3:1/2%5(StemU) D3:1/4%4(StemD) D3:1/4(StemD) 
+D3:1/4(StemD) D3:1/4(StemD) G3:1/2%1(StemD) 
+D3:1/2%4(StemD) E3:1/2(StemD) 
+
+*StageEnd:3*
+
+*StageStart:4*
+C3:1/4%5(StemU) D3:1/4%4(StemD) G3:1/2%1(StemD) 
+D3:1/2%4(StemD) E3:1/2(StemD) 
+F3:1/4%2(StemD) E3:1/4(StemD) E3:1/2(StemD) 
+
+*StageEnd:4*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:5*
+D3:1/4%4(StemD) C3:1/4%5(StemU) C3:1/2(StemU) 
+C3:1/2(StemU) G3:1/2%1(StemD) 
+F3:1/2%2(StemD) -:1/2 
+-:1/4 C3:1/4%5(StemU) D3:1/2%4(StemD) 
+G3:1/2%1(StemD) -:1/2
+*StageEnd:5*
+
+*LevelEnd:Part 3*

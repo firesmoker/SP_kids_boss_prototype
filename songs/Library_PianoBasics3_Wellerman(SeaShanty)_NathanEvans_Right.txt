@@ -1,7 +1,7 @@
 86,4/4,0,GClef,Right
 
 
-*bgmFileName:NathanEvans_Wellerman(SeaShanty)_AMinor_86bpm_Vocals.m4a*
+*bgmFileName:NathanEvans_Wellerman(SeaShanty)_AMinor_86bpm_Vocals.ogg*
 -:1 
 -:1 
 

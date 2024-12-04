@@ -1,0 +1,21 @@
+{
+    "uiType": "both_clefs",
+    "displayName": "עולם חדש",
+    "artist": "אלאדין",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 3.5,
+        "melodyFiles": {
+            "right": "Library_PianoBasics3_AWholeNewWorld_Aladdin_Right.txt",
+            "left": "Library_PianoBasics3_AWholeNewWorld_Aladdin_Left.txt"
+        },
+        "bgm": "AWholeNewWorld_Cmajor_90bpm.ogg"
+    },
+    "version": 1,
+    "acum_id": "Disney2046292",
+    "licenseIDs": [
+        "Acum"
+    ],
+    "id": "Library_PianoBasics3_AWholeNewWorld_Aladdin",
+    "scaleFactor": 0.85,
+    "imageFileName": "LibrarySongCover_AWholeNewWorld.jpg"
+}

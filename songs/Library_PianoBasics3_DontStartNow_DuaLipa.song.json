@@ -1,0 +1,21 @@
+{
+    "uiType": "both_clefs",
+    "displayName": "דונט סטארט נאו",
+    "artist": "דואה ליפה",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 3,
+        "melodyFiles": {
+            "right": "Library_PianoBasics3_DontStartNow_DuaLipa_Right.txt",
+            "left": "Library_PianoBasics3_DontStartNow_DuaLipa_Left.txt"
+        },
+        "bgm": "DontStartNow_Cmajor_110bpm_Vocals.ogg"
+    },
+    "imageFileName": "LibrarySongCover_DuaLipa.jpg",
+    "version": 1,
+    "acum_id": "29AEURF",
+    "licenseIDs": [
+        "Acum"
+    ],
+    "scaleFactor": 0.85,
+    "id": "Library_PianoBasics3_DontStartNow_DuaLipa"
+}

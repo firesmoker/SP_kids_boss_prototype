@@ -1,0 +1,21 @@
+{
+    "id": "Library_PianoBasics2_CanYouFeelTheLoveTonight_TheLionKing_PicoKidsV2_1",
+    "displayName": "מרגיש את האהבה הלילה",
+    "uiType": "bass_clef",
+    "version": 1,
+    "scaleFactor": 0.85,
+    "artist": "מלך האריות",
+    "imageFileName": "LibrarySongCover_CanYouFeelTheLoveTonight_LionKing.jpg",
+    "backgroundAnimationTheme": "savana",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 4,
+        "bgm": "CanYouFeelTheLoveTonight_Vocals_CMajor_62bpm_Fixed_Short.ogg",
+        "melodyFiles": {
+            "left": "Library_PianoBasics2_CanYouFeelTheLoveTonight_TheLionKing_PicoKidsV2_1_Left.txt"
+        }
+    },
+    "acum_id": "Disney2060675",
+    "licenseIDs": [
+        "Acum"
+    ]
+}

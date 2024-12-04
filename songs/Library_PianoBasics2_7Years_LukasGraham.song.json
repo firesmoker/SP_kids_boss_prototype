@@ -1,0 +1,21 @@
+{
+    "id": "Library_PianoBasics2_7Years_LukasGraham",
+    "displayName": "שבע שנים",
+    "uiType": "both_clefs",
+    "version": 1,
+    "artist": "לוקאס גרהאם",
+    "imageFileName": "LibrarySongCover_7Years_LukasGraham.jpg",
+    "inGameInfo": {
+        "bgm": "7Years_LukasGraham_AMinor_112bpm_Vocals.ogg",
+        "melodyFiles": {
+            "right": "Library_PianoBasics2_7Years_LukasGraham_Right.txt",
+            "left": "Library_PianoBasics2_7Years_LukasGraham_Left.txt"
+        },
+        "onScreenDisplayDuration": 3.0
+    },
+    "acum_id": "29AACVI",
+    "licenseIDs": [
+        "Acum"
+    ],
+    "scaleFactor": 0.85
+}

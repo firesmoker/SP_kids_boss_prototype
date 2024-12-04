@@ -1,7 +1,7 @@
 92,4/4,0,GClef,Right
 
 
-*bgmFileName:TwinkleTwinkle_CMajor_92bpm.m4a*
+*bgmFileName:TwinkleTwinkle_CMajor_92bpm.ogg*
 -:1 
 -:1 
 

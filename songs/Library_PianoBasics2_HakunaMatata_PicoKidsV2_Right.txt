@@ -1,7 +1,7 @@
 110,4/4,0,GClef,Right
 
 
-*bgmFileName:HakunaMatata_CMajor_110_Vocals_PB23.m4a*
+*bgmFileName:HakunaMatata_CMajor_110_Vocals_PB23.ogg*
 -:1 
 -:1 
 -:1 

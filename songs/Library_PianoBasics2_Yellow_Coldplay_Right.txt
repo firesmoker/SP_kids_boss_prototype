@@ -1,7 +1,7 @@
 87,4/4,0,GClef,Right
 
 
-*bgmFileName:Yellow_Coldplay_CMajor_87bpm_PB2.m4a*
+*bgmFileName:Yellow_Coldplay_CMajor_87bpm_PB2.ogg*
 -:1 
 -:1 
 

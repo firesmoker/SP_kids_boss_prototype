@@ -1,7 +1,7 @@
 86,4/4,0,GClef,Right
 
 
-*bgmFileName:GirlOnFire_AliciaKeys_CMajor_86bpm_Vocals.m4a*
+*bgmFileName:GirlOnFire_AliciaKeys_CMajor_86bpm_Vocals.ogg*
 -:1 
 -:1 
 

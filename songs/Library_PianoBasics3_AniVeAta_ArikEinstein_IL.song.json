@@ -1,0 +1,21 @@
+{
+    "id": "Library_PianoBasics3_AniVeAta_ArikEinstein_IL",
+    "displayName": "אני ואתה",
+    "uiType": "both_clefs",
+    "version": 1,
+    "artist": "אריק איינשטיין",
+    "imageFileName": "LibrarySongCover_AniVeAta_ArikEinstein_IL.jpg",
+    "inGameInfo": {
+        "bgm": "AniVeAta_ArikEinstein_IL_DMinor_118bpm_Vocals.ogg",
+        "melodyFiles": {
+            "right": "Library_PianoBasics3_AniVeAta_ArikEinstein_IL_Right.txt",
+            "left": "Library_PianoBasics3_AniVeAta_ArikEinstein_IL_Left.txt"
+        },
+        "onScreenDisplayDuration": 2.8
+    },
+    "acum_id": "1003938",
+    "licenseIDs": [
+        "Acum"
+    ],
+    "scaleFactor": 0.85
+}

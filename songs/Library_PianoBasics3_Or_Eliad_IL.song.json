@@ -1,0 +1,21 @@
+{
+    "id": "Library_PianoBasics3_Or_Eliad_IL",
+    "displayName": "אור",
+    "uiType": "both_clefs",
+    "version": 1,
+    "artist": "אליעד",
+    "imageFileName": "LibrarySongCover_Or_Eliad_IL.jpg",
+    "inGameInfo": {
+        "bgm": "Or_Eliad_IL_AMinor_88bpm_Vocals.ogg",
+        "melodyFiles": {
+            "right": "Library_PianoBasics3_Or_Eliad_IL_Right.txt",
+            "left": "Library_PianoBasics3_Or_Eliad_IL_Left.txt"
+        },
+        "onScreenDisplayDuration": 2.5
+    },
+    "acum_id": "1396824",
+    "licenseIDs": [
+        "Acum"
+    ],
+    "scaleFactor": 0.85
+}

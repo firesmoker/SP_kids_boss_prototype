@@ -1,7 +1,7 @@
 106,4/4,0,GClef,Right
 
 
-*bgmFileName:LetItGo_Aminor_106bpm_ShortForPB2.m4a*
+*bgmFileName:LetItGo_Aminor_106bpm_ShortForPB2.ogg*
 -:1 
 -:1 
 -:1 

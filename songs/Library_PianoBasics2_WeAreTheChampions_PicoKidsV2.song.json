@@ -1,0 +1,21 @@
+{
+    "id": "Library_PianoBasics2_WeAreTheChampions_PicoKidsV2",
+    "displayName": "ווי אר דה צ'אמפיונס - בס ליין",
+    "version": 1,
+    "uiType": "bass_clef",
+    "licenseIDs": [
+        "Acum",
+        "EMI"
+    ],
+    "artist": "קווין",
+    "imageFileName": "LibrarySongCover_WeAreTheChampions_Getty.jpg",
+    "backgroundAnimationTheme": "space",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 3.0,
+        "bgm": "WeAreTheChampions_GMajor_68bpm_vocals.ogg",
+        "melodyFiles": {
+            "left": "Library_PianoBasics2_WeAreTheChampions_PicoKidsV2_Left.txt"
+        }
+    },
+    "acum_id": 2004886
+}

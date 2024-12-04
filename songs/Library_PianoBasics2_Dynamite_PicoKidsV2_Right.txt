@@ -1,7 +1,7 @@
 92,4/4,0,GClef,Right
 
 
-*bgmFileName:Dynamite_CMajor_92bpm_VOCALS.m4a*
+*bgmFileName:Dynamite_CMajor_92bpm_VOCALS.ogg*
 -:1 
 -:1 
 

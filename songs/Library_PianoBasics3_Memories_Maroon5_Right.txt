@@ -1,7 +1,7 @@
 140,4/4,0,GClef,Right
 
 
-*bgmFileName:Memories_70bpm_FMajor_Vocals_Short.m4a*
+*bgmFileName:Memories_70bpm_FMajor_Vocals_Short.ogg*
 -:1 
 -:1 
 -:1 

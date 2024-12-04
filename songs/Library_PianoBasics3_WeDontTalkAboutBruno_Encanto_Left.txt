@@ -1,0 +1,57 @@
+95,4/4,0,FClef,Left
+
+-:1 
+-:1 
+
+*LevelStart:Part 1*
+
+*StageStart:1*
+-:1 
+-:1/2 E3A3:1/2%31(StemD) 
+-:1 
+-:1 
+
+*StageEnd:1*
+
+*LevelEnd:Part 1*
+
+*LevelStart:Part 2*
+
+*StageStart:2*
+-:1 
+-:1 
+-:1 
+-:1 
+
+*StageEnd:2*
+
+*StageStart:3*
+-:1 
+-:1 
+-:1 
+E3A3:1/4%31(StemD) -:1/4 -:1/2 
+
+*StageEnd:3*
+
+*LevelEnd:Part 2*
+
+*LevelStart:Part 3*
+
+*StageStart:4*
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+-:1 
+
+*StageEnd:4*
+
+*StageStart:5*
+-:1 
+-:1/2 E3A3:1/2%31(StemD) 
+-:1 
+-:1
+*StageEnd:5*
+
+*LevelEnd:Part 3*

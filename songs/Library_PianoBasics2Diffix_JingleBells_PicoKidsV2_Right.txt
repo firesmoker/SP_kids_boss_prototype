@@ -1,7 +1,7 @@
 88,4/4,0,GClef,Right
 
 
-*bgmFileName:PianoBasics2_014_JingleBells_CMajor-VoiceUpdate.m4a*
+*bgmFileName:PianoBasics2_014_JingleBells_CMajor-VoiceUpdate.ogg*
 -:1 
 -:1 
 

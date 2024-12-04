@@ -1,0 +1,25 @@
+{
+    "uiType": "both_clefs",
+    "displayName": "דספסיטו",
+    "artist": "לואיס פונסי ו-דדי יאנקי",
+    "inGameInfo": {
+        "onScreenDisplayDuration": 4,
+        "scaleFactor": 0.85,
+        "melodyFiles": {
+            "right": "Library_PianoBasics3_Despacito_Right.txt",
+            "left": "Library_PianoBasics3_Despacito_Left.txt"
+        },
+        "bgm": "Despacito_AMinor_70bpm_Vocals_Shorter.ogg"
+    },
+    "imageFileName": "LibrarySongCover_Despacito_Getty.jpg",
+    "version": 1,
+    "acum_id": "29AB6UT",
+    "licenseIDs": [
+        "Acum",
+        "Universal",
+        "EMI",
+        "Sony",
+        "BMG"
+    ],
+    "id": "Library_PianoBasics3_Despacito"
+}
