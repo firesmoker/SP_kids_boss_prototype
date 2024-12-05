@@ -604,8 +604,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ConfettiAnimation" type="AnimatedSprite2D" parent="UI"]
-visible = false
-scale = Vector2(0.6, 0.6)
+position = Vector2(60, 0)
 sprite_frames = SubResource("SpriteFrames_f5140")
 animation = &"end_screen_confetti"
 centered = false
