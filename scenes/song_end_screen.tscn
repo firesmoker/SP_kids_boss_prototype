@@ -607,6 +607,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(60, 0)
 sprite_frames = SubResource("SpriteFrames_f5140")
 animation = &"end_screen_confetti"
+frame_progress = 0.0135261
 centered = false
 offset = Vector2(25, 0)
 metadata/_edit_lock_ = true

@@ -36,8 +36,6 @@ var star1_unlocked: bool = false
 var star2_unlocked: bool = false
 var star3_unlocked: bool = false
 
-var temp_notes_played: int = 0
-
 var fade_right_hand_part: bool = false
 
 @onready var white_layer_4: TextureRect = $UI/WhiteLayer4
@@ -61,9 +59,10 @@ static var target_xp: int = 100  # Replace with your desired XP value
 
 @onready var intro_sequence: VideoStreamPlayer = $BossVideoCanvas/IntroSequence
 
-@onready var combo_meter: Label = $UI/ComboMeter
-@onready var streak_meter: Label = $UI/StreakMeter
 @onready var score_meter: Label = $UI/StarsPanel/Panel/ScoreMeter
+@onready var combo_meter: Control = $UI/StarsPanel/Panel/ComboMeter
+@onready var combo_animation: AnimatedSprite2D = $UI/StarsPanel/Panel/ComboMeter/ComboAnimation
+@onready var combo_audio_player: AudioStreamPlayer = $UI/StarsPanel/Panel/ComboMeter/ComboAudioPlayer
 
 @onready var debug_window: Control = $Overlay/DebugWindow
 @onready var debug_missed_notes: Label = $Overlay/DebugWindow/DebugMissedNotes
@@ -203,10 +202,8 @@ var boss_new_health: float = 0
 var boss_previous_health: float = 0
 var boss_health_progress: float = 0
 var got_hit_atleast_once: bool = false
-var combo_count: int = 0
 var missed_notes: int = 0
 var continue_note_played: bool = false
-@export var max_combo: int = 0
 static var level_ready: bool = false
 var grace_period_finished: bool = false
 var score_visual_time: float = 0.6
@@ -304,8 +301,6 @@ func set_default_visibility() -> void:
 	right_hand_part.position = Vector2(-52.032,-120.794)
 	darken_level.visible = false
 	continue_note_popup.visible = false
-	combo_meter.visible = false
-	streak_meter.visible = false
 	return_button.visible = false
 	background_slow.visible = false
 	intro_sequence_transition.visible = false
@@ -327,7 +322,6 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
 	stars_panel.visible = toggle
-	streak_meter.visible = false
 	score_meter.visible = toggle
 	video_layer_1.visible = toggle
 	video_layer_2.visible = toggle
@@ -398,7 +392,6 @@ func set_star_bar_values() -> void:
 	star_bar.max_value = 1
 	print("star bar max value = " + str(star_bar.max_value))
 	print("notes in level = " + str(notes_container.notes_in_level))
-	print("temp notes = " + str(temp_notes_played))
 	star_bar.value = 0
 	star1_threshold_score = star_bar.max_value * star1_threshold_modifier
 	star2_threshold_score = star_bar.max_value * star2_threshold_modifier
@@ -559,6 +552,7 @@ func _ready() -> void:
 	set_player_health()
 	set_boss_health()
 	initialize_part(ui_type)
+	setup_score_manager()
 	set_star_bar_values()
 	if ui_type == "treble":
 		right_hand_part.position.y += 60
@@ -600,6 +594,8 @@ func _ready() -> void:
 	restart_button.visible = true
 	game_state = "Playing"
 
+func setup_score_manager() -> void:
+	score_manager.total_notes_in_level = notes_container.notes_in_level
 
 func initialize_part(hand_parts: String = ui_type) -> void:
 	if hand_parts.to_lower() == "bass" or hand_parts.to_lower() == "both":
@@ -631,26 +627,6 @@ func enter_lose_ui() -> void:
 	var new_position: Vector2 = Vector2(boss.global_position.x,boss.global_position.y - 300)
 	#player_character.find_child("Expander").move(new_position, 0.35)
 	win_buttons.visible = true
-
-func update_streak() -> void:
-	if combo_count > 10:
-		video_layer_5.find_child("Fader").fade_in(0.01)
-		streak_meter.visible = true 
-		streak_meter.text = "Combo!: A"
-	elif combo_count > 6:
-		video_layer_4.find_child("Fader").fade_in(0.01)
-		streak_meter.visible = true
-		streak_meter.text = "Combo!: B"
-	elif combo_count > 3:
-		video_layer_3.find_child("Fader").fade_in(0.01)
-		streak_meter.visible = true
-		streak_meter.text = "Combo!: C"
-	elif combo_count > 1:
-		video_layer_2.find_child("Fader").fade_in(0.01)
-		streak_meter.visible = true
-		streak_meter.text = "Combo!: D"
-	else:
-		streak_meter.visible = false
 
 func bob_head() -> void:
 	var character_head_mover: Expander = character.find_child("CharacterHead").find_child("Expander")
@@ -704,9 +680,7 @@ func _process(delta: float) -> void:
 		fade_boss_music()
 	if game_mode == "library" and not sp_mode:
 		update_ingame_stars()
-		score_meter.text = str(score_manager.game_score)
-		#update_streak()
-		#trigger_crowd_animations()
+		update_score_meter()
 	if not boss.is_playing() and not losing and not winning:
 		if boss_health > boss_health_bar.max_value / 2:
 			boss.play(boss_model + "idle")
@@ -743,12 +717,20 @@ func _process(delta: float) -> void:
 		just_started = false
 
 
+func update_score_meter() -> void:
+	score_meter.text = str(score_manager.game_score)
+
+func update_combo_meter() -> void:
+	combo_animation.animation = "combo_bar_" + str(score_manager.combo_multiplier())
+	combo_animation.frame = int(90 * score_manager.combo_progress())
+	
+	if score_manager.combo_hits == 0 and score_manager.combo_multiplier() > 1:
+		combo_meter.find_child("Expander").expand(1.10, 0.25, true)
+
 func _on_music_player_finished() -> void:
 	print("finished!")
 	if not winning and not losing and game_mode == "boss":
 		lose()
-
-	
 
 func fade_elements() -> void:
 	pause_button.disabled = true
@@ -1208,20 +1190,9 @@ func player_win_animation() -> void:
 	
 
 func start_score_visual() -> void:
-	score_meter.find_child("Expander").expand(1.35,0.25,true)
+	score_meter.find_child("Expander").expand(1.5,0.25,true)
 	current_score_visual_time = 0
-
-func add_to_combo() -> void:
-	temp_notes_played += 1 # TEMPORARY!
-	combo_count += 1
-	combo_meter.text = "COMBO: " + str(combo_count)
-	if combo_count > max_combo:
-		max_combo = combo_count
-
-func break_combo() -> void:
-	if not winning:
-		combo_count = 0
-		combo_meter.text = "COMBO: " + str(combo_count)
+	update_combo_meter()
 
 func _on_resume_button_up() -> void:
 	tutorial.visible = false
@@ -1318,7 +1289,6 @@ func update_debug() -> void:
 	debug_overall_score.text = "overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
 	debug_current_score.text = "current score: " + str(snapped(score_manager.current_score,0.01)*100.0) + "%"
 	debug_vulnerable.text = "vulnerable: " + str(vulnerable)
-	debug_game_score.text = "Game Score: " + str(score_manager.game_score)
 
 func _on_move_to_end_screen_button_pressed() -> void:
 	win()
@@ -1335,7 +1305,7 @@ func on_song_end_screen_created(song_end_screen: SongEndScreen) -> void:
 	song_end_screen.total_hit_notes = score_manager.total_hit_notes()
 	song_end_screen.total_notes = score_manager.total_notes()
 	song_end_screen.timing_score = score_manager.timing_score()
-	song_end_screen.game_score = score_manager.game_score
+	song_end_screen.game_score = score_manager.overall_score
 	song_end_screen.model = model
 	
 

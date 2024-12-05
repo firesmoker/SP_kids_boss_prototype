@@ -15,9 +15,7 @@ var piano_current_stream: int = 0
 func _ready() -> void:
 	game = NodeHelper.get_root_game(self)
 	note_success.connect(game.hit_boss)
-	note_success.connect(game.add_to_combo)
 	note_success.connect(game.start_score_visual)
-	note_failure.connect(game.break_combo)
 	note_failure.connect(game.miss_note)
 	construct_piano_streams()
 
