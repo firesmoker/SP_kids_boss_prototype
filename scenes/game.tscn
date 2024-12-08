@@ -37,12 +37,12 @@
 [ext_resource type="Texture2D" uid="uid://c1ok3gbklgya6" path="res://art/buttons/Restart (1).png" id="16_icmxq"]
 [ext_resource type="Texture2D" uid="uid://bxoxqsja0mkf1" path="res://art/30.sep/Collectible-Bomb/Collectible-Bomb_00000.png" id="17_64vtv"]
 [ext_resource type="AudioStream" uid="uid://h5yw7u7iex4r" path="res://audio/SongEndLoop.ogg" id="17_jypp5"]
+[ext_resource type="AudioStream" uid="uid://ciqjdb6whmgas" path="res://audio/Funk1_126bpm_ending.ogg" id="17_xs6kv"]
 [ext_resource type="Script" path="res://scripts/beat_manager.gd" id="18_di3rh"]
 [ext_resource type="Texture2D" uid="uid://dvgartwj75oa2" path="res://art/Collectible-Snow/Collectible-Snow_00007.png" id="19_4oala"]
 [ext_resource type="Script" path="res://scripts/player_character.gd" id="19_j5u08"]
 [ext_resource type="Texture2D" uid="uid://bu4n1gmbef0hs" path="res://art/19_nov/compressed/Boss_Fight_IntroTransition_00297-min.png" id="20_5tmgk"]
 [ext_resource type="PackedScene" uid="uid://canrydy51d80m" path="res://scenes/expander.tscn" id="20_wgxju"]
-[ext_resource type="AudioStream" uid="uid://cv674nxp3s0x6" path="res://audio/Fantasy1_94bpm_ending.ogg" id="21_am8c6"]
 [ext_resource type="Texture2D" uid="uid://cq0qwkfac74b4" path="res://art/19_nov/compressed/Boss_Fight_IntroTransition_00298-min.png" id="21_onky5"]
 [ext_resource type="Texture2D" uid="uid://bqmxp10hkofb2" path="res://art/buttons/Exit (1).png" id="22_7sqae"]
 [ext_resource type="Texture2D" uid="uid://bm12crwe0s3b" path="res://art/19_nov/compressed/Boss_Fight_IntroTransition_00299-min.png" id="22_t5t02"]
@@ -5104,7 +5104,7 @@ script = ExtResource("18_di3rh")
 [node name="StreamPlayer4" type="AudioStreamPlayer" parent="Sound/Piano"]
 
 [node name="MusicEndingPlayer" type="AudioStreamPlayer" parent="Sound"]
-stream = ExtResource("21_am8c6")
+stream = ExtResource("17_xs6kv")
 volume_db = -80.0
 
 [node name="CameraOverlay" type="CanvasLayer" parent="."]

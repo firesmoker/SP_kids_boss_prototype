@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://3af5mnmpgn64"
-path="res://.godot/imported/BareNecessities_CMajor_130BPM_Vocals_Short.easy.ogg-93d77ae98be32b2cd09edf0f798a5387.oggvorbisstr"
+path="res://.godot/imported/BareNecessities_CMajor_130bpm_Vocals_Short.easy.ogg-ccab1cddb127420d4d27f97cd1266d5c.oggvorbisstr"
 
 [deps]
 
-source_file="res://songs/BareNecessities_CMajor_130BPM_Vocals_Short.easy.ogg"
-dest_files=["res://.godot/imported/BareNecessities_CMajor_130BPM_Vocals_Short.easy.ogg-93d77ae98be32b2cd09edf0f798a5387.oggvorbisstr"]
+source_file="res://songs/BareNecessities_CMajor_130bpm_Vocals_Short.easy.ogg"
+dest_files=["res://.godot/imported/BareNecessities_CMajor_130bpm_Vocals_Short.easy.ogg-ccab1cddb127420d4d27f97cd1266d5c.oggvorbisstr"]
 
 [params]
 
