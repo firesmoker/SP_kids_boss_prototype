@@ -288,5 +288,23 @@
 				"display_duration": 3
 			}
 		}
+	},
+	{
+		"displayName": "Boss FUNK 1",
+		"artist": "Simply",
+		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
+		"levels": {
+			"medium": {
+				"melody_path": "res://levels/Boss_Funk1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Funk1_Left.txt",
+				"song_path": "res://audio/Funk1_126bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 126,
+				"player_life": 24,
+				"boss_life": 96,
+				"ui_type": "both",
+				"display_duration": 3
+			}
+		}
 	}
 ]
