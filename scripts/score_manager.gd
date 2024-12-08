@@ -17,6 +17,11 @@ var combo_full_hits: int = 10  # Number of hits required to fully progress the c
 var game_score: float = 0.0  # Score for notes passed so far
 var current_score: float = 0.0  # Score relative to all notes in the song
 var overall_score: float = 0.0  # Score relative to all notes in the song
+var gamified_overall_score: float = 0.0  # Score relative to all notes in the song
+var perfect_score: float = 0
+var three_stars_score: float = 0
+var two_stars_score: float = 0
+var one_star_score: float = 0
 
 # Total notes passed and total notes in the level
 var total_hits: int = 0
@@ -32,6 +37,9 @@ var stars: float = 0.0
 # Tracks the current combo streak
 var current_combo: int = 0
 var max_combo: int = 0
+
+var max_normal_note_score: float = 10
+
 
 func miss(note: Note) -> void:
 	"""
@@ -90,7 +98,8 @@ func add_note_score(note_score: float) -> void:
 	# Update scores
 	current_score += note_score
 	overall_score = current_score / total_notes_in_level
-	game_score += round(note_score * multiplier * 10)
+	game_score += round(note_score * multiplier * max_normal_note_score)
+	gamified_overall_score = game_score / perfect_score_in_level()
 	
 	# Update combo streak and hits
 	current_combo += 1
@@ -106,6 +115,29 @@ func add_note_score(note_score: float) -> void:
 		combo_mode_changed = false
 	
 	calculate_stars()
+
+func perfect_score_in_level() -> float:
+	var perfect_max_notes_in_1x: float = combo_full_hits
+	var perfect_max_notes_in_2x: float = combo_full_hits
+	var perfect_max_notes_in_3x: float = combo_full_hits
+	var perfect_max_notes_in_4x: float = total_notes_in_level - (perfect_max_notes_in_1x + perfect_max_notes_in_2x + perfect_max_notes_in_3x)
+	if perfect_max_notes_in_4x < 0:
+		print("perfect max notes in 4x is 0!")
+		perfect_max_notes_in_4x = 0
+	return max_normal_note_score*(perfect_max_notes_in_4x * 4 + perfect_max_notes_in_3x * 3 + perfect_max_notes_in_2x * 2 + perfect_max_notes_in_1x * 1)
+
+func three_stars_score_in_level() -> float:
+	var max_combo_breaks: int = floor(total_notes_in_level / 100)
+	if max_combo_breaks < 1:
+		max_combo_breaks = 1
+	var notes_in_1x: float = combo_full_hits * (1 + max_combo_breaks)
+	var notes_in_2x: float = combo_full_hits * (1 + max_combo_breaks)
+	var notes_in_3x: float = combo_full_hits * (1 + max_combo_breaks)
+	var notes_in_4x: float = total_notes_in_level - (notes_in_1x + notes_in_2x + notes_in_3x)
+	if notes_in_4x < 0:
+		print("perfect max notes in 4x is 0!")
+		notes_in_4x = 0
+	return max_normal_note_score*(notes_in_4x * 4 + notes_in_3x * 3 + notes_in_2x * 2 + notes_in_1x * 1 - max_combo_breaks)
 
 func calculate_stars() -> void:
 	"""

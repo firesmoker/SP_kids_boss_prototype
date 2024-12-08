@@ -68,9 +68,10 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var debug_window: Control = $Overlay/DebugWindow
 @onready var debug_missed_notes: Label = $Overlay/DebugWindow/DebugMissedNotes
 @onready var debug_notes_in_level: Label = $Overlay/DebugWindow/DebugNotesInLevel
-@onready var debug_current_score: Label = $Overlay/DebugWindow/DebugCurrentScore
+@onready var debug_gamified_score: Label = $Overlay/DebugWindow/DebugGamifiedScore
 @onready var debug_overall_score: Label = $Overlay/DebugWindow/DebugOverallScore
 @onready var debug_vulnerable: Label = $Overlay/DebugWindow/DebugVulnerable
+@onready var debug_perfect_score: Label = $Overlay/DebugWindow/DebugPerfectScore
 
 @onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
 
@@ -369,23 +370,6 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	if not cheat_skip_intro and not last_game_lost:
 		intro_sequence.visible = toggle
 
-#func trigger_crowd_animations() -> void:
-	#var song_progress: float = music_player.get_playback_position() / music_player.stream.get_length()
-	#if score_manager.overall_score >= 0.85 and song_progress > 0.6 and not threshold3_unlocked:
-		#threshold3_unlocked = true
-		#for i: int in range(crowd_people.size()):
-			#crowd_people[i].animation = "moving"
-			#print("threshold 3: animation changed to " + str(crowd_people[i].animation))
-	#elif score_manager.overall_score >= 0.7 and song_progress > 0.3 and not threshold2_unlocked:
-		#threshold2_unlocked = true
-		#for i: int in range(crowd_people.size() / 2):
-			#crowd_people[i].animation = "moving"
-			#print("threshold 2: animation changed to " + str(crowd_people[i].animation))
-	#elif score_manager.overall_score >= 0.5 and not threshold1_unlocked :
-		#threshold1_unlocked = true
-		#for i: int in range(crowd_people.size() / 3):
-			#crowd_people[i].animation = "moving"
-			#print("threshold 1: animation changed to " + str(crowd_people[i].animation))
 
 func set_star_bar_values() -> void:
 	#star_bar.max_value = notes_container.notes_in_level - 1
@@ -396,17 +380,29 @@ func set_star_bar_values() -> void:
 	star1_threshold_score = star_bar.max_value * star1_threshold_modifier
 	star2_threshold_score = star_bar.max_value * star2_threshold_modifier
 	star3_threshold_score = star_bar.max_value * star3_threshold_modifier
+	
+	score_manager.combo_full_hits = roundi(score_manager.total_notes_in_level / 10)
+	score_manager.perfect_score = score_manager.perfect_score_in_level()
+	score_manager.three_stars_score = score_manager.three_stars_score_in_level()
+	star3_threshold_score = score_manager.three_stars_score / score_manager.perfect_score * star3_threshold_modifier
+	star2_threshold_score = star3_threshold_score * star2_threshold_modifier
+	star1_threshold_score = star3_threshold_score * star1_threshold_modifier
+	print("star 3 threshold is: " + str(star3_threshold_score))
+	print("star 2 threshold is: " + str(star2_threshold_score))
+	print("star 1 threshold is: " + str(star1_threshold_score))
+	
 	var star1: TextureRect = star_bar.find_child("Star1")
 	var star2: TextureRect = star_bar.find_child("Star2")
 	var star3: TextureRect = star_bar.find_child("Star3")
-	star1.position.x = -star1.size.x/2 + star_bar.size.x * star1_threshold_modifier
-	star2.position.x = -star2.size.x/2 + star_bar.size.x * star2_threshold_modifier
-	star3.position.x = -star2.size.x/2 + star_bar.size.x * star3_threshold_modifier
+	star1.position.x = -star1.size.x/2 + star_bar.size.x * star1_threshold_score
+	star2.position.x = -star2.size.x/2 + star_bar.size.x * star2_threshold_score
+	star3.position.x = -star2.size.x/2 + star_bar.size.x * star3_threshold_score
 	
 	
 
 func update_ingame_stars() -> void:
-	star_bar.value = score_manager.overall_score
+	#star_bar.value = score_manager.overall_score
+	star_bar.value = score_manager.gamified_overall_score
 	if star3_unlocked and video_layer_4.modulate.a >= 1:
 		video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
 		print("video 3 disabled")
@@ -417,7 +413,8 @@ func update_ingame_stars() -> void:
 		print("video 1 disabled")
 		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
 	
-	if score_manager.overall_score > star3_threshold_modifier:
+	#if score_manager.gamified_overall_score > star3_threshold_modifier:
+	if score_manager.gamified_overall_score > star3_threshold_score:
 		video_layer_4.process_mode = Node.PROCESS_MODE_INHERIT
 		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
@@ -434,7 +431,8 @@ func update_ingame_stars() -> void:
 			star3_unlocked = true
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
 			expander.expand(1.7,0.25,true)
-	elif score_manager.overall_score > star2_threshold_modifier:
+	#elif score_manager.gamified_overall_score > star2_threshold_modifier:
+	elif score_manager.gamified_overall_score > star2_threshold_score:
 		#video_layer_3.visible = true
 		video_layer_3.process_mode = Node.PROCESS_MODE_INHERIT
 		video_layer_3.find_child("Fader").fade_in(0.015)
@@ -452,7 +450,8 @@ func update_ingame_stars() -> void:
 			star2_unlocked = true
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
 			expander.expand(1.7,0.25,true)
-	elif score_manager.overall_score > star1_threshold_modifier:
+	#elif score_manager.gamified_overall_score > star1_threshold_modifier:
+	elif score_manager.gamified_overall_score > star1_threshold_score:
 		#video_layer_3.find_child("Fader").fade_in(0.015)
 		#video_layer_3.visible = true
 		video_layer_2.process_mode = Node.PROCESS_MODE_INHERIT
@@ -554,7 +553,7 @@ func _ready() -> void:
 	initialize_part(ui_type)
 	setup_score_manager()
 	setup_combo()
-	set_star_bar_values()
+	#set_star_bar_values()
 	if ui_type == "treble":
 		right_hand_part.position.y += 60
 		blue_line.find_child("SingleLine").visible = true
@@ -594,6 +593,14 @@ func _ready() -> void:
 	pause_button.visible = true
 	restart_button.visible = true
 	game_state = "Playing"
+	
+	set_star_bar_values()
+	#score_manager.combo_full_hits = roundi(score_manager.total_notes_in_level / 10)
+	#score_manager.perfect_score = score_manager.perfect_score_in_level()
+	#score_manager.three_stars_score = score_manager.three_stars_score_in_level()
+	#star3_threshold_score = score_manager.three_stars_score / score_manager.perfect_score * star3_threshold_modifier
+	#print("star 3 threshold is: " + str(star3_threshold_score))
+	#set_star_bar_values()
 
 func setup_score_manager() -> void:
 	score_manager.total_notes_in_level = notes_container.notes_in_level
@@ -1316,15 +1323,18 @@ func show_debug(toggle: bool = debug) -> void:
 	debug_window.visible = toggle
 	debug_missed_notes.visible = toggle
 	debug_notes_in_level.visible = toggle
-	debug_current_score.visible = toggle
+	debug_gamified_score.visible = false
 	debug_overall_score.visible = toggle
 	debug_vulnerable.visible = toggle
+	debug_perfect_score.visible = toggle
+	
 
 func update_debug() -> void:
 	debug_missed_notes.text = "missed notes: " + str(missed_notes)
 	debug_notes_in_level.text = "notes in level: " + str(notes_container.notes_in_level)
-	debug_overall_score.text = "overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
-	debug_current_score.text = "game score: " + str(round(score_manager.game_score))
+	#debug_overall_score.text = "overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
+	debug_overall_score.text = "overall score: " + str(snapped(score_manager.gamified_overall_score,0.001)*100.0) + "%"
+	debug_perfect_score.text = "perfect score: " + str(round(score_manager.perfect_score))
 	debug_vulnerable.text = "vulnerable: " + str(vulnerable)
 
 func _on_move_to_end_screen_button_pressed() -> void:
