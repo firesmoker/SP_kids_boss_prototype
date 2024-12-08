@@ -20,3 +20,19 @@ static func play_animation_sprite_until_frame(animation_sprite: AnimatedSprite2D
 		await animation_sprite.get_tree().process_frame  # Wait for the next frame
 	animation_sprite.stop()  # Stop the animation
 	animation_sprite.frame = target_frame  # Ensure it stops at the exact target frame
+	
+# Scale up
+static func scale_up(tween: Tween, node: Node) -> void:
+	tween.tween_property(node, "scale", Vector2(1.5, 1.5), 0.5)  # Adjusted to match the argument count
+
+# Scale down
+static func scale_down(tween: Tween, node: Node) -> void:
+	tween.tween_property(node, "scale", Vector2(1, 1), 0.5)  # Adjusted to match the argument count
+
+# Toggle between scaling up and down
+static func bounce_scale(node: Node) -> void:
+	var tween: Tween = node.create_tween()
+	scale_up(tween, node)
+	await tween.finished
+	scale_down(tween, node)
+	await tween.finished

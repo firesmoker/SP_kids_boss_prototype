@@ -15,10 +15,13 @@ var piano_current_stream: int = 0
 func _ready() -> void:
 	game = NodeHelper.get_root_game(self)
 	note_success.connect(game.hit_boss)
-	note_success.connect(game.add_to_combo)
-	note_success.connect(game.start_score_visual)
-	note_failure.connect(game.break_combo)
 	note_failure.connect(game.miss_note)
+	
+	if game.game_mode == "library":
+		note_success.connect(game.start_score_visual)
+		note_success.connect(game.update_combo_meter)
+		note_failure.connect(game.update_combo_meter)
+	
 	construct_piano_streams()
 
 func construct_piano_streams() -> void:
@@ -73,15 +76,16 @@ func note_hit(i: int) -> void:
 	if game.vulnerable:
 		var note_object: Note = current_notes[i]
 		hit_notes.append(note_object)
-		emit_signal("note_success")
 		if Game.cheat_play_piano_sounds:
 			play_note_sound(note_object.note)
-		print("RIGHT NOTE PLAYED YAY!")
 		if game.game_state == "Playing":
 			var note_score: float = score_manager.hit(note_object)
 			current_notes[i].hit_note_visual(note_score)
 			current_notes[i].state = "Played"
 			current_notes.pop_at(i)
+		
+		print("RIGHT NOTE PLAYED YAY!")
+		emit_signal("note_success")
 		
 
 func play_note_sound(note_name: String = "C4") -> void:
