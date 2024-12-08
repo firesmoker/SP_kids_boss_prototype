@@ -114,7 +114,8 @@ func add_note_score(note_score: float) -> void:
 	else:
 		combo_mode_changed = false
 	
-	calculate_stars()
+	#calculate_stars()
+	calculate_stars_with_combo()
 
 func perfect_score_in_level() -> float:
 	var perfect_max_notes_in_1x: float = combo_full_hits
@@ -137,7 +138,17 @@ func three_stars_score_in_level() -> float:
 	if notes_in_4x < 0:
 		print("perfect max notes in 4x is 0!")
 		notes_in_4x = 0
-	return max_normal_note_score*(notes_in_4x * 4 + notes_in_3x * 3 + notes_in_2x * 2 + notes_in_1x * 1 - max_combo_breaks)
+	return max_normal_note_score*(notes_in_4x * 4 + notes_in_3x * 3 + notes_in_2x * 2 + notes_in_1x * 1 - roundi(total_notes_in_level * 0.05))
+#
+func calculate_stars_with_combo() -> void:
+	if gamified_overall_score < Game.star1_threshold_score:
+		stars = 0.0
+	elif gamified_overall_score < Game.star2_threshold_score:
+		stars = 1.0 + (gamified_overall_score - Game.star1_threshold_score) * (1.0 / 0.2) # Linear projection between 1 and 2 stars
+	elif gamified_overall_score < Game.star3_threshold_score:
+		stars = 2.0 + (gamified_overall_score - Game.star2_threshold_score) * (1.0 / 0.2) # Linear projection between 2 and 3 stars
+	else:
+		stars = 3.0
 
 func calculate_stars() -> void:
 	"""

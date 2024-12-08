@@ -28,9 +28,9 @@ var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
 var star3_threshold_modifier: float = 0.9
 
-var star1_threshold_score: float
-var star2_threshold_score: float
-var star3_threshold_score: float
+static var star1_threshold_score: float
+static var star2_threshold_score: float
+static var star3_threshold_score: float
 
 var star1_unlocked: bool = false
 var star2_unlocked: bool = false
@@ -394,9 +394,9 @@ func set_star_bar_values() -> void:
 	var star1: TextureRect = star_bar.find_child("Star1")
 	var star2: TextureRect = star_bar.find_child("Star2")
 	var star3: TextureRect = star_bar.find_child("Star3")
-	star1.position.x = -star1.size.x/2 + star_bar.size.x * star1_threshold_score
-	star2.position.x = -star2.size.x/2 + star_bar.size.x * star2_threshold_score
-	star3.position.x = -star2.size.x/2 + star_bar.size.x * star3_threshold_score
+	star1.position.x = -star1.size.x/2 + star_bar.size.x * 0.4
+	star2.position.x = -star2.size.x/2 + star_bar.size.x * 0.6
+	star3.position.x = -star2.size.x/2 + star_bar.size.x * 0.8
 	
 	
 
