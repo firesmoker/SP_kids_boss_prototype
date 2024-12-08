@@ -97,19 +97,36 @@ func add_note_score(note_score: float) -> void:
 	if current_combo > max_combo:
 		max_combo = current_combo
 	
-	combo_hits += 1
+	combo_hits = min(combo_full_hits, combo_hits + 1)
 	combo_mode_changed = false
-	if combo_hits >= combo_full_hits:
+	if combo_hits >= combo_full_hits and combo_mode != ComboMode.X4:
 		combo_mode_changed = true
 		advance_combo_mode()
 	else:
 		combo_mode_changed = false
-
-func append_score(note_score: float) -> void:
-	"""
-	Applies the combo multiplier to the note score and updates the combo mode and streak.
-	"""
 	
+	calculate_stars()
+
+func calculate_stars() -> void:
+	"""
+	Calculates the star rating based on the overall note_scores average.
+	"""
+	if note_scores.size() == 0:
+		stars = 0.0
+		return
+
+	var score: float = 0.0
+	for s: float in note_scores:
+		score += s
+	score = score / total_notes_in_level		
+	if score < 0.5:
+		stars = 0.0
+	elif score <= 0.7:
+		stars = 1.0 + (score - 0.5) * (1.0 / 0.2) # Linear projection between 1 and 2 stars
+	elif score <= 0.9:
+		stars = 2.0 + (score - 0.7) * (1.0 / 0.2) # Linear projection between 2 and 3 stars
+	else:
+		stars = 3.0
 
 func reset_combo() -> void:
 	"""
@@ -144,7 +161,7 @@ func timing_score() -> float:
 			count += 1
 	
 	return sum / count
-	
+	 
 	
 # Debugging helper to print scores, stars, and combo
 func print_score_details() -> void:

@@ -71,7 +71,6 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var debug_current_score: Label = $Overlay/DebugWindow/DebugCurrentScore
 @onready var debug_overall_score: Label = $Overlay/DebugWindow/DebugOverallScore
 @onready var debug_vulnerable: Label = $Overlay/DebugWindow/DebugVulnerable
-@onready var debug_game_score: Label = $Overlay/DebugWindow/DebugGameScore
 
 @onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
 
@@ -554,6 +553,7 @@ func _ready() -> void:
 	set_boss_health()
 	initialize_part(ui_type)
 	setup_score_manager()
+	setup_combo()
 	set_star_bar_values()
 	if ui_type == "treble":
 		right_hand_part.position.y += 60
@@ -597,6 +597,10 @@ func _ready() -> void:
 
 func setup_score_manager() -> void:
 	score_manager.total_notes_in_level = notes_container.notes_in_level
+
+func setup_combo() -> void:
+	combo_feedback_animation.visible = false
+	update_combo_meter()
 
 func initialize_part(hand_parts: String = ui_type) -> void:
 	if hand_parts.to_lower() == "bass" or hand_parts.to_lower() == "both":
@@ -1314,14 +1318,13 @@ func show_debug(toggle: bool = debug) -> void:
 	debug_notes_in_level.visible = toggle
 	debug_current_score.visible = toggle
 	debug_overall_score.visible = toggle
-	debug_game_score.visible = toggle
 	debug_vulnerable.visible = toggle
 
 func update_debug() -> void:
 	debug_missed_notes.text = "missed notes: " + str(missed_notes)
 	debug_notes_in_level.text = "notes in level: " + str(notes_container.notes_in_level)
 	debug_overall_score.text = "overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
-	debug_current_score.text = "current score: " + str(snapped(score_manager.current_score,0.01)*100.0) + "%"
+	debug_current_score.text = "game score: " + str(round(score_manager.game_score))
 	debug_vulnerable.text = "vulnerable: " + str(vulnerable)
 
 func _on_move_to_end_screen_button_pressed() -> void:

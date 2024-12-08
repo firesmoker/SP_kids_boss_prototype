@@ -5677,15 +5677,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "[D] Current: 100%"
 
-[node name="DebugGameScore" type="Label" parent="Overlay/DebugWindow"]
-layout_mode = 0
-offset_top = 185.0
-offset_right = 296.0
-offset_bottom = 221.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
-text = "[D] GameScore: 100%"
-
 [node name="DebugVulnerable" type="Label" parent="Overlay/DebugWindow"]
 layout_mode = 0
 offset_top = 146.0
