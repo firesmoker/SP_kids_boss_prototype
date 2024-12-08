@@ -130,7 +130,7 @@
 [ext_resource type="Texture2D" uid="uid://daef73gjjxbv5" path="res://art/13_nov/StarEndScreen/StarEndScreen-37.png" id="90_qo5wx"]
 [ext_resource type="Texture2D" uid="uid://h2rddhl5jvuo" path="res://art/13_nov/StarEndScreen/StarEndScreen-38.png" id="91_muvjf"]
 [ext_resource type="Texture2D" uid="uid://c8rrmv5cagds6" path="res://art/13_nov/StarEndScreen/StarEndScreen-39.png" id="92_c1lsn"]
-[ext_resource type="SpriteFrames" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="Texture2D" uid="uid://bx6n7ajv7ppdk" path="res://art/13_nov/StarEndScreen/StarEndScreen-40.png" id="93_r6wqf"]
 [ext_resource type="Texture2D" uid="uid://bywd2qp4q45pr" path="res://art/13_nov/StarEndScreen/StarEndScreen-41.png" id="94_2nwcf"]
 [ext_resource type="Texture2D" uid="uid://fx0fcgwjm6du" path="res://art/13_nov/StarEndScreen/StarEndScreen-42.png" id="95_6jpg1"]
@@ -5627,7 +5627,6 @@ autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="DebugWindow" type="Control" parent="Overlay"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 84.0
@@ -5668,7 +5667,16 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "[D] Overall: 100%"
 
-[node name="DebugCurrentScore" type="Label" parent="Overlay/DebugWindow"]
+[node name="DebugPerfectScore" type="Label" parent="Overlay/DebugWindow"]
+layout_mode = 0
+offset_top = 183.0
+offset_right = 296.0
+offset_bottom = 219.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "[D] Perfect Score: "
+
+[node name="DebugGamifiedScore" type="Label" parent="Overlay/DebugWindow"]
 layout_mode = 0
 offset_top = 110.0
 offset_right = 296.0
@@ -6668,8 +6676,7 @@ frame_progress = 0.143131
 [node name="Fader" parent="Level/RightHandPart" instance=ExtResource("63_jfxac")]
 
 [node name="ComboFeedbackAnimation" type="AnimatedSprite2D" parent="Level/RightHandPart"]
-visible = false
-position = Vector2(-294.087, -172.619)
+position = Vector2(-364.524, -137.897)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_vtgga")
 animation = &"combo_3"
