@@ -63,6 +63,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var combo_meter: Control = $UI/StarsPanel/Panel/ComboMeter
 @onready var combo_animation: AnimatedSprite2D = $UI/StarsPanel/Panel/ComboMeter/ComboAnimation
 @onready var combo_audio_player: AudioStreamPlayer = $UI/StarsPanel/Panel/ComboMeter/ComboAudioPlayer
+@onready var combo_feedback_animation: AnimatedSprite2D = $Level/RightHandPart/ComboFeedbackAnimation
 
 @onready var debug_window: Control = $Overlay/DebugWindow
 @onready var debug_missed_notes: Label = $Overlay/DebugWindow/DebugMissedNotes
@@ -406,7 +407,7 @@ func set_star_bar_values() -> void:
 	
 
 func update_ingame_stars() -> void:
-	star_bar.value = score_manager.current_score
+	star_bar.value = score_manager.overall_score
 	if star3_unlocked and video_layer_4.modulate.a >= 1:
 		video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
 		print("video 3 disabled")
@@ -417,7 +418,7 @@ func update_ingame_stars() -> void:
 		print("video 1 disabled")
 		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
 	
-	if score_manager.current_score > star3_threshold_modifier:
+	if score_manager.overall_score > star3_threshold_modifier:
 		video_layer_4.process_mode = Node.PROCESS_MODE_INHERIT
 		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
@@ -434,7 +435,7 @@ func update_ingame_stars() -> void:
 			star3_unlocked = true
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
 			expander.expand(1.7,0.25,true)
-	elif score_manager.current_score > star2_threshold_modifier:
+	elif score_manager.overall_score > star2_threshold_modifier:
 		#video_layer_3.visible = true
 		video_layer_3.process_mode = Node.PROCESS_MODE_INHERIT
 		video_layer_3.find_child("Fader").fade_in(0.015)
@@ -452,7 +453,7 @@ func update_ingame_stars() -> void:
 			star2_unlocked = true
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
 			expander.expand(1.7,0.25,true)
-	elif score_manager.current_score > star1_threshold_modifier:
+	elif score_manager.overall_score > star1_threshold_modifier:
 		#video_layer_3.find_child("Fader").fade_in(0.015)
 		#video_layer_3.visible = true
 		video_layer_2.process_mode = Node.PROCESS_MODE_INHERIT
@@ -721,11 +722,45 @@ func update_score_meter() -> void:
 	score_meter.text = str(score_manager.game_score)
 
 func update_combo_meter() -> void:
-	combo_animation.animation = "combo_bar_" + str(score_manager.combo_multiplier())
-	combo_animation.frame = int(90 * score_manager.combo_progress())
+	# 1. Animate combo_animation frame progressively
+	var target_frame: int = int(90 * score_manager.combo_progress())
+	animate_combo_frame(combo_animation, target_frame, 0.1)
 	
-	if score_manager.combo_hits == 0 and score_manager.combo_multiplier() > 1:
-		combo_meter.find_child("Expander").expand(1.10, 0.25, true)
+	# 2. Play feedback animation when combo_mode_changed
+	if score_manager.combo_mode_changed:
+		var animation_name: String = "combo_" + str(score_manager.combo_multiplier())
+		play_combo_feedback_animation(animation_name)
+		
+		# 3. Play combo audio if combo_mode is not X1
+		if score_manager.combo_mode != ScoreManager.ComboMode.X1:
+			play_combo_audio("res://audio/combo_feedback.ogg")
+			
+		combo_meter.find_child("Expander").expand(1.25, 0.25, true)
+
+# Helper function to animate the combo_animation frame progressively
+func animate_combo_frame(animation: AnimatedSprite2D, target_frame: int, duration: float) -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(animation, "frame", target_frame, duration)
+	
+	# Wait for the tween to finish
+	await tween.finished
+	
+	# Perform the update after the tween animation ends
+	animation.animation = "combo_bar_" + str(score_manager.combo_multiplier())
+	animation.frame = int(90 * score_manager.combo_progress())
+
+# Helper function to play the combo feedback animation
+func play_combo_feedback_animation(animation_name: String) -> void:
+	combo_feedback_animation.visible = true
+	combo_feedback_animation.play(animation_name)
+	await combo_feedback_animation.animation_finished
+	combo_feedback_animation.visible = false
+
+# Helper function to play combo audio
+func play_combo_audio(audio_path: String) -> void:
+	combo_audio_player.stream = load(audio_path)
+	combo_audio_player.play()
+
 
 func _on_music_player_finished() -> void:
 	print("finished!")
@@ -1190,9 +1225,8 @@ func player_win_animation() -> void:
 	
 
 func start_score_visual() -> void:
-	score_meter.find_child("Expander").expand(1.5,0.25,true)
+	score_meter.find_child("Expander").expand(1.35,0.25,true)
 	current_score_visual_time = 0
-	update_combo_meter()
 
 func _on_resume_button_up() -> void:
 	tutorial.visible = false
@@ -1302,10 +1336,10 @@ func show_library_song_end_screen() -> void:
 
 func on_song_end_screen_created(song_end_screen: SongEndScreen) -> void:
 	song_end_screen.total_stars = score_manager.stars
-	song_end_screen.total_hit_notes = score_manager.total_hit_notes()
-	song_end_screen.total_notes = score_manager.total_notes()
+	song_end_screen.total_hit_notes = score_manager.total_hits
+	song_end_screen.total_notes = score_manager.total_notes_in_level
 	song_end_screen.timing_score = score_manager.timing_score()
-	song_end_screen.game_score = score_manager.overall_score
+	song_end_screen.game_score = score_manager.game_score
 	song_end_screen.model = model
 	
 
