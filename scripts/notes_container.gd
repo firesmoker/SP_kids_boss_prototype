@@ -138,7 +138,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			if bottom_staff:
 				new_note.position.y += treble_to_bass_gap
 
-		elif event.type == "collectible" and Game.game_mode == "boss" and event.subtype != "golden_note":
+		elif event.type == "collectible":
 			if event.note.is_empty():
 				var collectible_marker: CollectibleMarker = collectable_marker_template.instantiate()
 				collectible_marker.event = event
@@ -165,7 +165,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				# Use add_fingers_to_note for finger positioning
 				add_fingers_to_note(collectible, event, note, i, bottom_staff)
 
-		elif event.type == "note" or event.type == "collectible":
+		elif event.type == "note":
 			var notes: Array = split_notes(event.note)
 			for i in range(notes.size()):
 				var note: String = notes[i]

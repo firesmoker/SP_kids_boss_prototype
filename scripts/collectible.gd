@@ -32,7 +32,7 @@ func set_sprite(type: String = "Heart") -> void:
 			var animation_name: String = "stem_up"
 			if stem.rotation > 0:
 				animation_name = "stem_down"
-				super_note_animation.position.y *= -1
+				super_note_animation.position.y += 430
 			super_note_animation.play(animation_name)
 		"bomb":
 			bomb.visible = true
@@ -47,7 +47,7 @@ func set_sprite(type: String = "Heart") -> void:
 			var animation_name: String = "stem_up"
 			if stem.rotation > 0:
 				animation_name = "stem_down"
-				super_note_animation.position.y *= -1
+				super_note_animation.position.y += 400
 			super_note_animation.play(animation_name)
 		_:
 			pass
@@ -65,10 +65,6 @@ func play_animation(type: String = "Heart") -> void:
 	helper_line.visible = false
 	stem.visible = false
 	match type:
-		"heart":
-			pass
-		"bomb":
-			pass
 		"slowdown":
 			slowdown_animation.visible = true
 			slowdown_animation.play()
