@@ -16,6 +16,7 @@ class_name AudioClips extends Node
 @export var electric_attack: AudioStream
 @export_category("Collectibles")
 @export var heart: AudioStream
+@export var golden_note: AudioStream
 @export_category("Library Song")
 @export var star: AudioStream
 @export var song_end_music: AudioStream

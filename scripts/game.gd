@@ -1055,6 +1055,8 @@ func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> v
 				heal(3)
 		"golden_note":
 			hit_boss(-5)
+			audio.stream = audio_clips.golden_note
+			audio.play()
 		_:
 			print("no specific effect")
 			
