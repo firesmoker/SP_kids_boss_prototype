@@ -153,14 +153,14 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				collectible.event = event
 				collectible.note = note
 				add_child(collectible)
-				collectible.set_sprite(event.subtype)
-				collectible.position.x = event.time * bar_length_in_pixels - size / 2
-				collectible.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
 				if event.note == "B4" or event.note == "C5":
 					collectible.stem.rotation = deg_to_rad(180)
 				if bottom_staff:
 					collectible.position.y += treble_to_bass_gap - bass_clef_offset
 					collectible.stem.rotation = deg_to_rad(180)
+				collectible.set_sprite(event.subtype)
+				collectible.position.x = event.time * bar_length_in_pixels - size / 2
+				collectible.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
 
 				# Use add_fingers_to_note for finger positioning
 				add_fingers_to_note(collectible, event, note, i, bottom_staff)

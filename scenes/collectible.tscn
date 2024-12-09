@@ -1,16 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://kf508a146cxq"]
+[gd_scene load_steps=14 format=3 uid="uid://kf508a146cxq"]
 
 [ext_resource type="Script" path="res://scripts/collectible.gd" id="1_ol4d8"]
 [ext_resource type="Material" uid="uid://cuhyraqln5luj" path="res://scene_resources/note_material.tres" id="2_0gip3"]
 [ext_resource type="Shader" path="res://note.gdshader" id="2_f8777"]
-[ext_resource type="SpriteFrames" uid="uid://cod5w1irvgn0c" path="res://scene_resources/heart_spriteframe.tres" id="2_m730v"]
 [ext_resource type="SpriteFrames" uid="uid://cde3i1qgqcbuy" path="res://scene_resources/bomb_spriteframe.tres" id="3_8cwhq"]
 [ext_resource type="Texture2D" uid="uid://d072qrhd4wuv4" path="res://art/NoteRootRegular_Normal.png" id="3_aey48"]
 [ext_resource type="SpriteFrames" uid="uid://dbvvg5f1ogrlt" path="res://scene_resources/slowdown_spriteframe.tres" id="4_h551j"]
 [ext_resource type="Texture2D" uid="uid://cp3t7ofd12oa1" path="res://art/LedgerLine.png" id="4_vstf5"]
 [ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="7_h7qm3"]
 [ext_resource type="SpriteFrames" uid="uid://cnd7ioqvg5uy8" path="res://scene_resources/slowdown_blast_spriteframe.tres" id="8_py5wu"]
-[ext_resource type="SpriteFrames" uid="uid://bbqfmw2t5o4g0" path="res://scene_resources/heart_blast_animation.tres" id="9_ejdfl"]
+[ext_resource type="SpriteFrames" uid="uid://cyds2nujylrw8" path="res://scene_resources/heart_note_animation.tres" id="10_ars0k"]
 [ext_resource type="PackedScene" uid="uid://52rqdd7jwrnq" path="res://scenes/position_hider.tscn" id="11_88bo6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fcsuf"]
@@ -29,7 +28,6 @@ collision_layer = 2
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("1_ol4d8")
-golden_note_color = Color(0.891352, 0.650038, 0.310766, 1)
 
 [node name="Stem" type="Sprite2D" parent="."]
 metadata/_edit_lock_ = true
@@ -72,24 +70,11 @@ autoplay = "default"
 frame_progress = 0.932702
 metadata/_edit_lock_ = true
 
-[node name="Heart" type="AnimatedSprite2D" parent="."]
-position = Vector2(4.76837e-07, -4.76837e-07)
-scale = Vector2(0.65688, 0.65688)
-sprite_frames = ExtResource("2_m730v")
-autoplay = "default"
-metadata/_edit_lock_ = true
-
-[node name="HeartGlow" type="AnimatedSprite2D" parent="Heart"]
-self_modulate = Color(1, 1, 1, 0.811765)
-show_behind_parent = true
-z_index = -1
-position = Vector2(-7.25912e-07, 7.25912e-07)
-rotation = 0.785398
-scale = Vector2(1.1701, 1.1701)
-sprite_frames = ExtResource("9_ejdfl")
-animation = &"glow"
-autoplay = "glow"
-frame_progress = 0.845344
+[node name="SuperNoteAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6.128, -135)
+scale = Vector2(1.7, 1.7)
+sprite_frames = ExtResource("10_ars0k")
+animation = &"stem_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -117,10 +102,8 @@ autoplay = "default"
 [node name="HeartAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
 rotation = 0.785398
-sprite_frames = ExtResource("9_ejdfl")
-autoplay = "default"
-frame = 17
-frame_progress = 1.0
+sprite_frames = ExtResource("10_ars0k")
+animation = &""
 metadata/_edit_lock_ = true
 
 [node name="NoteRoot" type="Sprite2D" parent="."]
