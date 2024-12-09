@@ -171,6 +171,7 @@ static var cheat_play_piano_sounds: bool = false
 static var game_mode: String = "boss"
 static var debug: bool = false
 static var construction_complete: bool = false
+static var ending_music_path: String
 
 var player_health: float = 10
 var boss_health: float = 300
@@ -988,6 +989,7 @@ func win() -> void:
 	if game_mode == "boss":
 		boss.stop()
 		boss.play(boss_model + "death")
+		music_ending_player.stream = load(Game.ending_music_path)
 		audio_play_from_source(boss, audio_clips.boss_death)
 		await boss.animation_finished
 		boss.visible = false

@@ -48,6 +48,8 @@ func prepare_game(difficulty: String) -> void:
 	Game.starting_boss_health = level_data.get("boss_life", 0)
 	Game.ui_type = level_data.get("ui_type", "")
 	Game.on_display_duration = level_data.get("display_duration", 0)
+	if "ending_music_path" in level_data:
+		Game.ending_music_path = level_data.get("ending_music_path", null)
 
 	# Start the level
 	start_level()
