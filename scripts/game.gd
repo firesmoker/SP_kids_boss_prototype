@@ -381,7 +381,7 @@ func set_star_bar_values() -> void:
 	star2_threshold_score = star_bar.max_value * star2_threshold_modifier
 	star3_threshold_score = star_bar.max_value * star3_threshold_modifier
 	
-	score_manager.combo_full_hits = roundi(score_manager.total_notes_in_level / 10)
+	score_manager.combo_full_hits = roundi(score_manager.total_notes_in_level / 6)
 	score_manager.perfect_score = score_manager.perfect_score_in_level()
 	score_manager.three_stars_score = score_manager.three_stars_score_in_level()
 	star3_threshold_score = score_manager.three_stars_score / score_manager.perfect_score * star3_threshold_modifier
