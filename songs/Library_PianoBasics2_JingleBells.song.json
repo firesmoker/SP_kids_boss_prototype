@@ -6,12 +6,13 @@
 	"artist": "חג המולד",
 	"imageFileName": "LibrarySongCover_JingelBells.jpg",
 	"inGameInfo": {
-		"bgm": "PianoBasics2_014_JingleBells_CMajor-VoiceUpdate.ogg",
+		"bgm": "PianoBasics2_014_JingleBells_CMajor_VoiceUpdate.ogg",
 		"instruction": "Jingle Bells - Both Hands!",
 		"melodyFiles": {
 			"right": "Library_PianoBasics2_JingleBells_Right.txt",
 			"left": "Library_PianoBasics2_JingleBells_Left.txt"
-		}
+		},
+		"onScreenDisplayDuration": 2.8
 	},
 	"acum_id": "PD2025010",
 	"licenseIDs": [

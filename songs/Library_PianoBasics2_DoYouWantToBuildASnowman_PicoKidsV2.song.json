@@ -1,21 +1,22 @@
 {
-    "id": "Library_PianoBasics2_DoYouWantToBuildASnowman_PicoKidsV2",
-    "displayName": "לשבור את הקרח",
-    "uiType": "bass_clef",
-    "version": 1,
-    "scaleFactor": 0.85,
-    "artist": "לשבור את הקרח",
-    "imageFileName": "LibrarySongCover_SpecialChallenge_Holiday_DoYouWantToBuildASnowMan.jpg",
-    "backgroundAnimationTheme": "underWater",
-    "licenseIDs": [
-        "Acum"
-    ],
-    "inGameInfo": {
-        "onScreenDisplayDuration": 3.5,
-        "bgm": "DoYouWantToBuildASnowman_CMajor_70bpm_Vocals.ogg",
-        "melodyFiles": {
-            "left": "Library_PianoBasics2_DoYouWantToBuildASnowman_PicoKidsV2_Left.txt"
-        }
-    },
-    "acum_id": "Disney2814338"
+	"id": "Library_PianoBasics2_DoYouWantToBuildASnowman_PicoKidsV2",
+	"displayName": "לשבור את הקרח",
+	"uiType": "bass_clef",
+	"version": 1,
+	"scaleFactor": 0.85,
+	"artist": "לשבור את הקרח",
+	"imageFileName": "LibrarySongCover_SpecialChallenge_Holiday_DoYouWantToBuildASnowMan.jpg",
+	"backgroundAnimationTheme": "underWater",
+	"licenseIDs": [
+		"Acum"
+	],
+	"inGameInfo": {
+		"onScreenDisplayDuration": 3.5,
+		"bgm": "DoYouWantToBuildASnowman_CMajor_70bpm_Vocals.ogg",
+		"melodyFiles": {
+			"right": "Library_PianoBasics2_DoYouWantToBuildASnowman_PicoKidsV2_Right.txt",
+			"left": "Library_PianoBasics2_DoYouWantToBuildASnowman_PicoKidsV2_Left.txt"
+		}
+	},
+	"acum_id": "Disney2814338"
 }

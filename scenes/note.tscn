@@ -1095,7 +1095,9 @@ metadata/_edit_lock_ = true
 [node name="Expander" parent="HeadSprites" instance=ExtResource("10_nk6jl")]
 
 [node name="Fanta" type="AnimatedSprite2D" parent="."]
-position = Vector2(-456.41, -1020.51)
-rotation = -0.418879
+position = Vector2(-133.333, -1020.51)
+rotation = -0.1309
 scale = Vector2(2.6, 2.6)
 sprite_frames = SubResource("SpriteFrames_cw2e5")
+frame = 122
+frame_progress = 1.0
