@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://2knjh5phshmp" path="res://art/buttons/Play (1).png" id="15_m6t7w"]
 [ext_resource type="Texture2D" uid="uid://bi7s7ogaqqd82" path="res://art/30.sep/Collectible-Life/Collectible-Life_00000.png" id="15_vluut"]
 [ext_resource type="AudioStream" uid="uid://dd6t8y4nfef0s" path="res://audio/success.mp3" id="16_5nc2f"]
+[ext_resource type="AudioStream" uid="uid://en6xiekwqrxt" path="res://audio/GoldenNote.ogg" id="16_cg8oo"]
 [ext_resource type="Texture2D" uid="uid://c1ok3gbklgya6" path="res://art/buttons/Restart (1).png" id="16_icmxq"]
 [ext_resource type="Texture2D" uid="uid://bxoxqsja0mkf1" path="res://art/30.sep/Collectible-Bomb/Collectible-Bomb_00000.png" id="17_64vtv"]
 [ext_resource type="AudioStream" uid="uid://h5yw7u7iex4r" path="res://audio/SongEndLoop.ogg" id="17_jypp5"]
@@ -5287,6 +5288,7 @@ boss_hit = ExtResource("12_7mocu")
 boss_death = ExtResource("9_4f17a")
 electric_attack = ExtResource("14_604v4")
 heart = ExtResource("11_s1wme")
+golden_note = ExtResource("16_cg8oo")
 star = ExtResource("16_5nc2f")
 song_end_music = ExtResource("17_jypp5")
 

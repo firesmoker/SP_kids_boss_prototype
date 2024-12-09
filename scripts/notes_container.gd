@@ -138,7 +138,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			if bottom_staff:
 				new_note.position.y += treble_to_bass_gap
 
-		elif event.type == "collectible" and Game.game_mode == "boss" and event.subtype != "golden_note":
+		elif event.type == "collectible":
 			if event.note.is_empty():
 				var collectible_marker: CollectibleMarker = collectable_marker_template.instantiate()
 				collectible_marker.event = event
@@ -153,19 +153,19 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				collectible.event = event
 				collectible.note = note
 				add_child(collectible)
-				collectible.set_sprite(event.subtype)
-				collectible.position.x = event.time * bar_length_in_pixels - size / 2
-				collectible.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
 				if event.note == "B4" or event.note == "C5":
 					collectible.stem.rotation = deg_to_rad(180)
 				if bottom_staff:
 					collectible.position.y += treble_to_bass_gap - bass_clef_offset
 					collectible.stem.rotation = deg_to_rad(180)
+				collectible.set_sprite(event.subtype)
+				collectible.position.x = event.time * bar_length_in_pixels - size / 2
+				collectible.position.y = note_heigth_by_pitch[event.note] + resolution_y_offset
 
 				# Use add_fingers_to_note for finger positioning
 				add_fingers_to_note(collectible, event, note, i, bottom_staff)
 
-		elif event.type == "note" or event.type == "collectible":
+		elif event.type == "note":
 			var notes: Array = split_notes(event.note)
 			for i in range(notes.size()):
 				var note: String = notes[i]

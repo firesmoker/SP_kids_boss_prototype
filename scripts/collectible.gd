@@ -1,12 +1,10 @@
 class_name Collectible extends CollectibleMarker
 
 @export_enum("Active", "Inactive") var state: String = "Active"
-@export var golden_note_color: Color
+@onready var super_note_animation: AnimatedSprite2D = $SuperNoteAnimation
 @onready var helper_line: Sprite2D = $HelperLine
 @export var note: String
 var effect: String = "slow_down"
-@onready var heart: AnimatedSprite2D = $Heart
-@onready var heart_animation: AnimatedSprite2D = $HeartAnimation
 @onready var bomb: AnimatedSprite2D = $Bomb
 @onready var slowdown: AnimatedSprite2D = $Slowdown
 @onready var slowdown_animation: AnimatedSprite2D = $SlowdownAnimation
@@ -26,22 +24,38 @@ func set_sprite(type: String = "Heart") -> void:
 	print(type)
 	match type:
 		"heart":
-			heart.visible = true
+			stem.visible = false
+			note_root.visible = false
+			
+			super_note_animation.visible = true
+			super_note_animation.sprite_frames = load("res://scene_resources/heart_note_animation.tres")
+			var animation_name: String = "stem_up"
+			if stem.rotation > 0:
+				animation_name = "stem_down"
+				super_note_animation.position.y += 430
+			super_note_animation.play(animation_name)
 		"bomb":
 			bomb.visible = true
 		"slowdown":
 			slowdown.visible = true
 		"golden_note":
-			note_root.material.set_shader_parameter("color", golden_note_color)
-			stem_sprite.material.set_shader_parameter("color", golden_note_color)
-			note_root.visible = true
+			stem.visible = false
+			note_root.visible = false
+			
+			super_note_animation.visible = true
+			super_note_animation.sprite_frames = load("res://scene_resources/gold_note_animation.tres")
+			var animation_name: String = "stem_up"
+			if stem.rotation > 0:
+				animation_name = "stem_down"
+				super_note_animation.position.y += 400
+			super_note_animation.play(animation_name)
 		_:
-			heart.visible = true
+			pass
 	if note == "C4":
 		helper_line.visible = true
 
 func hide_sprites() -> void:
-	heart.visible = false
+	super_note_animation.visible = false
 	bomb.visible = false
 	slowdown.visible = false
 	helper_line.visible = false
@@ -51,11 +65,6 @@ func play_animation(type: String = "Heart") -> void:
 	helper_line.visible = false
 	stem.visible = false
 	match type:
-		"heart":
-			heart_animation.visible = true
-			heart_animation.play()
-		"bomb":
-			pass
 		"slowdown":
 			slowdown_animation.visible = true
 			slowdown_animation.play()
