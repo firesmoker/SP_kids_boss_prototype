@@ -291,7 +291,33 @@ offset_right = 64.0
 offset_bottom = 43.0
 text = "Debug"
 
+[node name="New Stars" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.73
+offset_top = 343.17
+offset_right = -127.73
+offset_bottom = 374.17
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "New Stars
+"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/DevButtons/New Stars"]
+visible = false
+layout_mode = 0
+offset_left = -10.0
+offset_top = 20.0
+offset_right = 64.0
+offset_bottom = 43.0
+text = "Debug"
+
 [node name="SPToggle" type="CheckButton" parent="UI/DevButtons"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -444,6 +470,7 @@ script = ExtResource("9_7271b")
 [connection signal="toggled" from="UI/DevButtons/Skip Intro" to="." method="_on_skip_intro_toggled"]
 [connection signal="toggled" from="UI/DevButtons/SkipMiddleC" to="." method="_on_skip_middle_c_toggled"]
 [connection signal="toggled" from="UI/DevButtons/DebugToggle" to="." method="_on_debug_toggle_toggled"]
+[connection signal="toggled" from="UI/DevButtons/New Stars" to="." method="_on_new_stars_toggled"]
 [connection signal="toggled" from="UI/DevButtons/SPToggle" to="." method="_on_sp_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/Play Piano" to="." method="_on_play_piano_toggled"]
 [connection signal="toggled" from="UI/DevButtons/BossToggle" to="." method="_on_boss_toggle_toggled"]
