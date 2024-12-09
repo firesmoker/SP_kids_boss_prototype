@@ -796,6 +796,7 @@ func animate_combo_frame(animation: AnimatedSprite2D, target_frame: int, duratio
 
 # Helper function to play the combo feedback animation
 func play_combo_feedback_animation(animation_name: String) -> void:
+	combo_meter.find_child("ComboFire").play()
 	combo_feedback_animation.visible = true
 	combo_feedback_animation.play(animation_name)
 	await combo_feedback_animation.animation_finished
