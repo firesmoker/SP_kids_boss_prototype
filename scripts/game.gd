@@ -32,6 +32,8 @@ static var star1_threshold_score: float
 static var star2_threshold_score: float
 static var star3_threshold_score: float
 
+static var score_based_stars: bool = false
+
 var star1_unlocked: bool = false
 var star2_unlocked: bool = false
 var star3_unlocked: bool = false
@@ -394,15 +396,41 @@ func set_star_bar_values() -> void:
 	var star1: TextureRect = star_bar.find_child("Star1")
 	var star2: TextureRect = star_bar.find_child("Star2")
 	var star3: TextureRect = star_bar.find_child("Star3")
-	star1.position.x = -star1.size.x/2 + star_bar.size.x * 0.4
-	star2.position.x = -star2.size.x/2 + star_bar.size.x * 0.6
-	star3.position.x = -star2.size.x/2 + star_bar.size.x * 0.8
+	
+	if score_based_stars:
+		star1.position.x = -star1.size.x/2 + star_bar.size.x * 0.4
+		star2.position.x = -star2.size.x/2 + star_bar.size.x * 0.6
+		star3.position.x = -star2.size.x/2 + star_bar.size.x * 0.8
+	else:
+		star1.position.x = -star1.size.x/2 + star_bar.size.x * star1_threshold_modifier
+		star2.position.x = -star2.size.x/2 + star_bar.size.x * star2_threshold_modifier
+		star3.position.x = -star2.size.x/2 + star_bar.size.x * star3_threshold_modifier
 	
 	
 
 func update_ingame_stars() -> void:
-	#star_bar.value = score_manager.overall_score
-	star_bar.value = score_manager.gamified_overall_score
+	var star3_condition: bool = false
+	var star2_condition: bool = false
+	var star1_condition: bool = false
+	
+	if score_based_stars:
+		star_bar.value = score_manager.gamified_overall_score
+		if score_manager.gamified_overall_score > star3_threshold_score:
+			star3_condition = true
+		elif score_manager.gamified_overall_score > star2_threshold_score:
+			star2_condition = true
+		elif score_manager.gamified_overall_score > star1_threshold_score:
+			star1_condition = true
+		
+	else:
+		star_bar.value = score_manager.overall_score
+		if score_manager.overall_score > star3_threshold_modifier:
+			star3_condition = true
+		elif score_manager.overall_score > star2_threshold_modifier:
+			star2_condition = true
+		elif score_manager.overall_score > star1_threshold_modifier:
+			star1_condition = true
+		
 	if star3_unlocked and video_layer_4.modulate.a >= 1:
 		video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
 		print("video 3 disabled")
@@ -413,8 +441,12 @@ func update_ingame_stars() -> void:
 		print("video 1 disabled")
 		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
 	
-	#if score_manager.gamified_overall_score > star3_threshold_modifier:
-	if score_manager.gamified_overall_score > star3_threshold_score:
+	
+	
+		
+	if star3_condition:
+	#if score_manager.overall_score > star3_threshold_modifier:
+	#if score_manager.gamified_overall_score > star3_threshold_score:
 		video_layer_4.process_mode = Node.PROCESS_MODE_INHERIT
 		video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
@@ -431,8 +463,9 @@ func update_ingame_stars() -> void:
 			star3_unlocked = true
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
 			expander.expand(1.7,0.25,true)
-	#elif score_manager.gamified_overall_score > star2_threshold_modifier:
-	elif score_manager.gamified_overall_score > star2_threshold_score:
+	elif star2_condition:
+	#elif score_manager.overall_score > star2_threshold_modifier:
+	#elif score_manager.gamified_overall_score > star2_threshold_score:
 		#video_layer_3.visible = true
 		video_layer_3.process_mode = Node.PROCESS_MODE_INHERIT
 		video_layer_3.find_child("Fader").fade_in(0.015)
@@ -450,8 +483,9 @@ func update_ingame_stars() -> void:
 			star2_unlocked = true
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
 			expander.expand(1.7,0.25,true)
-	#elif score_manager.gamified_overall_score > star1_threshold_modifier:
-	elif score_manager.gamified_overall_score > star1_threshold_score:
+	elif star1_condition:
+	#elif score_manager.overall_score > star1_threshold_modifier:
+	#elif score_manager.gamified_overall_score > star1_threshold_score:
 		#video_layer_3.find_child("Fader").fade_in(0.015)
 		#video_layer_3.visible = true
 		video_layer_2.process_mode = Node.PROCESS_MODE_INHERIT
@@ -1332,8 +1366,10 @@ func show_debug(toggle: bool = debug) -> void:
 func update_debug() -> void:
 	debug_missed_notes.text = "missed notes: " + str(missed_notes)
 	debug_notes_in_level.text = "notes in level: " + str(notes_container.notes_in_level)
-	#debug_overall_score.text = "overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
-	debug_overall_score.text = "overall score: " + str(snapped(score_manager.gamified_overall_score,0.001)*100.0) + "%"
+	if score_based_stars:
+		debug_overall_score.text = "game score: " + str(snapped(score_manager.gamified_overall_score,0.001)*100.0) + "%"
+	else:
+		debug_overall_score.text = "overall score: " + str(snapped(score_manager.overall_score,0.01)*100.0) + "%"
 	debug_perfect_score.text = "perfect score: " + str(round(score_manager.perfect_score))
 	debug_vulnerable.text = "vulnerable: " + str(vulnerable)
 

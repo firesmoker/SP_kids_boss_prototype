@@ -114,8 +114,10 @@ func add_note_score(note_score: float) -> void:
 	else:
 		combo_mode_changed = false
 	
-	#calculate_stars()
-	calculate_stars_with_combo()
+	if Game.score_based_stars:
+		calculate_stars_with_combo()
+	else:
+		calculate_stars()
 
 func perfect_score_in_level() -> float:
 	var perfect_max_notes_in_1x: float = combo_full_hits
