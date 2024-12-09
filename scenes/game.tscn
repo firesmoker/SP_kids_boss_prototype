@@ -1,4 +1,4 @@
-[gd_scene load_steps=1320 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1319 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -130,7 +130,7 @@
 [ext_resource type="Texture2D" uid="uid://daef73gjjxbv5" path="res://art/13_nov/StarEndScreen/StarEndScreen-37.png" id="90_qo5wx"]
 [ext_resource type="Texture2D" uid="uid://h2rddhl5jvuo" path="res://art/13_nov/StarEndScreen/StarEndScreen-38.png" id="91_muvjf"]
 [ext_resource type="Texture2D" uid="uid://c8rrmv5cagds6" path="res://art/13_nov/StarEndScreen/StarEndScreen-39.png" id="92_c1lsn"]
-[ext_resource type="SpriteFrames" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
+[ext_resource type="SpriteFrames" uid="uid://dtkx5b472r5ka" path="res://scene_resources/intostage_spriteframe.tres" id="93_42fku"]
 [ext_resource type="Texture2D" uid="uid://bx6n7ajv7ppdk" path="res://art/13_nov/StarEndScreen/StarEndScreen-40.png" id="93_r6wqf"]
 [ext_resource type="Texture2D" uid="uid://bywd2qp4q45pr" path="res://art/13_nov/StarEndScreen/StarEndScreen-41.png" id="94_2nwcf"]
 [ext_resource type="Texture2D" uid="uid://fx0fcgwjm6du" path="res://art/13_nov/StarEndScreen/StarEndScreen-42.png" id="95_6jpg1"]
