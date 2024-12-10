@@ -336,6 +336,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	background_library.visible = false
 	background_library_solid.visible = false
 	background_sp.visible = false
+	combo_feedback_animation.visible = false
 	print("LIBRARY MODE!!!")
 	
 	
@@ -552,6 +553,7 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 	video_layer_5.process_mode = Node.PROCESS_MODE_DISABLED
 	confetti.process_mode = Node.PROCESS_MODE_DISABLED
 	star_celebration.process_mode = Node.PROCESS_MODE_DISABLED
+	combo_feedback_animation.process_mode = Node.PROCESS_MODE_DISABLED
 	
 
 func _ready() -> void:
@@ -775,7 +777,8 @@ func update_combo_meter() -> void:
 	# 2. Play feedback animation when combo_mode_changed
 	if score_manager.combo_mode_changed and not sp_mode:
 		var animation_name: String = "combo_" + str(score_manager.combo_multiplier())
-		play_combo_feedback_animation(animation_name)
+		#play_combo_feedback_animation(animation_name)
+		combo_meter.find_child("ComboFire").play()
 		
 		# 3. Play combo audio if combo_mode is not X1
 		if score_manager.combo_mode != ScoreManager.ComboMode.X1:
@@ -1092,8 +1095,8 @@ func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> v
 				heal(3)
 		"golden_note":
 			hit_boss(-5)
-			audio.stream = audio_clips.golden_note
-			audio.play()
+			#audio.stream = audio_clips.golden_note
+			#audio.play()
 		_:
 			print("no specific effect")
 			

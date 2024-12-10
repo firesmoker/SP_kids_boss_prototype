@@ -141,7 +141,7 @@ func animate_timing(timing_score: float) -> void:
 	var progress_bar: AnimatedSprite2D = $UI/Timing/TimingProgressBar
 	var label: Label = $UI/Timing/TimingLabel
 	
-	label.text = "%d%%" % int(timing_score * 100) + " תזמון "
+	label.text = "%d%%" % int(timing_score * 100) + " קצב "
 	AnimationHelper.play_animation_sprite_until_frame(progress_bar, "progress_bar", timing_score * 36)
 	
 func animate_xp(start_value: int, end_value: int, duration: float) -> void:
