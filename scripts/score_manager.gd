@@ -16,7 +16,7 @@ var combo_full_hits: int = 10  # Number of hits required to fully progress the c
 # Total score considering combo multipliers
 var game_score: float = 0.0  # Score for notes passed so far
 var current_score: float = 0.0  # Score relative to all notes in the song
-var overall_score: float = 0.0  # Score relative to all notes in the song
+var overall_score: float = 0.0 # Score relative to all notes in the song
 var gamified_overall_score: float = 0.0  # Score relative to all notes in the song
 var perfect_score: float = 0
 var three_stars_score: float = 0
@@ -27,9 +27,11 @@ var one_star_score: float = 0
 var total_hits: int = 0
 var total_passed_notes: int = 0
 var total_notes_in_level: int = 0
+var total_net_notes_in_level: int = 0
 
 # Array to track individual note scores
 var note_scores: Array = []
+var golden_note_scores: float = 0
 
 # Property to calculate stars based on the overall_score
 var stars: float = 0.0
@@ -42,6 +44,14 @@ var max_normal_note_score: float = 10
 
 
 func miss(note: Note) -> void:
+	"""
+	Handles a missed note. Resets combo and updates scores.
+	"""
+	total_passed_notes += 1
+	add_note_score(0)  # Add a score of 0 for a missed note
+	downgrade_combo_mode()
+
+func miss_golden_note() -> void:
 	"""
 	Handles a missed note. Resets combo and updates scores.
 	"""
@@ -88,11 +98,15 @@ func combo_multiplier() -> int:
 			multiplier = 4
 	return multiplier
 
-func add_note_score(note_score: float) -> void:
+func add_note_score(note_score: float, golden_note: bool = false) -> void:
 	"""
 	Adds the note score to the `note_scores` array.
 	"""
-	note_scores.append(note_score)
+	
+	if golden_note:
+		golden_note_scores += note_score
+	else:
+		note_scores.append(note_score)
 	
 	var multiplier: int = combo_multiplier()
 	# Update scores
@@ -166,6 +180,7 @@ func calculate_stars() -> void:
 	var score: float = 0.0
 	for s: float in note_scores:
 		score += s
+	score += golden_note_scores
 	score = score / total_notes_in_level		
 	if score < 0.5:
 		stars = 0.0

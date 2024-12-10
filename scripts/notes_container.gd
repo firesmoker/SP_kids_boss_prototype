@@ -17,6 +17,7 @@ class_name NotesContainer extends Sprite2D
 @export var finger_number_template: PackedScene
 
 var notes_in_level: int = 0
+var notes_value_in_level: int = 0
 var bass_clef_offset: float = note_heigth * 12
 static var note_heigth_by_pitch: Dictionary = {
 	"C3": 181.5,
@@ -138,7 +139,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 			if bottom_staff:
 				new_note.position.y += treble_to_bass_gap
 
-		elif event.type == "collectible":
+		elif event.type == "collectible" and not Game.sp_mode:
 			if event.note.is_empty():
 				var collectible_marker: CollectibleMarker = collectable_marker_template.instantiate()
 				collectible_marker.event = event
@@ -164,8 +165,11 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 
 				# Use add_fingers_to_note for finger positioning
 				add_fingers_to_note(collectible, event, note, i, bottom_staff)
+				if event.subtype == "golden_note":
+					notes_in_level += 1
+					notes_value_in_level += Game.golden_note_value
 
-		elif event.type == "note":
+		elif event.type == "note" or event.subtype == "golden_note":
 			var notes: Array = split_notes(event.note)
 			for i in range(notes.size()):
 				var note: String = notes[i]
@@ -173,8 +177,10 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				if event.details.has("action"):
 					if event.details["action"] != "end":
 						notes_in_level += 1
+						notes_value_in_level += 1
 				else:
 					notes_in_level += 1
+					notes_value_in_level += 1
 
 				var new_note: Note = note_template.instantiate()
 				new_note.note = note

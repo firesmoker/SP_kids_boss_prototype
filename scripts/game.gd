@@ -34,6 +34,8 @@ static var star3_threshold_score: float
 
 static var score_based_stars: bool = false
 
+static var golden_note_value: float = 5
+
 var star1_unlocked: bool = false
 var star2_unlocked: bool = false
 var star3_unlocked: bool = false
@@ -640,7 +642,8 @@ func _ready() -> void:
 	#set_star_bar_values()
 
 func setup_score_manager() -> void:
-	score_manager.total_notes_in_level = notes_container.notes_in_level
+	score_manager.total_net_notes_in_level = notes_container.notes_in_level
+	score_manager.total_notes_in_level = notes_container.notes_value_in_level
 
 func setup_combo() -> void:
 	combo_feedback_animation.visible = false
@@ -1095,6 +1098,8 @@ func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> v
 				heal(3)
 		"golden_note":
 			hit_boss(-5)
+			score_manager.add_note_score(golden_note_value, true)
+			score_manager.total_hits += 1
 			#audio.stream = audio_clips.golden_note
 			#audio.play()
 		_:
@@ -1169,6 +1174,9 @@ func handle_boss_hit(damage: int) -> void:
 func check_boss_health() -> void:
 	if boss_health <= 0:
 		win()
+
+func golden_note_missed() -> void:
+	score_manager.miss_golden_note()
 
 func audio_play_from_source(source: Node, audio_clip: AudioStream, volume: float = 1.0) -> void:
 	source.find_child("Audio").stream = audio_clip
@@ -1394,7 +1402,7 @@ func show_library_song_end_screen() -> void:
 func on_song_end_screen_created(song_end_screen: SongEndScreen) -> void:
 	song_end_screen.total_stars = score_manager.stars
 	song_end_screen.total_hit_notes = score_manager.total_hits
-	song_end_screen.total_notes = score_manager.total_notes_in_level
+	song_end_screen.total_notes = score_manager.total_net_notes_in_level
 	song_end_screen.timing_score = score_manager.timing_score()
 	song_end_screen.game_score = score_manager.game_score
 	song_end_screen.model = model
