@@ -9,7 +9,7 @@ var model: Dictionary
 @onready var top_staff_power_lower: Sprite2D = $Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPowerLower
 @onready var music_ending_player: AudioStreamPlayer = $Sound/MusicEndingPlayer
 
-
+	
 @onready var bottom_staff_power: Sprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/StaffPower
 
 
@@ -773,7 +773,7 @@ func update_combo_meter() -> void:
 	animate_combo_frame(combo_animation, target_frame, 0.1)
 	
 	# 2. Play feedback animation when combo_mode_changed
-	if score_manager.combo_mode_changed:
+	if score_manager.combo_mode_changed and not sp_mode:
 		var animation_name: String = "combo_" + str(score_manager.combo_multiplier())
 		play_combo_feedback_animation(animation_name)
 		
