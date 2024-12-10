@@ -49,7 +49,7 @@ func miss(note: Note) -> void:
 	"""
 	total_passed_notes += 1
 	add_note_score(0)  # Add a score of 0 for a missed note
-	downgrade_combo_mode()
+	reset_combo()
 
 func miss_golden_note() -> void:
 	"""
@@ -200,16 +200,6 @@ func reset_combo() -> void:
 		combo_mode_changed = true
 	else:
 		combo_mode_changed = false
-	combo_hits = 0
-	current_combo = 0
-	
-	
-func downgrade_combo_mode() -> void:
-	"""
-	Downgrades to the prev combo mode and resets combo_hits.
-	"""
-	if combo_mode != ComboMode.X1:
-		combo_mode -= 1
 	combo_hits = 0
 	current_combo = 0
 
