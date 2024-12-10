@@ -6900,6 +6900,7 @@ frame_progress = 0.143131
 [node name="Fader" parent="Level/RightHandPart" instance=ExtResource("63_jfxac")]
 
 [node name="ComboFeedbackAnimation" type="AnimatedSprite2D" parent="Level/RightHandPart"]
+visible = false
 position = Vector2(-373.452, -147.817)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_vtgga")
