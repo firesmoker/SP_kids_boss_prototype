@@ -57,7 +57,7 @@ func miss_golden_note() -> void:
 	"""
 	total_passed_notes += 1
 	add_note_score(0)  # Add a score of 0 for a missed note
-	downgrade_combo_mode()
+	reset_combo()
 
 func hit(note: Note) -> float:
 	"""
