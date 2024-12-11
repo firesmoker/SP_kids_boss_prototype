@@ -44,9 +44,9 @@ F3A3:1%21
 
 *StageStart:5*
 -:1 
-A3:1/4%1(StemD) -:1/4 -:1/2 
+A3&golden_note:1/4%1(StemD) -:1/4 -:1/2 
 A3:1/4(StemD) -:1/4 -:1/2 
-A3:1/4(StemD) -:1/4 -:1/2 
+A3&golden_note:1/4(StemD) -:1/4 -:1/2 
 A3:1/4(StemD) -:1/4 -:1/2 
 
 *StageEnd:5*

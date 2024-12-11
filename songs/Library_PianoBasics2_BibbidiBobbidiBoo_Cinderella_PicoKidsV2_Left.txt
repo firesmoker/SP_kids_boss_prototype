@@ -7,7 +7,7 @@
 *StageStart:1*
 C3G3:1/4%51(StemD) -:1/4 E3:1/4%3(StemD) -:1/4 
 C3:1/4%5(StemU) C3:1/4%5(StemU) C3G3:1/4%51(StemD) -:1/4 
--:1/4 -:1/4 F3:1/4%2(StemD) G3:1/4%1(StemD) 
+-:1/4 -:1/4 F3&golden_note:1/4%2(StemD) G3&golden_note:1/4%1(StemD) 
 -:1/4 -:1/4 C3G3:1/4%51(StemD) -:1/4 
 
 *StageEnd:1*
@@ -15,7 +15,7 @@ C3:1/4%5(StemU) C3:1/4%5(StemU) C3G3:1/4%51(StemD) -:1/4
 *StageStart:2*
 C3G3:1/4%51(StemD) -:1/4 E3:1/4%3(StemD) -:1/4 
 C3:1/4%5(StemU) C3:1/4%5(StemU) C3G3:1/4%51(StemD) -:1/4 
--:1/4 -:1/4 F3:1/4%2(StemD) G3:1/4%1(StemD) 
+-:1/4 -:1/4 F3&golden_note:1/4%2(StemD) G3&golden_note:1/4%1(StemD) 
 -:1/4 -:1/4 C3G3:1/4%51(StemD) -:1/4 
 
 *StageEnd:2*
@@ -39,7 +39,7 @@ G3:1/4%1(StemD) G3:1/4(StemD) G3:1/4(StemD) -:1/4
 *StageStart:4*
 C3G3:1/4%51(StemD) -:1/4 E3:1/4%3(StemD) -:1/4 
 C3:1/4%5(StemU) C3:1/4%5(StemU) C3G3:1/4%51(StemD) -:1/4 
--:1/4 -:1/4 F3:1/4%2(StemD) G3:1/4%1(StemD) 
+-:1/4 -:1/4 F3&golden_note:1/4%2(StemD) G3&golden_note:1/4%1(StemD) 
 G3:1/4(StemD) -:1/4 G3:1/4(StemD) -:1/4 
 G3:1/4(StemD) -:1/4 C3G3:1/4%51(StemD) -:1/4
 *StageEnd:4*

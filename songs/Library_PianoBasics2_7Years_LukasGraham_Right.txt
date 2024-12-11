@@ -11,16 +11,16 @@
 *LevelStart:Part 1*
 
 *StageStart:1*
--:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
-C4:1/2%1(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
+-:1/4 G4&golden_note:1/4%5(StemU) E4&golden_note:1/4%3(StemU) D4&golden_note:1/4%2(StemU) 
+C4&golden_note:1/2%1(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
 C4:1/2%1(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
 D4:1/4(StemU) D4:1/4(StemU) E4:1/4(StemU) D4:1/8%2(StemU) C4:1/8%1(StemU) 
 
 *StageEnd:1*
 
 *StageStart:2*
--:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
-C4:1/2%1(StemU) -:1/2 
+-:1/4 G4&golden_note:1/4%5(StemU) E4&golden_note:1/4%3(StemU) D4&golden_note:1/4%2(StemU) 
+C4&golden_note:1/2%1(StemU) -:1/2 
 -:1 
 -:1 
 
@@ -51,16 +51,16 @@ E4:1/4%3(StemU) C4:1/8%1(StemU) D4:1/8(StemU) E4:1/4(StemU) D4:1/8(StemU) C4:1/8
 *LevelStart:Part 1*
 
 *StageStart:5*
--:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
-C4:1/2%1(StemU) E4:1/4%3(StemU) D4:1/4(StemU) 
+-:1/4 G4&golden_note:1/4%5(StemU) E4&golden_note:1/4%3(StemU) D4&golden_note:1/4%2(StemU) 
+C4&golden_note:1/2%1(StemU) E4:1/4%3(StemU) D4:1/4(StemU) 
 C4:1/4%1(StemU) -:1/4 E4:1/4%3(StemU) D4:1/4%2(StemU) 
 D4:1/4(StemU) D4:1/4(StemU) E4:1/4(StemU) D4:1/8%2(StemU) C4:1/8%1(StemU) 
 
 *StageEnd:5*
 
 *StageStart:6*
--:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
-C4:1/2%1(StemU) -:1/2 
+-:1/4 G4&golden_note:1/4%5(StemU) E4&golden_note:1/4%3(StemU) D4&golden_note:1/4%2(StemU) 
+C4&golden_note:1/2%1(StemU) -:1/2 
 -:1 
 -:1 
 
@@ -71,8 +71,8 @@ C4:1/2%1(StemU) -:1/2
 *LevelStart:Part 3*
 
 *StageStart:7*
--:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
-C4:1/4%1(StemU) -:1/4 E4:1/4%3(StemU) D4:1/4%2(StemU) 
+-:1/4 G4&golden_note:1/4%5(StemU) E4&golden_note:1/4%3(StemU) D4&golden_note:1/4%2(StemU) 
+C4&golden_note:1/4%1(StemU) -:1/4 E4:1/4%3(StemU) D4:1/4%2(StemU) 
 C4:1/4%1(StemU) -:1/4 E4:1/4%3(StemU) D4:1/4%2(StemU) 
 D4:1/4(StemU) D4:1/4(StemU) E4:1/4(StemU) D4:1/8%2(StemU) C4:1/8%1(StemU) 
 -:1 
@@ -83,8 +83,8 @@ D4:1/4(StemU) D4:1/4(StemU) E4:1/4(StemU) D4:1/8%2(StemU) C4:1/8%1(StemU)
 G4:1/2%5(StemU) -:1/2 
 -:1 
 -:1 
--:1/4 G4:1/4%5(StemU) E4:1/4%3(StemU) D4:1/4%2(StemU) 
-C4:1%1
+-:1/4 G4&golden_note:1/4%5(StemU) E4&golden_note:1/4%3(StemU) D4&golden_note:1/4%2(StemU) 
+C4&golden_note:1%1
 *StageEnd:8*
 
 *LevelEnd:Part 3*

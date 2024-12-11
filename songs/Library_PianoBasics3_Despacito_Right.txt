@@ -21,16 +21,16 @@ G4:1/2%2(StemU) -:1/2
 
 *StageStart:2*
 A4:1/2%3(StemU) -:1/2 
-C5:1/2(StemD) -:1/2 
-F4:1/2(StemU) C5:1/4(StemD) C5:1/4(StemD) 
+C5&golden_note:1/2(StemD) -:1/2 
+F4&golden_note:1/2(StemU) C5&golden_note:1/4(StemD) C5:1/4(StemD) 
 -:1 
 
 *StageEnd:2*
 
 *StageStart:3*
 C5:1/2%5(StemD) C5:1/2(StemD) 
-C5:1/2(StemD) C5:1/2(StemD) 
-B4:1/2(StemD) -:1/2 
+C5:1/2(StemD) C5&golden_note:1/2(StemD) 
+B4&golden_note:1/2(StemD) -:1/2 
 -:1 
 
 *StageEnd:3*
@@ -49,8 +49,8 @@ C5:1/2(StemD) -:1/2
 
 *StageStart:5*
 G4:1/2%2(StemU) -:1/2 
-C5:1/2(StemD) -:1/2 
-B4:1/2(StemD) -:1/2 
+C5&golden_note:1/2(StemD) -:1/2 
+B4&golden_note:1/2(StemD) -:1/2 
 -:1 
 
 *StageEnd:5*
@@ -69,8 +69,8 @@ C5:1/2(StemD) -:1/2
 
 *StageStart:7*
 G4:1/2%2(StemU) -:1/2 
-C5:1/2(StemD) -:1/2 
-B4:1/2(StemD) -:1/2 
+C5&golden_note:1/2(StemD) -:1/2 
+B4&golden_note:1/2(StemD) -:1/2 
 
 *StageEnd:7*
 

@@ -10,18 +10,18 @@
 *LevelStart:Part 1*
 
 *StageStart:1*
-E4:1/4%3(StemU) E4:1/4(StemU) E4:1/4(StemU) E4:1/4(StemU) 
-E4:1/8(StemU) D4:1/8(StemU) C4:1/4%1(StemU) C4:1/4(StemU) -:1/4 
-D4:1/4%2(StemU) D4:1/4(StemU) -:1/4 C4:1/4(StemU) 
+E4:1/4%3 E4:1/4 E4:1/4 E4:1/4 
+E4:1/8 D4:1/8 C4:1/4%1 C4:1/4 -:1/4 
+D4:1/4%2 D4:1/4 -:1/4 C4:1/4 
 -:1 
 
 *StageEnd:1*
 
 *StageStart:2*
-E4:1/4%3(StemU) E4:1/4(StemU) E4:1/4(StemU) G4:1/4%5(StemU) 
-G4:1/4(StemU) E4:1/4%3(StemU) -:1/4 C4:1/4%1(StemU) 
-D4:1/8(StemU) E4:1/8%3(StemU) -:1/4 -:1/4 D4:1/4%2(StemU) 
-D4:1/2(StemU) -:1/2 
+E4:1/4%3 E4:1/4 E4:1/4 G4:1/4%5 
+G4:1/4 E4:1/4%3 -:1/4 C4:1/4%1 
+D4:1/8 E4:1/8%3 -:1/4 -:1/4 D4:1/4%2 
+D4:1/2 -:1/2 
 
 *StageEnd:2*
 
@@ -30,16 +30,16 @@ D4:1/2(StemU) -:1/2
 *LevelStart:Part 2*
 
 *StageStart:3*
--:1/4 E4:1/4%3(StemU) E4:1/4(StemU) G4:1/4%5(StemU) 
-A4:1/4%5(StemU) G4:1/4%5(StemU) E4:1/2%3(StemU) 
-G4:1/2%5(StemU) F4:1/4(StemU) E4:1/4(StemU) 
-E4:1/2(StemU) -:1/2 
+-:1/4 E4:1/4%3 E4&golden_note:1/4 G4&golden_note:1/4%5 
+A4&golden_note:1/4%5 G4&golden_note:1/4%5 E4:1/2%3 
+G4:1/2%5 F4:1/4 E4:1/4 
+E4:1/2 -:1/2 
 
 *StageEnd:3*
 
 *StageStart:4*
--:1/4 E4:1/4%3(StemU) D4:1/8(StemU) C4:1/8%1(StemU) -:1/4 
--:1/4 E4:1/4%3(StemU) D4:1/4(StemU) C4:1/4%1(StemU) 
+-:1/4 E4:1/4%3 D4:1/8 C4:1/8%1 -:1/4 
+-:1/4 E4:1/4%3 D4:1/4 C4:1/4%1 
 -:1 
 -:1 
 
@@ -50,19 +50,19 @@ E4:1/2(StemU) -:1/2
 *LevelStart:Part 3*
 
 *StageStart:5*
--:1/2 -:1/4 C4:1/4%1(StemU) 
-C4:1/4(StemU) -:1/4 -:1/4 D4:1/4%2(StemU) 
-D4:1/4(StemU) D4:1/8(StemU) C4:1/8(StemU) D4:1/4(StemU) -:1/4 
-D4:1/4%2(StemU) E4:1/4(StemU) F4:1/2%4(StemU) 
+-:1/2 -:1/4 C4:1/4%1 
+C4:1/4 -:1/4 -:1/4 D4:1/4%2 
+D4:1/4 D4:1/8 C4:1/8 D4:1/4 -:1/4 
+D4:1/4%2 E4:1/4 F4:1/2%4 
 
 *StageEnd:5*
 
 *StageStart:6*
-E4:1/4%3(StemU) -:1/4 -:1/4 C4:1/4%1(StemU) 
-C4:1/4(StemU) -:1/4 -:1/4 D4:1/4(StemU) 
-D4:1/2(StemU) -:1/2 
--:1/2 -:1/4 C4:1/4%1(StemU) 
-D4:1/4(StemU) E4:1/4(StemU) F4:1/2%4(StemU) 
+E4:1/4%3 -:1/4 -:1/4 C4:1/4%1 
+C4:1/4 -:1/4 -:1/4 D4:1/4 
+D4:1/2 -:1/2 
+-:1/2 -:1/4 C4:1/4%1 
+D4:1/4 E4:1/4 F4:1/2%4 
 
 *StageEnd:6*
 
@@ -71,19 +71,19 @@ D4:1/4(StemU) E4:1/4(StemU) F4:1/2%4(StemU)
 *LevelStart:Part 4*
 
 *StageStart:7*
--:1/2 -:1/8 D4:1/8%2(StemU) E4:1/8(StemU) F4:1/8%4(StemU) 
--:1/2 -:1/4 C4:1/4%1(StemU) 
-G4:1/2%5(StemU) -:1/4 F4:1/4%4(StemU) 
-D4:1/4%2(StemU) D4:1/4(StemU) D4:1/4(StemU) E4:1/4(StemU) 
+-:1/2 -:1/8 D4:1/8%2 E4:1/8 F4:1/8%4 
+-:1/2 -:1/4 C4:1/4%1 
+G4:1/2%5 -:1/4 F4:1/4%4 
+D4:1/4%2 D4:1/4 D4:1/4 E4:1/4 
 
 *StageEnd:7*
 
 *StageStart:8*
-F4:1/2%4(StemU) -:1/8 D4:1/8%2(StemU) E4:1/8(StemU) F4:1/8(StemU) 
--:1/2 -:1/4 A4:1/4%!3(StemU) 
-G4:1/4(StemU) -:1/4 -:1/2 
-A4:1/4(StemU) -:1/4 -:1/4 G4:1/4(StemU) 
-F4:1/4%1(StemU) -:1/4 -:1/2 
+F4:1/2%4 -:1/8 D4:1/8%2 E4:1/8 F4:1/8 
+-:1/2 -:1/4 A4:1/4%!3 
+G4:1/4 -:1/4 -:1/2 
+A4:1/4 -:1/4 -:1/4 G4:1/4 
+F4:1/4%1 -:1/4 -:1/2 
 
 *StageEnd:8*
 
@@ -92,18 +92,18 @@ F4:1/4%1(StemU) -:1/4 -:1/2
 *LevelStart:Part 5*
 
 *StageStart:9*
-C5:1/4%5(StemD) -:1/4 A4:1/4%3(StemU) G4:1/4(StemU) 
--:1/2 F4:1/4%1(StemU) F4:1/4(StemU) 
-C5:1/4%5(StemD) -:1/4 A4:1/4%3(StemU) F4:1/4%1(StemU) 
--:1/2 -:1/4 F4:1/4%!4(StemU) 
+C5&golden_note:1/4%5(StemD) -:1/4 A&golden_note4:1/4%3 G4&golden_note:1/4 
+-:1/2 F4:1/4%1 F4:1/4 
+C5&golden_note:1/4%5(StemD) -:1/4 A4&golden_note:1/4%3 F4&golden_note:1/4%1 
+-:1/2 -:1/4 F4&golden_note:1/4%!4 
 
 *StageEnd:9*
 
 *StageStart:10*
-E4:1/4%3(StemU) -:1/4 C4:1/4%1(StemU) C4:1/4(StemU) 
+E4&golden_note:1/4%3 -:1/4 C4:1/4%1 C4:1/4 
 -:1 
-D4F4:1/4%24(StemU) D4F4:1/4(StemU) D4F4:1/4(StemU) D4F4:1/4(StemU) 
-D4F4:1/4(StemU) D4F4:1/4(StemU) D4F4:1/4(StemU) D4F4:1/4(StemU) 
+D4F4:1/4%24 D4F4:1/4 D4F4:1/4 D4F4:1/4 
+D4F4:1/4 D4F4:1/4 D4F4:1/4 D4F4:1/4 
 
 *StageEnd:10*
 
@@ -112,19 +112,19 @@ D4F4:1/4(StemU) D4F4:1/4(StemU) D4F4:1/4(StemU) D4F4:1/4(StemU)
 *LevelStart:Part 4*
 
 *StageStart:11*
--:1/2 -:1/8 D4:1/8%2(StemU) E4:1/8(StemU) F4:1/8%4(StemU) 
--:1/2 -:1/4 C4:1/4%1(StemU) 
-G4:1/2%5(StemU) -:1/4 F4:1/4%4(StemU) 
-D4:1/4%2(StemU) D4:1/4(StemU) D4:1/4(StemU) E4:1/4(StemU) 
+-:1/2 -:1/8 D4:1/8%2 E4:1/8 F4:1/8%4 
+-:1/2 -:1/4 C4:1/4%1 
+G4:1/2%5 -:1/4 F4:1/4%4 
+D4:1/4%2 D4:1/4 D4:1/4 E4:1/4 
 
 *StageEnd:11*
 
 *StageStart:12*
-F4:1/2%4(StemU) -:1/8 D4:1/8%2(StemU) E4:1/8(StemU) F4:1/8%4(StemU) 
--:1/2 -:1/4 A4:1/4%!3(StemU) 
-G4:1/4(StemU) -:1/4 -:1/4 F4:1/8%1(StemU) G4:1/8(StemU) 
-A4:1/4%3(StemU) -:1/4 -:1/4 G4:1/4(StemU) 
-F4:1/4%1(StemU) -:1/4 -:1/2 
+F4:1/2%4 -:1/8 D4:1/8%2 E4:1/8 F4:1/8%4 
+-:1/2 -:1/4 A4:1/4%!3 
+G4:1/4 -:1/4 -:1/4 F4:1/8%1 G4:1/8 
+A4:1/4%3 -:1/4 -:1/4 G4:1/4 
+F4:1/4%1 -:1/4 -:1/2 
 
 *StageEnd:12*
 
@@ -133,15 +133,15 @@ F4:1/4%1(StemU) -:1/4 -:1/2
 *LevelStart:Part 6*
 
 *StageStart:13*
-C5:1/4%5(StemD) -:1/4 A4:1/4%3(StemU) G4:1/4(StemU) 
--:1/2 F4:1/4%1(StemU) F4:1/4(StemU) 
-C5:1/4%5(StemD) -:1/4 A4:1/4%3(StemU) F4:1/4%1(StemU) 
--:1/2 -:1/4 F4:1/4%!4(StemU) 
+C5&golden_note:1/4%5(StemD) -:1/4 A4&golden_note:1/4%3 G4&golden_note:1/4 
+-:1/2 F4:1/4%1 F4:1/4 
+C5&golden_note:1/4%5(StemD) -:1/4 A4&golden_note:1/4%3 F4&golden_note:1/4%1 
+-:1/2 -:1/4 F4:1/4%!4 
 
 *StageEnd:13*
 
 *StageStart:14*
-E4:1/4%3(StemU) -:1/4 C4:1/4%1(StemU) C4:1/4(StemU) 
+E4:1/4%3 -:1/4 C4:1/4%1 C4:1/4 
 -:1 
 -:1 
 -:1 
