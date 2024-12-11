@@ -40,6 +40,9 @@ var stars: float = 0.0
 var current_combo: int = 0
 var max_combo: int = 0
 
+var max_combo_mode: ComboMode = ComboMode.X1
+var max_hits_in_max_combo: int = 0
+
 var max_normal_note_score: float = 10
 # Add this to the top of ScoreManager
 var best_scores: Dictionary = {}  # Holds the best scores for each song ID
@@ -149,10 +152,12 @@ func add_note_score(note_score: float, golden_note: bool = false) -> void:
 	
 	# Update combo streak and hits
 	current_combo += 1
-	if current_combo > max_combo:
-		max_combo = current_combo
 	
 	combo_hits = min(combo_full_hits, combo_hits + 1)
+	if combo_mode == max_combo_mode:
+		max_hits_in_max_combo = max(max_hits_in_max_combo, combo_hits)
+	
+	
 	combo_mode_changed = false
 	if combo_hits >= combo_full_hits and combo_mode != ComboMode.X4:
 		combo_mode_changed = true
@@ -241,6 +246,9 @@ func advance_combo_mode() -> void:
 	"""
 	if combo_mode < ComboMode.X4:  # Don't advance past X4
 		combo_mode += 1
+		if max_combo_mode < combo_mode:
+			max_combo_mode = combo_mode
+			max_hits_in_max_combo = 0
 	combo_hits = 0
 	
 	

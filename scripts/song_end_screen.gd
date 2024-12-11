@@ -9,10 +9,18 @@ class_name SongEndScreen
 @onready var stars_animation: AnimatedSprite2D = $UI/Stars/StarsAnimation
 @onready var confetti_animation: AnimatedSprite2D = $UI/ConfettiAnimation
 @onready var stars_audio_player: AudioStreamPlayer = $UI/Stars/StarsAudioPlayer
+
 @onready var xp_container: Control = $UI/XP
-@onready var xp_label_container: Label = $UI/YourScoreLabel
+@onready var xp_background: TextureRect = $UI/XP/TextureRect
+@onready var xp_label_title: Label = $UI/XP/YourScoreLabel
 @onready var xp_label: Label = $UI/XP/XPLabel
 @onready var xp_audio_player: AudioStreamPlayer = $UI/XP/XPAudioPlayer
+
+@onready var combo_container: Control = $UI/Combo
+@onready var combo_label: Label = $UI/Combo/ComboLabel
+@onready var combo_animation: AnimatedSprite2D = $UI/Combo/ComboAnimation
+@onready var combo_audio_player: AudioStreamPlayer = $UI/Combo/ComboAudioPlayer
+
 @onready var title: Label = $UI/Title
 @onready var repeat_button: Button = $UI/Buttons/RepeatButton
 @onready var continue_button: Button = $UI/Buttons/ContinueButton
@@ -33,36 +41,31 @@ func _ready() -> void:
 	set_audio_stream_based_on_stars()
 	set_buttons()
 	display_performance_message()
-	
-		# Create a Timer
-	var timer: Timer = Timer.new()
-	timer.wait_time = 0.2 + 0.8 * score_manager.stars / 3  # 1 second delay
-	timer.one_shot = true  # Ensures the timer runs only once
-	add_child(timer)  # Add the timer to the scene tree
-	timer.start()  # Start the timer
 
 	# Await the timer's timeout signal
-	await timer.timeout
+	await get_tree().create_timer(0.2 + 0.8 * score_manager.stars / 3).timeout
 	change_background_color()
 	if score_manager.stars == 3:
 		play_confetti_animation()
 	animate_view($UI/Title)
-	await get_tree().create_timer(0.2).timeout
-
-	update_xp(0, score_manager.game_score, ANIMATION_DELAY * score_manager.stars)
+	
+	await get_tree().create_timer(0.5).timeout
 	animate_notes(score_manager.total_hits, score_manager.total_notes_in_level)
 	animate_timing(score_manager.timing_score())
 
 	animate_view($UI/Notes)
 	animate_view($UI/Timing)
-	animate_view($UI/YourScoreLabel)
-	animate_view($UI/XP)
 	
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(1).timeout
+	animate_view($UI/XP)
+	animate_view($UI/Combo)
+	update_xp(0, score_manager.game_score, ANIMATION_DELAY * score_manager.stars)
+	update_combo()
+	
+	await get_tree().create_timer(0.5).timeout
 	animate_view($UI/Buttons)
 	
-	timer.queue_free()  # Clean up the timer
-	
+
 func set_buttons() -> void:
 	if score_manager.stars < 3:
 		repeat_button.icon = load("res://art/RepeatButtonBold.png")
@@ -142,8 +145,25 @@ func animate_timing(timing_score: float) -> void:
 	label.text = "%d%%" % int(timing_score * 100) + " קצב "
 	AnimationHelper.play_animation_sprite_until_frame(progress_bar, "progress_bar", timing_score * 36)
 	
+func update_combo() -> void:
+	
+	var combo_progress: float = float((score_manager.combo_full_hits * int(score_manager.max_combo_mode)) + score_manager.max_hits_in_max_combo) / float(score_manager.combo_full_hits * 4)
+	AnimationHelper.play_animation_sprite_until_frame(combo_animation, "default", 2 + combo_progress * 49)
+	
+	if combo_progress == 1:
+		# Find the Expander node and trigger bounce animation
+		#var expander: Node = combo_container.find_child("Expander")
+		#if expander:
+			#expander.expand(1.5, 0.25, true)
+
+		# Change the label text and colors for new high score
+		combo_label.text = "מקסימום קומבו!"  # New High Score in Hebrew
+		combo_label.add_theme_color_override("font_color", Color("#FFD44F"))
+
+		# Add slide animation for the label text
+		#animate_label_slide(combo_label)
+
 func update_xp(start_value: int, end_value: int, duration: float) -> void:
-	xp_label.visible = true
 
 	# Check if this is a new high score
 	var is_new_high_score: bool = score_manager.update_best_score(Game.song_id, end_value)
@@ -158,18 +178,18 @@ func update_xp(start_value: int, end_value: int, duration: float) -> void:
 	# Handle new high score animations
 	if is_new_high_score:
 		# Find the Expander node and trigger bounce animation
-		var expander: Node = xp_container.find_child("Expander")
-		if expander:
-			expander.expand(1.5, 0.25, true)
+		#var expander: Node = xp_container.find_child("Expander")
+		#if expander:
+			#expander.expand(1.5, 0.25, true)
 
 		# Change the label text and colors for new high score
-		xp_label_container.text = "שיא חדש!"  # New High Score in Hebrew
-		xp_label_container.modulate = Color("#FFD44F")
-		xp_label.modulate = Color("#200854")
-		xp_container.modulate = Color("#FFD44F")
+		xp_label_title.text = "שיא חדש!"  # New High Score in Hebrew
+		xp_label_title.add_theme_color_override("font_color", Color("#FFD44F"))
+		xp_background.texture = load("res://art/XPBackgroundHighlight.png")
+		xp_label.add_theme_color_override("font_color", Color("#200854"))
 
 		# Add slide animation for the label text
-		animate_label_slide(xp_label_container)
+		#animate_label_slide(xp_label_title)
 
 	tween.finished.connect(Callable(self, "_on_tween_completed"))
 	tween.play()
@@ -209,11 +229,9 @@ func animate_stars(stars_count: int) -> void:
 	var frame: int = {0: 0, 1: 13, 2: 21, 3: 30}.get(stars_count, -1)
 	AnimationHelper.play_animation_sprite_until_frame(stars_animation, "stars_end_animation", frame)
 
-func set_audio_stream_based_on_stars() -> void:
-	stars_audio_player.stream = preload("res://audio/three_stars.ogg")
-	stars_audio_player.play()
+func set_audio_stream_based_on_stars() -> void:	
 	var audio_path: String
-	match score_manager.stars:
+	match int(score_manager.stars):
 		1:
 			audio_path = "res://audio/one_star.ogg"
 		2:

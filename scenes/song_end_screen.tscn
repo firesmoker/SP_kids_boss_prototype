@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=3 uid="uid://dxoet7mawmg0g"]
+[gd_scene load_steps=197 format=3 uid="uid://dxoet7mawmg0g"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -133,6 +133,57 @@
 [ext_resource type="Texture2D" uid="uid://dgoyffmjd085y" path="res://art/RepeatButton.png" id="130_6euta"]
 [ext_resource type="Texture2D" uid="uid://dgr8vc8cgu0es" path="res://art/ContinueButtonBold.png" id="130_rnmvs"]
 [ext_resource type="PackedScene" uid="uid://canrydy51d80m" path="res://scenes/expander.tscn" id="131_kj88w"]
+[ext_resource type="Texture2D" uid="uid://b3w73swafrsb0" path="res://art/10_dec/CombosCounter/combos_counter_00000.png" id="135_8iro3"]
+[ext_resource type="Texture2D" uid="uid://muv7n8uoh2ps" path="res://art/10_dec/CombosCounter/combos_counter_00001.png" id="136_nedic"]
+[ext_resource type="Texture2D" uid="uid://df7gvpcjpkm5f" path="res://art/10_dec/CombosCounter/combos_counter_00002.png" id="137_mh7r7"]
+[ext_resource type="Texture2D" uid="uid://bjbyw6k48dkah" path="res://art/10_dec/CombosCounter/combos_counter_00003.png" id="138_705yb"]
+[ext_resource type="Texture2D" uid="uid://c70c5mxqaq07k" path="res://art/10_dec/CombosCounter/combos_counter_00004.png" id="139_8khw5"]
+[ext_resource type="Texture2D" uid="uid://c13x133iecmf3" path="res://art/10_dec/CombosCounter/combos_counter_00005.png" id="140_d7ukg"]
+[ext_resource type="Texture2D" uid="uid://bewxe6xmc5qj1" path="res://art/10_dec/CombosCounter/combos_counter_00006.png" id="141_7v778"]
+[ext_resource type="Texture2D" uid="uid://sd50qjbyvg72" path="res://art/10_dec/CombosCounter/combos_counter_00007.png" id="142_4dohb"]
+[ext_resource type="Texture2D" uid="uid://b2puu3t66s6ek" path="res://art/10_dec/CombosCounter/combos_counter_00008.png" id="143_08v4a"]
+[ext_resource type="Texture2D" uid="uid://d07sfrrm6rnmg" path="res://art/10_dec/CombosCounter/combos_counter_00009.png" id="144_uefr3"]
+[ext_resource type="Texture2D" uid="uid://bph71xrqu7n1j" path="res://art/10_dec/CombosCounter/combos_counter_00010.png" id="145_08tlr"]
+[ext_resource type="Texture2D" uid="uid://bujae3bjy85k1" path="res://art/10_dec/CombosCounter/combos_counter_00011.png" id="146_abxdg"]
+[ext_resource type="Texture2D" uid="uid://ddg31gnv4ia63" path="res://art/10_dec/CombosCounter/combos_counter_00012.png" id="147_jn28l"]
+[ext_resource type="Texture2D" uid="uid://c73s2y12825do" path="res://art/10_dec/CombosCounter/combos_counter_00013.png" id="148_ll64m"]
+[ext_resource type="Texture2D" uid="uid://c6mr5el2pjo62" path="res://art/10_dec/CombosCounter/combos_counter_00014.png" id="149_dgnrt"]
+[ext_resource type="Texture2D" uid="uid://dpys8or261wjr" path="res://art/10_dec/CombosCounter/combos_counter_00015.png" id="150_f4vqk"]
+[ext_resource type="Texture2D" uid="uid://dj3gsrcuwkfu" path="res://art/10_dec/CombosCounter/combos_counter_00016.png" id="151_qf2qb"]
+[ext_resource type="Texture2D" uid="uid://ra4ohiv44h75" path="res://art/10_dec/CombosCounter/combos_counter_00017.png" id="152_gnes6"]
+[ext_resource type="Texture2D" uid="uid://betv7ka7axj2h" path="res://art/10_dec/CombosCounter/combos_counter_00018.png" id="153_3r1ar"]
+[ext_resource type="Texture2D" uid="uid://b3bvn8tj6ney7" path="res://art/10_dec/CombosCounter/combos_counter_00019.png" id="154_hj0as"]
+[ext_resource type="Texture2D" uid="uid://qxuisbw206rt" path="res://art/10_dec/CombosCounter/combos_counter_00020.png" id="155_yt4k8"]
+[ext_resource type="Texture2D" uid="uid://bb4opsoaifr06" path="res://art/10_dec/CombosCounter/combos_counter_00021.png" id="156_p4y8w"]
+[ext_resource type="Texture2D" uid="uid://cvbh215f5ou5r" path="res://art/10_dec/CombosCounter/combos_counter_00022.png" id="157_ofgra"]
+[ext_resource type="Texture2D" uid="uid://cn12kkjb4tt5g" path="res://art/10_dec/CombosCounter/combos_counter_00023.png" id="158_l4sx8"]
+[ext_resource type="Texture2D" uid="uid://cq7nv4ixunrfa" path="res://art/10_dec/CombosCounter/combos_counter_00024.png" id="159_g05qd"]
+[ext_resource type="Texture2D" uid="uid://bwxexi5hp3pwo" path="res://art/10_dec/CombosCounter/combos_counter_00025.png" id="160_1atmw"]
+[ext_resource type="Texture2D" uid="uid://drlyid6x21j3t" path="res://art/10_dec/CombosCounter/combos_counter_00026.png" id="161_vv40b"]
+[ext_resource type="Texture2D" uid="uid://cgekjlohm5uxt" path="res://art/10_dec/CombosCounter/combos_counter_00027.png" id="162_bd4iu"]
+[ext_resource type="Texture2D" uid="uid://lw8d1jetemfx" path="res://art/10_dec/CombosCounter/combos_counter_00028.png" id="163_vrbfj"]
+[ext_resource type="Texture2D" uid="uid://b87cbx883fr0n" path="res://art/10_dec/CombosCounter/combos_counter_00029.png" id="164_ttkqt"]
+[ext_resource type="Texture2D" uid="uid://ch13wb12kgjjx" path="res://art/10_dec/CombosCounter/combos_counter_00030.png" id="165_yshym"]
+[ext_resource type="Texture2D" uid="uid://g8h7mo4ticfx" path="res://art/10_dec/CombosCounter/combos_counter_00031.png" id="166_1hxkq"]
+[ext_resource type="Texture2D" uid="uid://b4v7wy8wyskir" path="res://art/10_dec/CombosCounter/combos_counter_00032.png" id="167_kho5m"]
+[ext_resource type="Texture2D" uid="uid://0elebhihs7r5" path="res://art/10_dec/CombosCounter/combos_counter_00033.png" id="168_as4co"]
+[ext_resource type="Texture2D" uid="uid://dgc2b8d7hss8d" path="res://art/10_dec/CombosCounter/combos_counter_00034.png" id="169_xgbtp"]
+[ext_resource type="Texture2D" uid="uid://cm6o3d62wc5ob" path="res://art/10_dec/CombosCounter/combos_counter_00035.png" id="170_afcrl"]
+[ext_resource type="Texture2D" uid="uid://b2wis4xtb68c6" path="res://art/10_dec/CombosCounter/combos_counter_00036.png" id="171_y6erp"]
+[ext_resource type="Texture2D" uid="uid://ce18ii2ml3r1q" path="res://art/10_dec/CombosCounter/combos_counter_00037.png" id="172_y1w66"]
+[ext_resource type="Texture2D" uid="uid://cqxx2r87426nt" path="res://art/10_dec/CombosCounter/combos_counter_00038.png" id="173_qaeus"]
+[ext_resource type="Texture2D" uid="uid://bhbh51dw2qfqr" path="res://art/10_dec/CombosCounter/combos_counter_00039.png" id="174_7s74t"]
+[ext_resource type="Texture2D" uid="uid://bx2l8bobvk80j" path="res://art/10_dec/CombosCounter/combos_counter_00040.png" id="175_qxhck"]
+[ext_resource type="Texture2D" uid="uid://byfla422b7qpt" path="res://art/10_dec/CombosCounter/combos_counter_00041.png" id="176_myqxx"]
+[ext_resource type="Texture2D" uid="uid://bqi8g6hbp8pyh" path="res://art/10_dec/CombosCounter/combos_counter_00042.png" id="177_pwt7t"]
+[ext_resource type="Texture2D" uid="uid://dxki5052fb6wi" path="res://art/10_dec/CombosCounter/combos_counter_00043.png" id="178_jycyb"]
+[ext_resource type="Texture2D" uid="uid://b61ai61iynpi6" path="res://art/10_dec/CombosCounter/combos_counter_00044.png" id="179_fplbe"]
+[ext_resource type="Texture2D" uid="uid://dd7q0pxhmhv6i" path="res://art/10_dec/CombosCounter/combos_counter_00045.png" id="180_2b3tj"]
+[ext_resource type="Texture2D" uid="uid://vibpspoi1scg" path="res://art/10_dec/CombosCounter/combos_counter_00046.png" id="181_sd4c5"]
+[ext_resource type="Texture2D" uid="uid://dfyeuouix1u6b" path="res://art/10_dec/CombosCounter/combos_counter_00047.png" id="182_qhmxa"]
+[ext_resource type="Texture2D" uid="uid://b4j57r1l34ulu" path="res://art/10_dec/CombosCounter/combos_counter_00048.png" id="183_d5trm"]
+[ext_resource type="Texture2D" uid="uid://cpq435bru7yod" path="res://art/10_dec/CombosCounter/combos_counter_00049.png" id="184_qthpn"]
+[ext_resource type="Texture2D" uid="uid://chm6os8k6imit" path="res://art/10_dec/CombosCounter/combos_counter_00050.png" id="185_h4tru"]
 
 [sub_resource type="FontVariation" id="FontVariation_mw7k0"]
 variation_embolden = 0.5
@@ -540,9 +591,6 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="FontVariation" id="FontVariation_w0fxd"]
-variation_embolden = 0.23
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4d52"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rjdr"]
@@ -554,6 +602,170 @@ variation_embolden = 0.23
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cq7et"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mkh4"]
+
+[sub_resource type="FontVariation" id="FontVariation_w0fxd"]
+variation_embolden = 0.23
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpyo1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("135_8iro3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_nedic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_mh7r7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_705yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_8khw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_d7ukg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_7v778")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_4dohb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_08v4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_uefr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_08tlr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_abxdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_jn28l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_ll64m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_dgnrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_f4vqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_qf2qb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_gnes6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_3r1ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_hj0as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_yt4k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_p4y8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_ofgra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_l4sx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_g05qd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_1atmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_vv40b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_bd4iu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_vrbfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_ttkqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_yshym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_1hxkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_kho5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_as4co")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_xgbtp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_afcrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_y6erp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_y1w66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_qaeus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_7s74t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_qxhck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_myqxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_pwt7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_jycyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_fplbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_2b3tj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_sd4c5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_qhmxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_d5trm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_qthpn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_h4tru")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
 
 [node name="SongEndScreen" type="Node2D"]
 script = ExtResource("1_7ndav")
@@ -706,6 +918,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("99_avcdc")
 
 [node name="Stars" type="Control" parent="UI"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 5
@@ -725,73 +938,6 @@ animation = &"stars_end_animation"
 metadata/_edit_lock_ = true
 
 [node name="StarsAudioPlayer" type="AudioStreamPlayer" parent="UI/Stars"]
-
-[node name="YourScoreLabel" type="Label" parent="UI"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -55.0
-offset_right = 500.0
-offset_bottom = 85.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = SubResource("FontVariation_w0fxd")
-theme_override_font_sizes/font_size = 32
-text = "הניקוד שלך
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="XP" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = 20.0
-offset_right = -139.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.823344, 0.684211)
-pivot_offset = Vector2(150, 50)
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="UI/XP"]
-visible = false
-layout_mode = 1
-offset_left = 22.2605
-offset_top = -1.46154
-offset_right = 413.26
-offset_bottom = 198.538
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("31_vy6fb")
-
-[node name="XPAudioPlayer" type="AudioStreamPlayer" parent="UI/XP"]
-
-[node name="XPLabel" type="Label" parent="UI/XP"]
-layout_mode = 0
-offset_right = 280.0
-offset_bottom = 123.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 72
-text = "
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Expander" parent="UI/XP" instance=ExtResource("131_kj88w")]
 
 [node name="Buttons" type="Control" parent="UI"]
 visible = false
@@ -839,6 +985,102 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_cq7et")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5mkh4")
 icon = ExtResource("130_rnmvs")
 flat = true
+
+[node name="XP" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 194.0
+offset_top = 176.0
+offset_right = 194.0
+offset_bottom = 176.0
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="TextureRect" parent="UI/XP"]
+layout_mode = 0
+offset_left = 521.857
+offset_top = 454.0
+offset_right = 912.857
+offset_bottom = 624.0
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(200, 0)
+texture = ExtResource("31_vy6fb")
+
+[node name="XPAudioPlayer" type="AudioStreamPlayer" parent="UI/XP"]
+
+[node name="XPLabel" type="Label" parent="UI/XP"]
+layout_mode = 0
+offset_left = 630.0
+offset_top = 427.143
+offset_right = 930.0
+offset_bottom = 627.143
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Expander" parent="UI/XP" instance=ExtResource("131_kj88w")]
+
+[node name="YourScoreLabel" type="Label" parent="UI/XP"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 218.571
+offset_top = 328.571
+offset_right = 1218.57
+offset_bottom = 468.571
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_w0fxd")
+theme_override_font_sizes/font_size = 32
+text = "הניקוד שלך
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Combo" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 173.0
+offset_top = 176.0
+offset_right = 173.0
+offset_bottom = 176.0
+scale = Vector2(0.7, 0.7)
+
+[node name="ComboAudioPlayer" type="AudioStreamPlayer" parent="UI/Combo"]
+
+[node name="ComboAnimation" type="AnimatedSprite2D" parent="UI/Combo"]
+position = Vector2(455, 492)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_tpyo1")
+
+[node name="ComboLabel" type="Label" parent="UI/Combo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.2857
+offset_top = 327.143
+offset_right = 955.714
+offset_bottom = 467.143
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_w0fxd")
+theme_override_font_sizes/font_size = 32
+text = "קומבו"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Expander" parent="UI/Combo" instance=ExtResource("131_kj88w")]
 
 [connection signal="pressed" from="UI/Buttons/RepeatButton" to="." method="_on_repeat_button_pressed"]
 [connection signal="pressed" from="UI/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
