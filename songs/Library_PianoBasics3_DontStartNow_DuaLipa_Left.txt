@@ -28,8 +28,8 @@ G3:1/4%1(StemD) -:1/4 -:1/2
 
 *StageStart:3*
 C3G3:1/2%51(StemD) -:1/2 
-A3:1/2%1(StemD) -:1/2 
-A3:1/2%1(StemD) -:1/2 
+A3&golden_note:1/2%1(StemD) -:1/2 
+A3&golden_note:1/2%1(StemD) -:1/2 
 -:1 
 -:1 
 

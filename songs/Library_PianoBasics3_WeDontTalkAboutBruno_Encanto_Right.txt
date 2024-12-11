@@ -8,10 +8,10 @@
 *LevelStart:Part 1*
 
 *StageStart:1*
--:1/4 F4:1/4%4(StemU) F4:1/4(StemU) F4:1/8(StemU) E4:1/8%3(StemU) 
+-:1/4 F4:1/4%4 F4:1/4 F4:1/8 E4:1/8%3 
 -:1 
--:1/4 F4:1/4%4(StemU) F4:1/4(StemU) F4:1/8%4(StemU) G4:1/8%5(StemU) 
--:1/4 E4:1/4%3(StemU) -:1/2 
+-:1/4 F4:1/4%4 F4:1/4 F4:1/8%4 G4:1/8%5 
+-:1/4 E4:1/4%3 -:1/2 
 
 *Text: {"text":"Switch to F Position", "offset":-0.07, "yOffset":0.65, "fontSize":36}*
 
@@ -22,20 +22,20 @@
 *LevelStart:Part 2*
 
 *StageStart:2*
--:1/4 A4:1/4%!3(StemU) A4:1/4(StemU) F4:1/4%1(StemU) 
--:1/4 G4:1/4%2(StemU) G4:1/8(StemU) A4:1/8%3(StemU) G4:1/4(StemU) 
-A4:1/4%3(StemU) A4:1/4(StemU) C5:1/2%5(StemD) 
-G4:1/2%2(StemU) -:1/2 
+-:1/4 A4&golden_note:1/4%!3 A4&golden_note:1/4 F4&golden_note:1/4%1 
+-:1/4 G4:1/4%2 G4:1/8 A4:1/8%3 G4:1/4 
+A4:1/4%3 A4&golden_note:1/4 C5&golden_note:1/2%5(StemD) 
+G4&golden_note:1/2%2 -:1/2 
 
 *Text: {"text":"Switch to C Position", "offset":-0.07, "yOffset":0.65, "fontSize":36}*
 
 *StageEnd:2*
 
 *StageStart:3*
-F4:1/4%!4(StemU) F4:1/4(StemU) A4:1/2%5(StemU) 
-E4:1/4%3(StemU) E4:1/4(StemU) A4:1/2%5(StemU) 
+F4&golden_note:1/4%!4 F4&golden_note:1/4 A4&golden_note:1/2%5 
+E4:1/4%3 E4:1/4 A4:1/2%5 
 D4F4:1%24 
-E4:1/4%3(StemU) -:1/4 -:1/2 
+E4:1/4%3 -:1/4 -:1/2 
 
 *StageEnd:3*
 
@@ -44,24 +44,24 @@ E4:1/4%3(StemU) -:1/4 -:1/2
 *LevelStart:Part 3*
 
 *StageStart:4*
-D4:1/8%2(StemU) E4:1/8%3(StemU) F4:1/4%4(StemU) -:1/2 
+D4:1/8%2 E4:1/8%3 F4:1/4%4 -:1/2 
 A4:1%5 
-D4:1/8%2(StemU) E4:1/8%3(StemU) F4:1/4%4(StemU) -:1/2 
+D4:1/8%2 E4:1/8%3 F4:1/4%4 -:1/2 
 A4:1%5 
-D4:1/8%2(StemU) E4:1/8%3(StemU) F4:1/4%4(StemU) -:1/2 
+D4:1/8%2 E4:1/8%3 F4:1/4%4 -:1/2 
 
 *Text: {"text":"F Position", "offset":-0.07, "yOffset":0.65, "fontSize":36}*
-C5:1%!5 
+C5&golden_note:1%!5 
 
 *Text: {"text":"C Position", "offset":-0.07, "yOffset":0.65, "fontSize":36}*
 
 *StageEnd:4*
 
 *StageStart:5*
--:1/4 F4:1/4%!4(StemU) F4:1/4(StemU) F4:1/8(StemU) E4:1/8%3(StemU) 
+-:1/4 F4&golden_note:1/4%!4 F4:1/4 F4:1/8 E4:1/8%3 
 -:1 
--:1/4 F4:1/4%4(StemU) F4:1/4(StemU) F4:1/8%4(StemU) G4:1/8%5(StemU) 
--:1/4 E4:1/4%3(StemU) -:1/2
+-:1/4 F4:1/4%4 F4:1/4 F4:1/8%4 G4:1/8%5 
+-:1/4 E4:1/4%3 -:1/2
 *StageEnd:5*
 
 *LevelEnd:Part 3*
