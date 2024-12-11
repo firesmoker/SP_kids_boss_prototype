@@ -1125,8 +1125,10 @@ func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> v
 			else:
 				heal(3)
 		"golden_note":
-			hit_boss(-5)
-			score_manager.add_note_score(golden_note_value, true)
+			if game_mode == "boss":
+				hit_boss(-5)
+			else:
+				score_manager.add_note_score(golden_note_value, true)
 			score_manager.total_hits += 1
 			score_manager.total_passed_notes += 1
 			#audio.stream = audio_clips.golden_note

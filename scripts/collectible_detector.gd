@@ -13,6 +13,7 @@ func _ready() -> void:
 	collectible_completed.connect(game.deactivate_effect)
 	golden_note_missed.connect(game.get_hit)
 	golden_note_missed.connect(game.golden_note_missed)
+	
 
 func _unhandled_input(event: InputEvent) -> void:	
 	if event.is_pressed() and not event.is_echo():
@@ -36,6 +37,8 @@ func note_played(note: String) -> void:
 				if current_collectibles[0].event.subtype == "golden_note":
 					print(" golden noteeeee ")
 					current_collectibles[0].hit_golden_note_visual()
+					game.start_score_visual()
+					game.update_combo_meter()
 					#current_collectibles[0].find_child("Fader").fade_out()
 				else:
 					current_collectibles[0].find_child("Fader").expand_fade_out(0.5)
@@ -68,4 +71,5 @@ func _on_body_exited(collectible: CollectibleMarker) -> void:
 			current_collectibles.pop_front()
 			if collectible.event.subtype == "golden_note":
 				print("missed golden note on body exit")
-				emit_signal("golden_note_missed", -5)
+				emit_signal("golden_note_missed")
+				game.update_combo_meter()
