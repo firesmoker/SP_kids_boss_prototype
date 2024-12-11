@@ -3,6 +3,10 @@ class_name Game extends Node2D
 
 var model: Dictionary
 
+@export var level2_color: Color
+@export var level3_color: Color
+@export var level4_color: Color
+
 @onready var lib_visuals: Node2D = $Level/LibVisuals
 @onready var character: Sprite2D = $Level/LibVisuals/Character
 @onready var top_staff_power: Sprite2D = $Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPower
@@ -787,30 +791,38 @@ func update_combo_meter() -> void:
 			ScoreManager.ComboMode.X1:
 				top_upper_glow.stop()
 				top_upper_glow.visible = false
+				top_upper_glow.modulate = Color.WHITE
 			ScoreManager.ComboMode.X2:
 				top_upper_glow.play("Level2")
 				top_upper_glow.visible = true
+				top_upper_glow.modulate = level2_color
 			ScoreManager.ComboMode.X3:
 				top_upper_glow.play("Level3")
 				top_upper_glow.visible = true
+				top_upper_glow.modulate = level3_color
 			ScoreManager.ComboMode.X4:
 				top_upper_glow.play("Level4")
 				top_upper_glow.visible = true
+				top_upper_glow.modulate = level4_color
 		
 		if ui_type =="treble":
 			match score_manager.combo_mode:
 				ScoreManager.ComboMode.X1:
 					top_bottom_glow.stop()
 					top_bottom_glow.visible = false
+					top_bottom_glow.modulate = Color.WHITE
 				ScoreManager.ComboMode.X2:
 					top_bottom_glow.play("Level2")
 					top_bottom_glow.visible = true
+					top_bottom_glow.modulate = level2_color
 				ScoreManager.ComboMode.X3:
 					top_bottom_glow.play("Level3")
 					top_bottom_glow.visible = true
+					top_bottom_glow.modulate = level3_color
 				ScoreManager.ComboMode.X4:
 					top_bottom_glow.play("Level4")
 					top_bottom_glow.visible = true
+					top_bottom_glow.modulate = level4_color
 		else:
 			match score_manager.combo_mode:
 				ScoreManager.ComboMode.X1:
@@ -818,21 +830,29 @@ func update_combo_meter() -> void:
 					bottom_bottom_glow.visible = false
 					bottom_upper_glow.stop()
 					bottom_upper_glow.visible = false
+					bottom_bottom_glow.modulate = Color.WHITE
+					bottom_upper_glow.modulate = Color.WHITE
 				ScoreManager.ComboMode.X2:
 					bottom_bottom_glow.play("Level2")
 					bottom_bottom_glow.visible = true
 					bottom_upper_glow.play("Level2")
 					bottom_upper_glow.visible = true
+					bottom_bottom_glow.modulate = level2_color
+					bottom_upper_glow.modulate = level2_color
 				ScoreManager.ComboMode.X3:
 					bottom_bottom_glow.play("Level3")
 					bottom_bottom_glow.visible = true
 					bottom_upper_glow.play("Level3")
 					bottom_upper_glow.visible = true
+					bottom_bottom_glow.modulate = level3_color
+					bottom_upper_glow.modulate = level3_color
 				ScoreManager.ComboMode.X4:
 					bottom_bottom_glow.play("Level4")
 					bottom_bottom_glow.visible = true
 					bottom_upper_glow.play("Level4")
 					bottom_upper_glow.visible = true
+					bottom_bottom_glow.modulate = level4_color
+					bottom_upper_glow.modulate = level4_color
 		
 		if score_manager.combo_mode != ScoreManager.ComboMode.X1:
 			play_combo_audio("res://audio/combo_advanced.ogg")
