@@ -37,6 +37,7 @@ func prepare_game(difficulty: String) -> void:
 	var level_data: Dictionary = levels.get(difficulty, {})
 	
 	# Set game parameters
+	Game.song_id = ""
 	Game.game_mode = "boss"
 	Game.current_difficulty = difficulty
 	Game.right_melody_path = level_data.get("melody_path", "")
