@@ -780,7 +780,6 @@ func update_combo_meter() -> void:
 	
 	if score_manager.combo_mode_changed and not sp_mode:
 		var animation_name: String = "combo_" + str(score_manager.combo_multiplier())
-		combo_meter.find_child("ComboFire").play()
 		
 		match score_manager.combo_mode:
 			ScoreManager.ComboMode.X1:
@@ -812,8 +811,10 @@ func update_combo_meter() -> void:
 					top_bottom_glow.visible = true
 		
 		if score_manager.combo_mode != ScoreManager.ComboMode.X1:
-			play_combo_audio("res://audio/combo_feedback.ogg")
-			
+			play_combo_audio("res://audio/combo_advanced.ogg")
+			combo_meter.find_child("ComboFire").play()
+		else:
+			play_combo_audio("res://audio/combo_lost.ogg")
 		combo_meter.find_child("Expander").expand(1.25, 0.25, true)
 
 # Helper function to animate the combo_animation frame progressively
