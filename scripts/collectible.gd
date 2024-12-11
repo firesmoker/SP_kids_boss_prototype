@@ -94,7 +94,7 @@ func hit_golden_note_visual() -> void:
 	fanta.play()
 	changing_color = true
 	patzpatz.visible = true
-	patzpatz.play("stars")
+	patzpatz.play()
 	var expander: Expander = super_note_animation.find_child("Expander")
 	if expander:
 		expander.expand(1.5,0.13,true)

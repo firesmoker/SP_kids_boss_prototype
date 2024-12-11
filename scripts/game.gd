@@ -10,6 +10,8 @@ var model: Dictionary
 @onready var music_ending_player: AudioStreamPlayer = $Sound/MusicEndingPlayer
 @onready var top_upper_glow: AnimatedSprite2D = $Level/RightHandPart/UpperStaff/UpperGlow
 @onready var top_bottom_glow: AnimatedSprite2D = $Level/RightHandPart/UpperStaff/BottomGlow
+@onready var bottom_upper_glow: AnimatedSprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/UpperGlow
+@onready var bottom_bottom_glow: AnimatedSprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/BottomGlow
 
 	
 @onready var bottom_staff_power: Sprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/StaffPower
@@ -809,6 +811,28 @@ func update_combo_meter() -> void:
 				ScoreManager.ComboMode.X4:
 					top_bottom_glow.play("Level4")
 					top_bottom_glow.visible = true
+		else:
+			match score_manager.combo_mode:
+				ScoreManager.ComboMode.X1:
+					bottom_bottom_glow.stop()
+					bottom_bottom_glow.visible = false
+					bottom_upper_glow.stop()
+					bottom_upper_glow.visible = false
+				ScoreManager.ComboMode.X2:
+					bottom_bottom_glow.play("Level2")
+					bottom_bottom_glow.visible = true
+					bottom_upper_glow.play("Level2")
+					bottom_upper_glow.visible = true
+				ScoreManager.ComboMode.X3:
+					bottom_bottom_glow.play("Level3")
+					bottom_bottom_glow.visible = true
+					bottom_upper_glow.play("Level3")
+					bottom_upper_glow.visible = true
+				ScoreManager.ComboMode.X4:
+					bottom_bottom_glow.play("Level4")
+					bottom_bottom_glow.visible = true
+					bottom_upper_glow.play("Level4")
+					bottom_upper_glow.visible = true
 		
 		if score_manager.combo_mode != ScoreManager.ComboMode.X1:
 			play_combo_audio("res://audio/combo_advanced.ogg")
