@@ -55,6 +55,7 @@ func miss_golden_note() -> void:
 	"""
 	Handles a missed note. Resets combo and updates scores.
 	"""
+	print("missed golden note")
 	total_passed_notes += 1
 	add_note_score(0)  # Add a score of 0 for a missed note
 	reset_combo()
@@ -105,8 +106,10 @@ func add_note_score(note_score: float, golden_note: bool = false) -> void:
 	
 	if golden_note:
 		golden_note_scores += note_score
+		print("added golden notes")
 	else:
 		note_scores.append(note_score)
+	
 	
 	var multiplier: int = combo_multiplier()
 	# Update scores

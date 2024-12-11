@@ -12,6 +12,7 @@ func _ready() -> void:
 	collectible_collected.connect(game.activate_effect)
 	collectible_completed.connect(game.deactivate_effect)
 	golden_note_missed.connect(game.get_hit)
+	golden_note_missed.connect(game.golden_note_missed)
 
 func _unhandled_input(event: InputEvent) -> void:	
 	if event.is_pressed() and not event.is_echo():
@@ -66,4 +67,5 @@ func _on_body_exited(collectible: CollectibleMarker) -> void:
 		if collectible.state == "Active":
 			current_collectibles.pop_front()
 			if collectible.event.subtype == "golden_note":
+				print("missed golden note on body exit")
 				emit_signal("golden_note_missed", -5)

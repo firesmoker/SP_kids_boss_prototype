@@ -36,7 +36,7 @@ static var star3_threshold_score: float
 
 static var score_based_stars: bool = false
 
-static var golden_note_value: float = 5
+static var golden_note_value: float = 1
 
 var star1_unlocked: bool = false
 var star2_unlocked: bool = false
@@ -1128,6 +1128,7 @@ func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> v
 			hit_boss(-5)
 			score_manager.add_note_score(golden_note_value, true)
 			score_manager.total_hits += 1
+			score_manager.total_passed_notes += 1
 			#audio.stream = audio_clips.golden_note
 			#audio.play()
 		_:

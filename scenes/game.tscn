@@ -7507,7 +7507,7 @@ scale = Vector2(0.403894, 0.403894)
 sprite_frames = SubResource("SpriteFrames_gpmdu")
 animation = &"Level2"
 autoplay = "Level2"
-frame_progress = 0.810004
+frame_progress = 0.693494
 
 [node name="BottomGlow" type="AnimatedSprite2D" parent="Level/RightHandPart/UpperStaff"]
 visible = false
@@ -7517,7 +7517,7 @@ scale = Vector2(0.403894, 0.403894)
 sprite_frames = SubResource("SpriteFrames_gpmdu")
 animation = &"Level2"
 autoplay = "Level2"
-frame_progress = 0.600989
+frame_progress = 0.484479
 flip_v = true
 
 [node name="BottomStaff" type="Node2D" parent="Level/RightHandPart"]
