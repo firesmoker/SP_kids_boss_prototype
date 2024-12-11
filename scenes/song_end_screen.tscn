@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://dxoet7mawmg0g"]
+[gd_scene load_steps=145 format=3 uid="uid://dxoet7mawmg0g"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -132,6 +132,7 @@
 [ext_resource type="Texture2D" uid="uid://d4hm26vm8niqh" path="res://art/Notes.png" id="99_avcdc"]
 [ext_resource type="Texture2D" uid="uid://dgoyffmjd085y" path="res://art/RepeatButton.png" id="130_6euta"]
 [ext_resource type="Texture2D" uid="uid://dgr8vc8cgu0es" path="res://art/ContinueButtonBold.png" id="130_rnmvs"]
+[ext_resource type="PackedScene" uid="uid://canrydy51d80m" path="res://scenes/expander.tscn" id="131_kj88w"]
 
 [sub_resource type="FontVariation" id="FontVariation_mw7k0"]
 variation_embolden = 0.5
@@ -754,17 +755,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -27.0
-offset_top = 48.0
-offset_right = -27.0
-offset_bottom = 48.0
+offset_left = -139.0
+offset_top = 20.0
+offset_right = -139.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.823344, 0.684211)
-pivot_offset = Vector2(-500, 0)
+pivot_offset = Vector2(150, 50)
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="UI/XP"]
+visible = false
 layout_mode = 1
 offset_left = 22.2605
 offset_top = -1.46154
@@ -788,6 +790,8 @@ text = "
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Expander" parent="UI/XP" instance=ExtResource("131_kj88w")]
 
 [node name="Buttons" type="Control" parent="UI"]
 visible = false

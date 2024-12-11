@@ -41,8 +41,37 @@ var current_combo: int = 0
 var max_combo: int = 0
 
 var max_normal_note_score: float = 10
+# Add this to the top of ScoreManager
+var best_scores: Dictionary = {}  # Holds the best scores for each song ID
 
+# Function to get the best score for the current song
+func get_best_score(song_id: String) -> float:
+	return best_scores.get(song_id, 0.0)
 
+# Function to update the best score for the current song
+func update_best_score(song_id: String, score: float) -> bool:
+	if score > get_best_score(song_id):
+		best_scores[song_id] = score
+		save_best_scores()
+		return true  # New high score achieved
+	return false  # No new high score
+
+# Function to save best scores to persistent storage
+func save_best_scores() -> void:
+	var save_file: FileAccess = FileAccess.open("user://best_scores.save", FileAccess.WRITE)
+	save_file.store_var(best_scores)
+	save_file.close()
+
+# Function to load best scores from storage
+func load_best_scores() -> void:
+	if FileAccess.file_exists("user://best_scores.save"):
+		var save_file: FileAccess = FileAccess.open("user://best_scores.save", FileAccess.READ)
+		best_scores = save_file.get_var()
+		save_file.close()
+
+func _ready() -> void:
+	load_best_scores()
+	
 func miss(note: Note) -> void:
 	"""
 	Handles a missed note. Resets combo and updates scores.

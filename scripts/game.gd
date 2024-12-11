@@ -148,6 +148,7 @@ static var boss_model: String = "robot_"
 static var player_model: String = "boy_"
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
+static var song_id: String = ""
 static var song_path: String = "res://audio/CountingStars_122bpm_new.ogg"
 static var slow_song_path: String = "res://audio/CountingStars_122bpm_new_SLOW80.ogg"
 static var right_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
@@ -1397,14 +1398,12 @@ func show_library_song_end_screen() -> void:
 	var timer: Timer = new_timer(1)
 	timer.start()
 	await timer.timeout
-	NodeHelper.move_to_scene(self, "res://scenes/song_end_screen.tscn", Callable(self, "on_song_end_screen_created"))
+	score_manager.get_parent().remove_child(score_manager)
+	var song_end_screen: Node2D = NodeHelper.move_to_scene(self, "res://scenes/song_end_screen.tscn", Callable(self, "on_song_end_screen_created"))
+	song_end_screen.get_tree().get_root().add_child(score_manager)
 
 func on_song_end_screen_created(song_end_screen: SongEndScreen) -> void:
-	song_end_screen.total_stars = score_manager.stars
-	song_end_screen.total_hit_notes = score_manager.total_hits
-	song_end_screen.total_notes = score_manager.total_net_notes_in_level
-	song_end_screen.timing_score = score_manager.timing_score()
-	song_end_screen.game_score = score_manager.game_score
+	song_end_screen.score_manager = score_manager
 	song_end_screen.model = model
 	
 

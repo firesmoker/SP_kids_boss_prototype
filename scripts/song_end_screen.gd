@@ -2,17 +2,15 @@ extends Node2D
 class_name SongEndScreen
 
 @onready var model: Dictionary
-var total_stars: int
-var total_hit_notes: int
-var total_notes: int
-var timing_score: float
-var game_score: float
+@onready var score_manager: ScoreManager
 
 @onready var video_background: VideoStreamPlayer = $UI/VideoBackground
 @onready var stars: Control = $UI/Stars
 @onready var stars_animation: AnimatedSprite2D = $UI/Stars/StarsAnimation
 @onready var confetti_animation: AnimatedSprite2D = $UI/ConfettiAnimation
 @onready var stars_audio_player: AudioStreamPlayer = $UI/Stars/StarsAudioPlayer
+@onready var xp_container: Control = $UI/XP
+@onready var xp_label_container: Label = $UI/YourScoreLabel
 @onready var xp_label: Label = $UI/XP/XPLabel
 @onready var xp_audio_player: AudioStreamPlayer = $UI/XP/XPAudioPlayer
 @onready var title: Label = $UI/Title
@@ -31,14 +29,14 @@ var current_xp: int = 0:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animate_stars(total_stars)
+	animate_stars(score_manager.stars)
 	set_audio_stream_based_on_stars()
 	set_buttons()
 	display_performance_message()
 	
 		# Create a Timer
 	var timer: Timer = Timer.new()
-	timer.wait_time = 0.2 + 0.8 * total_stars / 3  # 1 second delay
+	timer.wait_time = 0.2 + 0.8 * score_manager.stars / 3  # 1 second delay
 	timer.one_shot = true  # Ensures the timer runs only once
 	add_child(timer)  # Add the timer to the scene tree
 	timer.start()  # Start the timer
@@ -46,14 +44,14 @@ func _ready() -> void:
 	# Await the timer's timeout signal
 	await timer.timeout
 	change_background_color()
-	if total_stars == 3:
+	if score_manager.stars == 3:
 		play_confetti_animation()
 	animate_view($UI/Title)
 	await get_tree().create_timer(0.2).timeout
 
-	animate_xp(0, game_score, ANIMATION_DELAY * total_stars)
-	animate_notes(total_hit_notes, total_notes)
-	animate_timing(timing_score)
+	update_xp(0, score_manager.game_score, ANIMATION_DELAY * score_manager.stars)
+	animate_notes(score_manager.total_hits, score_manager.total_notes_in_level)
+	animate_timing(score_manager.timing_score())
 
 	animate_view($UI/Notes)
 	animate_view($UI/Timing)
@@ -66,7 +64,7 @@ func _ready() -> void:
 	timer.queue_free()  # Clean up the timer
 	
 func set_buttons() -> void:
-	if total_stars < 3:
+	if score_manager.stars < 3:
 		repeat_button.icon = load("res://art/RepeatButtonBold.png")
 		continue_button.icon = load("res://art/ContinueButton.png")
 
@@ -144,19 +142,38 @@ func animate_timing(timing_score: float) -> void:
 	label.text = "%d%%" % int(timing_score * 100) + " קצב "
 	AnimationHelper.play_animation_sprite_until_frame(progress_bar, "progress_bar", timing_score * 36)
 	
-func animate_xp(start_value: int, end_value: int, duration: float) -> void:
+func update_xp(start_value: int, end_value: int, duration: float) -> void:
 	xp_label.visible = true
-	
+
+	# Check if this is a new high score
+	var is_new_high_score: bool = score_manager.update_best_score(Game.song_id, end_value)
+
 	# Create a Tween node dynamically
 	var tween: Tween = create_tween()
-	# Interpolate the XP value over the specified duration
 	tween.tween_property(self, "current_xp", end_value, duration)
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	# Connect the tween's completion signal to a function
+	await tween.finished
+	
+	# Handle new high score animations
+	if is_new_high_score:
+		# Find the Expander node and trigger bounce animation
+		var expander: Node = xp_container.find_child("Expander")
+		if expander:
+			expander.expand(1.5, 0.25, true)
+
+		# Change the label text and colors for new high score
+		xp_label_container.text = "שיא חדש!"  # New High Score in Hebrew
+		xp_label_container.modulate = Color("#FFD44F")
+		xp_label.modulate = Color("#200854")
+		xp_container.modulate = Color("#FFD44F")
+
+		# Add slide animation for the label text
+		animate_label_slide(xp_label_container)
+
 	tween.finished.connect(Callable(self, "_on_tween_completed"))
-	# Start the tween
 	tween.play()
+
 
 func _on_tween_completed(tween: Tween) -> void:
 	# Ensure the label displays the final XP value
@@ -167,7 +184,7 @@ func _on_tween_completed(tween: Tween) -> void:
 	tween.queue_free()
 		
 func display_performance_message() -> void:
-	var stars: int = int(total_stars)
+	var stars: int = int(score_manager.stars)
 	var message: String = ""
 	match stars:
 		0:
@@ -196,7 +213,7 @@ func set_audio_stream_based_on_stars() -> void:
 	stars_audio_player.stream = preload("res://audio/three_stars.ogg")
 	stars_audio_player.play()
 	var audio_path: String
-	match total_stars:
+	match score_manager.stars:
 		1:
 			audio_path = "res://audio/one_star.ogg"
 		2:
@@ -221,3 +238,14 @@ func _on_continue_button_pressed() -> void:
 
 func on_song_difficulty_screen_created(song_difficulty_screen: SongDifficultyScreen) -> void:
 	song_difficulty_screen.model = model
+
+func animate_label_slide(label: Label) -> void:
+	var tween: Tween = create_tween()
+	label.visible = true
+	label.position.y -= 50  # Start position above the current position
+	label.modulate.a = 0.0  # Start with transparency
+
+	# Animate position and transparency
+	tween.tween_property(label, "position:y", label.position.y + 50, 0.5)
+	tween.tween_property(label, "modulate:a", 1.0, 0.5)
+	tween.play()

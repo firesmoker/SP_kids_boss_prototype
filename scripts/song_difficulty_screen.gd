@@ -42,6 +42,7 @@ func load_library_song(difficulty: String = "") -> void:
 	var new_tempo: int = int(tempo * difficulty_to_tempo_multiplier(difficulty))
 	var new_song_path: String = get_song_path(song_path, difficulty)
 	Game.song_path = new_song_path
+	Game.song_id = model["id"]
 	
 	Game.tempo = new_tempo
 	Game.ui_type = model["uiType"].split("_")[0]
