@@ -347,7 +347,10 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	background_library_solid.visible = false
 	background_sp.visible = false
 	combo_feedback_animation.visible = false
-	print("LIBRARY MODE!!!")
+	top_upper_glow.visible = false
+	bottom_upper_glow.visible = false
+	top_bottom_glow.visible = false
+	bottom_bottom_glow.visible = false
 	
 	
 	if sp_mode:
