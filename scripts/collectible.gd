@@ -12,7 +12,10 @@ var effect: String = "slow_down"
 @onready var stem_sprite: Sprite2D = $Stem/Stem
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var note_root: Sprite2D = $NoteRoot
+@onready var patzpatz: AnimatedSprite2D = $Patzpatz
+@onready var fanta: AnimatedSprite2D = $Fanta
 
+var changing_color: bool = false
 
 func _ready() -> void:
 	hide_sprites()
@@ -45,6 +48,7 @@ func set_sprite(type: String = "Heart") -> void:
 			super_note_animation.visible = true
 			super_note_animation.sprite_frames = load("res://scene_resources/gold_note_animation.tres")
 			var animation_name: String = "stem_up"
+			super_note_animation.position.y -= 10
 			if stem.rotation > 0:
 				animation_name = "stem_down"
 				super_note_animation.position.y += 400
@@ -85,3 +89,12 @@ func on_visibility_changed() -> void:
 		# else:
 		appear(false)
 			
+
+func hit_golden_note_visual() -> void:
+	fanta.play()
+	changing_color = true
+	patzpatz.visible = true
+	patzpatz.play("stars")
+	var expander: Expander = super_note_animation.find_child("Expander")
+	if expander:
+		expander.expand(1.5,0.13,true)

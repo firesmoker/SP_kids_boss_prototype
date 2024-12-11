@@ -8,6 +8,8 @@ var model: Dictionary
 @onready var top_staff_power: Sprite2D = $Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPower
 @onready var top_staff_power_lower: Sprite2D = $Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPowerLower
 @onready var music_ending_player: AudioStreamPlayer = $Sound/MusicEndingPlayer
+@onready var top_upper_glow: AnimatedSprite2D = $Level/RightHandPart/UpperStaff/UpperGlow
+@onready var top_bottom_glow: AnimatedSprite2D = $Level/RightHandPart/UpperStaff/BottomGlow
 
 	
 @onready var bottom_staff_power: Sprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/StaffPower
@@ -773,17 +775,42 @@ func update_score_meter() -> void:
 	score_meter.text = str(score_manager.game_score)
 
 func update_combo_meter() -> void:
-	# 1. Animate combo_animation frame progressively
 	var target_frame: int = int(90 * score_manager.combo_progress())
 	animate_combo_frame(combo_animation, target_frame, 0.1)
 	
-	# 2. Play feedback animation when combo_mode_changed
 	if score_manager.combo_mode_changed and not sp_mode:
 		var animation_name: String = "combo_" + str(score_manager.combo_multiplier())
-		#play_combo_feedback_animation(animation_name)
 		combo_meter.find_child("ComboFire").play()
 		
-		# 3. Play combo audio if combo_mode is not X1
+		match score_manager.combo_mode:
+			ScoreManager.ComboMode.X1:
+				top_upper_glow.stop()
+				top_upper_glow.visible = false
+			ScoreManager.ComboMode.X2:
+				top_upper_glow.play("Level2")
+				top_upper_glow.visible = true
+			ScoreManager.ComboMode.X3:
+				top_upper_glow.play("Level3")
+				top_upper_glow.visible = true
+			ScoreManager.ComboMode.X4:
+				top_upper_glow.play("Level4")
+				top_upper_glow.visible = true
+		
+		if ui_type =="treble":
+			match score_manager.combo_mode:
+				ScoreManager.ComboMode.X1:
+					top_bottom_glow.stop()
+					top_bottom_glow.visible = false
+				ScoreManager.ComboMode.X2:
+					top_bottom_glow.play("Level2")
+					top_bottom_glow.visible = true
+				ScoreManager.ComboMode.X3:
+					top_bottom_glow.play("Level3")
+					top_bottom_glow.visible = true
+				ScoreManager.ComboMode.X4:
+					top_bottom_glow.play("Level4")
+					top_bottom_glow.visible = true
+		
 		if score_manager.combo_mode != ScoreManager.ComboMode.X1:
 			play_combo_audio("res://audio/combo_feedback.ogg")
 			

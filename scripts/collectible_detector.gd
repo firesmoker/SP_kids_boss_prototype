@@ -14,12 +14,13 @@ func _ready() -> void:
 	golden_note_missed.connect(game.get_hit)
 
 func _unhandled_input(event: InputEvent) -> void:	
-	if not bottom_detector:
-		var note: String = event.as_text() + "4"
-		note_played(note)
-	else:
-		var note: String = event.as_text() + "3"
-		note_played(note)
+	if event.is_pressed() and not event.is_echo():
+		if not bottom_detector:
+			var note: String = event.as_text() + "4"
+			note_played(note)
+		else:
+			var note: String = event.as_text() + "3"
+			note_played(note)
 
 func note_played(note: String) -> void: 
 	if current_collectibles.size() > 0 and not game.get_lose_state():
@@ -31,7 +32,12 @@ func note_played(note: String) -> void:
 			print("RIGHT COLLECTIBLE NOTE!")
 			if game.game_state == "Playing":
 				current_collectibles[0].play_animation(effect)
-				current_collectibles[0].find_child("Fader").expand_fade_out(0.5)
+				if current_collectibles[0].event.subtype == "golden_note":
+					print(" golden noteeeee ")
+					current_collectibles[0].hit_golden_note_visual()
+					#current_collectibles[0].find_child("Fader").fade_out()
+				else:
+					current_collectibles[0].find_child("Fader").expand_fade_out(0.5)
 				current_collectibles[0].state = "Inactive"
 				#current_collectibles[0].visible = false
 				current_collectibles.pop_at(0)

@@ -54,9 +54,6 @@ func hit_note_visual(note_score: float) -> void:
 			if not Game.game_mode == "boss":
 				patzpatz.visible = true
 				patzpatz.play("stars")
-			#var patzpatz_shadow: AnimatedSprite2D = patzpatz.find_child("Shadow")
-			#if patzpatz_shadow:
-				#patzpatz_shadow.play("stars")
 			if expander:
 				expander.expand(1.5,0.13,true)
 		elif not Game.game_mode == "boss":
