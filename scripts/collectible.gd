@@ -55,8 +55,8 @@ func set_sprite(type: String = "Heart") -> void:
 			super_note_animation.play(animation_name)
 		_:
 			pass
-	if note == "C4":
-		helper_line.visible = true
+	#if note == "C4":
+		#helper_line.visible = true
 
 func hide_sprites() -> void:
 	super_note_animation.visible = false
