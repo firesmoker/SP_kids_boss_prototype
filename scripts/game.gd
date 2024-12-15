@@ -839,24 +839,24 @@ func update_combo_meter() -> void:
 				ScoreManager.ComboMode.X2:
 					bottom_bottom_glow.play("Level2")
 					bottom_bottom_glow.visible = true
-					bottom_upper_glow.play("Level2")
-					bottom_upper_glow.visible = true
+					#bottom_upper_glow.play("Level2")
+					#bottom_upper_glow.visible = true
 					bottom_bottom_glow.modulate = level2_color
-					bottom_upper_glow.modulate = level2_color
+					#bottom_upper_glow.modulate = level2_color
 				ScoreManager.ComboMode.X3:
 					bottom_bottom_glow.play("Level3")
 					bottom_bottom_glow.visible = true
-					bottom_upper_glow.play("Level3")
-					bottom_upper_glow.visible = true
+					#bottom_upper_glow.play("Level3")
+					#bottom_upper_glow.visible = true
 					bottom_bottom_glow.modulate = level3_color
-					bottom_upper_glow.modulate = level3_color
+					#bottom_upper_glow.modulate = level3_color
 				ScoreManager.ComboMode.X4:
 					bottom_bottom_glow.play("Level4")
 					bottom_bottom_glow.visible = true
-					bottom_upper_glow.play("Level4")
-					bottom_upper_glow.visible = true
+					#bottom_upper_glow.play("Level4")
+					#bottom_upper_glow.visible = true
 					bottom_bottom_glow.modulate = level4_color
-					bottom_upper_glow.modulate = level4_color
+					#bottom_upper_glow.modulate = level4_color
 		
 		if score_manager.combo_mode != ScoreManager.ComboMode.X1:
 			play_combo_audio("res://audio/combo_advanced.ogg")
