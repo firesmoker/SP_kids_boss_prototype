@@ -12,9 +12,13 @@ extends Window
 @onready var settings_manager: SettingsManager = $SettingsManager
 @onready var show_library_toggle: CheckButton = $UI/DevButtons/ShowLibraryToggle
 @onready var character_selection: OptionButton = $UI/DevButtons/CharacterSelection
+@onready var girl_selection: OptionButton = $UI/DevButtons/GirlSelection
+@onready var boy_selection: OptionButton = $UI/DevButtons/BoySelection
+
 @onready var sp_toggle: CheckButton = $UI/DevButtons/SPToggle
 @onready var play_piano_toggle: CheckButton = $"UI/DevButtons/Play Piano"
 @onready var new_stars_toggle: CheckButton = $"UI/DevButtons/New Stars"
+@onready var boy_girl_toggle: CheckButton = $UI/DevButtons/BoyGirlToggle
 
 
 
@@ -99,6 +103,7 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 var maximum_input_distance: float = 100
 var current_press_position: Vector2
 
+var girl_characters: bool = false
 
 func _ready() -> void:
 	
@@ -135,8 +140,14 @@ func apply_settings() -> void:
 	sp_toggle.button_pressed  = settings_manager.settings.get("sp_toggle", false)
 	new_stars_toggle.button_pressed  = settings_manager.settings.get("score_based_stars", false)
 	play_piano_toggle.button_pressed  = settings_manager.settings.get("play_piano_sounds", false)
-	character_selection.selected = settings_manager.settings.get("character_selection", 0)
-	character_selection.emit_signal("item_selected",settings_manager.settings.get("character_selection", 0))
+	#character_selection.selected = settings_manager.settings.get("character_selection", 0)
+	#character_selection.emit_signal("item_selected",settings_manager.settings.get("character_selection", 0))
+	girl_characters = settings_manager.settings.get("girl_characters", false)
+	boy_girl_toggle.button_pressed = girl_characters
+	if girl_characters:
+		girl_selection.emit_signal("item_selected",girl_selection.get_selected_id())
+	else:
+		boy_selection.emit_signal("item_selected",boy_selection.get_selected_id())
 	
 
 func connect_buttons() -> void:	
@@ -278,23 +289,29 @@ func _on_show_library_toggle_toggled(toggled_on: bool) -> void:
 	settings_manager.save_settings()
 		
 
-
-func _on_character_selection_item_selected(index: int) -> void:
+func choose_character(index: int) -> void:
 	print("chose character!")
 	match index:
 		0:
 			Game.player_model = "girl_"
 			change_character_stats(5,1)
+			print("chose girl")
 		1:
 			Game.player_model = "boy_"
 			change_character_stats(1,5)
+			print("chose boy")
 		_:
 			Game.player_model = "girl_"
 			change_character_stats(5,1)
+			print("chose default - girl")
 	settings_manager.settings["character_selection"] = index
 	#settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
 	#settings_manager.settings["character_health_modifier"] = Game.character_health_modifier
 	settings_manager.save_settings()
+
+
+func _on_character_selection_item_selected(index: int) -> void:
+	choose_character(index)
 
 func change_character_stats(attack_modifier: float, health_modifier: float) -> void:
 	Game.character_attack_modifier = attack_modifier
@@ -316,3 +333,23 @@ func _on_new_stars_toggled(toggled_on: bool) -> void:
 	settings_manager.settings["score_based_stars"] = toggled_on
 	settings_manager.save_settings()
 	Game.score_based_stars = toggled_on
+
+
+func _on_boy_girl_toggle_toggled(toggled_on: bool) -> void:
+	girl_characters = toggled_on
+	Game.girl_characters = toggled_on
+	settings_manager.settings["girl_characters"] = toggled_on
+	settings_manager.save_settings()
+	update_character_options()
+
+func update_character_options() -> void:
+	if girl_characters:
+		girl_selection.visible = true
+		boy_selection.visible = false
+		girl_selection.selected = girl_selection.get_selectable_item()
+		choose_character(girl_selection.get_selected_id())
+	else:
+		girl_selection.visible = false
+		boy_selection.visible = true
+		boy_selection.selected = boy_selection.get_selectable_item()
+		choose_character(boy_selection.get_selected_id())

@@ -154,6 +154,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 static var song_title: String = ""
 static var boss_model: String = "robot_"
 static var player_model: String = "boy_"
+static var girl_characters: bool = false
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
 static var song_id: String = ""
