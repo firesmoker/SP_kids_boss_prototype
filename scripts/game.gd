@@ -196,8 +196,11 @@ var threshold3_unlocked: bool = false
 @export var slow_timer: float = 10.5
 var level_length_in_bar: float = 0
 @export var health_rate: float = 1
-var DamageFromBoss: float = 1
-var DamageFromPlayer: float = 1
+
+static var character_attack_modifier: float = 1
+static var character_health_modifier: float = 1
+static var character_extended_healthbar: bool = false
+
 var starting_position: Vector2
 var vul_time: float = 2
 var time_elapsed: float = 0
@@ -1205,6 +1208,7 @@ func hit_boss(damage: int = -1) -> void:
 		handle_visual_effects()
 		play_boss_audio()
 		handle_player_attack_animation()
+		damage = damage * character_attack_modifier
 		handle_boss_hit(damage)
 		check_boss_health()
 
@@ -1285,7 +1289,7 @@ func update_boss_health(health_change: float = -1) -> void:
 	boss_visual_damage()
 	
 
-func get_hit(damage: int = -1) -> void:
+func get_hit(damage: float = -1.0) -> void:
 	if game_mode == "boss":
 		if vulnerable and not winning and not losing:
 			got_hit_atleast_once = true
@@ -1295,6 +1299,7 @@ func get_hit(damage: int = -1) -> void:
 			player_bot.play("get_hit")
 			player_bot.find_child("Flash").flash(Color.RED)
 			audio_play_from_source(player_character, audio_clips.player_hit,-8)
+			damage = damage / character_health_modifier
 			update_player_health(damage)
 			#player_health_bar.value = player_health
 			player_health_bar.find_child("Flash").flash(Color.RED)

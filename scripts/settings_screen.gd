@@ -284,13 +284,21 @@ func _on_character_selection_item_selected(index: int) -> void:
 	match index:
 		0:
 			Game.player_model = "girl_"
+			change_character_stats(5,1)
 		1:
 			Game.player_model = "boy_"
+			change_character_stats(1,5)
 		_:
 			Game.player_model = "girl_"
+			change_character_stats(5,1)
 	settings_manager.settings["character_selection"] = index
+	#settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
+	#settings_manager.settings["character_health_modifier"] = Game.character_health_modifier
 	settings_manager.save_settings()
 
+func change_character_stats(attack_modifier: float, health_modifier: float) -> void:
+	Game.character_attack_modifier = attack_modifier
+	Game.character_health_modifier = health_modifier
 
 func _on_sp_toggle_toggled(toggled_on: bool) -> void:
 	settings_manager.settings["sp_toggle"] = toggled_on
