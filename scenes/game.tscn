@@ -6397,7 +6397,6 @@ texture = SubResource("GradientTexture2D_rlrxh")
 metadata/_edit_lock_ = true
 
 [node name="BossPanel" type="TextureRect" parent="UI"]
-visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -6411,12 +6410,23 @@ metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/BossPanel"]
 layout_mode = 0
-offset_left = 54.0
+offset_left = 568.0
 offset_top = 28.0
 offset_right = 715.0
 offset_bottom = 124.0
 theme_override_font_sizes/font_size = 48
 text = "בוס"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HealthValue" type="Label" parent="UI/BossPanel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 28.0
+offset_right = 531.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 48
+text = "107"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -6440,7 +6450,6 @@ texture = ExtResource("371_y5r23")
 [node name="Fader" parent="UI/BossPanel" instance=ExtResource("63_jfxac")]
 
 [node name="PlayerPanel" type="TextureRect" parent="UI"]
-visible = false
 offset_right = 425.366
 offset_bottom = 109.0
 scale = Vector2(0.5, 0.5)
@@ -6457,6 +6466,16 @@ offset_right = 902.0
 offset_bottom = 126.0
 theme_override_font_sizes/font_size = 48
 text = "שחקן"
+vertical_alignment = 1
+
+[node name="HealthValue" type="Label" parent="UI/PlayerPanel"]
+offset_left = 426.0
+offset_top = 28.0
+offset_right = 573.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 48
+text = "107"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="PlayerPortrait" type="TextureRect" parent="UI/PlayerPanel"]

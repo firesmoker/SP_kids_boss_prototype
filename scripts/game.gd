@@ -531,11 +531,13 @@ func set_player_health() -> void:
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	
+	
 
 func set_boss_health() -> void:
 	boss_health = starting_boss_health
 	boss_health_bar.max_value = boss_health
 	boss_health_bar.value = boss_health
+	
 
 func set_default_process_modes() -> void:
 	set_boss_process_modes(false)
@@ -685,6 +687,9 @@ func health_bars_progress(delta: float, rate: float = 1) -> void:
 	boss_health_progress += delta * rate
 	boss_health_progress = clamp(boss_health_progress,0,1)
 	boss_health_bar.value = lerp(boss_previous_health,boss_new_health,boss_health_progress)
+	
+	player_panel.find_child("HealthValue").text = str(player_health_bar.value)
+	boss_panel.find_child("HealthValue").text = str(boss_health_bar.value)
 
 func enter_win_ui() -> void:
 	var new_position: Vector2 = Vector2(player_character.global_position.x,player_character.global_position.y - 300)
@@ -1203,7 +1208,7 @@ func heal(amount: int = 1) -> void:
 	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
 	player_portrait.find_child("Expander").expand(1.10, 0.25, true)
 
-func hit_boss(damage: int = -1) -> void:
+func hit_boss(damage: float = -1) -> void:
 	if not winning and not losing and game_mode == "boss":
 		handle_note_effects()
 		handle_visual_effects()
@@ -1246,7 +1251,7 @@ func handle_player_attack_animation() -> void:
 	player_bot.play("attack")
 
 
-func handle_boss_hit(damage: int) -> void:
+func handle_boss_hit(damage: float) -> void:
 	update_boss_health(damage)
 	boss.stop()
 	if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
@@ -1462,6 +1467,8 @@ func show_debug(toggle: bool = debug) -> void:
 	debug_overall_score.visible = toggle
 	debug_vulnerable.visible = toggle
 	debug_perfect_score.visible = toggle
+	player_panel.find_child("HealthValue").visible = toggle
+	boss_panel.find_child("HealthValue").visible = toggle
 	
 
 func update_debug() -> void:
