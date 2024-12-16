@@ -234,6 +234,8 @@ var music_fade_out_amount: float = 2
 var beats_before_ending_music: float = 1
 var beats_before_ending_music_counter: float = 0
 
+var played_ending_music: bool = false
+
 static var sp_mode: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -732,8 +734,9 @@ func update_score_visual(delta: float) -> void:
 
 func fade_boss_music() -> void:
 	if beats_before_ending_music_counter >= beats_before_ending_music:
-		if not music_ending_player.playing:
+		if not music_ending_player.playing and not played_ending_music:
 			music_ending_player.play()
+			played_ending_music = true
 		music_player.volume_db = clamp(music_player.volume_db - music_fade_out_amount,-80,0)
 		#music_ending_player.volume_db = 0
 		var new_volume: float = clamp(music_ending_player.volume_db + music_fade_in_amount,-80,0)
@@ -1084,7 +1087,8 @@ func win() -> void:
 		audio_play_from_source(boss, audio_clips.boss_death)
 		await boss.animation_finished
 		boss.visible = false
-		
+		if music_ending_player.stream:
+			await music_ending_player.finished
 	music_player_slow.stop()
 	if game_mode == "library":
 		play_music_clip(audio_clips.song_end_music)

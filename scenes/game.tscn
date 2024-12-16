@@ -6469,6 +6469,7 @@ text = "שחקן"
 vertical_alignment = 1
 
 [node name="HealthValue" type="Label" parent="UI/PlayerPanel"]
+layout_mode = 0
 offset_left = 426.0
 offset_top = 28.0
 offset_right = 573.0
