@@ -4,11 +4,13 @@ const CHARACTERS_FILE_PATH: String = "res://characters/characters.json"
 
 var characters_data: Array = []
 var settings_window: Node
+var play_button: Button  # Declare the Play Button as a class member
 
 func _ready() -> void:
-	$MarginContainer.set_global_position(Vector2(600, 100))
+	$MarginContainer.set_global_position(Vector2(610, 110))
 	load_characters()
 	populate_hbox()
+	populate_texts()
 
 func load_characters() -> void:
 	var file: FileAccess = FileAccess.open(CHARACTERS_FILE_PATH, FileAccess.READ)
@@ -18,13 +20,90 @@ func load_characters() -> void:
 		characters_data = JSON.parse_string(json_data)
 	else:
 		print("Failed to open file at path:", CHARACTERS_FILE_PATH)
+		
+	
+func populate_texts() -> void:
+
+	# Title Label at the top center with a 20px margin
+	var title: Label = Label.new()
+	title.text = "נגן מול זעם"
+	title.set("theme_override_font_sizes/font_size", 36)
+	title.set("theme_override_colors/font_color", Color("#FFFFFF"))
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.custom_minimum_size = Vector2(0, 0)
+	title.position = Vector2(-115, -90)  # 20px margin from the top
+	$MarginContainer.add_child(title)
+
+	# Subtitle Label at the top center with a 60px margin
+	var subtitle: Label = Label.new()
+	subtitle.text = "בחרו עם מי תרצו לנגן"
+	subtitle.set("theme_override_font_sizes/font_size", 24)
+	subtitle.set("theme_override_colors/font_color", Color("#FFFFFF"))
+	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	subtitle.custom_minimum_size = Vector2(0, 0)
+	subtitle.position = Vector2(-135, -30)  # 20px margin from the top
+	$MarginContainer.add_child(subtitle)
+
+	# Add a Spacer
+	var spacer: Control = Control.new()
+	spacer.custom_minimum_size = Vector2(0, 20)
+	$MarginContainer.add_child(spacer)
+
+	# Add an HBoxContainer for the characters
+	var hbox: HBoxContainer = HBoxContainer.new()
+	hbox.name = "HBoxContainer"
+	$MarginContainer.add_child(hbox)
+
+	# Add a Spacer before the button
+	var spacer_bottom: Control = Control.new()
+	spacer_bottom.custom_minimum_size = Vector2(0, 30)
+	$MarginContainer.add_child(spacer_bottom)
+
+	# Add the Play Button at the bottom center with a 20px margin
+	# Create the Play Button
+	play_button = Button.new()
+	play_button.text = "שחקו"
+	play_button.set("theme_override_colors/font_color", Color("#FFFFFF"))
+	play_button.custom_minimum_size = Vector2(200, 60)
+	play_button.connect("pressed", Callable(self, "_on_play_pressed"))
+	
+	# Load the button background image
+	var button_texture: Texture = load("res://art/16_dec/button.png")
+
+	# Create a StyleBoxTexture for the normal state
+	var normal_style: StyleBoxTexture = StyleBoxTexture.new()
+	normal_style.texture = button_texture
+	normal_style.draw_center = true  # Ensure the center is drawn
+
+	# Apply the same style for all button states
+	play_button.add_theme_stylebox_override("normal", normal_style)
+	play_button.add_theme_stylebox_override("hover", normal_style)
+	play_button.add_theme_stylebox_override("pressed", normal_style)
+	play_button.add_theme_stylebox_override("focus", normal_style)
+	play_button.add_theme_stylebox_override("disabled", normal_style)
+
+	play_button.anchor_left = 0.5
+	play_button.anchor_right = 0.5
+	play_button.anchor_bottom = 1.0
+	play_button.pivot_offset = Vector2(play_button.custom_minimum_size.x / 2, 0)
+	play_button.position = Vector2(-120, 600)  # 20px margin from the bottom
+	update_play_button_state()
+	
+	$MarginContainer.add_child(play_button)
+
 
 func populate_hbox() -> void:
 	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
+	
+	# Remove all existing children to refresh the view
+	for child in hbox.get_children():
+		hbox.remove_child(child)
+		child.queue_free()  # Free the child node to prevent memory leaks
 
 	for character_data: Dictionary in characters_data:
 		var item: Control = create_item(character_data)
-		
+		item.mouse_filter = Control.MOUSE_FILTER_STOP
+
 		# Create a MarginContainer for spacing
 		var container: MarginContainer = MarginContainer.new()
 		container.add_theme_constant_override("margin_left", 0)
@@ -34,7 +113,7 @@ func populate_hbox() -> void:
 		container.add_child(item)
 		
 		hbox.add_child(container)
-
+		
 func create_item(character_data: Dictionary) -> Control:
 	# Determine image based on state
 	var state: String = character_data.get("state", "locked")
@@ -52,7 +131,14 @@ func create_item(character_data: Dictionary) -> Control:
 
 	# Create a Control node as the root item
 	var item: Control = Control.new()
-	item.custom_minimum_size = Vector2(300, 600)  # Increased height to accommodate parameters
+	item.custom_minimum_size = Vector2(300, 600)
+
+	# If the item is locked, set opacity and disable interaction
+	if state == "locked":
+		item.modulate = Color(1, 1, 1, 0.8)  # Set opacity to 0.8
+		item.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Make the item unclickable
+	else:
+		item.mouse_filter = Control.MOUSE_FILTER_STOP  # Allow interaction for non-locked items
 
 	# Create a Panel as the frame (transparent background with yellow border)
 	var frame: Panel = Panel.new()
@@ -61,7 +147,7 @@ func create_item(character_data: Dictionary) -> Control:
 
 	var frame_style: StyleBoxFlat = StyleBoxFlat.new()
 	frame_style.bg_color = Color(0, 0, 0, 0)  # Transparent background
-	frame_style.border_color = Color(0, 0, 0, 0)  # Transparent background
+	frame_style.border_color = Color(0, 0, 0, 0)  # Transparent border by default
 	frame_style.border_width_top = 5
 	frame_style.border_width_bottom = 5
 	frame_style.border_width_left = 5
@@ -78,12 +164,11 @@ func create_item(character_data: Dictionary) -> Control:
 	var background_image: TextureRect = TextureRect.new()
 	background_image.texture = load("res://art/16_dec/character-item.png")
 	background_image.scale = Vector2(0.7, 0.7)
-	background_image.position.x -= 8
-	background_image.position.y -= 4
+	background_image.position = Vector2(-8, -4)
 	background_image.custom_minimum_size = Vector2(400, 732)
 	background_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-
-	# Add the background image to the frame
+	background_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
 	frame.add_child(background_image)
 
 	# Add a TextureRect for the character image
@@ -93,22 +178,19 @@ func create_item(character_data: Dictionary) -> Control:
 	character_image.scale = Vector2(0.9, 0.9)
 	character_image.position = Vector2(55, 18)
 	character_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-
-	# Add the character image to the frame (on top of the background image)
+	character_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	frame.add_child(character_image)
-
-	# Add the frame to the item
 	item.add_child(frame)
 
 	# Add a label for the character name
 	var label: Label = Label.new()
 	label.text = name
-	label.set("theme_override_colors/font_color", Color("#FFD44F"))  # Set text color to yellow
-	label.set("theme_override_font_sizes/font_size", 24)  # Set font size
+	label.set("theme_override_colors/font_color", Color("#FFD44F"))
+	label.set("theme_override_font_sizes/font_size", 24)
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	label.custom_minimum_size = Vector2(300, 50)
-	label.position = Vector2(-34, 320)  # Position it at the top-right corner
+	label.position = Vector2(-34, 320)
 	item.add_child(label)
 
 	# Add a state icon in the top-right corner
@@ -119,20 +201,22 @@ func create_item(character_data: Dictionary) -> Control:
 	match state:
 		"selected":
 			state_icon.texture = load("res://art/16_dec/selected.png")
-			state_icon.position = Vector2(215, 10)  # Position it at the top-right corner
+			state_icon.position = Vector2(215, 10)
 		"locked":
 			state_icon.texture = load("res://art/16_dec/lock.png")
-			state_icon.position = Vector2(210, 10)  # Position it at the top-right corner
+			state_icon.position = Vector2(210, 10)
 		_:
-			state_icon.texture = null  # No icon for unlocked state
+			state_icon.texture = null
 
 	item.add_child(state_icon)
 
 	# Create a VBoxContainer for the parameters
 	var parameters_vbox: VBoxContainer = VBoxContainer.new()
 	parameters_vbox.alignment = BoxContainer.ALIGNMENT_CENTER
-	parameters_vbox.position = Vector2(0, 540)  # Position below the frame
-	parameters_vbox.add_theme_constant_override("separation", 17)  # 5 pixels between icons
+	parameters_vbox.position = Vector2(27, 396)
+	parameters_vbox.scale = Vector2(0.75, 0.75)
+	parameters_vbox.add_theme_constant_override("separation", 15)
+
 	# Add the attack icons
 	var attack_hbox: HBoxContainer = create_parameter_hbox("res://art/16_dec/attack.png", attack)
 	parameters_vbox.add_child(attack_hbox)
@@ -145,43 +229,53 @@ func create_item(character_data: Dictionary) -> Control:
 	var speed_hbox: HBoxContainer = create_parameter_hbox("res://art/16_dec/speed.png", speed)
 	parameters_vbox.add_child(speed_hbox)
 
-	parameters_vbox.position.x = 27
-	parameters_vbox.position.y = 396
-	parameters_vbox.scale.x = 0.72
-	parameters_vbox.scale.y = 0.72
 	# Add the parameters VBoxContainer to the item
 	item.add_child(parameters_vbox)
 
+	# Connect the input event for non-locked items
+	if state != "locked":
+		var connected: bool = item.connect("gui_input", Callable(self, "_on_item_selected").bind(character_data))
+		print("Connection successful:", connected)
+
 	return item
 
-# Function to create an HBoxContainer with 5 TextureRects
 func create_parameter_hbox(texture_path: String, count: int) -> HBoxContainer:
 	var hbox: HBoxContainer = HBoxContainer.new()
 	hbox.alignment = BoxContainer.ALIGNMENT_BEGIN
-
-	# Add spacing between items in the HBoxContainer
+	hbox.layout_direction = Control.LAYOUT_DIRECTION_RTL
 	hbox.add_theme_constant_override("separation", 5)  # 5 pixels between icons
 
-	# Draw the appropriate image for the given count
 	for i in range(5):
 		var icon: TextureRect = TextureRect.new()
 		if i < count:
 			icon.texture = load(texture_path)  # Use the provided texture for filled icons
 		else:
-			icon.texture = load("res://art/16_dec/parameter.png")  # Use default texture for empty slots
+			icon.texture = load("res://art/16_dec/parameter.png")  # Default texture for empty slots
 		icon.custom_minimum_size = Vector2(9, 16)
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		hbox.add_child(icon)
 
 	return hbox
 
-func _on_settings_pressed() -> void:
-	print("Settings pressed")
-	if not settings_window:
-		settings_window = load("res://scenes/settings_screen.tscn").instantiate()
-		get_tree().root.add_child(settings_window)
-	else:
-		settings_window.visible = !settings_window.visible
 
-func _on_songs_pressed() -> void:
-	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+func update_play_button_state() -> void:
+	# Enable the play button if any character is selected
+	var is_selected: bool = characters_data.any(func(char: Dictionary) -> bool: return char.get("state") == "selected")
+	play_button.disabled = not is_selected
+
+	# Set opacity based on the disabled state
+	play_button.modulate = Color(1, 1, 1, 0.4) if play_button.disabled else Color(1, 1, 1, 1)
+
+
+func _on_item_selected(event: InputEvent, character_data: Dictionary) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		# Update the state of characters
+		for char: Dictionary in characters_data:
+			if char["id"] == character_data["id"]:
+				char["state"] = "selected"
+			elif char["state"] == "selected":
+				char["state"] = "unlocked"
+
+		# Refresh the view
+		populate_hbox()
+		update_play_button_state()
