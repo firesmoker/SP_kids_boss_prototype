@@ -44,9 +44,15 @@ func create_item(character_data: Dictionary) -> Control:
 	# Extract the name
 	var name: String = character_data.get("name", "")
 
+	# Extract parameters
+	var parameters: Dictionary = character_data.get("parameters", {})
+	var attack: int = parameters.get("attack", 0)
+	var defense: int = parameters.get("defense", 0)
+	var speed: int = parameters.get("speed", 0)
+
 	# Create a Control node as the root item
 	var item: Control = Control.new()
-	item.custom_minimum_size = Vector2(300, 532)
+	item.custom_minimum_size = Vector2(300, 600)  # Increased height to accommodate parameters
 
 	# Create a Panel as the frame (transparent background with yellow border)
 	var frame: Panel = Panel.new()
@@ -98,11 +104,11 @@ func create_item(character_data: Dictionary) -> Control:
 	var label: Label = Label.new()
 	label.text = name
 	label.set("theme_override_colors/font_color", Color("#FFD44F"))  # Set text color to yellow
-	label.set("font_size", 24)  # Set text color to yellow
+	label.set("theme_override_font_sizes/font_size", 24)  # Set font size
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	label.custom_minimum_size = Vector2(300, 532)
-	label.position = Vector2(-30, 80)  # Position it at the top-right corner
+	label.custom_minimum_size = Vector2(300, 50)
+	label.position = Vector2(-34, 320)  # Position it at the top-right corner
 	item.add_child(label)
 
 	# Add a state icon in the top-right corner
@@ -122,7 +128,52 @@ func create_item(character_data: Dictionary) -> Control:
 
 	item.add_child(state_icon)
 
+	# Create a VBoxContainer for the parameters
+	var parameters_vbox: VBoxContainer = VBoxContainer.new()
+	parameters_vbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	parameters_vbox.position = Vector2(0, 540)  # Position below the frame
+	parameters_vbox.add_theme_constant_override("separation", 17)  # 5 pixels between icons
+	# Add the attack icons
+	var attack_hbox: HBoxContainer = create_parameter_hbox("res://art/16_dec/attack.png", attack)
+	parameters_vbox.add_child(attack_hbox)
+
+	# Add the defense icons
+	var defense_hbox: HBoxContainer = create_parameter_hbox("res://art/16_dec/defense.png", defense)
+	parameters_vbox.add_child(defense_hbox)
+
+	# Add the speed icons
+	var speed_hbox: HBoxContainer = create_parameter_hbox("res://art/16_dec/speed.png", speed)
+	parameters_vbox.add_child(speed_hbox)
+
+	parameters_vbox.position.x = 27
+	parameters_vbox.position.y = 396
+	parameters_vbox.scale.x = 0.72
+	parameters_vbox.scale.y = 0.72
+	# Add the parameters VBoxContainer to the item
+	item.add_child(parameters_vbox)
+
 	return item
+
+# Function to create an HBoxContainer with 5 TextureRects
+func create_parameter_hbox(texture_path: String, count: int) -> HBoxContainer:
+	var hbox: HBoxContainer = HBoxContainer.new()
+	hbox.alignment = BoxContainer.ALIGNMENT_BEGIN
+
+	# Add spacing between items in the HBoxContainer
+	hbox.add_theme_constant_override("separation", 5)  # 5 pixels between icons
+
+	# Draw the appropriate image for the given count
+	for i in range(5):
+		var icon: TextureRect = TextureRect.new()
+		if i < count:
+			icon.texture = load(texture_path)  # Use the provided texture for filled icons
+		else:
+			icon.texture = load("res://art/16_dec/parameter.png")  # Use default texture for empty slots
+		icon.custom_minimum_size = Vector2(9, 16)
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		hbox.add_child(icon)
+
+	return hbox
 
 func _on_settings_pressed() -> void:
 	print("Settings pressed")
