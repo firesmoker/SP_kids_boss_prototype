@@ -276,14 +276,26 @@
 		"artist": "Simply",
 		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
 		"levels": {
-			"medium": {
+			"easy": {
+				"melody_path": "res://levels/Boss_Fantasy1_PB2End_Right.txt",
+				"left_melody_path": "res://levels/Boss_Fantasy1_PB2End_Left.txt",
+				"song_path": "res://audio/Fantasy1_94bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 94,
+				"player_life": 9,
+				"boss_life": 44,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Fantasy1_94bpm_ending.ogg",
+			},
+			"hard": {
 				"melody_path": "res://levels/Boss_Fantasy1_Right.txt",
 				"left_melody_path": "res://levels/Boss_Fantasy1_Left.txt",
 				"song_path": "res://audio/Fantasy1_94bpm.ogg",
 				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
 				"tempo": 94,
-				"player_life": 9,
-				"boss_life": 38,
+				"player_life": 8,
+				"boss_life": 40,
 				"ui_type": "both",
 				"display_duration": 3,
 				"ending_music_path": "res://audio/Fantasy1_94bpm_ending.ogg",
@@ -307,7 +319,7 @@
 				"display_duration": 3,
 				"ending_music_path": "res://audio/Funk1_126bpm_ending.ogg",
 			},
-			"medium": {
+			"hard": {
 				"melody_path": "res://levels/Boss_Funk1_Right.txt",
 				"left_melody_path": "res://levels/Boss_Funk1_Left.txt",
 				"song_path": "res://audio/Funk1_126bpm.ogg",
@@ -338,7 +350,7 @@
 				"display_duration": 3,
 				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg",
 			},
-			"medium": {
+			"hard": {
 				"melody_path": "res://levels/Boss_Fantasy2_Right.txt",
 				"left_melody_path": "res://levels/Boss_Fantasy2_Left.txt",
 				"song_path": "res://audio/Fantasy2_130bpm.ogg",

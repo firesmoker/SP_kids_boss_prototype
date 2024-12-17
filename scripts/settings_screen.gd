@@ -294,15 +294,15 @@ func choose_character(index: int) -> void:
 	match index:
 		0:
 			Game.player_model = "girl_"
-			change_character_stats(1.4,1)
+			change_character_stats(1.3,1)
 			print("chose girl")
 		1:
 			Game.player_model = "boy_"
-			change_character_stats(1,1.4)
+			change_character_stats(1,1.2)
 			print("chose boy")
 		_:
 			Game.player_model = "girl_"
-			change_character_stats(1.4,1)
+			change_character_stats(1.3,1)
 			print("chose default - girl")
 	settings_manager.settings["character_selection"] = index
 	#settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
