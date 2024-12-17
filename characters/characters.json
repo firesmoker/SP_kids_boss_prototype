@@ -1,0 +1,47 @@
+[
+	{
+		"id": "character://riff",
+		"gender": "boy",
+		"name": "ריף",
+		"images": {
+			"locked": "res://art/16_dec/riff-locked.png",
+			"unlocked": "res://art/16_dec/riff.png"
+		},
+		"parameters": {
+			"attack": 3,
+			"defense": 3,
+			"speed": 4
+		},
+		"state": "unlocked"
+	},
+	{
+		"id": "character://growl",
+		"gender": "boy",
+		"name": "גרול",
+		"images": {
+			"locked": "res://art/16_dec/growl-locked.png",
+			"unlocked": "res://art/16_dec/growl.png"
+		},
+		"parameters": {
+			"attack": 4,
+			"defense": 2,
+			"speed": 5
+		},
+		"state": "locked"
+	},
+	{
+		"id": "character://echo",
+		"gender": "boy",
+		"name": "אקו",
+		"images": {
+			"locked": "res://art/16_dec/echo-locked.png",
+			"unlocked": "res://art/16_dec/echo.png"
+		},
+		"parameters": {
+			"attack": 3,
+			"defense": 4,
+			"speed": 2
+		},
+		"state": "selected"
+	}
+]

@@ -133,18 +133,16 @@ func create_item(level_data: Dictionary) -> Control:
 
 	if level_data.get("is_complete", false):
 		status_icon.texture = load("res://art/16_dec/checkmark.png")
+		status_icon_container.position = Vector2(160, 0)
 	elif state == "unlocked":
 		status_icon.texture = load("res://art/16_dec/unlocked.png")
+		status_icon_container.position = Vector2(150, 0)
 	else:
 		status_icon.texture = load("res://art/16_dec/lock.png")
+		status_icon_container.position = Vector2(160, 0)
 
 	# Add the status icon to the MarginContainer
 	status_icon_container.add_child(status_icon)
-
-	# Position the MarginContainer at the top-right corner of the frame
-	status_icon_container.position = Vector2(160, 0)
-	if state == "unlocked":
-		status_icon_container.position = Vector2(150, 0)
 		
 	frame.add_child(status_icon_container)
 

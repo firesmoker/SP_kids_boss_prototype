@@ -13,7 +13,7 @@
 		"is_complete": true
 	},
 	{
-		"state": "locked",
+		"state": "unlocked",
 		"images": {
 			"locked": "res://art/16_dec/aria-locked.png",
 			"unlocked": "res://art/16_dec/aria-unlocked.png"
