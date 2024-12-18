@@ -20,7 +20,7 @@ E4:1/4%3(StemU) C4:1/8%1(StemU) D4:1/8%2(StemU) -:1/2
 E4:1/4%3(StemU) D4:1/8%2(StemU) C4:1/8%1(StemU) -:1/2 
 -:1 
 -:1 
-F4:1/2%4(StemU) -:1/2 
+-:1 
 F4:1/2%4(StemU) -:1/2 
 F4:1/4%4(StemU) E4:1/4(StemU) G4:1/2(StemU) 
 -:1 
@@ -39,7 +39,7 @@ G4:1/2%5(StemU) -:1/2
 D4:1/2%2(StemU) -:1/2 
 F4:1/2%4(StemU) -:1/2 
 G4:1/2%5(StemU) -:1/2 
--:1/2 D4:1/4%2(StemU) C4:1/4%1 
+-:1/2 D4:1/4%2(StemU) C4:1/4%1(StemU) 
 D4:1/4%2(StemU) -:1/4 -:1/2 
 -:1/2 F4:1/4%4(StemU) E4:1/4%3(StemU) 
 D4:1/4%2(StemU) C4:1/8%1(StemU) D4:1/8%2(StemU) -:1/2 
