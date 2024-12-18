@@ -2,15 +2,19 @@ extends Control
 
 const CHARACTERS_FILE_PATH: String = "res://characters/characters.json"
 
+@onready var confetti_animation: AnimatedSprite2D = $ConfettiAnimation
 var characters_data: Array = []
 var settings_window: Node
 var play_button: Button  # Declare the Play Button as a class member
+var title: Label
+var subtitle: Label
+var new_mode_character: Dictionary = {}
 
 func _ready() -> void:
 	$MarginContainer.set_global_position(Vector2(610, 110))
 	load_characters()
-	populate_hbox()
 	populate_texts()
+	populate_hbox()
 
 func load_characters() -> void:
 	var file: FileAccess = FileAccess.open(CHARACTERS_FILE_PATH, FileAccess.READ)
@@ -20,22 +24,21 @@ func load_characters() -> void:
 		characters_data = JSON.parse_string(json_data)
 	else:
 		print("Failed to open file at path:", CHARACTERS_FILE_PATH)
-		
-	
+
 func populate_texts() -> void:
 
 	# Title Label at the top center with a 20px margin
-	var title: Label = Label.new()
-	title.text = "נגן מול זעם"
+	title = Label.new()
+	title.text = "נגנו מול זעם"
 	title.set("theme_override_font_sizes/font_size", 36)
 	title.set("theme_override_colors/font_color", Color("#FFFFFF"))
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.custom_minimum_size = Vector2(0, 0)
-	title.position = Vector2(-115, -90)  # 20px margin from the top
+	title.custom_minimum_size = Vector2(300, 0)
+	title.position = Vector2(-175, -90)  # 20px margin from the top
 	$MarginContainer.add_child(title)
 
 	# Subtitle Label at the top center with a 60px margin
-	var subtitle: Label = Label.new()
+	subtitle = Label.new()
 	subtitle.text = "בחרו עם מי תרצו לנגן"
 	subtitle.set("theme_override_font_sizes/font_size", 24)
 	subtitle.set("theme_override_colors/font_color", Color("#FFFFFF"))
@@ -64,6 +67,7 @@ func populate_texts() -> void:
 	play_button = Button.new()
 	play_button.text = "שחקו"
 	play_button.set("theme_override_colors/font_color", Color("#FFFFFF"))
+	play_button.add_theme_font_size_override("font_size", 24)
 	play_button.custom_minimum_size = Vector2(200, 60)
 	play_button.connect("pressed", Callable(self, "_on_play_pressed"))
 	
@@ -100,25 +104,39 @@ func populate_hbox() -> void:
 		hbox.remove_child(child)
 		child.queue_free()  # Free the child node to prevent memory leaks
 
+	# Check if there's any character with mode == "new"
 	for character_data: Dictionary in characters_data:
-		var item: Control = create_item(character_data)
-		item.mouse_filter = Control.MOUSE_FILTER_STOP
+		if character_data.get("state") == "new":
+			new_mode_character = character_data
+			break
 
-		# Create a MarginContainer for spacing
-		var container: MarginContainer = MarginContainer.new()
-		container.add_theme_constant_override("margin_left", 0)
-		container.add_theme_constant_override("margin_top", 0)
-		container.add_theme_constant_override("margin_right", 0)
-		container.add_theme_constant_override("margin_bottom", 0)
-		container.add_child(item)
-		
-		hbox.add_child(container)
-		
+	# If a character with mode == "new" exists, render only that one
+	if new_mode_character:
+		hbox.add_child(create_item({}))
+		var item: Control = create_item(new_mode_character)
+		hbox.add_child(item)
+		title.text = "קבל את " + new_mode_character.get("name") + "!"
+		title.offset_top += 40
+		subtitle.text = ""
+		play_button.text = "המשיכו"
+		play_button.disabled = false
+		play_confetti_animation()
+	else:
+		# Render all characters if no "new" character is found
+		for character_data: Dictionary in characters_data:
+			var item: Control = create_item(character_data)
+			hbox.add_child(item)
+					
+
+func play_confetti_animation() -> void:
+	confetti_animation.visible = true
+	confetti_animation.play("end_screen_confetti")
+	
 func create_item(character_data: Dictionary) -> Control:
 	# Determine image based on state
-	var state: String = character_data.get("state", "locked")
+	var state: String = character_data.get("state", "")
 	var images: Dictionary = character_data.get("images", {})
-	var image_file: String = images.get("unlocked") if state != "locked" else images.get("locked")
+	var image_file: String = images.get("unlocked", "") if state != "locked" else images.get("locked", "")
 
 	# Extract the name
 	var name: String = character_data.get("name", "")
@@ -205,8 +223,13 @@ func create_item(character_data: Dictionary) -> Control:
 		"locked":
 			state_icon.texture = load("res://art/16_dec/lock.png")
 			state_icon.position = Vector2(210, 10)
+		"unlocked":
+			pass
+		"new":
+			pass
 		_:
 			state_icon.texture = null
+			item.modulate = Color(1,1,1,0)
 
 	item.add_child(state_icon)
 
@@ -233,7 +256,7 @@ func create_item(character_data: Dictionary) -> Control:
 	item.add_child(parameters_vbox)
 
 	# Connect the input event for non-locked items
-	if state != "locked":
+	if state == "unlocked":
 		var connected: bool = item.connect("gui_input", Callable(self, "_on_item_selected").bind(character_data))
 		print("Connection successful:", connected)
 
@@ -261,7 +284,7 @@ func create_parameter_hbox(texture_path: String, count: int) -> HBoxContainer:
 func update_play_button_state() -> void:
 	# Enable the play button if any character is selected
 	var is_selected: bool = characters_data.any(func(char: Dictionary) -> bool: return char.get("state") == "selected")
-	play_button.disabled = not is_selected
+	play_button.disabled = not is_selected and not new_mode_character.is_empty()
 
 	# Set opacity based on the disabled state
 	play_button.modulate = Color(1, 1, 1, 0.4) if play_button.disabled else Color(1, 1, 1, 1)
