@@ -582,14 +582,15 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 
 func _ready() -> void:
 	player_character.sprite_frames = load("res://scene_resources/animation_" + player_model + ".tres")
+	player_portrait.texture = load("res://art/18_dec/Avatars/Player/" + player_model + ".png")
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
-	if player_model.begins_with("boy"):
-		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Boy.ogv")
-		player_portrait.texture = load("res://art/17_nov/avatar_boy.png")
-	elif player_model.begins_with("girl"):
-		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Girl.ogv")
-		player_portrait.texture = load("res://art/17_nov/avatar_girl.png")
+	#if player_model.begins_with("boy"):
+		#intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Boy.ogv")
+		#player_portrait.texture = load("res://art/17_nov/avatar_boy.png")
+	#elif player_model.begins_with("girl"):
+		#intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Girl.ogv")
+		#player_portrait.texture = load("res://art/17_nov/avatar_girl.png")
 	#crowd_people = crowd.get_children()
 	show_debug()
 	set_default_visibility()
