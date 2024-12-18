@@ -1,7 +1,6 @@
 extends Window
 
 @onready var darken: TextureRect = $UI/Darken
-@onready var song_buttons: ScrollContainer = $UI/SongButtons
 @onready var auto_play_toggle: CheckButton = $UI/DevButtons/AutoPlayToggle
 @onready var library_song_toggle: CheckButton = $UI/DevButtons/LibrarySongToggle
 @onready var debug_toggle: CheckButton = $UI/DevButtons/DebugToggle
@@ -295,28 +294,34 @@ func choose_character(index: int) -> void:
 		match index:
 			0:
 				Game.player_model = "girl_lyric"
+				Game.player_name = "ליריק"
 				change_character_stats(1,1.2)
 				print("chose girl_lyric")
 			1:
 				Game.player_model = "girl_aria"
-				change_character_stats(1.3,1,true)
+				Game.player_name = "אריאה"
+				change_character_stats(1.7,1,true)
 				print("chose girl_aria")
 			_:
 				Game.player_model = "girl_lyric"
+				Game.player_name = "ליריק"
 				change_character_stats(1,1.2)
 				print("chose default - girl_lyric")
 	else:
 		match index:
 			0:
 				Game.player_model = "boy_echo"
+				Game.player_name = "אקו"
 				change_character_stats(1,1.2)
 				print("chose boy_echo")
 			1:
 				Game.player_model = "boy_growl"
-				change_character_stats(1.3,1,true)
+				Game.player_name = "גרואול"
+				change_character_stats(1.7,1,true)
 				print("chose boy_growl")
 			_:
 				Game.player_model = "boy_echo"
+				Game.player_name = "אקו"
 				change_character_stats(1,1.2)
 				print("chose default boy_echo")
 	settings_manager.settings["character_selection"] = index

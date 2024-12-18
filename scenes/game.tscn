@@ -6458,7 +6458,7 @@ expand_mode = 3
 stretch_mode = 2
 flip_h = true
 
-[node name="Label" type="Label" parent="UI/PlayerPanel"]
+[node name="Name" type="Label" parent="UI/PlayerPanel"]
 layout_mode = 0
 offset_left = 242.0
 offset_top = 30.0

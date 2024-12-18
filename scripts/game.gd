@@ -31,7 +31,9 @@ var model: Dictionary
 @export var score_success_color: Color
 @onready var star_celebration: AspectRatioContainer = $UI/StarCelebration
 @onready var confetti: AnimatedSprite2D = $Level/LibVisuals/Confetti
+@onready var player_name_label: Label = $UI/PlayerPanel/Name
 
+static var player_name:String = "שחקן"
 var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
 var star3_threshold_modifier: float = 0.9
@@ -585,13 +587,7 @@ func _ready() -> void:
 	player_portrait.texture = load("res://art/18_dec/Avatars/Player/" + player_model + ".png")
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
-	#if player_model.begins_with("boy"):
-		#intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Boy.ogv")
-		#player_portrait.texture = load("res://art/17_nov/avatar_boy.png")
-	#elif player_model.begins_with("girl"):
-		#intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Girl.ogv")
-		#player_portrait.texture = load("res://art/17_nov/avatar_girl.png")
-	#crowd_people = crowd.get_children()
+	player_name_label.text = player_name
 	show_debug()
 	set_default_visibility()
 	set_default_process_modes()
@@ -695,6 +691,8 @@ func health_bars_progress(delta: float, rate: float = 1) -> void:
 	
 	player_panel.find_child("HealthValue").text = str(player_health_bar.value)
 	boss_panel.find_child("HealthValue").text = str(boss_health_bar.value)
+
+	
 
 func enter_win_ui() -> void:
 	var new_position: Vector2 = Vector2(player_character.global_position.x,player_character.global_position.y - 300)
