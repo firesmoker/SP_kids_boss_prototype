@@ -90,6 +90,48 @@ static func save_to_path(full_path: String, data: String) -> void:
 	else:
 		print("Failed to save state to ", full_path)
 
+# Reset all state data by deleting all files in tmp:// and user://
+static func reset_all_data() -> void:
+	var tmp_dir: String = "tmp://"
+	var user_dir: String = "user://"
+
+	# Reset tmp:// directory
+	if DirAccess.dir_exists_absolute(tmp_dir):
+		if clear_directory(tmp_dir):
+			print("All data in tmp:// has been reset.")
+		else:
+			print("Failed to reset data in tmp://")
+
+	# Reset user:// directory
+	if DirAccess.dir_exists_absolute(user_dir):
+		if clear_directory(user_dir):
+			print("All data in user:// has been reset.")
+		else:
+			print("Failed to reset data in user://")
+
+# Helper function to clear all files and subdirectories in a given directory
+static func clear_directory(dir_path: String) -> bool:
+	var dir: DirAccess = DirAccess.open(dir_path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name: String = dir.get_next()
+		while file_name != "":
+			var file_path: String = dir_path + "/" + file_name
+			if dir.current_is_dir():
+				# If it's a directory, call clear_directory recursively
+				if not clear_directory(file_path):
+					return false
+				DirAccess.remove_absolute(file_path)
+			else:
+				# If it's a file, delete it
+				DirAccess.remove_absolute(file_path)
+			file_name = dir.get_next()
+		dir.list_dir_end()
+		return true
+	else:
+		print("Failed to open directory: ", dir_path)
+		return false
+
 
 # Helper function to construct full file path with prefix
 static func get_full_path(path: String, prefix: String) -> String:

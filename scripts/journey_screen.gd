@@ -58,8 +58,8 @@ func populate_hbox() -> void:
 
 func _on_item_clicked(event: InputEvent, in_game_params: Dictionary) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var journey_launcher: JourneyLauncher = JourneyLauncher.new()
-		journey_launcher.launch_scene(self, in_game_params, "medium")  # Change difficulty as needed
+		JourneyManager.set_current_scene(in_game_params)
+		NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
 
 
 func set_item_opacity(frame: Panel, opacity: float) -> void:

@@ -1,54 +1,54 @@
 [
 	{
-		"state": "unlocked",
 		"images": {
 			"locked": "res://art/16_dec/octobus-locked.png",
 			"unlocked": "res://art/16_dec/octobus-unlocked.png"
 		},
-		"text": "Play against Octobus",
 		"in-game-params": {
-			"type": "boss",
-			"id": "boss://Pokemon_Pokemon"
+			"id": "boss://Pokemon_Pokemon",
+			"type": "boss"
 		},
-		"is_complete": true
+		"is_complete": true,
+		"state": "unlocked",
+		"text": "Play against Octobus"
 	},
 	{
-		"state": "unlocked",
 		"images": {
 			"locked": "res://art/16_dec/aria-locked.png",
 			"unlocked": "res://art/16_dec/aria-unlocked.png"
 		},
 		"in-game-params": {
-			"type": "character-selection",
-			"id": "character://growl"
+			"id": "character://growl",
+			"type": "character-selection"
 		},
-		"text": "Get Aria!",
-		"is_complete": false
+		"is_complete": true,
+		"state": "unlocked",
+		"text": "Get Aria!"
 	},
 	{
-		"state": "locked",
 		"images": {
 			"locked": "res://art/16_dec/octobus-locked.png",
 			"unlocked": "res://art/16_dec/octobus-unlocked.png"
 		},
-		"text": "Play against Zaam!",
 		"in-game-params": {
-			"type": "boss",
-			"id": "boss://IJustCantWaitToBeKing_LionKing"
+			"id": "boss://IJustCantWaitToBeKing_LionKing",
+			"type": "boss"
 		},
-		"is_complete": false
+		"is_complete": false,
+		"state": "locked",
+		"text": "Play against Zaam!"
 	},
 	{
-		"state": "locked",
 		"images": {
 			"locked": "res://art/16_dec/octobus-locked.png",
 			"unlocked": "res://art/16_dec/octobus-unlocked.png"
 		},
-		"text": "Play against Boom Boom!",
 		"in-game-params": {
-			"type": "boss",
-			"id": "boss://BossFunk1_Simply"
+			"id": "boss://BossFunk1_Simply",
+			"type": "boss"
 		},
-		"is_complete": false
+		"is_complete": false,
+		"state": "locked",
+		"text": "Play against Boom Boom!"
 	}
 ]

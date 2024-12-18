@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://art/Star_Filled.svg"
 config/main_scene="res://scenes/boss_screen.tscn"
 
+[autoload]
+
+Startup="*res://scripts/startup.gd"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=2

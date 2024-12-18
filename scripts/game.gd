@@ -653,6 +653,7 @@ func _ready() -> void:
 	game_state = "Playing"
 	
 	set_star_bar_values()
+	
 	#score_manager.combo_full_hits = roundi(score_manager.total_notes_in_level / 10)
 	#score_manager.perfect_score = score_manager.perfect_score_in_level()
 	#score_manager.three_stars_score = score_manager.three_stars_score_in_level()
@@ -1117,6 +1118,7 @@ func win() -> void:
 	game_state = "Win"
 	last_game_lost = false
 	enter_win_ui()
+	JourneyManager.mark_current_level_as_complete()
 
 func new_timer(wait_time: float = 2.0) -> Timer:
 	var timer: Timer = Timer.new()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=62 format=3 uid="uid://dbwgg2sal2ntn"]
+[gd_scene load_steps=63 format=3 uid="uid://dbwgg2sal2ntn"]
 
 [ext_resource type="Script" path="res://scripts/characters_screen.gd" id="1_2cc6c"]
 [ext_resource type="Texture2D" uid="uid://c6pltc0vyrk8i" path="res://art/EndScreenConfetti/end_screen_confetti_1.png" id="2_k54uh"]
+[ext_resource type="Texture2D" uid="uid://cw4s210n5a564" path="res://art/16_dec/character-unlock-background.png" id="2_oru01"]
 [ext_resource type="Texture2D" uid="uid://b462p38rxgp05" path="res://art/EndScreenConfetti/end_screen_confetti_2.png" id="3_t80i7"]
 [ext_resource type="Texture2D" uid="uid://ds6m3gpfqopku" path="res://art/EndScreenConfetti/end_screen_confetti_3.png" id="4_smwp0"]
 [ext_resource type="Texture2D" uid="uid://edrjfe6b1n6i" path="res://art/EndScreenConfetti/end_screen_confetti_4.png" id="5_7ilab"]
@@ -249,7 +250,7 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="Root2" type="Control"]
+[node name="Root" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -13.0
@@ -268,6 +269,14 @@ offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2, 0.0509804, 0.505882, 1)
+
+[node name="UnlockBackground" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 2732.0
+offset_bottom = 2040.0
+scale = Vector2(0.439395, 0.413286)
+texture = ExtResource("2_oru01")
 
 [node name="MarginContainer" type="Control" parent="."]
 layout_direction = 2

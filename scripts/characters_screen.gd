@@ -12,13 +12,22 @@ var new_mode_character: Dictionary = {}
 
 func _ready() -> void:
 	$MarginContainer.set_global_position(Vector2(610, 110))
+	
 	load_characters()
 	populate_texts()
 	populate_hbox()
+	update_play_button_state()
 
 func load_characters() -> void:
 	var json_data: String = StateManager.load_state(CHARACTERS_FILE_PATH)
 	characters_data = JSON.parse_string(json_data)
+	
+	if JourneyManager.current_params.get("type") == "character-selection":
+		for character_data: Dictionary in characters_data:
+			if character_data.get("id", "") == JourneyManager.current_params.get("id", ""):
+				new_mode_character = character_data
+				break
+
 
 func populate_texts() -> void:
 
@@ -86,14 +95,18 @@ func populate_texts() -> void:
 	play_button.anchor_bottom = 1.0
 	play_button.pivot_offset = Vector2(play_button.custom_minimum_size.x / 2, 0)
 	play_button.position = Vector2(-120, 600)  # 20px margin from the bottom
-	update_play_button_state()
 	
 	$MarginContainer.add_child(play_button)
 
 # Function to handle the button press
 func _on_play_pressed() -> void:
+	if new_mode_character:
+		new_mode_character["state"] = "unlocked"
+		JourneyManager.mark_current_level_as_complete()
+		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
+	else:
+		JourneyManager.launch_current_level(self)
 	StateManager.save_state(CHARACTERS_FILE_PATH, JSON.stringify(characters_data, "\t"))
-	NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 
 func populate_hbox() -> void:
 	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
@@ -102,12 +115,6 @@ func populate_hbox() -> void:
 	for child in hbox.get_children():
 		hbox.remove_child(child)
 		child.queue_free()  # Free the child node to prevent memory leaks
-
-	# Check if there's any character with mode == "new"
-	for character_data: Dictionary in characters_data:
-		if character_data.get("state") == "new":
-			new_mode_character = character_data
-			break
 
 	# If a character with mode == "new" exists, render only that one
 	if new_mode_character:
@@ -119,6 +126,7 @@ func populate_hbox() -> void:
 		subtitle.text = ""
 		play_button.text = "המשיכו"
 		play_button.disabled = false
+		$UnlockBackground.visible = true
 		play_confetti_animation()
 	else:
 		# Render all characters if no "new" character is found
