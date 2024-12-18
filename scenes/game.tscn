@@ -6683,12 +6683,11 @@ metadata/_edit_lock_ = true
 [node name="Flash" parent="Level/PlayerBot" instance=ExtResource("57_hg35f")]
 
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
-visible = false
 z_index = 3
 position = Vector2(417.46, 70)
 scale = Vector2(0.590503, 0.590503)
 sprite_frames = ExtResource("4_ygwuk")
-animation = &"robot_damaged_get_hit"
+animation = &"robot_get_hit_strong"
 autoplay = "idle"
 
 [node name="BossHitZone" type="Area2D" parent="Level/Boss"]

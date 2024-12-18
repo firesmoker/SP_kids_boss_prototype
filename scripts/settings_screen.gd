@@ -294,7 +294,7 @@ func choose_character(index: int) -> void:
 	match index:
 		0:
 			Game.player_model = "girl_"
-			change_character_stats(1.3,1)
+			change_character_stats(1.3,1,true)
 			print("chose girl")
 		1:
 			Game.player_model = "boy_"
@@ -302,7 +302,7 @@ func choose_character(index: int) -> void:
 			print("chose boy")
 		_:
 			Game.player_model = "girl_"
-			change_character_stats(1.3,1)
+			change_character_stats(1.3,1,true)
 			print("chose default - girl")
 	settings_manager.settings["character_selection"] = index
 	#settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
@@ -313,9 +313,10 @@ func choose_character(index: int) -> void:
 func _on_character_selection_item_selected(index: int) -> void:
 	choose_character(index)
 
-func change_character_stats(attack_modifier: float, health_modifier: float) -> void:
+func change_character_stats(attack_modifier: float, health_modifier: float, strong_attacks: bool = false) -> void:
 	Game.character_attack_modifier = attack_modifier
 	Game.character_health_modifier = health_modifier
+	Game.strong_attacks = strong_attacks
 
 func _on_sp_toggle_toggled(toggled_on: bool) -> void:
 	settings_manager.settings["sp_toggle"] = toggled_on

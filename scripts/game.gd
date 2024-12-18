@@ -44,6 +44,8 @@ static var score_based_stars: bool = false
 
 static var golden_note_value: float = 1
 
+static var strong_attacks: bool = true
+
 var star1_unlocked: bool = false
 var star2_unlocked: bool = false
 var star3_unlocked: bool = false
@@ -1258,10 +1260,15 @@ func handle_player_attack_animation() -> void:
 func handle_boss_hit(damage: float) -> void:
 	update_boss_health(damage)
 	boss.stop()
-	if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
-		boss.play(boss_model + "damaged_get_hit")
+	var strong_string: String
+	if strong_attacks:
+		strong_string = "_strong"
 	else:
-		boss.play(boss_model + "get_hit")
+		strong_string = ""
+	if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
+		boss.play(boss_model + "damaged_get_hit" + strong_string)
+	else:
+		boss.play(boss_model + "get_hit" + strong_string)
 
 
 func check_boss_health() -> void:
