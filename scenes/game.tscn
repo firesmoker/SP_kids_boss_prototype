@@ -1,4 +1,4 @@
-[gd_scene load_steps=1323 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1326 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -172,6 +172,9 @@
 [ext_resource type="Texture2D" uid="uid://cpo3tkigclday" path="res://art/13_nov/StarEndScreen/StarEndScreen-77.png" id="130_d3lnf"]
 [ext_resource type="Texture2D" uid="uid://bagi32cgjgv8t" path="res://art/13_nov/StarEndScreen/StarEndScreen-78.png" id="131_5drrm"]
 [ext_resource type="Texture2D" uid="uid://cjrhxyw31vaip" path="res://art/13_nov/StarEndScreen/StarEndScreen-79.png" id="132_yxi8h"]
+[ext_resource type="Texture2D" uid="uid://bbo26fcdfel1j" path="res://art/18_dec/small_bar_empty.png" id="136_gw50p"]
+[ext_resource type="Texture2D" uid="uid://b3uogv5ikhv2j" path="res://art/18_dec/small_bar_full.png" id="137_7f6s7"]
+[ext_resource type="Texture2D" uid="uid://cs01bmgs0kkre" path="res://art/18_dec/bar_ext_full_x2.png" id="140_hes1t"]
 [ext_resource type="Texture2D" uid="uid://c8n4jpmw2aepn" path="res://art/ScoreBar.png" id="144_exjl3"]
 [ext_resource type="Texture2D" uid="uid://b3i4o2o5dyk4m" path="res://art/5_dec/bar_1/combo_bar x1_00002.png" id="145_84d3p"]
 [ext_resource type="Texture2D" uid="uid://uvj0fjk5wjqn" path="res://art/5_dec/bar_1/combo_bar x1_00003.png" id="146_4ooct"]
@@ -1123,7 +1126,7 @@
 [ext_resource type="Texture2D" uid="uid://in2xn2jv7br5" path="res://art/5_dec/combo_x3/Combo x3_00010.png" id="751_whm7y"]
 [ext_resource type="Texture2D" uid="uid://8x5yjvqqdlu" path="res://art/5_dec/combo_x3/Combo x3_00011.png" id="752_iia0n"]
 [ext_resource type="Texture2D" uid="uid://c2jjtd5fw22t8" path="res://art/5_dec/combo_x3/Combo x3_00012.png" id="753_uiuqy"]
-[ext_resource type="SpriteFrames" uid="uid://dfu1foruxumcn" path="res://scene_resources/animation_girl_lyric.tres" id="754_a27a0"]
+[ext_resource type="SpriteFrames" uid="uid://bkg385iichdhr" path="res://scene_resources/animation_boy_growl.tres" id="754_4ub0c"]
 [ext_resource type="Texture2D" uid="uid://t3hiams1etll" path="res://art/5_dec/combo_x3/Combo x3_00013.png" id="754_k7af2"]
 [ext_resource type="Texture2D" uid="uid://ktg1ybf0elut" path="res://art/5_dec/combo_x3/Combo x3_00014.png" id="755_jc0m2"]
 [ext_resource type="Texture2D" uid="uid://dntkmro8sg1fr" path="res://art/5_dec/combo_x3/Combo x3_00015.png" id="756_ibi2x"]
@@ -6013,19 +6016,18 @@ layer = -1
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
 process_mode = 3
-visible = false
 top_level = true
 z_index = 1
 offset_left = 116.0
 offset_top = 74.0
-offset_right = 804.0
+offset_right = 692.0
 offset_bottom = 161.0
 scale = Vector2(0.5, 0.5)
 max_value = 6.0
 step = 0.01
-value = 4.0
-texture_under = ExtResource("360_yopmy")
-texture_progress = ExtResource("361_obrbm")
+value = 6.0
+texture_under = ExtResource("136_gw50p")
+texture_progress = ExtResource("137_7f6s7")
 metadata/_edit_use_anchors_ = true
 
 [node name="Flash" parent="UI/PlayerHealthBar" instance=ExtResource("57_hg35f")]
@@ -6036,9 +6038,33 @@ flash_time = 0.4
 
 [node name="Fader" parent="UI/PlayerHealthBar" instance=ExtResource("63_jfxac")]
 
-[node name="BossHealthBar" type="TextureProgressBar" parent="UI"]
+[node name="PlayerHealthBarLong" type="TextureProgressBar" parent="UI"]
 process_mode = 3
 visible = false
+top_level = true
+z_index = 1
+offset_left = 116.0
+offset_top = 74.0
+offset_right = 804.0
+offset_bottom = 161.0
+scale = Vector2(0.5, 0.5)
+max_value = 6.0
+step = 0.01
+value = 6.0
+texture_under = ExtResource("360_yopmy")
+texture_progress = ExtResource("140_hes1t")
+metadata/_edit_use_anchors_ = true
+
+[node name="Flash" parent="UI/PlayerHealthBarLong" instance=ExtResource("57_hg35f")]
+flash_color = Color(1, 0, 0, 1)
+flash_time = 0.4
+
+[node name="Expander" parent="UI/PlayerHealthBarLong" instance=ExtResource("20_wgxju")]
+
+[node name="Fader" parent="UI/PlayerHealthBarLong" instance=ExtResource("63_jfxac")]
+
+[node name="BossHealthBar" type="TextureProgressBar" parent="UI"]
+process_mode = 3
 top_level = true
 z_index = 1
 anchors_preset = 1
@@ -6065,6 +6091,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Fader" parent="UI/BossHealthBar" instance=ExtResource("63_jfxac")]
 
 [node name="StarsPanel" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 524.0
@@ -6640,12 +6667,11 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter" type="AnimatedSprite2D" parent="Level"]
-visible = false
 z_index = 3
 position = Vector2(-411.111, 75)
 scale = Vector2(0.319623, 0.319623)
-sprite_frames = ExtResource("754_a27a0")
-animation = &"win"
+sprite_frames = ExtResource("754_4ub0c")
+animation = &"attack"
 autoplay = "idle"
 script = ExtResource("19_j5u08")
 
@@ -6914,6 +6940,7 @@ scale = Vector2(0.895911, 0.895911)
 sprite_frames = SubResource("SpriteFrames_gpmdu")
 animation = &"Level2"
 autoplay = "Level2"
+metadata/_edit_lock_ = true
 
 [node name="BottomGlow" type="AnimatedSprite2D" parent="Level/RightHandPart/UpperStaff"]
 visible = false
