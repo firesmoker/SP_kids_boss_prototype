@@ -1123,7 +1123,7 @@
 [ext_resource type="Texture2D" uid="uid://in2xn2jv7br5" path="res://art/5_dec/combo_x3/Combo x3_00010.png" id="751_whm7y"]
 [ext_resource type="Texture2D" uid="uid://8x5yjvqqdlu" path="res://art/5_dec/combo_x3/Combo x3_00011.png" id="752_iia0n"]
 [ext_resource type="Texture2D" uid="uid://c2jjtd5fw22t8" path="res://art/5_dec/combo_x3/Combo x3_00012.png" id="753_uiuqy"]
-[ext_resource type="SpriteFrames" uid="uid://dfu1foruxumcn" path="res://scene_resources/animation_girl_lyric.tres" id="754_a27a0"]
+[ext_resource type="SpriteFrames" path="res://scene_resources/animation_girl_lyric.tres" id="754_a27a0"]
 [ext_resource type="Texture2D" uid="uid://t3hiams1etll" path="res://art/5_dec/combo_x3/Combo x3_00013.png" id="754_k7af2"]
 [ext_resource type="Texture2D" uid="uid://ktg1ybf0elut" path="res://art/5_dec/combo_x3/Combo x3_00014.png" id="755_jc0m2"]
 [ext_resource type="Texture2D" uid="uid://dntkmro8sg1fr" path="res://art/5_dec/combo_x3/Combo x3_00015.png" id="756_ibi2x"]

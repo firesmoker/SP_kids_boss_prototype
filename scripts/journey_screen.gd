@@ -21,7 +21,7 @@ func load_levels() -> void:
 
 func populate_hbox() -> void:
 	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
-	
+
 	# Clear existing children
 	for child in hbox.get_children():
 		hbox.remove_child(child)
@@ -37,9 +37,11 @@ func populate_hbox() -> void:
 		var frame: Panel = item.get_child(0)  # Assuming the frame is the first child
 		if level_data.get("is_complete", false):
 			set_item_opacity(frame, 1.0)
+			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
 		elif not found_first_uncomplete:
 			found_first_uncomplete = true
 			set_item_opacity(frame, 1.0)
+			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
 		else:
 			set_item_opacity(frame, 0.4)
 
@@ -50,13 +52,20 @@ func populate_hbox() -> void:
 		container.add_theme_constant_override("margin_right", -5)
 		container.add_theme_constant_override("margin_bottom", 15)
 		container.add_child(item)
-		
+
 		hbox.add_child(container)
 
 		# Add a horizontal yellow line between items, except after the last item
 		if i < levels_data.size() - 1:
 			var separator: Control = create_horizontal_line()
 			hbox.add_child(separator)
+
+
+func _on_item_clicked(event: InputEvent, in_game_params: Dictionary) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var journey_launcher: JourneyLauncher = JourneyLauncher.new()
+		journey_launcher.launch_scene(self, in_game_params, "medium")  # Change difficulty as needed
+
 
 func set_item_opacity(frame: Panel, opacity: float) -> void:
 	# Apply opacity to the children of the frame, not the frame itself

@@ -10,13 +10,17 @@
 			"type": "boss",
 			"id": "boss://Pokemon_Pokemon"
 		},
-		"is_complete": false
+		"is_complete": true
 	},
 	{
 		"state": "unlocked",
 		"images": {
 			"locked": "res://art/16_dec/aria-locked.png",
 			"unlocked": "res://art/16_dec/aria-unlocked.png"
+		},
+		"in-game-params": {
+			"type": "character-selection",
+			"id": "character://growl"
 		},
 		"text": "Get Aria!",
 		"is_complete": false

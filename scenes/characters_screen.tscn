@@ -249,7 +249,7 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="Root" type="Control"]
+[node name="Root2" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -13.0
