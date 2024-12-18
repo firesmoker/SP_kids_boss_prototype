@@ -1,6 +1,6 @@
 extends Control
 
-const CHARACTERS_FILE_PATH: String = "res://characters/characters.json"
+const CHARACTERS_FILE_PATH: String = "characters/characters.json"
 
 @onready var confetti_animation: AnimatedSprite2D = $ConfettiAnimation
 var characters_data: Array = []
@@ -17,13 +17,8 @@ func _ready() -> void:
 	populate_hbox()
 
 func load_characters() -> void:
-	var file: FileAccess = FileAccess.open(CHARACTERS_FILE_PATH, FileAccess.READ)
-	if file:
-		var json_data: String = file.get_as_text()
-		file.close()
-		characters_data = JSON.parse_string(json_data)
-	else:
-		print("Failed to open file at path:", CHARACTERS_FILE_PATH)
+	var json_data: String = StateManager.load_state(CHARACTERS_FILE_PATH)
+	characters_data = JSON.parse_string(json_data)
 
 func populate_texts() -> void:
 
@@ -95,6 +90,10 @@ func populate_texts() -> void:
 	
 	$MarginContainer.add_child(play_button)
 
+# Function to handle the button press
+func _on_play_pressed() -> void:
+	StateManager.save_state(CHARACTERS_FILE_PATH, JSON.stringify(characters_data, "\t"))
+	NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 
 func populate_hbox() -> void:
 	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer

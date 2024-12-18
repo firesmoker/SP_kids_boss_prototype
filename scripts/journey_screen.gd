@@ -1,6 +1,6 @@
 extends Control
 
-const LEVELS_FILE_PATH: String = "res://journey/journey.json"
+const LEVELS_FILE_PATH: String = "journey/journey.json"
 
 var levels_data: Array = []
 var settings_window: Node
@@ -11,13 +11,8 @@ func _ready() -> void:
 	populate_hbox()
 
 func load_levels() -> void:
-	var file: FileAccess = FileAccess.open(LEVELS_FILE_PATH, FileAccess.READ)
-	if file:
-		var json_data: String = file.get_as_text()
-		file.close()
-		levels_data = JSON.parse_string(json_data)
-	else:
-		print("Failed to open file at path:", LEVELS_FILE_PATH)
+	var json_data: String = StateManager.load_state(LEVELS_FILE_PATH)
+	levels_data = JSON.parse_string(json_data)
 
 func populate_hbox() -> void:
 	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
