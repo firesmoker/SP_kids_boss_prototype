@@ -51,6 +51,8 @@ func prepare_game(difficulty: String) -> void:
 	Game.on_display_duration = level_data.get("display_duration", 0)
 	if "ending_music_path" in level_data:
 		Game.ending_music_path = level_data.get("ending_music_path", null)
+	else:
+		Game.ending_music_path = ""
 
 	# Start the level
 	start_level()

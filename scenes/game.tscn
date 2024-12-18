@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://chci22f7ck3a7" path="res://audio/CountingStars_122bpm_new.ogg" id="2_2kvrl"]
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
 [ext_resource type="AudioStream" uid="uid://dx2bwdfr0b61t" path="res://audio/slow_down_2.ogg" id="3_h2mfw"]
-[ext_resource type="SpriteFrames" uid="uid://bisacmhheclp8" path="res://scene_resources/player_animations.tres" id="4_0nn2k"]
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="4_ka7fh"]
 [ext_resource type="SpriteFrames" uid="uid://ubtr21y8pmtc" path="res://scene_resources/boss_animations.tres" id="4_ygwuk"]
 [ext_resource type="AudioStream" uid="uid://bfrj1cxbb1dl" path="res://audio/CountingStars_122bpm_new_SLOW70.ogg" id="5_0ilbi"]
@@ -1124,6 +1123,7 @@
 [ext_resource type="Texture2D" uid="uid://in2xn2jv7br5" path="res://art/5_dec/combo_x3/Combo x3_00010.png" id="751_whm7y"]
 [ext_resource type="Texture2D" uid="uid://8x5yjvqqdlu" path="res://art/5_dec/combo_x3/Combo x3_00011.png" id="752_iia0n"]
 [ext_resource type="Texture2D" uid="uid://c2jjtd5fw22t8" path="res://art/5_dec/combo_x3/Combo x3_00012.png" id="753_uiuqy"]
+[ext_resource type="SpriteFrames" uid="uid://dfu1foruxumcn" path="res://scene_resources/animation_girl_lyric.tres" id="754_a27a0"]
 [ext_resource type="Texture2D" uid="uid://t3hiams1etll" path="res://art/5_dec/combo_x3/Combo x3_00013.png" id="754_k7af2"]
 [ext_resource type="Texture2D" uid="uid://ktg1ybf0elut" path="res://art/5_dec/combo_x3/Combo x3_00014.png" id="755_jc0m2"]
 [ext_resource type="Texture2D" uid="uid://dntkmro8sg1fr" path="res://art/5_dec/combo_x3/Combo x3_00015.png" id="756_ibi2x"]
@@ -6022,7 +6022,7 @@ offset_right = 804.0
 offset_bottom = 161.0
 scale = Vector2(0.5, 0.5)
 max_value = 6.0
-step = 0.02
+step = 0.01
 value = 4.0
 texture_under = ExtResource("360_yopmy")
 texture_progress = ExtResource("361_obrbm")
@@ -6397,7 +6397,6 @@ texture = SubResource("GradientTexture2D_rlrxh")
 metadata/_edit_lock_ = true
 
 [node name="BossPanel" type="TextureRect" parent="UI"]
-visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -6411,12 +6410,23 @@ metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/BossPanel"]
 layout_mode = 0
-offset_left = 54.0
+offset_left = 568.0
 offset_top = 28.0
 offset_right = 715.0
 offset_bottom = 124.0
 theme_override_font_sizes/font_size = 48
 text = "בוס"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HealthValue" type="Label" parent="UI/BossPanel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 28.0
+offset_right = 531.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 48
+text = "107"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -6440,7 +6450,6 @@ texture = ExtResource("371_y5r23")
 [node name="Fader" parent="UI/BossPanel" instance=ExtResource("63_jfxac")]
 
 [node name="PlayerPanel" type="TextureRect" parent="UI"]
-visible = false
 offset_right = 425.366
 offset_bottom = 109.0
 scale = Vector2(0.5, 0.5)
@@ -6449,7 +6458,7 @@ expand_mode = 3
 stretch_mode = 2
 flip_h = true
 
-[node name="Label" type="Label" parent="UI/PlayerPanel"]
+[node name="Name" type="Label" parent="UI/PlayerPanel"]
 layout_mode = 0
 offset_left = 242.0
 offset_top = 30.0
@@ -6457,6 +6466,17 @@ offset_right = 902.0
 offset_bottom = 126.0
 theme_override_font_sizes/font_size = 48
 text = "שחקן"
+vertical_alignment = 1
+
+[node name="HealthValue" type="Label" parent="UI/PlayerPanel"]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 28.0
+offset_right = 573.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 48
+text = "107"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="PlayerPortrait" type="TextureRect" parent="UI/PlayerPanel"]
@@ -6624,11 +6644,9 @@ visible = false
 z_index = 3
 position = Vector2(-411.111, 75)
 scale = Vector2(0.319623, 0.319623)
-sprite_frames = ExtResource("4_0nn2k")
-animation = &"girl_attack"
+sprite_frames = ExtResource("754_a27a0")
+animation = &"win"
 autoplay = "idle"
-frame = 21
-frame_progress = 1.0
 script = ExtResource("19_j5u08")
 
 [node name="HitZone" type="Area2D" parent="Level/PlayerCharacter"]
@@ -6663,12 +6681,11 @@ metadata/_edit_lock_ = true
 [node name="Flash" parent="Level/PlayerBot" instance=ExtResource("57_hg35f")]
 
 [node name="Boss" type="AnimatedSprite2D" parent="Level"]
-visible = false
 z_index = 3
 position = Vector2(417.46, 70)
 scale = Vector2(0.590503, 0.590503)
 sprite_frames = ExtResource("4_ygwuk")
-animation = &"robot_damaged_get_hit"
+animation = &"robot_get_hit_strong"
 autoplay = "idle"
 
 [node name="BossHitZone" type="Area2D" parent="Level/Boss"]

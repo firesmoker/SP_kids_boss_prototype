@@ -31,7 +31,9 @@ var model: Dictionary
 @export var score_success_color: Color
 @onready var star_celebration: AspectRatioContainer = $UI/StarCelebration
 @onready var confetti: AnimatedSprite2D = $Level/LibVisuals/Confetti
+@onready var player_name_label: Label = $UI/PlayerPanel/Name
 
+static var player_name:String = "שחקן"
 var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
 var star3_threshold_modifier: float = 0.9
@@ -43,6 +45,8 @@ static var star3_threshold_score: float
 static var score_based_stars: bool = false
 
 static var golden_note_value: float = 1
+
+static var strong_attacks: bool = true
 
 var star1_unlocked: bool = false
 var star2_unlocked: bool = false
@@ -154,6 +158,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 static var song_title: String = ""
 static var boss_model: String = "robot_"
 static var player_model: String = "boy_"
+static var girl_characters: bool = false
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
 static var song_id: String = ""
@@ -196,8 +201,11 @@ var threshold3_unlocked: bool = false
 @export var slow_timer: float = 10.5
 var level_length_in_bar: float = 0
 @export var health_rate: float = 1
-var DamageFromBoss: float = 1
-var DamageFromPlayer: float = 1
+
+static var character_attack_modifier: float = 1
+static var character_health_modifier: float = 1
+static var character_extended_healthbar: bool = false
+
 var starting_position: Vector2
 var vul_time: float = 2
 var time_elapsed: float = 0
@@ -229,6 +237,8 @@ var music_fade_out_amount: float = 2
 
 var beats_before_ending_music: float = 1
 var beats_before_ending_music_counter: float = 0
+
+var played_ending_music: bool = false
 
 static var sp_mode: bool = false
 
@@ -527,11 +537,13 @@ func set_player_health() -> void:
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	
+	
 
 func set_boss_health() -> void:
 	boss_health = starting_boss_health
 	boss_health_bar.max_value = boss_health
 	boss_health_bar.value = boss_health
+	
 
 func set_default_process_modes() -> void:
 	set_boss_process_modes(false)
@@ -571,23 +583,18 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 	
 
 func _ready() -> void:
-	
+	player_character.sprite_frames = load("res://scene_resources/animation_" + player_model + ".tres")
+	player_portrait.texture = load("res://art/18_dec/Avatars/Player/" + player_model + ".png")
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
-	if player_model == "boy_":
-		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Boy.ogv")
-		player_portrait.texture = load("res://art/17_nov/avatar_boy.png")
-	elif player_model == "girl_":
-		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Girl.ogv")
-		player_portrait.texture = load("res://art/17_nov/avatar_girl.png")
-	#crowd_people = crowd.get_children()
+	player_name_label.text = player_name
 	show_debug()
 	set_default_visibility()
 	set_default_process_modes()
 	if game_mode == "boss":
 		set_boss_visibility(true)
 		set_boss_process_modes(true)
-		player_character.play(player_model+"idle")
+		player_character.play("idle")
 
 	elif game_mode == "library":
 		set_library_song_process_modes(true)
@@ -681,6 +688,11 @@ func health_bars_progress(delta: float, rate: float = 1) -> void:
 	boss_health_progress += delta * rate
 	boss_health_progress = clamp(boss_health_progress,0,1)
 	boss_health_bar.value = lerp(boss_previous_health,boss_new_health,boss_health_progress)
+	
+	player_panel.find_child("HealthValue").text = str(player_health_bar.value)
+	boss_panel.find_child("HealthValue").text = str(boss_health_bar.value)
+
+	
 
 func enter_win_ui() -> void:
 	var new_position: Vector2 = Vector2(player_character.global_position.x,player_character.global_position.y - 300)
@@ -723,8 +735,9 @@ func update_score_visual(delta: float) -> void:
 
 func fade_boss_music() -> void:
 	if beats_before_ending_music_counter >= beats_before_ending_music:
-		if not music_ending_player.playing:
+		if not music_ending_player.playing and not played_ending_music:
 			music_ending_player.play()
+			played_ending_music = true
 		music_player.volume_db = clamp(music_player.volume_db - music_fade_out_amount,-80,0)
 		#music_ending_player.volume_db = 0
 		var new_volume: float = clamp(music_ending_player.volume_db + music_fade_in_amount,-80,0)
@@ -751,7 +764,7 @@ func _process(delta: float) -> void:
 		else:
 			boss.play(boss_model + "damaged_idle")
 	if not player_character.is_playing() and not winning and not losing:
-		player_character.play(player_model+"idle")
+		player_character.play("idle")
 		player_bot.play("fly")
 	time_elapsed += delta
 	if time_elapsed > vul_time:
@@ -839,24 +852,24 @@ func update_combo_meter() -> void:
 				ScoreManager.ComboMode.X2:
 					bottom_bottom_glow.play("Level2")
 					bottom_bottom_glow.visible = true
-					bottom_upper_glow.play("Level2")
-					bottom_upper_glow.visible = true
+					#bottom_upper_glow.play("Level2")
+					#bottom_upper_glow.visible = true
 					bottom_bottom_glow.modulate = level2_color
-					bottom_upper_glow.modulate = level2_color
+					#bottom_upper_glow.modulate = level2_color
 				ScoreManager.ComboMode.X3:
 					bottom_bottom_glow.play("Level3")
 					bottom_bottom_glow.visible = true
-					bottom_upper_glow.play("Level3")
-					bottom_upper_glow.visible = true
+					#bottom_upper_glow.play("Level3")
+					#bottom_upper_glow.visible = true
 					bottom_bottom_glow.modulate = level3_color
-					bottom_upper_glow.modulate = level3_color
+					#bottom_upper_glow.modulate = level3_color
 				ScoreManager.ComboMode.X4:
 					bottom_bottom_glow.play("Level4")
 					bottom_bottom_glow.visible = true
-					bottom_upper_glow.play("Level4")
-					bottom_upper_glow.visible = true
+					#bottom_upper_glow.play("Level4")
+					#bottom_upper_glow.visible = true
 					bottom_bottom_glow.modulate = level4_color
-					bottom_upper_glow.modulate = level4_color
+					#bottom_upper_glow.modulate = level4_color
 		
 		if score_manager.combo_mode != ScoreManager.ComboMode.X1:
 			play_combo_audio("res://audio/combo_advanced.ogg")
@@ -1075,7 +1088,8 @@ func win() -> void:
 		audio_play_from_source(boss, audio_clips.boss_death)
 		await boss.animation_finished
 		boss.visible = false
-		
+		if music_ending_player.stream:
+			await music_ending_player.finished
 	music_player_slow.stop()
 	if game_mode == "library":
 		play_music_clip(audio_clips.song_end_music)
@@ -1199,12 +1213,13 @@ func heal(amount: int = 1) -> void:
 	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
 	player_portrait.find_child("Expander").expand(1.10, 0.25, true)
 
-func hit_boss(damage: int = -1) -> void:
+func hit_boss(damage: float = -1) -> void:
 	if not winning and not losing and game_mode == "boss":
 		handle_note_effects()
 		handle_visual_effects()
 		play_boss_audio()
 		handle_player_attack_animation()
+		damage = damage * character_attack_modifier
 		handle_boss_hit(damage)
 		check_boss_health()
 
@@ -1237,17 +1252,22 @@ func play_boss_audio() -> void:
 func handle_player_attack_animation() -> void:
 	player_character.stop()
 	player_bot.stop()
-	player_character.play(player_model + "attack")
+	player_character.play("attack")
 	player_bot.play("attack")
 
 
-func handle_boss_hit(damage: int) -> void:
+func handle_boss_hit(damage: float) -> void:
 	update_boss_health(damage)
 	boss.stop()
-	if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
-		boss.play(boss_model + "damaged_get_hit")
+	var strong_string: String
+	if strong_attacks:
+		strong_string = "_strong"
 	else:
-		boss.play(boss_model + "get_hit")
+		strong_string = ""
+	if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
+		boss.play(boss_model + "damaged_get_hit" + strong_string)
+	else:
+		boss.play(boss_model + "get_hit" + strong_string)
 
 
 func check_boss_health() -> void:
@@ -1285,16 +1305,17 @@ func update_boss_health(health_change: float = -1) -> void:
 	boss_visual_damage()
 	
 
-func get_hit(damage: int = -1) -> void:
+func get_hit(damage: float = -1.0) -> void:
 	if game_mode == "boss":
 		if vulnerable and not winning and not losing:
 			got_hit_atleast_once = true
 			#player_character.find_child("Flash").flash(Color.RED)
-			player_character.play(player_model+"get_hit")
+			player_character.play("get_hit")
 			player_character.find_child("Flash").flash(Color.RED)
 			player_bot.play("get_hit")
 			player_bot.find_child("Flash").flash(Color.RED)
 			audio_play_from_source(player_character, audio_clips.player_hit,-8)
+			damage = damage / character_health_modifier
 			update_player_health(damage)
 			#player_health_bar.value = player_health
 			player_health_bar.find_child("Flash").flash(Color.RED)
@@ -1361,7 +1382,7 @@ func player_win_animation() -> void:
 	player_character.find_child("Expander").expand(1.5, 0.25)
 	player_character.find_child("Expander").move(Vector2(0,0), 0.25)
 	player_character.stop()
-	player_character.play(player_model+"win")
+	player_character.play("win")
 	
 
 func start_score_visual() -> void:
@@ -1456,6 +1477,8 @@ func show_debug(toggle: bool = debug) -> void:
 	debug_overall_score.visible = toggle
 	debug_vulnerable.visible = toggle
 	debug_perfect_score.visible = toggle
+	player_panel.find_child("HealthValue").visible = toggle
+	boss_panel.find_child("HealthValue").visible = toggle
 	
 
 func update_debug() -> void:

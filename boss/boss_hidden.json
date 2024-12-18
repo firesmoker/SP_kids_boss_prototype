@@ -1,0 +1,379 @@
+[
+	{
+		"displayName": "משתגע כבר מלך להיות",
+		"artist": "מלך האריות",
+		"image": "res://songs/LibrarySongCover_CanYouFeelTheLoveTonight_LionKing.jpg",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/IJustCantWaitToBeKingEasy_70_Right.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/IJustCantWaitToBeKing_CMajor_70bpm.ogg",
+				"slow_song_path": "res://audio/IJustCantWaitToBeKing_CMajor_70bpm_SLOW70.ogg",
+				"tempo": 70,
+				"player_life": 6,
+				"boss_life": 24,
+				"ui_type": "treble",
+				"display_duration": 3
+			},
+			"medium": {
+				"melody_path": "res://levels/IJustCantWaitToBeKing_76_Right.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.ogg",
+				"slow_song_path": "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.ogg",
+				"tempo": 76,
+				"player_life": 8,
+				"boss_life": 30,
+				"ui_type": "treble",
+				"display_duration": 2.5
+			},
+			"hard": {
+				"melody_path": "res://levels/IJustCantWaitToBeKingHard_76_Right.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.ogg",
+				"slow_song_path": "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.ogg",
+				"tempo": 76,
+				"player_life": 6,
+				"boss_life": 31,
+				"ui_type": "treble",
+				"display_duration": 2.5
+			}
+		}
+	},
+	{
+		"displayName": "גלגל החיים",
+		"artist": "מלך האריות",
+		"image": "res://songs/AlbumCover_LionKing_Disney_450_Shimurim.jpg",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/CircleOfLifeEasyLonger_TheLionKing_78.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/CircleOfLife_78_longer.ogg",
+				"slow_song_path": "res://audio/CircleOfLife_78_longer_SLOW70.ogg",
+				"tempo": 78,
+				"player_life": 6,
+				"boss_life": 22,
+				"ui_type": "treble",
+				"display_duration": 3
+			},
+			"medium": {
+				"melody_path": "res://levels/CircleOfLifeLonger_TheLionKing_78.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/CircleOfLife_78_longer.ogg",
+				"slow_song_path": "res://audio/CircleOfLife_78_longer_SLOW70.ogg",
+				"tempo": 78,
+				"player_life": 7,
+				"boss_life": 26,
+				"ui_type": "treble",
+				"display_duration": 3.3
+			},
+			"hard": {
+				"melody_path": "res://levels/CircleOfLifeHardLonger_TheLionKing_78.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/CircleOfLife_78_longer.ogg",
+				"slow_song_path": "res://audio/CircleOfLife_78_longer_SLOW70.ogg",
+				"tempo": 78,
+				"player_life": 6,
+				"boss_life": 35,
+				"ui_type": "treble",
+				"display_duration": 3
+			}
+		}
+	},
+	{
+		"displayName": "לט איט גו",
+		"artist": "פרוזן",
+		"image": "res://songs/LibrarySongCover_LetItGo.jpg",
+		"levels": {
+			"medium": {
+				"melody_path": "res://levels/LetItGoSimplified_106_Right.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/LetItGo_Aminor_106.ogg",
+				"slow_song_path": "res://audio/LetItGo_Aminor_106_SLOW70.ogg",
+				"tempo": 106,
+				"player_life": 5,
+				"boss_life": 20,
+				"ui_type": "treble",
+				"display_duration": 3
+			},
+			"hard": {
+				"melody_path": "res://levels/LetItGoSimplifiedHard_106_Right.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/LetItGo_Aminor_106.ogg",
+				"slow_song_path": "res://audio/LetItGo_Aminor_106_SLOW70.ogg",
+				"tempo": 106,
+				"player_life": 6,
+				"boss_life": 31,
+				"ui_type": "treble",
+				"display_duration": 3
+			}
+		}
+	},
+	{
+		"displayName": "הוקי פוקי",
+		"artist": "מסורתי",
+		"image": "res://songs/LibrarySongCover_HokeyPokey.jpg",
+		"levels": {
+			"medium": {
+				"melody_path": "res://levels/HokeyPokey_88_Right.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/HokeyPokeySong_FMajor_88bpm_Short.ogg",
+				"slow_song_path": "res://audio/HokeyPokeySong_FMajor_88bpm_Short_SLOW70.ogg",
+				"tempo": 88,
+				"player_life": 9,
+				"boss_life": 35,
+				"ui_type": "treble",
+				"display_duration": 3
+			},
+			"hard": {
+				"melody_path": "res://levels/HokeyPokeyHard_88_Right.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/HokeyPokeySong_FMajor_88bpm_Short.ogg",
+				"slow_song_path": "res://audio/HokeyPokeySong_FMajor_88bpm_Short_SLOW70.ogg",
+				"tempo": 88,
+				"player_life": 8,
+				"boss_life": 40,
+				"ui_type": "treble",
+				"display_duration": 3
+			}
+		}
+	},
+	{
+		"displayName": "נפילה חופשית",
+		"artist": "טום פטי",
+		"image": "res://songs/LibrarySongCover_TomPetty.jpg",
+		"levels": {
+			"medium": {
+				"melody_path": "res://levels/FreeFallin_155_Right.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/FreeFallin_155bpm_Vocals.ogg",
+				"slow_song_path": "res://audio/FreeFallin_155bpm_Vocals_SLOW70.ogg",
+				"tempo": 155,
+				"player_life": 13,
+				"boss_life": 51,
+				"ui_type": "treble",
+				"display_duration": 3
+			},
+			"hard": {
+				"melody_path": "res://levels/FreeFallinHard_155_Right.txt",
+				"left_melody_path": "",
+				"song_path": "res://audio/FreeFallin_155bpm_Vocals.ogg",
+				"slow_song_path": "res://audio/FreeFallin_155bpm_Vocals_SLOW70.ogg",
+				"tempo": 155,
+				"player_life": 13,
+				"boss_life": 55,
+				"ui_type": "treble",
+				"display_duration": 3
+			}
+		}
+	},
+	{
+		"displayName": "דאנס מאנקי",
+		"artist": "טונז אנד איי",
+		"image": "res://songs/LibrarySongCover_DanceMonkey.jpg",
+		"levels": {
+			"medium": {
+				"melody_path": "res://levels/DanceMonkey_85_Right.txt",
+				"left_melody_path": "res://levels/DanceMonkey_85_Left.txt",
+				"song_path": "res://audio/DanceMonkey_85.ogg",
+				"slow_song_path": "res://audio/DanceMonkey_85_SLOW70.ogg",
+				"tempo": 85,
+				"player_life": 6,
+				"boss_life": 23,
+				"ui_type": "both",
+				"display_duration": 2.5
+			},
+			"hard": {
+				"melody_path": "res://levels/DanceMonkey_85_Right.txt",
+				"left_melody_path": "res://levels/DanceMonkeyHard_85_Left.txt",
+				"song_path": "res://audio/DanceMonkey_85.ogg",
+				"slow_song_path": "res://audio/DanceMonkey_85_SLOW70.ogg",
+				"tempo": 85,
+				"player_life": 8,
+				"boss_life": 33,
+				"ui_type": "both",
+				"display_duration": 2.5
+			}
+		}
+	},
+	{
+		"displayName": "פוקימון",
+		"artist": "פוקימון",
+		"image": "res://songs/LibrarySongCover_Pokemon.jpg",
+		"levels": {
+			"medium": {
+				"melody_path": "res://levels/Pokemon_115_Right.txt",
+				"left_melody_path": "res://levels/Pokemon_115_Left.txt",
+				"song_path": "res://audio/Pokemon_CMajor_115bpm_Short.ogg",
+				"slow_song_path": "res://audio/Pokemon_CMajor_115bpm_Short_SLOW70.ogg",
+				"tempo": 115,
+				"player_life": 4,
+				"boss_life": 23,
+				"ui_type": "both",
+				"display_duration": 2.5
+			},
+			"hard": {
+				"melody_path": "res://levels/PokemonHard_115_Left.txt",
+				"left_melody_path": "res://levels/PokemonHard_115_Left.txt",
+				"song_path": "res://audio/Pokemon_CMajor_115bpm_Short.ogg",
+				"slow_song_path": "res://audio/Pokemon_CMajor_115bpm_Short_SLOW70.ogg",
+				"tempo": 115,
+				"player_life": 6,
+				"boss_life": 26,
+				"ui_type": "both",
+				"display_duration": 2.5
+			}
+		}
+	},
+	{
+		"displayName": "בליבר",
+		"artist": "אימג'ן דרגונס",
+		"image": "res://songs/LibrarySongCover_ImagineDragons_Getty.jpg",
+		"levels": {
+			"medium": {
+				"melody_path": "res://levels/Believer_110_Right.txt",
+				"left_melody_path": "res://levels/Believer_110_Left.txt",
+				"song_path": "res://audio/Believer_ImagineDragons_110bpm_Vocals_Kids.ogg",
+				"slow_song_path": "res://audio/Believer_ImagineDragons_110bpm_Vocals_Kids_SLOW70.ogg",
+				"tempo": 110,
+				"player_life": 4,
+				"boss_life": 23,
+				"ui_type": "both",
+				"display_duration": 2.5
+			}
+		}
+	},
+	{
+		"displayName": "פעמוני חג המולד",
+		"artist": "מסורתי",
+		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/JingleBells_Right.txt",
+				"left_melody_path": "res://levels/JingleBells_Left.txt",
+				"song_path": "res://audio/JingleBells_88.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 88,
+				"player_life": 10,
+				"boss_life": 38,
+				"ui_type": "both",
+				"display_duration": 2.5
+			},
+			"medium": {
+				"melody_path": "res://levels/JingleBellsHard_Right.txt",
+				"left_melody_path": "res://levels/JingleBellsHard_Left.txt",
+				"song_path": "res://audio/JingleBells_88.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 88,
+				"player_life": 12,
+				"boss_life": 47,
+				"ui_type": "both",
+				"display_duration": 2.5
+			}
+		}
+	},
+	{
+		"displayName": "Boss Fantasy 1",
+		"artist": "Simply",
+		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/Boss_Fantasy1_PB2End_Right.txt",
+				"left_melody_path": "res://levels/Boss_Fantasy1_PB2End_Left.txt",
+				"song_path": "res://audio/Fantasy1_94bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 94,
+				"player_life": 9,
+				"boss_life": 44,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Fantasy1_94bpm_ending.ogg",
+			},
+			"hard": {
+				"melody_path": "res://levels/Boss_Fantasy1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Fantasy1_Left.txt",
+				"song_path": "res://audio/Fantasy1_94bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 94,
+				"player_life": 8,
+				"boss_life": 40,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Fantasy1_94bpm_ending.ogg",
+			}
+		}
+	},
+	{
+		"displayName": "Boss FUNK 1",
+		"artist": "Simply",
+		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/Boss_Funk1_PB2End_Right.txt",
+				"left_melody_path": "res://levels/Boss_Funk1_PB2End_Left.txt",
+				"song_path": "res://audio/Funk1_126bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 126,
+				"player_life": 100,
+				"boss_life": 96,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Funk1_126bpm_ending.ogg",
+			},
+			"medium": {
+				"melody_path": "res://levels/Boss_Funk1_PB2End_WithWall_Right.txt",
+				"left_melody_path": "res://levels/Boss_Funk1_PB2End_WithWall_Left.txt",
+				"song_path": "res://audio/Funk1_126bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 126,
+				"player_life": 12,
+				"boss_life": 80,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Funk1_126bpm_ending.ogg",
+			},
+			"hard": {
+				"melody_path": "res://levels/Boss_Funk1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Funk1_Left.txt",
+				"song_path": "res://audio/Funk1_126bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 126,
+				"player_life": 24,
+				"boss_life": 96,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Funk1_126bpm_ending.ogg",
+			}
+		}
+	},
+	{
+		"displayName": "Boss Fantasy 2",
+		"artist": "Simply",
+		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/Boss_Fantasy2_PB2Middle_Right.txt",
+				"left_melody_path": "res://levels/Boss_Fantasy2_PB2Middle_Left.txt",
+				"song_path": "res://audio/Fantasy2_130bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 130,
+				"player_life": 20,
+				"boss_life": 87,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg",
+			},
+			"hard": {
+				"melody_path": "res://levels/Boss_Fantasy2_Right.txt",
+				"left_melody_path": "res://levels/Boss_Fantasy2_Left.txt",
+				"song_path": "res://audio/Fantasy2_130bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 130,
+				"player_life": 127,
+				"boss_life": 132,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg",
+			}
+		}
+	}
+]

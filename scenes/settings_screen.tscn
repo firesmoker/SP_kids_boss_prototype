@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dn3mlxc1nso7f"]
+[gd_scene load_steps=15 format=3 uid="uid://dn3mlxc1nso7f"]
 
 [ext_resource type="Script" path="res://scripts/settings_screen.gd" id="1_6lyn8"]
 [ext_resource type="Texture2D" uid="uid://v4xwj6jaivwn" path="res://art/30.sep/Drone_Fly/Drone_Fly_00000.png" id="2_3hyk2"]
 [ext_resource type="Texture2D" uid="uid://bulita8o26en8" path="res://art/12_nov/new_chars/Girl/Seq - Idle/Girl - Idle_00000.png" id="4_wdu1k"]
 [ext_resource type="Texture2D" uid="uid://oq4srcmpctv2" path="res://art/12_nov/new_chars/Boy/Seq - Idle/Boy - Idle_00000.png" id="5_04kmg"]
+[ext_resource type="Texture2D" uid="uid://ccfnrfyq44m7y" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00000.png" id="5_7jdt1"]
+[ext_resource type="Texture2D" uid="uid://01tbwodyjvqo" path="res://art/18_dec/NewChars/Echo_Boy - Idle/Echo_Boy - Idle_00000.png" id="5_xufhg"]
+[ext_resource type="Texture2D" uid="uid://crysnh301nfcw" path="res://art/18_dec/NewChars/Growl_Boy - Idle/Growl_Boy - Idle_00000.png" id="6_dvc1n"]
 [ext_resource type="Script" path="res://scripts/settings_manager.gd" id="9_7271b"]
 
 [sub_resource type="Theme" id="Theme_w463u"]
@@ -365,6 +368,29 @@ offset_top = 20.0
 offset_right = 64.0
 offset_bottom = 43.0
 
+[node name="BoyGirlToggle" type="CheckButton" parent="UI/DevButtons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -261.28
+offset_top = 455.49
+offset_right = -126.28
+offset_bottom = 486.49
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+text = "Boys / Girls"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="UI/DevButtons/BoyGirlToggle"]
+visible = false
+layout_mode = 0
+offset_left = -10.0
+offset_top = 20.0
+offset_right = 64.0
+offset_bottom = 43.0
+
 [node name="BossToggle" type="CheckButton" parent="UI/DevButtons"]
 visible = false
 layout_mode = 1
@@ -440,6 +466,7 @@ offset_bottom = 42.5122
 text = "Library Song"
 
 [node name="CharacterSelection" type="OptionButton" parent="UI/DevButtons"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -463,6 +490,53 @@ popup/item_1/text = "Boy"
 popup/item_1/icon = ExtResource("5_04kmg")
 popup/item_1/id = 1
 
+[node name="GirlSelection" type="OptionButton" parent="UI/DevButtons"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -410.806
+offset_top = -350.0
+offset_right = -20.8057
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+alignment = 2
+expand_icon = true
+selected = 0
+item_count = 2
+popup/item_0/text = "Lyric"
+popup/item_0/icon = ExtResource("4_wdu1k")
+popup/item_1/text = "Aria"
+popup/item_1/icon = ExtResource("5_7jdt1")
+
+[node name="BoySelection" type="OptionButton" parent="UI/DevButtons"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -410.806
+offset_top = -350.0
+offset_right = -20.8057
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+alignment = 2
+expand_icon = true
+selected = 0
+item_count = 2
+popup/item_0/text = "Echo"
+popup/item_0/icon = ExtResource("5_xufhg")
+popup/item_1/text = "Growl"
+popup/item_1/icon = ExtResource("6_dvc1n")
+
 [node name="SettingsManager" type="Node" parent="."]
 script = ExtResource("9_7271b")
 
@@ -473,7 +547,9 @@ script = ExtResource("9_7271b")
 [connection signal="toggled" from="UI/DevButtons/New Stars" to="." method="_on_new_stars_toggled"]
 [connection signal="toggled" from="UI/DevButtons/SPToggle" to="." method="_on_sp_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/Play Piano" to="." method="_on_play_piano_toggled"]
+[connection signal="toggled" from="UI/DevButtons/BoyGirlToggle" to="." method="_on_boy_girl_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/BossToggle" to="." method="_on_boss_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/ShowLibraryToggle" to="." method="_on_show_library_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]
-[connection signal="item_selected" from="UI/DevButtons/CharacterSelection" to="." method="_on_character_selection_item_selected"]
+[connection signal="item_selected" from="UI/DevButtons/GirlSelection" to="." method="choose_character"]
+[connection signal="item_selected" from="UI/DevButtons/BoySelection" to="." method="choose_character"]

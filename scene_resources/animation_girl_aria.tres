@@ -1,0 +1,317 @@
+[gd_resource type="SpriteFrames" load_steps=74 format=3 uid="uid://dynflj0xfgrn8"]
+
+[ext_resource type="Texture2D" uid="uid://b74pfe43gjiti" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00000.png" id="1_uvl3c"]
+[ext_resource type="Texture2D" uid="uid://bfha7tqdylcrm" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00001.png" id="2_14n2n"]
+[ext_resource type="Texture2D" uid="uid://b8uhba6sij7u6" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00002.png" id="3_dx4t8"]
+[ext_resource type="Texture2D" uid="uid://34kiawpe46d8" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00003.png" id="4_6emh8"]
+[ext_resource type="Texture2D" uid="uid://cxpcsjujfojey" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00004.png" id="5_bvgrc"]
+[ext_resource type="Texture2D" uid="uid://bliuoax1v724u" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00005.png" id="6_en0lq"]
+[ext_resource type="Texture2D" uid="uid://bfgx65odhmgl7" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00006.png" id="7_0vgr2"]
+[ext_resource type="Texture2D" uid="uid://drb3dedmi4pit" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00007.png" id="8_w45ny"]
+[ext_resource type="Texture2D" uid="uid://toqod4lre0jw" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00008.png" id="9_7qc5l"]
+[ext_resource type="Texture2D" uid="uid://b00c6o26je7xt" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00009.png" id="10_ayoxo"]
+[ext_resource type="Texture2D" uid="uid://ch6p0drc2er2m" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00010.png" id="11_px6xf"]
+[ext_resource type="Texture2D" uid="uid://dy5unpdairu4m" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00011.png" id="12_tv8v8"]
+[ext_resource type="Texture2D" uid="uid://ct87wdqxvcxvd" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00012.png" id="13_p7m74"]
+[ext_resource type="Texture2D" uid="uid://b0sbkjpjpkotq" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00013.png" id="14_bslm8"]
+[ext_resource type="Texture2D" uid="uid://dxvtlwfhlujk2" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00014.png" id="15_2uqbw"]
+[ext_resource type="Texture2D" uid="uid://bbcah2fig6nah" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00015.png" id="16_sk5j7"]
+[ext_resource type="Texture2D" uid="uid://c0rq3dfnoqu1e" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00016.png" id="17_dtp2u"]
+[ext_resource type="Texture2D" uid="uid://bfhb13p5g3iul" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00017.png" id="18_v7jsh"]
+[ext_resource type="Texture2D" uid="uid://csvxhrud0hcnw" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00018.png" id="19_6ln8w"]
+[ext_resource type="Texture2D" uid="uid://8nvuc3an2l0w" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00019.png" id="20_k28jh"]
+[ext_resource type="Texture2D" uid="uid://csyb0khfpryke" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00020.png" id="21_g1fwc"]
+[ext_resource type="Texture2D" uid="uid://cf20ggfg3w4vp" path="res://art/18_dec/NewChars/Aria_Girl punch/Aria_Girl punch_00021.png" id="22_l4mp4"]
+[ext_resource type="Texture2D" uid="uid://bvwj6kdgo3aka" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00000.png" id="23_6cl80"]
+[ext_resource type="Texture2D" uid="uid://be5uiyug5t0jf" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00001.png" id="24_ak1tm"]
+[ext_resource type="Texture2D" uid="uid://8sfll0btof6g" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00002.png" id="25_e43pa"]
+[ext_resource type="Texture2D" uid="uid://bwr3fhhdd4y2l" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00003.png" id="26_fy0ww"]
+[ext_resource type="Texture2D" uid="uid://2ejg5gw37yyx" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00004.png" id="27_tfwhy"]
+[ext_resource type="Texture2D" uid="uid://vjhtvkucwxty" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00005.png" id="28_ylieo"]
+[ext_resource type="Texture2D" uid="uid://b5ywsy8hlxhx4" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00006.png" id="29_y80lp"]
+[ext_resource type="Texture2D" uid="uid://dv00h6f5n3bod" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00007.png" id="30_do34b"]
+[ext_resource type="Texture2D" uid="uid://d32oxn3wawjci" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00008.png" id="31_xp1lo"]
+[ext_resource type="Texture2D" uid="uid://5mb5aius52j4" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00009.png" id="32_xyb0u"]
+[ext_resource type="Texture2D" uid="uid://bedidnj4humn2" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00010.png" id="33_2t6sb"]
+[ext_resource type="Texture2D" uid="uid://d2f5nwhhy4ikb" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00011.png" id="34_f1nji"]
+[ext_resource type="Texture2D" uid="uid://b1mgpnkcesvph" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00012.png" id="35_1xpje"]
+[ext_resource type="Texture2D" uid="uid://cvuk7dhwf01jm" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00013.png" id="36_chjvu"]
+[ext_resource type="Texture2D" uid="uid://2c6s227iq1lb" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00014.png" id="37_bnde5"]
+[ext_resource type="Texture2D" uid="uid://b0dllba1cjoa7" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00015.png" id="38_0ft3e"]
+[ext_resource type="Texture2D" uid="uid://dntkeal3pc23e" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00016.png" id="39_s16f5"]
+[ext_resource type="Texture2D" uid="uid://drheu1ohj0pq8" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00017.png" id="40_vsjus"]
+[ext_resource type="Texture2D" uid="uid://5bcprkonlonu" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00018.png" id="41_e1q0r"]
+[ext_resource type="Texture2D" uid="uid://cvpb6kx8chyfy" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00019.png" id="42_wkntm"]
+[ext_resource type="Texture2D" uid="uid://ry2b8ov3axrb" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00020.png" id="43_mjlnv"]
+[ext_resource type="Texture2D" uid="uid://k5i1nkmke3y8" path="res://art/18_dec/NewChars/Aria_Girl - Hit/Aria_Girl - Hit_00021.png" id="44_emn8e"]
+[ext_resource type="Texture2D" uid="uid://ccfnrfyq44m7y" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00000.png" id="45_3c66p"]
+[ext_resource type="Texture2D" uid="uid://b0kx3ugqeihyd" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00001.png" id="46_x133m"]
+[ext_resource type="Texture2D" uid="uid://e6y6s63xqk2y" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00002.png" id="47_dl2o7"]
+[ext_resource type="Texture2D" uid="uid://di2pkyu12o7lj" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00003.png" id="48_hlixw"]
+[ext_resource type="Texture2D" uid="uid://c5qo3w1xr3msn" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00004.png" id="49_bmx2o"]
+[ext_resource type="Texture2D" uid="uid://bw737773i2owh" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00005.png" id="50_yc1fu"]
+[ext_resource type="Texture2D" uid="uid://b0wsxipmrn1xd" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00006.png" id="51_obbaj"]
+[ext_resource type="Texture2D" uid="uid://cxus57nopr2r1" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00007.png" id="52_wkw78"]
+[ext_resource type="Texture2D" uid="uid://do2tcken1bwg8" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00008.png" id="53_fu7s7"]
+[ext_resource type="Texture2D" uid="uid://beipmg2bc1tyj" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00009.png" id="54_cl8dd"]
+[ext_resource type="Texture2D" uid="uid://4mv1dkwkpg0m" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00010.png" id="55_txvvv"]
+[ext_resource type="Texture2D" uid="uid://dob1ptigo50km" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00011.png" id="56_ln7vt"]
+[ext_resource type="Texture2D" uid="uid://n4h8jktkb43u" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00012.png" id="57_u2uft"]
+[ext_resource type="Texture2D" uid="uid://dnbrerlppntn1" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00013.png" id="58_7af73"]
+[ext_resource type="Texture2D" uid="uid://db0fj4gwpdpwt" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00014.png" id="59_yh1gm"]
+[ext_resource type="Texture2D" uid="uid://drd1ey81vgdaa" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00015.png" id="60_umj61"]
+[ext_resource type="Texture2D" uid="uid://bgv1enjbei8yg" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00016.png" id="61_ko8dk"]
+[ext_resource type="Texture2D" uid="uid://bqkawvl3cuox5" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00017.png" id="62_pt4sm"]
+[ext_resource type="Texture2D" uid="uid://c5a3aca372ff6" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00018.png" id="63_rf362"]
+[ext_resource type="Texture2D" uid="uid://d0i6153sxu0rb" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00019.png" id="64_5rdpq"]
+[ext_resource type="Texture2D" uid="uid://1rrj0eu167b4" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00020.png" id="65_fvye2"]
+[ext_resource type="Texture2D" uid="uid://dxxwpwudhegf" path="res://art/18_dec/NewChars/Aria_Girl-Win/Aria_Girl-Win_00000.png" id="66_tyk8l"]
+[ext_resource type="Texture2D" uid="uid://e3astddlc6ei" path="res://art/18_dec/NewChars/Aria_Girl-Win/Aria_Girl-Win_00001.png" id="67_cgo5i"]
+[ext_resource type="Texture2D" uid="uid://bwb7ixnph62u4" path="res://art/18_dec/NewChars/Aria_Girl-Win/Aria_Girl-Win_00002.png" id="68_ca3ia"]
+[ext_resource type="Texture2D" uid="uid://bas0ipscg0f2r" path="res://art/18_dec/NewChars/Aria_Girl-Win/Aria_Girl-Win_00003.png" id="69_ci2oe"]
+[ext_resource type="Texture2D" uid="uid://ddu2d8dwcm6b" path="res://art/18_dec/NewChars/Aria_Girl-Win/Aria_Girl-Win_00004.png" id="70_2p8kq"]
+[ext_resource type="Texture2D" uid="uid://buirer3fke3eb" path="res://art/18_dec/NewChars/Aria_Girl-Win/Aria_Girl-Win_00005.png" id="71_qqc1n"]
+[ext_resource type="Texture2D" uid="uid://btlju6c2rjgil" path="res://art/18_dec/NewChars/Aria_Girl-Win/Aria_Girl-Win_00006.png" id="72_inuo3"]
+[ext_resource type="Texture2D" uid="uid://xi5tvyyoxufu" path="res://art/18_dec/NewChars/Aria_Girl-Win/Aria_Girl-Win_00007.png" id="73_shjt2"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uvl3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_14n2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dx4t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6emh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bvgrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_en0lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0vgr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w45ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7qc5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ayoxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_px6xf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_tv8v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p7m74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bslm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2uqbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sk5j7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dtp2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_v7jsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6ln8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_k28jh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_g1fwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_l4mp4")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 48.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_6cl80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ak1tm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_e43pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_fy0ww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_tfwhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ylieo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_y80lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_do34b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xp1lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_xyb0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_2t6sb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_f1nji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_1xpje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_chjvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_bnde5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_0ft3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_s16f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_vsjus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_e1q0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_wkntm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_mjlnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_emn8e")
+}],
+"loop": false,
+"name": &"get_hit",
+"speed": 48.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_3c66p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_x133m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_dl2o7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_hlixw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_bmx2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_yc1fu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_obbaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_wkw78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_fu7s7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_cl8dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_txvvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_ln7vt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_u2uft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_7af73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_yh1gm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_umj61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_ko8dk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_pt4sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_rf362")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_5rdpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_fvye2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("66_tyk8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_cgo5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_ca3ia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ci2oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_2p8kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_qqc1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_inuo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_shjt2")
+}],
+"loop": false,
+"name": &"win",
+"speed": 48.0
+}]
