@@ -581,13 +581,13 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 	
 
 func _ready() -> void:
-	
+	player_character.sprite_frames = load("res://scene_resources/animation_" + player_model + ".tres")
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
-	if player_model == "boy_":
+	if player_model.begins_with("boy"):
 		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Boy.ogv")
 		player_portrait.texture = load("res://art/17_nov/avatar_boy.png")
-	elif player_model == "girl_":
+	elif player_model.begins_with("girl"):
 		intro_sequence.stream = load("res://art/19_nov/Boss_Fight_Intro_Girl.ogv")
 		player_portrait.texture = load("res://art/17_nov/avatar_girl.png")
 	#crowd_people = crowd.get_children()
@@ -597,7 +597,7 @@ func _ready() -> void:
 	if game_mode == "boss":
 		set_boss_visibility(true)
 		set_boss_process_modes(true)
-		player_character.play(player_model+"idle")
+		player_character.play("idle")
 
 	elif game_mode == "library":
 		set_library_song_process_modes(true)
@@ -765,7 +765,7 @@ func _process(delta: float) -> void:
 		else:
 			boss.play(boss_model + "damaged_idle")
 	if not player_character.is_playing() and not winning and not losing:
-		player_character.play(player_model+"idle")
+		player_character.play("idle")
 		player_bot.play("fly")
 	time_elapsed += delta
 	if time_elapsed > vul_time:
@@ -1253,7 +1253,7 @@ func play_boss_audio() -> void:
 func handle_player_attack_animation() -> void:
 	player_character.stop()
 	player_bot.stop()
-	player_character.play(player_model + "attack")
+	player_character.play("attack")
 	player_bot.play("attack")
 
 
@@ -1311,7 +1311,7 @@ func get_hit(damage: float = -1.0) -> void:
 		if vulnerable and not winning and not losing:
 			got_hit_atleast_once = true
 			#player_character.find_child("Flash").flash(Color.RED)
-			player_character.play(player_model+"get_hit")
+			player_character.play("get_hit")
 			player_character.find_child("Flash").flash(Color.RED)
 			player_bot.play("get_hit")
 			player_bot.find_child("Flash").flash(Color.RED)
@@ -1383,7 +1383,7 @@ func player_win_animation() -> void:
 	player_character.find_child("Expander").expand(1.5, 0.25)
 	player_character.find_child("Expander").move(Vector2(0,0), 0.25)
 	player_character.stop()
-	player_character.play(player_model+"win")
+	player_character.play("win")
 	
 
 func start_score_visual() -> void:

@@ -291,19 +291,34 @@ func _on_show_library_toggle_toggled(toggled_on: bool) -> void:
 
 func choose_character(index: int) -> void:
 	print("chose character!")
-	match index:
-		0:
-			Game.player_model = "girl_"
-			change_character_stats(1.3,1,true)
-			print("chose girl")
-		1:
-			Game.player_model = "boy_"
-			change_character_stats(1,1.2)
-			print("chose boy")
-		_:
-			Game.player_model = "girl_"
-			change_character_stats(1.3,1,true)
-			print("chose default - girl")
+	if girl_characters:
+		match index:
+			0:
+				Game.player_model = "girl_lyric"
+				change_character_stats(1,1.2)
+				print("chose girl_lyric")
+			1:
+				Game.player_model = "girl_aria"
+				change_character_stats(1.3,1,true)
+				print("chose girl_aria")
+			_:
+				Game.player_model = "girl_lyric"
+				change_character_stats(1,1.2)
+				print("chose default - girl_lyric")
+	else:
+		match index:
+			0:
+				Game.player_model = "boy_echo"
+				change_character_stats(1,1.2)
+				print("chose boy_echo")
+			1:
+				Game.player_model = "boy_growl"
+				change_character_stats(1.3,1,true)
+				print("chose boy_growl")
+			_:
+				Game.player_model = "boy_echo"
+				change_character_stats(1,1.2)
+				print("chose default boy_echo")
 	settings_manager.settings["character_selection"] = index
 	#settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
 	#settings_manager.settings["character_health_modifier"] = Game.character_health_modifier
