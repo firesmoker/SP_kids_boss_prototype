@@ -8,9 +8,9 @@
 		"text": "Play against Octobus",
 		"in-game-params": {
 			"type": "boss",
-			"id": "boss://octobus-1"
+			"id": "boss://Pokemon_Pokemon"
 		},
-		"is_complete": true
+		"is_complete": false
 	},
 	{
 		"state": "unlocked",
@@ -30,7 +30,7 @@
 		"text": "Play against Zaam!",
 		"in-game-params": {
 			"type": "boss",
-			"id": "boss://octobus-2"
+			"id": "boss://IJustCantWaitToBeKing_LionKing"
 		},
 		"is_complete": false
 	},
@@ -43,7 +43,7 @@
 		"text": "Play against Boom Boom!",
 		"in-game-params": {
 			"type": "boss",
-			"id": "boss://octobus-3"
+			"id": "boss://BossFunk1_Simply"
 		},
 		"is_complete": false
 	}

@@ -21,11 +21,28 @@ func load_levels() -> void:
 
 func populate_hbox() -> void:
 	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
+	
+	# Clear existing children
+	for child in hbox.get_children():
+		hbox.remove_child(child)
+		child.queue_free()
+
+	var found_first_uncomplete: bool = false
 
 	for i in range(levels_data.size()):
 		var level_data: Dictionary = levels_data[i]
 		var item: Control = create_item(level_data)
-		
+
+		# Check opacity conditions
+		var frame: Panel = item.get_child(0)  # Assuming the frame is the first child
+		if level_data.get("is_complete", false):
+			set_item_opacity(frame, 1.0)
+		elif not found_first_uncomplete:
+			found_first_uncomplete = true
+			set_item_opacity(frame, 1.0)
+		else:
+			set_item_opacity(frame, 0.4)
+
 		# Create a MarginContainer for spacing
 		var container: MarginContainer = MarginContainer.new()
 		container.add_theme_constant_override("margin_left", -5)
@@ -40,6 +57,11 @@ func populate_hbox() -> void:
 		if i < levels_data.size() - 1:
 			var separator: Control = create_horizontal_line()
 			hbox.add_child(separator)
+
+func set_item_opacity(frame: Panel, opacity: float) -> void:
+	# Apply opacity to the children of the frame, not the frame itself
+	for child in frame.get_children():
+		child.modulate.a = opacity
 
 func create_horizontal_line() -> Control:
 	# Create a container for the line
