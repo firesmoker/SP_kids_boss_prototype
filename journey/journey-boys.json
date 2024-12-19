@@ -16,7 +16,8 @@
 	{
 		"images": {
 			"locked": "res://art/16_dec/growl-journey-locked.png",
-			"unlocked": "res://art/16_dec/growl-journey-unlocked.png"
+			"unlocked": "res://art/16_dec/growl-journey-unlocked.png",
+			"complete": "res://art/16_dec/growl-journey.png"
 		},
 		"in-game-params": {
 			"id": "character://growl",
@@ -57,7 +58,8 @@
 	{
 		"images": {
 			"locked": "res://art/16_dec/riff-journey-locked.png",
-			"unlocked": "res://art/16_dec/riff-journey-locked.png"
+			"unlocked": "res://art/16_dec/riff-journey-locked.png",
+			"complete": "res://art/16_dec/riff-journey.png"
 		},
 		"in-game-params": {
 			"id": "character://riff",

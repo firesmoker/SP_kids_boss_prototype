@@ -16,7 +16,8 @@
 	{
 		"images": {
 			"locked": "res://art/16_dec/aria-journey-locked.png",
-			"unlocked": "res://art/16_dec/aria-journey-unlocked.png"
+			"unlocked": "res://art/16_dec/aria-journey-unlocked.png",
+			"unlocked": "res://art/16_dec/aria-journey.png"
 		},
 		"in-game-params": {
 			"id": "character://aria",
@@ -42,7 +43,7 @@
 	},
 	{
 		"images": {
-			"locked": "res://art/16_dec/distortion.png",
+			"locked": "res://art/16_dec/distortion-locked.png",
 			"unlocked": "res://art/16_dec/distortion.png"
 		},
 		"in-game-params": {
@@ -57,7 +58,8 @@
 	{
 		"images": {
 			"locked": "res://art/16_dec/coda-journey-locked.png",
-			"unlocked": "res://art/16_dec/coda-journey-locked.png"
+			"unlocked": "res://art/16_dec/coda-journey-locked.png",
+			"unlocked": "res://art/16_dec/coda-journey.png"
 		},
 		"in-game-params": {
 			"id": "character://coda",

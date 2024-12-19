@@ -44,7 +44,7 @@ func populate_hbox() -> void:
 			set_item_opacity(frame, 1.0)
 			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
 		else:
-			set_item_opacity(frame, 0.4)
+			set_item_opacity(frame, 0.8)
 
 		# Create a MarginContainer for spacing
 		var container: MarginContainer = MarginContainer.new()
@@ -99,10 +99,13 @@ func create_horizontal_line() -> Control:
 
 func create_item(level_data: Dictionary) -> Control:
 	# Determine image based on state
-	var state: String = level_data.get("state", "")
+	var state: String = level_data.get("state", "locked")
 	var images: Dictionary = level_data.get("images", {})
-	var image_file: String = images.get("locked") if state == "locked" else images.get("unlocked")
+	var image_file: String = images.get("unlocked") if state == "unlocked" else images.get("locked")
 
+	if level_data.get("is_complete", false) and images.has("complete"):
+		image_file = images.get("complete")
+	
 	# Extract the text
 	var text: String = level_data.get("text", "")
 
