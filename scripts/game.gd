@@ -168,7 +168,7 @@ static var right_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Ri
 static var left_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
-static var game_won_scene: String = "res://scenes/boss_screen.tscn"
+static var game_won_scene: String = "res://scenes/journey_screen.tscn"
 static var game_state: String
 static var health_collected: bool = false
 static var slowdown_collected: bool = false
@@ -1400,7 +1400,7 @@ func _on_resume_button_up() -> void:
 func _on_win_change_level_button_up() -> void:
 	if game_mode == "boss":
 		get_tree().paused = false
-		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
@@ -1432,7 +1432,7 @@ func on_boss_difficulty_screen_created(boss_difficulty_screen: BossDifficultyScr
 
 func _on_win_continue_button_up() -> void:
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
@@ -1451,7 +1451,7 @@ func _on_return_button_up() -> void:
 	Game.game_state = "Winning"
 	pause()
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 

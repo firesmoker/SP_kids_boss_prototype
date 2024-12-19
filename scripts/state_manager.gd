@@ -30,8 +30,11 @@ static func load_state(path: String) -> String:
 	print("State file not found in tmp://, user://, or res://")
 	return ""
 
+static func save_state(path: String, object: Variant) -> void:
+	save_json(path, JSON.stringify(object, "\t"))
+	
 # Save (update) state to tmp:// or user:// based on permissions
-static func save_state(path: String, data: String) -> void:
+static func save_json(path: String, data: String) -> void:
 	var tmp_path: String = get_full_path(path, "tmp")
 	var user_path: String = get_full_path(path, "user")
 

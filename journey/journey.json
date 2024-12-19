@@ -10,20 +10,20 @@
 		},
 		"is_complete": true,
 		"state": "unlocked",
-		"text": "Play against Octobus"
+		"text": "שחק נגד אוקטובוס"
 	},
 	{
 		"images": {
-			"locked": "res://art/16_dec/aria-locked.png",
-			"unlocked": "res://art/16_dec/aria-unlocked.png"
+			"locked": "res://art/16_dec/growl-locked.png",
+			"unlocked": "res://art/16_dec/growl-unlocked.png"
 		},
 		"in-game-params": {
 			"id": "character://growl",
 			"type": "character-selection"
 		},
-		"is_complete": true,
+		"is_complete": false,
 		"state": "unlocked",
-		"text": "Get Aria!"
+		"text": "קבל את גרול"
 	},
 	{
 		"images": {
@@ -36,7 +36,7 @@
 		},
 		"is_complete": false,
 		"state": "locked",
-		"text": "Play against Zaam!"
+		"text": "שחק נגד זעם"
 	},
 	{
 		"images": {
@@ -49,6 +49,6 @@
 		},
 		"is_complete": false,
 		"state": "locked",
-		"text": "Play against Boom Boom!"
+		"text": "שחק נגד בום בום"
 	}
 ]

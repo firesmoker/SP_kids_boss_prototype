@@ -106,7 +106,7 @@ func _on_play_pressed() -> void:
 		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		JourneyManager.launch_current_level(self)
-	StateManager.save_state(CHARACTERS_FILE_PATH, JSON.stringify(characters_data, "\t"))
+	StateManager.save_state(CHARACTERS_FILE_PATH, characters_data)
 
 func populate_hbox() -> void:
 	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
@@ -121,7 +121,7 @@ func populate_hbox() -> void:
 		hbox.add_child(create_item({}))
 		var item: Control = create_item(new_mode_character)
 		hbox.add_child(item)
-		title.text = "קבל את " + new_mode_character.get("name") + "!"
+		title.text = "קבלו את " + new_mode_character.get("name") + "!"
 		title.offset_top += 40
 		subtitle.text = ""
 		play_button.text = "המשיכו"
@@ -291,7 +291,12 @@ func create_parameter_hbox(texture_path: String, count: int) -> HBoxContainer:
 func update_play_button_state() -> void:
 	# Enable the play button if any character is selected
 	var is_selected: bool = characters_data.any(func(char: Dictionary) -> bool: return char.get("state") == "selected")
-	play_button.disabled = not is_selected and not new_mode_character.is_empty()
+	if not new_mode_character.is_empty():
+		play_button.disabled = false
+	elif is_selected:
+		play_button.disabled = false	
+	else:
+		play_button.disabled = true
 
 	# Set opacity based on the disabled state
 	play_button.modulate = Color(1, 1, 1, 0.4) if play_button.disabled else Color(1, 1, 1, 1)

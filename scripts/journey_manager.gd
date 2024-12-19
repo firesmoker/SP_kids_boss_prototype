@@ -1,8 +1,8 @@
 extends Node
 class_name JourneyManager
 
-const BOSSES_FILE_PATH: String = "res://boss/boss.json"
-const JOURNEY_FILE_PATH: String = "res://journey/journey.json"
+const BOSSES_FILE_PATH: String = "boss/boss.json"
+const JOURNEY_FILE_PATH: String = "journey/journey.json"
 
 static var bosses_data: Array = []
 static var model: Dictionary = {}
@@ -10,13 +10,8 @@ static var current_params: Dictionary = {}  # To store the current parameters
 
 # Load bosses data from the boss.json file
 static func load_bosses() -> void:
-	var file: FileAccess = FileAccess.open(BOSSES_FILE_PATH, FileAccess.ModeFlags.READ)
-	if file:
-		var json_data: String = file.get_as_text()
-		file.close()
-		bosses_data = JSON.parse_string(json_data)
-	else:
-		print("Failed to open file at path:", BOSSES_FILE_PATH)
+	var json_data: String = StateManager.load_state(BOSSES_FILE_PATH)
+	bosses_data = JSON.parse_string(json_data)
 
 static func set_current_scene(params: Dictionary) -> void:
 	if not params.has("type") or not params.has("id"):
@@ -81,18 +76,11 @@ static func move_to_core_game(node: Node) -> void:
 
 # Mark a level as complete by setting is_complete to true
 static func mark_level_as_complete(level_type: String, level_id: String) -> void:
-	var file: FileAccess = FileAccess.open(JOURNEY_FILE_PATH, FileAccess.ModeFlags.READ)
-	if not file:
-		print("Failed to open file at path:", JOURNEY_FILE_PATH)
-		return
-
 	# Read the existing JSON data
-	var json_data: String = file.get_as_text()
-	file.close()  # Close the file after reading
+	var json_data: String = StateManager.load_state(JOURNEY_FILE_PATH)
 
 	# Parse the JSON data
 	var journey_data: Array = JSON.parse_string(json_data)
-	var modified: bool = false
 
 	# Find and mark the level as complete
 	for level: Dictionary in journey_data:
@@ -100,20 +88,10 @@ static func mark_level_as_complete(level_type: String, level_id: String) -> void
 			var params: Dictionary = level["in-game-params"]
 			if params.get("type") == level_type and params.get("id") == level_id:
 				level["is_complete"] = true
-				modified = true
 				print("Marked level as complete:", level_type, level_id)
 				break
 
-	if modified:
-		# Reopen the file in WRITE mode to clear it and save the updated data
-		file = FileAccess.open(JOURNEY_FILE_PATH, FileAccess.ModeFlags.WRITE)
-		if file:
-			file.store_string(JSON.stringify(journey_data, "\t"))
-			file.close()
-		else:
-			print("Failed to open file for writing at path:", JOURNEY_FILE_PATH)
-	else:
-		print("Level not found:", level_type, level_id)
+	StateManager.save_state(JOURNEY_FILE_PATH, journey_data)
 
 # Mark the current level as complete using saved parameters
 static func mark_current_level_as_complete() -> void:
