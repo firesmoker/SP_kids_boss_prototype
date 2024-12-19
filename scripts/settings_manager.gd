@@ -39,10 +39,10 @@ func load_settings() -> void:
 			file.close()
 			print("Settings loaded from", SETTINGS_PATH)
 			
-			Game.cheat_auto_play = settings["auto_play_toggle"]
-			Game.debug = settings["debug_toggle"]
-			Game.cheat_skip_intro = settings["skip_intro"]
-			Game.cheat_skip_middle_c = settings["skip_middle_c"]
+			Game.cheat_auto_play = settings.get("auto_play_toggle", false)
+			Game.debug = settings.get("debug_toggle", false)
+			Game.cheat_skip_intro = settings.get("skip_intro", false)
+			Game.cheat_skip_middle_c = settings.get("skip_middle_c", false)
 	
 		else:
 			print("Failed to load settings.")
