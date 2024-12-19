@@ -286,6 +286,7 @@ scale = Vector2(0.439395, 0.413286)
 texture = ExtResource("2_oru01")
 
 [node name="BackButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 59.0
 offset_top = 51.0
 offset_right = 151.0

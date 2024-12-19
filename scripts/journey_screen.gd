@@ -170,10 +170,7 @@ func create_item(level_data: Dictionary) -> Control:
 	if level_data.get("is_complete", false):
 		status_icon.texture = load("res://art/16_dec/checkmark.png")
 		status_icon_container.position = Vector2(160, 0)
-	elif state == "unlocked":
-		status_icon.texture = load("res://art/16_dec/unlocked.png")
-		status_icon_container.position = Vector2(150, 0)
-	else:
+	elif state == "locked":
 		status_icon.texture = load("res://art/16_dec/lock.png")
 		status_icon_container.position = Vector2(160, 0)
 
