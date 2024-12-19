@@ -6436,14 +6436,14 @@ texture = ExtResource("370_bntdn")
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/BossPanel"]
+layout_direction = 3
 layout_mode = 0
-offset_left = 568.0
+offset_left = 246.0
 offset_top = 28.0
-offset_right = 715.0
+offset_right = 393.0
 offset_bottom = 124.0
 theme_override_font_sizes/font_size = 48
 text = "בוס"
-horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="HealthValue" type="Label" parent="UI/BossPanel"]

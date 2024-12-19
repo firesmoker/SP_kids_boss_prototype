@@ -5,25 +5,26 @@
 			"unlocked": "res://art/16_dec/tactonic.png"
 		},
 		"in-game-params": {
-			"id": "boss://Pokemon_Pokemon",
+			"id": "boss://BossFantasy1_Simply",
 			"type": "boss",
-			"name": "טקטוניק"
+			"name": "טקטוניק",
+			"boss": "tactonic"
 		},
 		"is_complete": false,
 		"text": "שחקו נגד טקטוניק",
 	},
 	{
 		"images": {
-			"locked": "res://art/16_dec/riff-journey-locked.png",
-			"unlocked": "res://art/16_dec/riff-journey-unlocked.png"
+			"locked": "res://art/16_dec/growl-journey-locked.png",
+			"unlocked": "res://art/16_dec/growl-journey-unlocked.png"
 		},
 		"in-game-params": {
-			"id": "character://riff",
+			"id": "character://growl",
 			"type": "character-selection"
 		},
 		"is_complete": false,
 		"state": "locked",
-		"text": "קבלו את ריף"
+		"text": "קבלו את גרול"
 	},
 	{
 		"images": {
@@ -31,13 +32,13 @@
 			"unlocked": "res://art/16_dec/dominantos.png"
 		},
 		"in-game-params": {
-			"id": "boss://IJustCantWaitToBeKing_LionKing",
+			"id": "boss://BossFunk1_Simply",
 			"type": "boss",
-			"name": "דומיננטוס"
+			"name": "דומיננטוס",
+			"boss": "dominantos"
 		},
 		"is_complete": false,
-		"text": "שחקו נגד דומיננטוס",
-		"name": "דומיננטוס"
+		"text": "שחקו נגד דומיננטוס"
 	},
 	{
 		"images": {
@@ -45,24 +46,12 @@
 			"unlocked": "res://art/16_dec/distortion.png"
 		},
 		"in-game-params": {
-			"id": "boss://BossFunk1_Simply",
+			"id": "boss://BossFantasy2_Simply",
 			"type": "boss",			
-			"name": "דיסטורשן"
+			"name": "דיסטורשן",
+			"boss": "distortion"
 		},
 		"is_complete": false,
 		"text": "שחקו נגד דיסטורשן"
-	},
-	{
-		"images": {
-			"locked": "res://art/16_dec/kershando.png",
-			"unlocked": "res://art/16_dec/kershando.png"
-		},
-		"in-game-params": {
-			"id": "boss://BossFunk1_Simply",
-			"type": "boss",
-			"name": "קרשנדו"
-		},
-		"is_complete": false,
-		"text": "שחקו נגד קרשנדו"
 	}
 ]

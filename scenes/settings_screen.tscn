@@ -482,7 +482,7 @@ text = "אפס"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Level" type="OptionButton" parent="UI/DevButtons"]
+[node name="DifficultyLevelItems" type="OptionButton" parent="UI/DevButtons"]
 layout_direction = 3
 layout_mode = 0
 offset_left = 88.5256
@@ -590,6 +590,6 @@ script = ExtResource("9_7271b")
 [connection signal="toggled" from="UI/DevButtons/ShowLibraryToggle" to="." method="_on_show_library_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]
 [connection signal="pressed" from="UI/DevButtons/Reset" to="." method="_on_reset_pressed"]
-[connection signal="item_selected" from="UI/DevButtons/Level" to="." method="_on_difficulty_level_item_selected"]
+[connection signal="item_selected" from="UI/DevButtons/DifficultyLevelItems" to="." method="_on_difficulty_level_item_selected"]
 [connection signal="item_selected" from="UI/DevButtons/GirlSelection" to="." method="choose_character"]
 [connection signal="item_selected" from="UI/DevButtons/BoySelection" to="." method="choose_character"]

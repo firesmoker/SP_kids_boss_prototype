@@ -33,7 +33,10 @@ var model: Dictionary
 @onready var confetti: AnimatedSprite2D = $Level/LibVisuals/Confetti
 @onready var player_name_label: Label = $UI/PlayerPanel/Name
 
+static var boss_id:String
+static var boss_name:String = "בוס"
 static var player_name:String = "שחקן"
+
 var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
 var star3_threshold_modifier: float = 0.9
@@ -113,7 +116,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var player_portrait: TextureRect = $UI/PlayerPanel/PlayerPortrait
 @onready var player_panel: TextureRect = $UI/PlayerPanel
 @onready var boss_panel: TextureRect = $UI/BossPanel
-
+@onready var boss_label: Label = $UI/BossPanel/Label
 
 @onready var boss_portrait: TextureRect = $UI/BossPanel/BossPortrait
 
@@ -598,6 +601,8 @@ func _ready() -> void:
 	player_portrait.texture = load("res://art/18_dec/Avatars/Player/" + player_model + ".png")
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
+		boss_label.text = boss_name
+		
 	player_name_label.text = player_name
 	show_debug()
 	set_default_visibility()
@@ -1428,7 +1433,7 @@ func _on_win_change_level_button_up() -> void:
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
 	Game.repeat_requested = true
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/boss_difficulty_screen.tscn", Callable(self, "on_boss_difficulty_screen_created"))
+		NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
 		#if has_easy_difficulty:
 			#show_easy = true
 		#darken.visible = true

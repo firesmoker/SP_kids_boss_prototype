@@ -24,6 +24,7 @@ func load_characters() -> void:
 		for character_data: Dictionary in characters_data:
 			if character_data.get("id", "") == JourneyManager.current_level.get("id", ""):
 				new_mode_character = character_data
+				new_mode_character["state"] = "unlocked"
 				break
 
 
@@ -96,21 +97,42 @@ func populate_texts() -> void:
 	
 	$MarginContainer.add_child(play_button)
 
-# Function to handle the button press
 func _on_play_pressed() -> void:
+	
+	for character_data: Dictionary in characters_data:
+		if character_data["state"] == "selected":
+			if new_mode_character:
+				character_data["state"] = "unlocked"
+			else:
+				apply_character_params(character_data)
+			
 	if new_mode_character:
 		new_mode_character["state"] = "unlocked"
-		
-		for character_data: Dictionary in characters_data:
-			if character_data["state"] == "selected":
-				character_data["state"] = "unlocked"
-				
 		JourneyManager.mark_current_level_as_complete()
 		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		JourneyManager.launch_current_level(self)
+
 	StateManager.save_state(JourneyManager.get_characters_file_path(), characters_data)
 
+# Dedicated function to apply character parameters to the Game
+func apply_character_params(character_data: Dictionary) -> void:
+	var in_game_params: Dictionary = character_data.get("in-game-params", {})
+	Game.player_model = "%s_%s" % [character_data.get("gender", ""), character_data.get("id", "").trim_prefix("character://")]
+	Game.player_name = character_data.get("name", "")
+	Game.character_attack_modifier = in_game_params.get("attack_modifier", 1.0)
+	Game.character_health_modifier = in_game_params.get("health_modifier", 1.0)
+	Game.strong_attacks = in_game_params.get("strong_attacks", false)
+	Game.bigger_health = in_game_params.get("bigger_health", false)
+
+	print("Player Model:", Game.player_model)
+	print("Player Name:", Game.player_name)
+	print("Attack Modifier:", Game.character_attack_modifier)
+	print("Health Modifier:", Game.character_health_modifier)
+	print("Strong Attacks:", Game.strong_attacks)
+	print("Bigger Health:", Game.bigger_health)
+	
+	
 func populate_hbox() -> void:
 	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
 	
@@ -146,7 +168,7 @@ func create_item(character_data: Dictionary) -> Control:
 	# Determine image based on state
 	var state: String = character_data.get("state", "")
 	var images: Dictionary = character_data.get("images", {})
-	var image_file: String = images.get("unlocked", "") if state != "locked" else images.get("locked", "")
+	var image_file: String = images.get("locked", "") if state == "locked" else images.get("unlocked", "")
 
 	# Extract the name
 	var name: String = character_data.get("name", "")

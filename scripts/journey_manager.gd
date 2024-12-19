@@ -49,6 +49,7 @@ static func launch_level(node: Node, params: Dictionary) -> void:
 		"boss":
 			if params["id"].begins_with("boss://"):
 				load_levels()
+				apply_boss_parameters(params)
 				launch_boss_scene(node, params["id"])
 			else:
 				print("Unknown boss ID:", params["id"])
@@ -72,10 +73,16 @@ static func launch_boss_scene(node: Node, boss_id: String) -> void:
 
 	print("Boss with ID not found:", boss_id)
 
+static func apply_boss_parameters(model: Dictionary) -> void:
+	Game.boss_name = model.get("name", "")
+	Game.boss_id = model.get("boss", "")
+	print("Boss Name:", Game.boss_name)
+	print("Boss Id:", Game.boss_id)
+
 # Prepare game parameters based on the selected difficulty
 static func prepare_game_parameters() -> void:
 	var levels: Dictionary = model.get("levels", {})
-	var difficulty: String = Game.current_difficulty if Game.current_difficulty else "medium"
+	var difficulty: String = Game.current_difficulty if Game.current_difficulty else "easy"
 	var level_data: Dictionary = levels.get(difficulty)
 
 	Game.song_id = model.get("id", "")
@@ -105,14 +112,21 @@ static func mark_level_as_complete(level_type: String, level_id: String) -> void
 	# Parse the JSON data
 	var journey_data: Array = JSON.parse_string(json_data)
 
-	# Find and mark the level as complete
+	# Find and mark the level as complete and unlock the next level
+	var unlock_next: bool = false
+
 	for level: Dictionary in journey_data:
 		if level.has("in-game-params"):
 			var params: Dictionary = level["in-game-params"]
+			if unlock_next:
+				level["state"] = "unlocked"
+				print("Unlocked next level:", params.get("id", ""))
+				unlock_next = false  # Only unlock one level
+				break
 			if params.get("type") == level_type and params.get("id") == level_id:
 				level["is_complete"] = true
 				print("Marked level as complete:", level_type, level_id)
-				break
+				unlock_next = true  # Flag to unlock the next level in the list
 
 	StateManager.save_state(get_levels_file_path(), journey_data)
 

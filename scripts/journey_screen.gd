@@ -101,7 +101,7 @@ func create_item(level_data: Dictionary) -> Control:
 	# Determine image based on state
 	var state: String = level_data.get("state", "")
 	var images: Dictionary = level_data.get("images", {})
-	var image_file: String = images.get("unlocked") if state == "unlocked" else images.get("locked")
+	var image_file: String = images.get("locked") if state == "locked" else images.get("unlocked")
 
 	# Extract the text
 	var text: String = level_data.get("text", "")
