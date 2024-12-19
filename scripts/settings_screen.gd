@@ -295,34 +295,34 @@ func choose_character(index: int) -> void:
 			0:
 				Game.player_model = "girl_lyric"
 				Game.player_name = "ליריק"
-				change_character_stats(1,1.2)
+				change_character_stats(1,1.2,false,true)
 				print("chose girl_lyric")
 			1:
 				Game.player_model = "girl_aria"
 				Game.player_name = "אריאה"
-				change_character_stats(1.7,1,true)
+				change_character_stats(1.7,1,true,false)
 				print("chose girl_aria")
 			_:
 				Game.player_model = "girl_lyric"
 				Game.player_name = "ליריק"
-				change_character_stats(1,1.2)
+				change_character_stats(1,1.2,false,true)
 				print("chose default - girl_lyric")
 	else:
 		match index:
 			0:
 				Game.player_model = "boy_echo"
 				Game.player_name = "אקו"
-				change_character_stats(1,1.2)
+				change_character_stats(1,1.2,false,true)
 				print("chose boy_echo")
 			1:
 				Game.player_model = "boy_growl"
 				Game.player_name = "גרואול"
-				change_character_stats(1.7,1,true)
+				change_character_stats(1.7,1,true,false)
 				print("chose boy_growl")
 			_:
 				Game.player_model = "boy_echo"
 				Game.player_name = "אקו"
-				change_character_stats(1,1.2)
+				change_character_stats(1,1.2,false,true)
 				print("chose default boy_echo")
 	settings_manager.settings["character_selection"] = index
 	#settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
@@ -333,10 +333,11 @@ func choose_character(index: int) -> void:
 func _on_character_selection_item_selected(index: int) -> void:
 	choose_character(index)
 
-func change_character_stats(attack_modifier: float, health_modifier: float, strong_attacks: bool = false) -> void:
+func change_character_stats(attack_modifier: float, health_modifier: float, strong_attacks: bool = false, bigger_health: bool = false) -> void:
 	Game.character_attack_modifier = attack_modifier
 	Game.character_health_modifier = health_modifier
 	Game.strong_attacks = strong_attacks
+	Game.bigger_health = bigger_health
 
 func _on_sp_toggle_toggled(toggled_on: bool) -> void:
 	settings_manager.settings["sp_toggle"] = toggled_on

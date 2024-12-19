@@ -47,6 +47,7 @@ static var score_based_stars: bool = false
 static var golden_note_value: float = 1
 
 static var strong_attacks: bool = true
+static var bigger_health: bool = true
 
 var star1_unlocked: bool = false
 var star2_unlocked: bool = false
@@ -125,6 +126,8 @@ static var target_xp: int = 100  # Replace with your desired XP value
 
 @onready var boss: AnimatedSprite2D = $Level/Boss
 @onready var player_health_bar: TextureProgressBar = $UI/PlayerHealthBar
+@onready var player_health_bar_long: TextureProgressBar = $UI/PlayerHealthBarLong
+
 @onready var boss_health_bar: TextureProgressBar = $UI/BossHealthBar
 @onready var level: Node2D = $Level
 @onready var detector_visual: Node2D = $Level/DetectorVisual
@@ -378,7 +381,13 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	if ui_type == "both":
 		right_hand_part.position.y += 20
 	boss.visible = toggle
-	player_health_bar.visible = toggle
+	if bigger_health:
+		player_health_bar_long.visible = toggle
+		player_health_bar.visible = false
+	else:
+		player_health_bar_long.visible = false
+		player_health_bar.visible = toggle
+	#player_health_bar.visible = toggle
 	boss_health_bar.visible = toggle
 	player_character.visible = toggle
 	player_bot.visible = false
@@ -536,6 +545,8 @@ func set_player_health() -> void:
 	player_health = starting_player_health
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
+	player_health_bar_long.max_value = player_health
+	player_health_bar_long.value = player_health
 	
 	
 
@@ -685,7 +696,7 @@ func health_bars_progress(delta: float, rate: float = 1) -> void:
 	player_health_progress += delta * rate
 	player_health_progress = clamp(player_health_progress,0,1)
 	player_health_bar.value = lerp(player_previous_health,player_new_health,player_health_progress)
-		
+	player_health_bar_long.value = lerp(player_previous_health,player_new_health,player_health_progress)
 	boss_health_progress += delta * rate
 	boss_health_progress = clamp(boss_health_progress,0,1)
 	boss_health_bar.value = lerp(boss_previous_health,boss_new_health,boss_health_progress)
@@ -764,9 +775,10 @@ func _process(delta: float) -> void:
 			boss.play(boss_model + "idle")
 		else:
 			boss.play(boss_model + "damaged_idle")
-	if not player_character.is_playing() and not winning and not losing:
+	
+	if not player_character.is_playing() and not winning and not losing and game_mode == "boss":
 		player_character.play("idle")
-		player_bot.play("fly")
+		#player_bot.play("fly")
 	time_elapsed += delta
 	if time_elapsed > vul_time:
 		grace_period_finished = true
@@ -921,6 +933,7 @@ func fade_elements() -> void:
 	player_panel.find_child("Fader").fade_out()
 	boss_panel.find_child("Fader").fade_out()
 	player_health_bar.find_child("Fader").fade_out()
+	player_health_bar_long.find_child("Fader").fade_out()
 	boss_health_bar.find_child("Fader").fade_out()
 	
 func lose() -> void:
@@ -1213,6 +1226,8 @@ func heal(amount: int = 1) -> void:
 	audio.play()
 	player_health_bar.find_child("Flash").flash(Color.LIGHT_SEA_GREEN, 0.25)
 	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
+	player_health_bar_long.find_child("Flash").flash(Color.LIGHT_SEA_GREEN, 0.25)
+	player_health_bar_long.find_child("Expander").expand(1.10, 0.25, true)
 	player_portrait.find_child("Expander").expand(1.10, 0.25, true)
 
 func hit_boss(damage: float = -1) -> void:
@@ -1292,8 +1307,10 @@ func update_player_health(health_change: float = -1) -> void:
 	player_new_health = player_health
 	if player_health <= player_health_bar.max_value / 6 or player_health <= 1:
 		player_health_bar.tint_progress = Color.RED
+		player_health_bar_long.tint_progress = Color.RED
 	else:
 		player_health_bar.tint_progress = original_health_color
+		player_health_bar_long.tint_progress = original_health_color
 
 func boss_visual_damage() -> void:
 	if boss_health <= boss_health_bar.max_value / 6 or boss_health <= 1:
@@ -1322,6 +1339,8 @@ func get_hit(damage: float = -1.0) -> void:
 			#player_health_bar.value = player_health
 			player_health_bar.find_child("Flash").flash(Color.RED)
 			player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
+			player_health_bar_long.find_child("Flash").flash(Color.RED)
+			player_health_bar_long.find_child("Expander").expand(1.20, 0.15, true)
 			player_portrait.find_child("Flash").flash(Color.RED)
 			player_portrait.find_child("Expander").expand(1.20, 0.15, true)
 			
@@ -1331,6 +1350,8 @@ func get_hit(damage: float = -1.0) -> void:
 func reset_health_bars() -> void:
 	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
+	player_health_bar_long.max_value = player_health
+	player_health_bar_long.value = player_health
 	player_new_health = player_health
 	player_previous_health = player_health
 	boss_health_bar.max_value = boss_health
