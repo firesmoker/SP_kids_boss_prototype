@@ -44,7 +44,7 @@ func populate_hbox() -> void:
 			set_item_opacity(frame, 1.0)
 			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
 		else:
-			set_item_opacity(frame, 0.6)
+			set_item_opacity(frame, 0.4)
 
 		# Create a MarginContainer for spacing
 		var container: MarginContainer = MarginContainer.new()
