@@ -28,7 +28,7 @@
 	},
 	{
 		"images": {
-			"locked": "res://art/16_dec/dominantos.png",
+			"locked": "res://art/16_dec/dominantos-locked.png",
 			"unlocked": "res://art/16_dec/dominantos.png"
 		},
 		"in-game-params": {
@@ -53,5 +53,18 @@
 		},
 		"is_complete": false,
 		"text": "שחקו נגד דיסטורשן"
+	},
+	{
+		"images": {
+			"locked": "res://art/16_dec/coda-journey-locked.png",
+			"unlocked": "res://art/16_dec/coda-journey-locked.png"
+		},
+		"in-game-params": {
+			"id": "character://coda",
+			"type": "character-selection"
+		},
+		"is_complete": false,
+		"state": "locked",
+		"text": "קבלו את קודה"
 	}
 ]

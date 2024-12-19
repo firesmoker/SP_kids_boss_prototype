@@ -44,7 +44,7 @@ func populate_hbox() -> void:
 			set_item_opacity(frame, 1.0)
 			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
 		else:
-			set_item_opacity(frame, 0.4)
+			set_item_opacity(frame, 0.6)
 
 		# Create a MarginContainer for spacing
 		var container: MarginContainer = MarginContainer.new()
@@ -170,7 +170,7 @@ func create_item(level_data: Dictionary) -> Control:
 	elif state == "unlocked":
 		status_icon.texture = load("res://art/16_dec/unlocked.png")
 		status_icon_container.position = Vector2(150, 0)
-	elif state == "locked":
+	else:
 		status_icon.texture = load("res://art/16_dec/lock.png")
 		status_icon_container.position = Vector2(160, 0)
 

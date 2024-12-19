@@ -24,13 +24,7 @@ func load_settings() -> void:
 		return
 		
 	settings = JSON.parse_string(data)
-	Game.debug = settings.get("debug_toggle", false)
-	
-	if settings.get("boss_toggle", false):
-		Game.boss_model = "robot_"
-	else:
-		Game.boss_model = ""
-		
+	Game.debug = settings.get("debug_toggle", false)		
 	Game.cheat_auto_play = settings.get("auto_play_toggle", false)
 	if settings.get("library_song_toggle", false):
 		Game.game_mode = "library"
