@@ -102,8 +102,6 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 var maximum_input_distance: float = 100
 var current_press_position: Vector2
 
-var girl_characters: bool = false
-
 func _ready() -> void:
 	
 	set_default_visibility()
@@ -141,9 +139,9 @@ func apply_settings() -> void:
 	play_piano_toggle.button_pressed  = settings_manager.settings.get("play_piano_sounds", false)
 	#character_selection.selected = settings_manager.settings.get("character_selection", 0)
 	#character_selection.emit_signal("item_selected",settings_manager.settings.get("character_selection", 0))
-	girl_characters = settings_manager.settings.get("girl_characters", false)
-	boy_girl_toggle.button_pressed = girl_characters
-	if girl_characters:
+	var gender: String = settings_manager.settings.get("gender", "boy")
+	boy_girl_toggle.button_pressed = gender == "girl"
+	if gender == "girl":
 		girl_selection.emit_signal("item_selected",girl_selection.get_selected_id())
 	else:
 		boy_selection.emit_signal("item_selected",boy_selection.get_selected_id())
@@ -290,7 +288,7 @@ func _on_show_library_toggle_toggled(toggled_on: bool) -> void:
 
 func choose_character(index: int) -> void:
 	print("chose character!")
-	if girl_characters:
+	if Game.gender == "girl":
 		match index:
 			0:
 				Game.player_model = "girl_lyric"
@@ -358,14 +356,13 @@ func _on_new_stars_toggled(toggled_on: bool) -> void:
 
 
 func _on_boy_girl_toggle_toggled(toggled_on: bool) -> void:
-	girl_characters = toggled_on
-	Game.girl_characters = toggled_on
-	settings_manager.settings["girl_characters"] = toggled_on
+	Game.gender = "girl" if toggled_on else "boy"
+	settings_manager.settings["gender"] = Game.gender
 	settings_manager.save_settings()
-	update_character_options()
+	#update_character_options()
 
 func update_character_options() -> void:
-	if girl_characters:
+	if Game.gender == "girl":
 		girl_selection.visible = true
 		boy_selection.visible = false
 		girl_selection.selected = girl_selection.get_selectable_item()
@@ -375,3 +372,15 @@ func update_character_options() -> void:
 		boy_selection.visible = true
 		boy_selection.selected = boy_selection.get_selectable_item()
 		choose_character(boy_selection.get_selected_id())
+
+
+func _on_reset_pressed() -> void:
+	StateManager.reset_all_data()
+
+
+func _on_difficulty_level_item_selected(index: int) -> void:
+	var difficulties: Array = ["easy", "medium", "hard"]
+	if index >= 0 and index < difficulties.size():
+		Game.current_difficulty = difficulties[index]
+	else:
+		print("Invalid index:", index)

@@ -18,7 +18,7 @@ config/main_scene="res://scenes/boss_screen.tscn"
 
 [autoload]
 
-Startup="*res://scripts/startup.gd"
+Startup="res://scripts/startup.gd"
 
 [debug]
 

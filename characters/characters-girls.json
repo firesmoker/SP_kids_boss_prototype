@@ -1,0 +1,47 @@
+[
+	{
+		"id": "character://lyric",
+		"gender": "girl",
+		"name": "ליריק",
+		"images": {
+			"locked": "res://art/16_dec/lyric-locked.png",
+			"unlocked": "res://art/16_dec/lyric.png"
+		},
+		"parameters": {
+			"attack": 4,
+			"defense": 3,
+			"speed": 1
+		},
+		"state": "unlocked"
+	},
+	{
+		"id": "character://coda",
+		"gender": "girl",
+		"name": "קודה",
+		"images": {
+			"locked": "res://art/16_dec/coda-locked.png",
+			"unlocked": "res://art/16_dec/coda.png"
+		},
+		"parameters": {
+			"attack": 3,
+			"defense": 4,
+			"speed": 2
+		},
+		"state": "locked"
+	},
+	{
+		"id": "character://aria",
+		"gender": "girl",
+		"name": "אריאה",
+		"images": {
+			"locked": "res://art/16_dec/aria-locked.png",
+			"unlocked": "res://art/16_dec/aria.png"
+		},
+		"parameters": {
+			"attack": 4,
+			"defense": 5,
+			"speed": 3
+		},
+		"state": "locked"
+	},
+]

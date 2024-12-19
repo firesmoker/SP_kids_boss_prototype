@@ -1,25 +1,14 @@
 extends Control
 
 const NUM_COLUMNS: int = 4
-const BOSSES_FILE_PATH: String = "res://boss/boss.json"
 
 var bosses_data: Array = []
 var settings_window: Node
 
 func _ready() -> void:
 	$MarginContainer.set_global_position(Vector2(600, 100))
-	load_bosses()
+	bosses_data = JourneyManager.load_bosses()
 	populate_grid()
-
-func load_bosses() -> void:
-	var file: FileAccess = FileAccess.open(BOSSES_FILE_PATH, FileAccess.ModeFlags.READ)
-	if file:
-		var json_data: String = file.get_as_text()
-		file.close()
-
-		bosses_data = JSON.parse_string(json_data)
-	else:
-		print("Failed to open file at path:", BOSSES_FILE_PATH)
 
 func populate_grid() -> void:
 	var grid: GridContainer = $MarginContainer/ScrollContainer/GridContainer

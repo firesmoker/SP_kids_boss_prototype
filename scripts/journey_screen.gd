@@ -1,17 +1,20 @@
 extends Control
 
-const LEVELS_FILE_PATH: String = "journey/journey.json"
-
 var levels_data: Array = []
 var settings_window: Node
+@onready var scroll_container: ScrollContainer = $MarginContainer/ScrollContainer
 
 func _ready() -> void:
 	$MarginContainer.set_global_position(Vector2(600, 100))
 	load_levels()
 	populate_hbox()
+	
+	# Defer restoring the scroll position to ensure the UI is ready
+	await get_tree().process_frame
+	restore_scroll_position()
 
 func load_levels() -> void:
-	var json_data: String = StateManager.load_state(LEVELS_FILE_PATH)
+	var json_data: String = JourneyManager.load_levels()
 	levels_data = JSON.parse_string(json_data)
 
 func populate_hbox() -> void:
@@ -26,6 +29,9 @@ func populate_hbox() -> void:
 
 	for i in range(levels_data.size()):
 		var level_data: Dictionary = levels_data[i]
+		if "in-game-params" not in level_data:
+			continue
+			
 		var item: Control = create_item(level_data)
 
 		# Check opacity conditions
@@ -38,7 +44,7 @@ func populate_hbox() -> void:
 			set_item_opacity(frame, 1.0)
 			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
 		else:
-			set_item_opacity(frame, 0.6)
+			set_item_opacity(frame, 0.4)
 
 		# Create a MarginContainer for spacing
 		var container: MarginContainer = MarginContainer.new()
@@ -58,7 +64,8 @@ func populate_hbox() -> void:
 
 func _on_item_clicked(event: InputEvent, in_game_params: Dictionary) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		JourneyManager.set_current_scene(in_game_params)
+		JourneyManager.set_current_level(in_game_params)
+		save_scroll_position()
 		NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
 
 
@@ -92,7 +99,7 @@ func create_horizontal_line() -> Control:
 
 func create_item(level_data: Dictionary) -> Control:
 	# Determine image based on state
-	var state: String = level_data.get("state", "locked")
+	var state: String = level_data.get("state", "")
 	var images: Dictionary = level_data.get("images", {})
 	var image_file: String = images.get("unlocked") if state == "unlocked" else images.get("locked")
 
@@ -163,7 +170,7 @@ func create_item(level_data: Dictionary) -> Control:
 	elif state == "unlocked":
 		status_icon.texture = load("res://art/16_dec/unlocked.png")
 		status_icon_container.position = Vector2(150, 0)
-	else:
+	elif state == "locked":
 		status_icon.texture = load("res://art/16_dec/lock.png")
 		status_icon_container.position = Vector2(160, 0)
 
@@ -181,6 +188,20 @@ func _on_settings_pressed() -> void:
 		get_tree().root.add_child(settings_window)
 	else:
 		settings_window.visible = !settings_window.visible
+	
+	load_levels()
+	populate_hbox()
 
 func _on_songs_pressed() -> void:
 	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
+
+
+# Save the current scroll position
+func save_scroll_position() -> void:
+	var scroll_position: Vector2 = Vector2(scroll_container.scroll_horizontal, scroll_container.scroll_vertical)
+	JourneyManager.save_scroll_position(scroll_position.x)
+
+# Restore the scroll position
+func restore_scroll_position() -> void:
+	var scroll_position: int = JourneyManager.load_scroll_position()
+	scroll_container.scroll_horizontal = scroll_position

@@ -161,7 +161,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 static var song_title: String = ""
 static var boss_model: String = "robot_"
 static var player_model: String = "boy_"
-static var girl_characters: bool = false
+static var gender: String = "boy"
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
 static var song_id: String = ""
@@ -1368,7 +1368,7 @@ func restart_level(wait: bool = false, type: String = "normal") -> void:
 		timer.start(0.8)
 		await timer.timeout
 	get_tree().paused = false
-	#get_tree().reload_current_scene()
+	#get_tree().reload_current_level()
 	var game: Game = NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
 	game.model = model
 	
@@ -1439,7 +1439,7 @@ func _on_win_restart_button_up(show_easy: bool = false) -> void:
 		#difficulty.visible = true
 	else:
 		#get_tree().paused = false
-		#get_tree().reload_current_scene()
+		#get_tree().reload_current_level()
 		#restart_level()
 		NodeHelper.move_to_scene(self, "res://scenes/song_difficulty_screen.tscn", Callable(self, "on_song_difficulty_screen_created"))
 

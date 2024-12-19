@@ -1,7 +1,5 @@
 extends Control
 
-const CHARACTERS_FILE_PATH: String = "characters/characters.json"
-
 @onready var confetti_animation: AnimatedSprite2D = $ConfettiAnimation
 var characters_data: Array = []
 var settings_window: Node
@@ -19,12 +17,12 @@ func _ready() -> void:
 	update_play_button_state()
 
 func load_characters() -> void:
-	var json_data: String = StateManager.load_state(CHARACTERS_FILE_PATH)
+	var json_data: String = JourneyManager.load_characters()
 	characters_data = JSON.parse_string(json_data)
 	
-	if JourneyManager.current_params.get("type") == "character-selection":
+	if JourneyManager.current_level.get("type") == "character-selection":
 		for character_data: Dictionary in characters_data:
-			if character_data.get("id", "") == JourneyManager.current_params.get("id", ""):
+			if character_data.get("id", "") == JourneyManager.current_level.get("id", ""):
 				new_mode_character = character_data
 				break
 
@@ -33,12 +31,12 @@ func populate_texts() -> void:
 
 	# Title Label at the top center with a 20px margin
 	title = Label.new()
-	title.text = "נגנו מול זעם"
+	title.text = "נגנו מול " + JourneyManager.current_level.get("name", "")
 	title.set("theme_override_font_sizes/font_size", 36)
 	title.set("theme_override_colors/font_color", Color("#FFFFFF"))
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.custom_minimum_size = Vector2(300, 0)
-	title.position = Vector2(-175, -90)  # 20px margin from the top
+	title.position = Vector2(-170, -90)  # 20px margin from the top
 	$MarginContainer.add_child(title)
 
 	# Subtitle Label at the top center with a 60px margin
@@ -102,11 +100,16 @@ func populate_texts() -> void:
 func _on_play_pressed() -> void:
 	if new_mode_character:
 		new_mode_character["state"] = "unlocked"
+		
+		for character_data: Dictionary in characters_data:
+			if character_data["state"] == "selected":
+				character_data["state"] = "unlocked"
+				
 		JourneyManager.mark_current_level_as_complete()
 		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		JourneyManager.launch_current_level(self)
-	StateManager.save_state(CHARACTERS_FILE_PATH, characters_data)
+	StateManager.save_state(JourneyManager.get_characters_file_path(), characters_data)
 
 func populate_hbox() -> void:
 	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
@@ -314,3 +317,7 @@ func _on_item_selected(event: InputEvent, character_data: Dictionary) -> void:
 		# Refresh the view
 		populate_hbox()
 		update_play_button_state()
+
+
+func _on_back_button_pressed() -> void:
+	NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")

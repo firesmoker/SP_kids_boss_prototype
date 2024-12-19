@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy8n8gygufbxn"]
+[gd_scene load_steps=5 format=3 uid="uid://cio1343ywkq58"]
 
 [ext_resource type="Script" path="res://scripts/journey_screen.gd" id="1_btomd"]
 [ext_resource type="Texture2D" uid="uid://3yqshu3vyx4k" path="res://art/16_dec/journey-background.png" id="2_ssjs3"]
