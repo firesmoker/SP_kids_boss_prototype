@@ -33,7 +33,10 @@ var model: Dictionary
 @onready var confetti: AnimatedSprite2D = $Level/LibVisuals/Confetti
 @onready var player_name_label: Label = $UI/PlayerPanel/Name
 
+static var boss_id:String
+static var boss_name:String = "בוס"
 static var player_name:String = "שחקן"
+
 var star1_threshold_modifier: float = 0.5
 var star2_threshold_modifier: float = 0.7
 var star3_threshold_modifier: float = 0.9
@@ -113,7 +116,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var player_portrait: TextureRect = $UI/PlayerPanel/PlayerPortrait
 @onready var player_panel: TextureRect = $UI/PlayerPanel
 @onready var boss_panel: TextureRect = $UI/BossPanel
-
+@onready var boss_label: Label = $UI/BossPanel/Label
 
 @onready var boss_portrait: TextureRect = $UI/BossPanel/BossPortrait
 
@@ -161,7 +164,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 static var song_title: String = ""
 static var boss_model: String = "robot_"
 static var player_model: String = "boy_"
-static var girl_characters: bool = false
+static var gender: String = "boy"
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
 static var song_id: String = ""
@@ -171,7 +174,7 @@ static var right_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Ri
 static var left_melody_path: String = "res://levels/IJustCantWaitToBeKing_76_Right.txt"
 static var game_scene: String = "res://scenes/game.tscn"
 static var game_over_scene: String = "res://scenes/game_over_screen.tscn"
-static var game_won_scene: String = "res://scenes/boss_screen.tscn"
+static var game_won_scene: String = "res://scenes/journey_screen.tscn"
 static var game_state: String
 static var health_collected: bool = false
 static var slowdown_collected: bool = false
@@ -598,6 +601,8 @@ func _ready() -> void:
 	player_portrait.texture = load("res://art/18_dec/Avatars/Player/" + player_model + ".png")
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
+		boss_label.text = boss_name
+		
 	player_name_label.text = player_name
 	show_debug()
 	set_default_visibility()
@@ -664,6 +669,7 @@ func _ready() -> void:
 	game_state = "Playing"
 	
 	set_star_bar_values()
+	
 	#score_manager.combo_full_hits = roundi(score_manager.total_notes_in_level / 10)
 	#score_manager.perfect_score = score_manager.perfect_score_in_level()
 	#score_manager.three_stars_score = score_manager.three_stars_score_in_level()
@@ -1130,6 +1136,7 @@ func win() -> void:
 	game_state = "Win"
 	last_game_lost = false
 	enter_win_ui()
+	JourneyManager.mark_current_level_as_complete()
 
 func new_timer(wait_time: float = 2.0) -> Timer:
 	var timer: Timer = Timer.new()
@@ -1366,7 +1373,7 @@ func restart_level(wait: bool = false, type: String = "normal") -> void:
 		timer.start(0.8)
 		await timer.timeout
 	get_tree().paused = false
-	#get_tree().reload_current_scene()
+	#get_tree().reload_current_level()
 	var game: Game = NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
 	game.model = model
 	
@@ -1419,14 +1426,14 @@ func _on_resume_button_up() -> void:
 func _on_win_change_level_button_up() -> void:
 	if game_mode == "boss":
 		get_tree().paused = false
-		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
 	Game.repeat_requested = true
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/boss_difficulty_screen.tscn", Callable(self, "on_boss_difficulty_screen_created"))
+		NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
 		#if has_easy_difficulty:
 			#show_easy = true
 		#darken.visible = true
@@ -1437,7 +1444,7 @@ func _on_win_restart_button_up(show_easy: bool = false) -> void:
 		#difficulty.visible = true
 	else:
 		#get_tree().paused = false
-		#get_tree().reload_current_scene()
+		#get_tree().reload_current_level()
 		#restart_level()
 		NodeHelper.move_to_scene(self, "res://scenes/song_difficulty_screen.tscn", Callable(self, "on_song_difficulty_screen_created"))
 
@@ -1451,7 +1458,7 @@ func on_boss_difficulty_screen_created(boss_difficulty_screen: BossDifficultyScr
 
 func _on_win_continue_button_up() -> void:
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
@@ -1470,7 +1477,7 @@ func _on_return_button_up() -> void:
 	Game.game_state = "Winning"
 	pause()
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 

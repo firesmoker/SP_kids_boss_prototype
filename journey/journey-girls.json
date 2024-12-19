@@ -1,0 +1,70 @@
+[
+	{
+		"images": {
+			"locked": "res://art/16_dec/tactonic.png",
+			"unlocked": "res://art/16_dec/tactonic.png"
+		},
+		"in-game-params": {
+			"id": "boss://BossFantasy1_Simply",
+			"type": "boss",
+			"name": "טקטוניק",
+			"boss": "tactonic"
+		},
+		"is_complete": false,
+		"text": "שחקו נגד טקטוניק",
+	},
+	{
+		"images": {
+			"locked": "res://art/16_dec/aria-journey-locked.png",
+			"unlocked": "res://art/16_dec/aria-journey-unlocked.png"
+		},
+		"in-game-params": {
+			"id": "character://aria",
+			"type": "character-selection"
+		},
+		"is_complete": false,
+		"state": "locked",
+		"text": "קבלו את אריאה"
+	},
+	{
+		"images": {
+			"locked": "res://art/16_dec/dominantos-locked.png",
+			"unlocked": "res://art/16_dec/dominantos.png"
+		},
+		"in-game-params": {
+			"id": "boss://BossFunk1_Simply",
+			"type": "boss",
+			"name": "דומיננטוס",
+			"boss": "dominantos"
+		},
+		"is_complete": false,
+		"text": "שחקו נגד דומיננטוס"
+	},
+	{
+		"images": {
+			"locked": "res://art/16_dec/distortion.png",
+			"unlocked": "res://art/16_dec/distortion.png"
+		},
+		"in-game-params": {
+			"id": "boss://BossFantasy2_Simply",
+			"type": "boss",			
+			"name": "דיסטורשן",
+			"boss": "distortion"
+		},
+		"is_complete": false,
+		"text": "שחקו נגד דיסטורשן"
+	},
+	{
+		"images": {
+			"locked": "res://art/16_dec/coda-journey-locked.png",
+			"unlocked": "res://art/16_dec/coda-journey-locked.png"
+		},
+		"in-game-params": {
+			"id": "character://coda",
+			"type": "character-selection"
+		},
+		"is_complete": false,
+		"state": "locked",
+		"text": "קבלו את קודה"
+	}
+]

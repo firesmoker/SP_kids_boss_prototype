@@ -18,7 +18,7 @@ extends Window
 @onready var play_piano_toggle: CheckButton = $"UI/DevButtons/Play Piano"
 @onready var new_stars_toggle: CheckButton = $"UI/DevButtons/New Stars"
 @onready var boy_girl_toggle: CheckButton = $UI/DevButtons/BoyGirlToggle
-
+@onready var difficulty_level_items: OptionButton = $UI/DevButtons/DifficultyLevelItems
 
 
 @onready var load_overlay: TextureRect = $UI/LoadOverlay
@@ -102,8 +102,6 @@ var default_left_melody: String = "res://levels/melody1_left.txt"
 var maximum_input_distance: float = 100
 var current_press_position: Vector2
 
-var girl_characters: bool = false
-
 func _ready() -> void:
 	
 	set_default_visibility()
@@ -141,12 +139,20 @@ func apply_settings() -> void:
 	play_piano_toggle.button_pressed  = settings_manager.settings.get("play_piano_sounds", false)
 	#character_selection.selected = settings_manager.settings.get("character_selection", 0)
 	#character_selection.emit_signal("item_selected",settings_manager.settings.get("character_selection", 0))
-	girl_characters = settings_manager.settings.get("girl_characters", false)
-	boy_girl_toggle.button_pressed = girl_characters
-	if girl_characters:
+	var gender: String = settings_manager.settings.get("gender", "boy")
+	boy_girl_toggle.button_pressed = gender == "girl"
+	if gender == "girl":
 		girl_selection.emit_signal("item_selected",girl_selection.get_selected_id())
 	else:
 		boy_selection.emit_signal("item_selected",boy_selection.get_selected_id())
+	# Load current difficulty into the difficulty level selection
+	var difficulties: Array = ["easy", "medium", "hard"]
+	if difficulty_level_items:  # Ensure the control exists
+		var selected_index: int = difficulties.find(Game.current_difficulty)
+		if selected_index != -1:
+			difficulty_level_items.selected = selected_index
+		else:
+			difficulty_level_items.selected = 0  # Default to "easy" if not found
 	
 
 func connect_buttons() -> void:	
@@ -288,50 +294,51 @@ func _on_show_library_toggle_toggled(toggled_on: bool) -> void:
 	settings_manager.save_settings()
 		
 
-func choose_character(index: int) -> void:
-	print("chose character!")
-	if girl_characters:
-		match index:
-			0:
-				Game.player_model = "girl_lyric"
-				Game.player_name = "ליריק"
-				change_character_stats(1,1.2,false,true)
-				print("chose girl_lyric")
-			1:
-				Game.player_model = "girl_aria"
-				Game.player_name = "אריאה"
-				change_character_stats(1.7,1,true,false)
-				print("chose girl_aria")
-			_:
-				Game.player_model = "girl_lyric"
-				Game.player_name = "ליריק"
-				change_character_stats(1,1.2,false,true)
-				print("chose default - girl_lyric")
-	else:
-		match index:
-			0:
-				Game.player_model = "boy_echo"
-				Game.player_name = "אקו"
-				change_character_stats(1,1.2,false,true)
-				print("chose boy_echo")
-			1:
-				Game.player_model = "boy_growl"
-				Game.player_name = "גרואול"
-				change_character_stats(1.7,1,true,false)
-				print("chose boy_growl")
-			_:
-				Game.player_model = "boy_echo"
-				Game.player_name = "אקו"
-				change_character_stats(1,1.2,false,true)
-				print("chose default boy_echo")
-	settings_manager.settings["character_selection"] = index
-	#settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
-	#settings_manager.settings["character_health_modifier"] = Game.character_health_modifier
-	settings_manager.save_settings()
+#func choose_character(index: int) -> void:
+	#print("chose character!")
+	#if Game.gender == "girl":
+		#match index:
+			#0:
+				#Game.player_model = "girl_lyric"
+				#Game.player_name = "ליריק"
+				#change_character_stats(1,1.2,false,true)
+				#print("chose girl_lyric")
+			#1:
+				#Game.player_model = "girl_aria"
+				#Game.player_name = "אריאה"
+				#change_character_stats(1.7,1,true,false)
+				#print("chose girl_aria")
+			#_:
+				#Game.player_model = "girl_lyric"
+				#Game.player_name = "ליריק"
+				#change_character_stats(1,1.2,false,true)
+				#print("chose default - girl_lyric")
+	#else:
+		#match index:
+			#0:
+				#Game.player_model = "boy_echo"
+				#Game.player_name = "אקו"
+				#change_character_stats(1,1.2,false,true)
+				#print("chose boy_echo")
+			#1:
+				#Game.player_model = "boy_growl"
+				#Game.player_name = "גרואול"
+				#change_character_stats(1.7,1,true,false)
+				#print("chose boy_growl")
+			#_:
+				#Game.player_model = "boy_echo"
+				#Game.player_name = "אקו"
+				#change_character_stats(1,1.2,false,true)
+				#print("chose default boy_echo")
+	#settings_manager.settings["character_selection"] = index
+	##settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
+	##settings_manager.settings["character_health_modifier"] = Game.character_health_modifier
+	#settings_manager.save_settings()
 
 
 func _on_character_selection_item_selected(index: int) -> void:
-	choose_character(index)
+	pass
+	#choose_character(index)
 
 func change_character_stats(attack_modifier: float, health_modifier: float, strong_attacks: bool = false, bigger_health: bool = false) -> void:
 	Game.character_attack_modifier = attack_modifier
@@ -358,20 +365,34 @@ func _on_new_stars_toggled(toggled_on: bool) -> void:
 
 
 func _on_boy_girl_toggle_toggled(toggled_on: bool) -> void:
-	girl_characters = toggled_on
-	Game.girl_characters = toggled_on
-	settings_manager.settings["girl_characters"] = toggled_on
+	Game.gender = "girl" if toggled_on else "boy"
+	settings_manager.settings["gender"] = Game.gender
 	settings_manager.save_settings()
-	update_character_options()
+	#update_character_options()
 
-func update_character_options() -> void:
-	if girl_characters:
-		girl_selection.visible = true
-		boy_selection.visible = false
-		girl_selection.selected = girl_selection.get_selectable_item()
-		choose_character(girl_selection.get_selected_id())
+#func update_character_options() -> void:
+	#if Game.gender == "girl":
+		#girl_selection.visible = true
+		#boy_selection.visible = false
+		#girl_selection.selected = girl_selection.get_selectable_item()
+		#choose_character(girl_selection.get_selected_id())
+	#else:
+		#girl_selection.visible = false
+		#boy_selection.visible = true
+		#boy_selection.selected = boy_selection.get_selectable_item()
+		#choose_character(boy_selection.get_selected_id())
+
+
+func _on_reset_pressed() -> void:
+	StateManager.reset_state(JourneyManager.get_characters_file_path())
+	StateManager.reset_state(JourneyManager.get_levels_file_path())
+
+
+func _on_difficulty_level_item_selected(index: int) -> void:
+	var difficulties: Array = ["easy", "medium", "hard"]
+	if index >= 0 and index < difficulties.size():
+		Game.current_difficulty = difficulties[index]
+		settings_manager.settings["current_difficulty"] = Game.current_difficulty
+		settings_manager.save_settings()
 	else:
-		girl_selection.visible = false
-		boy_selection.visible = true
-		boy_selection.selected = boy_selection.get_selectable_item()
-		choose_character(boy_selection.get_selected_id())
+		print("Invalid index:", index)

@@ -1,0 +1,333 @@
+[gd_scene load_steps=67 format=3 uid="uid://i77oxk58n4x"]
+
+[ext_resource type="Script" path="res://scripts/characters_screen.gd" id="1_2cc6c"]
+[ext_resource type="Texture2D" uid="uid://c6pltc0vyrk8i" path="res://art/EndScreenConfetti/end_screen_confetti_1.png" id="2_k54uh"]
+[ext_resource type="Texture2D" uid="uid://cw4s210n5a564" path="res://art/16_dec/character-unlock-background.png" id="2_oru01"]
+[ext_resource type="Texture2D" uid="uid://cq6ql7v1cwu5i" path="res://art/back.png" id="3_oljqs"]
+[ext_resource type="Texture2D" uid="uid://b462p38rxgp05" path="res://art/EndScreenConfetti/end_screen_confetti_2.png" id="3_t80i7"]
+[ext_resource type="Texture2D" uid="uid://ds6m3gpfqopku" path="res://art/EndScreenConfetti/end_screen_confetti_3.png" id="4_smwp0"]
+[ext_resource type="Texture2D" uid="uid://edrjfe6b1n6i" path="res://art/EndScreenConfetti/end_screen_confetti_4.png" id="5_7ilab"]
+[ext_resource type="Texture2D" uid="uid://debmccjbxdup8" path="res://art/EndScreenConfetti/end_screen_confetti_5.png" id="6_4ih5r"]
+[ext_resource type="Texture2D" uid="uid://bqtth6uyis23p" path="res://art/EndScreenConfetti/end_screen_confetti_6.png" id="7_dvmqq"]
+[ext_resource type="Texture2D" uid="uid://dav7dt2fdeq52" path="res://art/EndScreenConfetti/end_screen_confetti_7.png" id="8_ycgwk"]
+[ext_resource type="Texture2D" uid="uid://b5f84o0ey5h4m" path="res://art/EndScreenConfetti/end_screen_confetti_8.png" id="9_hwevd"]
+[ext_resource type="Texture2D" uid="uid://dybg2ouf4q8ed" path="res://art/EndScreenConfetti/end_screen_confetti_9.png" id="10_jqmbg"]
+[ext_resource type="Texture2D" uid="uid://u6ju3hax8y6p" path="res://art/EndScreenConfetti/end_screen_confetti_10.png" id="11_ejakk"]
+[ext_resource type="Texture2D" uid="uid://cx5lhsj62fd4l" path="res://art/EndScreenConfetti/end_screen_confetti_11.png" id="12_s8vwf"]
+[ext_resource type="Texture2D" uid="uid://dtvnbf8mq56ft" path="res://art/EndScreenConfetti/end_screen_confetti_12.png" id="13_j6ige"]
+[ext_resource type="Texture2D" uid="uid://bu6vfsr7rj6br" path="res://art/EndScreenConfetti/end_screen_confetti_13.png" id="14_wku7v"]
+[ext_resource type="Texture2D" uid="uid://yta8jpajfd5m" path="res://art/EndScreenConfetti/end_screen_confetti_14.png" id="15_mlqs0"]
+[ext_resource type="Texture2D" uid="uid://tpfcq0v6c07k" path="res://art/EndScreenConfetti/end_screen_confetti_15.png" id="16_1arhe"]
+[ext_resource type="Texture2D" uid="uid://bpasuwlln8stf" path="res://art/EndScreenConfetti/end_screen_confetti_16.png" id="17_ns6e7"]
+[ext_resource type="Texture2D" uid="uid://dr7deenc2til5" path="res://art/EndScreenConfetti/end_screen_confetti_17.png" id="18_aswql"]
+[ext_resource type="Texture2D" uid="uid://c6vbki3ge38ch" path="res://art/EndScreenConfetti/end_screen_confetti_18.png" id="19_v1vmf"]
+[ext_resource type="Texture2D" uid="uid://b88xeayt6hfjw" path="res://art/EndScreenConfetti/end_screen_confetti_19.png" id="20_metdy"]
+[ext_resource type="Texture2D" uid="uid://5v2qqmm2aqfe" path="res://art/EndScreenConfetti/end_screen_confetti_20.png" id="21_61d4v"]
+[ext_resource type="Texture2D" uid="uid://c61fr3g67reca" path="res://art/EndScreenConfetti/end_screen_confetti_21.png" id="22_w8miw"]
+[ext_resource type="Texture2D" uid="uid://di5mldm5hskhy" path="res://art/EndScreenConfetti/end_screen_confetti_22.png" id="23_q2ghj"]
+[ext_resource type="Texture2D" uid="uid://bdel6mjwm84g6" path="res://art/EndScreenConfetti/end_screen_confetti_23.png" id="24_jd0jc"]
+[ext_resource type="Texture2D" uid="uid://c7dq7nw0xrv8g" path="res://art/EndScreenConfetti/end_screen_confetti_24.png" id="25_gi834"]
+[ext_resource type="Texture2D" uid="uid://calnr1lpy5xoe" path="res://art/EndScreenConfetti/end_screen_confetti_25.png" id="26_ykhi4"]
+[ext_resource type="Texture2D" uid="uid://ci20giqeovpnn" path="res://art/EndScreenConfetti/end_screen_confetti_26.png" id="27_80eja"]
+[ext_resource type="Texture2D" uid="uid://cy8mljaplysp2" path="res://art/EndScreenConfetti/end_screen_confetti_27.png" id="28_dcrdw"]
+[ext_resource type="Texture2D" uid="uid://bv88qs1ogp8eh" path="res://art/EndScreenConfetti/end_screen_confetti_28.png" id="29_bl5lt"]
+[ext_resource type="Texture2D" uid="uid://6r5kuiucbrp8" path="res://art/EndScreenConfetti/end_screen_confetti_29.png" id="30_0xncf"]
+[ext_resource type="Texture2D" uid="uid://cei5g8m6c1ble" path="res://art/EndScreenConfetti/end_screen_confetti_30.png" id="31_s44fi"]
+[ext_resource type="Texture2D" uid="uid://bqjiwjmwqrt6g" path="res://art/EndScreenConfetti/end_screen_confetti_31.png" id="32_2jlc0"]
+[ext_resource type="Texture2D" uid="uid://db4mxdp2w04v8" path="res://art/EndScreenConfetti/end_screen_confetti_32.png" id="33_a3ttb"]
+[ext_resource type="Texture2D" uid="uid://b6xif8jsq7ohl" path="res://art/EndScreenConfetti/end_screen_confetti_33.png" id="34_6w764"]
+[ext_resource type="Texture2D" uid="uid://cb6ndg4445vs0" path="res://art/EndScreenConfetti/end_screen_confetti_34.png" id="35_1mdwd"]
+[ext_resource type="Texture2D" uid="uid://4o3v65uwmvh2" path="res://art/EndScreenConfetti/end_screen_confetti_35.png" id="36_lkkt2"]
+[ext_resource type="Texture2D" uid="uid://cvxu6lat3m2qh" path="res://art/EndScreenConfetti/end_screen_confetti_36.png" id="37_0tb72"]
+[ext_resource type="Texture2D" uid="uid://bblteprrwd5jx" path="res://art/EndScreenConfetti/end_screen_confetti_37.png" id="38_hylhs"]
+[ext_resource type="Texture2D" uid="uid://c70uce5pi36n5" path="res://art/EndScreenConfetti/end_screen_confetti_38.png" id="39_dbii6"]
+[ext_resource type="Texture2D" uid="uid://dmmdrrwcs23qr" path="res://art/EndScreenConfetti/end_screen_confetti_39.png" id="40_qoyof"]
+[ext_resource type="Texture2D" uid="uid://bige48c6mh4gv" path="res://art/EndScreenConfetti/end_screen_confetti_40.png" id="41_dlpus"]
+[ext_resource type="Texture2D" uid="uid://lfai8ep3dyyw" path="res://art/EndScreenConfetti/end_screen_confetti_41.png" id="42_2aeit"]
+[ext_resource type="Texture2D" uid="uid://b7flj46i3j3ob" path="res://art/EndScreenConfetti/end_screen_confetti_42.png" id="43_kyfo7"]
+[ext_resource type="Texture2D" uid="uid://csekssots5ath" path="res://art/EndScreenConfetti/end_screen_confetti_43.png" id="44_e67i5"]
+[ext_resource type="Texture2D" uid="uid://56ceonu1pdxe" path="res://art/EndScreenConfetti/end_screen_confetti_44.png" id="45_q24ia"]
+[ext_resource type="Texture2D" uid="uid://criq30wa7fxxi" path="res://art/EndScreenConfetti/end_screen_confetti_45.png" id="46_c2vnb"]
+[ext_resource type="Texture2D" uid="uid://kdpj1gl4dljl" path="res://art/EndScreenConfetti/end_screen_confetti_46.png" id="47_srxwu"]
+[ext_resource type="Texture2D" uid="uid://bciuuom6ofoi0" path="res://art/EndScreenConfetti/end_screen_confetti_47.png" id="48_usd6h"]
+[ext_resource type="Texture2D" uid="uid://dr6uqj34xk4c3" path="res://art/EndScreenConfetti/end_screen_confetti_48.png" id="49_o3v1b"]
+[ext_resource type="Texture2D" uid="uid://b4h6lulc3hlem" path="res://art/EndScreenConfetti/end_screen_confetti_49.png" id="50_8dhx2"]
+[ext_resource type="Texture2D" uid="uid://y62lh1l0r878" path="res://art/EndScreenConfetti/end_screen_confetti_50.png" id="51_b6n35"]
+[ext_resource type="Texture2D" uid="uid://d07rseqd0k6gf" path="res://art/EndScreenConfetti/end_screen_confetti_51.png" id="52_d3sk6"]
+[ext_resource type="Texture2D" uid="uid://inlp0r8vrui" path="res://art/EndScreenConfetti/end_screen_confetti_52.png" id="53_mfce5"]
+[ext_resource type="Texture2D" uid="uid://bsb7ragm84xuk" path="res://art/EndScreenConfetti/end_screen_confetti_53.png" id="54_o38ev"]
+[ext_resource type="Texture2D" uid="uid://i7jc7tx8nkok" path="res://art/EndScreenConfetti/end_screen_confetti_54.png" id="55_kln8l"]
+[ext_resource type="Texture2D" uid="uid://c1t1k1fd2v2tl" path="res://art/EndScreenConfetti/end_screen_confetti_55.png" id="56_88bac"]
+[ext_resource type="Texture2D" uid="uid://5s4jigyugsmw" path="res://art/EndScreenConfetti/end_screen_confetti_56.png" id="57_efpan"]
+[ext_resource type="Texture2D" uid="uid://jbprenb51oyr" path="res://art/EndScreenConfetti/end_screen_confetti_57.png" id="58_hlm3t"]
+[ext_resource type="Texture2D" uid="uid://dtb2gpekq7w18" path="res://art/EndScreenConfetti/end_screen_confetti_58.png" id="59_521uy"]
+[ext_resource type="Texture2D" uid="uid://cwfassqsy4mca" path="res://art/EndScreenConfetti/end_screen_confetti_59.png" id="60_hw6us"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fx3jh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sote8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8sk7v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1f6r6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k54uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t80i7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_smwp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ilab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4ih5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dvmqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ycgwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hwevd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jqmbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ejakk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_s8vwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j6ige")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wku7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mlqs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1arhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ns6e7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_aswql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_v1vmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_metdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_61d4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_w8miw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_q2ghj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jd0jc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gi834")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ykhi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_80eja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_dcrdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_bl5lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_0xncf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_s44fi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_2jlc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_a3ttb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_6w764")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_1mdwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_lkkt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_0tb72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_hylhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_dbii6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_qoyof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_dlpus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_2aeit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_kyfo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_e67i5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_q24ia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_c2vnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_srxwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_usd6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_o3v1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_8dhx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_b6n35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_d3sk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_mfce5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_o38ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_kln8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_88bac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_efpan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_hlm3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_521uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_hw6us")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"end_screen_confetti",
+"speed": 30.0
+}]
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -13.0
+offset_top = -2.0
+offset_right = -13.0
+offset_bottom = -2.0
+script = ExtResource("1_2cc6c")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.0509804, 0.505882, 1)
+
+[node name="UnlockBackground" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 2732.0
+offset_bottom = 2040.0
+scale = Vector2(0.439395, 0.413286)
+texture = ExtResource("2_oru01")
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 59.0
+offset_top = 51.0
+offset_right = 151.0
+offset_bottom = 143.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fx3jh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sote8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8sk7v")
+icon = ExtResource("3_oljqs")
+flat = true
+
+[node name="MarginContainer" type="Control" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+clip_contents = false
+layout_direction = 2
+layout_mode = 2
+offset_left = -471.0
+offset_top = 39.0
+offset_right = -471.0
+offset_bottom = 39.0
+follow_focus = true
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="ConfettiAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(60, -4)
+sprite_frames = SubResource("SpriteFrames_1f6r6")
+animation = &"end_screen_confetti"
+centered = false
+offset = Vector2(25, 0)
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

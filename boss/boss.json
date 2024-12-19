@@ -1,5 +1,6 @@
 [
 	{
+		"id": "boss://IJustCantWaitToBeKing_LionKing",
 		"displayName": "משתגע כבר מלך להיות",
 		"artist": "מלך האריות",
 		"image": "res://songs/LibrarySongCover_CanYouFeelTheLoveTonight_LionKing.jpg",
@@ -40,6 +41,7 @@
 		}
 	},
 	{
+		"id": "boss://CircleOfLife_LionKing",
 		"displayName": "גלגל החיים",
 		"artist": "מלך האריות",
 		"image": "res://songs/AlbumCover_LionKing_Disney_450_Shimurim.jpg",
@@ -80,6 +82,7 @@
 		}
 	},
 	{
+		"id": "boss://LetItGo_Frozen",
 		"displayName": "לט איט גו",
 		"artist": "פרוזן",
 		"image": "res://songs/LibrarySongCover_LetItGo.jpg",
@@ -109,6 +112,7 @@
 		}
 	},
 	{
+		"id": "boss://HokeyPokey_Traditional",
 		"displayName": "הוקי פוקי",
 		"artist": "מסורתי",
 		"image": "res://songs/LibrarySongCover_HokeyPokey.jpg",
@@ -138,6 +142,7 @@
 		}
 	},
 	{
+		"id": "boss://FreeFallin_TomPetty",
 		"displayName": "נפילה חופשית",
 		"artist": "טום פטי",
 		"image": "res://songs/LibrarySongCover_TomPetty.jpg",
@@ -167,6 +172,7 @@
 		}
 	},
 	{
+		"id": "boss://DanceMonkey_TonesAndI",
 		"displayName": "דאנס מאנקי",
 		"artist": "טונז אנד איי",
 		"image": "res://songs/LibrarySongCover_DanceMonkey.jpg",
@@ -196,6 +202,7 @@
 		}
 	},
 	{
+		"id": "boss://Pokemon_Pokemon",
 		"displayName": "פוקימון",
 		"artist": "פוקימון",
 		"image": "res://songs/LibrarySongCover_Pokemon.jpg",
@@ -225,6 +232,7 @@
 		}
 	},
 	{
+		"id": "boss://Believer_ImagineDragons",
 		"displayName": "בליבר",
 		"artist": "אימג'ן דרגונס",
 		"image": "res://songs/LibrarySongCover_ImagineDragons_Getty.jpg",
@@ -243,6 +251,7 @@
 		}
 	},
 	{
+		"id": "boss://JingleBells_Traditional",
 		"displayName": "פעמוני חג המולד",
 		"artist": "מסורתי",
 		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
@@ -272,6 +281,7 @@
 		}
 	},
 	{
+		"id": "boss://BossFantasy1_Simply",
 		"displayName": "Boss Fantasy 1",
 		"artist": "Simply",
 		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
@@ -298,11 +308,12 @@
 				"boss_life": 40,
 				"ui_type": "both",
 				"display_duration": 3,
-				"ending_music_path": "res://audio/Fantasy1_94bpm_ending.ogg",
+				"ending_music_path": "res://audio/Fantasy1_94bpm_ending.ogg"
 			}
 		}
 	},
 	{
+		"id": "boss://BossFunk1_Simply",
 		"displayName": "Boss FUNK 1",
 		"artist": "Simply",
 		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
@@ -341,11 +352,12 @@
 				"boss_life": 96,
 				"ui_type": "both",
 				"display_duration": 3,
-				"ending_music_path": "res://audio/Funk1_126bpm_ending.ogg",
+				"ending_music_path": "res://audio/Funk1_126bpm_ending.ogg"
 			}
 		}
 	},
 	{
+		"id": "boss://BossFantasy2_Simply",
 		"displayName": "Boss Fantasy 2",
 		"artist": "Simply",
 		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
@@ -372,7 +384,7 @@
 				"boss_life": 132,
 				"ui_type": "both",
 				"display_duration": 3,
-				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg",
+				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg"
 			}
 		}
 	}

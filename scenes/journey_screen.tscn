@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://cio1343ywkq58"]
+
+[ext_resource type="Script" path="res://scripts/journey_screen.gd" id="1_btomd"]
+[ext_resource type="Texture2D" uid="uid://3yqshu3vyx4k" path="res://art/16_dec/journey-background.png" id="2_ssjs3"]
+[ext_resource type="Script" path="res://scripts/settings_manager.gd" id="3_bhpbc"]
+[ext_resource type="Script" path="res://scripts/midi_websocket_status.gd" id="4_qtuxc"]
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_right = -11.0
+script = ExtResource("1_btomd")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.266667, 0.52549, 0.890196, 1)
+
+[node name="ImageBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2732.0
+offset_bottom = 2040.0
+scale = Vector2(0.439395, 0.413286)
+texture = ExtResource("2_ssjs3")
+
+[node name="MarginContainer" type="Control" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+clip_contents = false
+layout_direction = 2
+layout_mode = 2
+offset_left = -537.0
+offset_top = 115.0
+offset_right = -537.0
+offset_bottom = 115.0
+follow_focus = true
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 20.0
+offset_right = 50.0
+offset_bottom = 20.0
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="VBoxContainer/Control"]
+layout_mode = 0
+offset_right = 63.0
+offset_bottom = 31.0
+text = "הגדרות"
+
+[node name="Songs" type="Button" parent="VBoxContainer/Control"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = -1.0
+offset_right = 145.0
+offset_bottom = 30.0
+text = "שירים"
+
+[node name="Midi Status Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_top = 16.0
+offset_right = -28.0
+offset_bottom = 66.0
+grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="SettingsManager" type="Node" parent="."]
+script = ExtResource("3_bhpbc")
+
+[node name="Midi Websocket Status" type="Node" parent="."]
+script = ExtResource("4_qtuxc")
+
+[connection signal="pressed" from="VBoxContainer/Control/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/Songs" to="." method="_on_songs_pressed"]

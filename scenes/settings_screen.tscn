@@ -198,17 +198,18 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="AutoPlayToggle" type="CheckButton" parent="UI/DevButtons"]
+layout_direction = 2
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -242.0
+offset_left = -299.526
 offset_top = 86.0
-offset_right = -120.0
+offset_right = -154.526
 offset_bottom = 117.0
 grow_horizontal = 0
 scale = Vector2(1.99, 1.99)
-text = "Auto Play"
+text = "נגן אוטומטית"
 icon_alignment = 2
 expand_icon = true
 
@@ -227,13 +228,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -244.0
+offset_left = -314.526
 offset_top = 152.0
-offset_right = -121.0
+offset_right = -162.526
 offset_bottom = 183.0
 grow_horizontal = 0
 scale = Vector2(1.99, 1.99)
-text = "Skip Intro"
+text = "דלג על הפתיח"
 icon_alignment = 1
 expand_icon = true
 
@@ -251,13 +252,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -303.0
+offset_left = -344.526
 offset_top = 220.0
-offset_right = -151.0
+offset_right = -177.526
 offset_bottom = 251.0
 grow_horizontal = 0
 scale = Vector2(1.99, 1.99)
-text = "Skip Middle C"
+text = "דלג על דו אמצעי"
 icon_alignment = 1
 expand_icon = true
 
@@ -275,13 +276,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -197.0
+offset_left = -294.526
 offset_top = 282.0
-offset_right = -99.0
+offset_right = -153.526
 offset_bottom = 313.0
 grow_horizontal = 0
 scale = Vector2(1.99, 1.99)
-text = "Debug"
+text = "ניפוי שגיאות"
 icon_alignment = 1
 expand_icon = true
 
@@ -299,14 +300,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -254.73
+offset_left = -319.526
 offset_top = 343.17
-offset_right = -127.73
+offset_right = -165.526
 offset_bottom = 374.17
 grow_horizontal = 0
 scale = Vector2(1.99, 1.99)
-text = "New Stars
-"
+text = "כוכבים חדשים"
 icon_alignment = 1
 expand_icon = true
 
@@ -350,13 +350,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -232.0
+offset_left = -254.526
 offset_top = 403.17
-offset_right = -117.0
+offset_right = -132.526
 offset_bottom = 434.17
 grow_horizontal = 0
 scale = Vector2(1.99, 1.99)
-text = "Play Piano"
+text = "נגן פסנתר"
 icon_alignment = 1
 expand_icon = true
 
@@ -373,13 +373,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -261.28
-offset_top = 455.49
-offset_right = -126.28
-offset_bottom = 486.49
+offset_left = -279.526
+offset_top = 465.0
+offset_right = -144.526
+offset_bottom = 496.0
 grow_horizontal = 0
 scale = Vector2(1.99, 1.99)
-text = "Boys / Girls"
+text = "בנים / בנות"
 icon_alignment = 1
 expand_icon = true
 
@@ -390,6 +390,7 @@ offset_left = -10.0
 offset_top = 20.0
 offset_right = 64.0
 offset_bottom = 43.0
+text = "בבבבב"
 
 [node name="BossToggle" type="CheckButton" parent="UI/DevButtons"]
 visible = false
@@ -465,6 +466,40 @@ offset_right = 46.0515
 offset_bottom = 42.5122
 text = "Library Song"
 
+[node name="Reset" type="Button" parent="UI/DevButtons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -429.526
+offset_top = 60.0
+offset_right = -388.526
+offset_bottom = 85.0
+grow_horizontal = 0
+scale = Vector2(1.99, 1.99)
+theme_override_font_sizes/font_size = 12
+text = "אפס"
+icon_alignment = 1
+expand_icon = true
+
+[node name="DifficultyLevelItems" type="OptionButton" parent="UI/DevButtons"]
+layout_direction = 3
+layout_mode = 0
+offset_left = 88.5256
+offset_top = 550.0
+offset_right = 154.526
+offset_bottom = 575.0
+scale = Vector2(1.99, 1.99)
+theme_override_font_sizes/font_size = 12
+icon_alignment = 1
+expand_icon = true
+item_count = 3
+popup/item_0/text = "רמה 1"
+popup/item_1/text = "רמה 2"
+popup/item_1/id = 1
+popup/item_2/text = "רמה 3"
+popup/item_2/id = 2
+
 [node name="CharacterSelection" type="OptionButton" parent="UI/DevButtons"]
 visible = false
 layout_mode = 1
@@ -513,8 +548,10 @@ popup/item_0/text = "Lyric"
 popup/item_0/icon = ExtResource("4_wdu1k")
 popup/item_1/text = "Aria"
 popup/item_1/icon = ExtResource("5_7jdt1")
+popup/item_1/id = 1
 
 [node name="BoySelection" type="OptionButton" parent="UI/DevButtons"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -536,6 +573,7 @@ popup/item_0/text = "Echo"
 popup/item_0/icon = ExtResource("5_xufhg")
 popup/item_1/text = "Growl"
 popup/item_1/icon = ExtResource("6_dvc1n")
+popup/item_1/id = 1
 
 [node name="SettingsManager" type="Node" parent="."]
 script = ExtResource("9_7271b")
@@ -551,5 +589,7 @@ script = ExtResource("9_7271b")
 [connection signal="toggled" from="UI/DevButtons/BossToggle" to="." method="_on_boss_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/ShowLibraryToggle" to="." method="_on_show_library_toggle_toggled"]
 [connection signal="toggled" from="UI/DevButtons/LibrarySongToggle" to="." method="_on_library_song_toggled"]
+[connection signal="pressed" from="UI/DevButtons/Reset" to="." method="_on_reset_pressed"]
+[connection signal="item_selected" from="UI/DevButtons/DifficultyLevelItems" to="." method="_on_difficulty_level_item_selected"]
 [connection signal="item_selected" from="UI/DevButtons/GirlSelection" to="." method="choose_character"]
 [connection signal="item_selected" from="UI/DevButtons/BoySelection" to="." method="choose_character"]
