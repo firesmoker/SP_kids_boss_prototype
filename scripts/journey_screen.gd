@@ -107,12 +107,15 @@ func populate_hbox() -> void:
 		hbox.remove_child(child)
 		child.queue_free()
 
+	# Filter levels_data to only include items with "in-game-params"
+	var in_game_levels_data: Array = levels_data.filter(func(level_data: Dictionary) -> bool:
+		return level_data.has("in-game-params")
+	)
+
 	var found_first_uncomplete: bool = false
 
-	for i in range(levels_data.size()):
-		var level_data: Dictionary = levels_data[i]
-		if "in-game-params" not in level_data:
-			continue
+	for i: int in range(in_game_levels_data.size()):
+		var level_data: Dictionary = in_game_levels_data[i]
 
 		# Determine the state
 		var state: String = "locked"
@@ -127,7 +130,7 @@ func populate_hbox() -> void:
 		var item: Control = create_item(level_data, state)
 
 		# Check opacity conditions
-		var frame: Panel = item.get_child(0)  # Assuming the frame is the first child
+		var frame: Panel = item.get_child(0) as Panel  # Assuming the frame is the first child
 		if state == "complete" or state == "unlocked":
 			set_item_opacity(frame, 1.0)
 			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
@@ -145,7 +148,7 @@ func populate_hbox() -> void:
 		hbox.add_child(container)
 
 		# Add a horizontal yellow line between items, except after the last item
-		if i < levels_data.size() - 2:
+		if i < in_game_levels_data.size() - 1:
 			var separator: Control = create_horizontal_line()
 			hbox.add_child(separator)
 
