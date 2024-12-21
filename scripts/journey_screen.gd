@@ -145,7 +145,7 @@ func populate_hbox() -> void:
 		hbox.add_child(container)
 
 		# Add a horizontal yellow line between items, except after the last item
-		if i < levels_data.size() - 1:
+		if i < levels_data.size() - 2:
 			var separator: Control = create_horizontal_line()
 			hbox.add_child(separator)
 
