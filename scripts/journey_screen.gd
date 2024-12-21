@@ -16,96 +16,14 @@ func _ready() -> void:
 func load_levels() -> void:
 	var json_data: String = JourneyManager.load_levels()
 	levels_data = JSON.parse_string(json_data)
-
-func populate_hbox() -> void:
-	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
-
-	# Clear existing children
-	for child in hbox.get_children():
-		hbox.remove_child(child)
-		child.queue_free()
-
-	var found_first_uncomplete: bool = false
-
-	for i in range(levels_data.size()):
-		var level_data: Dictionary = levels_data[i]
-		if "in-game-params" not in level_data:
-			continue
-			
-		var item: Control = create_item(level_data)
-
-		# Check opacity conditions
-		var frame: Panel = item.get_child(0)  # Assuming the frame is the first child
-		if level_data.get("is_complete", false):
-			set_item_opacity(frame, 1.0)
-			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
-		elif not found_first_uncomplete:
-			found_first_uncomplete = true
-			set_item_opacity(frame, 1.0)
-			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
-		else:
-			set_item_opacity(frame, 0.8)
-
-		# Create a MarginContainer for spacing
-		var container: MarginContainer = MarginContainer.new()
-		container.add_theme_constant_override("margin_left", -5)
-		container.add_theme_constant_override("margin_top", 15)
-		container.add_theme_constant_override("margin_right", -5)
-		container.add_theme_constant_override("margin_bottom", 15)
-		container.add_child(item)
-
-		hbox.add_child(container)
-
-		# Add a horizontal yellow line between items, except after the last item
-		if i < levels_data.size() - 1:
-			var separator: Control = create_horizontal_line()
-			hbox.add_child(separator)
-
-
-func _on_item_clicked(event: InputEvent, in_game_params: Dictionary) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		JourneyManager.set_current_level(in_game_params)
-		save_scroll_position()
-		NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
-
-
-func set_item_opacity(frame: Panel, opacity: float) -> void:
-	# Apply opacity to the children of the frame, not the frame itself
-	for child in frame.get_children():
-		child.modulate.a = opacity
-
-func create_horizontal_line() -> Control:
-	# Create a container for the line
-	var line_container: Control = Control.new()
-	line_container.custom_minimum_size = Vector2(130, 5)  # Base width of 130, height of 5
-	line_container.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	line_container.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-
-	# Create a Panel to act as the horizontal line
-	var line: Panel = Panel.new()
-	line.custom_minimum_size = Vector2(130, 5)  # Stretch to 130px total width
-
-	var line_style: StyleBoxFlat = StyleBoxFlat.new()
-	line_style.bg_color = Color("#FFD44F")  # Yellow color
-	line.add_theme_stylebox_override("panel", line_style)
-
-	# Apply a transform to move the line 20 pixels up
-	line.position.y -= 20
-
-	# Add the line to the container
-	line_container.add_child(line)
-
-	return line_container
-
-func create_item(level_data: Dictionary) -> Control:
+func create_item(level_data: Dictionary, state: String) -> Control:
 	# Determine image based on state
-	var state: String = level_data.get("state", "locked")
 	var images: Dictionary = level_data.get("images", {})
-	var image_file: String = images.get("unlocked") if state == "unlocked" else images.get("locked")
+	var image_file: String = images.get(state) if images.has(state) else ""
 
-	if level_data.get("is_complete", false) and images.has("complete"):
-		image_file = images.get("complete")
-	
+	# Fallback to "unlocked" if no specific state image is found
+	image_file = image_file if image_file != "" else images.get("unlocked")
+
 	# Extract the text
 	var text: String = level_data.get("text", "")
 
@@ -167,7 +85,7 @@ func create_item(level_data: Dictionary) -> Control:
 	status_icon.custom_minimum_size = Vector2(50, 50)
 	status_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 
-	if level_data.get("is_complete", false):
+	if state == "complete":
 		status_icon.texture = load("res://art/16_dec/checkmark.png")
 		status_icon_container.position = Vector2(160, 0)
 	elif state == "locked":
@@ -176,10 +94,95 @@ func create_item(level_data: Dictionary) -> Control:
 
 	# Add the status icon to the MarginContainer
 	status_icon_container.add_child(status_icon)
-		
+
 	frame.add_child(status_icon_container)
 
 	return item
+
+func populate_hbox() -> void:
+	var hbox: HBoxContainer = $MarginContainer/ScrollContainer/HBoxContainer
+
+	# Clear existing children
+	for child in hbox.get_children():
+		hbox.remove_child(child)
+		child.queue_free()
+
+	var found_first_uncomplete: bool = false
+
+	for i in range(levels_data.size()):
+		var level_data: Dictionary = levels_data[i]
+		if "in-game-params" not in level_data:
+			continue
+
+		# Determine the state
+		var state: String = "locked"
+		if level_data.get("is_complete", false):
+			state = "complete"
+		elif not found_first_uncomplete:
+			state = "unlocked"
+			found_first_uncomplete = true
+		else:
+			state = "locked"
+
+		var item: Control = create_item(level_data, state)
+
+		# Check opacity conditions
+		var frame: Panel = item.get_child(0)  # Assuming the frame is the first child
+		if state == "complete" or state == "unlocked":
+			set_item_opacity(frame, 1.0)
+			item.connect("gui_input", Callable(self, "_on_item_clicked").bind(level_data.get("in-game-params", {})))
+		else:
+			set_item_opacity(frame, 0.8)
+
+		# Create a MarginContainer for spacing
+		var container: MarginContainer = MarginContainer.new()
+		container.add_theme_constant_override("margin_left", -5)
+		container.add_theme_constant_override("margin_top", 15)
+		container.add_theme_constant_override("margin_right", -5)
+		container.add_theme_constant_override("margin_bottom", 15)
+		container.add_child(item)
+
+		hbox.add_child(container)
+
+		# Add a horizontal yellow line between items, except after the last item
+		if i < levels_data.size() - 1:
+			var separator: Control = create_horizontal_line()
+			hbox.add_child(separator)
+
+func _on_item_clicked(event: InputEvent, in_game_params: Dictionary) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		JourneyManager.set_current_level(in_game_params)
+		save_scroll_position()
+		NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
+
+
+func set_item_opacity(frame: Panel, opacity: float) -> void:
+	# Apply opacity to the children of the frame, not the frame itself
+	for child in frame.get_children():
+		child.modulate.a = opacity
+
+func create_horizontal_line() -> Control:
+	# Create a container for the line
+	var line_container: Control = Control.new()
+	line_container.custom_minimum_size = Vector2(130, 5)  # Base width of 130, height of 5
+	line_container.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	line_container.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+
+	# Create a Panel to act as the horizontal line
+	var line: Panel = Panel.new()
+	line.custom_minimum_size = Vector2(130, 5)  # Stretch to 130px total width
+
+	var line_style: StyleBoxFlat = StyleBoxFlat.new()
+	line_style.bg_color = Color("#FFD44F")  # Yellow color
+	line.add_theme_stylebox_override("panel", line_style)
+
+	# Apply a transform to move the line 20 pixels up
+	line.position.y -= 20
+
+	# Add the line to the container
+	line_container.add_child(line)
+
+	return line_container
 
 func _on_settings_pressed() -> void:
 	print("Settings pressed")
