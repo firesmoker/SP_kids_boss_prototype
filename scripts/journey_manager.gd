@@ -76,6 +76,7 @@ static func launch_boss_scene(node: Node, boss_id: String) -> void:
 static func apply_boss_parameters(model: Dictionary) -> void:
 	Game.boss_name = model.get("name", "")
 	Game.boss_id = model.get("boss", "")
+	Game.boss_model = model.get("boss_model", "")
 	print("Boss Name:", Game.boss_name)
 	print("Boss Id:", Game.boss_id)
 

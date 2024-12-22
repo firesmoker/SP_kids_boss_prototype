@@ -176,6 +176,7 @@
 		"displayName": "דאנס מאנקי",
 		"artist": "טונז אנד איי",
 		"image": "res://songs/LibrarySongCover_DanceMonkey.jpg",
+		"model": "robot",
 		"levels": {
 			"medium": {
 				"melody_path": "res://levels/DanceMonkey_85_Right.txt",
@@ -284,6 +285,7 @@
 		"id": "boss://BossFantasy1_Simply",
 		"displayName": "Boss Fantasy 1",
 		"artist": "Simply",
+		"model": "robot",
 		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
 		"levels": {
 			"easy": {
