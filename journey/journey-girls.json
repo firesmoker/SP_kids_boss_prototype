@@ -9,7 +9,7 @@
 			"type": "boss",
 			"name": "טקטוניק",
 			"boss": "tactonic",
-			"boss_model": "robot_"
+			"boss_model": "boss_tactonic"
 		},
 		"is_complete": false,
 		"text": "שחקו נגד טקטוניק"
@@ -38,7 +38,7 @@
 			"type": "boss",
 			"name": "דומיננטוס",
 			"boss": "dominantos",
-			"boss_model": "robot_"
+			"boss_model": "boss_tactonic"
 		},
 		"is_complete": false,
 		"text": "שחקו נגד דומיננטוס"
@@ -53,7 +53,7 @@
 			"type": "boss",			
 			"name": "דיסטורשן",
 			"boss": "distortion",
-			"boss_model": "robot_"
+			"boss_model": "boss_tactonic"
 		},
 		"is_complete": false,
 		"text": "שחקו נגד דיסטורשן"

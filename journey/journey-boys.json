@@ -8,7 +8,8 @@
 			"id": "boss://BossFantasy1_Simply",
 			"type": "boss",
 			"name": "טקטוניק",
-			"boss": "tactonic"
+			"boss": "tactonic",
+			"boss_model": "boss_tactonic"
 		},
 		"is_complete": false,
 		"text": "שחקו נגד טקטוניק",
@@ -36,7 +37,8 @@
 			"id": "boss://BossFunk1_Simply",
 			"type": "boss",
 			"name": "דומיננטוס",
-			"boss": "dominantos"
+			"boss": "dominantos",
+			"boss_model": "boss_dominantos"
 		},
 		"is_complete": false,
 		"text": "שחקו נגד דומיננטוס"
@@ -50,7 +52,8 @@
 			"id": "boss://BossFantasy2_Simply",
 			"type": "boss",			
 			"name": "דיסטורשן",
-			"boss": "distortion"
+			"boss": "distortion",
+			"boss_model": "boss_distortion"
 		},
 		"is_complete": false,
 		"text": "שחקו נגד דיסטורשן"
