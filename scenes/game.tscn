@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/notes_container.gd" id="2_yqf4i"]
 [ext_resource type="AudioStream" uid="uid://dx2bwdfr0b61t" path="res://audio/slow_down_2.ogg" id="3_h2mfw"]
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="4_ka7fh"]
-[ext_resource type="SpriteFrames" uid="uid://ubtr21y8pmtc" path="res://scene_resources/boss_animations.tres" id="4_ygwuk"]
 [ext_resource type="AudioStream" uid="uid://bfrj1cxbb1dl" path="res://audio/CountingStars_122bpm_new_SLOW70.ogg" id="5_0ilbi"]
 [ext_resource type="AudioStream" uid="uid://cedtu5tabetd1" path="res://audio/Victory Sound Effect.mp3" id="5_1j4ca"]
 [ext_resource type="PackedScene" uid="uid://8ut73mldwxdn" path="res://scenes/staff.tscn" id="5_evl1e"]
@@ -1134,6 +1133,7 @@
 [ext_resource type="Texture2D" uid="uid://d1c51smhyg2y7" path="res://art/5_dec/combo_x3/Combo x3_00017.png" id="758_6p5q5"]
 [ext_resource type="Texture2D" uid="uid://dj75i8uq5gy0i" path="res://art/5_dec/combo_x3/Combo x3_00018.png" id="759_3hrj1"]
 [ext_resource type="Texture2D" uid="uid://bs0yuvvmmh0b6" path="res://art/5_dec/combo_x3/Combo x3_00019.png" id="760_ik3rm"]
+[ext_resource type="SpriteFrames" uid="uid://w1qyomq8jeb7" path="res://scene_resources/animation_boss_dominantos.tres" id="760_s2hpq"]
 [ext_resource type="Texture2D" uid="uid://chcihrr7tltvs" path="res://art/5_dec/combo_x3/Combo x3_00020.png" id="761_fy1wq"]
 [ext_resource type="Texture2D" uid="uid://by1vbvjngaulf" path="res://art/5_dec/combo_x3/Combo x3_00021.png" id="762_r2bak"]
 [ext_resource type="Texture2D" uid="uid://by75f4chdjdpf" path="res://art/5_dec/combo_x3/Combo x3_00022.png" id="763_scc57"]
@@ -6710,9 +6710,8 @@ metadata/_edit_lock_ = true
 z_index = 3
 position = Vector2(417.46, 70)
 scale = Vector2(0.590503, 0.590503)
-sprite_frames = ExtResource("4_ygwuk")
-animation = &"robot_get_hit_strong"
-autoplay = "idle"
+sprite_frames = ExtResource("760_s2hpq")
+animation = &"get_hit_strong"
 
 [node name="BossHitZone" type="Area2D" parent="Level/Boss"]
 visible = false

@@ -598,6 +598,7 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 
 func _ready() -> void:
 	player_character.sprite_frames = load("res://scene_resources/animation_" + player_model + ".tres")
+	boss.sprite_frames = load("res://scene_resources/animation_" + boss_model + ".tres")
 	player_portrait.texture = load("res://art/18_dec/Avatars/Player/" + player_model + ".png")
 	if boss_model == "robot_":
 		boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
@@ -639,7 +640,7 @@ func _ready() -> void:
 	reset_health_bars()
 	detector_position_x = notes_detector.position.x
 	if game_mode == "boss":
-		boss.play(boss_model + "idle")
+		boss.play("idle")
 		if not cheat_skip_middle_c:
 			continue_note_popup.visible = true
 		if Game.game_state == "Intro" and not cheat_skip_intro and not last_game_lost:
@@ -777,9 +778,9 @@ func _process(delta: float) -> void:
 		update_score_meter()
 	if not boss.is_playing() and not losing and not winning:
 		if boss_health > boss_health_bar.max_value / 2:
-			boss.play(boss_model + "idle")
+			boss.play("idle")
 		else:
-			boss.play(boss_model + "damaged_idle")
+			boss.play("damaged_idle")
 	
 	if not player_character.is_playing() and not winning and not losing and game_mode == "boss":
 		player_character.play("idle")
@@ -1102,7 +1103,7 @@ func win() -> void:
 	
 	if game_mode == "boss":
 		boss.stop()
-		boss.play(boss_model + "death")
+		boss.play("death")
 		music_ending_player.stream = load(Game.ending_music_path)
 		audio_play_from_source(boss, audio_clips.boss_death)
 		await boss.animation_finished
@@ -1287,9 +1288,9 @@ func handle_boss_hit(damage: float) -> void:
 	else:
 		strong_string = ""
 	if boss_health < boss_health_bar.max_value / 2 or boss_health <= 1:
-		boss.play(boss_model + "damaged_get_hit" + strong_string)
+		boss.play("damaged_get_hit" + strong_string)
 	else:
-		boss.play(boss_model + "get_hit" + strong_string)
+		boss.play("get_hit" + strong_string)
 
 
 func check_boss_health() -> void:
@@ -1382,9 +1383,9 @@ func _on_boss_hit_zone_body_entered(note: Note) -> void:
 	if note.state.to_lower() != "rest" and not winning and not losing:
 		if not boss.animation == "get_hit" and not boss.animation == "damaged_get_hit":
 			if boss_health > boss_health_bar.max_value / 2:
-				boss.play(boss_model + "attack")
+				boss.play("attack")
 			else:
-				boss.play(boss_model + "damaged_attack")
+				boss.play("damaged_attack")
 
 
 func _on_pause_button_up() -> void:
@@ -1398,7 +1399,7 @@ func boss_win_animation() -> void:
 	boss.find_child("Expander").expand(1.25, 0.5)
 	boss.find_child("Expander").move(Vector2(0,0), 0.5)
 	boss.stop()
-	boss.play(boss_model + "win")
+	boss.play("win")
 	into_stage.process_mode = Node.PROCESS_MODE_INHERIT
 	into_stage.flip_h = true
 	into_stage.visible = true
