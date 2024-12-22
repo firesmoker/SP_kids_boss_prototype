@@ -7,6 +7,7 @@ var play_button: Button  # Declare the Play Button as a class member
 var title: Label
 var subtitle: Label
 var new_mode_character: Dictionary = {}
+var is_first_load: bool = true 
 
 func _ready() -> void:
 	$MarginContainer.set_global_position(Vector2(610, 110))
@@ -15,6 +16,7 @@ func _ready() -> void:
 	populate_texts()
 	populate_hbox()
 	update_play_button_state()
+	is_first_load = false
 
 func load_characters() -> void:
 	var json_data: String = JourneyManager.load_characters()
@@ -308,15 +310,18 @@ func create_parameter_hbox(texture_path: String, count: int) -> HBoxContainer:
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		hbox.add_child(icon)
 
-	# Start the animation coroutine
-	animate_icons(hbox, texture_path, count)
+	# Start the animation coroutine only if it's the first time
+	var should_animate: bool = is_first_load and not new_mode_character
+	display_character_parameters(hbox, texture_path, count, should_animate)
 
 	return hbox
 
 # Animation Coroutine
-func animate_icons(hbox: HBoxContainer, texture_path: String, count: int) -> void:
+func display_character_parameters(hbox: HBoxContainer, texture_path: String, count: int, should_animate: bool) -> void:
+
 	for i in range(min(count, 5)):  # Ensure we only animate up to 5 icons
-		await get_tree().create_timer(0.1).timeout  # Wait 0.2 seconds
+		if should_animate:
+			await get_tree().create_timer(0.2).timeout  # Wait 0.2 seconds
 		var icon: TextureRect = hbox.get_child(i) as TextureRect
 		icon.texture = load(texture_path)  # Update the texture
 
