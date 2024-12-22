@@ -365,13 +365,13 @@
 		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
 		"levels": {
 			"easy": {
-				"melody_path": "res://levels/Boss_Fantasy2_PB2Middle_Right.txt",
-				"left_melody_path": "res://levels/Boss_Fantasy2_PB2Middle_Left.txt",
+				"melody_path": "res://levels/Boss_Fantasy2_PB2Middle_Complex_Right.txt",
+				"left_melody_path": "res://levels/Boss_Fantasy2_PB2Middle_Complex_Left.txt",
 				"song_path": "res://audio/Fantasy2_130bpm.ogg",
 				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
 				"tempo": 130,
-				"player_life": 20,
-				"boss_life": 87,
+				"player_life": 29,
+				"boss_life": 90,
 				"ui_type": "both",
 				"display_duration": 3,
 				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg",

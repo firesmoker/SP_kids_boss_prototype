@@ -161,6 +161,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @export var accelerate_sound: AudioStream
 @export var slow_down_sound: AudioStream
 
+static var heart_healing_bonus: float = 0
 static var song_title: String = ""
 static var boss_model: String = "robot_"
 static var player_model: String = "boy_"
@@ -1227,6 +1228,7 @@ func deactivate_effect(effect: String = "slowdown") -> void:
 				level_accelerate()
 
 func heal(amount: int = 1) -> void:
+	amount = amount + heart_healing_bonus
 	update_player_health(amount)
 	audio.stream = audio_clips.heart
 	audio.play()

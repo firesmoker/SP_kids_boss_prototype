@@ -77,6 +77,7 @@ static func apply_boss_parameters(model: Dictionary) -> void:
 	Game.boss_name = model.get("name", "")
 	Game.boss_id = model.get("boss", "")
 	Game.boss_model = model.get("boss_model", "")
+	Game.heart_healing_bonus = model.get("heart_healing_bonus", 0)
 	print("Boss Name:", Game.boss_name)
 	print("Boss Id:", Game.boss_id)
 

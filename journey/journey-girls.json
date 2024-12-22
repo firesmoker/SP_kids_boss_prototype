@@ -53,7 +53,8 @@
 			"type": "boss",			
 			"name": "דיסטורשן",
 			"boss": "distortion",
-			"boss_model": "boss_tactonic"
+			"boss_model": "boss_tactonic",
+			"heart_healing_bonus": 5
 		},
 		"is_complete": false,
 		"text": "שחקו נגד דיסטורשן"
