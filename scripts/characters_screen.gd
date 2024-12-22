@@ -8,7 +8,7 @@ var play_button: Button  # Declare the Play Button as a class member
 var title: Label
 var subtitle: Label
 var new_mode_character: Dictionary = {}
-var is_first_load: bool = true 
+var is_first_load: bool = true
 
 func _ready() -> void:
 	$MarginContainer.set_global_position(Vector2(610, 110))
@@ -343,10 +343,10 @@ func update_play_button_state() -> void:
 
 
 func _on_item_selected(event: InputEvent, character_data: Dictionary) -> void:
-	if not event.is_released():
+	if not event.is_released() and not new_mode_character:
 		audio.stream = load("res://audio/Instant Message 6.mp3")
 		audio.play()
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released() and not new_mode_character:
 		# Update the state of characters
 		for char: Dictionary in characters_data:
 			if char["id"] == character_data["id"]:
