@@ -321,7 +321,7 @@ func display_character_parameters(hbox: HBoxContainer, texture_path: String, cou
 
 	for i in range(min(count, 5)):  # Ensure we only animate up to 5 icons
 		if should_animate:
-			await get_tree().create_timer(0.2).timeout  # Wait 0.2 seconds
+			await get_tree().create_timer(0.1).timeout  # Wait 0.1 seconds
 		var icon: TextureRect = hbox.get_child(i) as TextureRect
 		icon.texture = load(texture_path)  # Update the texture
 
@@ -341,7 +341,7 @@ func update_play_button_state() -> void:
 
 
 func _on_item_selected(event: InputEvent, character_data: Dictionary) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
 		# Update the state of characters
 		for char: Dictionary in characters_data:
 			if char["id"] == character_data["id"]:

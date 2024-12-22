@@ -1434,7 +1434,7 @@ func _on_win_change_level_button_up() -> void:
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
 	Game.repeat_requested = true
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/game.tscn")
+		NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
 		#if has_easy_difficulty:
 			#show_easy = true
 		#darken.visible = true

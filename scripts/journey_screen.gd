@@ -2,6 +2,7 @@ extends Control
 
 var levels_data: Array = []
 var settings_window: Node
+var pressed_event_position: Vector2
 @onready var scroll_container: ScrollContainer = $MarginContainer/ScrollContainer
 
 func _ready() -> void:
@@ -153,10 +154,15 @@ func populate_hbox() -> void:
 			hbox.add_child(separator)
 
 func _on_item_clicked(event: InputEvent, in_game_params: Dictionary) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		JourneyManager.set_current_level(in_game_params)
-		save_scroll_position()
-		NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
+	if event.is_pressed():
+		pressed_event_position = get_global_transform().basis_xform(event.position)
+		
+	if event is InputEventScreenTouch and event.is_released() and not event.is_canceled():
+		var released_event_position: Vector2 = get_global_transform().basis_xform(event.position)
+		if released_event_position.distance_to(pressed_event_position) < 0.1:
+			JourneyManager.set_current_level(in_game_params)
+			save_scroll_position()
+			NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
 
 
 func set_item_opacity(frame: Panel, opacity: float) -> void:
