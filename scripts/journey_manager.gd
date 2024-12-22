@@ -138,7 +138,6 @@ static func mark_current_level_as_complete() -> void:
 		var level_id: String = current_level.get("id", "")
 		if level_type and level_id:
 			mark_level_as_complete(level_type, level_id)
-			current_level = {}  # Reset the current parameters after marking complete
 		else:
 			print("Invalid current parameters:", current_level)
 	else:
