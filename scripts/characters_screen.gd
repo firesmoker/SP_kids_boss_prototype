@@ -12,17 +12,20 @@ var is_first_load: bool = true
 
 func _ready() -> void:
 	$MarginContainer.set_global_position(Vector2(610, 110))
-	
+	print("characters screen ready function")
 	load_characters()
 	populate_texts()
 	populate_hbox()
 	update_play_button_state()
 	is_first_load = false
 
+
 func load_characters() -> void:
 	var json_data: String = JourneyManager.load_characters()
 	characters_data = JSON.parse_string(json_data)
-	
+	for character_data: Dictionary in characters_data:
+		if character_data["state"] == "selected":
+			character_data["state"] = "unlocked"
 	if JourneyManager.current_level.get("type") == "character-selection":
 		for character_data: Dictionary in characters_data:
 			if character_data.get("id", "") == JourneyManager.current_level.get("id", ""):
@@ -254,6 +257,7 @@ func create_item(character_data: Dictionary) -> Control:
 
 	match state:
 		"selected":
+			#pass
 			state_icon.texture = load("res://art/16_dec/selected.png")
 			state_icon.position = Vector2(215, 10)
 		"locked":
@@ -358,6 +362,14 @@ func _on_item_selected(event: InputEvent, character_data: Dictionary) -> void:
 		populate_hbox()
 		update_play_button_state()
 
+func unselect_all_characters() -> void:
+	for char: Dictionary in characters_data:
+		if char["state"] == "selected":
+			char["state"] = "unlocked"
+
+	# Refresh the view
+	populate_hbox()
+	update_play_button_state()
 
 func _on_back_button_pressed() -> void:
 	NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
