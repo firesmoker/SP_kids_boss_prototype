@@ -1132,8 +1132,8 @@
 [ext_resource type="Texture2D" uid="uid://c3owgh5cd6ex8" path="res://art/5_dec/combo_x3/Combo x3_00016.png" id="757_lnk8u"]
 [ext_resource type="Texture2D" uid="uid://d1c51smhyg2y7" path="res://art/5_dec/combo_x3/Combo x3_00017.png" id="758_6p5q5"]
 [ext_resource type="Texture2D" uid="uid://dj75i8uq5gy0i" path="res://art/5_dec/combo_x3/Combo x3_00018.png" id="759_3hrj1"]
+[ext_resource type="SpriteFrames" uid="uid://comr45ypf7ujb" path="res://scene_resources/animation_boss_distortion.tres" id="760_4rqcu"]
 [ext_resource type="Texture2D" uid="uid://bs0yuvvmmh0b6" path="res://art/5_dec/combo_x3/Combo x3_00019.png" id="760_ik3rm"]
-[ext_resource type="SpriteFrames" uid="uid://w1qyomq8jeb7" path="res://scene_resources/animation_boss_dominantos.tres" id="760_s2hpq"]
 [ext_resource type="Texture2D" uid="uid://chcihrr7tltvs" path="res://art/5_dec/combo_x3/Combo x3_00020.png" id="761_fy1wq"]
 [ext_resource type="Texture2D" uid="uid://by1vbvjngaulf" path="res://art/5_dec/combo_x3/Combo x3_00021.png" id="762_r2bak"]
 [ext_resource type="Texture2D" uid="uid://by75f4chdjdpf" path="res://art/5_dec/combo_x3/Combo x3_00022.png" id="763_scc57"]
@@ -6710,8 +6710,8 @@ metadata/_edit_lock_ = true
 z_index = 3
 position = Vector2(417.46, 70)
 scale = Vector2(0.590503, 0.590503)
-sprite_frames = ExtResource("760_s2hpq")
-animation = &"get_hit_strong"
+sprite_frames = ExtResource("760_4rqcu")
+animation = &"win"
 
 [node name="BossHitZone" type="Area2D" parent="Level/Boss"]
 visible = false
