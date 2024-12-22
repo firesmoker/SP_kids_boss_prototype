@@ -371,7 +371,7 @@
 				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
 				"tempo": 130,
 				"player_life": 29,
-				"boss_life": 90,
+				"boss_life": 78,
 				"ui_type": "both",
 				"display_duration": 3,
 				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg",
