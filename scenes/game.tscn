@@ -1,4 +1,4 @@
-[gd_scene load_steps=1326 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1325 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -42,7 +42,6 @@
 [ext_resource type="Texture2D" uid="uid://bu4n1gmbef0hs" path="res://art/19_nov/compressed/Boss_Fight_IntroTransition_00297-min.png" id="20_5tmgk"]
 [ext_resource type="PackedScene" uid="uid://canrydy51d80m" path="res://scenes/expander.tscn" id="20_wgxju"]
 [ext_resource type="Texture2D" uid="uid://cq0qwkfac74b4" path="res://art/19_nov/compressed/Boss_Fight_IntroTransition_00298-min.png" id="21_onky5"]
-[ext_resource type="Texture2D" uid="uid://bqmxp10hkofb2" path="res://art/buttons/Exit (1).png" id="22_7sqae"]
 [ext_resource type="Texture2D" uid="uid://bm12crwe0s3b" path="res://art/19_nov/compressed/Boss_Fight_IntroTransition_00299-min.png" id="22_t5t02"]
 [ext_resource type="Texture2D" uid="uid://c8ubt1qdeksxc" path="res://art/19_nov/compressed/Boss_Fight_IntroTransition_00300-min.png" id="23_1xbja"]
 [ext_resource type="Texture2D" uid="uid://cibjdavjpfagj" path="res://art/19_nov/compressed/Boss_Fight_IntroTransition_00301-min.png" id="24_2fi8u"]
@@ -5620,17 +5619,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_oss5g")
 
 [node name="WinChangeLevel" type="TextureButton" parent="Overlay/WinButtons"]
 layout_mode = 0
-offset_left = 204.0
+offset_left = 327.0
 offset_top = 42.0
-offset_right = 304.0
+offset_right = 427.0
 offset_bottom = 142.0
-texture_normal = ExtResource("22_7sqae")
+texture_normal = ExtResource("15_m6t7w")
 
 [node name="WinRestart" type="TextureButton" parent="Overlay/WinButtons"]
 layout_mode = 0
-offset_left = 329.0
+offset_left = 206.0
 offset_top = 42.0
-offset_right = 429.0
+offset_right = 306.0
 offset_bottom = 142.0
 texture_normal = ExtResource("16_icmxq")
 
