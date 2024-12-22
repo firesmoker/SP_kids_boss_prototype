@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://i77oxk58n4x"]
+[gd_scene load_steps=68 format=3 uid="uid://i77oxk58n4x"]
 
 [ext_resource type="Script" path="res://scripts/characters_screen.gd" id="1_2cc6c"]
 [ext_resource type="Texture2D" uid="uid://c6pltc0vyrk8i" path="res://art/EndScreenConfetti/end_screen_confetti_1.png" id="2_k54uh"]
@@ -62,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://jbprenb51oyr" path="res://art/EndScreenConfetti/end_screen_confetti_57.png" id="58_hlm3t"]
 [ext_resource type="Texture2D" uid="uid://dtb2gpekq7w18" path="res://art/EndScreenConfetti/end_screen_confetti_58.png" id="59_521uy"]
 [ext_resource type="Texture2D" uid="uid://cwfassqsy4mca" path="res://art/EndScreenConfetti/end_screen_confetti_59.png" id="60_hw6us"]
+[ext_resource type="AudioStream" uid="uid://806avtsycrit" path="res://audio/Instant Message 6.mp3" id="63_yrufi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fx3jh"]
 
@@ -330,5 +331,8 @@ sprite_frames = SubResource("SpriteFrames_1f6r6")
 animation = &"end_screen_confetti"
 centered = false
 offset = Vector2(25, 0)
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("63_yrufi")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

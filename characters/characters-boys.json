@@ -17,7 +17,7 @@
 			"attack_modifier": 1.0,
 			"health_modifier": 1.2,
 			"strong_attacks": false,
-			"bigger_health": false
+			"bigger_health": true
 		}
 	},
 	{

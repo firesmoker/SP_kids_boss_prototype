@@ -1,4 +1,5 @@
 extends Control
+@onready var audio: AudioStreamPlayer = $Audio
 
 @onready var confetti_animation: AnimatedSprite2D = $ConfettiAnimation
 var characters_data: Array = []
@@ -100,7 +101,6 @@ func populate_texts() -> void:
 	$MarginContainer.add_child(play_button)
 
 func _on_play_pressed() -> void:
-	
 	for character_data: Dictionary in characters_data:
 		if character_data["state"] == "selected":
 			if new_mode_character:
@@ -341,6 +341,8 @@ func update_play_button_state() -> void:
 
 
 func _on_item_selected(event: InputEvent, character_data: Dictionary) -> void:
+	if not event.is_released():
+		audio.play()
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
 		# Update the state of characters
 		for char: Dictionary in characters_data:
