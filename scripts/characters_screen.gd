@@ -165,6 +165,8 @@ func populate_hbox() -> void:
 func play_confetti_animation() -> void:
 	confetti_animation.visible = true
 	confetti_animation.play("end_screen_confetti")
+	audio.stream = load("res://audio/Bright Bonus Win.mp3")
+	audio.play()
 	
 func create_item(character_data: Dictionary) -> Control:
 	# Determine image based on state
@@ -342,6 +344,7 @@ func update_play_button_state() -> void:
 
 func _on_item_selected(event: InputEvent, character_data: Dictionary) -> void:
 	if not event.is_released():
+		audio.stream = load("res://audio/Instant Message 6.mp3")
 		audio.play()
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
 		# Update the state of characters
