@@ -300,17 +300,25 @@ func create_parameter_hbox(texture_path: String, count: int) -> HBoxContainer:
 	hbox.layout_direction = Control.LAYOUT_DIRECTION_RTL
 	hbox.add_theme_constant_override("separation", 5)  # 5 pixels between icons
 
+	# Add 5 default texture icons initially
 	for i in range(5):
 		var icon: TextureRect = TextureRect.new()
-		if i < count:
-			icon.texture = load(texture_path)  # Use the provided texture for filled icons
-		else:
-			icon.texture = load("res://art/16_dec/parameter.png")  # Default texture for empty slots
+		icon.texture = load("res://art/16_dec/parameter.png")  # Default texture for empty slots
 		icon.custom_minimum_size = Vector2(9, 16)
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		hbox.add_child(icon)
 
+	# Start the animation coroutine
+	animate_icons(hbox, texture_path, count)
+
 	return hbox
+
+# Animation Coroutine
+func animate_icons(hbox: HBoxContainer, texture_path: String, count: int) -> void:
+	for i in range(min(count, 5)):  # Ensure we only animate up to 5 icons
+		await get_tree().create_timer(0.1).timeout  # Wait 0.2 seconds
+		var icon: TextureRect = hbox.get_child(i) as TextureRect
+		icon.texture = load(texture_path)  # Update the texture
 
 
 func update_play_button_state() -> void:
