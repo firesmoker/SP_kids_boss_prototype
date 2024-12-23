@@ -385,13 +385,14 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	if ui_type == "both":
 		right_hand_part.position.y += 20
 	boss.visible = toggle
-	if bigger_health:
-		player_health_bar_long.visible = toggle
-		player_health_bar.visible = false
-	else:
-		player_health_bar_long.visible = false
-		player_health_bar.visible = toggle
-	#player_health_bar.visible = toggle
+	#if bigger_health:
+		#player_health_bar_long.visible = toggle
+		#player_health_bar.visible = false
+	#else:
+		#player_health_bar_long.visible = false
+		#player_health_bar.visible = toggle
+	player_health_bar_long.visible = false
+	player_health_bar.visible = toggle
 	boss_health_bar.visible = toggle
 	player_character.visible = toggle
 	player_bot.visible = false
@@ -547,7 +548,12 @@ func update_ingame_stars() -> void:
 func set_player_health() -> void:
 	original_health_color = player_health_bar.tint_progress
 	player_health = starting_player_health
-	player_health_bar.max_value = player_health
+	print("player health function")
+	if not bigger_health:
+		print("not bigger health!")
+		player_health_bar.max_value = player_health * 1.2
+	else:
+		player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	player_health_bar_long.max_value = player_health
 	player_health_bar_long.value = player_health
@@ -1356,7 +1362,10 @@ func get_hit(damage: float = -1.0) -> void:
 				lose()
 
 func reset_health_bars() -> void:
-	player_health_bar.max_value = player_health
+	if not bigger_health:
+		player_health_bar.max_value = player_health * 1.2
+	else:
+		player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	player_health_bar_long.max_value = player_health
 	player_health_bar_long.value = player_health

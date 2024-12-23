@@ -1,4 +1,4 @@
-[gd_scene load_steps=1325 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1323 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -170,8 +170,6 @@
 [ext_resource type="Texture2D" uid="uid://cpo3tkigclday" path="res://art/13_nov/StarEndScreen/StarEndScreen-77.png" id="130_d3lnf"]
 [ext_resource type="Texture2D" uid="uid://bagi32cgjgv8t" path="res://art/13_nov/StarEndScreen/StarEndScreen-78.png" id="131_5drrm"]
 [ext_resource type="Texture2D" uid="uid://cjrhxyw31vaip" path="res://art/13_nov/StarEndScreen/StarEndScreen-79.png" id="132_yxi8h"]
-[ext_resource type="Texture2D" uid="uid://bbo26fcdfel1j" path="res://art/18_dec/small_bar_empty.png" id="136_gw50p"]
-[ext_resource type="Texture2D" uid="uid://b3uogv5ikhv2j" path="res://art/18_dec/small_bar_full.png" id="137_7f6s7"]
 [ext_resource type="Texture2D" uid="uid://cs01bmgs0kkre" path="res://art/18_dec/bar_ext_full_x2.png" id="140_hes1t"]
 [ext_resource type="Texture2D" uid="uid://c8n4jpmw2aepn" path="res://art/ScoreBar.png" id="144_exjl3"]
 [ext_resource type="Texture2D" uid="uid://b3i4o2o5dyk4m" path="res://art/5_dec/bar_1/combo_bar x1_00002.png" id="145_84d3p"]
@@ -6025,8 +6023,8 @@ scale = Vector2(0.5, 0.5)
 max_value = 6.0
 step = 0.01
 value = 6.0
-texture_under = ExtResource("136_gw50p")
-texture_progress = ExtResource("137_7f6s7")
+texture_under = ExtResource("360_yopmy")
+texture_progress = ExtResource("361_obrbm")
 metadata/_edit_use_anchors_ = true
 
 [node name="Flash" parent="UI/PlayerHealthBar" instance=ExtResource("57_hg35f")]
