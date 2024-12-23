@@ -74,6 +74,7 @@ func create_item(level_data: Dictionary, state: String) -> Control:
 	# Add the main text label
 	var label: Label = Label.new()
 	label.text = text
+	label.theme = load("res://scene_resources/theme_journey_font.tres")
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	item.add_child(label)
 

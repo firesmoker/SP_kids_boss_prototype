@@ -130,6 +130,8 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var boss: AnimatedSprite2D = $Level/Boss
 @onready var player_health_bar: TextureProgressBar = $UI/PlayerHealthBar
 @onready var player_health_bar_long: TextureProgressBar = $UI/PlayerHealthBarLong
+@onready var player_health_bar_fake: TextureProgressBar = $UI/PlayerHealthBarFake
+
 
 @onready var boss_health_bar: TextureProgressBar = $UI/BossHealthBar
 @onready var level: Node2D = $Level
@@ -385,14 +387,15 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	if ui_type == "both":
 		right_hand_part.position.y += 20
 	boss.visible = toggle
-	#if bigger_health:
-		#player_health_bar_long.visible = toggle
-		#player_health_bar.visible = false
-	#else:
-		#player_health_bar_long.visible = false
-		#player_health_bar.visible = toggle
-	player_health_bar_long.visible = false
-	player_health_bar.visible = toggle
+	if bigger_health:
+		player_health_bar_long.visible = toggle
+		player_health_bar.visible = false
+	else:
+		player_health_bar_long.visible = false
+		player_health_bar.visible = toggle
+	#player_health_bar_long.visible = false
+	#player_health_bar.visible = toggle
+	player_health_bar_fake.visible = toggle
 	boss_health_bar.visible = toggle
 	player_character.visible = toggle
 	player_bot.visible = false
@@ -408,6 +411,20 @@ func set_boss_visibility(toggle: bool = true) -> void:
 	player_platform.visible = toggle
 	boss_platform.visible = toggle
 	white_layer_4.visible = false
+	
+	if strong_attacks:	
+		top_staff_power.scale.y *= 1.1
+		top_staff_power_lower.scale.y *= 1.1
+		bottom_staff_power.scale.y *= 1.1
+		
+		top_staff_power.self_modulate = Color.HOT_PINK
+		top_staff_power_lower.self_modulate = Color.HOT_PINK
+		bottom_staff_power.self_modulate = Color.HOT_PINK
+		
+		top_staff_power.position.y -= 3
+		top_staff_power_lower.position.y -= 3
+		bottom_staff_power.position.y += 3
+	
 	
 	if not cheat_skip_intro and not last_game_lost:
 		intro_sequence.visible = toggle
@@ -549,11 +566,12 @@ func set_player_health() -> void:
 	original_health_color = player_health_bar.tint_progress
 	player_health = starting_player_health
 	print("player health function")
-	if not bigger_health:
-		print("not bigger health!")
-		player_health_bar.max_value = player_health * 1.2
-	else:
-		player_health_bar.max_value = player_health
+	#if not bigger_health:
+		#print("not bigger health!")
+		#player_health_bar.max_value = player_health * 1.2
+	#else:
+		#player_health_bar.max_value = player_health
+	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	player_health_bar_long.max_value = player_health
 	player_health_bar_long.value = player_health
@@ -947,6 +965,7 @@ func fade_elements() -> void:
 	boss_panel.find_child("Fader").fade_out()
 	player_health_bar.find_child("Fader").fade_out()
 	player_health_bar_long.find_child("Fader").fade_out()
+	player_health_bar_fake.find_child("Fader").fade_out()
 	boss_health_bar.find_child("Fader").fade_out()
 	
 func lose() -> void:
@@ -1242,6 +1261,8 @@ func heal(amount: int = 1) -> void:
 	player_health_bar.find_child("Expander").expand(1.10, 0.25, true)
 	player_health_bar_long.find_child("Flash").flash(Color.LIGHT_SEA_GREEN, 0.25)
 	player_health_bar_long.find_child("Expander").expand(1.10, 0.25, true)
+	player_health_bar_fake.find_child("Flash").flash(Color.LIGHT_SEA_GREEN, 0.25)
+	player_health_bar_fake.find_child("Expander").expand(1.10, 0.25, true)
 	player_portrait.find_child("Expander").expand(1.10, 0.25, true)
 
 func hit_boss(damage: float = -1) -> void:
@@ -1253,6 +1274,8 @@ func hit_boss(damage: float = -1) -> void:
 		damage = damage * character_attack_modifier
 		handle_boss_hit(damage)
 		check_boss_health()
+
+
 
 func handle_note_effects() -> void:
 	if ui_type == "treble":
@@ -1355,6 +1378,8 @@ func get_hit(damage: float = -1.0) -> void:
 			player_health_bar.find_child("Expander").expand(1.20, 0.15, true)
 			player_health_bar_long.find_child("Flash").flash(Color.RED)
 			player_health_bar_long.find_child("Expander").expand(1.20, 0.15, true)
+			player_health_bar_fake.find_child("Flash").flash(Color.RED)
+			player_health_bar_fake.find_child("Expander").expand(1.20, 0.15, true)
 			player_portrait.find_child("Flash").flash(Color.RED)
 			player_portrait.find_child("Expander").expand(1.20, 0.15, true)
 			
@@ -1362,10 +1387,11 @@ func get_hit(damage: float = -1.0) -> void:
 				lose()
 
 func reset_health_bars() -> void:
-	if not bigger_health:
-		player_health_bar.max_value = player_health * 1.2
-	else:
-		player_health_bar.max_value = player_health
+	#if not bigger_health:
+		#player_health_bar.max_value = player_health * 1.2
+	#else:
+		#player_health_bar.max_value = player_health
+	player_health_bar.max_value = player_health
 	player_health_bar.value = player_health
 	player_health_bar_long.max_value = player_health
 	player_health_bar_long.value = player_health

@@ -219,7 +219,7 @@ func create_item(character_data: Dictionary) -> Control:
 
 	# Add a TextureRect for the background image
 	var background_image: TextureRect = TextureRect.new()
-	background_image.texture = load("res://art/16_dec/character-item.png")
+	background_image.texture = load("res://art/23_dec/character-item.png")
 	background_image.scale = Vector2(0.7, 0.7)
 	background_image.position = Vector2(-8, -4)
 	background_image.custom_minimum_size = Vector2(400, 732)
@@ -280,13 +280,13 @@ func create_item(character_data: Dictionary) -> Control:
 	parameters_vbox.scale = Vector2(0.75, 0.75)
 	parameters_vbox.add_theme_constant_override("separation", 15)
 
-	# Add the attack icons
-	var attack_hbox: HBoxContainer = create_parameter_hbox("res://art/16_dec/attack.png", attack)
-	parameters_vbox.add_child(attack_hbox)
-
 	# Add the defense icons
 	var defense_hbox: HBoxContainer = create_parameter_hbox("res://art/16_dec/defense.png", defense)
 	parameters_vbox.add_child(defense_hbox)
+	
+	# Add the attack icons
+	var attack_hbox: HBoxContainer = create_parameter_hbox("res://art/16_dec/attack.png", attack)
+	parameters_vbox.add_child(attack_hbox)
 
 	# Add the speed icons
 	var speed_hbox: HBoxContainer = create_parameter_hbox("res://art/16_dec/speed.png", speed)

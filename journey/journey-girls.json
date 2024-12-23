@@ -72,5 +72,54 @@
 		"is_complete": false,
 		"state": "locked",
 		"text": "קבלו את קודה"
+	},
+	
+	
+	
+	
+	{
+		"images": {
+			"locked": "res://art/16_dec/tactonic.png",
+			"unlocked": "res://art/16_dec/tactonic.png"
+		},
+		"in-game-params": {
+			"id": "boss://BossFantasy1_Simply",
+			"type": "boss",
+			"name": "טקטוניק",
+			"boss": "tactonic",
+			"boss_model": "boss_tactonic"
+		},
+		"is_complete": false,
+		"text": "שחקו נגד ג׳ינו",
+	},
+	{
+		"images": {
+			"locked": "res://art/16_dec/tactonic.png",
+			"unlocked": "res://art/16_dec/tactonic.png"
+		},
+		"in-game-params": {
+			"id": "boss://BossFantasy1_Simply",
+			"type": "boss",
+			"name": "טקטוניק",
+			"boss": "tactonic",
+			"boss_model": "boss_tactonic"
+		},
+		"is_complete": false,
+		"text": "שחקו נגד מגה",
+	},
+	{
+		"images": {
+			"locked": "res://art/16_dec/tactonic.png",
+			"unlocked": "res://art/16_dec/tactonic.png"
+		},
+		"in-game-params": {
+			"id": "boss://BossFantasy1_Simply",
+			"type": "boss",
+			"name": "טקטוניק",
+			"boss": "tactonic",
+			"boss_model": "boss_tactonic"
+		},
+		"is_complete": false,
+		"text": "שחקו נגד המאסטר",
 	}
 ]

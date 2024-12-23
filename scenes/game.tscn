@@ -1,4 +1,4 @@
-[gd_scene load_steps=1323 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1324 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -170,7 +170,8 @@
 [ext_resource type="Texture2D" uid="uid://cpo3tkigclday" path="res://art/13_nov/StarEndScreen/StarEndScreen-77.png" id="130_d3lnf"]
 [ext_resource type="Texture2D" uid="uid://bagi32cgjgv8t" path="res://art/13_nov/StarEndScreen/StarEndScreen-78.png" id="131_5drrm"]
 [ext_resource type="Texture2D" uid="uid://cjrhxyw31vaip" path="res://art/13_nov/StarEndScreen/StarEndScreen-79.png" id="132_yxi8h"]
-[ext_resource type="Texture2D" uid="uid://cs01bmgs0kkre" path="res://art/18_dec/bar_ext_full_x2.png" id="140_hes1t"]
+[ext_resource type="Texture2D" uid="uid://tarc3xcebpt8" path="res://art/18_dec/small_bar_empty_cropped_right.png" id="138_u7uq7"]
+[ext_resource type="Texture2D" uid="uid://oj7laglm50xc" path="res://art/18_dec/small_bar_cropped_right.png" id="139_2aqoy"]
 [ext_resource type="Texture2D" uid="uid://c8n4jpmw2aepn" path="res://art/ScoreBar.png" id="144_exjl3"]
 [ext_resource type="Texture2D" uid="uid://b3i4o2o5dyk4m" path="res://art/5_dec/bar_1/combo_bar x1_00002.png" id="145_84d3p"]
 [ext_resource type="Texture2D" uid="uid://uvj0fjk5wjqn" path="res://art/5_dec/bar_1/combo_bar x1_00003.png" id="146_4ooct"]
@@ -6011,6 +6012,31 @@ vertical_alignment = 1
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
 
+[node name="PlayerHealthBarFake" type="TextureProgressBar" parent="UI"]
+process_mode = 3
+top_level = true
+z_index = 1
+offset_left = 116.0
+offset_top = 74.0
+offset_right = 804.0
+offset_bottom = 161.0
+scale = Vector2(0.5, 0.5)
+max_value = 6.0
+step = 0.01
+value = 6.0
+texture_under = ExtResource("360_yopmy")
+texture_progress = ExtResource("360_yopmy")
+tint_progress = Color(0.5, 0.5, 0.5, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Flash" parent="UI/PlayerHealthBarFake" instance=ExtResource("57_hg35f")]
+flash_color = Color(1, 0, 0, 1)
+flash_time = 0.4
+
+[node name="Expander" parent="UI/PlayerHealthBarFake" instance=ExtResource("20_wgxju")]
+
+[node name="Fader" parent="UI/PlayerHealthBarFake" instance=ExtResource("63_jfxac")]
+
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UI"]
 process_mode = 3
 top_level = true
@@ -6023,8 +6049,8 @@ scale = Vector2(0.5, 0.5)
 max_value = 6.0
 step = 0.01
 value = 6.0
-texture_under = ExtResource("360_yopmy")
-texture_progress = ExtResource("361_obrbm")
+texture_under = ExtResource("138_u7uq7")
+texture_progress = ExtResource("139_2aqoy")
 metadata/_edit_use_anchors_ = true
 
 [node name="Flash" parent="UI/PlayerHealthBar" instance=ExtResource("57_hg35f")]
@@ -6049,7 +6075,7 @@ max_value = 6.0
 step = 0.01
 value = 6.0
 texture_under = ExtResource("360_yopmy")
-texture_progress = ExtResource("140_hes1t")
+texture_progress = ExtResource("361_obrbm")
 metadata/_edit_use_anchors_ = true
 
 [node name="Flash" parent="UI/PlayerHealthBarLong" instance=ExtResource("57_hg35f")]
