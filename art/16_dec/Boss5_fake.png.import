@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by8f7g3g1huf8"
-path="res://.godot/imported/coda-journey-unlocked.png-e64f17c6840875c54128d63e14641cc6.ctex"
+uid="uid://cxpxnypuxlcv0"
+path="res://.godot/imported/Boss5_fake.png-892b53ffbde58e8239ef3ab448ce2569.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/16_dec/coda-journey-unlocked.png"
-dest_files=["res://.godot/imported/coda-journey-unlocked.png-e64f17c6840875c54128d63e14641cc6.ctex"]
+source_file="res://art/16_dec/Boss5_fake.png"
+dest_files=["res://.godot/imported/Boss5_fake.png-892b53ffbde58e8239ef3ab448ce2569.ctex"]
 
 [params]
 

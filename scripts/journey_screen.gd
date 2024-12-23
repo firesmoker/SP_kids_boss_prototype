@@ -161,9 +161,12 @@ func _on_item_clicked(event: InputEvent, in_game_params: Dictionary) -> void:
 	if event is InputEventScreenTouch and event.is_released() and not event.is_canceled():
 		var released_event_position: Vector2 = get_global_transform().basis_xform(event.position)
 		if released_event_position.distance_to(pressed_event_position) < 0.1:
-			JourneyManager.set_current_level(in_game_params)
-			save_scroll_position()
-			NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
+			if not in_game_params.has("disabled"):
+				JourneyManager.set_current_level(in_game_params)
+				save_scroll_position()
+				NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
+			else:
+				print(levels_data)
 
 
 func set_item_opacity(frame: Panel, opacity: float) -> void:

@@ -63,11 +63,12 @@
 		"images": {
 			"locked": "res://art/16_dec/riff-journey-locked.png",
 			"unlocked": "res://art/16_dec/riff-journey-locked.png",
-			"complete": "res://art/16_dec/riff-journey.png"
+			"unlocked": "res://art/16_dec/riff-journey-locked.png"
 		},
 		"in-game-params": {
 			"id": "character://riff",
-			"type": "character-selection"
+			"type": "character-selection",
+			"disabled": true
 		},
 		"is_complete": false,
 		"state": "locked",
@@ -79,8 +80,8 @@
 	
 	{
 		"images": {
-			"locked": "res://art/16_dec/tactonic.png",
-			"unlocked": "res://art/16_dec/tactonic.png"
+			"locked": "res://art/16_dec/Boss5_fake.png",
+			"unlocked": "res://art/16_dec/Boss5_fake.png"
 		},
 		"in-game-params": {
 			"id": "boss://BossFantasy1_Simply",
@@ -94,8 +95,8 @@
 	},
 	{
 		"images": {
-			"locked": "res://art/16_dec/tactonic.png",
-			"unlocked": "res://art/16_dec/tactonic.png"
+			"locked": "res://art/16_dec/Boss5_fake.png",
+			"unlocked": "res://art/16_dec/Boss5_fake.png"
 		},
 		"in-game-params": {
 			"id": "boss://BossFantasy1_Simply",
@@ -109,8 +110,8 @@
 	},
 	{
 		"images": {
-			"locked": "res://art/16_dec/tactonic.png",
-			"unlocked": "res://art/16_dec/tactonic.png"
+			"locked": "res://art/16_dec/Boss5_fake.png",
+			"unlocked": "res://art/16_dec/Boss5_fake.png"
 		},
 		"in-game-params": {
 			"id": "boss://BossFantasy1_Simply",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=1324 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1325 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -170,6 +170,7 @@
 [ext_resource type="Texture2D" uid="uid://cpo3tkigclday" path="res://art/13_nov/StarEndScreen/StarEndScreen-77.png" id="130_d3lnf"]
 [ext_resource type="Texture2D" uid="uid://bagi32cgjgv8t" path="res://art/13_nov/StarEndScreen/StarEndScreen-78.png" id="131_5drrm"]
 [ext_resource type="Texture2D" uid="uid://cjrhxyw31vaip" path="res://art/13_nov/StarEndScreen/StarEndScreen-79.png" id="132_yxi8h"]
+[ext_resource type="Texture2D" uid="uid://cujlk7k5u40sp" path="res://art/18_dec/bar_fake.png" id="135_17arj"]
 [ext_resource type="Texture2D" uid="uid://tarc3xcebpt8" path="res://art/18_dec/small_bar_empty_cropped_right.png" id="138_u7uq7"]
 [ext_resource type="Texture2D" uid="uid://oj7laglm50xc" path="res://art/18_dec/small_bar_cropped_right.png" id="139_2aqoy"]
 [ext_resource type="Texture2D" uid="uid://c8n4jpmw2aepn" path="res://art/ScoreBar.png" id="144_exjl3"]
@@ -5405,6 +5406,7 @@ texture_pressed = ExtResource("347_fspio")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Restart" type="TextureButton" parent="Overlay"]
 process_mode = 3
@@ -5421,6 +5423,7 @@ texture_normal = ExtResource("348_4qpta")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Return" type="TextureButton" parent="Overlay"]
 process_mode = 3
@@ -5437,6 +5440,7 @@ texture_normal = ExtResource("349_jibpt")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="WinText" type="Label" parent="Overlay"]
 process_mode = 3
@@ -5656,6 +5660,7 @@ offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Overlay/Stars" instance=ExtResource("63_jfxac")]
 visible = false
@@ -6024,10 +6029,9 @@ scale = Vector2(0.5, 0.5)
 max_value = 6.0
 step = 0.01
 value = 6.0
-texture_under = ExtResource("360_yopmy")
-texture_progress = ExtResource("360_yopmy")
-tint_progress = Color(0.5, 0.5, 0.5, 1)
+texture_progress = ExtResource("135_17arj")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Flash" parent="UI/PlayerHealthBarFake" instance=ExtResource("57_hg35f")]
 flash_color = Color(1, 0, 0, 1)
@@ -6052,6 +6056,7 @@ value = 6.0
 texture_under = ExtResource("138_u7uq7")
 texture_progress = ExtResource("139_2aqoy")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Flash" parent="UI/PlayerHealthBar" instance=ExtResource("57_hg35f")]
 flash_color = Color(1, 0, 0, 1)
@@ -6106,6 +6111,7 @@ fill_mode = 1
 texture_under = ExtResource("360_yopmy")
 texture_progress = ExtResource("361_obrbm")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Flash" parent="UI/BossHealthBar" instance=ExtResource("57_hg35f")]
 
@@ -6468,6 +6474,7 @@ offset_bottom = 124.0
 theme_override_font_sizes/font_size = 48
 text = "בוס"
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="HealthValue" type="Label" parent="UI/BossPanel"]
 layout_mode = 0
@@ -6479,6 +6486,7 @@ theme_override_font_sizes/font_size = 48
 text = "107"
 horizontal_alignment = 2
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="BossPortrait" type="TextureRect" parent="UI/BossPanel"]
 z_index = 2
@@ -6492,6 +6500,7 @@ offset_right = -24.0
 offset_bottom = 212.0
 grow_horizontal = 0
 texture = ExtResource("371_y5r23")
+metadata/_edit_lock_ = true
 
 [node name="Flash" parent="UI/BossPanel/BossPortrait" instance=ExtResource("57_hg35f")]
 
@@ -6507,6 +6516,7 @@ texture = ExtResource("370_bntdn")
 expand_mode = 3
 stretch_mode = 2
 flip_h = true
+metadata/_edit_lock_ = true
 
 [node name="Name" type="Label" parent="UI/PlayerPanel"]
 layout_mode = 0
@@ -6517,6 +6527,7 @@ offset_bottom = 126.0
 theme_override_font_sizes/font_size = 48
 text = "שחקן"
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="HealthValue" type="Label" parent="UI/PlayerPanel"]
 layout_mode = 0
@@ -6528,6 +6539,7 @@ theme_override_font_sizes/font_size = 48
 text = "107"
 horizontal_alignment = 2
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="PlayerPortrait" type="TextureRect" parent="UI/PlayerPanel"]
 z_index = 2
@@ -6537,6 +6549,7 @@ offset_top = 30.0
 offset_right = 210.0
 offset_bottom = 210.0
 texture = ExtResource("372_e2b5x")
+metadata/_edit_lock_ = true
 
 [node name="Flash" parent="UI/PlayerPanel/PlayerPortrait" instance=ExtResource("57_hg35f")]
 
@@ -6697,6 +6710,7 @@ sprite_frames = ExtResource("754_4ub0c")
 animation = &"attack"
 autoplay = "idle"
 script = ExtResource("19_j5u08")
+metadata/_edit_lock_ = true
 
 [node name="HitZone" type="Area2D" parent="Level/PlayerCharacter"]
 position = Vector2(382.394, -59.5941)
@@ -6704,6 +6718,7 @@ monitorable = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlayerCharacter/HitZone"]
+visible = false
 position = Vector2(-19.7222, -76.9756)
 shape = SubResource("RectangleShape2D_fef26")
 metadata/_edit_lock_ = true
@@ -6735,6 +6750,7 @@ position = Vector2(417.46, 70)
 scale = Vector2(0.590503, 0.590503)
 sprite_frames = ExtResource("760_4rqcu")
 animation = &"win"
+metadata/_edit_lock_ = true
 
 [node name="BossHitZone" type="Area2D" parent="Level/Boss"]
 visible = false
@@ -6759,6 +6775,7 @@ metadata/_edit_lock_ = true
 [node name="RightHandPart" type="Node2D" parent="Level"]
 position = Vector2(-52.0317, -209.524)
 scale = Vector2(0.8, 0.8)
+metadata/_edit_lock_ = true
 
 [node name="EndingPoint" type="Node2D" parent="Level/RightHandPart"]
 z_index = 1
@@ -6827,6 +6844,7 @@ self_modulate = Color(1, 1, 1, 0.341176)
 position = Vector2(-42.6587, 2.38338)
 scale = Vector2(0.6, 0.72673)
 texture = ExtResource("379_g4x10")
+metadata/_edit_lock_ = true
 
 [node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine"]
 self_modulate = Color(1, 1, 1, 0.639216)
@@ -6834,8 +6852,10 @@ show_behind_parent = true
 position = Vector2(70.501, 0)
 scale = Vector2(0.45, 1)
 texture = ExtResource("14_nko2d")
+metadata/_edit_lock_ = true
 
 [node name="Expander" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow" instance=ExtResource("20_wgxju")]
+metadata/_edit_lock_ = true
 
 [node name="LineZapSingle" type="AnimatedSprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/SingleLine"]
 z_index = -1
@@ -6845,20 +6865,24 @@ sprite_frames = ExtResource("68_qal4a")
 animation = &"line_zap"
 frame = 11
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="MultiLine" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine"]
 self_modulate = Color(1, 1, 1, 0.341176)
 position = Vector2(-42.6587, 79.2683)
 scale = Vector2(0.6, 1.31589)
 texture = ExtResource("379_g4x10")
+metadata/_edit_lock_ = true
 
 [node name="Glow" type="Sprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine"]
 show_behind_parent = true
 position = Vector2(70.501, 0)
 scale = Vector2(0.45, 1)
 texture = ExtResource("14_nko2d")
+metadata/_edit_lock_ = true
 
 [node name="Expander" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine/Glow" instance=ExtResource("20_wgxju")]
+metadata/_edit_lock_ = true
 
 [node name="LineZapMulti" type="AnimatedSprite2D" parent="Level/RightHandPart/CollectDetect/BlueLine/MultiLine"]
 z_index = -1
@@ -6868,6 +6892,7 @@ sprite_frames = ExtResource("68_qal4a")
 animation = &"line_zap"
 frame = 11
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="BottomCollectDetect" type="Area2D" parent="Level/RightHandPart"]
 position = Vector2(-237.54, 200)
@@ -6924,6 +6949,7 @@ sprite_frames = SubResource("SpriteFrames_hq0p5")
 frame = 11
 frame_progress = 1.0
 flip_v = true
+metadata/_edit_lock_ = true
 
 [node name="UpperStaffSprite" parent="Level/RightHandPart/UpperStaff" instance=ExtResource("5_evl1e")]
 position = Vector2(54.0625, 25)
@@ -6935,6 +6961,7 @@ self_modulate = Color(0.760784, 1, 1, 1)
 position = Vector2(0.641396, -46.8927)
 scale = Vector2(1.583, 1.3)
 texture = ExtResource("376_p3ysj")
+metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPower" instance=ExtResource("63_jfxac")]
 
@@ -6944,8 +6971,10 @@ self_modulate = Color(0.760784, 1, 1, 1)
 position = Vector2(0.641396, 48.4013)
 scale = Vector2(1.583, 1.3)
 texture = ExtResource("376_p3ysj")
+metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Level/RightHandPart/UpperStaff/UpperStaffSprite/StaffPowerLower" instance=ExtResource("63_jfxac")]
+metadata/_edit_lock_ = true
 
 [node name="StaffSparksTop" type="AnimatedSprite2D" parent="Level/RightHandPart/UpperStaff"]
 visible = false
@@ -7003,6 +7032,7 @@ self_modulate = Color(0.760784, 1, 1, 1)
 position = Vector2(0.641396, 48.7307)
 scale = Vector2(1.583, 1.3)
 texture = ExtResource("376_p3ysj")
+metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Level/RightHandPart/BottomStaff/BottomStaffSprite/StaffPower" instance=ExtResource("63_jfxac")]
 
@@ -7036,6 +7066,7 @@ autoplay = "default"
 frame_progress = 0.143131
 
 [node name="Fader" parent="Level/RightHandPart" instance=ExtResource("63_jfxac")]
+metadata/_edit_lock_ = true
 
 [node name="ComboFeedbackAnimation" type="AnimatedSprite2D" parent="Level/RightHandPart"]
 visible = false
@@ -7052,6 +7083,7 @@ texture = ExtResource("427_hua2n")
 metadata/_edit_lock_ = true
 
 [node name="Fader" parent="Level/Vignette" instance=ExtResource("63_jfxac")]
+metadata/_edit_lock_ = true
 
 [node name="DetectorVisual" type="Node2D" parent="Level"]
 position = Vector2(-242.148, 0)
@@ -7097,6 +7129,7 @@ metadata/_edit_lock_ = true
 bus = &"SFX"
 
 [node name="Fader" parent="Level/DetectorVisual" instance=ExtResource("63_jfxac")]
+metadata/_edit_lock_ = true
 
 [node name="IntoStage" type="AnimatedSprite2D" parent="Level"]
 process_mode = 4
