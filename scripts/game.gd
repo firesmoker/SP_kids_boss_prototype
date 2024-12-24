@@ -358,9 +358,9 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	stars_panel.visible = toggle
 	score_meter.visible = toggle
 	video_layer_1.visible = toggle
-	video_layer_2.visible = toggle
-	video_layer_3.visible = toggle
-	video_layer_4.visible = toggle
+	video_layer_2.visible = false
+	video_layer_3.visible = false
+	video_layer_4.visible = false
 	video_layer_5.visible = false
 	white_layer_4.visible = false
 	background_library.visible = false
@@ -488,74 +488,53 @@ func update_ingame_stars() -> void:
 		elif score_manager.overall_score > star1_threshold_modifier:
 			star1_condition = true
 		
-	if star3_unlocked and video_layer_4.modulate.a >= 1:
-		video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
-		print("video 3 disabled")
-	elif star2_unlocked and video_layer_3.modulate.a >= 1:
-		video_layer_2.process_mode = Node.PROCESS_MODE_DISABLED
-		print("video 2 disabled")
-	elif star1_unlocked and video_layer_2.modulate.a >= 1:
-		print("video 1 disabled")
-		video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
+	#if star3_unlocked and video_layer_4.modulate.a >= 1:
+		#video_layer_3.process_mode = Node.PROCESS_MODE_DISABLED
+		#print("video 3 disabled")
+	#elif star2_unlocked and video_layer_3.modulate.a >= 1:
+		#video_layer_2.process_mode = Node.PROCESS_MODE_DISABLED
+		#print("video 2 disabled")
+	#elif star1_unlocked and video_layer_2.modulate.a >= 1:
+		#print("video 1 disabled")
+		#video_layer_1.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	
 	
 		
 	if star3_condition:
-	#if score_manager.overall_score > star3_threshold_modifier:
-	#if score_manager.gamified_overall_score > star3_threshold_score:
-		video_layer_4.process_mode = Node.PROCESS_MODE_INHERIT
-		video_layer_4.find_child("Fader").fade_in(0.015)
+		#video_layer_4.process_mode = Node.PROCESS_MODE_INHERIT
+		#video_layer_4.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
-			#star_celebration.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.process_mode = Node.PROCESS_MODE_INHERIT
-			#star_celebration.modulate.a = 1
 			confetti.frame = 0
 			confetti.play()
-			#star_celebration.find_child("Animation").play()
-			#star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star3_unlocked = true
 			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
 			expander.expand(1.7,0.25,true)
 	elif star2_condition:
-	#elif score_manager.overall_score > star2_threshold_modifier:
-	#elif score_manager.gamified_overall_score > star2_threshold_score:
-		#video_layer_3.visible = true
-		video_layer_3.process_mode = Node.PROCESS_MODE_INHERIT
-		video_layer_3.find_child("Fader").fade_in(0.015)
+		#video_layer_3.process_mode = Node.PROCESS_MODE_INHERIT
+		#video_layer_3.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
-			#star_celebration.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.frame = 0
 			confetti.play()
-			#star_celebration.modulate.a = 1
-			#star_celebration.find_child("Animation").play()
-			#star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star2_unlocked = true
 			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
 			expander.expand(1.7,0.25,true)
 	elif star1_condition:
-	#elif score_manager.overall_score > star1_threshold_modifier:
-	#elif score_manager.gamified_overall_score > star1_threshold_score:
-		#video_layer_3.find_child("Fader").fade_in(0.015)
-		#video_layer_3.visible = true
-		video_layer_2.process_mode = Node.PROCESS_MODE_INHERIT
-		video_layer_2.find_child("Fader").fade_in(0.015)
+		#video_layer_2.process_mode = Node.PROCESS_MODE_INHERIT
+		#video_layer_2.find_child("Fader").fade_in(0.015)
 		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
-			#star_celebration.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.frame = 0
 			confetti.play()
-			#star_celebration.modulate.a = 1
-			#star_celebration.find_child("Animation").play()
-			#star_celebration.find_child("Fader").fade_out(0.005)
 			audio.stream = audio_clips.star
 			audio.play()
 			star1_unlocked = true
