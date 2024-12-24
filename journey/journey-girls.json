@@ -38,7 +38,7 @@
 			"type": "boss",
 			"name": "דומיננטוס",
 			"boss": "dominantos",
-			"boss_model": "boss_tactonic"
+			"boss_model": "boss_dominantos"
 		},
 		"is_complete": false,
 		"text": "שחקו נגד דומיננטוס"
@@ -53,7 +53,7 @@
 			"type": "boss",			
 			"name": "דיסטורשן",
 			"boss": "distortion",
-			"boss_model": "boss_tactonic",
+			"boss_model": "boss_distortion",
 			"heart_healing_bonus": 5
 		},
 		"is_complete": false,

@@ -74,7 +74,7 @@ static func launch_boss_scene(node: Node, boss_id: String) -> void:
 	print("Boss with ID not found:", boss_id)
 
 static func apply_boss_parameters(model: Dictionary) -> void:
-	Game.boss_name = model.get("name", "")
+	Game.boss_name = model.get("name","")
 	Game.boss_id = model.get("boss", "")
 	Game.boss_model = model.get("boss_model", "")
 	Game.heart_healing_bonus = model.get("heart_healing_bonus", 0)

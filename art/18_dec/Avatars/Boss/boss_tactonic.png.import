@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l32oqw2k2cxb"
-path="res://.godot/imported/avatar_boss_4.png-27465927e22fae85746610e3f62439cf.ctex"
+uid="uid://b16aivibf3wvx"
+path="res://.godot/imported/boss_tactonic.png-a0a37bc9af92e6dfd6a5f002fc626e59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/18_dec/Avatars/Boss/avatar_boss_4.png"
-dest_files=["res://.godot/imported/avatar_boss_4.png-27465927e22fae85746610e3f62439cf.ctex"]
+source_file="res://art/18_dec/Avatars/Boss/boss_tactonic.png"
+dest_files=["res://.godot/imported/boss_tactonic.png-a0a37bc9af92e6dfd6a5f002fc626e59.ctex"]
 
 [params]
 
