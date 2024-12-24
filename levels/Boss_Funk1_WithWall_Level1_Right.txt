@@ -21,7 +21,7 @@ E4:1/4%3(StemU) D4:1/8%2(StemU) C4:1/8%1(StemU) -:1/2
 -:1 
 -:1 
 -:1 
-F4&heart:1/2%4(StemU) -:1/2 
+F4:1/2%4(StemU) -:1/2 
 F4:1/4%4(StemU) E4:1/4%3(StemU) G4:1/2%5(StemU) 
 -:1 
 F4:1/2%4(StemU) -:1/2 
