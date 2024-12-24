@@ -627,7 +627,6 @@ func _ready() -> void:
 	player_portrait.texture = load("res://art/18_dec/Avatars/Player/" + player_model + ".png")
 	boss_portrait.texture = load("res://art/18_dec/Avatars/Boss/" + boss_model + ".png")
 	
-	boss_portrait.texture = load("res://art/17_nov/avatar_villain.png")
 	boss_label.text = boss_name
 		
 	player_name_label.text = player_name
