@@ -1,0 +1,29 @@
+{
+    "name": "Boss_Fantasy2_PB2Middle",
+    "displayName": "Boss Fantasy 1",
+    "hideInLibrary": false,
+    "acumID": "SongId",
+    "groupName": "Boss_Fantasy2_PB2Middle",
+    "isDefaultInGroup": true,
+    "staffDisplayMode": "Regular",
+    "bookLevel": "1a",
+    "key": "C Major",
+    "artistType": "composer",
+    "artistName": "Mentissa",
+    "categories": [ "MusicXML" ],
+    "bgmFilename": "Boss_Fantasy2_PB2Middle.m4a",
+    "bgmSnippetFilename": "Boss_Fantasy2_PB2Middle_Snippet.m4a",
+    "iconImageName": "SongCoverBoss_Fantasy2_PB2Middle.png",
+    "sheetMusicImageName": "SheetMusic_Boss_Fantasy2_PB2Middle.png",
+    "sheetMusicSnippetImageName": "SheetMusicSnippet_Boss_Fantasy2_PB2Middle.png",
+    "melodies": [
+        "Boss_Fantasy2_PB2Middle_Right.txt","Boss_Fantasy2_PB2Middle_Left.txt"
+    ],
+    "numOnScreenBars": 2.5,
+    "baseDifficulty": 50,
+    "difficulty": [
+        0,
+        0,
+        0
+    ]
+}

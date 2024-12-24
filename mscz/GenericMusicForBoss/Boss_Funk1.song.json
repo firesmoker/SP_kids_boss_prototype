@@ -1,0 +1,29 @@
+{
+    "name": "Boss_Funk1",
+    "displayName": "Boss Fantasy 1",
+    "hideInLibrary": false,
+    "acumID": "SongId",
+    "groupName": "Boss_Funk1",
+    "isDefaultInGroup": true,
+    "staffDisplayMode": "Regular",
+    "bookLevel": "1a",
+    "key": "C Major",
+    "artistType": "composer",
+    "artistName": "Mentissa",
+    "categories": [ "MusicXML" ],
+    "bgmFilename": "Boss_Funk1.m4a",
+    "bgmSnippetFilename": "Boss_Funk1_Snippet.m4a",
+    "iconImageName": "SongCoverBoss_Funk1.png",
+    "sheetMusicImageName": "SheetMusic_Boss_Funk1.png",
+    "sheetMusicSnippetImageName": "SheetMusicSnippet_Boss_Funk1.png",
+    "melodies": [
+        "Boss_Funk1_Right.txt","Boss_Funk1_Left.txt"
+    ],
+    "numOnScreenBars": 2.5,
+    "baseDifficulty": 50,
+    "difficulty": [
+        0,
+        0,
+        0
+    ]
+}
