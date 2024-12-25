@@ -362,6 +362,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	stars_panel.visible = toggle
 	score_meter.visible = toggle
 	video_layer_1.visible = toggle
+	background_sp.visible = toggle
 	video_layer_2.visible = false
 	video_layer_3.visible = false
 	video_layer_4.visible = false
@@ -369,7 +370,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	white_layer_4.visible = false
 	background_library.visible = false
 	background_library_solid.visible = false
-	background_sp.visible = false
+	#background_sp.visible = false
 	combo_feedback_animation.visible = false
 	top_upper_glow.visible = false
 	bottom_upper_glow.visible = false
@@ -605,7 +606,7 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 	video_layer_5.process_mode = Node.PROCESS_MODE_DISABLED
 	confetti.process_mode = Node.PROCESS_MODE_DISABLED
 	star_celebration.process_mode = Node.PROCESS_MODE_DISABLED
-	combo_feedback_animation.process_mode = Node.PROCESS_MODE_DISABLED
+	combo_feedback_animation.process_mode = process_mode
 	
 
 func _ready() -> void:
@@ -850,17 +851,20 @@ func update_combo_meter() -> void:
 				top_upper_glow.visible = false
 				top_upper_glow.modulate = Color.WHITE
 			ScoreManager.ComboMode.X2:
-				top_upper_glow.play("Level2")
+				top_upper_glow.play("Level4")
 				top_upper_glow.visible = true
 				top_upper_glow.modulate = level2_color
+				play_combo_feedback_animation("combo_2")
 			ScoreManager.ComboMode.X3:
-				top_upper_glow.play("Level3")
+				top_upper_glow.play("Level4")
 				top_upper_glow.visible = true
 				top_upper_glow.modulate = level3_color
+				play_combo_feedback_animation("combo_3")
 			ScoreManager.ComboMode.X4:
 				top_upper_glow.play("Level4")
 				top_upper_glow.visible = true
 				top_upper_glow.modulate = level4_color
+				play_combo_feedback_animation("combo_4")
 		
 		if ui_type =="treble":
 			match score_manager.combo_mode:
@@ -869,11 +873,11 @@ func update_combo_meter() -> void:
 					top_bottom_glow.visible = false
 					top_bottom_glow.modulate = Color.WHITE
 				ScoreManager.ComboMode.X2:
-					top_bottom_glow.play("Level2")
+					top_bottom_glow.play("Level4")
 					top_bottom_glow.visible = true
 					top_bottom_glow.modulate = level2_color
 				ScoreManager.ComboMode.X3:
-					top_bottom_glow.play("Level3")
+					top_bottom_glow.play("Level4")
 					top_bottom_glow.visible = true
 					top_bottom_glow.modulate = level3_color
 				ScoreManager.ComboMode.X4:
@@ -890,14 +894,14 @@ func update_combo_meter() -> void:
 					bottom_bottom_glow.modulate = Color.WHITE
 					bottom_upper_glow.modulate = Color.WHITE
 				ScoreManager.ComboMode.X2:
-					bottom_bottom_glow.play("Level2")
+					bottom_bottom_glow.play("Level4")
 					bottom_bottom_glow.visible = true
 					#bottom_upper_glow.play("Level2")
 					#bottom_upper_glow.visible = true
 					bottom_bottom_glow.modulate = level2_color
 					#bottom_upper_glow.modulate = level2_color
 				ScoreManager.ComboMode.X3:
-					bottom_bottom_glow.play("Level3")
+					bottom_bottom_glow.play("Level4")
 					bottom_bottom_glow.visible = true
 					#bottom_upper_glow.play("Level3")
 					#bottom_upper_glow.visible = true
