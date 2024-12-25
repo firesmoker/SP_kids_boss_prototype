@@ -61,7 +61,7 @@
 	},
 	{
 		"images": {
-			"locked": "res://art/16_dec/tactonic-locked.png",
+			"locked": "res://art/16_dec/Boss5_fake.png",
 			"unlocked": "res://art/16_dec/tactonic.png"
 		},
 		"in-game-params": {
