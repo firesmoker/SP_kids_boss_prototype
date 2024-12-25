@@ -94,6 +94,8 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var debug_perfect_score: Label = $Overlay/DebugWindow/DebugPerfectScore
 
 @onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
+@onready var combo_tutorial_popup: TextureRect = $Overlay/ComboTutorialPopup
+
 
 @onready var blue_line: Node2D = $Level/RightHandPart/CollectDetect/BlueLine
 @onready var player_platform: Node2D = $Level/PlayerPlatform
@@ -121,6 +123,7 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var boss_portrait: TextureRect = $UI/BossPanel/BossPortrait
 
 @onready var popup_progress_bar: PopupProgressBar = $Overlay/Tutorial/ProgressBar
+
 @onready var return_button: TextureButton = $Overlay/Return
 
 @onready var into_stage: AnimatedSprite2D = $Level/IntoStage
@@ -235,6 +238,7 @@ var boss_previous_health: float = 0
 var boss_health_progress: float = 0
 var got_hit_atleast_once: bool = false
 var missed_notes: int = 0
+static var tutorial_closed: bool = false
 var continue_note_played: bool = false
 static var level_ready: bool = false
 var grace_period_finished: bool = false
@@ -371,6 +375,10 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	bottom_upper_glow.visible = false
 	top_bottom_glow.visible = false
 	bottom_bottom_glow.visible = false
+	if not tutorial_closed:
+		combo_tutorial_popup.visible = toggle
+	else:
+		combo_tutorial_popup.visible = false
 	
 	
 	if sp_mode:
@@ -666,6 +674,14 @@ func _ready() -> void:
 		if not cheat_skip_middle_c:
 			await notes_detector.continue_note_played
 			continue_note_popup.visible = false
+	elif game_mode == "library":
+		if not tutorial_closed:
+			combo_tutorial_popup.find_child("ContinueButton").visible = false
+			var combo_tutorial_progress: PopupProgressBar = combo_tutorial_popup.find_child("ButtonProgress")
+			combo_tutorial_progress.start_closing_timer(5)
+			await combo_tutorial_progress.timer.timeout
+			combo_tutorial_popup.find_child("ContinueButton").visible = true
+			await combo_tutorial_popup.find_child("ContinueButton").button_up
 	music_player.play()
 	pause_button.visible = true
 	restart_button.visible = true
@@ -679,6 +695,8 @@ func _ready() -> void:
 	#star3_threshold_score = score_manager.three_stars_score / score_manager.perfect_score * star3_threshold_modifier
 	#print("star 3 threshold is: " + str(star3_threshold_score))
 	#set_star_bar_values()
+
+
 
 func setup_score_manager() -> void:
 	score_manager.total_net_notes_in_level = notes_container.notes_in_level
@@ -766,6 +784,7 @@ func fade_boss_music() -> void:
 		music_fade_out_amount *= 1.1
 
 func _process(delta: float) -> void:
+	
 	if construction_complete and not losing and not winning and music_player.playing and grace_period_finished:
 		vulnerable = true
 	update_score_visual(delta)
@@ -778,7 +797,7 @@ func _process(delta: float) -> void:
 	if game_mode == "library" and not sp_mode:
 		update_ingame_stars()
 		update_score_meter()
-	if not boss.is_playing() and not losing and not winning:
+	if not boss.is_playing() and not losing and not winning and game_mode == "boss":
 		if boss_health > boss_health_bar.max_value / 2:
 			boss.play("idle")
 		else:
@@ -1561,3 +1580,8 @@ func _on_animation_animation_finished() -> void:
 
 func _on_confetti_animation_finished() -> void:
 	confetti.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _on_continue_button_button_up() -> void:
+	combo_tutorial_popup.visible = false
+	tutorial_closed = true

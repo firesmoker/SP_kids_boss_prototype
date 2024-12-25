@@ -1,4 +1,4 @@
-[gd_scene load_steps=1325 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1326 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -171,6 +171,7 @@
 [ext_resource type="Texture2D" uid="uid://bagi32cgjgv8t" path="res://art/13_nov/StarEndScreen/StarEndScreen-78.png" id="131_5drrm"]
 [ext_resource type="Texture2D" uid="uid://cjrhxyw31vaip" path="res://art/13_nov/StarEndScreen/StarEndScreen-79.png" id="132_yxi8h"]
 [ext_resource type="Texture2D" uid="uid://cujlk7k5u40sp" path="res://art/18_dec/bar_fake.png" id="135_17arj"]
+[ext_resource type="Texture2D" uid="uid://d1ayiopiog0om" path="res://art/tutorial_placeholder.png" id="135_qaq6n"]
 [ext_resource type="Texture2D" uid="uid://tarc3xcebpt8" path="res://art/18_dec/small_bar_empty_cropped_right.png" id="138_u7uq7"]
 [ext_resource type="Texture2D" uid="uid://oj7laglm50xc" path="res://art/18_dec/small_bar_cropped_right.png" id="139_2aqoy"]
 [ext_resource type="Texture2D" uid="uid://c8n4jpmw2aepn" path="res://art/ScoreBar.png" id="144_exjl3"]
@@ -6014,6 +6015,70 @@ text = "C"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ComboTutorialPopup" type="TextureRect" parent="Overlay"]
+z_index = 4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("135_qaq6n")
+expand_mode = 3
+
+[node name="ContinueButton" type="TextureButton" parent="Overlay/ComboTutorialPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 232.0
+offset_right = 50.0
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_m6t7w")
+
+[node name="ButtonProgress" type="ProgressBar" parent="Overlay/ComboTutorialPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 91.0
+offset_top = 294.0
+offset_right = 280.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+value = 90.0
+show_percentage = false
+script = ExtResource("24_atn10")
+
+[node name="Label" type="Label" parent="Overlay/ComboTutorialPopup/ButtonProgress"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 17.5
+offset_top = 73.0
+offset_right = 68.5
+offset_bottom = 108.0
+grow_horizontal = 2
+rotation = 3.14159
+theme_override_font_sizes/font_size = 25
+text = "טוען"
+
+[node name="PopupTimer" type="Timer" parent="Overlay/ComboTutorialPopup/ButtonProgress"]
+process_mode = 3
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -7277,6 +7342,8 @@ script = ExtResource("403_slc7f")
 [connection signal="button_up" from="Overlay/Difficulty/NormalButton" to="." method="_on_normal_button_button_up"]
 [connection signal="button_up" from="Overlay/Difficulty/HardButton" to="." method="_on_hard_button_button_up"]
 [connection signal="pressed" from="Overlay/DebugWindow/DebugFinish" to="." method="_on_move_to_end_screen_button_pressed"]
+[connection signal="button_up" from="Overlay/ComboTutorialPopup/ContinueButton" to="." method="_on_continue_button_button_up"]
+[connection signal="timeout" from="Overlay/ComboTutorialPopup/ButtonProgress/PopupTimer" to="Overlay/ComboTutorialPopup/ButtonProgress" method="_on_popup_timer_timeout"]
 [connection signal="animation_finished" from="UI/StarCelebration/Animation" to="." method="_on_animation_animation_finished"]
 [connection signal="body_entered" from="Level/PlayerCharacter/HitZone" to="." method="_on_hit_zone_body_entered"]
 [connection signal="body_entered" from="Level/Boss/BossHitZone" to="." method="_on_boss_hit_zone_body_entered"]
