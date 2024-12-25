@@ -93,8 +93,12 @@ func move_to_core_game() -> void:
 	game.model = model
 		
 
+#func _on_back_button_pressed() -> void:
+	#NodeHelper.move_to_scene(self, "res://scenes/song_variation_screen.tscn", Callable(self, "on_screen_created"))
+	
+
 func _on_back_button_pressed() -> void:
-	NodeHelper.move_to_scene(self, "res://scenes/song_variation_screen.tscn", Callable(self, "on_screen_created"))
+	NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
 func on_screen_created(screen: Node) -> void:
 	screen.model = model

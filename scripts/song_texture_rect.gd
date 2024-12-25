@@ -35,6 +35,12 @@ func _ready() -> void:
 
 var pressed_event_position: Vector2
 
+func move_to_difficulty_screen() -> void:
+	NodeHelper.move_to_scene(self, "res://scenes/song_difficulty_screen.tscn", Callable(self, "on_song_difficulty_screen_created"))
+
+func on_song_difficulty_screen_created(song_difficulty_screen: SongDifficultyScreen) -> void:
+	song_difficulty_screen.model = model
+
 func _gui_input(event: InputEvent) -> void:
 	if event.is_pressed():
 		pressed_event_position = get_global_transform().basis_xform(event.position)
@@ -43,6 +49,10 @@ func _gui_input(event: InputEvent) -> void:
 		var  released_event_position: Vector2 = get_global_transform().basis_xform(event.position)
 		if released_event_position.distance_to(pressed_event_position) < 0.1:
 			print("Song clicked!")
-			var new_screen: Node = load("res://scenes/song_variation_screen.tscn").instantiate()
-			new_screen.model = model
-			get_tree().root.add_child(new_screen)
+			
+			Game.sp_mode = false
+			move_to_difficulty_screen()
+			
+			#var new_screen: Node = load("res://scenes/song_variation_screen.tscn").instantiate()
+			#new_screen.model = model
+			#get_tree().root.add_child(new_screen)
