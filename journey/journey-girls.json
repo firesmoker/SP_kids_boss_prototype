@@ -61,6 +61,24 @@
 	},
 	{
 		"images": {
+			"locked": "res://art/16_dec/tactonic-locked.png",
+			"unlocked": "res://art/16_dec/tactonic.png"
+		},
+		"in-game-params": {
+			"id": "boss://BossRock1_Simply",
+			"type": "boss",			
+			"name": "רביעי",
+			"boss": "distortion",
+			"boss_model": "boss_tactonic",
+			"heart_healing_bonus": 0
+		},
+		"is_complete": false,
+		"text": "שחקו נגד ג׳ונו"
+	},
+	
+	
+	{
+		"images": {
 			"locked": "res://art/16_dec/coda-journey-locked.png",
 			"unlocked": "res://art/16_dec/coda-journey-locked.png",
 			"unlocked": "res://art/16_dec/coda-journey-locked.png"
@@ -78,21 +96,6 @@
 	
 	
 	
-	{
-		"images": {
-			"locked": "res://art/16_dec/Boss5_fake.png",
-			"unlocked": "res://art/16_dec/Boss5_fake.png"
-		},
-		"in-game-params": {
-			"id": "boss://BossFantasy1_Simply",
-			"type": "boss",
-			"name": "טקטוניק",
-			"boss": "tactonic",
-			"boss_model": "boss_tactonic"
-		},
-		"is_complete": false,
-		"text": "שחקו נגד ג׳ינו",
-	},
 	{
 		"images": {
 			"locked": "res://art/16_dec/Boss5_fake.png",

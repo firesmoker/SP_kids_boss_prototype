@@ -341,5 +341,25 @@
 				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg",
 			}
 		}
+	},
+	{
+		"id": "boss://BossRock1_Simply",
+		"displayName": "Boss Rock 1",
+		"artist": "Simply",
+		"image": "res://songs/LibrarySongCover_JingelBells.jpg",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/Boss_Rock1_Complex_Level1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Rock1_Complex_Level1_Left.txt",
+				"song_path": "res://audio/Rock1_164bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 164,
+				"player_life": 17,
+				"boss_life": 46,
+				"ui_type": "both",
+				"display_duration": 3.7,
+				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
+			}
+		}
 	}
 ]

@@ -947,7 +947,7 @@ func play_combo_audio(audio_path: String) -> void:
 func _on_music_player_finished() -> void:
 	print("finished!")
 	if not winning and not losing and game_mode == "boss":
-		lose()
+		win()
 
 func fade_elements() -> void:
 	pause_button.disabled = true
@@ -1130,7 +1130,7 @@ func win() -> void:
 		audio_play_from_source(boss, audio_clips.boss_death)
 		await boss.animation_finished
 		boss.visible = false
-		if music_ending_player.stream:
+		if music_ending_player.stream and music_ending_player.playing:
 			await music_ending_player.finished
 	music_player_slow.stop()
 	if game_mode == "library":
