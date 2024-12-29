@@ -361,5 +361,87 @@
 				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
 			}
 		}
+	},
+	
+	
+	{
+		"id": "boss://Danny_Boss1",
+		"displayName": "Danny Boss 1",
+		"artist": "Simply",
+		"image": "res://art/Danny.png",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/Boss_Rock1_Complex_Level1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Rock1_Complex_Level1_Left.txt",
+				"song_path": "res://audio/Rock1_164bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 164,
+				"player_life": 17,
+				"boss_life": 46,
+				"ui_type": "both",
+				"display_duration": 3.7,
+				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
+			}
+		}
+	},
+	{
+		"id": "boss://Danny_Boss2",
+		"displayName": "Danny Boss 2",
+		"artist": "Simply",
+		"image": "res://art/Danny.png",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/Boss_Rock1_Complex_Level1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Rock1_Complex_Level1_Left.txt",
+				"song_path": "res://audio/Rock1_164bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 164,
+				"player_life": 17,
+				"boss_life": 46,
+				"ui_type": "both",
+				"display_duration": 3.7,
+				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
+			}
+		}
+	},
+	{
+		"id": "boss://Danny_Boss3",
+		"displayName": "Danny Boss 3",
+		"artist": "Simply",
+		"image": "res://art/Danny.png",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/Boss_Rock1_Complex_Level1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Rock1_Complex_Level1_Left.txt",
+				"song_path": "res://audio/Rock1_164bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 164,
+				"player_life": 17,
+				"boss_life": 46,
+				"ui_type": "both",
+				"display_duration": 3.7,
+				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
+			}
+		}
+	},
+	{
+		"id": "boss://Danny_Boss4",
+		"displayName": "Danny Boss 4",
+		"artist": "Simply",
+		"image": "res://art/Danny.png",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/Boss_Rock1_Complex_Level1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Rock1_Complex_Level1_Left.txt",
+				"song_path": "res://audio/Rock1_164bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 164,
+				"player_life": 17,
+				"boss_life": 46,
+				"ui_type": "both",
+				"display_duration": 3.7,
+				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
+			}
+		}
 	}
 ]

@@ -221,3 +221,7 @@ func save_scroll_position() -> void:
 func restore_scroll_position() -> void:
 	var scroll_position: int = JourneyManager.load_scroll_position()
 	scroll_container.scroll_horizontal = scroll_position
+
+
+func _on_boss_list_pressed() -> void:
+	NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")

@@ -80,6 +80,13 @@ offset_right = 145.0
 offset_bottom = 30.0
 text = "שירים"
 
+[node name="BossList" type="Button" parent="VBoxContainer/Control"]
+offset_left = 158.0
+offset_top = -1.0
+offset_right = 256.0
+offset_bottom = 30.0
+text = "בוס - רשימה"
+
 [node name="Midi Status Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
@@ -105,3 +112,4 @@ script = ExtResource("4_qtuxc")
 
 [connection signal="pressed" from="VBoxContainer/Control/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Control/Songs" to="." method="_on_songs_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/BossList" to="." method="_on_boss_list_pressed"]

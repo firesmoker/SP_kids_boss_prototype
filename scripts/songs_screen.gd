@@ -251,3 +251,9 @@ func _set_child_input(node: Node, filter: Control.MouseFilter) -> void:
 
 func _on_boss_pressed() -> void:
 	NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
+	
+
+
+
+func _on_boss_list_pressed() -> void:
+	NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
