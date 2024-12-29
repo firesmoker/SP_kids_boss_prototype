@@ -43,6 +43,7 @@ func _gui_input(event: InputEvent) -> void:
 		var  released_event_position: Vector2 = get_global_transform().basis_xform(event.position)
 		if released_event_position.distance_to(pressed_event_position) < 0.1:
 			print("Boss clicked!")
+			Game.last_menu = "boss_library"
 			var new_screen: Node = load("res://scenes/boss_difficulty_screen.tscn").instantiate()
 			new_screen.model = model
 			get_tree().root.add_child(new_screen)

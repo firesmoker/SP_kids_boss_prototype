@@ -49,8 +49,10 @@ static var score_based_stars: bool = false
 
 static var golden_note_value: float = 1
 
-static var strong_attacks: bool = true
-static var bigger_health: bool = true
+static var strong_attacks: bool = false
+static var bigger_health: bool = false
+
+static var last_menu: String = "journey"
 
 var star1_unlocked: bool = false
 var star2_unlocked: bool = false
@@ -168,8 +170,8 @@ static var target_xp: int = 100  # Replace with your desired XP value
 
 static var heart_healing_bonus: float = 0
 static var song_title: String = ""
-static var boss_model: String = "robot_"
-static var player_model: String = "boy_"
+static var boss_model: String = "boss_tactonic"
+static var player_model: String = "boy_echo"
 static var gender: String = "boy"
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
@@ -1464,14 +1466,21 @@ func _on_resume_button_up() -> void:
 func _on_win_change_level_button_up() -> void:
 	if game_mode == "boss":
 		get_tree().paused = false
-		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
+		if last_menu == "boss_library":
+			NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+		else:
+			NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
 func _on_win_restart_button_up(show_easy: bool = false) -> void:
 	Game.repeat_requested = true
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
+		if last_menu == "boss_library":
+			restart_level()
+		else:
+			NodeHelper.move_to_scene(self, "res://scenes/characters_screen.tscn")
+		
 		#if has_easy_difficulty:
 			#show_easy = true
 		#darken.visible = true
@@ -1496,7 +1505,10 @@ func on_boss_difficulty_screen_created(boss_difficulty_screen: BossDifficultyScr
 
 func _on_win_continue_button_up() -> void:
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
+		if last_menu == "boss_library":
+			NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+		else:
+			NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 
@@ -1515,7 +1527,10 @@ func _on_return_button_up() -> void:
 	Game.game_state = "Winning"
 	pause()
 	if game_mode == "boss":
-		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
+		if last_menu == "boss_library":
+			NodeHelper.move_to_scene(self, "res://scenes/boss_screen.tscn")
+		else:
+			NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
 		NodeHelper.move_to_scene(self, "res://scenes/songs_screen.tscn")
 

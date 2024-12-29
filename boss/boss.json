@@ -366,19 +366,19 @@
 	
 	{
 		"id": "boss://Danny_Boss1",
-		"displayName": "Danny Boss 1",
+		"displayName": "Danny: Rock 1 ",
 		"artist": "Simply",
 		"image": "res://art/Danny.png",
 		"levels": {
 			"easy": {
-				"melody_path": "res://levels/Boss_Rock1_Complex_Level1_Right.txt",
-				"left_melody_path": "res://levels/Boss_Rock1_Complex_Level1_Left.txt",
+				"melody_path": "res://levels/Boss_Pianobasics1_Rock1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Pianobasics1_Rock1_Left.txt",
 				"song_path": "res://audio/Rock1_164bpm.ogg",
 				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
 				"tempo": 164,
-				"player_life": 17,
-				"boss_life": 46,
-				"ui_type": "both",
+				"player_life": 6,
+				"boss_life": 24,
+				"ui_type": "treble",
 				"display_duration": 3.7,
 				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
 			}
@@ -386,61 +386,61 @@
 	},
 	{
 		"id": "boss://Danny_Boss2",
-		"displayName": "Danny Boss 2",
+		"displayName": "Danny: Fantasy 1",
 		"artist": "Simply",
 		"image": "res://art/Danny.png",
 		"levels": {
 			"easy": {
-				"melody_path": "res://levels/Boss_Rock1_Complex_Level1_Right.txt",
-				"left_melody_path": "res://levels/Boss_Rock1_Complex_Level1_Left.txt",
-				"song_path": "res://audio/Rock1_164bpm.ogg",
+				"melody_path": "res://levels/Boss_PianoBasics1_Fantasy1_Right.txt",
+				"left_melody_path": "res://levels/Boss_PianoBasics1_Fantasy1_Left.txt",
+				"song_path": "res://audio/Fantasy1_94bpm.ogg",
 				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
-				"tempo": 164,
-				"player_life": 17,
-				"boss_life": 46,
-				"ui_type": "both",
+				"tempo": 94,
+				"player_life": 9,
+				"boss_life": 36,
+				"ui_type": "treble",
 				"display_duration": 3.7,
-				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
+				"ending_music_path": "res://audio/Fantasy1_94bpm_ending.ogg",
 			}
 		}
 	},
 	{
 		"id": "boss://Danny_Boss3",
-		"displayName": "Danny Boss 3",
+		"displayName": "Danny: Gravity Falls",
 		"artist": "Simply",
 		"image": "res://art/Danny.png",
 		"levels": {
 			"easy": {
-				"melody_path": "res://levels/Boss_Rock1_Complex_Level1_Right.txt",
-				"left_melody_path": "res://levels/Boss_Rock1_Complex_Level1_Left.txt",
-				"song_path": "res://audio/Rock1_164bpm.ogg",
+				"melody_path": "res://levels/Boss_PianoBasics1_GravityFalls_Right.txt",
+				"left_melody_path": "res://levels/Boss_PianoBasics1_GravityFalls_Left.txt",
+				"song_path": "res://audio/GravityFalls_BradBreeck_DMinor_83Bpm_Temp.ogg",
 				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
-				"tempo": 164,
-				"player_life": 17,
-				"boss_life": 46,
-				"ui_type": "both",
+				"tempo": 83,
+				"player_life": 3,
+				"boss_life": 14,
+				"ui_type": "treble",
 				"display_duration": 3.7,
-				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
+				"ending_music_path": "res://audio/GravityFalls_BradBreeck_DMinor_83Bpm_Temp_ending.ogg",
 			}
 		}
 	},
 	{
 		"id": "boss://Danny_Boss4",
-		"displayName": "Danny Boss 4",
+		"displayName": "Danny: Fantasy 2",
 		"artist": "Simply",
 		"image": "res://art/Danny.png",
 		"levels": {
 			"easy": {
-				"melody_path": "res://levels/Boss_Rock1_Complex_Level1_Right.txt",
-				"left_melody_path": "res://levels/Boss_Rock1_Complex_Level1_Left.txt",
-				"song_path": "res://audio/Rock1_164bpm.ogg",
+				"melody_path": "res://levels/Boss_PianoBasics2_Fantasy2_Right.txt",
+				"left_melody_path": "res://levels/Boss_PianoBasics2_Fantasy2_Left.txt",
+				"song_path": "res://audio/Fantasy2_130bpm.ogg",
 				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
-				"tempo": 164,
-				"player_life": 17,
-				"boss_life": 46,
-				"ui_type": "both",
+				"tempo": 130,
+				"player_life": 8,
+				"boss_life": 31,
+				"ui_type": "treble",
 				"display_duration": 3.7,
-				"ending_music_path": "res://audio/Rock1_164bpm_ending.ogg",
+				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg",
 			}
 		}
 	}

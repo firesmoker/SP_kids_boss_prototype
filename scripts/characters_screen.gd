@@ -116,6 +116,7 @@ func _on_play_pressed() -> void:
 		JourneyManager.mark_current_level_as_complete()
 		NodeHelper.move_to_scene(self, "res://scenes/journey_screen.tscn")
 	else:
+		Game.last_menu = "journey"
 		JourneyManager.launch_current_level(self)
 
 	StateManager.save_state(JourneyManager.get_characters_file_path(), characters_data)

@@ -294,46 +294,46 @@ func _on_show_library_toggle_toggled(toggled_on: bool) -> void:
 	settings_manager.save_settings()
 		
 
-#func choose_character(index: int) -> void:
-	#print("chose character!")
-	#if Game.gender == "girl":
-		#match index:
-			#0:
-				#Game.player_model = "girl_lyric"
-				#Game.player_name = "ליריק"
-				#change_character_stats(1,1.2,false,true)
-				#print("chose girl_lyric")
-			#1:
-				#Game.player_model = "girl_aria"
-				#Game.player_name = "אריאה"
-				#change_character_stats(1.7,1,true,false)
-				#print("chose girl_aria")
-			#_:
-				#Game.player_model = "girl_lyric"
-				#Game.player_name = "ליריק"
-				#change_character_stats(1,1.2,false,true)
-				#print("chose default - girl_lyric")
-	#else:
-		#match index:
-			#0:
-				#Game.player_model = "boy_echo"
-				#Game.player_name = "אקו"
-				#change_character_stats(1,1.2,false,true)
-				#print("chose boy_echo")
-			#1:
-				#Game.player_model = "boy_growl"
-				#Game.player_name = "גרואול"
-				#change_character_stats(1.7,1,true,false)
-				#print("chose boy_growl")
-			#_:
-				#Game.player_model = "boy_echo"
-				#Game.player_name = "אקו"
-				#change_character_stats(1,1.2,false,true)
-				#print("chose default boy_echo")
-	#settings_manager.settings["character_selection"] = index
-	##settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
-	##settings_manager.settings["character_health_modifier"] = Game.character_health_modifier
-	#settings_manager.save_settings()
+func choose_character(index: int) -> void:
+	print("chose character!")
+	if Game.gender == "girl":
+		match index:
+			0:
+				Game.player_model = "girl_lyric"
+				Game.player_name = "ליריק"
+				change_character_stats(1,1,false,true)
+				print("chose girl_lyric")
+			1:
+				Game.player_model = "girl_aria"
+				Game.player_name = "אריאה"
+				change_character_stats(1,1,false,true)
+				print("chose girl_aria")
+			_:
+				Game.player_model = "girl_lyric"
+				Game.player_name = "ליריק"
+				change_character_stats(1,1,false,true)
+				print("chose default - girl_lyric")
+	else:
+		match index:
+			0:
+				Game.player_model = "boy_echo"
+				Game.player_name = "אקו"
+				change_character_stats(1,1,false,true)
+				print("chose boy_echo")
+			1:
+				Game.player_model = "boy_growl"
+				Game.player_name = "גרואול"
+				change_character_stats(1,1,false,true)
+				print("chose boy_growl")
+			_:
+				Game.player_model = "boy_echo"
+				Game.player_name = "אקו"
+				change_character_stats(1,1,false,true)
+				print("chose default boy_echo")
+	settings_manager.settings["character_selection"] = index
+	#settings_manager.settings["character_attack_modifier"] = Game.character_attack_modifier
+	#settings_manager.settings["character_health_modifier"] = Game.character_health_modifier
+	settings_manager.save_settings()
 
 
 func _on_character_selection_item_selected(index: int) -> void:
@@ -368,19 +368,19 @@ func _on_boy_girl_toggle_toggled(toggled_on: bool) -> void:
 	Game.gender = "girl" if toggled_on else "boy"
 	settings_manager.settings["gender"] = Game.gender
 	settings_manager.save_settings()
-	#update_character_options()
+	update_character_options()
 
-#func update_character_options() -> void:
-	#if Game.gender == "girl":
-		#girl_selection.visible = true
-		#boy_selection.visible = false
-		#girl_selection.selected = girl_selection.get_selectable_item()
-		#choose_character(girl_selection.get_selected_id())
-	#else:
-		#girl_selection.visible = false
-		#boy_selection.visible = true
-		#boy_selection.selected = boy_selection.get_selectable_item()
-		#choose_character(boy_selection.get_selected_id())
+func update_character_options() -> void:
+	if Game.gender == "girl":
+		girl_selection.visible = true
+		boy_selection.visible = false
+		girl_selection.selected = girl_selection.get_selectable_item()
+		choose_character(girl_selection.get_selected_id())
+	else:
+		girl_selection.visible = false
+		boy_selection.visible = true
+		boy_selection.selected = boy_selection.get_selectable_item()
+		choose_character(boy_selection.get_selected_id())
 
 
 func _on_reset_pressed() -> void:
@@ -396,3 +396,13 @@ func _on_difficulty_level_item_selected(index: int) -> void:
 		settings_manager.save_settings()
 	else:
 		print("Invalid index:", index)
+
+
+func _on_boss_selection_item_selected(index: int) -> void:
+	match index:
+		0:
+			Game.boss_model = "boss_tactonic"
+		1:
+			Game.boss_model = "boss_tactonic"
+		_:
+			Game.boss_model = "boss_tactonic"

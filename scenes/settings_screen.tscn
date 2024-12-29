@@ -32,7 +32,7 @@ gradient = SubResource("Gradient_ou8bn")
 [node name="SettingsScreen" type="Window"]
 title = "הגדרות"
 initial_position = 1
-size = Vector2i(440, 800)
+size = Vector2i(400, 800)
 script = ExtResource("1_6lyn8")
 song_1_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm.ogg"
 song_1_slow_song_path = "res://audio/IJustCantWaitToBeKing_CMajor_76bpm_SLOW70.ogg"
@@ -551,7 +551,6 @@ popup/item_1/icon = ExtResource("5_7jdt1")
 popup/item_1/id = 1
 
 [node name="BoySelection" type="OptionButton" parent="UI/DevButtons"]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -575,6 +574,26 @@ popup/item_1/text = "Growl"
 popup/item_1/icon = ExtResource("6_dvc1n")
 popup/item_1/id = 1
 
+[node name="BossSelection" type="OptionButton" parent="UI/DevButtons"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -863.616
+offset_top = -561.2
+offset_right = -473.616
+offset_bottom = -238.2
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+alignment = 2
+expand_icon = true
+selected = 0
+item_count = 1
+
 [node name="SettingsManager" type="Node" parent="."]
 script = ExtResource("9_7271b")
 
@@ -593,3 +612,4 @@ script = ExtResource("9_7271b")
 [connection signal="item_selected" from="UI/DevButtons/DifficultyLevelItems" to="." method="_on_difficulty_level_item_selected"]
 [connection signal="item_selected" from="UI/DevButtons/GirlSelection" to="." method="choose_character"]
 [connection signal="item_selected" from="UI/DevButtons/BoySelection" to="." method="choose_character"]
+[connection signal="item_selected" from="UI/DevButtons/BossSelection" to="." method="_on_boss_selection_item_selected"]
