@@ -299,34 +299,28 @@ func choose_character(index: int) -> void:
 	if Game.gender == "girl":
 		match index:
 			0:
-				Game.player_model = "girl_lyric"
+				Game.boss_model = "boss_meta_golem"
+				Game.player_model = "girl_meta_lyric"
 				Game.player_name = "ליריק"
 				change_character_stats(1,1,false,true)
 				print("chose girl_lyric")
-			1:
-				Game.player_model = "girl_aria"
-				Game.player_name = "אריאה"
-				change_character_stats(1,1,false,true)
-				print("chose girl_aria")
 			_:
-				Game.player_model = "girl_lyric"
+				Game.boss_model = "boss_meta_golem"
+				Game.player_model = "girl_meta_lyric"
 				Game.player_name = "ליריק"
 				change_character_stats(1,1,false,true)
 				print("chose default - girl_lyric")
 	else:
 		match index:
 			0:
-				Game.player_model = "boy_echo"
+				Game.boss_model = "boss_meta_golem"
+				Game.player_model = "boy_meta_echo"
 				Game.player_name = "אקו"
 				change_character_stats(1,1,false,true)
 				print("chose boy_echo")
-			1:
-				Game.player_model = "boy_growl"
-				Game.player_name = "גרואול"
-				change_character_stats(1,1,false,true)
-				print("chose boy_growl")
 			_:
-				Game.player_model = "boy_echo"
+				Game.boss_model = "boss_meta_golem"
+				Game.player_model = "boy_meta_echo"
 				Game.player_name = "אקו"
 				change_character_stats(1,1,false,true)
 				print("chose default boy_echo")
@@ -401,8 +395,8 @@ func _on_difficulty_level_item_selected(index: int) -> void:
 func _on_boss_selection_item_selected(index: int) -> void:
 	match index:
 		0:
-			Game.boss_model = "boss_tactonic"
+			Game.boss_model = "boss_meta_golem"
 		1:
-			Game.boss_model = "boss_tactonic"
+			Game.boss_model = "boss_meta_golem"
 		_:
-			Game.boss_model = "boss_tactonic"
+			Game.boss_model = "boss_meta_golem"

@@ -44,6 +44,13 @@ func _gui_input(event: InputEvent) -> void:
 		if released_event_position.distance_to(pressed_event_position) < 0.1:
 			print("Boss clicked!")
 			Game.last_menu = "boss_library"
+			if not Game.boss_model.begins_with("boss_meta"):
+				Game.boss_model = "boss_meta_golem"
+			if not (Game.player_model.begins_with("boy_meta") or Game.player_model.begins_with("girl_meta")):
+				if Game.gender == "boy":
+					Game.player_model = "boy_meta_echo"
+				else:
+					Game.player_model = "girl_meta_lyric"
 			var new_screen: Node = load("res://scenes/boss_difficulty_screen.tscn").instantiate()
 			new_screen.model = model
 			get_tree().root.add_child(new_screen)

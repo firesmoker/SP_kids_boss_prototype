@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bulita8o26en8" path="res://art/12_nov/new_chars/Girl/Seq - Idle/Girl - Idle_00000.png" id="4_wdu1k"]
 [ext_resource type="Texture2D" uid="uid://oq4srcmpctv2" path="res://art/12_nov/new_chars/Boy/Seq - Idle/Boy - Idle_00000.png" id="5_04kmg"]
 [ext_resource type="Texture2D" uid="uid://ccfnrfyq44m7y" path="res://art/18_dec/NewChars/Aria_Girl - Idle/Aria_Girl - Idle_00000.png" id="5_7jdt1"]
-[ext_resource type="Texture2D" uid="uid://01tbwodyjvqo" path="res://art/18_dec/NewChars/Echo_Boy - Idle/Echo_Boy - Idle_00000.png" id="5_xufhg"]
-[ext_resource type="Texture2D" uid="uid://crysnh301nfcw" path="res://art/18_dec/NewChars/Growl_Boy - Idle/Growl_Boy - Idle_00000.png" id="6_dvc1n"]
+[ext_resource type="Texture2D" uid="uid://u8fvhk0q5acb" path="res://art/META_Characters/Lyric/Lyric-Idle/Lyric-Idle_00000.png" id="5_kwdv8"]
+[ext_resource type="Texture2D" uid="uid://ctiyvfltbnwm4" path="res://art/META_Characters/Echo/Echo_Idle/Echo_Idle_00000.png" id="7_oxiyt"]
 [ext_resource type="Script" path="res://scripts/settings_manager.gd" id="9_7271b"]
 
 [sub_resource type="Theme" id="Theme_w463u"]
@@ -545,7 +545,7 @@ expand_icon = true
 selected = 0
 item_count = 2
 popup/item_0/text = "Lyric"
-popup/item_0/icon = ExtResource("4_wdu1k")
+popup/item_0/icon = ExtResource("5_kwdv8")
 popup/item_1/text = "Aria"
 popup/item_1/icon = ExtResource("5_7jdt1")
 popup/item_1/id = 1
@@ -567,12 +567,9 @@ theme_override_font_sizes/font_size = 36
 alignment = 2
 expand_icon = true
 selected = 0
-item_count = 2
+item_count = 1
 popup/item_0/text = "Echo"
-popup/item_0/icon = ExtResource("5_xufhg")
-popup/item_1/text = "Growl"
-popup/item_1/icon = ExtResource("6_dvc1n")
-popup/item_1/id = 1
+popup/item_0/icon = ExtResource("7_oxiyt")
 
 [node name="BossSelection" type="OptionButton" parent="UI/DevButtons"]
 visible = false
