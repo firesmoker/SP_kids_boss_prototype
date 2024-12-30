@@ -19,8 +19,8 @@ func _ready() -> void:
 	
 	if game.game_mode == "library":
 		note_success.connect(game.start_score_visual)
-		note_success.connect(game.update_combo_meter)
-		note_failure.connect(game.update_combo_meter)
+		#note_success.connect(game.update_combo_meter)
+		#note_failure.connect(game.update_combo_meter)
 	
 	construct_piano_streams()
 

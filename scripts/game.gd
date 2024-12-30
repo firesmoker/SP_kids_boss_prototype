@@ -362,7 +362,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
 	stars_panel.visible = toggle
-	score_meter.visible = toggle
+	score_meter.visible = false
 	video_layer_1.visible = toggle
 	background_sp.visible = toggle
 	video_layer_2.visible = false
@@ -379,7 +379,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	top_bottom_glow.visible = false
 	bottom_bottom_glow.visible = false
 	if not tutorial_closed:
-		combo_tutorial_popup.visible = toggle
+		combo_tutorial_popup.visible = false
 	else:
 		combo_tutorial_popup.visible = false
 	
@@ -608,7 +608,7 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 	video_layer_5.process_mode = Node.PROCESS_MODE_DISABLED
 	confetti.process_mode = Node.PROCESS_MODE_DISABLED
 	star_celebration.process_mode = Node.PROCESS_MODE_DISABLED
-	combo_feedback_animation.process_mode = process_mode
+	combo_feedback_animation.process_mode = Node.PROCESS_MODE_DISABLED
 	
 
 func _ready() -> void:
@@ -642,7 +642,7 @@ func _ready() -> void:
 	set_boss_health()
 	initialize_part(ui_type)
 	setup_score_manager()
-	setup_combo()
+	#setup_combo()
 	#set_star_bar_values()
 	if ui_type == "treble":
 		right_hand_part.position.y += 60
@@ -679,14 +679,14 @@ func _ready() -> void:
 		if not cheat_skip_middle_c:
 			await notes_detector.continue_note_played
 			continue_note_popup.visible = false
-	elif game_mode == "library":
-		if not tutorial_closed:
-			combo_tutorial_popup.find_child("ContinueButton").visible = false
-			var combo_tutorial_progress: PopupProgressBar = combo_tutorial_popup.find_child("ButtonProgress")
-			combo_tutorial_progress.start_closing_timer(5)
-			await combo_tutorial_progress.timer.timeout
-			combo_tutorial_popup.find_child("ContinueButton").visible = true
-			await combo_tutorial_popup.find_child("ContinueButton").button_up
+	#elif game_mode == "library":
+		#if not tutorial_closed:
+			#combo_tutorial_popup.find_child("ContinueButton").visible = false
+			#var combo_tutorial_progress: PopupProgressBar = combo_tutorial_popup.find_child("ButtonProgress")
+			#combo_tutorial_progress.start_closing_timer(5)
+			#await combo_tutorial_progress.timer.timeout
+			#combo_tutorial_popup.find_child("ContinueButton").visible = true
+			#await combo_tutorial_popup.find_child("ContinueButton").button_up
 	music_player.play()
 	pause_button.visible = true
 	restart_button.visible = true

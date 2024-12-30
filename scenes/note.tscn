@@ -1043,6 +1043,7 @@ true_hide_right = true
 x_hide_position = -400.0
 
 [node name="Patzpatz" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(5.51282, 5.51282)
 sprite_frames = SubResource("SpriteFrames_qcgdp")
 animation = &"stars"
@@ -1095,6 +1096,7 @@ metadata/_edit_lock_ = true
 [node name="Expander" parent="HeadSprites" instance=ExtResource("10_nk6jl")]
 
 [node name="Fanta" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-123.077, -851.282)
 rotation = -0.1309
 scale = Vector2(2.20927, 2.09049)

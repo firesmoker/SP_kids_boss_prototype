@@ -45,9 +45,10 @@ func hit_note_visual(note_score: float) -> void:
 	#scale = scale * 1.6
 	if not Game.sp_mode:
 		if not Game.game_mode == "boss":
-			if note_score < 0.9:
-				fanta.scale.x *= 0.3
-			fanta.play()
+			pass
+			#if note_score < 0.9:
+				#fanta.scale.x *= 0.3
+			#fanta.play()
 		changing_color = true
 		var expander: Expander = head_sprites.find_child("Expander")
 		if note_score > 0.9:

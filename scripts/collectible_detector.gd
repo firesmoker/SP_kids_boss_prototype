@@ -38,7 +38,7 @@ func note_played(note: String) -> void:
 					print(" golden noteeeee ")
 					current_collectibles[0].hit_golden_note_visual()
 					game.start_score_visual()
-					game.update_combo_meter()
+					#game.update_combo_meter()
 					#current_collectibles[0].find_child("Fader").fade_out()
 				else:
 					current_collectibles[0].find_child("Fader").expand_fade_out(0.5)
@@ -72,4 +72,4 @@ func _on_body_exited(collectible: CollectibleMarker) -> void:
 			if collectible.event.subtype == "golden_note":
 				print("missed golden note on body exit")
 				emit_signal("golden_note_missed")
-				game.update_combo_meter()
+				#game.update_combo_meter()
