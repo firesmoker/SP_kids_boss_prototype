@@ -401,6 +401,18 @@
 				"ui_type": "treble",
 				"display_duration": 3.7,
 				"ending_music_path": "res://audio/Fantasy1_94bpm_ending.ogg",
+			},
+			"hard": {
+				"melody_path": "res://levels/Boss_Fantasy1_Level1_Right.txt",
+				"left_melody_path": "res://levels/Boss_Fantasy1_Level1_Left.txt",
+				"song_path": "res://audio/Fantasy1_94bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 94,
+				"player_life": 9,
+				"boss_life": 44,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Fantasy1_94bpm_ending.ogg",
 			}
 		}
 	},

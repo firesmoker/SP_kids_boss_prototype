@@ -1125,15 +1125,15 @@
 [ext_resource type="Texture2D" uid="uid://in2xn2jv7br5" path="res://art/5_dec/combo_x3/Combo x3_00010.png" id="751_whm7y"]
 [ext_resource type="Texture2D" uid="uid://8x5yjvqqdlu" path="res://art/5_dec/combo_x3/Combo x3_00011.png" id="752_iia0n"]
 [ext_resource type="Texture2D" uid="uid://c2jjtd5fw22t8" path="res://art/5_dec/combo_x3/Combo x3_00012.png" id="753_uiuqy"]
-[ext_resource type="SpriteFrames" uid="uid://bkg385iichdhr" path="res://scene_resources/animation_boy_growl.tres" id="754_4ub0c"]
 [ext_resource type="Texture2D" uid="uid://t3hiams1etll" path="res://art/5_dec/combo_x3/Combo x3_00013.png" id="754_k7af2"]
 [ext_resource type="Texture2D" uid="uid://ktg1ybf0elut" path="res://art/5_dec/combo_x3/Combo x3_00014.png" id="755_jc0m2"]
 [ext_resource type="Texture2D" uid="uid://dntkmro8sg1fr" path="res://art/5_dec/combo_x3/Combo x3_00015.png" id="756_ibi2x"]
+[ext_resource type="SpriteFrames" uid="uid://d0e4c01xhuahc" path="res://scene_resources/animation_boy_meta_echo.tres" id="757_dx6vm"]
 [ext_resource type="Texture2D" uid="uid://c3owgh5cd6ex8" path="res://art/5_dec/combo_x3/Combo x3_00016.png" id="757_lnk8u"]
 [ext_resource type="Texture2D" uid="uid://d1c51smhyg2y7" path="res://art/5_dec/combo_x3/Combo x3_00017.png" id="758_6p5q5"]
 [ext_resource type="Texture2D" uid="uid://dj75i8uq5gy0i" path="res://art/5_dec/combo_x3/Combo x3_00018.png" id="759_3hrj1"]
-[ext_resource type="SpriteFrames" uid="uid://comr45ypf7ujb" path="res://scene_resources/animation_boss_distortion.tres" id="760_4rqcu"]
 [ext_resource type="Texture2D" uid="uid://bs0yuvvmmh0b6" path="res://art/5_dec/combo_x3/Combo x3_00019.png" id="760_ik3rm"]
+[ext_resource type="SpriteFrames" uid="uid://drlqrybukebyg" path="res://scene_resources/animation_boss_meta_golem.tres" id="760_u7p7x"]
 [ext_resource type="Texture2D" uid="uid://chcihrr7tltvs" path="res://art/5_dec/combo_x3/Combo x3_00020.png" id="761_fy1wq"]
 [ext_resource type="Texture2D" uid="uid://by1vbvjngaulf" path="res://art/5_dec/combo_x3/Combo x3_00021.png" id="762_r2bak"]
 [ext_resource type="Texture2D" uid="uid://by75f4chdjdpf" path="res://art/5_dec/combo_x3/Combo x3_00022.png" id="763_scc57"]
@@ -6771,8 +6771,8 @@ metadata/_edit_lock_ = true
 z_index = 3
 position = Vector2(-411.111, 75)
 scale = Vector2(0.319623, 0.319623)
-sprite_frames = ExtResource("754_4ub0c")
-animation = &"attack"
+sprite_frames = ExtResource("757_dx6vm")
+animation = &"idle"
 autoplay = "idle"
 script = ExtResource("19_j5u08")
 metadata/_edit_lock_ = true
@@ -6813,8 +6813,8 @@ metadata/_edit_lock_ = true
 z_index = 3
 position = Vector2(417.46, 70)
 scale = Vector2(0.590503, 0.590503)
-sprite_frames = ExtResource("760_4rqcu")
-animation = &"win"
+sprite_frames = ExtResource("760_u7p7x")
+animation = &"damaged_idle"
 metadata/_edit_lock_ = true
 
 [node name="BossHitZone" type="Area2D" parent="Level/Boss"]

@@ -170,8 +170,8 @@ static var target_xp: int = 100  # Replace with your desired XP value
 
 static var heart_healing_bonus: float = 0
 static var song_title: String = ""
-static var boss_model: String = "boss_tactonic"
-static var player_model: String = "boy_echo"
+static var boss_model: String = "boss_meta_golem"
+static var player_model: String = "boy_meta_echo"
 static var gender: String = "boy"
 static var current_difficulty: String
 static var has_easy_difficulty: bool = false
@@ -612,6 +612,8 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 	
 
 func _ready() -> void:
+	if player_model.begins_with("boy_meta") or player_model.begins_with("girl_meta"):
+		player_character.position.x += 22
 	player_character.sprite_frames = load("res://scene_resources/animation_" + player_model + ".tres")
 	boss.sprite_frames = load("res://scene_resources/animation_" + boss_model + ".tres")
 	player_portrait.texture = load("res://art/18_dec/Avatars/Player/" + player_model + ".png")
