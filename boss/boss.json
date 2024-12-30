@@ -455,5 +455,25 @@
 				"ending_music_path": "res://audio/Fantasy2_130bpm_ending.ogg",
 			}
 		}
-	}
+	},
+	{
+		"id": "boss://Danny_Boss5",
+		"displayName": "Danny: Funk 1",
+		"artist": "Simply",
+		"image": "res://art/Danny.png",
+		"levels": {
+			"easy": {
+				"melody_path": "res://levels/Boss_PianoBasics2_Funk1_Right.txt",
+				"left_melody_path": "res://levels/Boss_PianoBasics2_Funk1_Left.txt",
+				"song_path": "res://audio/Funk1_short_126bpm.ogg",
+				"slow_song_path": "res://audio/JingleBells_88_SLOW70.ogg",
+				"tempo": 126,
+				"player_life": 9,
+				"boss_life": 35,
+				"ui_type": "both",
+				"display_duration": 3,
+				"ending_music_path": "res://audio/Funk1_126bpm_ending.ogg",
+			}
+		}
+	},
 ]
