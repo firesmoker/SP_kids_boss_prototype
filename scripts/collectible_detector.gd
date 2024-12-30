@@ -6,6 +6,7 @@ var current_collectibles: Array[CollectibleMarker]
 signal collectible_collected
 signal collectible_completed
 signal golden_note_missed
+signal golden_note_success
 
 func _ready() -> void:
 	game = NodeHelper.get_root_game(self)
@@ -13,6 +14,8 @@ func _ready() -> void:
 	collectible_completed.connect(game.deactivate_effect)
 	golden_note_missed.connect(game.get_hit)
 	golden_note_missed.connect(game.golden_note_missed)
+	if Game.game_mode == "library":
+		golden_note_success.connect(game.start_score_visual)
 	
 
 func _unhandled_input(event: InputEvent) -> void:	
@@ -36,6 +39,7 @@ func note_played(note: String) -> void:
 				current_collectibles[0].play_animation(effect)
 				if current_collectibles[0].event.subtype == "golden_note":
 					print(" golden noteeeee ")
+					emit_signal("golden_note_success")
 					current_collectibles[0].hit_golden_note_visual()
 					game.start_score_visual()
 					#game.update_combo_meter()

@@ -91,7 +91,7 @@ func on_visibility_changed() -> void:
 			
 
 func hit_golden_note_visual() -> void:
-	#fanta.play()
+	fanta.play()
 	changing_color = true
 	patzpatz.visible = true
 	patzpatz.play()

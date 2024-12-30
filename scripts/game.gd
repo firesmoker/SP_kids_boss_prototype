@@ -16,6 +16,8 @@ var model: Dictionary
 @onready var top_bottom_glow: AnimatedSprite2D = $Level/RightHandPart/UpperStaff/BottomGlow
 @onready var bottom_upper_glow: AnimatedSprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/UpperGlow
 @onready var bottom_bottom_glow: AnimatedSprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/BottomGlow
+@onready var golden_meter: Label = $UI/StarsPanel/Panel/GoldenMeter
+@onready var golden_note: TextureRect = $UI/StarsPanel/Panel/GoldenNote
 
 	
 @onready var bottom_staff_power: Sprite2D = $Level/RightHandPart/BottomStaff/BottomStaffSprite/StaffPower
@@ -57,6 +59,8 @@ static var last_menu: String = "journey"
 var star1_unlocked: bool = false
 var star2_unlocked: bool = false
 var star3_unlocked: bool = false
+
+static var golden_notes_collected: int = 0
 
 var fade_right_hand_part: bool = false
 
@@ -378,6 +382,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 	bottom_upper_glow.visible = false
 	top_bottom_glow.visible = false
 	bottom_bottom_glow.visible = false
+	combo_meter.visible = false
 	if not tutorial_closed:
 		combo_tutorial_popup.visible = false
 	else:
@@ -473,6 +478,15 @@ func set_star_bar_values() -> void:
 		star1.position.x = -star1.size.x/2 + star_bar.size.x * star1_threshold_modifier
 		star2.position.x = -star2.size.x/2 + star_bar.size.x * star2_threshold_modifier
 		star3.position.x = -star2.size.x/2 + star_bar.size.x * star3_threshold_modifier
+
+func update_golden_meter(delta:float = 0.01666666666667) -> void:
+	golden_meter.text = (str(golden_notes_collected) + " / " + str(notes_container.golden_notes_in_level))
+	if current_score_visual_time < score_visual_time:
+		current_score_visual_time += delta * 2.3
+		golden_meter.self_modulate = lerp(Color.WHITE,score_success_color, clamp(current_score_visual_time/score_visual_time,0,1))
+	else:
+		current_score_visual_time += delta * 2.3
+		golden_meter.self_modulate = lerp(score_success_color,Color.WHITE, clamp((current_score_visual_time-score_visual_time)/score_visual_time,0,1))
 	
 	
 
@@ -612,6 +626,7 @@ func set_library_song_process_modes(toggle: bool = false) -> void:
 	
 
 func _ready() -> void:
+	golden_notes_collected = 0
 	if player_model.begins_with("boy_meta") or player_model.begins_with("girl_meta"):
 		player_character.position.x += 22
 	player_character.sprite_frames = load("res://scene_resources/animation_" + player_model + ".tres")
@@ -789,10 +804,10 @@ func fade_boss_music() -> void:
 		music_fade_out_amount *= 1.1
 
 func _process(delta: float) -> void:
-	
 	if construction_complete and not losing and not winning and music_player.playing and grace_period_finished:
 		vulnerable = true
-	update_score_visual(delta)
+	#update_score_visual(delta)
+	update_golden_meter(delta)
 	update_debug()
 	health_bars_progress(delta, health_rate)
 	if fade_right_hand_part: # I'm really not sure why it can't call the fader child, so this is manual.
@@ -1175,9 +1190,9 @@ func new_timer(wait_time: float = 2.0) -> Timer:
 	timer.wait_time = wait_time
 	return timer
 
-func _on_hit_zone_body_entered(note: Note) -> void:
-	if note.state == "Active":
-		get_hit()
+#func _on_hit_zone_body_entered(note: Note) -> void:
+	#if note.state == "Active":
+		#get_hit()
 	#else:
 		#print("not active, not interesting")
 
@@ -1238,6 +1253,7 @@ func activate_effect(effect: String = "slowdown", details: Dictionary = {}) -> v
 			else:
 				heal(3)
 		"golden_note":
+			golden_notes_collected += 1
 			if game_mode == "boss":
 				hit_boss(-5)
 			else:
@@ -1457,6 +1473,8 @@ func player_win_animation() -> void:
 
 func start_score_visual() -> void:
 	score_meter.find_child("Expander").expand(1.35,0.25,true)
+	golden_meter.find_child("Expander").expand(1.35, 0.25, true)
+	
 	current_score_visual_time = 0
 
 func _on_resume_button_up() -> void:
@@ -1551,6 +1569,8 @@ func _on_hard_button_button_up() -> void:
 
 func miss_note() -> void:
 	missed_notes += 1
+	if game_mode == "boss":
+		get_hit()
 
 func show_debug(toggle: bool = debug) -> void:
 	debug_window.visible = toggle

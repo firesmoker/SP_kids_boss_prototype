@@ -1096,7 +1096,6 @@ metadata/_edit_lock_ = true
 [node name="Expander" parent="HeadSprites" instance=ExtResource("10_nk6jl")]
 
 [node name="Fanta" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(-123.077, -851.282)
 rotation = -0.1309
 scale = Vector2(2.20927, 2.09049)

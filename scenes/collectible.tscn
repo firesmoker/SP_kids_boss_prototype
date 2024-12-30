@@ -729,8 +729,7 @@ frame = 22
 frame_progress = 1.0
 
 [node name="Fanta" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(-133.333, -1020.51)
 rotation = -0.1309
-scale = Vector2(2.6, 2.6)
+scale = Vector2(2.20927, 2.09049)
 sprite_frames = SubResource("SpriteFrames_n2cg1")

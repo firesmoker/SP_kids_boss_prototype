@@ -1,4 +1,4 @@
-[gd_scene load_steps=1326 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1328 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -960,10 +960,12 @@
 [ext_resource type="Texture2D" uid="uid://cyva0v77fr010" path="res://art/26_nov/StarConfetti/StarConfetti_00002.png" id="554_35bgq"]
 [ext_resource type="Texture2D" uid="uid://cpticlufcgc4v" path="res://art/LibSong/CrowdUnit06/CrowdUnit06_00029.png" id="555_7pxxe"]
 [ext_resource type="Texture2D" uid="uid://b7ljx58r4c1mb" path="res://art/26_nov/StarConfetti/StarConfetti_00003.png" id="555_37at7"]
+[ext_resource type="Texture2D" uid="uid://2go47frneya0" path="res://art/30_dec/golden_notes_icon.png" id="556_6hshf"]
 [ext_resource type="Texture2D" uid="uid://bcyb4a2nrfbda" path="res://art/26_nov/StarConfetti/StarConfetti_00004.png" id="556_cdcpx"]
 [ext_resource type="Texture2D" uid="uid://pohlnjvvdlud" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00000.png" id="556_jx8eg"]
 [ext_resource type="Texture2D" uid="uid://b76ioay1ugv7h" path="res://art/26_nov/StarConfetti/StarConfetti_00005.png" id="557_2aa22"]
 [ext_resource type="Texture2D" uid="uid://be3sfdr23sj7a" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00001.png" id="557_51ucj"]
+[ext_resource type="Texture2D" uid="uid://bsglmbs6gicde" path="res://art/30_dec/stars_panel.png" id="557_elev0"]
 [ext_resource type="Texture2D" uid="uid://cm477pamfpb5r" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00002.png" id="558_cl784"]
 [ext_resource type="Texture2D" uid="uid://bmvc1eeaxec8o" path="res://art/26_nov/StarConfetti/StarConfetti_00006.png" id="558_wepjo"]
 [ext_resource type="Texture2D" uid="uid://cvj6t5onod7ng" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00003.png" id="559_kjmat"]
@@ -1128,7 +1130,7 @@
 [ext_resource type="Texture2D" uid="uid://t3hiams1etll" path="res://art/5_dec/combo_x3/Combo x3_00013.png" id="754_k7af2"]
 [ext_resource type="Texture2D" uid="uid://ktg1ybf0elut" path="res://art/5_dec/combo_x3/Combo x3_00014.png" id="755_jc0m2"]
 [ext_resource type="Texture2D" uid="uid://dntkmro8sg1fr" path="res://art/5_dec/combo_x3/Combo x3_00015.png" id="756_ibi2x"]
-[ext_resource type="SpriteFrames" uid="uid://d0e4c01xhuahc" path="res://scene_resources/animation_boy_meta_echo.tres" id="757_dx6vm"]
+[ext_resource type="SpriteFrames" uid="uid://6qn0ny1mioy2" path="res://scene_resources/animation_girl_meta_lyric.tres" id="757_g7goa"]
 [ext_resource type="Texture2D" uid="uid://c3owgh5cd6ex8" path="res://art/5_dec/combo_x3/Combo x3_00016.png" id="757_lnk8u"]
 [ext_resource type="Texture2D" uid="uid://d1c51smhyg2y7" path="res://art/5_dec/combo_x3/Combo x3_00017.png" id="758_6p5q5"]
 [ext_resource type="Texture2D" uid="uid://dj75i8uq5gy0i" path="res://art/5_dec/combo_x3/Combo x3_00018.png" id="759_3hrj1"]
@@ -6186,7 +6188,6 @@ metadata/_edit_lock_ = true
 [node name="Fader" parent="UI/BossHealthBar" instance=ExtResource("63_jfxac")]
 
 [node name="StarsPanel" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 524.0
@@ -6199,10 +6200,10 @@ top_level = true
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.168644
-anchor_top = 0.0414634
-anchor_right = 0.168644
-anchor_bottom = 0.0414634
+anchor_left = 0.00847458
+anchor_top = 0.0207317
+anchor_right = 0.00847458
+anchor_bottom = 0.0207317
 offset_left = 34.0
 offset_top = 17.0
 offset_right = 642.0
@@ -6339,7 +6340,9 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(624, 35)
 scale = Vector2(0.8, 0.8)
 
-[node name="Panel" type="TextureRect" parent="UI/StarsPanel"]
+[node name="Panel_OLD" type="TextureRect" parent="UI/StarsPanel"]
+process_mode = 4
+visible = false
 show_behind_parent = true
 z_index = 1
 layout_mode = 0
@@ -6351,7 +6354,109 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("144_exjl3")
 metadata/_edit_lock_ = true
 
+[node name="ScoreMeter" type="Label" parent="UI/StarsPanel/Panel_OLD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.207353
+anchor_top = 0.0796569
+anchor_right = 0.226401
+anchor_bottom = 0.676879
+offset_right = 245.0
+offset_bottom = 69.0
+pivot_offset = Vector2(132, 100)
+theme_override_colors/font_color = Color(0.956863, 0.941176, 0.87451, 1)
+theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_fonts/font = SubResource("FontVariation_4m3td")
+theme_override_font_sizes/font_size = 72
+text = "1002"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Expander" parent="UI/StarsPanel/Panel_OLD/ScoreMeter" instance=ExtResource("20_wgxju")]
+
+[node name="GoldenMeter" type="Label" parent="UI/StarsPanel/Panel_OLD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.207353
+anchor_top = 0.0796569
+anchor_right = 0.226401
+anchor_bottom = 0.676879
+offset_right = 245.0
+offset_bottom = 69.0
+pivot_offset = Vector2(132, 100)
+theme_override_colors/font_color = Color(0.956863, 0.941176, 0.87451, 1)
+theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_fonts/font = SubResource("FontVariation_4m3td")
+theme_override_font_sizes/font_size = 72
+text = "1 / 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Expander" parent="UI/StarsPanel/Panel_OLD/GoldenMeter" instance=ExtResource("20_wgxju")]
+
+[node name="ComboMeter" type="Control" parent="UI/StarsPanel/Panel_OLD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(132, 100)
+metadata/_edit_use_anchors_ = true
+
+[node name="ComboAnimation" type="AnimatedSprite2D" parent="UI/StarsPanel/Panel_OLD/ComboMeter"]
+sprite_frames = SubResource("SpriteFrames_fjrkx")
+animation = &"combo_bar_4"
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ComboAudioPlayer" type="AudioStreamPlayer" parent="UI/StarsPanel/Panel_OLD/ComboMeter"]
+
+[node name="Expander" parent="UI/StarsPanel/Panel_OLD/ComboMeter" instance=ExtResource("20_wgxju")]
+
+[node name="ComboFire" type="AnimatedSprite2D" parent="UI/StarsPanel/Panel_OLD/ComboMeter"]
+position = Vector2(142.941, 145.294)
+scale = Vector2(2.2246, 2.2246)
+sprite_frames = SubResource("SpriteFrames_tgkwt")
+frame = 23
+frame_progress = 1.0
+
+[node name="ComboFireHorizontal" type="AnimatedSprite2D" parent="UI/StarsPanel/Panel_OLD/ComboMeter"]
+z_index = -1
+position = Vector2(644.118, 145.294)
+scale = Vector2(3.63636, 3.63636)
+sprite_frames = SubResource("SpriteFrames_l32ng")
+frame = 23
+frame_progress = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/StarsPanel/Panel_OLD"]
+visible = false
+layout_mode = 0
+offset_left = 161.765
+offset_top = 48.8235
+offset_right = 307.765
+offset_bottom = 242.824
+texture = ExtResource("556_6hshf")
+
+[node name="Panel" type="TextureRect" parent="UI/StarsPanel"]
+show_behind_parent = true
+z_index = 1
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 1133.0
+offset_bottom = 225.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("557_elev0")
+metadata/_edit_lock_ = true
+
 [node name="ScoreMeter" type="Label" parent="UI/StarsPanel/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.207353
@@ -6372,7 +6477,37 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Expander" parent="UI/StarsPanel/Panel/ScoreMeter" instance=ExtResource("20_wgxju")]
 
+[node name="GoldenMeter" type="Label" parent="UI/StarsPanel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.73848
+anchor_top = 0.0441177
+anchor_right = 0.757528
+anchor_bottom = 0.64134
+offset_right = 245.0
+offset_bottom = 69.0
+pivot_offset = Vector2(132, 100)
+theme_override_colors/font_color = Color(0.956863, 0.941176, 0.87451, 1)
+theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_fonts/font = SubResource("FontVariation_4m3td")
+theme_override_font_sizes/font_size = 72
+text = "1 / 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Expander" parent="UI/StarsPanel/Panel/GoldenMeter" instance=ExtResource("20_wgxju")]
+
+[node name="GoldenNote" type="TextureRect" parent="UI/StarsPanel/Panel/GoldenMeter"]
+layout_mode = 0
+offset_left = -87.059
+offset_top = -4.70588
+offset_right = 58.9411
+offset_bottom = 189.294
+texture = ExtResource("556_6hshf")
+
 [node name="ComboMeter" type="Control" parent="UI/StarsPanel/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -6519,6 +6654,7 @@ texture = SubResource("GradientTexture2D_rlrxh")
 metadata/_edit_lock_ = true
 
 [node name="BossPanel" type="TextureRect" parent="UI"]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -6574,6 +6710,7 @@ metadata/_edit_lock_ = true
 [node name="Fader" parent="UI/BossPanel" instance=ExtResource("63_jfxac")]
 
 [node name="PlayerPanel" type="TextureRect" parent="UI"]
+visible = false
 offset_right = 425.366
 offset_bottom = 109.0
 scale = Vector2(0.5, 0.5)
@@ -6771,8 +6908,8 @@ metadata/_edit_lock_ = true
 z_index = 3
 position = Vector2(-411.111, 75)
 scale = Vector2(0.319623, 0.319623)
-sprite_frames = ExtResource("757_dx6vm")
-animation = &"idle"
+sprite_frames = ExtResource("757_g7goa")
+animation = &"win"
 autoplay = "idle"
 script = ExtResource("19_j5u08")
 metadata/_edit_lock_ = true

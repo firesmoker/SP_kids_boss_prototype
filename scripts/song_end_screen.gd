@@ -3,6 +3,7 @@ class_name SongEndScreen
 
 @onready var model: Dictionary
 @onready var score_manager: ScoreManager
+@onready var golden_notes: Control = $UI/GoldenNotes
 
 @onready var video_background: VideoStreamPlayer = $UI/VideoBackground
 @onready var stars: Control = $UI/Stars
@@ -37,6 +38,7 @@ var current_xp: int = 0:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	update_song_json_stars()
 	animate_stars(score_manager.stars)
 	set_audio_stream_based_on_stars()
 	set_buttons()
@@ -56,15 +58,26 @@ func _ready() -> void:
 	animate_view($UI/Notes)
 	animate_view($UI/Timing)
 	
-	await get_tree().create_timer(1).timeout
-	animate_view($UI/XP)
-	animate_view($UI/Combo)
-	update_xp(0, score_manager.game_score, ANIMATION_DELAY * score_manager.stars)
-	update_combo()
-	
 	await get_tree().create_timer(0.5).timeout
+	#animate_view($UI/XP)
+	#animate_view($UI/Combo)
+	#update_xp(0, score_manager.game_score, ANIMATION_DELAY * score_manager.stars)
+	#update_combo()
+	animate_golden_notes(Game.golden_notes_collected, NotesContainer.golden_notes_in_level)
+	await get_tree().create_timer(1).timeout
 	animate_view($UI/Buttons)
 	
+
+# 
+
+func update_song_json_stars() -> void:
+	score_manager.stars
+
+func animate_golden_notes(hit_notes: int, total_notes: int) -> void:
+	var notes_counter: Label = $UI/GoldenNotes/NotesCounter
+	golden_notes.visible = true
+	notes_counter.text = (str(hit_notes) + " / " + str(total_notes))
+	golden_notes.find_child("Fader").fade_in()
 
 func set_buttons() -> void:
 	if score_manager.stars < 3:

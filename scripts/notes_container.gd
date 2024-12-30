@@ -16,6 +16,7 @@ class_name NotesContainer extends Sprite2D
 @export var barline_template: PackedScene
 @export var finger_number_template: PackedScene
 
+static var golden_notes_in_level: int = 0
 var notes_in_level: int = 0
 var notes_value_in_level: int = 0
 var bass_clef_offset: float = note_heigth * 12
@@ -47,6 +48,7 @@ var example_note_dict: Dictionary
 
 
 func construct_level(ui_type: String = "both", melody_events: Array = [], bottom_melody_events: Array = [], display_duration: float = on_display_duration) -> void:
+	golden_notes_in_level = 0
 	level_length_in_bars = get_level_length_from_melody_event(melody_events)
 	set_level_size(display_duration)
 	set_parent_at_ending()
@@ -166,6 +168,7 @@ func populate_from_melody_events(melody_events: Array, bottom_staff: bool = fals
 				# Use add_fingers_to_note for finger positioning
 				add_fingers_to_note(collectible, event, note, i, bottom_staff)
 				if event.subtype == "golden_note":
+					golden_notes_in_level += 1
 					notes_in_level += 1
 					notes_value_in_level += Game.golden_note_value
 

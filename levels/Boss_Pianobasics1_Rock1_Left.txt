@@ -1,4 +1,4 @@
-164,4/4,0,GClef,Right
+164,4/4,0,FClef,Left
 
 -:1 
 -:1 

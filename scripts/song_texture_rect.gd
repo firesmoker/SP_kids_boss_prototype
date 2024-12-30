@@ -6,7 +6,6 @@ var model: Dictionary
 func _ready() -> void:
 	# Create a ShaderMaterial
 	var shader_material: ShaderMaterial = ShaderMaterial.new()
-	
 	# Create and assign a shader to the ShaderMaterial
 	shader_material.shader = Shader.new()
 	shader_material.shader.code = """

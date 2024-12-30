@@ -4,11 +4,58 @@ class_name SongDifficultyScreen
 @onready var load_overlay: TextureRect = $LoadOverlay
 
 @onready var header_label: Label = $HeaderLabel
+@onready var easy_stars_label: Label = $EasyStarsLabel
+@onready var medium_stars_label: Label = $MediumStarsLabel
+@onready var hard_stars_label: Label = $HardStarsLabel
+
+@onready var easy_button: Button = $EasyButton
+@onready var medium_button: Button = $MediumButton
+@onready var hard_button: Button = $HardButton
+
+var easy_stars: int
+var medium_stars: int
+var hard_stars: int
+
 var model: Dictionary
 
 func _ready() -> void:
 	header_label.text = model.get("displayName")
+	
+	easy_stars = model.get("bronze_stars",0)
+	medium_stars = model.get("silver_stars",0)
+	hard_stars = model.get("gold_stars",0)
+	
+	set_all_stars()
+	
 	load_overlay.visible = false
+
+func set_all_stars() -> void:
+	reset_button_stars(easy_button)
+	reset_button_stars(medium_button)
+	reset_button_stars(hard_button)
+	turn_on_button_stars(easy_button, easy_stars)
+	turn_on_button_stars(medium_button, medium_stars)
+	turn_on_button_stars(hard_button, hard_stars)
+
+func turn_on_button_stars(button: Button, number: int) -> void:
+	print(number)
+	var stars: Control = button.find_child("Stars")
+	if number >= 3:
+		stars.find_child("Star3On").visible = true
+	if number >= 2:
+		stars.find_child("Star2On").visible = true
+	if number >= 1:
+		stars.find_child("Star1On").visible = true
+
+func reset_button_stars(button: Button) -> void:
+	var stars: Control = button.find_child("Stars")
+	stars.find_child("Star1On").visible = false
+	stars.find_child("Star2On").visible = false
+	stars.find_child("Star3On").visible = false
+	
+	stars.find_child("Star1Off").visible = true
+	stars.find_child("Star2Off").visible = true
+	stars.find_child("Star3Off").visible = true
 
 func _on_EasyButton_pressed() -> void:
 	print("Easy mode selected!")

@@ -106,6 +106,9 @@ func create_item(json_data: Dictionary) -> Control:
 	var image_file: String = SONGS_FOLDER + "/" + json_data.get("imageFileName", "")
 	var title: String = json_data.get("displayName", "")
 	var artist: String = json_data.get("artist", "")
+	#var bronze_stars: String = str(json_data.get("bronze_stars", "nope"))
+	#var silver_stars: String = str(json_data.get("silver_stars", "nope"))
+	#var gold_stars: String = str(json_data.get("gold_stars", "nope"))
 	# Add a frame
 	var frame: Panel = Panel.new()
 	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE

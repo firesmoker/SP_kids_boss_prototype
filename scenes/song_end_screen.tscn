@@ -1,4 +1,4 @@
-[gd_scene load_steps=197 format=3 uid="uid://dxoet7mawmg0g"]
+[gd_scene load_steps=199 format=3 uid="uid://dxoet7mawmg0g"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -131,8 +131,10 @@
 [ext_resource type="Texture2D" uid="uid://drii0fgbf2ktl" path="res://art/Timing.png" id="98_uvl2y"]
 [ext_resource type="Texture2D" uid="uid://d4hm26vm8niqh" path="res://art/Notes.png" id="99_avcdc"]
 [ext_resource type="Texture2D" uid="uid://dgoyffmjd085y" path="res://art/RepeatButton.png" id="130_6euta"]
+[ext_resource type="Texture2D" uid="uid://2go47frneya0" path="res://art/30_dec/golden_notes_icon.png" id="130_j30ly"]
 [ext_resource type="Texture2D" uid="uid://dgr8vc8cgu0es" path="res://art/ContinueButtonBold.png" id="130_rnmvs"]
 [ext_resource type="PackedScene" uid="uid://canrydy51d80m" path="res://scenes/expander.tscn" id="131_kj88w"]
+[ext_resource type="PackedScene" uid="uid://b37sb4hqv8lg5" path="res://scenes/fader.tscn" id="131_ryxfy"]
 [ext_resource type="Texture2D" uid="uid://b3w73swafrsb0" path="res://art/10_dec/CombosCounter/combos_counter_00000.png" id="135_8iro3"]
 [ext_resource type="Texture2D" uid="uid://muv7n8uoh2ps" path="res://art/10_dec/CombosCounter/combos_counter_00001.png" id="136_nedic"]
 [ext_resource type="Texture2D" uid="uid://df7gvpcjpkm5f" path="res://art/10_dec/CombosCounter/combos_counter_00002.png" id="137_mh7r7"]
@@ -906,7 +908,6 @@ text = "
 "
 horizontal_alignment = 2
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="NotesIcon" type="TextureRect" parent="UI/Notes"]
 layout_mode = 0
@@ -938,6 +939,75 @@ animation = &"stars_end_animation"
 metadata/_edit_lock_ = true
 
 [node name="StarsAudioPlayer" type="AudioStreamPlayer" parent="UI/Stars"]
+
+[node name="GoldenNotes" type="Control" parent="UI"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -393.0
+offset_right = 13.0
+offset_bottom = -353.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NotesLabel" type="Label" parent="UI/GoldenNotes"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 11.0
+offset_right = 84.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "תוי זהב"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="NotesIcon" type="TextureRect" parent="UI/GoldenNotes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -21.0
+offset_right = 181.67
+offset_bottom = 336.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("130_j30ly")
+expand_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="NotesCounter" type="Label" parent="UI/GoldenNotes"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 103.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 30
+text = "13 / 28"
+metadata/_edit_lock_ = true
+
+[node name="Fader" parent="UI/GoldenNotes" instance=ExtResource("131_ryxfy")]
+self_modulate = Color(1, 1, 1, 0)
 
 [node name="Buttons" type="Control" parent="UI"]
 visible = false
