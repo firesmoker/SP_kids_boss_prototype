@@ -20,10 +20,20 @@ var model: Dictionary
 
 func _ready() -> void:
 	header_label.text = model.get("displayName")
+	#easy_stars = model.get("bronze_stars",0)
+	#medium_stars = model.get("silver_stars",0)
+	#hard_stars = model.get("gold_stars",0)
+	print()
+	if Game.song_results.has(model.get("id",false)):
+		easy_stars = Game.song_results[model.get("id",0)].get("easy",0)
+		medium_stars = Game.song_results[model.get("id",0)].get("normal",0)
+		hard_stars = Game.song_results[model.get("id",0)].get("hard",0)
+	else:
+		easy_stars = 3
+		medium_stars = 3
+		hard_stars = 3
+		print("no id in song results" + str(model.get("id","nope")))
 	
-	easy_stars = model.get("bronze_stars",0)
-	medium_stars = model.get("silver_stars",0)
-	hard_stars = model.get("gold_stars",0)
 	
 	set_all_stars()
 	

@@ -64,6 +64,8 @@ static var golden_notes_collected: int = 0
 
 var fade_right_hand_part: bool = false
 
+static var song_results: Dictionary
+
 @onready var white_layer_4: TextureRect = $UI/WhiteLayer4
 
 @onready var single_glow: Sprite2D = $Level/RightHandPart/CollectDetect/BlueLine/SingleLine/Glow

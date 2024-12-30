@@ -38,7 +38,7 @@ var current_xp: int = 0:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	update_song_json_stars()
+	update_song_stars_results()
 	animate_stars(score_manager.stars)
 	set_audio_stream_based_on_stars()
 	set_buttons()
@@ -70,8 +70,12 @@ func _ready() -> void:
 
 # 
 
-func update_song_json_stars() -> void:
-	score_manager.stars
+func update_song_stars_results() -> void:
+	if Game.song_results[model.get("id",0)].has(Game.current_difficulty):
+		if score_manager.stars > Game.song_results[model.get("id",0)][Game.current_difficulty]:
+			Game.song_results[model.get("id",0)][Game.current_difficulty] = score_manager.stars
+	else:
+		Game.song_results[model.get("id",0)][Game.current_difficulty] = score_manager.stars
 
 func animate_golden_notes(hit_notes: int, total_notes: int) -> void:
 	var notes_counter: Label = $UI/GoldenNotes/NotesCounter

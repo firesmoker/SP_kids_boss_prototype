@@ -95,6 +95,9 @@ func load_json(file_path: String) -> Dictionary:
 	# Parse the JSON string into a Dictionary
 	var parse_result: Dictionary = JSON.parse_string(json_data)
 	if parse_result != null:
+		if not Game.song_results.has(parse_result["id"]):
+			Game.song_results[parse_result["id"]] = {}
+			print("added " + parse_result["id"] + " to song results")
 		return parse_result
 	else:
 		print("Error parsing JSON file:", file_path, "Error:", parse_result.error_string)

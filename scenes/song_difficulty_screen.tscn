@@ -1,12 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://tlv7ty5vjdto"]
+[gd_scene load_steps=28 format=3 uid="uid://tlv7ty5vjdto"]
 
 [ext_resource type="Script" path="res://scripts/song_difficulty_screen.gd" id="1_6y50k"]
-[ext_resource type="Texture2D" uid="uid://cm72k8qdjh0xx" path="res://art/EasyButton.png" id="2_dqj1w"]
-[ext_resource type="Texture2D" uid="uid://ffx6u6ngl4bb" path="res://art/MediumButton.png" id="3_n1pe8"]
-[ext_resource type="Texture2D" uid="uid://cki5gdkhu5w2p" path="res://art/10_nov/StarOff.png" id="4_4f2j6"]
-[ext_resource type="Texture2D" uid="uid://cpdbgkmlvbvm8" path="res://art/HardButton.png" id="4_oyaun"]
+[ext_resource type="Texture2D" uid="uid://bou0wmvij3re2" path="res://art/new_stars/easy.png" id="3_kgvwi"]
+[ext_resource type="Texture2D" uid="uid://cbiokn2hp277n" path="res://art/new_stars/star_bronze_empty.png" id="4_4hqoa"]
 [ext_resource type="Texture2D" uid="uid://cq6ql7v1cwu5i" path="res://art/back.png" id="5_8rurp"]
-[ext_resource type="Texture2D" uid="uid://cjyl515mkdk8d" path="res://art/10_nov/StarOn.png" id="5_nwdw3"]
+[ext_resource type="Texture2D" uid="uid://c4avh6b8nq7yg" path="res://art/new_stars/star_bronze_full.png" id="5_o2nlh"]
+[ext_resource type="Texture2D" uid="uid://k5e3u4imrq2c" path="res://art/new_stars/medium.png" id="6_xsmve"]
+[ext_resource type="Texture2D" uid="uid://djyq3d2hg5d1w" path="res://art/new_stars/star_silver_empty.png" id="7_jivvc"]
+[ext_resource type="Texture2D" uid="uid://cwi0ldqhb3aln" path="res://art/new_stars/star_silver_full.png" id="8_0whev"]
+[ext_resource type="Texture2D" uid="uid://bjbasd0id7f0c" path="res://art/new_stars/hard.png" id="9_cmp3y"]
+[ext_resource type="Texture2D" uid="uid://6grj21mccorl" path="res://art/new_stars/star_gold_empty.png" id="10_i47ld"]
+[ext_resource type="Texture2D" uid="uid://r5rrds4wx5ys" path="res://art/new_stars/star_gold_full.png" id="11_rju1y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ldy7"]
 
@@ -133,7 +137,7 @@ theme_override_font_sizes/font_size = 42
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0rva0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3t4ls")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vlbb3")
-icon = ExtResource("2_dqj1w")
+icon = ExtResource("3_kgvwi")
 flat = true
 expand_icon = true
 
@@ -154,13 +158,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -39.5
-offset_right = 67.0
-offset_bottom = 31.5
+offset_left = -3.0
+offset_top = -30.5
+offset_right = 61.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4f2j6")
+texture = ExtResource("4_4hqoa")
 expand_mode = 3
 
 [node name="Star1On" type="TextureRect" parent="EasyButton/Stars"]
@@ -170,13 +174,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -39.5
-offset_right = 67.0
-offset_bottom = 31.5
+offset_left = -3.0
+offset_top = -30.5
+offset_right = 61.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nwdw3")
+texture = ExtResource("5_o2nlh")
 expand_mode = 3
 
 [node name="Star2Off" type="TextureRect" parent="EasyButton/Stars"]
@@ -186,13 +190,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
-offset_top = -39.5
-offset_right = 143.0
-offset_bottom = 31.5
+offset_left = 70.0
+offset_top = -30.5
+offset_right = 134.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4f2j6")
+texture = ExtResource("4_4hqoa")
 expand_mode = 3
 
 [node name="Star2On" type="TextureRect" parent="EasyButton/Stars"]
@@ -202,13 +206,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
-offset_top = -39.5
-offset_right = 143.0
-offset_bottom = 31.5
+offset_left = 70.0
+offset_top = -30.5
+offset_right = 134.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nwdw3")
+texture = ExtResource("5_o2nlh")
 expand_mode = 3
 
 [node name="Star3Off" type="TextureRect" parent="EasyButton/Stars"]
@@ -218,13 +222,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 149.0
-offset_top = -39.5
-offset_right = 220.0
-offset_bottom = 31.5
+offset_left = 147.0
+offset_top = -30.5
+offset_right = 211.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4f2j6")
+texture = ExtResource("4_4hqoa")
 expand_mode = 3
 
 [node name="Star3On" type="TextureRect" parent="EasyButton/Stars"]
@@ -234,13 +238,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 149.0
-offset_top = -39.5
-offset_right = 220.0
-offset_bottom = 31.5
+offset_left = 147.0
+offset_top = -30.5
+offset_right = 211.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nwdw3")
+texture = ExtResource("5_o2nlh")
 expand_mode = 3
 
 [node name="MediumButton" type="Button" parent="."]
@@ -261,7 +265,7 @@ theme_override_font_sizes/font_size = 42
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8fkrk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_17gjn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_7dvlx")
-icon = ExtResource("3_n1pe8")
+icon = ExtResource("6_xsmve")
 flat = true
 expand_icon = true
 
@@ -282,13 +286,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -39.5
-offset_right = 67.0
-offset_bottom = 31.5
+offset_left = -3.0
+offset_top = -30.5
+offset_right = 61.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4f2j6")
+texture = ExtResource("7_jivvc")
 expand_mode = 3
 
 [node name="Star1On" type="TextureRect" parent="MediumButton/Stars"]
@@ -298,13 +302,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -39.5
-offset_right = 67.0
-offset_bottom = 31.5
+offset_left = -3.0
+offset_top = -30.5
+offset_right = 61.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nwdw3")
+texture = ExtResource("8_0whev")
 expand_mode = 3
 
 [node name="Star2Off" type="TextureRect" parent="MediumButton/Stars"]
@@ -314,13 +318,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
-offset_top = -39.5
-offset_right = 143.0
-offset_bottom = 31.5
+offset_left = 70.0
+offset_top = -30.5
+offset_right = 134.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4f2j6")
+texture = ExtResource("7_jivvc")
 expand_mode = 3
 
 [node name="Star2On" type="TextureRect" parent="MediumButton/Stars"]
@@ -330,13 +334,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
-offset_top = -39.5
-offset_right = 143.0
-offset_bottom = 31.5
+offset_left = 70.0
+offset_top = -30.5
+offset_right = 134.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nwdw3")
+texture = ExtResource("8_0whev")
 expand_mode = 3
 
 [node name="Star3Off" type="TextureRect" parent="MediumButton/Stars"]
@@ -346,13 +350,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 149.0
-offset_top = -39.5
-offset_right = 220.0
-offset_bottom = 31.5
+offset_left = 147.0
+offset_top = -30.5
+offset_right = 211.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4f2j6")
+texture = ExtResource("7_jivvc")
 expand_mode = 3
 
 [node name="Star3On" type="TextureRect" parent="MediumButton/Stars"]
@@ -362,13 +366,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 149.0
-offset_top = -39.5
-offset_right = 220.0
-offset_bottom = 31.5
+offset_left = 147.0
+offset_top = -30.5
+offset_right = 211.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nwdw3")
+texture = ExtResource("8_0whev")
 expand_mode = 3
 
 [node name="HardButton" type="Button" parent="."]
@@ -382,7 +386,7 @@ theme_override_font_sizes/font_size = 42
 theme_override_styles/focus = SubResource("StyleBoxEmpty_kk68a")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ar5ci")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_myfdn")
-icon = ExtResource("4_oyaun")
+icon = ExtResource("9_cmp3y")
 flat = true
 expand_icon = true
 
@@ -403,13 +407,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -39.5
-offset_right = 67.0
-offset_bottom = 31.5
+offset_left = -3.0
+offset_top = -30.5
+offset_right = 61.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4f2j6")
+texture = ExtResource("10_i47ld")
 expand_mode = 3
 
 [node name="Star1On" type="TextureRect" parent="HardButton/Stars"]
@@ -419,13 +423,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -39.5
-offset_right = 67.0
-offset_bottom = 31.5
+offset_left = -3.0
+offset_top = -30.5
+offset_right = 61.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nwdw3")
+texture = ExtResource("11_rju1y")
 expand_mode = 3
 
 [node name="Star2Off" type="TextureRect" parent="HardButton/Stars"]
@@ -435,13 +439,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
-offset_top = -39.5
-offset_right = 143.0
-offset_bottom = 31.5
+offset_left = 70.0
+offset_top = -30.5
+offset_right = 134.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4f2j6")
+texture = ExtResource("10_i47ld")
 expand_mode = 3
 
 [node name="Star2On" type="TextureRect" parent="HardButton/Stars"]
@@ -451,13 +455,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
-offset_top = -39.5
-offset_right = 143.0
-offset_bottom = 31.5
+offset_left = 70.0
+offset_top = -30.5
+offset_right = 134.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nwdw3")
+texture = ExtResource("11_rju1y")
 expand_mode = 3
 
 [node name="Star3Off" type="TextureRect" parent="HardButton/Stars"]
@@ -467,13 +471,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 149.0
-offset_top = -39.5
-offset_right = 220.0
-offset_bottom = 31.5
+offset_left = 147.0
+offset_top = -30.5
+offset_right = 211.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4f2j6")
+texture = ExtResource("10_i47ld")
 expand_mode = 3
 
 [node name="Star3On" type="TextureRect" parent="HardButton/Stars"]
@@ -483,13 +487,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 149.0
-offset_top = -39.5
-offset_right = 220.0
-offset_bottom = 31.5
+offset_left = 147.0
+offset_top = -30.5
+offset_right = 211.0
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nwdw3")
+texture = ExtResource("11_rju1y")
 expand_mode = 3
 
 [node name="LoadOverlay" type="TextureRect" parent="."]
