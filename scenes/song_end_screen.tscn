@@ -1,4 +1,4 @@
-[gd_scene load_steps=263 format=3 uid="uid://dxoet7mawmg0g"]
+[gd_scene load_steps=264 format=3 uid="uid://dxoet7mawmg0g"]
 
 [ext_resource type="Script" path="res://scripts/song_end_screen.gd" id="1_7ndav"]
 [ext_resource type="Texture2D" uid="uid://bu60rh7onqxr3" path="res://art/StarsEnd/stars_end_1.png" id="1_ckwlm"]
@@ -250,6 +250,7 @@
 [ext_resource type="Texture2D" uid="uid://cebpt0csnbh80" path="res://art/2025/3stars_silver/stars_00029.png" id="191_ublvi"]
 [ext_resource type="Texture2D" uid="uid://dkq27wjasupat" path="res://art/2025/3stars_silver/stars_00030.png" id="192_7o1rw"]
 [ext_resource type="Texture2D" uid="uid://cw6fjgyy575mc" path="res://art/2025/3stars_silver/stars_00031.png" id="193_bmngq"]
+[ext_resource type="Texture2D" uid="uid://didhv7roq8nb2" path="res://art/2025/golden_notes_panel.png" id="194_g1ufy"]
 
 [sub_resource type="FontVariation" id="FontVariation_mw7k0"]
 variation_embolden = 0.5
@@ -1060,6 +1061,7 @@ stream = ExtResource("2_nylfm")
 expand = true
 loop = true
 buffering_msec = 10
+metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="UI"]
 visible = false
@@ -1222,6 +1224,15 @@ offset_bottom = -353.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="TextureRect" type="TextureRect" parent="UI/GoldenNotes"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -10.0
+offset_right = 138.0
+offset_bottom = 106.0
+texture = ExtResource("194_g1ufy")
+expand_mode = 2
+
 [node name="NotesLabel" type="Label" parent="UI/GoldenNotes"]
 layout_mode = 1
 anchors_preset = 7
@@ -1229,9 +1240,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -8.0
+offset_left = -8.32
 offset_top = 11.0
-offset_right = 84.0
+offset_right = 83.68
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -1251,9 +1262,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -87.0
+offset_left = -81.48
 offset_top = -21.0
-offset_right = 181.67
+offset_right = 187.19
 offset_bottom = 336.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -1264,9 +1275,9 @@ metadata/_edit_lock_ = true
 
 [node name="NotesCounter" type="Label" parent="UI/GoldenNotes"]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 11.68
 offset_top = 9.0
-offset_right = 103.0
+offset_right = 107.68
 offset_bottom = 51.0
 theme_override_font_sizes/font_size = 30
 text = "13 / 28"

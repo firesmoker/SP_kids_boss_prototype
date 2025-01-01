@@ -4,9 +4,6 @@ class_name SongDifficultyScreen
 @onready var load_overlay: TextureRect = $LoadOverlay
 
 @onready var header_label: Label = $HeaderLabel
-@onready var easy_stars_label: Label = $EasyStarsLabel
-@onready var medium_stars_label: Label = $MediumStarsLabel
-@onready var hard_stars_label: Label = $HardStarsLabel
 
 @onready var easy_button: Button = $EasyButton
 @onready var medium_button: Button = $MediumButton

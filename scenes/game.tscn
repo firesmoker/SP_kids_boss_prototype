@@ -1,4 +1,4 @@
-[gd_scene load_steps=1334 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1331 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -171,25 +171,20 @@
 [ext_resource type="Texture2D" uid="uid://bagi32cgjgv8t" path="res://art/13_nov/StarEndScreen/StarEndScreen-78.png" id="131_5drrm"]
 [ext_resource type="Texture2D" uid="uid://cjrhxyw31vaip" path="res://art/13_nov/StarEndScreen/StarEndScreen-79.png" id="132_yxi8h"]
 [ext_resource type="Texture2D" uid="uid://cujlk7k5u40sp" path="res://art/18_dec/bar_fake.png" id="135_17arj"]
-[ext_resource type="Texture2D" uid="uid://blkryag5aawrx" path="res://art/tutorial_screen.jpg" id="135_liqho"]
 [ext_resource type="Texture2D" uid="uid://tarc3xcebpt8" path="res://art/18_dec/small_bar_empty_cropped_right.png" id="138_u7uq7"]
 [ext_resource type="Texture2D" uid="uid://oj7laglm50xc" path="res://art/18_dec/small_bar_cropped_right.png" id="139_2aqoy"]
 [ext_resource type="Texture2D" uid="uid://c8n4jpmw2aepn" path="res://art/ScoreBar.png" id="144_exjl3"]
 [ext_resource type="Texture2D" uid="uid://b3i4o2o5dyk4m" path="res://art/5_dec/bar_1/combo_bar x1_00002.png" id="145_84d3p"]
 [ext_resource type="Texture2D" uid="uid://uvj0fjk5wjqn" path="res://art/5_dec/bar_1/combo_bar x1_00003.png" id="146_4ooct"]
 [ext_resource type="Texture2D" uid="uid://p2vd43c0t8p7" path="res://art/5_dec/bar_1/combo_bar x1_00004.png" id="147_2h1ok"]
-[ext_resource type="Texture2D" uid="uid://cbiokn2hp277n" path="res://art/new_stars/star_bronze_empty.png" id="147_q34vw"]
-[ext_resource type="Texture2D" uid="uid://c4avh6b8nq7yg" path="res://art/new_stars/star_bronze_full.png" id="148_2qwks"]
+[ext_resource type="Texture2D" uid="uid://cwm12t0bh2qrx" path="res://art/2025/Star - collected_bronze.png" id="147_r3cq3"]
 [ext_resource type="Texture2D" uid="uid://dkedg0wtndtqf" path="res://art/5_dec/bar_1/combo_bar x1_00005.png" id="148_gqy7y"]
-[ext_resource type="Texture2D" uid="uid://djyq3d2hg5d1w" path="res://art/new_stars/star_silver_empty.png" id="149_66rej"]
+[ext_resource type="Texture2D" uid="uid://c27y7tq5g5w0x" path="res://art/2025/Star - collected_silver.png" id="148_p4xi0"]
 [ext_resource type="Texture2D" uid="uid://cvjh435wwtr84" path="res://art/5_dec/bar_1/combo_bar x1_00006.png" id="149_fuv5s"]
-[ext_resource type="Texture2D" uid="uid://cwi0ldqhb3aln" path="res://art/new_stars/star_silver_full.png" id="150_bwep4"]
 [ext_resource type="Texture2D" uid="uid://cajuyr1da0y5f" path="res://art/5_dec/bar_1/combo_bar x1_00007.png" id="150_h0qdr"]
 [ext_resource type="Texture2D" uid="uid://cvvf2jddej4sv" path="res://art/28_nov/StarCelebration 2/StarCelebration_00026.png" id="150_pjwqv"]
 [ext_resource type="Texture2D" uid="uid://bnujqj87eqv3f" path="res://art/5_dec/bar_1/combo_bar x1_00008.png" id="151_5efre"]
-[ext_resource type="Texture2D" uid="uid://6grj21mccorl" path="res://art/new_stars/star_gold_empty.png" id="151_05wd8"]
 [ext_resource type="Texture2D" uid="uid://rfbln5yipji" path="res://art/28_nov/StarCelebration 2/StarCelebration_00027.png" id="151_qwvcu"]
-[ext_resource type="Texture2D" uid="uid://r5rrds4wx5ys" path="res://art/new_stars/star_gold_full.png" id="152_8mc4j"]
 [ext_resource type="Texture2D" uid="uid://bhtoviqiti6wf" path="res://art/28_nov/StarCelebration 2/StarCelebration_00028.png" id="152_adq2y"]
 [ext_resource type="Texture2D" uid="uid://txx8uih3gxph" path="res://art/5_dec/bar_1/combo_bar x1_00009.png" id="152_fba1i"]
 [ext_resource type="Texture2D" uid="uid://cccgu3xr1bv5g" path="res://art/28_nov/StarCelebration 2/StarCelebration_00029.png" id="153_gflx7"]
@@ -971,10 +966,11 @@
 [ext_resource type="Texture2D" uid="uid://pohlnjvvdlud" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00000.png" id="556_jx8eg"]
 [ext_resource type="Texture2D" uid="uid://b76ioay1ugv7h" path="res://art/26_nov/StarConfetti/StarConfetti_00005.png" id="557_2aa22"]
 [ext_resource type="Texture2D" uid="uid://be3sfdr23sj7a" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00001.png" id="557_51ucj"]
-[ext_resource type="Texture2D" uid="uid://bsglmbs6gicde" path="res://art/30_dec/stars_panel.png" id="557_elev0"]
 [ext_resource type="Texture2D" uid="uid://cm477pamfpb5r" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00002.png" id="558_cl784"]
+[ext_resource type="Texture2D" uid="uid://dlqf70mk0t14e" path="res://art/2025/stars_panel_short.png" id="558_np5xx"]
 [ext_resource type="Texture2D" uid="uid://bmvc1eeaxec8o" path="res://art/26_nov/StarConfetti/StarConfetti_00006.png" id="558_wepjo"]
 [ext_resource type="Texture2D" uid="uid://cvj6t5onod7ng" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00003.png" id="559_kjmat"]
+[ext_resource type="Texture2D" uid="uid://didhv7roq8nb2" path="res://art/2025/golden_notes_panel.png" id="559_lrt7i"]
 [ext_resource type="Texture2D" uid="uid://djjxnp126n8va" path="res://art/26_nov/StarConfetti/StarConfetti_00007.png" id="559_xy4s5"]
 [ext_resource type="Texture2D" uid="uid://eqwx36ilfibh" path="res://art/LibSong/CrowdUnit07/CrowdUnit07_00004.png" id="560_dk5op"]
 [ext_resource type="Texture2D" uid="uid://b4irpxgqn2h5x" path="res://art/26_nov/StarConfetti/StarConfetti_00008.png" id="560_pinwf"]
@@ -1642,6 +1638,9 @@ default_font_size = 60
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dv3id"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bji3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1w8q"]
+bg_color = Color(0.281639, 0.0725917, 0.43318, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_4m3td"]
 
@@ -6042,8 +6041,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("135_liqho")
 expand_mode = 3
+
+[node name="Panel" type="Panel" parent="Overlay/ComboTutorialPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o1w8q")
 
 [node name="ContinueButton" type="TextureButton" parent="Overlay/ComboTutorialPopup"]
 layout_mode = 1
@@ -6097,6 +6104,26 @@ process_mode = 3
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="Overlay/ComboTutorialPopup"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 218.0
+offset_right = 644.0
+offset_bottom = 412.0
+texture = ExtResource("556_6hshf")
+
+[node name="Label" type="Label" parent="Overlay/ComboTutorialPopup"]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 425.0
+offset_right = 862.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 42
+text = "תוי זהב הם התוים החשובים והקשים ביותר בשיר!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
@@ -6352,7 +6379,6 @@ stretch_mode = 4
 [node name="Expander" parent="UI/StarsPanel/StarBar/Star3" instance=ExtResource("20_wgxju")]
 
 [node name="easy" type="Control" parent="UI/StarsPanel/StarBar"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -6366,14 +6392,13 @@ anchor_top = 0.437
 anchor_right = 0.092
 anchor_bottom = 0.437
 offset_left = -3.68
-offset_top = -4.48
+offset_top = -17.48
 offset_right = 108.32
-offset_bottom = 107.52
+offset_bottom = 94.52
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("147_q34vw")
+texture = ExtResource("61_mueyb")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/easy/Star1"]
 visible = false
@@ -6389,7 +6414,7 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("148_2qwks")
+texture = ExtResource("147_r3cq3")
 expand_mode = 2
 stretch_mode = 4
 
@@ -6404,14 +6429,13 @@ anchor_top = 0.437
 anchor_right = 0.092
 anchor_bottom = 0.437
 offset_left = -3.68
-offset_top = -4.48
+offset_top = -17.48
 offset_right = 108.32
-offset_bottom = 107.52
+offset_bottom = 94.52
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("147_q34vw")
+texture = ExtResource("61_mueyb")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/easy/Star2"]
 visible = false
@@ -6427,7 +6451,7 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("148_2qwks")
+texture = ExtResource("147_r3cq3")
 expand_mode = 2
 stretch_mode = 4
 
@@ -6442,14 +6466,13 @@ anchor_top = 0.437
 anchor_right = 0.092
 anchor_bottom = 0.437
 offset_left = -3.68
-offset_top = -4.48
+offset_top = -17.48
 offset_right = 108.32
-offset_bottom = 107.52
+offset_bottom = 94.52
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("147_q34vw")
+texture = ExtResource("61_mueyb")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/easy/Star3"]
 visible = false
@@ -6465,7 +6488,7 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("148_2qwks")
+texture = ExtResource("147_r3cq3")
 expand_mode = 2
 stretch_mode = 4
 
@@ -6486,14 +6509,13 @@ anchor_top = 0.437
 anchor_right = 0.092
 anchor_bottom = 0.437
 offset_left = -3.68
-offset_top = -4.48
+offset_top = -17.48
 offset_right = 108.32
-offset_bottom = 107.52
+offset_bottom = 94.52
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("149_66rej")
+texture = ExtResource("61_mueyb")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/medium/Star1"]
 visible = false
@@ -6509,7 +6531,7 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("150_bwep4")
+texture = ExtResource("148_p4xi0")
 expand_mode = 2
 stretch_mode = 4
 
@@ -6524,14 +6546,13 @@ anchor_top = 0.437
 anchor_right = 0.092
 anchor_bottom = 0.437
 offset_left = -3.68
-offset_top = -4.48
+offset_top = -17.48
 offset_right = 108.32
-offset_bottom = 107.52
+offset_bottom = 94.52
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("149_66rej")
+texture = ExtResource("61_mueyb")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/medium/Star2"]
 visible = false
@@ -6547,7 +6568,7 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("150_bwep4")
+texture = ExtResource("148_p4xi0")
 expand_mode = 2
 stretch_mode = 4
 
@@ -6562,14 +6583,13 @@ anchor_top = 0.437
 anchor_right = 0.092
 anchor_bottom = 0.437
 offset_left = -3.68
-offset_top = -4.48
+offset_top = -17.48
 offset_right = 108.32
-offset_bottom = 107.52
+offset_bottom = 94.52
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("149_66rej")
+texture = ExtResource("61_mueyb")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/medium/Star3"]
 visible = false
@@ -6585,7 +6605,7 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("150_bwep4")
+texture = ExtResource("148_p4xi0")
 expand_mode = 2
 stretch_mode = 4
 
@@ -6606,14 +6626,13 @@ anchor_top = 0.437
 anchor_right = 0.092
 anchor_bottom = 0.437
 offset_left = -3.68
-offset_top = -4.48
+offset_top = -17.48
 offset_right = 108.32
-offset_bottom = 107.52
+offset_bottom = 94.52
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("151_05wd8")
+texture = ExtResource("61_mueyb")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/hard/Star1"]
 visible = false
@@ -6629,7 +6648,7 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("152_8mc4j")
+texture = ExtResource("62_gq3ek")
 expand_mode = 2
 stretch_mode = 4
 
@@ -6644,14 +6663,13 @@ anchor_top = 0.437
 anchor_right = 0.092
 anchor_bottom = 0.437
 offset_left = -3.68
-offset_top = -4.48
+offset_top = -17.48
 offset_right = 108.32
-offset_bottom = 107.52
+offset_bottom = 94.52
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("151_05wd8")
+texture = ExtResource("61_mueyb")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/hard/Star2"]
 visible = false
@@ -6667,7 +6685,7 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("152_8mc4j")
+texture = ExtResource("62_gq3ek")
 expand_mode = 2
 stretch_mode = 4
 
@@ -6682,14 +6700,13 @@ anchor_top = 0.437
 anchor_right = 0.092
 anchor_bottom = 0.437
 offset_left = -3.68
-offset_top = -4.48
+offset_top = -17.48
 offset_right = 108.32
-offset_bottom = 107.52
+offset_bottom = 94.52
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("151_05wd8")
+texture = ExtResource("61_mueyb")
 expand_mode = 2
 stretch_mode = 4
-metadata/_edit_lock_ = true
 
 [node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/hard/Star3"]
 visible = false
@@ -6705,7 +6722,7 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 pivot_offset = Vector2(56, 56)
-texture = ExtResource("152_8mc4j")
+texture = ExtResource("62_gq3ek")
 expand_mode = 2
 stretch_mode = 4
 
@@ -6822,17 +6839,29 @@ offset_right = 307.765
 offset_bottom = 242.824
 texture = ExtResource("556_6hshf")
 
-[node name="Panel" type="TextureRect" parent="UI/StarsPanel"]
+[node name="Panel" type="Control" parent="UI/StarsPanel"]
 show_behind_parent = true
 z_index = 1
-layout_mode = 0
+anchors_preset = 0
 offset_left = 25.0
 offset_top = 25.0
-offset_right = 1133.0
+offset_right = 793.0
 offset_bottom = 225.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("557_elev0")
 metadata/_edit_lock_ = true
+
+[node name="Panel" type="TextureRect" parent="UI/StarsPanel/Panel"]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 200.0
+texture = ExtResource("558_np5xx")
+
+[node name="PanelGolden" type="TextureRect" parent="UI/StarsPanel/Panel"]
+layout_mode = 0
+offset_left = 780.588
+offset_right = 1180.59
+offset_bottom = 200.0
+texture = ExtResource("559_lrt7i")
 
 [node name="ScoreMeter" type="Label" parent="UI/StarsPanel/Panel"]
 visible = false
@@ -6859,9 +6888,9 @@ metadata/_edit_use_anchors_ = true
 [node name="GoldenMeter" type="Label" parent="UI/StarsPanel/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.73848
+anchor_left = 1.15119
 anchor_top = 0.0441177
-anchor_right = 0.757528
+anchor_right = 1.17024
 anchor_bottom = 0.64134
 offset_right = 245.0
 offset_bottom = 69.0
@@ -6884,6 +6913,7 @@ offset_top = -4.70588
 offset_right = 58.9411
 offset_bottom = 189.294
 texture = ExtResource("556_6hshf")
+metadata/_edit_use_anchors_ = true
 
 [node name="ComboMeter" type="Control" parent="UI/StarsPanel/Panel"]
 visible = false

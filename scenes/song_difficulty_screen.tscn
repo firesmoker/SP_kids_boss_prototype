@@ -566,36 +566,6 @@ text = "תניחו את אצבע 1 על דו אמצעי"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EasyStarsLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 859.0
-offset_top = 281.0
-offset_right = 899.0
-offset_bottom = 336.0
-theme_override_font_sizes/font_size = 40
-text = "3"
-horizontal_alignment = 1
-
-[node name="MediumStarsLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 859.0
-offset_top = 373.0
-offset_right = 899.0
-offset_bottom = 428.0
-theme_override_font_sizes/font_size = 40
-text = "3"
-horizontal_alignment = 1
-
-[node name="HardStarsLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 859.0
-offset_top = 477.0
-offset_right = 899.0
-offset_bottom = 532.0
-theme_override_font_sizes/font_size = 40
-text = "3"
-horizontal_alignment = 1
-
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="EasyButton" to="." method="_on_EasyButton_pressed"]
 [connection signal="pressed" from="MediumButton" to="." method="_on_MediumButton_pressed"]

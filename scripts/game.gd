@@ -376,6 +376,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 		right_hand_part.position.y -= 0
 	lib_visuals.visible = toggle
 	star_bar.visible = toggle
+	set_star_bar_color()
 	stars_panel.visible = toggle
 	score_meter.visible = false
 	video_layer_1.visible = toggle
@@ -409,6 +410,17 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 		stars_panel.visible = false
 		background_library.visible = false
 		background_sp.visible = true
+
+func set_star_bar_color() -> void:
+	match current_difficulty:
+		"easy":
+			star_bar.tint_progress = Color(0.914,0.416,0.267)
+		"medium":
+			star_bar.tint_progress = Color(0.792,0.82,0.863)
+		"hard":
+			star_bar.tint_progress = Color(1,0.875,0.384)
+		_:
+			star_bar.tint_progress = Color.BLUE
 
 func set_boss_visibility(toggle: bool = true) -> void:
 	if ui_type == "both":
@@ -710,14 +722,15 @@ func _ready() -> void:
 		if not cheat_skip_middle_c:
 			await notes_detector.continue_note_played
 			continue_note_popup.visible = false
-	#elif game_mode == "library":
+	elif game_mode == "library":
 		#if not tutorial_closed:
-			#combo_tutorial_popup.find_child("ContinueButton").visible = false
-			#var combo_tutorial_progress: PopupProgressBar = combo_tutorial_popup.find_child("ButtonProgress")
-			#combo_tutorial_progress.start_closing_timer(5)
-			#await combo_tutorial_progress.timer.timeout
-			#combo_tutorial_popup.find_child("ContinueButton").visible = true
-			#await combo_tutorial_popup.find_child("ContinueButton").button_up
+		combo_tutorial_popup.visible = true
+		combo_tutorial_popup.find_child("ContinueButton").visible = false
+		var combo_tutorial_progress: PopupProgressBar = combo_tutorial_popup.find_child("ButtonProgress")
+		combo_tutorial_progress.start_closing_timer(5)
+		await combo_tutorial_progress.timer.timeout
+		combo_tutorial_popup.find_child("ContinueButton").visible = true
+		await combo_tutorial_popup.find_child("ContinueButton").button_up
 	music_player.play()
 	pause_button.visible = true
 	restart_button.visible = true
