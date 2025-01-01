@@ -26,7 +26,7 @@ func _ready() -> void:
 	print()
 	if Game.song_results.has(model.get("id",false)):
 		easy_stars = Game.song_results[model.get("id",0)].get("easy",0)
-		medium_stars = Game.song_results[model.get("id",0)].get("normal",0)
+		medium_stars = Game.song_results[model.get("id",0)].get("medium",0)
 		hard_stars = Game.song_results[model.get("id",0)].get("hard",0)
 	else:
 		easy_stars = 3
@@ -101,7 +101,11 @@ func load_library_song(difficulty: String = "") -> void:
 	Game.song_path = new_song_path
 	Game.song_id = model["id"]
 	Game.tempo = new_tempo
-	Game.current_difficulty = difficulty
+	if difficulty == "":
+		Game.current_difficulty = "medium"
+	else:
+		Game.current_difficulty = difficulty
+	print("difficulty is + " + str(difficulty))
 	Game.ui_type = model["uiType"].split("_")[0]
 	Game.on_display_duration = float(model["inGameInfo"]["onScreenDisplayDuration"])
 	Game.game_mode = "library"
