@@ -244,7 +244,7 @@ func animate_stars(stars_count: int) -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(stars, "modulate:a", 1, FADE_DURATION)
 	var frame: int = {0: 0, 1: 13, 2: 21, 3: 30}.get(stars_count, -1)
-	AnimationHelper.play_animation_sprite_until_frame(stars_animation, "stars_end_animation", frame)
+	AnimationHelper.play_animation_sprite_until_frame(stars_animation, "stars_end_animation" + "_" + Game.current_difficulty, frame)
 
 func set_audio_stream_based_on_stars() -> void:	
 	var audio_path: String
