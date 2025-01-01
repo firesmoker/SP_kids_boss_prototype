@@ -100,8 +100,8 @@ func load_library_song(difficulty: String = "") -> void:
 	var new_song_path: String = get_song_path(song_path, difficulty)
 	Game.song_path = new_song_path
 	Game.song_id = model["id"]
-	
 	Game.tempo = new_tempo
+	Game.current_difficulty = difficulty
 	Game.ui_type = model["uiType"].split("_")[0]
 	Game.on_display_duration = float(model["inGameInfo"]["onScreenDisplayDuration"])
 	Game.game_mode = "library"
@@ -125,13 +125,13 @@ func get_bpm(file_path: String) -> String:
 		return content.split(",", false)[0]  # Split by ',' and return the first part
 	return ""  # Return an empty string if the file could not be opened
 
-func get_song_path(origina_path: String, difficulty: String) -> String:
+func get_song_path(original_path: String, difficulty: String) -> String:
 	if difficulty == "easy":
-		return origina_path.replace(".ogg", ".easy.ogg")
+		return original_path.replace(".ogg", ".easy.ogg")
 	elif difficulty == "hard":
-		return origina_path.replace(".ogg", ".hard.ogg")
+		return original_path.replace(".ogg", ".hard.ogg")
 	else:
-		return origina_path  # Return the original string for other cases
+		return original_path  # Return the original string for other cases
 
 func start_level(type: String = "normal") -> void:
 	Game.game_state = "Intro"

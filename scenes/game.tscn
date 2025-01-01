@@ -1,4 +1,4 @@
-[gd_scene load_steps=1328 format=3 uid="uid://clhbuec845jpd"]
+[gd_scene load_steps=1334 format=3 uid="uid://clhbuec845jpd"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ncon4"]
 [ext_resource type="AudioStream" uid="uid://ds02okwup77ol" path="res://audio/accelerate1.ogg" id="2_2fv50"]
@@ -178,12 +178,18 @@
 [ext_resource type="Texture2D" uid="uid://b3i4o2o5dyk4m" path="res://art/5_dec/bar_1/combo_bar x1_00002.png" id="145_84d3p"]
 [ext_resource type="Texture2D" uid="uid://uvj0fjk5wjqn" path="res://art/5_dec/bar_1/combo_bar x1_00003.png" id="146_4ooct"]
 [ext_resource type="Texture2D" uid="uid://p2vd43c0t8p7" path="res://art/5_dec/bar_1/combo_bar x1_00004.png" id="147_2h1ok"]
+[ext_resource type="Texture2D" uid="uid://cbiokn2hp277n" path="res://art/new_stars/star_bronze_empty.png" id="147_q34vw"]
+[ext_resource type="Texture2D" uid="uid://c4avh6b8nq7yg" path="res://art/new_stars/star_bronze_full.png" id="148_2qwks"]
 [ext_resource type="Texture2D" uid="uid://dkedg0wtndtqf" path="res://art/5_dec/bar_1/combo_bar x1_00005.png" id="148_gqy7y"]
+[ext_resource type="Texture2D" uid="uid://djyq3d2hg5d1w" path="res://art/new_stars/star_silver_empty.png" id="149_66rej"]
 [ext_resource type="Texture2D" uid="uid://cvjh435wwtr84" path="res://art/5_dec/bar_1/combo_bar x1_00006.png" id="149_fuv5s"]
+[ext_resource type="Texture2D" uid="uid://cwi0ldqhb3aln" path="res://art/new_stars/star_silver_full.png" id="150_bwep4"]
 [ext_resource type="Texture2D" uid="uid://cajuyr1da0y5f" path="res://art/5_dec/bar_1/combo_bar x1_00007.png" id="150_h0qdr"]
 [ext_resource type="Texture2D" uid="uid://cvvf2jddej4sv" path="res://art/28_nov/StarCelebration 2/StarCelebration_00026.png" id="150_pjwqv"]
 [ext_resource type="Texture2D" uid="uid://bnujqj87eqv3f" path="res://art/5_dec/bar_1/combo_bar x1_00008.png" id="151_5efre"]
+[ext_resource type="Texture2D" uid="uid://6grj21mccorl" path="res://art/new_stars/star_gold_empty.png" id="151_05wd8"]
 [ext_resource type="Texture2D" uid="uid://rfbln5yipji" path="res://art/28_nov/StarCelebration 2/StarCelebration_00027.png" id="151_qwvcu"]
+[ext_resource type="Texture2D" uid="uid://r5rrds4wx5ys" path="res://art/new_stars/star_gold_full.png" id="152_8mc4j"]
 [ext_resource type="Texture2D" uid="uid://bhtoviqiti6wf" path="res://art/28_nov/StarCelebration 2/StarCelebration_00028.png" id="152_adq2y"]
 [ext_resource type="Texture2D" uid="uid://txx8uih3gxph" path="res://art/5_dec/bar_1/combo_bar x1_00009.png" id="152_fba1i"]
 [ext_resource type="Texture2D" uid="uid://cccgu3xr1bv5g" path="res://art/28_nov/StarCelebration 2/StarCelebration_00029.png" id="153_gflx7"]
@@ -5936,6 +5942,7 @@ theme_override_font_sizes/font_size = 26
 text = "[D] Current: 100%"
 
 [node name="DebugVulnerable" type="Label" parent="Overlay/DebugWindow"]
+visible = false
 layout_mode = 0
 offset_top = 146.0
 offset_right = 312.0
@@ -5943,6 +5950,15 @@ offset_bottom = 182.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "[D] Vulnerable: false"
+
+[node name="DebugDifficulty" type="Label" parent="Overlay/DebugWindow"]
+layout_mode = 0
+offset_top = 146.0
+offset_right = 312.0
+offset_bottom = 182.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "[D] difficulty: easy"
 
 [node name="DebugFinish" type="LinkButton" parent="Overlay/DebugWindow"]
 layout_mode = 0
@@ -6219,6 +6235,7 @@ tint_progress = Color(1, 0.87451, 0.384314, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Star1" type="TextureRect" parent="UI/StarsPanel/StarBar"]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -6257,6 +6274,7 @@ stretch_mode = 4
 [node name="Expander" parent="UI/StarsPanel/StarBar/Star1" instance=ExtResource("20_wgxju")]
 
 [node name="Star2" type="TextureRect" parent="UI/StarsPanel/StarBar"]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -6295,6 +6313,7 @@ stretch_mode = 4
 [node name="Expander" parent="UI/StarsPanel/StarBar/Star2" instance=ExtResource("20_wgxju")]
 
 [node name="Star3" type="TextureRect" parent="UI/StarsPanel/StarBar"]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -6331,6 +6350,366 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="Expander" parent="UI/StarsPanel/StarBar/Star3" instance=ExtResource("20_wgxju")]
+
+[node name="easy" type="Control" parent="UI/StarsPanel/StarBar"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Star1" type="TextureRect" parent="UI/StarsPanel/StarBar/easy"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -3.68
+offset_top = -4.48
+offset_right = 108.32
+offset_bottom = 107.52
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("147_q34vw")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/easy/Star1"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("148_2qwks")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Expander" parent="UI/StarsPanel/StarBar/easy/Star1" instance=ExtResource("20_wgxju")]
+
+[node name="Star2" type="TextureRect" parent="UI/StarsPanel/StarBar/easy"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -3.68
+offset_top = -4.48
+offset_right = 108.32
+offset_bottom = 107.52
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("147_q34vw")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/easy/Star2"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("148_2qwks")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Expander" parent="UI/StarsPanel/StarBar/easy/Star2" instance=ExtResource("20_wgxju")]
+
+[node name="Star3" type="TextureRect" parent="UI/StarsPanel/StarBar/easy"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -3.68
+offset_top = -4.48
+offset_right = 108.32
+offset_bottom = 107.52
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("147_q34vw")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/easy/Star3"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("148_2qwks")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Expander" parent="UI/StarsPanel/StarBar/easy/Star3" instance=ExtResource("20_wgxju")]
+
+[node name="medium" type="Control" parent="UI/StarsPanel/StarBar"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Star1" type="TextureRect" parent="UI/StarsPanel/StarBar/medium"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -3.68
+offset_top = -4.48
+offset_right = 108.32
+offset_bottom = 107.52
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("149_66rej")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/medium/Star1"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("150_bwep4")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Expander" parent="UI/StarsPanel/StarBar/medium/Star1" instance=ExtResource("20_wgxju")]
+
+[node name="Star2" type="TextureRect" parent="UI/StarsPanel/StarBar/medium"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -3.68
+offset_top = -4.48
+offset_right = 108.32
+offset_bottom = 107.52
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("149_66rej")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/medium/Star2"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("150_bwep4")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Expander" parent="UI/StarsPanel/StarBar/medium/Star2" instance=ExtResource("20_wgxju")]
+
+[node name="Star3" type="TextureRect" parent="UI/StarsPanel/StarBar/medium"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -3.68
+offset_top = -4.48
+offset_right = 108.32
+offset_bottom = 107.52
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("149_66rej")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/medium/Star3"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("150_bwep4")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Expander" parent="UI/StarsPanel/StarBar/medium/Star3" instance=ExtResource("20_wgxju")]
+
+[node name="hard" type="Control" parent="UI/StarsPanel/StarBar"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Star1" type="TextureRect" parent="UI/StarsPanel/StarBar/hard"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -3.68
+offset_top = -4.48
+offset_right = 108.32
+offset_bottom = 107.52
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("151_05wd8")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/hard/Star1"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("152_8mc4j")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Expander" parent="UI/StarsPanel/StarBar/hard/Star1" instance=ExtResource("20_wgxju")]
+
+[node name="Star2" type="TextureRect" parent="UI/StarsPanel/StarBar/hard"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -3.68
+offset_top = -4.48
+offset_right = 108.32
+offset_bottom = 107.52
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("151_05wd8")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/hard/Star2"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("152_8mc4j")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Expander" parent="UI/StarsPanel/StarBar/hard/Star2" instance=ExtResource("20_wgxju")]
+
+[node name="Star3" type="TextureRect" parent="UI/StarsPanel/StarBar/hard"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.437
+anchor_right = 0.092
+anchor_bottom = 0.437
+offset_left = -3.68
+offset_top = -4.48
+offset_right = 108.32
+offset_bottom = 107.52
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("151_05wd8")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="TurnedOn" type="TextureRect" parent="UI/StarsPanel/StarBar/hard/Star3"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("152_8mc4j")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Expander" parent="UI/StarsPanel/StarBar/hard/Star3" instance=ExtResource("20_wgxju")]
 
 [node name="Flash" parent="UI/StarsPanel" instance=ExtResource("57_hg35f")]
 position = Vector2(624, 35)

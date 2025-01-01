@@ -100,6 +100,8 @@ static var target_xp: int = 100  # Replace with your desired XP value
 @onready var debug_overall_score: Label = $Overlay/DebugWindow/DebugOverallScore
 @onready var debug_vulnerable: Label = $Overlay/DebugWindow/DebugVulnerable
 @onready var debug_perfect_score: Label = $Overlay/DebugWindow/DebugPerfectScore
+@onready var debug_difficulty: Label = $Overlay/DebugWindow/DebugDifficulty
+
 
 @onready var continue_note_popup: TextureRect = $Overlay/ContinueNotePopup
 @onready var combo_tutorial_popup: TextureRect = $Overlay/ComboTutorialPopup
@@ -301,6 +303,13 @@ func pause(darken_on_pause: bool = false, darken_level_on_pause: bool = false) -
 		get_tree().paused = false
 
 
+func set_stars_visibility() -> void:
+	star_bar.find_child("easy").visible = false
+	star_bar.find_child("medium").visible = false
+	star_bar.find_child("hard").visible = false
+	star_bar.find_child(current_difficulty).visible = true
+
+
 func level_accelerate() -> void:
 	if slow_down != false:
 		background.visible = true
@@ -389,7 +398,7 @@ func set_library_song_visibility(toggle: bool = true) -> void:
 		combo_tutorial_popup.visible = false
 	else:
 		combo_tutorial_popup.visible = false
-	
+	set_stars_visibility()
 	
 	if sp_mode:
 		print("SP MODE!")
@@ -450,6 +459,7 @@ func set_boss_visibility(toggle: bool = true) -> void:
 
 func set_star_bar_values() -> void:
 	#star_bar.max_value = notes_container.notes_in_level - 1
+	
 	star_bar.max_value = 1
 	print("star bar max value = " + str(star_bar.max_value))
 	print("notes in level = " + str(notes_container.notes_in_level))
@@ -468,9 +478,11 @@ func set_star_bar_values() -> void:
 	print("star 2 threshold is: " + str(star2_threshold_score))
 	print("star 1 threshold is: " + str(star1_threshold_score))
 	
-	var star1: TextureRect = star_bar.find_child("Star1")
-	var star2: TextureRect = star_bar.find_child("Star2")
-	var star3: TextureRect = star_bar.find_child("Star3")
+	var cuurent_difficulty_stars: Control = star_bar.find_child(current_difficulty)
+	
+	var star1: TextureRect = cuurent_difficulty_stars.find_child("Star1")
+	var star2: TextureRect = cuurent_difficulty_stars.find_child("Star2")
+	var star3: TextureRect = cuurent_difficulty_stars.find_child("Star3")
 	
 	if score_based_stars:
 		star1.position.x = -star1.size.x/2 + star_bar.size.x * 0.4
@@ -496,6 +508,8 @@ func update_ingame_stars() -> void:
 	var star3_condition: bool = false
 	var star2_condition: bool = false
 	var star1_condition: bool = false
+	
+	var current_difficulty_stars: Control = star_bar.find_child(current_difficulty)
 	
 	if score_based_stars:
 		star_bar.value = score_manager.gamified_overall_score
@@ -531,7 +545,7 @@ func update_ingame_stars() -> void:
 	if star3_condition:
 		#video_layer_4.process_mode = Node.PROCESS_MODE_INHERIT
 		#video_layer_4.find_child("Fader").fade_in(0.015)
-		star_bar.find_child("Star3").find_child("TurnedOn").visible = true
+		current_difficulty_stars.find_child("Star3").find_child("TurnedOn").visible = true
 		if not star3_unlocked:
 			confetti.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.frame = 0
@@ -539,12 +553,12 @@ func update_ingame_stars() -> void:
 			audio.stream = audio_clips.star
 			audio.play()
 			star3_unlocked = true
-			var expander: Expander = star_bar.find_child("Star3").find_child("Expander")
+			var expander: Expander = current_difficulty_stars.find_child("Star3").find_child("Expander")
 			expander.expand(1.7,0.25,true)
 	elif star2_condition:
 		#video_layer_3.process_mode = Node.PROCESS_MODE_INHERIT
 		#video_layer_3.find_child("Fader").fade_in(0.015)
-		star_bar.find_child("Star2").find_child("TurnedOn").visible = true
+		current_difficulty_stars.find_child("Star2").find_child("TurnedOn").visible = true
 		if not star2_unlocked:
 			confetti.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.frame = 0
@@ -552,12 +566,12 @@ func update_ingame_stars() -> void:
 			audio.stream = audio_clips.star
 			audio.play()
 			star2_unlocked = true
-			var expander: Expander = star_bar.find_child("Star2").find_child("Expander")
+			var expander: Expander = current_difficulty_stars.find_child("Star2").find_child("Expander")
 			expander.expand(1.7,0.25,true)
 	elif star1_condition:
 		#video_layer_2.process_mode = Node.PROCESS_MODE_INHERIT
 		#video_layer_2.find_child("Fader").fade_in(0.015)
-		star_bar.find_child("Star1").find_child("TurnedOn").visible = true
+		current_difficulty_stars.find_child("Star1").find_child("TurnedOn").visible = true
 		if not star1_unlocked:
 			confetti.process_mode = Node.PROCESS_MODE_INHERIT
 			confetti.frame = 0
@@ -565,7 +579,7 @@ func update_ingame_stars() -> void:
 			audio.stream = audio_clips.star
 			audio.play()
 			star1_unlocked = true
-			var expander: Expander = star_bar.find_child("Star1").find_child("Expander")
+			var expander: Expander = current_difficulty_stars.find_child("Star1").find_child("Expander")
 			expander.expand(1.7,0.25,true)
 
 func set_player_health() -> void:
@@ -1580,13 +1594,16 @@ func show_debug(toggle: bool = debug) -> void:
 	debug_notes_in_level.visible = toggle
 	debug_gamified_score.visible = false
 	debug_overall_score.visible = toggle
-	debug_vulnerable.visible = toggle
+	#debug_vulnerable.visible = toggle
 	debug_perfect_score.visible = toggle
+	debug_difficulty.visible = toggle
+	
 	player_panel.find_child("HealthValue").visible = toggle
 	boss_panel.find_child("HealthValue").visible = toggle
 	
 
 func update_debug() -> void:
+	debug_difficulty.text = current_difficulty
 	debug_missed_notes.text = "missed notes: " + str(missed_notes)
 	debug_notes_in_level.text = "notes in level: " + str(notes_container.notes_in_level)
 	if score_based_stars:
